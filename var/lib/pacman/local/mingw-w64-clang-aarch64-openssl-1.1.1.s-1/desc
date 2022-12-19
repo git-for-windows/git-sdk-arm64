@@ -17,25 +17,25 @@ https://www.openssl.org
 any
 
 %BUILDDATE%
-1667586375
+1671472088
 
 %INSTALLDATE%
-1671471241
+1671473667
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/3f00fa83/3396150186)
+Unknown Packager
 
 %SIZE%
-68223778
+80010645
 
 %REASON%
 1
 
 %LICENSE%
-custom:BSD
+BSD
 
 %VALIDATION%
-pgp
+none
 
 %DEPENDS%
 mingw-w64-clang-aarch64-ca-certificates
