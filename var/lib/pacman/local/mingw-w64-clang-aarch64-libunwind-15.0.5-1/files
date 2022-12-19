@@ -1,0 +1,8 @@
+%FILES%
+clangarm64/
+clangarm64/bin/
+clangarm64/bin/libunwind.dll
+clangarm64/lib/
+clangarm64/lib/libunwind.a
+clangarm64/lib/libunwind.dll.a
+

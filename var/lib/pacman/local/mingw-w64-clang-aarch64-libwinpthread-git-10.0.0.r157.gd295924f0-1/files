@@ -1,0 +1,12 @@
+%FILES%
+clangarm64/
+clangarm64/bin/
+clangarm64/bin/libwinpthread-1.dll
+clangarm64/share/
+clangarm64/share/licenses/
+clangarm64/share/licenses/libwinpthread/
+clangarm64/share/licenses/libwinpthread/COPYING
+clangarm64/share/licenses/libwinpthread/mingw-w64-libraries/
+clangarm64/share/licenses/libwinpthread/mingw-w64-libraries/winpthreads/
+clangarm64/share/licenses/libwinpthread/mingw-w64-libraries/winpthreads/COPYING
+

@@ -1,0 +1,14 @@
+%FILES%
+clangarm64/
+clangarm64/bin/
+clangarm64/bin/libomp.dll
+clangarm64/include/
+clangarm64/include/omp.h
+clangarm64/lib/
+clangarm64/lib/libomp.a
+clangarm64/lib/libomp.dll.a
+clangarm64/share/
+clangarm64/share/licenses/
+clangarm64/share/licenses/openmp/
+clangarm64/share/licenses/openmp/LICENSE.TXT
+

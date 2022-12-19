@@ -1,0 +1,16 @@
+%FILES%
+clangarm64/
+clangarm64/bin/
+clangarm64/bin/gendef.exe
+clangarm64/bin/genidl.exe
+clangarm64/bin/genlib.exe
+clangarm64/bin/genpeimg.exe
+clangarm64/bin/widl.exe
+clangarm64/share/
+clangarm64/share/licenses/
+clangarm64/share/licenses/mingw-w64-tools/
+clangarm64/share/licenses/mingw-w64-tools/COPYING.gendef
+clangarm64/share/licenses/mingw-w64-tools/COPYING.genidl
+clangarm64/share/licenses/mingw-w64-tools/COPYING.genlib
+clangarm64/share/licenses/mingw-w64-tools/COPYING.genpeimg
+

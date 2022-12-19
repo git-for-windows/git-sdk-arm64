@@ -1,0 +1,9 @@
+%FILES%
+clangarm64/
+clangarm64/bin/
+clangarm64/bin/mingw32-make.exe
+clangarm64/include/
+clangarm64/include/gnumake.h
+clangarm64/lib/
+clangarm64/lib/libgnumake-1.dll.a
+

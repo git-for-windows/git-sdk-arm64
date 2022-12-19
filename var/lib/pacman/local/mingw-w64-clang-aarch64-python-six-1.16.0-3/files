@@ -1,0 +1,15 @@
+%FILES%
+clangarm64/
+clangarm64/lib/
+clangarm64/lib/python3.10/
+clangarm64/lib/python3.10/site-packages/
+clangarm64/lib/python3.10/site-packages/__pycache__/
+clangarm64/lib/python3.10/site-packages/__pycache__/six.cpython-310.opt-1.pyc
+clangarm64/lib/python3.10/site-packages/__pycache__/six.cpython-310.pyc
+clangarm64/lib/python3.10/site-packages/six-1.16.0-py3.10.egg-info
+clangarm64/lib/python3.10/site-packages/six.py
+clangarm64/share/
+clangarm64/share/licenses/
+clangarm64/share/licenses/python-six/
+clangarm64/share/licenses/python-six/LICENSE
+

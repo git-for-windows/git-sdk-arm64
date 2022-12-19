@@ -1,0 +1,8 @@
+%FILES%
+clangarm64/
+clangarm64/bin/
+clangarm64/bin/aarch64-w64-mingw32-g++.exe
+clangarm64/bin/aarch64-w64-mingw32-gcc.exe
+clangarm64/bin/g++.exe
+clangarm64/bin/gcc.exe
+

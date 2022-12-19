@@ -1,0 +1,12 @@
+%FILES%
+clangarm64/
+clangarm64/bin/
+clangarm64/bin/libtermcap-0.dll
+clangarm64/include/
+clangarm64/include/termcap.h
+clangarm64/lib/
+clangarm64/lib/libtermcap.a
+clangarm64/lib/libtermcap.dll.a
+clangarm64/lib/pkgconfig/
+clangarm64/lib/pkgconfig/termcap.pc
+

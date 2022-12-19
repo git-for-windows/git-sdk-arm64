@@ -1,0 +1,43 @@
+%NAME%
+mingw-w64-clang-aarch64-clang-analyzer
+
+%VERSION%
+15.0.5-1
+
+%BASE%
+mingw-w64-clang
+
+%DESC%
+A source code analysis framework (mingw-w64)
+
+%URL%
+https://clang-analyzer.llvm.org/
+
+%ARCH%
+any
+
+%BUILDDATE%
+1669299941
+
+%INSTALLDATE%
+1671471269
+
+%PACKAGER%
+CI (msys2-arm/msys2-autobuild/3f00fa83/3541299488)
+
+%SIZE%
+487262
+
+%GROUPS%
+mingw-w64-clang-aarch64-toolchain
+
+%LICENSE%
+custom:Apache 2.0 with LLVM Exception
+
+%VALIDATION%
+pgp
+
+%DEPENDS%
+mingw-w64-clang-aarch64-clang=15.0.5
+mingw-w64-clang-aarch64-python
+

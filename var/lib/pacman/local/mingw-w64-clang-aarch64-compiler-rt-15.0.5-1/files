@@ -1,0 +1,15 @@
+%FILES%
+clangarm64/
+clangarm64/lib/
+clangarm64/lib/clang/
+clangarm64/lib/clang/15.0.5/
+clangarm64/lib/clang/15.0.5/include/
+clangarm64/lib/clang/15.0.5/include/orc/
+clangarm64/lib/clang/15.0.5/include/orc/c_api.h
+clangarm64/lib/clang/15.0.5/include/profile/
+clangarm64/lib/clang/15.0.5/include/profile/InstrProfData.inc
+clangarm64/lib/clang/15.0.5/lib/
+clangarm64/lib/clang/15.0.5/lib/windows/
+clangarm64/lib/clang/15.0.5/lib/windows/libclang_rt.builtins-aarch64.a
+clangarm64/lib/clang/15.0.5/lib/windows/libclang_rt.profile-aarch64.a
+

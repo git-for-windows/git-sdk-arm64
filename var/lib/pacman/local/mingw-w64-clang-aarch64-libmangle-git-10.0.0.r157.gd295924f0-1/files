@@ -1,0 +1,11 @@
+%FILES%
+clangarm64/
+clangarm64/include/
+clangarm64/include/libmangle.h
+clangarm64/lib/
+clangarm64/lib/libmangle.a
+clangarm64/share/
+clangarm64/share/licenses/
+clangarm64/share/licenses/mingw-w64-libraries/
+clangarm64/share/licenses/mingw-w64-libraries/COPYING.libmangle
+

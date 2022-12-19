@@ -1,0 +1,6 @@
+%FILES%
+clangarm64/
+clangarm64/lib/
+clangarm64/lib/libwindowsappcompat.a
+clangarm64/lib/libwinstorecompat.a
+
