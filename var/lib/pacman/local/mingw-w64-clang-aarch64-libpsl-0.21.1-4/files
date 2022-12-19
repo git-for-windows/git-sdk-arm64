@@ -1,0 +1,16 @@
+%FILES%
+clangarm64/
+clangarm64/bin/
+clangarm64/bin/libpsl-5.dll
+clangarm64/include/
+clangarm64/include/libpsl.h
+clangarm64/lib/
+clangarm64/lib/libpsl.a
+clangarm64/lib/libpsl.dll.a
+clangarm64/lib/pkgconfig/
+clangarm64/lib/pkgconfig/libpsl.pc
+clangarm64/share/
+clangarm64/share/licenses/
+clangarm64/share/licenses/libpsl/
+clangarm64/share/licenses/libpsl/COPYING
+
