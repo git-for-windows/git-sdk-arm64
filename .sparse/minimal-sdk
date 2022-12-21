@@ -50,6 +50,7 @@
 /clangarm64/bin/libssl-*.dll
 /clangarm64/bin/libnghttp2*.dll
 /clangarm64/bin/libidn2-*.dll
+/clangarm64/bin/libpsl*.dll
 /clangarm64/bin/libssh*.dll
 /clangarm64/bin/libunistring-*.dll
 /clangarm64/ssl/certs/ca-bundle.crt
