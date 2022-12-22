@@ -41,7 +41,7 @@ jobs:
           $env:MSYS2_PATH_TYPE = "minimal"
 
           # Create /var/log/ so that pacman.log is written
-          mkdir -p /var/log
+          New-Item -ItemType Directory -Path var\log -Force
 
           echo "Run Pacman (First Pass)"
           bash -lc "pacman -Syyu --noconfirm"
