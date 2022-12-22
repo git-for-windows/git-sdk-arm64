@@ -38,6 +38,7 @@ jobs:
 
           # Set to MSYS mode
           $env:MSYSTEM = "MSYS"
+          $env:MSYS2_PATH_TYPE = "minimal"
 
           echo "Run Pacman (First Pass)"
           bash -lc "pacman -Syyu --noconfirm"
