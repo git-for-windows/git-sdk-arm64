@@ -1,9 +1,7 @@
 name: git-artifacts
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 
 env:
   REPOSITORY: git-for-windows/git
@@ -19,8 +17,8 @@ env:
 
 jobs:
   build:
-    if: github.event.repository.fork == false
-    runs-on: windows-latest
+    if: github.repository_owner == 'git-for-windows'
+    runs-on: [Windows, ARM64]
     steps:
       - name: Configure user
         shell: bash
@@ -132,7 +130,7 @@ jobs:
           retention-days: 1
 
   artifacts:
-    runs-on: windows-latest
+    runs-on: [Windows, ARM64]
     needs: [build]
     strategy:
       matrix:

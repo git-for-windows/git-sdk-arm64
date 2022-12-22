@@ -1,10 +1,7 @@
 name: check-for-missing-dlls
 
 on:
-  push:
-    branches:
-      - main
-  pull_request:
+  workflow_dispatch:
 
 env:
   LC_CTYPE: C.UTF-8
@@ -13,18 +10,18 @@ env:
 
 jobs:
   check:
-    if: github.event.repository.fork == false
-    runs-on: windows-latest
+    if: github.repository_owner == 'git-for-windows'
+    runs-on: [Windows, ARM64]
     steps:
-      - name: clone git-sdk-64
+      - name: clone git-sdk-arm64
         shell: bash
         run: |
           # cannot use `git clone` directly, to allow for PR's refs to be fetched
-          git init --bare -b ${REF#refs/heads/} git-sdk-64.git &&
-          git -C git-sdk-64.git remote add origin https://github.com/${{github.repository}} &&
-          git -C git-sdk-64.git config remote.origin.promisor true &&
-          git -C git-sdk-64.git config remote.origin.partialCloneFilter blob:none &&
-          git -C git-sdk-64.git fetch --depth=1 origin $REF:refs/heads/${REF#refs/heads/}
+          git init --bare -b ${REF#refs/heads/} git-sdk-arm64.git &&
+          git -C git-sdk-arm64.git remote add origin https://github.com/${{github.repository}} &&
+          git -C git-sdk-arm64.git config remote.origin.promisor true &&
+          git -C git-sdk-arm64.git config remote.origin.partialCloneFilter blob:none &&
+          git -C git-sdk-arm64.git fetch --depth=1 origin $REF:refs/heads/${REF#refs/heads/}
         env:
           REF: ${{github.ref}}
       - name: clone build-extra
@@ -32,7 +29,7 @@ jobs:
       - name: create build-installers artifact
         shell: bash
         run: |
-          sh -x ./build-extra/please.sh create-sdk-artifact --sdk=git-sdk-64.git build-installers &&
+          sh -x ./build-extra/please.sh create-sdk-artifact --sdk=git-sdk-arm64.git build-installers &&
           cygpath -aw "$PWD/build-installers/usr/bin/core_perl" >>$GITHUB_PATH &&
           cygpath -aw "$PWD/build-installers/usr/bin" >>$GITHUB_PATH &&
           cygpath -aw "$PWD/build-installers/mingw64/bin" >>$GITHUB_PATH
