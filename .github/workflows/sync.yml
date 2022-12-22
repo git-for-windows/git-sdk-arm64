@@ -12,15 +12,15 @@ on:
 env:
   GIT_CONFIG_PARAMETERS: "'user.name=Git for Windows Build Agent' 'user.email=ci@git-for-windows.build' 'windows.sdk64.path=${{ github.workspace }}' 'windows.sdk32.path=' 'http.sslbackend=schannel' 'core.autocrlf=false' 'checkout.workers=16'"
   HOME: "${{ github.workspace }}\\home\\git-ci"
-  MSYSTEM: MINGW64
+  MSYSTEM: MSYS
 
 jobs:
   sync:
-    if: github.event.repository.fork == false || github.event.inputs.debug_with_ssh_key != ''
+    if: github.repository_owner == 'git-for-windows' || github.event.inputs.debug_with_ssh_key != ''
     runs-on: windows-latest
     environment: sync
     steps:
-      - name: clone git-sdk-64
+      - name: clone git-sdk-arm64
         uses: actions/checkout@v3
         with:
           persist-credentials: true
@@ -34,9 +34,9 @@ jobs:
       - name: please sync --only64-bit
         shell: bash
         run: sh -x usr/src/build-extra/please.sh sync --force --only-64-bit
-      - name: use git-sdk-64's Bash
-        run: "usr\\bin\\bash.exe -lc 'cygpath -aw /usr/bin >>$GITHUB_PATH && cygpath -aw /mingw64/bin >>$GITHUB_PATH'"
-      - name: commit & push 64-bit SDK
+      - name: use git-sdk-arm64's Bash
+        run: "usr\\bin\\bash.exe -lc 'cygpath -aw /usr/bin >>$GITHUB_PATH && cygpath -aw /clangarm64/bin >>$GITHUB_PATH'"
+      - name: commit & push ARM64 SDK
         shell: bash
         run: |
           set -x &&
