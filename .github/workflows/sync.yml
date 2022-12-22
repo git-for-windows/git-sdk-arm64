@@ -40,6 +40,9 @@ jobs:
           $env:MSYSTEM = "MSYS"
           $env:MSYS2_PATH_TYPE = "minimal"
 
+          # Create /var/log/ so that pacman.log is written
+          mkdir -p /var/log
+
           echo "Run Pacman (First Pass)"
           bash -lc "pacman -Syyu --noconfirm"
           if (!$?) { exit 1 }
