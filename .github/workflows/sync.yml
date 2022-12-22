@@ -75,8 +75,8 @@ jobs:
 
           # Wrapping up: re-install git-extra
           bash -lc "pacman -S --noconfirm git-extra"
-      - name: use git-sdk-arm64's Bash
-        run: "usr\\bin\\bash.exe -lc 'cygpath -aw /usr/bin >>$GITHUB_PATH && cygpath -aw /clangarm64/bin >>$GITHUB_PATH'"
+      - name: use git-sdk-arm64's Bash and /usr/bin/git.exe
+        run: "usr\\bin\\bash.exe -lc 'cygpath -aw /usr/bin >>$GITHUB_PATH'"
       - name: commit & push ARM64 SDK
         shell: bash
         run: |
