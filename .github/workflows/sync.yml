@@ -83,7 +83,7 @@ jobs:
           set -x &&
           PATH=/c/Program\ Files/Git/cmd:/usr/bin:$PATH \
           sh -x /usr/src/build-extra/commit-msys2.sh commit &&
-          git -C / push origin ${{ github.ref }}
+          git push origin ${{ github.ref }}
       - name: use MSYS2 for tmate
         if: failure() && github.event.inputs.debug_with_ssh_key != ''
         run: "usr\\bin\\bash.exe -lc 'cygpath -aw /c/msys64/usr/bin >>$GITHUB_PATH'"
