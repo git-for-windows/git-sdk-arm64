@@ -34,7 +34,7 @@ jobs:
       - name: Update all Pacman packages
         shell: pwsh
         run: |
-          $env:PATH = "(Get-Location)\usr\bin;" + $env:PATH
+          $env:PATH = "$(Get-Location)\usr\bin;" + $env:PATH
 
           # Set to MSYS mode
           $env:MSYSTEM = "MSYS"
