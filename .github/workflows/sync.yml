@@ -81,6 +81,7 @@ jobs:
         shell: bash
         run: |
           set -x &&
+          PATH=/c/Program\ Files/Git/cmd:/usr/bin:$PATH \
           sh -x /usr/src/build-extra/commit-msys2.sh commit &&
           git -C / push origin ${{ github.ref }}
       - name: Debug using tmate
