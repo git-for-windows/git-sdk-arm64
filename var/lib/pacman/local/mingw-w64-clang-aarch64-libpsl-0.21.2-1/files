@@ -2,6 +2,8 @@
 clangarm64/
 clangarm64/bin/
 clangarm64/bin/libpsl-5.dll
+clangarm64/bin/psl-make-dafsa
+clangarm64/bin/psl.exe
 clangarm64/include/
 clangarm64/include/libpsl.h
 clangarm64/lib/
@@ -13,4 +15,8 @@ clangarm64/share/
 clangarm64/share/licenses/
 clangarm64/share/licenses/libpsl/
 clangarm64/share/licenses/libpsl/COPYING
+clangarm64/share/man/
+clangarm64/share/man/man1/
+clangarm64/share/man/man1/psl-make-dafsa.1.gz
+clangarm64/share/man/man1/psl.1.gz
 
