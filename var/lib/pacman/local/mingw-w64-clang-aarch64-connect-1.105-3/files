@@ -1,0 +1,10 @@
+%FILES%
+clangarm64/
+clangarm64/bin/
+clangarm64/bin/connect.exe
+clangarm64/share/
+clangarm64/share/doc/
+clangarm64/share/doc/connect/
+clangarm64/share/doc/connect/manual.html
+clangarm64/share/doc/connect/manual.txt
+
