@@ -1,0 +1,36 @@
+%NAME%
+mingw-w64-clang-aarch64-connect
+
+%VERSION%
+1.105-3
+
+%BASE%
+mingw-w64-connect
+
+%DESC%
+Make socket connection using SOCKS4/5 and HTTP tunnel (mingw-w64)
+
+%URL%
+https://github.com/gotoh/ssh-connect
+
+%ARCH%
+any
+
+%BUILDDATE%
+1667043387
+
+%INSTALLDATE%
+1672731811
+
+%PACKAGER%
+CI (msys2-arm/msys2-autobuild/3a324f9f/3351251450)
+
+%SIZE%
+146493
+
+%LICENSE%
+GPL2+
+
+%VALIDATION%
+pgp
+

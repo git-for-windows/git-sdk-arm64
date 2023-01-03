@@ -1,0 +1,9 @@
+%FILES%
+clangarm64/
+clangarm64/bin/
+clangarm64/bin/odt2txt.exe
+clangarm64/share/
+clangarm64/share/man/
+clangarm64/share/man/man1/
+clangarm64/share/man/man1/odt2txt.1.gz
+
