@@ -245,6 +245,8 @@ clangarm64/lib/libmsvcrt-os.a
 clangarm64/lib/libmsvcrt.a
 clangarm64/lib/libmsvfw32.a
 clangarm64/lib/libmswsock.a
+clangarm64/lib/libmsxml2.a
+clangarm64/lib/libmsxml6.a
 clangarm64/lib/libmsyuv.a
 clangarm64/lib/libmtxdm.a
 clangarm64/lib/libmydocs.a
