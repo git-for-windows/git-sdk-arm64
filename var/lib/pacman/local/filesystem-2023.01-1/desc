@@ -2,7 +2,7 @@
 filesystem
 
 %VERSION%
-2022.01-7
+2023.01-1
 
 %BASE%
 filesystem
@@ -17,16 +17,16 @@ https://sourceforge.net/projects/msys2/
 x86_64
 
 %BUILDDATE%
-1670767597
+1673460644
 
 %INSTALLDATE%
-1670814896
+1673579983
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/e22cc1cc/3669298038)
+CI (msys2/msys2-autobuild/63f65d30/3895459894)
 
 %SIZE%
-293498
+292931
 
 %LICENSE%
 BSD
