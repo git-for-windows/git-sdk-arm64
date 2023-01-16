@@ -169,7 +169,7 @@ while test $# -gt 0; do
         fi
         ;;
     --ssl-backends)
-        echo "Schannel, OpenSSL"
+        echo "Schannel, OpenSSL v3+"
         ;;
 
     --static-libs)

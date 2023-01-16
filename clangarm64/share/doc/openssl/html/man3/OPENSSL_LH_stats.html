@@ -41,7 +41,7 @@ void OPENSSL_LH_node_usage_stats_bio(LHASH *table, BIO *out);</code></pre>
 
 <p>The <b>LHASH</b> structure records statistics about most aspects of accessing the hash table.</p>
 
-<p>OPENSSL_LH_stats() prints out statistics on the size of the hash table, how many entries are in it, and the number and result of calls to the routines in this library.</p>
+<p>OPENSSL_LH_stats() prints out statistics on the size of the hash table and how many entries are in it. For historical reasons, this function also outputs a number of additional statistics, but the tracking of these statistics is no longer supported and these statistics are always reported as zero.</p>
 
 <p>OPENSSL_LH_node_stats() prints the number of entries for each &#39;bucket&#39; in the hash table.</p>
 
@@ -63,9 +63,9 @@ void OPENSSL_LH_node_usage_stats_bio(LHASH *table, BIO *out);</code></pre>
 
 <h1 id="COPYRIGHT">COPYRIGHT</h1>
 
-<p>Copyright 2000-2017 The OpenSSL Project Authors. All Rights Reserved.</p>
+<p>Copyright 2000-2022 The OpenSSL Project Authors. All Rights Reserved.</p>
 
-<p>Licensed under the OpenSSL license (the &quot;License&quot;). You may not use this file except in compliance with the License. You can obtain a copy in the file LICENSE in the source distribution or at <a href="https://www.openssl.org/source/license.html">https://www.openssl.org/source/license.html</a>.</p>
+<p>Licensed under the Apache License 2.0 (the &quot;License&quot;). You may not use this file except in compliance with the License. You can obtain a copy in the file LICENSE in the source distribution or at <a href="https://www.openssl.org/source/license.html">https://www.openssl.org/source/license.html</a>.</p>
 
 
 </body>
