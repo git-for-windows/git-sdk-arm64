@@ -44,7 +44,7 @@ jobs:
           New-Item -ItemType Directory -Path var\log -Force
 
           echo "Run Pacman (First Pass)"
-          bash -lc "pacman -Syyu --noconfirm"
+          bash -lc "pacman -Syyu --overwrite=\* --noconfirm"
           if (!$?) { exit 1 }
 
           # If Pacman updated "core" packages, e.g. the MSYS2 runtime, it stops
@@ -69,12 +69,12 @@ jobs:
             echo "No second pass needed"
           } else {
             echo "Run Pacman again (Second Pass) to upgrade the remaining (non-core) packages"
-            bash -lc "pacman -Su --noconfirm"
+            bash -lc "pacman -Su --overwrite=\* --noconfirm"
             if (!$?) { exit 1 }
           }
 
           # Wrapping up: re-install git-extra
-          bash -lc "pacman -S --noconfirm git-extra"
+          bash -lc "pacman -S --overwrite=\* --noconfirm git-extra"
       - name: use git-sdk-arm64's Bash and Git for Windows' git.exe
         run: "usr\\bin\\bash.exe -lc 'cygpath -aw /usr/bin >>$GITHUB_PATH && cygpath -aw /c/Program\ Files/Git/cmd/ >>$GITHUB_PATH'"
       - name: commit & push ARM64 SDK
