@@ -74,7 +74,7 @@ while test $# -gt 0; do
         ;;
 
     --ca)
-        echo "/clangarm64/ssl/certs/ca-bundle.crt"
+        echo "/clangarm64/etc/ssl/certs/ca-bundle.crt"
         ;;
 
     --cc)
@@ -182,7 +182,7 @@ while test $# -gt 0; do
         ;;
 
     --configure)
-        echo " '--prefix=/clangarm64' '--build=aarch64-w64-mingw32' '--host=aarch64-w64-mingw32' '--target=aarch64-w64-mingw32' '--disable-pthreads' '--without-random' '--disable-static' '--enable-shared' '--enable-sspi' '--enable-ldap' '--enable-ldaps' '--with-brotli' '--with-ldap-lib=wldap32' '--with-libssh2' '--with-zstd' '--with-default-ssl-backend=openssl' '--with-openssl' '--with-schannel' '--with-ca-bundle=/clangarm64/ssl/certs/ca-bundle.crt' '--with-nghttp2=/clangarm64' '--without-librtmp' '--disable-debug' 'build_alias=aarch64-w64-mingw32' 'host_alias=aarch64-w64-mingw32' 'target_alias=aarch64-w64-mingw32' 'CC=clang' 'CFLAGS=-O2 -pipe -Wp,-D_FORTIFY_SOURCE=2 -fstack-protector-strong' 'LDFLAGS=-pipe' 'CPPFLAGS=-D__USE_MINGW_ANSI_STDIO=1'"
+        echo " '--prefix=/clangarm64' '--build=aarch64-w64-mingw32' '--host=aarch64-w64-mingw32' '--target=aarch64-w64-mingw32' '--disable-pthreads' '--without-random' '--disable-static' '--enable-shared' '--enable-sspi' '--enable-ldap' '--enable-ldaps' '--with-brotli' '--with-ldap-lib=wldap32' '--with-libssh2' '--with-zstd' '--with-default-ssl-backend=openssl' '--with-openssl' '--with-schannel' '--with-ca-bundle=/clangarm64/etc/ssl/certs/ca-bundle.crt' '--with-nghttp2=/clangarm64' '--without-librtmp' '--disable-debug' 'build_alias=aarch64-w64-mingw32' 'host_alias=aarch64-w64-mingw32' 'target_alias=aarch64-w64-mingw32' 'CC=clang' 'CFLAGS=-O2 -pipe -Wp,-D_FORTIFY_SOURCE=2 -fstack-protector-strong' 'LDFLAGS=-pipe' 'CPPFLAGS=-D__USE_MINGW_ANSI_STDIO=1'"
         ;;
 
     *)
