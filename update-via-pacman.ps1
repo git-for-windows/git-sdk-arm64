@@ -62,5 +62,5 @@ if ($type -Match "full system upgrade") {
   if (!$?) { exit 1 }
 }
 
-# Wrapping up: re-install git-extra
-bash -lc "pacman -S --overwrite=\* --noconfirm git-extra"
+# Wrapping up: re-install mingw-w64-git-extra
+bash -lc "pacman -S --overwrite=\* --noconfirm mingw-w64-clang-aarch64-git-extra"
