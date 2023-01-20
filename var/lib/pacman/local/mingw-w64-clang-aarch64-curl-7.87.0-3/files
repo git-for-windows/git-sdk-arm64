@@ -26,9 +26,6 @@ clangarm64/lib/pkgconfig/libcurl.pc
 clangarm64/share/
 clangarm64/share/aclocal/
 clangarm64/share/aclocal/libcurl.m4
-clangarm64/share/licenses/
-clangarm64/share/licenses/curl/
-clangarm64/share/licenses/curl/LICENSE
 clangarm64/share/man/
 clangarm64/share/man/man1/
 clangarm64/share/man/man1/curl-config.1.gz

@@ -8,28 +8,28 @@ mingw-w64-clang-aarch64-curl
 mingw-w64-curl
 
 %DESC%
-Command line tool and library for transferring data with URLs (mingw-w64)
+Command line tool and library for transferring data with URLs. (mingw-w64)
 
 %URL%
-https://curl.se/
+https://curl.haxx.se
 
 %ARCH%
 any
 
 %BUILDDATE%
-1674072139
+1674123139
 
 %INSTALLDATE%
-1674121490
+1674220113
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/dbba6294/3951810931)
+Johannes Schindelin <johannes.schindelin@gmx.de>
 
 %SIZE%
-3023704
+3017897
 
 %LICENSE%
-spdx:MIT
+MIT
 
 %VALIDATION%
 pgp
@@ -37,17 +37,13 @@ pgp
 %DEPENDS%
 mingw-w64-clang-aarch64-gcc-libs
 mingw-w64-clang-aarch64-c-ares
-mingw-w64-clang-aarch64-brotli
 mingw-w64-clang-aarch64-libidn2
 mingw-w64-clang-aarch64-libpsl
-mingw-w64-clang-aarch64-zlib
-mingw-w64-clang-aarch64-zstd
-mingw-w64-clang-aarch64-ca-certificates
 mingw-w64-clang-aarch64-libssh2
+mingw-w64-clang-aarch64-zlib
+mingw-w64-clang-aarch64-ca-certificates
 mingw-w64-clang-aarch64-openssl
 mingw-w64-clang-aarch64-nghttp2
-
-%CONFLICTS%
-mingw-w64-clang-aarch64-curl-winssl
-mingw-w64-clang-aarch64-curl-gnutls
+mingw-w64-clang-aarch64-brotli
+mingw-w64-clang-aarch64-zstd
 
