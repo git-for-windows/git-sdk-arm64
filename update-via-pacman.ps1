@@ -118,6 +118,19 @@ if ($pacnew.Length -gt 0) {
     $path = $_ -Replace '/', '\'
     $pacnewPath = $path + ".pacnew"
     if (Test-Path $pacnewPath -PathType Leaf) {
+      if ($newName -eq "pacman.conf") {
+        $ignorePkg = (
+          Get-Content $path |
+          Select-String -Pattern "^IgnorePkg *="
+        )
+        if ($ignorePkg.length -eq 1) {
+          $content = Get-Content $pacnewPath
+          $line = $content | Select-String -Pattern "^ *#? *IgnorePkg *="
+          $content[$line.LineNumber] = $ignorePkg[0]
+          $content -join "`n" | Out-File -NoNewLine -FilePath $pacnewPath -Encoding ascii
+        }
+      }
+
       Remove-Item -Path $path
       Rename-Item -Path $pacnewPath -NewName $newName -Force
     }
