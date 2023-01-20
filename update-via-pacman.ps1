@@ -36,6 +36,14 @@ echo "Run Pacman (First Pass)"
 bash -lc "pacman -Syyu --overwrite=\* --noconfirm"
 if (!$?) { exit 1 }
 
+# Ensure that the Git for Windows keyring is registered
+bash -lc @"
+  set -x
+  pacman-key --list-keys BB3AA74136C569BB >/dev/null ||
+  pacman-key --populate git-for-windows
+"@
+if (!$?) { die "Could not re-populate git-for-windows-keyring" }
+
 # If Pacman updated "core" packages, e.g. the MSYS2 runtime, it stops
 # (because Pacman itself depends on the MSYS2 runtime, and continuing would
 # result in crashes or hangs). In such a case, we simply need to upgrade
@@ -60,6 +68,14 @@ if ($type -Match "full system upgrade") {
   echo "Run Pacman again (Second Pass) to upgrade the remaining (non-core) packages"
   bash -lc "pacman -Su --overwrite=\* --noconfirm"
   if (!$?) { exit 1 }
+
+  # Ensure that the Git for Windows keyring is registered
+  bash -lc @"
+    set -x
+    pacman-key --list-keys BB3AA74136C569BB >/dev/null ||
+    pacman-key --populate git-for-windows
+"@
+  if (!$?) { die "Could not re-populate git-for-windows-keyring" }
 }
 
 # Wrapping up: re-install mingw-w64-git-extra
