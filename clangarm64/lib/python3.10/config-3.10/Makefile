@@ -30,8 +30,8 @@ MODLIBS=           $(LOCALMODLIBS) $(BASEMODLIBS)
 VERSION=	3.10
 srcdir=		../Python-3.10.9
 VPATH=		../Python-3.10.9
-abs_srcdir=	/c/M/mingw-w64-python/src/build-CLANGARM64/../Python-3.10.9
-abs_builddir=	/c/M/mingw-w64-python/src/build-CLANGARM64
+abs_srcdir=	/c/M/mingw-w64-python/src/build-aarch64/../Python-3.10.9
+abs_builddir=	/c/M/mingw-w64-python/src/build-aarch64
 
 
 CC=		clang
@@ -143,7 +143,7 @@ datarootdir=    ${prefix}/share
 srcdir_b2h=		C:/M/mingw-w64-python/src/Python-3.10.9
 VPATH_b2h=		C:/M/mingw-w64-python/src/Python-3.10.9
 abs_srcdir_b2h=		C:/M/mingw-w64-python/src/Python-3.10.9
-abs_builddir_b2h=	C:/M/mingw-w64-python/src/build-CLANGARM64
+abs_builddir_b2h=	C:/M/mingw-w64-python/src/build-aarch64
 prefix_b2h=		C:/msys64/clangarm64
 
 # Expanded directories
