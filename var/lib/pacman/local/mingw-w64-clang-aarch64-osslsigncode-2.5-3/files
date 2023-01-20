@@ -1,0 +1,9 @@
+%FILES%
+clangarm64/
+clangarm64/bin/
+clangarm64/bin/osslsigncode.exe
+clangarm64/share/
+clangarm64/share/bash-completion/
+clangarm64/share/bash-completion/completions/
+clangarm64/share/bash-completion/completions/osslsigncode.bash
+
