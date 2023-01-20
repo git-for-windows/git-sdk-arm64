@@ -80,5 +80,23 @@ if ($type -Match "full system upgrade") {
   if (!$?) { die "Could not re-populate git-for-windows-keyring" }
 }
 
+# A ruby upgrade (or something else) may require a re-install of the
+# `asciidoctor` gem. We only do this for the 64-bit SDK, though, as we require
+# asciidoctor only when building Git, whose 32-bit packages are cross-compiled
+# in from 64-bit.
+if (Test-Path var/lib/pacman/local/mingw-w64-*-asciidoctor-extensions-[0-9]* -PathType Container) {
+  bash -lc @'
+    set -x
+    for d in clangarm64 mingw64 mingw32
+    do
+      test -x /$d/bin/ruby.exe || continue
+      export PATH=/$d/bin:$PATH
+      test -n \"$(gem list --local | grep \"^asciidoctor \")\" ||
+      gem install asciidoctor || exit
+    done
+'@
+	if (!$?) { die "Could not re-install asciidoctor" }
+}
+
 # Wrapping up: re-install mingw-w64-git-extra
 bash -lc "pacman -S --overwrite=\* --noconfirm mingw-w64-clang-aarch64-git-extra"
