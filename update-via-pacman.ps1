@@ -9,6 +9,8 @@
 #
 # Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
 
+Set-PSDebug -Trace 1
+
 function die {
   Param(
     [Parameter(Mandatory=$true,Position=0)] [String]$Message
