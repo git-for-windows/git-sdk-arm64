@@ -98,5 +98,36 @@ if (Test-Path var/lib/pacman/local/mingw-w64-*-asciidoctor-extensions-[0-9]* -Pa
 	if (!$?) { die "Could not re-install asciidoctor" }
 }
 
+# Pacman sometimes writes `.pacnew` files; We want to rename them and let
+# the post-install script of the `git-extra` package edit them.
+$latestSystemUpgrade = (
+  Get-Content -Tail 512 var\log\pacman.log |
+  Select-String -AllMatches -Pattern "\[PACMAN\] starting .* system upgrade" |
+  Select -Last 1
+)
+$pacnew = (
+  Get-Content -Tail (512-$latestSystemUpgrade.LineNumber) var\log\pacman.log |
+  Select-String -AllMatches -Pattern "\.pacnew" |
+  ForEach-Object -Process {
+    if ($_.Line -Match "warning:.*installed as /(.*)\.pacnew$") { $Matches[1] }
+  }
+)
+if ($pacnew.Length -gt 0) {
+  $pacnew | ForEach-Object -Process {
+    $newName = $_ -Replace '.*/', ''
+    $path = $_ -Replace '/', '\'
+    $pacnewPath = $path + ".pacnew"
+    if (Test-Path $pacnewPath -PathType Leaf) {
+      Remove-Item -Path $path
+      Rename-Item -Path $pacnewPath -NewName $newName -Force
+    }
+  }
+  bash -lc @"
+    set -x &&
+    . /var/lib/pacman/local/mingw-w64-*-git-extra-[0-9]*/install 2>/dev/null &&
+    post_upgrade
+"@
+}
+
 # Wrapping up: re-install mingw-w64-git-extra
 bash -lc "pacman -S --overwrite=\* --noconfirm mingw-w64-clang-aarch64-git-extra"
