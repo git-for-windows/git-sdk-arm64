@@ -9,6 +9,18 @@
 #
 # Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
 
+function die {
+  Param(
+    [Parameter(Mandatory=$true,Position=0)] [String]$Message
+  )
+  [Console]::Error.WriteLine($Message)
+  exit 1
+}
+
+# switch to the directory containing this script
+Set-Location $PSScriptRoot
+if (!$?) { die "Could not switch directory to $PSScriptRoot" }
+
 $env:PATH = "$(Get-Location)\usr\bin;" + $env:PATH
 
 # Set to MSYS mode
