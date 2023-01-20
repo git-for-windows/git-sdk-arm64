@@ -1,3 +1,14 @@
+# This script updates a Git for Windows SDK via Pacman.
+#
+# Its primary use is to update the `git-sdk-arm64` repository at
+# https://github.com/git-for-windows/git-sdk-arm64, via its `sync`
+# workflow.
+#
+# It can also be run locally. By default, PowerShell does not allow to run
+# scripts. This can be temporarily allowed via
+#
+# Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
+
 $env:PATH = "$(Get-Location)\usr\bin;" + $env:PATH
 
 # Set to MSYS mode
