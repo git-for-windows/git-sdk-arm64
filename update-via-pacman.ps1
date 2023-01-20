@@ -30,7 +30,9 @@ $env:MSYSTEM = "MSYS"
 $env:MSYS2_PATH_TYPE = "minimal"
 
 # Create /var/log/ so that pacman.log is written
-New-Item -ItemType Directory -Path var\log -Force
+if (!(Test-Path var\log -PathType Container)) {
+  New-Item -ItemType Directory -Path var\log -Force
+}
 
 echo "Run Pacman (First Pass)"
 bash -lc "pacman -Syyu --overwrite=\* --noconfirm"
