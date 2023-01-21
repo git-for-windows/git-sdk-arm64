@@ -53,6 +53,7 @@
 /clangarm64/bin/libpsl*.dll
 /clangarm64/bin/libssh*.dll
 /clangarm64/bin/libunistring-*.dll
+/clangarm64/etc/ssl/certs/ca-bundle.crt
 /clangarm64/ssl/certs/ca-bundle.crt
 /clangarm64/include/curl/
 
