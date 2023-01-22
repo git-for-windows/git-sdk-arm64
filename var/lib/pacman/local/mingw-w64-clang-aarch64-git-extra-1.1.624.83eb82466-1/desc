@@ -1,5 +1,5 @@
 %NAME%
-git-extra
+mingw-w64-clang-aarch64-git-extra
 
 %VERSION%
 1.1.624.83eb82466-1
@@ -14,19 +14,19 @@ Git for Windows extra files
 https://github.com/git-for-windows/build-extra
 
 %ARCH%
-x86_64
+any
 
 %BUILDDATE%
-1674218623
+1674218935
 
 %INSTALLDATE%
-1674219027
+1674224883
 
 %PACKAGER%
 Johannes Schindelin <johannes.schindelin@gmx.de>
 
 %SIZE%
-500883
+421997
 
 %GROUPS%
 VCS
@@ -46,7 +46,10 @@ vim
 filesystem
 
 %CONFLICTS%
-mingw-w64-clang-aarch64-git-extra
+git-extra
 mingw-w64-x86_64-git-extra
 mingw-w64-i686-git-extra
+
+%PROVIDES%
+git-extra
 
