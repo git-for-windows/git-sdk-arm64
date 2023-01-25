@@ -25,12 +25,6 @@ jobs:
         with:
           persist-credentials: true
           token: ${{ secrets.PUSH_TOKEN }}
-      - name: clone build-extra
-        uses: actions/checkout@v3
-        with:
-          path: usr\\src\\build-extra
-          ref: main
-          repository: git-for-windows/build-extra
       - name: Update all Pacman packages
         shell: pwsh
         run: |
@@ -42,7 +36,7 @@ jobs:
         run: |
           set -x &&
           PATH=/c/Program\ Files/Git/cmd:/usr/bin:$PATH &&
-          sh -x /usr/src/build-extra/commit-msys2.sh commit &&
+          sh -x .github/commit-sdk.sh commit &&
           git push origin ${{ github.ref }}
       - name: use MSYS2 for tmate
         if: failure() && github.event.inputs.debug_with_ssh_key != ''
