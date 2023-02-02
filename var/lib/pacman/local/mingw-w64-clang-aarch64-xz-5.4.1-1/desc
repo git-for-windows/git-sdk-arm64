@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-xz
 
 %VERSION%
-5.2.9-1
+5.4.1-1
 
 %BASE%
 mingw-w64-xz
@@ -17,16 +17,16 @@ https://tukaani.org/xz
 any
 
 %BUILDDATE%
-1669886364
+1675201917
 
 %INSTALLDATE%
-1671471199
+1675307914
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/3f00fa83/3590907114)
+CI (msys2-arm/msys2-autobuild/34a63008/4058379805)
 
 %SIZE%
-2105282
+2498097
 
 %REASON%
 1

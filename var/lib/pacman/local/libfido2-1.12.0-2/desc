@@ -2,7 +2,7 @@
 libfido2
 
 %VERSION%
-1.12.0-1
+1.12.0-2
 
 %BASE%
 libfido2
@@ -17,16 +17,16 @@ https://developers.yubico.com/libfido2/
 x86_64
 
 %BUILDDATE%
-1667474522
+1675250109
 
 %INSTALLDATE%
-1667478368
+1675307913
 
 %PACKAGER%
-Git for Windows Build Agent <ci@git-for-windows.build>
+Johannes Schindelin <johannes.schindelin@gmx.de>
 
 %SIZE%
-213840
+213842
 
 %REASON%
 1
