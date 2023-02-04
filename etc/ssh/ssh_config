@@ -52,3 +52,11 @@ Host ssh.dev.azure.com
 Host *.visualstudio.com
 	HostkeyAlgorithms +ssh-rsa
 	PubkeyAcceptedAlgorithms +ssh-rsa
+# Added by git-extra
+Host ssh.dev.azure.com
+	HostkeyAlgorithms +ssh-rsa
+	PubkeyAcceptedAlgorithms +ssh-rsa
+# Added by git-extra
+Host *.visualstudio.com
+	HostkeyAlgorithms +ssh-rsa
+	PubkeyAcceptedAlgorithms +ssh-rsa
