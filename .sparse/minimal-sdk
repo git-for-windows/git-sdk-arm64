@@ -2,134 +2,97 @@
 /.sparse/minimal-sdk
 
 # Git
-/mingw64/bin/git.exe
-/mingw64/libexec/git-core/
-/mingw64/bin/libiconv-*[0-9].dll
-/mingw64/bin/libintl-*[0-9].dll
-/mingw64/bin/libpcre2-[1-9]*-*[0-9].dll
-/mingw64/bin/libssp-*[0-9].dll
-/mingw64/bin/zlib*[0-9].dll
+/clangarm64/bin/git.exe
+/clangarm64/libexec/git-core/
+/clangarm64/bin/libiconv-*[0-9].dll
+/clangarm64/bin/libintl-*[0-9].dll
+/clangarm64/bin/libpcre2-[1-9]*-*[0-9].dll
+/clangarm64/bin/zlib*[0-9].dll
 
 # system gitconfig
 /etc/gitconfig
 
-# GCC and friends
-/mingw64/bin/ar.exe
-/mingw64/bin/as.exe
-/mingw64/bin/cc.exe
-/mingw64/bin/gcc.exe
-/mingw64/bin/ld.exe
-/mingw64/bin/libgmp-*[0-9].dll
-/mingw64/bin/libgcc_s_seh-*[0-9].dll
-/mingw64/bin/libisl-*[0-9].dll
-/mingw64/bin/libwinpthread-*[0-9].dll
-/mingw64/bin/libzstd.dll
-/mingw64/bin/strip.exe
-/mingw64/bin/windres.exe
-/mingw64/lib/gcc/x86_64-w64-mingw32/*/cc1.exe
-/mingw64/lib/gcc/x86_64-w64-mingw32/*/collect2.exe
-/mingw64/lib/gcc/x86_64-w64-mingw32/*/*.o
-/mingw64/lib/gcc/x86_64-w64-mingw32/*/include/
-/mingw64/lib/gcc/x86_64-w64-mingw32/*/libgcc*
-/mingw64/lib/gcc/x86_64-w64-mingw32/*/liblto*
-/mingw64/lib/gcc/x86_64-w64-mingw32/*/libssp*
+# Clang and friends
+/clangarm64/bin/ar.exe
+/clangarm64/bin/as.exe
+/clangarm64/bin/cc.exe
+/clangarm64/bin/clang.exe
+/clangarm64/bin/ld.exe
+/clangarm64/bin/libgmp-*[0-9].dll
+/clangarm64/bin/libclang.dll
+/clangarm64/bin/libclang-cpp.dll
+/clangarm64/bin/libLLVM-*[0-9].dll
+/clangarm64/bin/libwinpthread-*[0-9].dll
+/clangarm64/bin/libzstd.dll
+/clangarm64/bin/llvm-strip.exe
+/clangarm64/bin/windres.exe
+/clangarm64/lib/clang/*/include/
+/clangarm64/lib/clang/*/lib/
+
+# GCC compat
+# The gcc-compat package provides a link from
+# gcc.exe to clang
+/clangarm64/bin/gcc.exe
 
 # gettext (msgfmt)
-/mingw64/bin/msgfmt.exe
-/mingw64/bin/libgettext*.dll
+/clangarm64/bin/msgfmt.exe
+/clangarm64/bin/libgettext*.dll
 
 # Tcl (to emulate msgfmt, *somewhere*)
-/mingw64/bin/tclsh.exe
-/mingw64/bin/tcl*.dll
+/clangarm64/bin/tclsh.exe
+/clangarm64/bin/tcl*.dll
 
 # libcurl
-/mingw64/bin/curl-config
-/mingw64/bin/libbrotli*.dll
-/mingw64/bin/libcurl*.dll
-/mingw64/bin/libcrypto-*.dll
-/mingw64/bin/libssl-*.dll
-/mingw64/bin/libnghttp2*.dll
-/mingw64/bin/libidn2-*.dll
-/mingw64/bin/libssh*.dll
-/mingw64/bin/libunistring-*.dll
-/mingw64/ssl/certs/ca-bundle.crt
-/mingw64/include/curl/
+/clangarm64/bin/curl-config
+/clangarm64/bin/libbrotli*.dll
+/clangarm64/bin/libcurl*.dll
+/clangarm64/bin/libcrypto-*.dll
+/clangarm64/bin/libssl-*.dll
+/clangarm64/bin/libnghttp2*.dll
+/clangarm64/bin/libidn2-*.dll
+/clangarm64/bin/libssh*.dll
+/clangarm64/bin/libunistring-*.dll
+/clangarm64/ssl/certs/ca-bundle.crt
+/clangarm64/include/curl/
 
 # Other headers/libraries needed to build Git
-/mingw64/include/
-!/mingw64/include/GL
-!/mingw64/include/c++
-!/mingw64/include/control*
-!/mingw64/include/d3*
-!/mingw64/include/dx*
-!/mingw64/include/glib*
-!/mingw64/include/iads*
-!/mingw64/include/isl
-!/mingw64/include/libxml*
-!/mingw64/include/mq*
-!/mingw64/include/ms[chk]*
-!/mingw64/include/ncurses*
-!/mingw64/include/python*
-!/mingw64/include/ruby*
-!/mingw64/include/sapi*
-!/mingw64/include/sh*
-!/mingw64/include/sql*
-!/mingw64/include/strmif*
-!/mingw64/include/tapi*
-!/mingw64/include/tuner*
-!/mingw64/include/wm*
-!/mingw64/include/x*
-/mingw64/lib/*.o
-/mingw64/lib/libadvapi32*
-/mingw64/lib/libbrotli*
-/mingw64/lib/libcrypto*
-/mingw64/lib/libcurl*
-/mingw64/lib/libexpat*
-/mingw64/lib/libgcc*
-/mingw64/lib/libiconv*
-/mingw64/lib/libidn2*
-/mingw64/lib/libintl*
-/mingw64/lib/libkernel32*
-/mingw64/lib/libmingw32*
-/mingw64/lib/libmingwex*
-/mingw64/lib/libmoldname*
-/mingw64/lib/libmsvcrt*
-/mingw64/lib/libnghttp2*
-/mingw64/lib/libntdll*
-/mingw64/lib/libpcre2-8*
-/mingw64/lib/libpthread*
-/mingw64/lib/libshell32*
-/mingw64/lib/libssh*
-/mingw64/lib/libssl*
-/mingw64/lib/libssp*
-/mingw64/lib/libuser32*
-/mingw64/lib/libws2_32*
-/mingw64/lib/libz*
-/mingw64/x86_64-w64-mingw32/include/
-/mingw64/x86_64-w64-mingw32/lib/*.o
-/mingw64/x86_64-w64-mingw32/lib/libws2_32.a
-/mingw64/x86_64-w64-mingw32/lib/libntdll.a
-/mingw64/x86_64-w64-mingw32/lib/libmingw32.a
-/mingw64/x86_64-w64-mingw32/lib/libmoldname.a
-/mingw64/x86_64-w64-mingw32/lib/libmingwex.a
-/mingw64/x86_64-w64-mingw32/lib/libmsvcrt.a
-/mingw64/x86_64-w64-mingw32/lib/libpthread.a
-/mingw64/x86_64-w64-mingw32/lib/libadvapi32.a
-/mingw64/x86_64-w64-mingw32/lib/libshell32.a
-/mingw64/x86_64-w64-mingw32/lib/libuser32.a
-/mingw64/x86_64-w64-mingw32/lib/libkernel32.a
-/mingw64/x86_64-w64-mingw32/lib/libmingw32.a
-/mingw64/x86_64-w64-mingw32/lib/libmoldname.a
-/mingw64/x86_64-w64-mingw32/lib/libmingwex.a
-/mingw64/x86_64-w64-mingw32/lib/libmsvcrt.a
-/mingw64/x86_64-w64-mingw32/lib/libgdi32.a
-/mingw64/x86_64-w64-mingw32/lib/libcrypt32.a
-/mingw64/x86_64-w64-mingw32/lib/libwldap32.a
-/mingw64/x86_64-w64-mingw32/lib/libcomdlg32.a
+/clangarm64/include/
+!/clangarm64/include/GL
+!/clangarm64/include/c++
+!/clangarm64/include/libxml*
+!/clangarm64/include/ncurses*
+!/clangarm64/include/python*
+!/clangarm64/include/x*
+/clangarm64/lib/*.o
+/clangarm64/lib/libadvapi32*
+/clangarm64/lib/libbrotli*
+/clangarm64/lib/libcrypto*
+/clangarm64/lib/libcurl*
+/clangarm64/lib/libexpat*
+/clangarm64/lib/libiconv*
+/clangarm64/lib/libidn2*
+/clangarm64/lib/libintl*
+/clangarm64/lib/libkernel32*
+/clangarm64/lib/libmingw32*
+/clangarm64/lib/libmingwex*
+/clangarm64/lib/libmoldname*
+/clangarm64/lib/libmsvcrt*
+/clangarm64/lib/libnghttp2*
+/clangarm64/lib/libntdll*
+/clangarm64/lib/libpcre2-8*
+/clangarm64/lib/libpthread*
+/clangarm64/lib/libshell32*
+/clangarm64/lib/libssh*
+/clangarm64/lib/libssl*
+/clangarm64/lib/libssp*
+/clangarm64/lib/libunwind*
+/clangarm64/lib/libuser32*
+/clangarm64/lib/libws2_32*
+/clangarm64/lib/libz*
 
 # For building `headless-git.exe`
-/mingw64/lib/libcomdlg32.a
-/mingw64/lib/libgdi32.a
+/clangarm64/lib/libcomdlg32.a
+/clangarm64/lib/libgdi32.a
 
 # MSYS2 configuration files
 /etc/fstab
