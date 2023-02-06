@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-gnutls
 
 %VERSION%
-3.7.8-1
+3.7.8-2
 
 %BASE%
 mingw-w64-gnutls
@@ -17,16 +17,16 @@ https://www.gnutls.org/
 any
 
 %BUILDDATE%
-1666128181
+1675672335
 
 %INSTALLDATE%
-1672731872
+1675722698
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/b422ff4a/3276984273)
+CI (msys2-arm/msys2-autobuild/34a63008/4101161216)
 
 %SIZE%
-12695150
+12916782
 
 %REASON%
 1

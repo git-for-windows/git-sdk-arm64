@@ -1,7 +1,7 @@
 %FILES%
 clangarm64/
 clangarm64/bin/
-clangarm64/bin/libunistring-2.dll
+clangarm64/bin/libunistring-5.dll
 clangarm64/include/
 clangarm64/include/unicase.h
 clangarm64/include/uniconv.h

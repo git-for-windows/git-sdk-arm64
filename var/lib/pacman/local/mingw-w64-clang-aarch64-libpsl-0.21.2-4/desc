@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-libpsl
 
 %VERSION%
-0.21.2-3
+0.21.2-4
 
 %BASE%
 mingw-w64-libpsl
@@ -17,22 +17,22 @@ https://github.com/rockdaboot/libpsl
 any
 
 %BUILDDATE%
-1672991521
+1675676505
 
 %INSTALLDATE%
-1673147844
+1675722698
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/bb7b43f8/3852895035)
+CI (msys2-arm/msys2-autobuild/34a63008/4101161216)
 
 %SIZE%
-258082
+258116
 
 %REASON%
 1
 
 %LICENSE%
-MIT
+spdx:MIT
 
 %VALIDATION%
 pgp
