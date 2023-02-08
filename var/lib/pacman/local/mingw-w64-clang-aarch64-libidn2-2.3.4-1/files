@@ -54,6 +54,9 @@ clangarm64/share/locale/ja/LC_MESSAGES/libidn2.mo
 clangarm64/share/locale/ka/
 clangarm64/share/locale/ka/LC_MESSAGES/
 clangarm64/share/locale/ka/LC_MESSAGES/libidn2.mo
+clangarm64/share/locale/ko/
+clangarm64/share/locale/ko/LC_MESSAGES/
+clangarm64/share/locale/ko/LC_MESSAGES/libidn2.mo
 clangarm64/share/locale/nl/
 clangarm64/share/locale/nl/LC_MESSAGES/
 clangarm64/share/locale/nl/LC_MESSAGES/libidn2.mo

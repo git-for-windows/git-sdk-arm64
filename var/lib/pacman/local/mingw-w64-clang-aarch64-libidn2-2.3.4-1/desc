@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-libidn2
 
 %VERSION%
-2.3.3-2
+2.3.4-1
 
 %BASE%
 mingw-w64-libidn2
@@ -17,16 +17,16 @@ https://www.gnu.org/software/libidn
 any
 
 %BUILDDATE%
-1675671163
+1675761463
 
 %INSTALLDATE%
-1675722697
+1675862732
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/34a63008/4101161216)
+CI (msys2-arm/msys2-autobuild/34a63008/4112280284)
 
 %SIZE%
-701186
+715241
 
 %REASON%
 1
