@@ -1,8 +1,8 @@
 %NAME%
-zstd
+libzstd
 
 %VERSION%
-1.5.2-2
+1.5.4-1
 
 %BASE%
 zstd
@@ -17,22 +17,19 @@ https://facebook.github.io/zstd/
 x86_64
 
 %BUILDDATE%
-1652636464
+1676031020
 
 %INSTALLDATE%
-1652759318
+1676085565
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/745e5e2c/2327957189)
+CI (msys2/msys2-autobuild/aea263ec/4143713087)
 
 %SIZE%
-3705707
+1103298
 
 %REASON%
 1
-
-%GROUPS%
-libraries
 
 %LICENSE%
 BSD
@@ -42,5 +39,4 @@ pgp
 
 %DEPENDS%
 gcc-libs
-libzstd
 
