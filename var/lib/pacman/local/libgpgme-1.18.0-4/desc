@@ -2,7 +2,7 @@
 libgpgme
 
 %VERSION%
-1.18.0-1
+1.18.0-4
 
 %BASE%
 gpgme
@@ -17,16 +17,16 @@ https://gnupg.org/related_software/gpgme/
 x86_64
 
 %BUILDDATE%
-1660270573
+1676406013
 
 %INSTALLDATE%
-1660362108
+1676517648
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/45c6b89e/2844020645)
+CI (msys2/msys2-autobuild/aea263ec/4177712725)
 
 %SIZE%
-901328
+900699
 
 %REASON%
 1

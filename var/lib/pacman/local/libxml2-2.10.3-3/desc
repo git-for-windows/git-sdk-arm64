@@ -2,7 +2,7 @@
 libxml2
 
 %VERSION%
-2.10.3-2
+2.10.3-3
 
 %BASE%
 libxml2
@@ -17,13 +17,13 @@ https://gitlab.gnome.org/GNOME/libxml2/-/wikis/
 x86_64
 
 %BUILDDATE%
-1670102875
+1676400322
 
 %INSTALLDATE%
-1670209452
+1676517646
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/59e8e1af/3610275665)
+CI (msys2/msys2-autobuild/aea263ec/4177005451)
 
 %SIZE%
 1332963

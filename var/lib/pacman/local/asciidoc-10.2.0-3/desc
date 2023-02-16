@@ -2,7 +2,7 @@
 asciidoc
 
 %VERSION%
-10.2.0-2
+10.2.0-3
 
 %BASE%
 asciidoc
@@ -17,16 +17,16 @@ https://asciidoc.org/
 any
 
 %BUILDDATE%
-1671382295
+1676411640
 
 %INSTALLDATE%
-1671418910
+1676517647
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/e22cc1cc/3725702729)
+CI (msys2/msys2-autobuild/aea263ec/4178228501)
 
 %SIZE%
-1338107
+1782407
 
 %LICENSE%
 GPL

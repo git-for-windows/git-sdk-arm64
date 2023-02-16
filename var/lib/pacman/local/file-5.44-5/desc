@@ -2,7 +2,7 @@
 file
 
 %VERSION%
-5.44-3
+5.44-5
 
 %BASE%
 file
@@ -17,16 +17,16 @@ https://www.darwinsys.com/file/
 x86_64
 
 %BUILDDATE%
-1675973313
+1676451424
 
 %INSTALLDATE%
-1676085565
+1676517648
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/aea263ec/4137973808)
+CI (msys2/msys2-autobuild/aea263ec/4182135311)
 
 %SIZE%
-8556484
+8589078
 
 %LICENSE%
 custom

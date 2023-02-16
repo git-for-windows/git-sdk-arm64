@@ -2,7 +2,7 @@
 glib2
 
 %VERSION%
-2.74.4-1
+2.74.4-3
 
 %BASE%
 glib2
@@ -17,16 +17,16 @@ https://www.gtk.org/
 x86_64
 
 %BUILDDATE%
-1671731005
+1676452872
 
 %INSTALLDATE%
-1671851822
+1676517648
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/21a84297/3759919083)
+CI (msys2/msys2-autobuild/aea263ec/4182135311)
 
 %SIZE%
-12792947
+12863121
 
 %REASON%
 1
@@ -43,7 +43,4 @@ libpcre2_8
 libffi
 libiconv
 zlib
-
-%OPTDEPENDS%
-python3: for gdbus-codegen and gtester-report
 
