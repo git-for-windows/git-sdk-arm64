@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-libiconv
 
 %VERSION%
-1.17-2
+1.17-3
 
 %BASE%
 mingw-w64-libiconv
@@ -17,16 +17,16 @@ https://www.gnu.org/software/libiconv/
 any
 
 %BUILDDATE%
-1676114602
+1676809845
 
 %INSTALLDATE%
-1676172027
+1676863391
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/34a63008/4150675101)
+CI (msys2-arm/msys2-autobuild/34a63008/4216201281)
 
 %SIZE%
-2425820
+2425108
 
 %REASON%
 1
