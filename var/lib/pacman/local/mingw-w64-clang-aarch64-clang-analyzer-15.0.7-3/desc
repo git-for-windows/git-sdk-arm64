@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-clang-analyzer
 
 %VERSION%
-15.0.7-2
+15.0.7-3
 
 %BASE%
 mingw-w64-clang
@@ -17,13 +17,13 @@ https://clang-analyzer.llvm.org/
 any
 
 %BUILDDATE%
-1673912834
+1676971059
 
 %INSTALLDATE%
-1674121489
+1677036090
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/0a395449/3933968438)
+CI (msys2-arm/msys2-autobuild/34a63008/4231032616)
 
 %SIZE%
 487262

@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-clang
 
 %VERSION%
-15.0.7-2
+15.0.7-3
 
 %BASE%
 mingw-w64-clang
@@ -17,16 +17,16 @@ https://clang.llvm.org/
 any
 
 %BUILDDATE%
-1673912834
+1676971059
 
 %INSTALLDATE%
-1674121481
+1677036090
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/0a395449/3933968438)
+CI (msys2-arm/msys2-autobuild/34a63008/4231032616)
 
 %SIZE%
-303373974
+303374898
 
 %GROUPS%
 mingw-w64-clang-aarch64-toolchain
