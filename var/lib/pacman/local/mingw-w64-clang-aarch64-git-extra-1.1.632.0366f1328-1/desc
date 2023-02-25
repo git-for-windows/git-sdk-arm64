@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-git-extra
 
 %VERSION%
-1.1.626.37087f071-1
+1.1.632.0366f1328-1
 
 %BASE%
 mingw-w64-git-extra
@@ -17,16 +17,16 @@ https://github.com/git-for-windows/build-extra
 any
 
 %BUILDDATE%
-1674320903
+1677230164
 
 %INSTALLDATE%
-1677122333
+1677295247
 
 %PACKAGER%
 Johannes Schindelin <johannes.schindelin@gmx.de>
 
 %SIZE%
-421967
+421979
 
 %GROUPS%
 VCS
