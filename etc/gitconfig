@@ -12,3 +12,5 @@
 	textconv = astextplain
 [rebase]
 	autosquash = true
+[credential]
+	helper = manager
