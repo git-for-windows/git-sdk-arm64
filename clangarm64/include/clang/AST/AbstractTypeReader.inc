@@ -289,9 +289,9 @@ public:
 
   QualType readAutoType() {
     auto &ctx = R.getASTContext();
-    llvm::Optional<QualType> deducedType = R.find("deducedType").template readOptional<QualType>();
+    std::optional<QualType> deducedType = R.find("deducedType").template readOptional<QualType>();
     AutoTypeKeyword keyword = R.find("keyword").readAutoTypeKeyword();
-    llvm::Optional<ConceptDecl*> typeConstraintConcept = R.find("typeConstraintConcept").template readOptional<ConceptDecl*>();
+    std::optional<ConceptDecl*> typeConstraintConcept = R.find("typeConstraintConcept").template readOptional<ConceptDecl*>();
     llvm::SmallVector<TemplateArgument, 8> typeConstraintArguments_buffer_0;
     llvm::ArrayRef<TemplateArgument> typeConstraintArguments = R.find("typeConstraintArguments").template readArray<TemplateArgument>(typeConstraintArguments_buffer_0);
     uint32_t dependence = R.find("dependence").readUInt32();
@@ -306,7 +306,7 @@ public:
 
   QualType readDeducedTemplateSpecializationType() {
     auto &ctx = R.getASTContext();
-    llvm::Optional<TemplateName> templateName = R.find("templateName").template readOptional<TemplateName>();
+    std::optional<TemplateName> templateName = R.find("templateName").template readOptional<TemplateName>();
     QualType deducedType = R.find("deducedType").readQualType();
     bool dependent = R.find("dependent").readBool();
     
@@ -341,7 +341,7 @@ public:
     ElaboratedTypeKeyword keyword = R.find("keyword").readElaboratedTypeKeyword();
     NestedNameSpecifier * qualifier = R.find("qualifier").readNestedNameSpecifier();
     IdentifierInfo* name = R.find("name").readIdentifier();
-    llvm::Optional<QualType> underlyingType = R.find("underlyingType").template readOptional<QualType>();
+    std::optional<QualType> underlyingType = R.find("underlyingType").template readOptional<QualType>();
     
     QualType canon = (underlyingType
                         ? ctx.getCanonicalType(*underlyingType)
@@ -390,7 +390,7 @@ public:
     ElaboratedTypeKeyword keyword = R.find("keyword").readElaboratedTypeKeyword();
     NestedNameSpecifier * qualifier = R.find("qualifier").readNestedNameSpecifier();
     QualType namedType = R.find("namedType").readQualType();
-    llvm::Optional<TagDecl*> ownedTag = R.find("ownedTag").template readOptional<TagDecl*>();
+    std::optional<TagDecl*> ownedTag = R.find("ownedTag").template readOptional<TagDecl*>();
     
     return ctx.getElaboratedType(keyword, qualifier, namedType,
                                  makePointerFromOptional(ownedTag));
@@ -564,7 +564,7 @@ public:
   QualType readPackExpansionType() {
     auto &ctx = R.getASTContext();
     QualType pattern = R.find("pattern").readQualType();
-    llvm::Optional<uint32_t> numExpansions = R.find("numExpansions").template readOptional<uint32_t>();
+    std::optional<uint32_t> numExpansions = R.find("numExpansions").template readOptional<uint32_t>();
     
     return ctx.getPackExpansionType(pattern, numExpansions,
                                     /*ExpectPackInType*/false);
@@ -614,24 +614,25 @@ public:
 
   QualType readSubstTemplateTypeParmPackType() {
     auto &ctx = R.getASTContext();
-    QualType replacedParameter = R.find("replacedParameter").readQualType();
+    Decl* associatedDecl = R.find("associatedDecl").readDeclRef();
+    uint32_t Index = R.find("Index").readUInt32();
+    bool Final = R.find("Final").readBool();
     TemplateArgument replacementPack = R.find("replacementPack").readTemplateArgument();
     
     return ctx.getSubstTemplateTypeParmPackType(
-                         cast<TemplateTypeParmType>(replacedParameter),
-                        replacementPack);
+                        associatedDecl, Index, Final, replacementPack);
   
   }
 
   QualType readSubstTemplateTypeParmType() {
     auto &ctx = R.getASTContext();
-    QualType replacedParameter = R.find("replacedParameter").readQualType();
     QualType replacementType = R.find("replacementType").readQualType();
+    Decl* associatedDecl = R.find("associatedDecl").readDeclRef();
+    uint32_t Index = R.find("Index").readUInt32();
+    std::optional<uint32_t> PackIndex = R.find("PackIndex").template readOptional<uint32_t>();
     
-    // The call to getCanonicalType here existed in ASTReader.cpp, too.
     return ctx.getSubstTemplateTypeParmType(
-        cast<TemplateTypeParmType>(replacedParameter),
-        ctx.getCanonicalType(replacementType));
+        replacementType, associatedDecl, Index, PackIndex);
   
   }
 
@@ -668,7 +669,7 @@ public:
     TemplateName templateName = R.find("templateName").readTemplateName();
     llvm::SmallVector<TemplateArgument, 8> templateArguments_buffer_0;
     llvm::ArrayRef<TemplateArgument> templateArguments = R.find("templateArguments").template readArray<TemplateArgument>(templateArguments_buffer_0);
-    llvm::Optional<QualType> underlyingType = R.find("underlyingType").template readOptional<QualType>();
+    std::optional<QualType> underlyingType = R.find("underlyingType").template readOptional<QualType>();
     
     QualType result;
     if (!underlyingType) {
@@ -691,7 +692,7 @@ public:
     uint32_t depth = R.find("depth").readUInt32();
     uint32_t index = R.find("index").readUInt32();
     bool isParameterPack = R.find("isParameterPack").readBool();
-    llvm::Optional<TemplateTypeParmDecl*> declaration = R.find("declaration").template readOptional<TemplateTypeParmDecl*>();
+    std::optional<TemplateTypeParmDecl*> declaration = R.find("declaration").template readOptional<TemplateTypeParmDecl*>();
     
     return ctx.getTemplateTypeParmType(depth, index, isParameterPack,
                                        makePointerFromOptional(declaration));
@@ -701,29 +702,27 @@ public:
   QualType readTypeOfExprType() {
     auto &ctx = R.getASTContext();
     Expr* expression = R.find("expression").readExprRef();
+    TypeOfKind kind = R.find("kind").readTypeOfKind();
     
-    return ctx.getTypeOfExprType(expression);
+    return ctx.getTypeOfExprType(expression, kind);
   
   }
 
   QualType readTypeOfType() {
     auto &ctx = R.getASTContext();
-    QualType underlyingType = R.find("underlyingType").readQualType();
+    QualType unmodifiedType = R.find("unmodifiedType").readQualType();
+    TypeOfKind kind = R.find("kind").readTypeOfKind();
     
-    return ctx.getTypeOfType(underlyingType);
+    return ctx.getTypeOfType(unmodifiedType, kind);
   
   }
 
   QualType readTypedefType() {
     auto &ctx = R.getASTContext();
     Decl* declaration = R.find("declaration").readDeclRef();
-    llvm::Optional<QualType> canonicalType = R.find("canonicalType").template readOptional<QualType>();
+    QualType underlyingType = R.find("underlyingType").readQualType();
     
-    QualType finalCanonicalType =
-      canonicalType ? ctx.getCanonicalType(*canonicalType)
-                    : QualType();
-    return ctx.getTypedefType(cast<TypedefNameDecl>(declaration),
-                              finalCanonicalType);
+    return ctx.getTypedefType(cast<TypedefNameDecl>(declaration), underlyingType);
   
   }
 

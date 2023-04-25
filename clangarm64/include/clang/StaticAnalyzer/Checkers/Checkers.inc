@@ -230,6 +230,7 @@ CHECKER("core.uninitialized.CapturedBlockVariable", UndefCapturedBlockVarChecker
 CHECKER("core.UndefinedBinaryOperatorResult", UndefResultChecker, "Check for undefined results of binary operators", "https://clang.llvm.org/docs/analyzer/checkers.html#core-undefinedbinaryoperatorresult", false)
 CHECKER("core.uninitialized.ArraySubscript", UndefinedArraySubscriptChecker, "Check for uninitialized values used as array subscripts", "https://clang.llvm.org/docs/analyzer/checkers.html#core-uninitialized-arraysubscript", false)
 CHECKER("core.uninitialized.Assign", UndefinedAssignmentChecker, "Check for assigning uninitialized values", "https://clang.llvm.org/docs/analyzer/checkers.html#core-uninitialized-assign", false)
+CHECKER("core.uninitialized.NewArraySize", UndefinedNewArraySizeChecker, "Check if the size of the array in a new[] expression is undefined", "https://clang.llvm.org/docs/analyzer/checkers.html#core-uninitialized-newarraysize", false)
 CHECKER("valist.Uninitialized", UninitializedChecker, "Check for usages of uninitialized (or already released) va_lists.", "", false)
 CHECKER("optin.cplusplus.UninitializedObject", UninitializedObjectChecker, "Reports uninitialized fields after object construction", "https://clang.llvm.org/docs/analyzer/checkers.html#optin-cplusplus-uninitializedobject", false)
 CHECKER("unix.API", UnixAPIMisuseChecker, "Check calls to various UNIX/Posix functions", "https://clang.llvm.org/docs/analyzer/checkers.html#unix-api", false)
@@ -328,7 +329,6 @@ CHECKER_DEPENDENCY("security.insecureAPI.vfork", "security.insecureAPI.SecurityS
 #ifdef GET_CHECKER_WEAK_DEPENDENCIES
 CHECKER_WEAK_DEPENDENCY("alpha.unix.StdCLibraryFunctionArgs", "core.CallAndMessage")
 CHECKER_WEAK_DEPENDENCY("alpha.unix.StdCLibraryFunctionArgs", "core.NonNullParamChecker")
-CHECKER_WEAK_DEPENDENCY("alpha.unix.StdCLibraryFunctionArgs", "alpha.unix.Stream")
 
 #endif // GET_CHECKER_WEAK_DEPENDENCIES
 

@@ -7,7 +7,7 @@ if(CMAKE_VERSION VERSION_LESS "2.8.3")
    message(FATAL_ERROR "CMake >= 2.8.3 required")
 endif()
 cmake_policy(PUSH)
-cmake_policy(VERSION 2.8.3...3.23)
+cmake_policy(VERSION 2.8.3...3.24)
 #----------------------------------------------------------------
 # Generated CMake target import file.
 #----------------------------------------------------------------
@@ -76,7 +76,7 @@ set_target_properties(lldCOFF PROPERTIES
 add_library(lldELF STATIC IMPORTED)
 
 set_target_properties(lldELF PROPERTIES
-  INTERFACE_LINK_LIBRARIES "lldCommon;ZLIB::ZLIB;LLVM"
+  INTERFACE_LINK_LIBRARIES "lldCommon;ZLIB::ZLIB;zstd::libzstd_static;LLVM"
 )
 
 # Create imported target lldMachO

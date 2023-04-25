@@ -235,9 +235,13 @@ void AMDGPUFlatWorkGroupSizeAttr::printPretty(raw_ostream &OS, const PrintingPol
   case 0 : {
     OS << " __attribute__((amdgpu_flat_work_group_size";
     DelimitAttributeArgument(OS, IsFirstArgument);
-    OS << "" << getMin() << "";
+    OS << "";
+    getMin()->printPretty(OS, nullptr, Policy);
+    OS << "";
     DelimitAttributeArgument(OS, IsFirstArgument);
-    OS << "" << getMax() << "";
+    OS << "";
+    getMax()->printPretty(OS, nullptr, Policy);
+    OS << "";
     if (!IsFirstArgument)
       OS << ")";
     OS << "))";
@@ -246,9 +250,13 @@ void AMDGPUFlatWorkGroupSizeAttr::printPretty(raw_ostream &OS, const PrintingPol
   case 1 : {
     OS << " [[clang::amdgpu_flat_work_group_size";
     DelimitAttributeArgument(OS, IsFirstArgument);
-    OS << "" << getMin() << "";
+    OS << "";
+    getMin()->printPretty(OS, nullptr, Policy);
+    OS << "";
     DelimitAttributeArgument(OS, IsFirstArgument);
-    OS << "" << getMax() << "";
+    OS << "";
+    getMax()->printPretty(OS, nullptr, Policy);
+    OS << "";
     if (!IsFirstArgument)
       OS << ")";
     OS << "]]";
@@ -591,9 +599,13 @@ void AMDGPUWavesPerEUAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Po
   case 0 : {
     OS << " __attribute__((amdgpu_waves_per_eu";
     DelimitAttributeArgument(OS, IsFirstArgument);
-    OS << "" << getMin() << "";
+    OS << "";
+    getMin()->printPretty(OS, nullptr, Policy);
+    OS << "";
     DelimitAttributeArgument(OS, IsFirstArgument);
-    OS << "" << getMax() << "";
+    OS << "";
+    getMax()->printPretty(OS, nullptr, Policy);
+    OS << "";
     if (!IsFirstArgument)
       OS << ")";
     OS << "))";
@@ -602,9 +614,13 @@ void AMDGPUWavesPerEUAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Po
   case 1 : {
     OS << " [[clang::amdgpu_waves_per_eu";
     DelimitAttributeArgument(OS, IsFirstArgument);
-    OS << "" << getMin() << "";
+    OS << "";
+    getMin()->printPretty(OS, nullptr, Policy);
+    OS << "";
     DelimitAttributeArgument(OS, IsFirstArgument);
-    OS << "" << getMax() << "";
+    OS << "";
+    getMax()->printPretty(OS, nullptr, Policy);
+    OS << "";
     if (!IsFirstArgument)
       OS << ")";
     OS << "]]";
@@ -671,14 +687,14 @@ ARMInterruptAttr::ARMInterruptAttr(ASTContext &Ctx, const AttributeCommonInfo &C
 
 
 bool ARMInterruptAttr::ConvertStrToInterruptType(StringRef Val, InterruptType &Out) {
-  Optional<InterruptType> R = llvm::StringSwitch<Optional<InterruptType>>(Val)
+  std::optional<InterruptType> R = llvm::StringSwitch<std::optional<InterruptType>>(Val)
     .Case("IRQ", ARMInterruptAttr::IRQ)
     .Case("FIQ", ARMInterruptAttr::FIQ)
     .Case("SWI", ARMInterruptAttr::SWI)
     .Case("ABORT", ARMInterruptAttr::ABORT)
     .Case("UNDEF", ARMInterruptAttr::UNDEF)
     .Case("", ARMInterruptAttr::Generic)
-    .Default(Optional<InterruptType>());
+    .Default(std::optional<InterruptType>());
   if (R) {
     Out = *R;
       return true;
@@ -1822,7 +1838,9 @@ void AlignValueAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) 
   case 0 : {
     OS << " __attribute__((align_value";
     DelimitAttributeArgument(OS, IsFirstArgument);
-    OS << "" << getAlignment() << "";
+    OS << "";
+    getAlignment()->printPretty(OS, nullptr, Policy);
+    OS << "";
     if (!IsFirstArgument)
       OS << ")";
     OS << "))";
@@ -4153,9 +4171,13 @@ void AssumeAlignedAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Polic
   case 0 : {
     OS << " __attribute__((assume_aligned";
     DelimitAttributeArgument(OS, IsFirstArgument);
-    OS << "" << getAlignment() << "";
+    OS << "";
+    getAlignment()->printPretty(OS, nullptr, Policy);
+    OS << "";
     DelimitAttributeArgument(OS, IsFirstArgument);
-    OS << "" << getOffset() << "";
+    OS << "";
+    getOffset()->printPretty(OS, nullptr, Policy);
+    OS << "";
     if (!IsFirstArgument)
       OS << ")";
     OS << "))";
@@ -4164,9 +4186,13 @@ void AssumeAlignedAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Polic
   case 1 : {
     OS << " [[gnu::assume_aligned";
     DelimitAttributeArgument(OS, IsFirstArgument);
-    OS << "" << getAlignment() << "";
+    OS << "";
+    getAlignment()->printPretty(OS, nullptr, Policy);
+    OS << "";
     DelimitAttributeArgument(OS, IsFirstArgument);
-    OS << "" << getOffset() << "";
+    OS << "";
+    getOffset()->printPretty(OS, nullptr, Policy);
+    OS << "";
     if (!IsFirstArgument)
       OS << ")";
     OS << "]]";
@@ -4175,9 +4201,13 @@ void AssumeAlignedAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Polic
   case 2 : {
     OS << " [[gnu::assume_aligned";
     DelimitAttributeArgument(OS, IsFirstArgument);
-    OS << "" << getAlignment() << "";
+    OS << "";
+    getAlignment()->printPretty(OS, nullptr, Policy);
+    OS << "";
     DelimitAttributeArgument(OS, IsFirstArgument);
-    OS << "" << getOffset() << "";
+    OS << "";
+    getOffset()->printPretty(OS, nullptr, Policy);
+    OS << "";
     if (!IsFirstArgument)
       OS << ")";
     OS << "]]";
@@ -4785,9 +4815,9 @@ BlocksAttr::BlocksAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
 
 
 bool BlocksAttr::ConvertStrToBlockType(StringRef Val, BlockType &Out) {
-  Optional<BlockType> R = llvm::StringSwitch<Optional<BlockType>>(Val)
+  std::optional<BlockType> R = llvm::StringSwitch<std::optional<BlockType>>(Val)
     .Case("byref", BlocksAttr::ByRef)
-    .Default(Optional<BlockType>());
+    .Default(std::optional<BlockType>());
   if (R) {
     Out = *R;
       return true;
@@ -5379,9 +5409,9 @@ CFGuardAttr::CFGuardAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
 
 
 bool CFGuardAttr::ConvertStrToGuardArg(StringRef Val, GuardArg &Out) {
-  Optional<GuardArg> R = llvm::StringSwitch<Optional<GuardArg>>(Val)
+  std::optional<GuardArg> R = llvm::StringSwitch<std::optional<GuardArg>>(Val)
     .Case("nocf", CFGuardAttr::nocf)
-    .Default(Optional<GuardArg>());
+    .Default(std::optional<GuardArg>());
   if (R) {
     Out = *R;
       return true;
@@ -5419,6 +5449,33 @@ void CFGuardAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) con
     OS << ")";
     break;
   }
+  case 1 : {
+    OS << " __attribute__((guard";
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "\"" << CFGuardAttr::ConvertGuardArgToStr(getGuard()) << "\"";
+    if (!IsFirstArgument)
+      OS << ")";
+    OS << "))";
+    break;
+  }
+  case 2 : {
+    OS << " [[clang::guard";
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "\"" << CFGuardAttr::ConvertGuardArgToStr(getGuard()) << "\"";
+    if (!IsFirstArgument)
+      OS << ")";
+    OS << "]]";
+    break;
+  }
+  case 3 : {
+    OS << " [[clang::guard";
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "\"" << CFGuardAttr::ConvertGuardArgToStr(getGuard()) << "\"";
+    if (!IsFirstArgument)
+      OS << ")";
+    OS << "]]";
+    break;
+  }
 }
 }
 
@@ -5428,6 +5485,12 @@ const char *CFGuardAttr::getSpelling() const {
     llvm_unreachable("Unknown attribute spelling!");
     return "(No spelling)";
   case 0:
+    return "guard";
+  case 1:
+    return "guard";
+  case 2:
+    return "guard";
+  case 3:
     return "guard";
   }
 }
@@ -6582,9 +6645,13 @@ void CUDALaunchBoundsAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Po
   case 0 : {
     OS << " __attribute__((launch_bounds";
     DelimitAttributeArgument(OS, IsFirstArgument);
-    OS << "" << getMaxThreads() << "";
+    OS << "";
+    getMaxThreads()->printPretty(OS, nullptr, Policy);
+    OS << "";
     DelimitAttributeArgument(OS, IsFirstArgument);
-    OS << "" << getMinBlocks() << "";
+    OS << "";
+    getMinBlocks()->printPretty(OS, nullptr, Policy);
+    OS << "";
     if (!IsFirstArgument)
       OS << ")";
     OS << "))";
@@ -6593,9 +6660,13 @@ void CUDALaunchBoundsAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Po
   case 1 : {
     OS << " __declspec(__launch_bounds__";
     DelimitAttributeArgument(OS, IsFirstArgument);
-    OS << "" << getMaxThreads() << "";
+    OS << "";
+    getMaxThreads()->printPretty(OS, nullptr, Policy);
+    OS << "";
     DelimitAttributeArgument(OS, IsFirstArgument);
-    OS << "" << getMinBlocks() << "";
+    OS << "";
+    getMinBlocks()->printPretty(OS, nullptr, Policy);
+    OS << "";
     if (!IsFirstArgument)
       OS << ")";
     OS << ")";
@@ -6824,11 +6895,11 @@ CallableWhenAttr::CallableWhenAttr(ASTContext &Ctx, const AttributeCommonInfo &C
 
 
 bool CallableWhenAttr::ConvertStrToConsumedState(StringRef Val, ConsumedState &Out) {
-  Optional<ConsumedState> R = llvm::StringSwitch<Optional<ConsumedState>>(Val)
+  std::optional<ConsumedState> R = llvm::StringSwitch<std::optional<ConsumedState>>(Val)
     .Case("unknown", CallableWhenAttr::Unknown)
     .Case("consumed", CallableWhenAttr::Consumed)
     .Case("unconsumed", CallableWhenAttr::Unconsumed)
-    .Default(Optional<ConsumedState>());
+    .Default(std::optional<ConsumedState>());
   if (R) {
     Out = *R;
       return true;
@@ -8140,11 +8211,11 @@ ConsumableAttr::ConsumableAttr(ASTContext &Ctx, const AttributeCommonInfo &Commo
 
 
 bool ConsumableAttr::ConvertStrToConsumedState(StringRef Val, ConsumedState &Out) {
-  Optional<ConsumedState> R = llvm::StringSwitch<Optional<ConsumedState>>(Val)
+  std::optional<ConsumedState> R = llvm::StringSwitch<std::optional<ConsumedState>>(Val)
     .Case("unknown", ConsumableAttr::Unknown)
     .Case("consumed", ConsumableAttr::Consumed)
     .Case("unconsumed", ConsumableAttr::Unconsumed)
-    .Default(Optional<ConsumedState>());
+    .Default(std::optional<ConsumedState>());
   if (R) {
     Out = *R;
       return true;
@@ -9173,10 +9244,10 @@ DiagnoseIfAttr::DiagnoseIfAttr(ASTContext &Ctx, const AttributeCommonInfo &Commo
 
 
 bool DiagnoseIfAttr::ConvertStrToDiagnosticType(StringRef Val, DiagnosticType &Out) {
-  Optional<DiagnosticType> R = llvm::StringSwitch<Optional<DiagnosticType>>(Val)
+  std::optional<DiagnosticType> R = llvm::StringSwitch<std::optional<DiagnosticType>>(Val)
     .Case("error", DiagnoseIfAttr::DT_Error)
     .Case("warning", DiagnoseIfAttr::DT_Warning)
-    .Default(Optional<DiagnosticType>());
+    .Default(std::optional<DiagnosticType>());
   if (R) {
     Out = *R;
       return true;
@@ -9213,7 +9284,9 @@ void DiagnoseIfAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) 
   case 0 : {
     OS << " __attribute__((diagnose_if";
     DelimitAttributeArgument(OS, IsFirstArgument);
-    OS << "" << getCond() << "";
+    OS << "";
+    getCond()->printPretty(OS, nullptr, Policy);
+    OS << "";
     DelimitAttributeArgument(OS, IsFirstArgument);
     OS << "\"" << getMessage() << "\"";
     DelimitAttributeArgument(OS, IsFirstArgument);
@@ -9527,7 +9600,9 @@ void EnableIfAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) co
   case 0 : {
     OS << " __attribute__((enable_if";
     DelimitAttributeArgument(OS, IsFirstArgument);
-    OS << "" << getCond() << "";
+    OS << "";
+    getCond()->printPretty(OS, nullptr, Policy);
+    OS << "";
     DelimitAttributeArgument(OS, IsFirstArgument);
     OS << "\"" << getMessage() << "\"";
     if (!IsFirstArgument)
@@ -9785,10 +9860,10 @@ EnumExtensibilityAttr::EnumExtensibilityAttr(ASTContext &Ctx, const AttributeCom
 
 
 bool EnumExtensibilityAttr::ConvertStrToKind(StringRef Val, Kind &Out) {
-  Optional<Kind> R = llvm::StringSwitch<Optional<Kind>>(Val)
+  std::optional<Kind> R = llvm::StringSwitch<std::optional<Kind>>(Val)
     .Case("closed", EnumExtensibilityAttr::Closed)
     .Case("open", EnumExtensibilityAttr::Open)
-    .Default(Optional<Kind>());
+    .Default(std::optional<Kind>());
   if (R) {
     Out = *R;
       return true;
@@ -10154,7 +10229,9 @@ void ExclusiveTrylockFunctionAttr::printPretty(raw_ostream &OS, const PrintingPo
   case 0 : {
     OS << " __attribute__((exclusive_trylock_function";
     DelimitAttributeArgument(OS, IsFirstArgument);
-    OS << "" << getSuccessValue() << "";
+    OS << "";
+    getSuccessValue()->printPretty(OS, nullptr, Policy);
+    OS << "";
     OS << "";
   for (const auto &Val : args()) {
     DelimitAttributeArgument(OS, IsFirstArgument);
@@ -11000,10 +11077,10 @@ FunctionReturnThunksAttr::FunctionReturnThunksAttr(ASTContext &Ctx, const Attrib
 
 
 bool FunctionReturnThunksAttr::ConvertStrToKind(StringRef Val, Kind &Out) {
-  Optional<Kind> R = llvm::StringSwitch<Optional<Kind>>(Val)
+  std::optional<Kind> R = llvm::StringSwitch<std::optional<Kind>>(Val)
     .Case("keep", FunctionReturnThunksAttr::Keep)
     .Case("thunk-extern", FunctionReturnThunksAttr::Extern)
-    .Default(Optional<Kind>());
+    .Default(std::optional<Kind>());
   if (R) {
     Out = *R;
       return true;
@@ -11214,7 +11291,9 @@ void GuardedByAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) c
   case 0 : {
     OS << " __attribute__((guarded_by";
     DelimitAttributeArgument(OS, IsFirstArgument);
-    OS << "" << getArg() << "";
+    OS << "";
+    getArg()->printPretty(OS, nullptr, Policy);
+    OS << "";
     if (!IsFirstArgument)
       OS << ")";
     OS << "))";
@@ -11382,6 +11461,73 @@ const char *HIPManagedAttr::getSpelling() const {
 }
 
 
+// HLSLGroupSharedAddressSpaceAttr implementation
+
+HLSLGroupSharedAddressSpaceAttr *HLSLGroupSharedAddressSpaceAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) HLSLGroupSharedAddressSpaceAttr(Ctx, CommonInfo);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+HLSLGroupSharedAddressSpaceAttr *HLSLGroupSharedAddressSpaceAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) HLSLGroupSharedAddressSpaceAttr(Ctx, CommonInfo);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+HLSLGroupSharedAddressSpaceAttr *HLSLGroupSharedAddressSpaceAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+  return CreateImplicit(Ctx, I);
+}
+
+HLSLGroupSharedAddressSpaceAttr *HLSLGroupSharedAddressSpaceAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+  return Create(Ctx, I);
+}
+
+HLSLGroupSharedAddressSpaceAttr::HLSLGroupSharedAddressSpaceAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             )
+  : TypeAttr(Ctx, CommonInfo, attr::HLSLGroupSharedAddressSpace, false)
+  {
+}
+
+HLSLGroupSharedAddressSpaceAttr *HLSLGroupSharedAddressSpaceAttr::clone(ASTContext &C) const {
+  auto *A = new (C) HLSLGroupSharedAddressSpaceAttr(C, *this);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void HLSLGroupSharedAddressSpaceAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+  bool IsFirstArgument = true; (void)IsFirstArgument;
+  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    break;
+  case 0 : {
+    OS << " groupshared";
+    OS << "";
+    break;
+  }
+}
+}
+
+const char *HLSLGroupSharedAddressSpaceAttr::getSpelling() const {
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    return "(No spelling)";
+  case 0:
+    return "groupshared";
+  }
+}
+
+
 // HLSLNumThreadsAttr implementation
 
 HLSLNumThreadsAttr *HLSLNumThreadsAttr::CreateImplicit(ASTContext &Ctx, int X, int Y, int Z, const AttributeCommonInfo &CommonInfo) {
@@ -11469,6 +11615,300 @@ const char *HLSLNumThreadsAttr::getSpelling() const {
 }
 
 
+// HLSLResourceAttr implementation
+
+HLSLResourceAttr *HLSLResourceAttr::CreateImplicit(ASTContext &Ctx, ResourceClass ResourceType, ResourceKind ResourceShape, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) HLSLResourceAttr(Ctx, CommonInfo, ResourceType, ResourceShape);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+HLSLResourceAttr *HLSLResourceAttr::Create(ASTContext &Ctx, ResourceClass ResourceType, ResourceKind ResourceShape, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) HLSLResourceAttr(Ctx, CommonInfo, ResourceType, ResourceShape);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+HLSLResourceAttr *HLSLResourceAttr::CreateImplicit(ASTContext &Ctx, ResourceClass ResourceType, ResourceKind ResourceShape, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+  return CreateImplicit(Ctx, ResourceType, ResourceShape, I);
+}
+
+HLSLResourceAttr *HLSLResourceAttr::Create(ASTContext &Ctx, ResourceClass ResourceType, ResourceKind ResourceShape, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+  return Create(Ctx, ResourceType, ResourceShape, I);
+}
+
+HLSLResourceAttr::HLSLResourceAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , ResourceClass ResourceType
+              , ResourceKind ResourceShape
+             )
+  : InheritableAttr(Ctx, CommonInfo, attr::HLSLResource, false, false)
+              , resourceType(ResourceType)
+              , resourceShape(ResourceShape)
+  {
+}
+
+
+
+bool HLSLResourceAttr::ConvertStrToResourceClass(StringRef Val, ResourceClass &Out) {
+  std::optional<ResourceClass> R = llvm::StringSwitch<std::optional<ResourceClass>>(Val)
+    .Case("SRV", HLSLResourceAttr::SRV)
+    .Case("UAV", HLSLResourceAttr::UAV)
+    .Case("CBuffer", HLSLResourceAttr::CBuffer)
+    .Case("Sampler", HLSLResourceAttr::Sampler)
+    .Default(std::optional<ResourceClass>());
+  if (R) {
+    Out = *R;
+      return true;
+    }
+  return false;
+}
+
+const char *HLSLResourceAttr::ConvertResourceClassToStr(ResourceClass Val) {
+  switch(Val) {
+  case HLSLResourceAttr::SRV: return "SRV";
+  case HLSLResourceAttr::UAV: return "UAV";
+  case HLSLResourceAttr::CBuffer: return "CBuffer";
+  case HLSLResourceAttr::Sampler: return "Sampler";
+  }
+  llvm_unreachable("No enumerator with that value");
+}
+
+
+bool HLSLResourceAttr::ConvertStrToResourceKind(StringRef Val, ResourceKind &Out) {
+  std::optional<ResourceKind> R = llvm::StringSwitch<std::optional<ResourceKind>>(Val)
+    .Case("Texture1D", HLSLResourceAttr::Texture1D)
+    .Case("Texture2D", HLSLResourceAttr::Texture2D)
+    .Case("Texture2DMS", HLSLResourceAttr::Texture2DMS)
+    .Case("Texture3D", HLSLResourceAttr::Texture3D)
+    .Case("TextureCube", HLSLResourceAttr::TextureCube)
+    .Case("Texture1DArray", HLSLResourceAttr::Texture1DArray)
+    .Case("Texture2DArray", HLSLResourceAttr::Texture2DArray)
+    .Case("Texture2DMSArray", HLSLResourceAttr::Texture2DMSArray)
+    .Case("TextureCubeArray", HLSLResourceAttr::TextureCubeArray)
+    .Case("TypedBuffer", HLSLResourceAttr::TypedBuffer)
+    .Case("RawBuffer", HLSLResourceAttr::RawBuffer)
+    .Case("StructuredBuffer", HLSLResourceAttr::StructuredBuffer)
+    .Case("CBufferKind", HLSLResourceAttr::CBufferKind)
+    .Case("SamplerKind", HLSLResourceAttr::SamplerKind)
+    .Case("TBuffer", HLSLResourceAttr::TBuffer)
+    .Case("RTAccelerationStructure", HLSLResourceAttr::RTAccelerationStructure)
+    .Case("FeedbackTexture2D", HLSLResourceAttr::FeedbackTexture2D)
+    .Case("FeedbackTexture2DArray", HLSLResourceAttr::FeedbackTexture2DArray)
+    .Default(std::optional<ResourceKind>());
+  if (R) {
+    Out = *R;
+      return true;
+    }
+  return false;
+}
+
+const char *HLSLResourceAttr::ConvertResourceKindToStr(ResourceKind Val) {
+  switch(Val) {
+  case HLSLResourceAttr::Texture1D: return "Texture1D";
+  case HLSLResourceAttr::Texture2D: return "Texture2D";
+  case HLSLResourceAttr::Texture2DMS: return "Texture2DMS";
+  case HLSLResourceAttr::Texture3D: return "Texture3D";
+  case HLSLResourceAttr::TextureCube: return "TextureCube";
+  case HLSLResourceAttr::Texture1DArray: return "Texture1DArray";
+  case HLSLResourceAttr::Texture2DArray: return "Texture2DArray";
+  case HLSLResourceAttr::Texture2DMSArray: return "Texture2DMSArray";
+  case HLSLResourceAttr::TextureCubeArray: return "TextureCubeArray";
+  case HLSLResourceAttr::TypedBuffer: return "TypedBuffer";
+  case HLSLResourceAttr::RawBuffer: return "RawBuffer";
+  case HLSLResourceAttr::StructuredBuffer: return "StructuredBuffer";
+  case HLSLResourceAttr::CBufferKind: return "CBufferKind";
+  case HLSLResourceAttr::SamplerKind: return "SamplerKind";
+  case HLSLResourceAttr::TBuffer: return "TBuffer";
+  case HLSLResourceAttr::RTAccelerationStructure: return "RTAccelerationStructure";
+  case HLSLResourceAttr::FeedbackTexture2D: return "FeedbackTexture2D";
+  case HLSLResourceAttr::FeedbackTexture2DArray: return "FeedbackTexture2DArray";
+  }
+  llvm_unreachable("No enumerator with that value");
+}
+HLSLResourceAttr *HLSLResourceAttr::clone(ASTContext &C) const {
+  auto *A = new (C) HLSLResourceAttr(C, *this, resourceType, resourceShape);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void HLSLResourceAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+}
+
+const char *HLSLResourceAttr::getSpelling() const {
+  return "(No spelling)";
+}
+
+
+// HLSLResourceBindingAttr implementation
+
+HLSLResourceBindingAttr *HLSLResourceBindingAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Slot, llvm::StringRef Space, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) HLSLResourceBindingAttr(Ctx, CommonInfo, Slot, Space);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+HLSLResourceBindingAttr *HLSLResourceBindingAttr::Create(ASTContext &Ctx, llvm::StringRef Slot, llvm::StringRef Space, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) HLSLResourceBindingAttr(Ctx, CommonInfo, Slot, Space);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+HLSLResourceBindingAttr *HLSLResourceBindingAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Slot, llvm::StringRef Space, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+  return CreateImplicit(Ctx, Slot, Space, I);
+}
+
+HLSLResourceBindingAttr *HLSLResourceBindingAttr::Create(ASTContext &Ctx, llvm::StringRef Slot, llvm::StringRef Space, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+  return Create(Ctx, Slot, Space, I);
+}
+
+HLSLResourceBindingAttr::HLSLResourceBindingAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , llvm::StringRef Slot
+              , llvm::StringRef Space
+             )
+  : InheritableAttr(Ctx, CommonInfo, attr::HLSLResourceBinding, false, false)
+              , slotLength(Slot.size()),slot(new (Ctx, 1) char[slotLength])
+              , spaceLength(Space.size()),space(new (Ctx, 1) char[spaceLength])
+  {
+    if (!Slot.empty())
+      std::memcpy(slot, Slot.data(), slotLength);
+    if (!Space.empty())
+      std::memcpy(space, Space.data(), spaceLength);
+}
+
+HLSLResourceBindingAttr::HLSLResourceBindingAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , llvm::StringRef Slot
+             )
+  : InheritableAttr(Ctx, CommonInfo, attr::HLSLResourceBinding, false, false)
+              , slotLength(Slot.size()),slot(new (Ctx, 1) char[slotLength])
+              , spaceLength(0),space(nullptr)
+  {
+    if (!Slot.empty())
+      std::memcpy(slot, Slot.data(), slotLength);
+}
+
+
+
+
+
+HLSLResourceBindingAttr *HLSLResourceBindingAttr::clone(ASTContext &C) const {
+  auto *A = new (C) HLSLResourceBindingAttr(C, *this, getSlot(), getSpace());
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void HLSLResourceBindingAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+  bool IsFirstArgument = true; (void)IsFirstArgument;
+  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    break;
+  case 0 : {
+    OS << ":register";
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "\"" << getSlot() << "\"";
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "\"" << getSpace() << "\"";
+    if (!IsFirstArgument)
+      OS << ")";
+    OS << "";
+    break;
+  }
+}
+}
+
+const char *HLSLResourceBindingAttr::getSpelling() const {
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    return "(No spelling)";
+  case 0:
+    return "register";
+  }
+}
+
+
+// HLSLSV_DispatchThreadIDAttr implementation
+
+HLSLSV_DispatchThreadIDAttr *HLSLSV_DispatchThreadIDAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) HLSLSV_DispatchThreadIDAttr(Ctx, CommonInfo);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+HLSLSV_DispatchThreadIDAttr *HLSLSV_DispatchThreadIDAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) HLSLSV_DispatchThreadIDAttr(Ctx, CommonInfo);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+HLSLSV_DispatchThreadIDAttr *HLSLSV_DispatchThreadIDAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+  return CreateImplicit(Ctx, I);
+}
+
+HLSLSV_DispatchThreadIDAttr *HLSLSV_DispatchThreadIDAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+  return Create(Ctx, I);
+}
+
+HLSLSV_DispatchThreadIDAttr::HLSLSV_DispatchThreadIDAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             )
+  : HLSLAnnotationAttr(Ctx, CommonInfo, attr::HLSLSV_DispatchThreadID, false, false)
+  {
+}
+
+HLSLSV_DispatchThreadIDAttr *HLSLSV_DispatchThreadIDAttr::clone(ASTContext &C) const {
+  auto *A = new (C) HLSLSV_DispatchThreadIDAttr(C, *this);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void HLSLSV_DispatchThreadIDAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+  bool IsFirstArgument = true; (void)IsFirstArgument;
+  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    break;
+  case 0 : {
+    OS << ":SV_DispatchThreadID";
+    OS << "";
+    break;
+  }
+}
+}
+
+const char *HLSLSV_DispatchThreadIDAttr::getSpelling() const {
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    return "(No spelling)";
+  case 0:
+    return "SV_DispatchThreadID";
+  }
+}
+
+
 // HLSLSV_GroupIndexAttr implementation
 
 HLSLSV_GroupIndexAttr *HLSLSV_GroupIndexAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
@@ -11498,7 +11938,7 @@ HLSLSV_GroupIndexAttr *HLSLSV_GroupIndexAttr::Create(ASTContext &Ctx, SourceRang
 
 HLSLSV_GroupIndexAttr::HLSLSV_GroupIndexAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
              )
-  : InheritableAttr(Ctx, CommonInfo, attr::HLSLSV_GroupIndex, false, false)
+  : HLSLAnnotationAttr(Ctx, CommonInfo, attr::HLSLSV_GroupIndex, false, false)
   {
 }
 
@@ -11574,22 +12014,23 @@ HLSLShaderAttr::HLSLShaderAttr(ASTContext &Ctx, const AttributeCommonInfo &Commo
 
 
 bool HLSLShaderAttr::ConvertStrToShaderType(StringRef Val, ShaderType &Out) {
-  Optional<ShaderType> R = llvm::StringSwitch<Optional<ShaderType>>(Val)
+  std::optional<ShaderType> R = llvm::StringSwitch<std::optional<ShaderType>>(Val)
     .Case("pixel", HLSLShaderAttr::Pixel)
     .Case("vertex", HLSLShaderAttr::Vertex)
     .Case("geometry", HLSLShaderAttr::Geometry)
     .Case("hull", HLSLShaderAttr::Hull)
     .Case("domain", HLSLShaderAttr::Domain)
     .Case("compute", HLSLShaderAttr::Compute)
+    .Case("library", HLSLShaderAttr::Library)
     .Case("raygeneration", HLSLShaderAttr::RayGeneration)
     .Case("intersection", HLSLShaderAttr::Intersection)
-    .Case("anyhit", HLSLShaderAttr::AnyHit)
-    .Case("closesthit", HLSLShaderAttr::ClosestHit)
+    .Case("anyHit", HLSLShaderAttr::AnyHit)
+    .Case("closestHit", HLSLShaderAttr::ClosestHit)
     .Case("miss", HLSLShaderAttr::Miss)
     .Case("callable", HLSLShaderAttr::Callable)
     .Case("mesh", HLSLShaderAttr::Mesh)
     .Case("amplification", HLSLShaderAttr::Amplification)
-    .Default(Optional<ShaderType>());
+    .Default(std::optional<ShaderType>());
   if (R) {
     Out = *R;
       return true;
@@ -11605,10 +12046,11 @@ const char *HLSLShaderAttr::ConvertShaderTypeToStr(ShaderType Val) {
   case HLSLShaderAttr::Hull: return "hull";
   case HLSLShaderAttr::Domain: return "domain";
   case HLSLShaderAttr::Compute: return "compute";
+  case HLSLShaderAttr::Library: return "library";
   case HLSLShaderAttr::RayGeneration: return "raygeneration";
   case HLSLShaderAttr::Intersection: return "intersection";
-  case HLSLShaderAttr::AnyHit: return "anyhit";
-  case HLSLShaderAttr::ClosestHit: return "closesthit";
+  case HLSLShaderAttr::AnyHit: return "anyHit";
+  case HLSLShaderAttr::ClosestHit: return "closestHit";
   case HLSLShaderAttr::Miss: return "miss";
   case HLSLShaderAttr::Callable: return "callable";
   case HLSLShaderAttr::Mesh: return "mesh";
@@ -12947,7 +13389,9 @@ void LockReturnedAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy
   case 0 : {
     OS << " __attribute__((lock_returned";
     DelimitAttributeArgument(OS, IsFirstArgument);
-    OS << "" << getArg() << "";
+    OS << "";
+    getArg()->printPretty(OS, nullptr, Policy);
+    OS << "";
     if (!IsFirstArgument)
       OS << ")";
     OS << "))";
@@ -13104,7 +13548,7 @@ LoopHintAttr::Spelling LoopHintAttr::getSemanticSpelling() const {
 
 
 bool LoopHintAttr::ConvertStrToOptionType(StringRef Val, OptionType &Out) {
-  Optional<OptionType> R = llvm::StringSwitch<Optional<OptionType>>(Val)
+  std::optional<OptionType> R = llvm::StringSwitch<std::optional<OptionType>>(Val)
     .Case("vectorize", LoopHintAttr::Vectorize)
     .Case("vectorize_width", LoopHintAttr::VectorizeWidth)
     .Case("interleave", LoopHintAttr::Interleave)
@@ -13117,7 +13561,7 @@ bool LoopHintAttr::ConvertStrToOptionType(StringRef Val, OptionType &Out) {
     .Case("pipeline_initiation_interval", LoopHintAttr::PipelineInitiationInterval)
     .Case("distribute", LoopHintAttr::Distribute)
     .Case("vectorize_predicate", LoopHintAttr::VectorizePredicate)
-    .Default(Optional<OptionType>());
+    .Default(std::optional<OptionType>());
   if (R) {
     Out = *R;
       return true;
@@ -13145,7 +13589,7 @@ const char *LoopHintAttr::ConvertOptionTypeToStr(OptionType Val) {
 
 
 bool LoopHintAttr::ConvertStrToLoopHintState(StringRef Val, LoopHintState &Out) {
-  Optional<LoopHintState> R = llvm::StringSwitch<Optional<LoopHintState>>(Val)
+  std::optional<LoopHintState> R = llvm::StringSwitch<std::optional<LoopHintState>>(Val)
     .Case("enable", LoopHintAttr::Enable)
     .Case("disable", LoopHintAttr::Disable)
     .Case("numeric", LoopHintAttr::Numeric)
@@ -13153,7 +13597,7 @@ bool LoopHintAttr::ConvertStrToLoopHintState(StringRef Val, LoopHintState &Out) 
     .Case("scalable_width", LoopHintAttr::ScalableWidth)
     .Case("assume_safety", LoopHintAttr::AssumeSafety)
     .Case("full", LoopHintAttr::Full)
-    .Default(Optional<LoopHintState>());
+    .Default(std::optional<LoopHintState>());
   if (R) {
     Out = *R;
       return true;
@@ -14102,6 +14546,87 @@ const char *MayAliasAttr::getSpelling() const {
 }
 
 
+// MaybeUndefAttr implementation
+
+MaybeUndefAttr *MaybeUndefAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) MaybeUndefAttr(Ctx, CommonInfo);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+MaybeUndefAttr *MaybeUndefAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) MaybeUndefAttr(Ctx, CommonInfo);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+MaybeUndefAttr *MaybeUndefAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+  return CreateImplicit(Ctx, I);
+}
+
+MaybeUndefAttr *MaybeUndefAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+  return Create(Ctx, I);
+}
+
+MaybeUndefAttr::MaybeUndefAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             )
+  : InheritableAttr(Ctx, CommonInfo, attr::MaybeUndef, false, false)
+  {
+}
+
+MaybeUndefAttr *MaybeUndefAttr::clone(ASTContext &C) const {
+  auto *A = new (C) MaybeUndefAttr(C, *this);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void MaybeUndefAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+  bool IsFirstArgument = true; (void)IsFirstArgument;
+  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    break;
+  case 0 : {
+    OS << " __attribute__((maybe_undef";
+    OS << "))";
+    break;
+  }
+  case 1 : {
+    OS << " [[clang::maybe_undef";
+    OS << "]]";
+    break;
+  }
+  case 2 : {
+    OS << " [[clang::maybe_undef";
+    OS << "]]";
+    break;
+  }
+}
+}
+
+const char *MaybeUndefAttr::getSpelling() const {
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    return "(No spelling)";
+  case 0:
+    return "maybe_undef";
+  case 1:
+    return "maybe_undef";
+  case 2:
+    return "maybe_undef";
+  }
+}
+
+
 // MicroMipsAttr implementation
 
 MicroMipsAttr *MicroMipsAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
@@ -14480,7 +15005,7 @@ MipsInterruptAttr::MipsInterruptAttr(ASTContext &Ctx, const AttributeCommonInfo 
 
 
 bool MipsInterruptAttr::ConvertStrToInterruptType(StringRef Val, InterruptType &Out) {
-  Optional<InterruptType> R = llvm::StringSwitch<Optional<InterruptType>>(Val)
+  std::optional<InterruptType> R = llvm::StringSwitch<std::optional<InterruptType>>(Val)
     .Case("vector=sw0", MipsInterruptAttr::sw0)
     .Case("vector=sw1", MipsInterruptAttr::sw1)
     .Case("vector=hw0", MipsInterruptAttr::hw0)
@@ -14491,7 +15016,7 @@ bool MipsInterruptAttr::ConvertStrToInterruptType(StringRef Val, InterruptType &
     .Case("vector=hw5", MipsInterruptAttr::hw5)
     .Case("eic", MipsInterruptAttr::eic)
     .Case("", MipsInterruptAttr::eic)
-    .Default(Optional<InterruptType>());
+    .Default(std::optional<InterruptType>());
   if (R) {
     Out = *R;
       return true;
@@ -17194,18 +17719,16 @@ NoStackProtectorAttr *NoStackProtectorAttr::CreateImplicit(ASTContext &Ctx, cons
 
 NoStackProtectorAttr *NoStackProtectorAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) NoStackProtectorAttr(Ctx, CommonInfo);
-  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
-    A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-NoStackProtectorAttr *NoStackProtectorAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NoStackProtectorAttr *NoStackProtectorAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax, NoStackProtectorAttr::Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
   return CreateImplicit(Ctx, I);
 }
 
-NoStackProtectorAttr *NoStackProtectorAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NoStackProtectorAttr *NoStackProtectorAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax, NoStackProtectorAttr::Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
   return Create(Ctx, I);
 }
 
@@ -17215,6 +17738,15 @@ NoStackProtectorAttr::NoStackProtectorAttr(ASTContext &Ctx, const AttributeCommo
   {
 }
 
+NoStackProtectorAttr::Spelling NoStackProtectorAttr::getSemanticSpelling() const {
+  switch (getAttributeSpellingListIndex()) {
+    default: llvm_unreachable("Unknown spelling list index");
+    case 0: return GNU_no_stack_protector;
+    case 1: return CXX11_clang_no_stack_protector;
+    case 2: return C2x_clang_no_stack_protector;
+    case 3: return Declspec_safebuffers;
+  }
+}
 NoStackProtectorAttr *NoStackProtectorAttr::clone(ASTContext &C) const {
   auto *A = new (C) NoStackProtectorAttr(C, *this);
   A->Inherited = Inherited;
@@ -17245,6 +17777,11 @@ void NoStackProtectorAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Po
     OS << "]]";
     break;
   }
+  case 3 : {
+    OS << " __declspec(safebuffers";
+    OS << ")";
+    break;
+  }
 }
 }
 
@@ -17259,6 +17796,8 @@ const char *NoStackProtectorAttr::getSpelling() const {
     return "no_stack_protector";
   case 2:
     return "no_stack_protector";
+  case 3:
+    return "safebuffers";
   }
 }
 
@@ -17495,6 +18034,87 @@ const char *NoUniqueAddressAttr::getSpelling() const {
     return "(No spelling)";
   case 0:
     return "no_unique_address";
+  }
+}
+
+
+// NoUwtableAttr implementation
+
+NoUwtableAttr *NoUwtableAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) NoUwtableAttr(Ctx, CommonInfo);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+NoUwtableAttr *NoUwtableAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) NoUwtableAttr(Ctx, CommonInfo);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+NoUwtableAttr *NoUwtableAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+  return CreateImplicit(Ctx, I);
+}
+
+NoUwtableAttr *NoUwtableAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+  return Create(Ctx, I);
+}
+
+NoUwtableAttr::NoUwtableAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             )
+  : InheritableAttr(Ctx, CommonInfo, attr::NoUwtable, false, false)
+  {
+}
+
+NoUwtableAttr *NoUwtableAttr::clone(ASTContext &C) const {
+  auto *A = new (C) NoUwtableAttr(C, *this);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void NoUwtableAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+  bool IsFirstArgument = true; (void)IsFirstArgument;
+  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    break;
+  case 0 : {
+    OS << " __attribute__((nouwtable";
+    OS << "))";
+    break;
+  }
+  case 1 : {
+    OS << " [[clang::nouwtable";
+    OS << "]]";
+    break;
+  }
+  case 2 : {
+    OS << " [[clang::nouwtable";
+    OS << "]]";
+    break;
+  }
+}
+}
+
+const char *NoUwtableAttr::getSpelling() const {
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    return "(No spelling)";
+  case 0:
+    return "nouwtable";
+  case 1:
+    return "nouwtable";
+  case 2:
+    return "nouwtable";
   }
 }
 
@@ -17739,7 +18359,7 @@ OMPAllocateDeclAttr::OMPAllocateDeclAttr(ASTContext &Ctx, const AttributeCommonI
 
 
 bool OMPAllocateDeclAttr::ConvertStrToAllocatorTypeTy(StringRef Val, AllocatorTypeTy &Out) {
-  Optional<AllocatorTypeTy> R = llvm::StringSwitch<Optional<AllocatorTypeTy>>(Val)
+  std::optional<AllocatorTypeTy> R = llvm::StringSwitch<std::optional<AllocatorTypeTy>>(Val)
     .Case("omp_null_allocator", OMPAllocateDeclAttr::OMPNullMemAlloc)
     .Case("omp_default_mem_alloc", OMPAllocateDeclAttr::OMPDefaultMemAlloc)
     .Case("omp_large_cap_mem_alloc", OMPAllocateDeclAttr::OMPLargeCapMemAlloc)
@@ -17750,7 +18370,7 @@ bool OMPAllocateDeclAttr::ConvertStrToAllocatorTypeTy(StringRef Val, AllocatorTy
     .Case("omp_pteam_mem_alloc", OMPAllocateDeclAttr::OMPPTeamMemAlloc)
     .Case("omp_thread_mem_alloc", OMPAllocateDeclAttr::OMPThreadMemAlloc)
     .Case("", OMPAllocateDeclAttr::OMPUserDefinedMemAlloc)
-    .Default(Optional<AllocatorTypeTy>());
+    .Default(std::optional<AllocatorTypeTy>());
   if (R) {
     Out = *R;
       return true;
@@ -17969,11 +18589,11 @@ OMPDeclareSimdDeclAttr::OMPDeclareSimdDeclAttr(ASTContext &Ctx, const AttributeC
 
 
 bool OMPDeclareSimdDeclAttr::ConvertStrToBranchStateTy(StringRef Val, BranchStateTy &Out) {
-  Optional<BranchStateTy> R = llvm::StringSwitch<Optional<BranchStateTy>>(Val)
+  std::optional<BranchStateTy> R = llvm::StringSwitch<std::optional<BranchStateTy>>(Val)
     .Case("", OMPDeclareSimdDeclAttr::BS_Undefined)
     .Case("inbranch", OMPDeclareSimdDeclAttr::BS_Inbranch)
     .Case("notinbranch", OMPDeclareSimdDeclAttr::BS_Notinbranch)
-    .Default(Optional<BranchStateTy>());
+    .Default(std::optional<BranchStateTy>());
   if (R) {
     Out = *R;
       return true;
@@ -18083,10 +18703,11 @@ OMPDeclareTargetDeclAttr::OMPDeclareTargetDeclAttr(ASTContext &Ctx, const Attrib
 
 
 bool OMPDeclareTargetDeclAttr::ConvertStrToMapTypeTy(StringRef Val, MapTypeTy &Out) {
-  Optional<MapTypeTy> R = llvm::StringSwitch<Optional<MapTypeTy>>(Val)
+  std::optional<MapTypeTy> R = llvm::StringSwitch<std::optional<MapTypeTy>>(Val)
     .Case("to", OMPDeclareTargetDeclAttr::MT_To)
+    .Case("enter", OMPDeclareTargetDeclAttr::MT_Enter)
     .Case("link", OMPDeclareTargetDeclAttr::MT_Link)
-    .Default(Optional<MapTypeTy>());
+    .Default(std::optional<MapTypeTy>());
   if (R) {
     Out = *R;
       return true;
@@ -18097,6 +18718,7 @@ bool OMPDeclareTargetDeclAttr::ConvertStrToMapTypeTy(StringRef Val, MapTypeTy &O
 const char *OMPDeclareTargetDeclAttr::ConvertMapTypeTyToStr(MapTypeTy Val) {
   switch(Val) {
   case OMPDeclareTargetDeclAttr::MT_To: return "to";
+  case OMPDeclareTargetDeclAttr::MT_Enter: return "enter";
   case OMPDeclareTargetDeclAttr::MT_Link: return "link";
   }
   llvm_unreachable("No enumerator with that value");
@@ -18104,11 +18726,11 @@ const char *OMPDeclareTargetDeclAttr::ConvertMapTypeTyToStr(MapTypeTy Val) {
 
 
 bool OMPDeclareTargetDeclAttr::ConvertStrToDevTypeTy(StringRef Val, DevTypeTy &Out) {
-  Optional<DevTypeTy> R = llvm::StringSwitch<Optional<DevTypeTy>>(Val)
+  std::optional<DevTypeTy> R = llvm::StringSwitch<std::optional<DevTypeTy>>(Val)
     .Case("host", OMPDeclareTargetDeclAttr::DT_Host)
     .Case("nohost", OMPDeclareTargetDeclAttr::DT_NoHost)
     .Case("any", OMPDeclareTargetDeclAttr::DT_Any)
-    .Default(Optional<DevTypeTy>());
+    .Default(std::optional<DevTypeTy>());
   if (R) {
     Out = *R;
       return true;
@@ -18166,7 +18788,7 @@ const char *OMPDeclareTargetDeclAttr::getSpelling() const {
 
 // OMPDeclareVariantAttr implementation
 
-OMPDeclareVariantAttr *OMPDeclareVariantAttr::CreateImplicit(ASTContext &Ctx, Expr * VariantFuncRef, OMPTraitInfo * TraitInfos, Expr * *AdjustArgsNothing, unsigned AdjustArgsNothingSize, Expr * *AdjustArgsNeedDevicePtr, unsigned AdjustArgsNeedDevicePtrSize, InteropType *AppendArgs, unsigned AppendArgsSize, const AttributeCommonInfo &CommonInfo) {
+OMPDeclareVariantAttr *OMPDeclareVariantAttr::CreateImplicit(ASTContext &Ctx, Expr * VariantFuncRef, OMPTraitInfo * TraitInfos, Expr * *AdjustArgsNothing, unsigned AdjustArgsNothingSize, Expr * *AdjustArgsNeedDevicePtr, unsigned AdjustArgsNeedDevicePtrSize, OMPInteropInfo *AppendArgs, unsigned AppendArgsSize, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) OMPDeclareVariantAttr(Ctx, CommonInfo, VariantFuncRef, TraitInfos, AdjustArgsNothing, AdjustArgsNothingSize, AdjustArgsNeedDevicePtr, AdjustArgsNeedDevicePtrSize, AppendArgs, AppendArgsSize);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -18174,19 +18796,19 @@ OMPDeclareVariantAttr *OMPDeclareVariantAttr::CreateImplicit(ASTContext &Ctx, Ex
   return A;
 }
 
-OMPDeclareVariantAttr *OMPDeclareVariantAttr::Create(ASTContext &Ctx, Expr * VariantFuncRef, OMPTraitInfo * TraitInfos, Expr * *AdjustArgsNothing, unsigned AdjustArgsNothingSize, Expr * *AdjustArgsNeedDevicePtr, unsigned AdjustArgsNeedDevicePtrSize, InteropType *AppendArgs, unsigned AppendArgsSize, const AttributeCommonInfo &CommonInfo) {
+OMPDeclareVariantAttr *OMPDeclareVariantAttr::Create(ASTContext &Ctx, Expr * VariantFuncRef, OMPTraitInfo * TraitInfos, Expr * *AdjustArgsNothing, unsigned AdjustArgsNothingSize, Expr * *AdjustArgsNeedDevicePtr, unsigned AdjustArgsNeedDevicePtrSize, OMPInteropInfo *AppendArgs, unsigned AppendArgsSize, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) OMPDeclareVariantAttr(Ctx, CommonInfo, VariantFuncRef, TraitInfos, AdjustArgsNothing, AdjustArgsNothingSize, AdjustArgsNeedDevicePtr, AdjustArgsNeedDevicePtrSize, AppendArgs, AppendArgsSize);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-OMPDeclareVariantAttr *OMPDeclareVariantAttr::CreateImplicit(ASTContext &Ctx, Expr * VariantFuncRef, OMPTraitInfo * TraitInfos, Expr * *AdjustArgsNothing, unsigned AdjustArgsNothingSize, Expr * *AdjustArgsNeedDevicePtr, unsigned AdjustArgsNeedDevicePtrSize, InteropType *AppendArgs, unsigned AppendArgsSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
+OMPDeclareVariantAttr *OMPDeclareVariantAttr::CreateImplicit(ASTContext &Ctx, Expr * VariantFuncRef, OMPTraitInfo * TraitInfos, Expr * *AdjustArgsNothing, unsigned AdjustArgsNothingSize, Expr * *AdjustArgsNeedDevicePtr, unsigned AdjustArgsNeedDevicePtrSize, OMPInteropInfo *AppendArgs, unsigned AppendArgsSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
   return CreateImplicit(Ctx, VariantFuncRef, TraitInfos, AdjustArgsNothing, AdjustArgsNothingSize, AdjustArgsNeedDevicePtr, AdjustArgsNeedDevicePtrSize, AppendArgs, AppendArgsSize, I);
 }
 
-OMPDeclareVariantAttr *OMPDeclareVariantAttr::Create(ASTContext &Ctx, Expr * VariantFuncRef, OMPTraitInfo * TraitInfos, Expr * *AdjustArgsNothing, unsigned AdjustArgsNothingSize, Expr * *AdjustArgsNeedDevicePtr, unsigned AdjustArgsNeedDevicePtrSize, InteropType *AppendArgs, unsigned AppendArgsSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
+OMPDeclareVariantAttr *OMPDeclareVariantAttr::Create(ASTContext &Ctx, Expr * VariantFuncRef, OMPTraitInfo * TraitInfos, Expr * *AdjustArgsNothing, unsigned AdjustArgsNothingSize, Expr * *AdjustArgsNeedDevicePtr, unsigned AdjustArgsNeedDevicePtrSize, OMPInteropInfo *AppendArgs, unsigned AppendArgsSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
   return Create(Ctx, VariantFuncRef, TraitInfos, AdjustArgsNothing, AdjustArgsNothingSize, AdjustArgsNeedDevicePtr, AdjustArgsNeedDevicePtrSize, AppendArgs, AppendArgsSize, I);
 }
@@ -18196,14 +18818,14 @@ OMPDeclareVariantAttr::OMPDeclareVariantAttr(ASTContext &Ctx, const AttributeCom
               , OMPTraitInfo * TraitInfos
               , Expr * *AdjustArgsNothing, unsigned AdjustArgsNothingSize
               , Expr * *AdjustArgsNeedDevicePtr, unsigned AdjustArgsNeedDevicePtrSize
-              , InteropType *AppendArgs, unsigned AppendArgsSize
+              , OMPInteropInfo *AppendArgs, unsigned AppendArgsSize
              )
   : InheritableAttr(Ctx, CommonInfo, attr::OMPDeclareVariant, false, true)
               , variantFuncRef(VariantFuncRef)
               , traitInfos(TraitInfos)
               , adjustArgsNothing_Size(AdjustArgsNothingSize), adjustArgsNothing_(new (Ctx, 16) Expr *[adjustArgsNothing_Size])
               , adjustArgsNeedDevicePtr_Size(AdjustArgsNeedDevicePtrSize), adjustArgsNeedDevicePtr_(new (Ctx, 16) Expr *[adjustArgsNeedDevicePtr_Size])
-              , appendArgs_Size(AppendArgsSize), appendArgs_(new (Ctx, 16) InteropType[appendArgs_Size])
+              , appendArgs_Size(AppendArgsSize), appendArgs_(new (Ctx, 16) OMPInteropInfo[appendArgs_Size])
   {
   std::copy(AdjustArgsNothing, AdjustArgsNothing + adjustArgsNothing_Size, adjustArgsNothing_);
   std::copy(AdjustArgsNeedDevicePtr, AdjustArgsNeedDevicePtr + adjustArgsNeedDevicePtr_Size, adjustArgsNeedDevicePtr_);
@@ -18213,14 +18835,16 @@ OMPDeclareVariantAttr::OMPDeclareVariantAttr(ASTContext &Ctx, const AttributeCom
 OMPDeclareVariantAttr::OMPDeclareVariantAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
               , Expr * VariantFuncRef
               , OMPTraitInfo * TraitInfos
+              , OMPInteropInfo *AppendArgs, unsigned AppendArgsSize
              )
   : InheritableAttr(Ctx, CommonInfo, attr::OMPDeclareVariant, false, true)
               , variantFuncRef(VariantFuncRef)
               , traitInfos(TraitInfos)
               , adjustArgsNothing_Size(0), adjustArgsNothing_(nullptr)
               , adjustArgsNeedDevicePtr_Size(0), adjustArgsNeedDevicePtr_(nullptr)
-              , appendArgs_Size(0), appendArgs_(nullptr)
+              , appendArgs_Size(AppendArgsSize), appendArgs_(new (Ctx, 16) OMPInteropInfo[appendArgs_Size])
   {
+  std::copy(AppendArgs, AppendArgs + appendArgs_Size, appendArgs_);
 }
 
 
@@ -18233,27 +18857,6 @@ OMPDeclareVariantAttr::OMPDeclareVariantAttr(ASTContext &Ctx, const AttributeCom
 
 
 
-bool OMPDeclareVariantAttr::ConvertStrToInteropType(StringRef Val, InteropType &Out) {
-  Optional<InteropType> R = llvm::StringSwitch<Optional<InteropType>>(Val)
-    .Case("target", OMPDeclareVariantAttr::Target)
-    .Case("targetsync", OMPDeclareVariantAttr::TargetSync)
-    .Case("target,targetsync", OMPDeclareVariantAttr::Target_TargetSync)
-    .Default(Optional<InteropType>());
-  if (R) {
-    Out = *R;
-      return true;
-    }
-  return false;
-}
-
-const char *OMPDeclareVariantAttr::ConvertInteropTypeToStr(InteropType Val) {
-  switch(Val) {
-  case OMPDeclareVariantAttr::Target: return "target";
-  case OMPDeclareVariantAttr::TargetSync: return "targetsync";
-  case OMPDeclareVariantAttr::Target_TargetSync: return "target,targetsync";
-  }
-  llvm_unreachable("No enumerator with that value");
-}
 OMPDeclareVariantAttr *OMPDeclareVariantAttr::clone(ASTContext &C) const {
   auto *A = new (C) OMPDeclareVariantAttr(C, *this, variantFuncRef, traitInfos, adjustArgsNothing_, adjustArgsNothing_Size, adjustArgsNeedDevicePtr_, adjustArgsNeedDevicePtr_Size, appendArgs_, appendArgs_Size);
   A->Inherited = Inherited;
@@ -20185,14 +20788,14 @@ ObjCMethodFamilyAttr::ObjCMethodFamilyAttr(ASTContext &Ctx, const AttributeCommo
 
 
 bool ObjCMethodFamilyAttr::ConvertStrToFamilyKind(StringRef Val, FamilyKind &Out) {
-  Optional<FamilyKind> R = llvm::StringSwitch<Optional<FamilyKind>>(Val)
+  std::optional<FamilyKind> R = llvm::StringSwitch<std::optional<FamilyKind>>(Val)
     .Case("none", ObjCMethodFamilyAttr::OMF_None)
     .Case("alloc", ObjCMethodFamilyAttr::OMF_alloc)
     .Case("copy", ObjCMethodFamilyAttr::OMF_copy)
     .Case("init", ObjCMethodFamilyAttr::OMF_init)
     .Case("mutableCopy", ObjCMethodFamilyAttr::OMF_mutableCopy)
     .Case("new", ObjCMethodFamilyAttr::OMF_new)
-    .Default(Optional<FamilyKind>());
+    .Default(std::optional<FamilyKind>());
   if (R) {
     Out = *R;
       return true;
@@ -22973,11 +23576,11 @@ ParamTypestateAttr::ParamTypestateAttr(ASTContext &Ctx, const AttributeCommonInf
 
 
 bool ParamTypestateAttr::ConvertStrToConsumedState(StringRef Val, ConsumedState &Out) {
-  Optional<ConsumedState> R = llvm::StringSwitch<Optional<ConsumedState>>(Val)
+  std::optional<ConsumedState> R = llvm::StringSwitch<std::optional<ConsumedState>>(Val)
     .Case("unknown", ParamTypestateAttr::Unknown)
     .Case("consumed", ParamTypestateAttr::Consumed)
     .Case("unconsumed", ParamTypestateAttr::Unconsumed)
-    .Default(Optional<ConsumedState>());
+    .Default(std::optional<ConsumedState>());
   if (R) {
     Out = *R;
       return true;
@@ -23430,10 +24033,10 @@ PcsAttr::PcsAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
 
 
 bool PcsAttr::ConvertStrToPCSType(StringRef Val, PCSType &Out) {
-  Optional<PCSType> R = llvm::StringSwitch<Optional<PCSType>>(Val)
+  std::optional<PCSType> R = llvm::StringSwitch<std::optional<PCSType>>(Val)
     .Case("aapcs", PcsAttr::AAPCS)
     .Case("aapcs-vfp", PcsAttr::AAPCS_VFP)
-    .Default(Optional<PCSType>());
+    .Default(std::optional<PCSType>());
   if (R) {
     Out = *R;
       return true;
@@ -24172,7 +24775,9 @@ void PtGuardedByAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy)
   case 0 : {
     OS << " __attribute__((pt_guarded_by";
     DelimitAttributeArgument(OS, IsFirstArgument);
-    OS << "" << getArg() << "";
+    OS << "";
+    getArg()->printPretty(OS, nullptr, Policy);
+    OS << "";
     if (!IsFirstArgument)
       OS << ")";
     OS << "))";
@@ -24526,11 +25131,11 @@ RISCVInterruptAttr::RISCVInterruptAttr(ASTContext &Ctx, const AttributeCommonInf
 
 
 bool RISCVInterruptAttr::ConvertStrToInterruptType(StringRef Val, InterruptType &Out) {
-  Optional<InterruptType> R = llvm::StringSwitch<Optional<InterruptType>>(Val)
+  std::optional<InterruptType> R = llvm::StringSwitch<std::optional<InterruptType>>(Val)
     .Case("user", RISCVInterruptAttr::user)
     .Case("supervisor", RISCVInterruptAttr::supervisor)
     .Case("machine", RISCVInterruptAttr::machine)
-    .Default(Optional<InterruptType>());
+    .Default(std::optional<InterruptType>());
   if (R) {
     Out = *R;
       return true;
@@ -24683,6 +25288,87 @@ const char *RandomizeLayoutAttr::getSpelling() const {
     return "randomize_layout";
   case 2:
     return "randomize_layout";
+  }
+}
+
+
+// ReadOnlyPlacementAttr implementation
+
+ReadOnlyPlacementAttr *ReadOnlyPlacementAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) ReadOnlyPlacementAttr(Ctx, CommonInfo);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+ReadOnlyPlacementAttr *ReadOnlyPlacementAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) ReadOnlyPlacementAttr(Ctx, CommonInfo);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+ReadOnlyPlacementAttr *ReadOnlyPlacementAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+  return CreateImplicit(Ctx, I);
+}
+
+ReadOnlyPlacementAttr *ReadOnlyPlacementAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+  return Create(Ctx, I);
+}
+
+ReadOnlyPlacementAttr::ReadOnlyPlacementAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             )
+  : InheritableAttr(Ctx, CommonInfo, attr::ReadOnlyPlacement, false, false)
+  {
+}
+
+ReadOnlyPlacementAttr *ReadOnlyPlacementAttr::clone(ASTContext &C) const {
+  auto *A = new (C) ReadOnlyPlacementAttr(C, *this);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void ReadOnlyPlacementAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+  bool IsFirstArgument = true; (void)IsFirstArgument;
+  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    break;
+  case 0 : {
+    OS << " __attribute__((enforce_read_only_placement";
+    OS << "))";
+    break;
+  }
+  case 1 : {
+    OS << " [[clang::enforce_read_only_placement";
+    OS << "]]";
+    break;
+  }
+  case 2 : {
+    OS << " [[clang::enforce_read_only_placement";
+    OS << "]]";
+    break;
+  }
+}
+}
+
+const char *ReadOnlyPlacementAttr::getSpelling() const {
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    return "(No spelling)";
+  case 0:
+    return "enforce_read_only_placement";
+  case 1:
+    return "enforce_read_only_placement";
+  case 2:
+    return "enforce_read_only_placement";
   }
 }
 
@@ -25722,11 +26408,11 @@ ReturnTypestateAttr::ReturnTypestateAttr(ASTContext &Ctx, const AttributeCommonI
 
 
 bool ReturnTypestateAttr::ConvertStrToConsumedState(StringRef Val, ConsumedState &Out) {
-  Optional<ConsumedState> R = llvm::StringSwitch<Optional<ConsumedState>>(Val)
+  std::optional<ConsumedState> R = llvm::StringSwitch<std::optional<ConsumedState>>(Val)
     .Case("unknown", ReturnTypestateAttr::Unknown)
     .Case("consumed", ReturnTypestateAttr::Consumed)
     .Case("unconsumed", ReturnTypestateAttr::Unconsumed)
-    .Default(Optional<ConsumedState>());
+    .Default(std::optional<ConsumedState>());
   if (R) {
     Out = *R;
       return true;
@@ -26614,11 +27300,11 @@ SetTypestateAttr::SetTypestateAttr(ASTContext &Ctx, const AttributeCommonInfo &C
 
 
 bool SetTypestateAttr::ConvertStrToConsumedState(StringRef Val, ConsumedState &Out) {
-  Optional<ConsumedState> R = llvm::StringSwitch<Optional<ConsumedState>>(Val)
+  std::optional<ConsumedState> R = llvm::StringSwitch<std::optional<ConsumedState>>(Val)
     .Case("unknown", SetTypestateAttr::Unknown)
     .Case("consumed", SetTypestateAttr::Consumed)
     .Case("unconsumed", SetTypestateAttr::Unconsumed)
-    .Default(Optional<ConsumedState>());
+    .Default(std::optional<ConsumedState>());
   if (R) {
     Out = *R;
       return true;
@@ -26752,7 +27438,9 @@ void SharedTrylockFunctionAttr::printPretty(raw_ostream &OS, const PrintingPolic
   case 0 : {
     OS << " __attribute__((shared_trylock_function";
     DelimitAttributeArgument(OS, IsFirstArgument);
-    OS << "" << getSuccessValue() << "";
+    OS << "";
+    getSuccessValue()->printPretty(OS, nullptr, Policy);
+    OS << "";
     OS << "";
   for (const auto &Val : args()) {
     DelimitAttributeArgument(OS, IsFirstArgument);
@@ -27077,6 +27765,73 @@ const char *StrictFPAttr::getSpelling() const {
 }
 
 
+// StrictGuardStackCheckAttr implementation
+
+StrictGuardStackCheckAttr *StrictGuardStackCheckAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) StrictGuardStackCheckAttr(Ctx, CommonInfo);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+StrictGuardStackCheckAttr *StrictGuardStackCheckAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) StrictGuardStackCheckAttr(Ctx, CommonInfo);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+StrictGuardStackCheckAttr *StrictGuardStackCheckAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+  return CreateImplicit(Ctx, I);
+}
+
+StrictGuardStackCheckAttr *StrictGuardStackCheckAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+  return Create(Ctx, I);
+}
+
+StrictGuardStackCheckAttr::StrictGuardStackCheckAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             )
+  : InheritableAttr(Ctx, CommonInfo, attr::StrictGuardStackCheck, false, false)
+  {
+}
+
+StrictGuardStackCheckAttr *StrictGuardStackCheckAttr::clone(ASTContext &C) const {
+  auto *A = new (C) StrictGuardStackCheckAttr(C, *this);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void StrictGuardStackCheckAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+  bool IsFirstArgument = true; (void)IsFirstArgument;
+  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    break;
+  case 0 : {
+    OS << " __declspec(strict_gs_check";
+    OS << ")";
+    break;
+  }
+}
+}
+
+const char *StrictGuardStackCheckAttr::getSpelling() const {
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    return "(No spelling)";
+  case 0:
+    return "strict_gs_check";
+  }
+}
+
+
 // SuppressAttr implementation
 
 SuppressAttr *SuppressAttr::CreateImplicit(ASTContext &Ctx, StringRef *DiagnosticIdentifiers, unsigned DiagnosticIdentifiersSize, const AttributeCommonInfo &CommonInfo) {
@@ -27221,11 +27976,11 @@ SwiftAsyncAttr::SwiftAsyncAttr(ASTContext &Ctx, const AttributeCommonInfo &Commo
 
 
 bool SwiftAsyncAttr::ConvertStrToKind(StringRef Val, Kind &Out) {
-  Optional<Kind> R = llvm::StringSwitch<Optional<Kind>>(Val)
+  std::optional<Kind> R = llvm::StringSwitch<std::optional<Kind>>(Val)
     .Case("none", SwiftAsyncAttr::None)
     .Case("swift_private", SwiftAsyncAttr::SwiftPrivate)
     .Case("not_swift_private", SwiftAsyncAttr::NotSwiftPrivate)
-    .Default(Optional<Kind>());
+    .Default(std::optional<Kind>());
   if (R) {
     Out = *R;
       return true;
@@ -27532,12 +28287,12 @@ SwiftAsyncErrorAttr::SwiftAsyncErrorAttr(ASTContext &Ctx, const AttributeCommonI
 
 
 bool SwiftAsyncErrorAttr::ConvertStrToConventionKind(StringRef Val, ConventionKind &Out) {
-  Optional<ConventionKind> R = llvm::StringSwitch<Optional<ConventionKind>>(Val)
+  std::optional<ConventionKind> R = llvm::StringSwitch<std::optional<ConventionKind>>(Val)
     .Case("none", SwiftAsyncErrorAttr::None)
     .Case("nonnull_error", SwiftAsyncErrorAttr::NonNullError)
     .Case("zero_argument", SwiftAsyncErrorAttr::ZeroArgument)
     .Case("nonzero_argument", SwiftAsyncErrorAttr::NonZeroArgument)
-    .Default(Optional<ConventionKind>());
+    .Default(std::optional<ConventionKind>());
   if (R) {
     Out = *R;
       return true;
@@ -28120,13 +28875,13 @@ SwiftErrorAttr::SwiftErrorAttr(ASTContext &Ctx, const AttributeCommonInfo &Commo
 
 
 bool SwiftErrorAttr::ConvertStrToConventionKind(StringRef Val, ConventionKind &Out) {
-  Optional<ConventionKind> R = llvm::StringSwitch<Optional<ConventionKind>>(Val)
+  std::optional<ConventionKind> R = llvm::StringSwitch<std::optional<ConventionKind>>(Val)
     .Case("none", SwiftErrorAttr::None)
     .Case("nonnull_error", SwiftErrorAttr::NonNullError)
     .Case("null_result", SwiftErrorAttr::NullResult)
     .Case("zero_result", SwiftErrorAttr::ZeroResult)
     .Case("nonzero_result", SwiftErrorAttr::NonZeroResult)
-    .Default(Optional<ConventionKind>());
+    .Default(std::optional<ConventionKind>());
   if (R) {
     Out = *R;
       return true;
@@ -28464,10 +29219,10 @@ SwiftNewTypeAttr::Spelling SwiftNewTypeAttr::getSemanticSpelling() const {
 
 
 bool SwiftNewTypeAttr::ConvertStrToNewtypeKind(StringRef Val, NewtypeKind &Out) {
-  Optional<NewtypeKind> R = llvm::StringSwitch<Optional<NewtypeKind>>(Val)
+  std::optional<NewtypeKind> R = llvm::StringSwitch<std::optional<NewtypeKind>>(Val)
     .Case("struct", SwiftNewTypeAttr::NK_Struct)
     .Case("enum", SwiftNewTypeAttr::NK_Enum)
-    .Default(Optional<NewtypeKind>());
+    .Default(std::optional<NewtypeKind>());
   if (R) {
     Out = *R;
       return true;
@@ -29069,6 +29824,105 @@ const char *TargetClonesAttr::getSpelling() const {
 }
 
 
+// TargetVersionAttr implementation
+
+TargetVersionAttr *TargetVersionAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef NamesStr, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) TargetVersionAttr(Ctx, CommonInfo, NamesStr);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+TargetVersionAttr *TargetVersionAttr::Create(ASTContext &Ctx, llvm::StringRef NamesStr, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) TargetVersionAttr(Ctx, CommonInfo, NamesStr);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+TargetVersionAttr *TargetVersionAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef NamesStr, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+  return CreateImplicit(Ctx, NamesStr, I);
+}
+
+TargetVersionAttr *TargetVersionAttr::Create(ASTContext &Ctx, llvm::StringRef NamesStr, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+  return Create(Ctx, NamesStr, I);
+}
+
+TargetVersionAttr::TargetVersionAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , llvm::StringRef NamesStr
+             )
+  : InheritableAttr(Ctx, CommonInfo, attr::TargetVersion, false, false)
+              , namesStrLength(NamesStr.size()),namesStr(new (Ctx, 1) char[namesStrLength])
+  {
+    if (!NamesStr.empty())
+      std::memcpy(namesStr, NamesStr.data(), namesStrLength);
+}
+
+
+
+TargetVersionAttr *TargetVersionAttr::clone(ASTContext &C) const {
+  auto *A = new (C) TargetVersionAttr(C, *this, getNamesStr());
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void TargetVersionAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+  bool IsFirstArgument = true; (void)IsFirstArgument;
+  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    break;
+  case 0 : {
+    OS << " __attribute__((target_version";
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "\"" << getNamesStr() << "\"";
+    if (!IsFirstArgument)
+      OS << ")";
+    OS << "))";
+    break;
+  }
+  case 1 : {
+    OS << " [[gnu::target_version";
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "\"" << getNamesStr() << "\"";
+    if (!IsFirstArgument)
+      OS << ")";
+    OS << "]]";
+    break;
+  }
+  case 2 : {
+    OS << " [[gnu::target_version";
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "\"" << getNamesStr() << "\"";
+    if (!IsFirstArgument)
+      OS << ")";
+    OS << "]]";
+    break;
+  }
+}
+}
+
+const char *TargetVersionAttr::getSpelling() const {
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    return "(No spelling)";
+  case 0:
+    return "target_version";
+  case 1:
+    return "target_version";
+  case 2:
+    return "target_version";
+  }
+}
+
+
 // TestTypestateAttr implementation
 
 TestTypestateAttr *TestTypestateAttr::CreateImplicit(ASTContext &Ctx, ConsumedState TestState, const AttributeCommonInfo &CommonInfo) {
@@ -29107,10 +29961,10 @@ TestTypestateAttr::TestTypestateAttr(ASTContext &Ctx, const AttributeCommonInfo 
 
 
 bool TestTypestateAttr::ConvertStrToConsumedState(StringRef Val, ConsumedState &Out) {
-  Optional<ConsumedState> R = llvm::StringSwitch<Optional<ConsumedState>>(Val)
+  std::optional<ConsumedState> R = llvm::StringSwitch<std::optional<ConsumedState>>(Val)
     .Case("consumed", TestTypestateAttr::Consumed)
     .Case("unconsumed", TestTypestateAttr::Unconsumed)
-    .Default(Optional<ConsumedState>());
+    .Default(std::optional<ConsumedState>());
   if (R) {
     Out = *R;
       return true;
@@ -29567,7 +30421,9 @@ void TryAcquireCapabilityAttr::printPretty(raw_ostream &OS, const PrintingPolicy
   case 0 : {
     OS << " __attribute__((try_acquire_capability";
     DelimitAttributeArgument(OS, IsFirstArgument);
-    OS << "" << getSuccessValue() << "";
+    OS << "";
+    getSuccessValue()->printPretty(OS, nullptr, Policy);
+    OS << "";
     OS << "";
   for (const auto &Val : args()) {
     DelimitAttributeArgument(OS, IsFirstArgument);
@@ -29582,7 +30438,9 @@ void TryAcquireCapabilityAttr::printPretty(raw_ostream &OS, const PrintingPolicy
   case 1 : {
     OS << " [[clang::try_acquire_capability";
     DelimitAttributeArgument(OS, IsFirstArgument);
-    OS << "" << getSuccessValue() << "";
+    OS << "";
+    getSuccessValue()->printPretty(OS, nullptr, Policy);
+    OS << "";
     OS << "";
   for (const auto &Val : args()) {
     DelimitAttributeArgument(OS, IsFirstArgument);
@@ -29597,7 +30455,9 @@ void TryAcquireCapabilityAttr::printPretty(raw_ostream &OS, const PrintingPolicy
   case 2 : {
     OS << " __attribute__((try_acquire_shared_capability";
     DelimitAttributeArgument(OS, IsFirstArgument);
-    OS << "" << getSuccessValue() << "";
+    OS << "";
+    getSuccessValue()->printPretty(OS, nullptr, Policy);
+    OS << "";
     OS << "";
   for (const auto &Val : args()) {
     DelimitAttributeArgument(OS, IsFirstArgument);
@@ -29612,7 +30472,9 @@ void TryAcquireCapabilityAttr::printPretty(raw_ostream &OS, const PrintingPolicy
   case 3 : {
     OS << " [[clang::try_acquire_shared_capability";
     DelimitAttributeArgument(OS, IsFirstArgument);
-    OS << "" << getSuccessValue() << "";
+    OS << "";
+    getSuccessValue()->printPretty(OS, nullptr, Policy);
+    OS << "";
     OS << "";
   for (const auto &Val : args()) {
     DelimitAttributeArgument(OS, IsFirstArgument);
@@ -30077,12 +30939,12 @@ TypeVisibilityAttr::TypeVisibilityAttr(ASTContext &Ctx, const AttributeCommonInf
 
 
 bool TypeVisibilityAttr::ConvertStrToVisibilityType(StringRef Val, VisibilityType &Out) {
-  Optional<VisibilityType> R = llvm::StringSwitch<Optional<VisibilityType>>(Val)
+  std::optional<VisibilityType> R = llvm::StringSwitch<std::optional<VisibilityType>>(Val)
     .Case("default", TypeVisibilityAttr::Default)
     .Case("hidden", TypeVisibilityAttr::Hidden)
     .Case("internal", TypeVisibilityAttr::Hidden)
     .Case("protected", TypeVisibilityAttr::Protected)
-    .Default(Optional<VisibilityType>());
+    .Default(std::optional<VisibilityType>());
   if (R) {
     Out = *R;
       return true;
@@ -31287,12 +32149,12 @@ VisibilityAttr::VisibilityAttr(ASTContext &Ctx, const AttributeCommonInfo &Commo
 
 
 bool VisibilityAttr::ConvertStrToVisibilityType(StringRef Val, VisibilityType &Out) {
-  Optional<VisibilityType> R = llvm::StringSwitch<Optional<VisibilityType>>(Val)
+  std::optional<VisibilityType> R = llvm::StringSwitch<std::optional<VisibilityType>>(Val)
     .Case("default", VisibilityAttr::Default)
     .Case("hidden", VisibilityAttr::Hidden)
     .Case("internal", VisibilityAttr::Hidden)
     .Case("protected", VisibilityAttr::Protected)
-    .Default(Optional<VisibilityType>());
+    .Default(std::optional<VisibilityType>());
   if (R) {
     Out = *R;
       return true;
@@ -32576,7 +33438,7 @@ ZeroCallUsedRegsAttr::ZeroCallUsedRegsAttr(ASTContext &Ctx, const AttributeCommo
 
 
 bool ZeroCallUsedRegsAttr::ConvertStrToZeroCallUsedRegsKind(StringRef Val, ZeroCallUsedRegsKind &Out) {
-  Optional<ZeroCallUsedRegsKind> R = llvm::StringSwitch<Optional<ZeroCallUsedRegsKind>>(Val)
+  std::optional<ZeroCallUsedRegsKind> R = llvm::StringSwitch<std::optional<ZeroCallUsedRegsKind>>(Val)
     .Case("skip", ZeroCallUsedRegsAttr::Skip)
     .Case("used-gpr-arg", ZeroCallUsedRegsAttr::UsedGPRArg)
     .Case("used-gpr", ZeroCallUsedRegsAttr::UsedGPR)
@@ -32586,7 +33448,7 @@ bool ZeroCallUsedRegsAttr::ConvertStrToZeroCallUsedRegsKind(StringRef Val, ZeroC
     .Case("all-gpr", ZeroCallUsedRegsAttr::AllGPR)
     .Case("all-arg", ZeroCallUsedRegsAttr::AllArg)
     .Case("all", ZeroCallUsedRegsAttr::All)
-    .Default(Optional<ZeroCallUsedRegsKind>());
+    .Default(std::optional<ZeroCallUsedRegsKind>());
   if (R) {
     Out = *R;
       return true;
@@ -32909,8 +33771,16 @@ const char *Attr::getSpelling() const {
     return cast<GuardedVarAttr>(this)->getSpelling();
   case attr::HIPManaged:
     return cast<HIPManagedAttr>(this)->getSpelling();
+  case attr::HLSLGroupSharedAddressSpace:
+    return cast<HLSLGroupSharedAddressSpaceAttr>(this)->getSpelling();
   case attr::HLSLNumThreads:
     return cast<HLSLNumThreadsAttr>(this)->getSpelling();
+  case attr::HLSLResource:
+    return cast<HLSLResourceAttr>(this)->getSpelling();
+  case attr::HLSLResourceBinding:
+    return cast<HLSLResourceBindingAttr>(this)->getSpelling();
+  case attr::HLSLSV_DispatchThreadID:
+    return cast<HLSLSV_DispatchThreadIDAttr>(this)->getSpelling();
   case attr::HLSLSV_GroupIndex:
     return cast<HLSLSV_GroupIndexAttr>(this)->getSpelling();
   case attr::HLSLShader:
@@ -32973,6 +33843,8 @@ const char *Attr::getSpelling() const {
     return cast<MaxFieldAlignmentAttr>(this)->getSpelling();
   case attr::MayAlias:
     return cast<MayAliasAttr>(this)->getSpelling();
+  case attr::MaybeUndef:
+    return cast<MaybeUndefAttr>(this)->getSpelling();
   case attr::MicroMips:
     return cast<MicroMipsAttr>(this)->getSpelling();
   case attr::MinSize:
@@ -33051,6 +33923,8 @@ const char *Attr::getSpelling() const {
     return cast<NoThrowAttr>(this)->getSpelling();
   case attr::NoUniqueAddress:
     return cast<NoUniqueAddressAttr>(this)->getSpelling();
+  case attr::NoUwtable:
+    return cast<NoUwtableAttr>(this)->getSpelling();
   case attr::NonNull:
     return cast<NonNullAttr>(this)->getSpelling();
   case attr::NotTailCalled:
@@ -33215,6 +34089,8 @@ const char *Attr::getSpelling() const {
     return cast<RISCVInterruptAttr>(this)->getSpelling();
   case attr::RandomizeLayout:
     return cast<RandomizeLayoutAttr>(this)->getSpelling();
+  case attr::ReadOnlyPlacement:
+    return cast<ReadOnlyPlacementAttr>(this)->getSpelling();
   case attr::RegCall:
     return cast<RegCallAttr>(this)->getSpelling();
   case attr::Reinitializes:
@@ -33265,6 +34141,8 @@ const char *Attr::getSpelling() const {
     return cast<StdCallAttr>(this)->getSpelling();
   case attr::StrictFP:
     return cast<StrictFPAttr>(this)->getSpelling();
+  case attr::StrictGuardStackCheck:
+    return cast<StrictGuardStackCheckAttr>(this)->getSpelling();
   case attr::Suppress:
     return cast<SuppressAttr>(this)->getSpelling();
   case attr::SwiftAsync:
@@ -33309,6 +34187,8 @@ const char *Attr::getSpelling() const {
     return cast<TargetAttr>(this)->getSpelling();
   case attr::TargetClones:
     return cast<TargetClonesAttr>(this)->getSpelling();
+  case attr::TargetVersion:
+    return cast<TargetVersionAttr>(this)->getSpelling();
   case attr::TestTypestate:
     return cast<TestTypestateAttr>(this)->getSpelling();
   case attr::ThisCall:
@@ -33631,8 +34511,16 @@ Attr *Attr::clone(ASTContext &C) const {
     return cast<GuardedVarAttr>(this)->clone(C);
   case attr::HIPManaged:
     return cast<HIPManagedAttr>(this)->clone(C);
+  case attr::HLSLGroupSharedAddressSpace:
+    return cast<HLSLGroupSharedAddressSpaceAttr>(this)->clone(C);
   case attr::HLSLNumThreads:
     return cast<HLSLNumThreadsAttr>(this)->clone(C);
+  case attr::HLSLResource:
+    return cast<HLSLResourceAttr>(this)->clone(C);
+  case attr::HLSLResourceBinding:
+    return cast<HLSLResourceBindingAttr>(this)->clone(C);
+  case attr::HLSLSV_DispatchThreadID:
+    return cast<HLSLSV_DispatchThreadIDAttr>(this)->clone(C);
   case attr::HLSLSV_GroupIndex:
     return cast<HLSLSV_GroupIndexAttr>(this)->clone(C);
   case attr::HLSLShader:
@@ -33695,6 +34583,8 @@ Attr *Attr::clone(ASTContext &C) const {
     return cast<MaxFieldAlignmentAttr>(this)->clone(C);
   case attr::MayAlias:
     return cast<MayAliasAttr>(this)->clone(C);
+  case attr::MaybeUndef:
+    return cast<MaybeUndefAttr>(this)->clone(C);
   case attr::MicroMips:
     return cast<MicroMipsAttr>(this)->clone(C);
   case attr::MinSize:
@@ -33773,6 +34663,8 @@ Attr *Attr::clone(ASTContext &C) const {
     return cast<NoThrowAttr>(this)->clone(C);
   case attr::NoUniqueAddress:
     return cast<NoUniqueAddressAttr>(this)->clone(C);
+  case attr::NoUwtable:
+    return cast<NoUwtableAttr>(this)->clone(C);
   case attr::NonNull:
     return cast<NonNullAttr>(this)->clone(C);
   case attr::NotTailCalled:
@@ -33937,6 +34829,8 @@ Attr *Attr::clone(ASTContext &C) const {
     return cast<RISCVInterruptAttr>(this)->clone(C);
   case attr::RandomizeLayout:
     return cast<RandomizeLayoutAttr>(this)->clone(C);
+  case attr::ReadOnlyPlacement:
+    return cast<ReadOnlyPlacementAttr>(this)->clone(C);
   case attr::RegCall:
     return cast<RegCallAttr>(this)->clone(C);
   case attr::Reinitializes:
@@ -33987,6 +34881,8 @@ Attr *Attr::clone(ASTContext &C) const {
     return cast<StdCallAttr>(this)->clone(C);
   case attr::StrictFP:
     return cast<StrictFPAttr>(this)->clone(C);
+  case attr::StrictGuardStackCheck:
+    return cast<StrictGuardStackCheckAttr>(this)->clone(C);
   case attr::Suppress:
     return cast<SuppressAttr>(this)->clone(C);
   case attr::SwiftAsync:
@@ -34031,6 +34927,8 @@ Attr *Attr::clone(ASTContext &C) const {
     return cast<TargetAttr>(this)->clone(C);
   case attr::TargetClones:
     return cast<TargetClonesAttr>(this)->clone(C);
+  case attr::TargetVersion:
+    return cast<TargetVersionAttr>(this)->clone(C);
   case attr::TestTypestate:
     return cast<TestTypestateAttr>(this)->clone(C);
   case attr::ThisCall:
@@ -34353,8 +35251,16 @@ void Attr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
     return cast<GuardedVarAttr>(this)->printPretty(OS, Policy);
   case attr::HIPManaged:
     return cast<HIPManagedAttr>(this)->printPretty(OS, Policy);
+  case attr::HLSLGroupSharedAddressSpace:
+    return cast<HLSLGroupSharedAddressSpaceAttr>(this)->printPretty(OS, Policy);
   case attr::HLSLNumThreads:
     return cast<HLSLNumThreadsAttr>(this)->printPretty(OS, Policy);
+  case attr::HLSLResource:
+    return cast<HLSLResourceAttr>(this)->printPretty(OS, Policy);
+  case attr::HLSLResourceBinding:
+    return cast<HLSLResourceBindingAttr>(this)->printPretty(OS, Policy);
+  case attr::HLSLSV_DispatchThreadID:
+    return cast<HLSLSV_DispatchThreadIDAttr>(this)->printPretty(OS, Policy);
   case attr::HLSLSV_GroupIndex:
     return cast<HLSLSV_GroupIndexAttr>(this)->printPretty(OS, Policy);
   case attr::HLSLShader:
@@ -34417,6 +35323,8 @@ void Attr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
     return cast<MaxFieldAlignmentAttr>(this)->printPretty(OS, Policy);
   case attr::MayAlias:
     return cast<MayAliasAttr>(this)->printPretty(OS, Policy);
+  case attr::MaybeUndef:
+    return cast<MaybeUndefAttr>(this)->printPretty(OS, Policy);
   case attr::MicroMips:
     return cast<MicroMipsAttr>(this)->printPretty(OS, Policy);
   case attr::MinSize:
@@ -34495,6 +35403,8 @@ void Attr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
     return cast<NoThrowAttr>(this)->printPretty(OS, Policy);
   case attr::NoUniqueAddress:
     return cast<NoUniqueAddressAttr>(this)->printPretty(OS, Policy);
+  case attr::NoUwtable:
+    return cast<NoUwtableAttr>(this)->printPretty(OS, Policy);
   case attr::NonNull:
     return cast<NonNullAttr>(this)->printPretty(OS, Policy);
   case attr::NotTailCalled:
@@ -34659,6 +35569,8 @@ void Attr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
     return cast<RISCVInterruptAttr>(this)->printPretty(OS, Policy);
   case attr::RandomizeLayout:
     return cast<RandomizeLayoutAttr>(this)->printPretty(OS, Policy);
+  case attr::ReadOnlyPlacement:
+    return cast<ReadOnlyPlacementAttr>(this)->printPretty(OS, Policy);
   case attr::RegCall:
     return cast<RegCallAttr>(this)->printPretty(OS, Policy);
   case attr::Reinitializes:
@@ -34709,6 +35621,8 @@ void Attr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
     return cast<StdCallAttr>(this)->printPretty(OS, Policy);
   case attr::StrictFP:
     return cast<StrictFPAttr>(this)->printPretty(OS, Policy);
+  case attr::StrictGuardStackCheck:
+    return cast<StrictGuardStackCheckAttr>(this)->printPretty(OS, Policy);
   case attr::Suppress:
     return cast<SuppressAttr>(this)->printPretty(OS, Policy);
   case attr::SwiftAsync:
@@ -34753,6 +35667,8 @@ void Attr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
     return cast<TargetAttr>(this)->printPretty(OS, Policy);
   case attr::TargetClones:
     return cast<TargetClonesAttr>(this)->printPretty(OS, Policy);
+  case attr::TargetVersion:
+    return cast<TargetVersionAttr>(this)->printPretty(OS, Policy);
   case attr::TestTypestate:
     return cast<TestTypestateAttr>(this)->printPretty(OS, Policy);
   case attr::ThisCall:

@@ -242,11 +242,11 @@ public:
   }
 
   void writeAutoType(const AutoType *node) {
-    llvm::Optional<QualType> deducedType = ( makeOptionalFromNullable(node->getDeducedType()) );
+    std::optional<QualType> deducedType = ( makeOptionalFromNullable(node->getDeducedType()) );
     W.find("deducedType").writeOptional(deducedType);
     AutoTypeKeyword keyword = ( node->getKeyword() );
     W.find("keyword").writeAutoTypeKeyword(keyword);
-    llvm::Optional<const ConceptDecl*> typeConstraintConcept = ( makeOptionalFromPointer(
+    std::optional<const ConceptDecl*> typeConstraintConcept = ( makeOptionalFromPointer(
         const_cast<const ConceptDecl*>(node->getTypeConstraintConcept())) );
     W.find("typeConstraintConcept").writeOptional(typeConstraintConcept);
     llvm::ArrayRef<TemplateArgument> typeConstraintArguments = ( node->getTypeConstraintArguments() );
@@ -258,7 +258,7 @@ public:
   }
 
   void writeDeducedTemplateSpecializationType(const DeducedTemplateSpecializationType *node) {
-    llvm::Optional<TemplateName> templateName = ( makeOptionalFromNullable(node->getTemplateName()) );
+    std::optional<TemplateName> templateName = ( makeOptionalFromNullable(node->getTemplateName()) );
     W.find("templateName").writeOptional(templateName);
     QualType deducedType = ( node->getDeducedType() );
     W.find("deducedType").writeQualType(deducedType);
@@ -290,10 +290,10 @@ public:
     W.find("qualifier").writeNestedNameSpecifier(qualifier);
     const IdentifierInfo* name = ( node->getIdentifier() );
     W.find("name").writeIdentifier(name);
-    llvm::Optional<QualType> underlyingType = (
+    std::optional<QualType> underlyingType = (
       node->isCanonicalUnqualified()
-        ? llvm::None
-        : llvm::Optional<QualType>(node->getCanonicalTypeInternal())
+        ? std::nullopt
+        : std::optional<QualType>(node->getCanonicalTypeInternal())
     );
     W.find("underlyingType").writeOptional(underlyingType);
   }
@@ -336,7 +336,7 @@ public:
     W.find("qualifier").writeNestedNameSpecifier(qualifier);
     QualType namedType = ( node->getNamedType() );
     W.find("namedType").writeQualType(namedType);
-    llvm::Optional<const TagDecl*> ownedTag = ( makeOptionalFromPointer(
+    std::optional<const TagDecl*> ownedTag = ( makeOptionalFromPointer(
                     const_cast<const TagDecl *>(node->getOwnedTagDecl())) );
     W.find("ownedTag").writeOptional(ownedTag);
   }
@@ -471,7 +471,7 @@ public:
   void writePackExpansionType(const PackExpansionType *node) {
     QualType pattern = ( node->getPattern() );
     W.find("pattern").writeQualType(pattern);
-    llvm::Optional<uint32_t> numExpansions = ( node->getNumExpansions() );
+    std::optional<uint32_t> numExpansions = ( node->getNumExpansions() );
     W.find("numExpansions").writeOptional(numExpansions);
   }
 
@@ -505,17 +505,25 @@ public:
   }
 
   void writeSubstTemplateTypeParmPackType(const SubstTemplateTypeParmPackType *node) {
-    QualType replacedParameter = ( QualType(node->getReplacedParameter(), 0) );
-    W.find("replacedParameter").writeQualType(replacedParameter);
+    const Decl* associatedDecl = ( node->getAssociatedDecl() );
+    W.find("associatedDecl").writeDeclRef(associatedDecl);
+    uint32_t Index = ( node->getIndex() );
+    W.find("Index").writeUInt32(Index);
+    bool Final = ( node->getFinal() );
+    W.find("Final").writeBool(Final);
     TemplateArgument replacementPack = ( node->getArgumentPack() );
     W.find("replacementPack").writeTemplateArgument(replacementPack);
   }
 
   void writeSubstTemplateTypeParmType(const SubstTemplateTypeParmType *node) {
-    QualType replacedParameter = ( QualType(node->getReplacedParameter(), 0) );
-    W.find("replacedParameter").writeQualType(replacedParameter);
     QualType replacementType = ( node->getReplacementType() );
     W.find("replacementType").writeQualType(replacementType);
+    const Decl* associatedDecl = ( node->getAssociatedDecl() );
+    W.find("associatedDecl").writeDeclRef(associatedDecl);
+    uint32_t Index = ( node->getIndex() );
+    W.find("Index").writeUInt32(Index);
+    std::optional<uint32_t> PackIndex = ( node->getPackIndex() );
+    W.find("PackIndex").writeOptional(PackIndex);
   }
 
   void writeEnumType(const EnumType *node) {
@@ -539,12 +547,12 @@ public:
     W.find("templateName").writeTemplateName(templateName);
     llvm::ArrayRef<TemplateArgument> templateArguments = ( node->template_arguments() );
     W.find("templateArguments").writeArray(templateArguments);
-    llvm::Optional<QualType> underlyingType = (
+    std::optional<QualType> underlyingType = (
       node->isTypeAlias()
-        ? llvm::Optional<QualType>(node->getAliasedType())
+        ? std::optional<QualType>(node->getAliasedType())
         : node->isCanonicalUnqualified()
-            ? llvm::None
-            : llvm::Optional<QualType>(node->getCanonicalTypeInternal())
+            ? std::nullopt
+            : std::optional<QualType>(node->getCanonicalTypeInternal())
     );
     W.find("underlyingType").writeOptional(underlyingType);
   }
@@ -556,7 +564,7 @@ public:
     W.find("index").writeUInt32(index);
     bool isParameterPack = ( node->isParameterPack() );
     W.find("isParameterPack").writeBool(isParameterPack);
-    llvm::Optional<const TemplateTypeParmDecl*> declaration = ( makeOptionalFromPointer(
+    std::optional<const TemplateTypeParmDecl*> declaration = ( makeOptionalFromPointer(
                     const_cast<const TemplateTypeParmDecl*>(node->getDecl())) );
     W.find("declaration").writeOptional(declaration);
   }
@@ -564,18 +572,22 @@ public:
   void writeTypeOfExprType(const TypeOfExprType *node) {
     const Expr* expression = ( node->getUnderlyingExpr() );
     W.find("expression").writeExprRef(expression);
+    TypeOfKind kind = ( node->getKind() );
+    W.find("kind").writeTypeOfKind(kind);
   }
 
   void writeTypeOfType(const TypeOfType *node) {
-    QualType underlyingType = ( node->getUnderlyingType() );
-    W.find("underlyingType").writeQualType(underlyingType);
+    QualType unmodifiedType = ( node->getUnmodifiedType() );
+    W.find("unmodifiedType").writeQualType(unmodifiedType);
+    TypeOfKind kind = ( node->getKind() );
+    W.find("kind").writeTypeOfKind(kind);
   }
 
   void writeTypedefType(const TypedefType *node) {
     const Decl* declaration = ( node->getDecl() );
     W.find("declaration").writeDeclRef(declaration);
-    llvm::Optional<QualType> canonicalType = ( makeOptionalFromNullable(node->getCanonicalTypeInternal()) );
-    W.find("canonicalType").writeOptional(canonicalType);
+    QualType underlyingType = ( node->desugar() );
+    W.find("underlyingType").writeQualType(underlyingType);
   }
 
   void writeUnaryTransformType(const UnaryTransformType *node) {

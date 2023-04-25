@@ -615,8 +615,24 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
       const auto *A = cast<HIPManagedAttr>(At);
       return A->clone(C);
     }
+    case attr::HLSLGroupSharedAddressSpace: {
+      const auto *A = cast<HLSLGroupSharedAddressSpaceAttr>(At);
+      return A->clone(C);
+    }
     case attr::HLSLNumThreads: {
       const auto *A = cast<HLSLNumThreadsAttr>(At);
+      return A->clone(C);
+    }
+    case attr::HLSLResource: {
+      const auto *A = cast<HLSLResourceAttr>(At);
+      return A->clone(C);
+    }
+    case attr::HLSLResourceBinding: {
+      const auto *A = cast<HLSLResourceBindingAttr>(At);
+      return A->clone(C);
+    }
+    case attr::HLSLSV_DispatchThreadID: {
+      const auto *A = cast<HLSLSV_DispatchThreadIDAttr>(At);
       return A->clone(C);
     }
     case attr::HLSLSV_GroupIndex: {
@@ -762,6 +778,10 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
     }
     case attr::MayAlias: {
       const auto *A = cast<MayAliasAttr>(At);
+      return A->clone(C);
+    }
+    case attr::MaybeUndef: {
+      const auto *A = cast<MaybeUndefAttr>(At);
       return A->clone(C);
     }
     case attr::MicroMips: {
@@ -918,6 +938,10 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
     }
     case attr::NoUniqueAddress: {
       const auto *A = cast<NoUniqueAddressAttr>(At);
+      return A->clone(C);
+    }
+    case attr::NoUwtable: {
+      const auto *A = cast<NoUwtableAttr>(At);
       return A->clone(C);
     }
     case attr::NonNull: {
@@ -1260,6 +1284,10 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
       const auto *A = cast<RandomizeLayoutAttr>(At);
       return A->clone(C);
     }
+    case attr::ReadOnlyPlacement: {
+      const auto *A = cast<ReadOnlyPlacementAttr>(At);
+      return A->clone(C);
+    }
     case attr::RegCall: {
       const auto *A = cast<RegCallAttr>(At);
       return A->clone(C);
@@ -1407,6 +1435,10 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
       const auto *A = cast<StrictFPAttr>(At);
       return A->clone(C);
     }
+    case attr::StrictGuardStackCheck: {
+      const auto *A = cast<StrictGuardStackCheckAttr>(At);
+      return A->clone(C);
+    }
     case attr::Suppress: {
       const auto *A = cast<SuppressAttr>(At);
       return A->clone(C);
@@ -1493,6 +1525,10 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
     }
     case attr::TargetClones: {
       const auto *A = cast<TargetClonesAttr>(At);
+      return A->clone(C);
+    }
+    case attr::TargetVersion: {
+      const auto *A = cast<TargetVersionAttr>(At);
       return A->clone(C);
     }
     case attr::TestTypestate: {
@@ -2040,7 +2076,19 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
     case attr::HIPManaged: {
       return nullptr;
     }
+    case attr::HLSLGroupSharedAddressSpace: {
+      return nullptr;
+    }
     case attr::HLSLNumThreads: {
+      return nullptr;
+    }
+    case attr::HLSLResource: {
+      return nullptr;
+    }
+    case attr::HLSLResourceBinding: {
+      return nullptr;
+    }
+    case attr::HLSLSV_DispatchThreadID: {
       return nullptr;
     }
     case attr::HLSLSV_GroupIndex: {
@@ -2134,6 +2182,9 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
       return nullptr;
     }
     case attr::MayAlias: {
+      return nullptr;
+    }
+    case attr::MaybeUndef: {
       return nullptr;
     }
     case attr::MicroMips: {
@@ -2251,6 +2302,9 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
       return nullptr;
     }
     case attr::NoUniqueAddress: {
+      return nullptr;
+    }
+    case attr::NoUwtable: {
       return nullptr;
     }
     case attr::NonNull: {
@@ -2504,6 +2558,9 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
     case attr::RandomizeLayout: {
       return nullptr;
     }
+    case attr::ReadOnlyPlacement: {
+      return nullptr;
+    }
     case attr::RegCall: {
       return nullptr;
     }
@@ -2579,6 +2636,9 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
     case attr::StrictFP: {
       return nullptr;
     }
+    case attr::StrictGuardStackCheck: {
+      return nullptr;
+    }
     case attr::Suppress: {
       return nullptr;
     }
@@ -2643,6 +2703,9 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
       return nullptr;
     }
     case attr::TargetClones: {
+      return nullptr;
+    }
+    case attr::TargetVersion: {
       return nullptr;
     }
     case attr::TestTypestate: {

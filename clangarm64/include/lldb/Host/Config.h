@@ -51,7 +51,7 @@
 
 /* #undef LLDB_PYTHON_HOME */
 
-#define LLDB_LIBDIR_SUFFIX ""
+#define LLDB_INSTALL_LIBDIR_BASENAME "lib"
 
 /* #undef LLDB_GLOBAL_INIT_DIRECTORY */
 

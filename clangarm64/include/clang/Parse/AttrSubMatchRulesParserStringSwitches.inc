@@ -1,58 +1,58 @@
-Optional<attr::SubjectMatchRule> defaultIsAttributeSubjectMatchSubRuleFor(StringRef, bool) {
-  return None;
+std::optional<attr::SubjectMatchRule> defaultIsAttributeSubjectMatchSubRuleFor(StringRef, bool) {
+  return std::nullopt;
 }
 
-Optional<attr::SubjectMatchRule> isAttributeSubjectMatchSubRuleFor_function(StringRef Name, bool IsUnless) {
+std::optional<attr::SubjectMatchRule> isAttributeSubjectMatchSubRuleFor_function(StringRef Name, bool IsUnless) {
   if (IsUnless)
-    return llvm::StringSwitch<Optional<attr::SubjectMatchRule>>(Name).
-    Default(None);
-  return llvm::StringSwitch<Optional<attr::SubjectMatchRule>>(Name).
+    return llvm::StringSwitch<std::optional<attr::SubjectMatchRule>>(Name).
+    Default(std::nullopt);
+  return llvm::StringSwitch<std::optional<attr::SubjectMatchRule>>(Name).
   Case("is_member", attr::SubjectMatchRule_function_is_member).
-  Default(None);
+  Default(std::nullopt);
 }
 
-Optional<attr::SubjectMatchRule> isAttributeSubjectMatchSubRuleFor_objc_method(StringRef Name, bool IsUnless) {
+std::optional<attr::SubjectMatchRule> isAttributeSubjectMatchSubRuleFor_objc_method(StringRef Name, bool IsUnless) {
   if (IsUnless)
-    return llvm::StringSwitch<Optional<attr::SubjectMatchRule>>(Name).
-    Default(None);
-  return llvm::StringSwitch<Optional<attr::SubjectMatchRule>>(Name).
+    return llvm::StringSwitch<std::optional<attr::SubjectMatchRule>>(Name).
+    Default(std::nullopt);
+  return llvm::StringSwitch<std::optional<attr::SubjectMatchRule>>(Name).
   Case("is_instance", attr::SubjectMatchRule_objc_method_is_instance).
-  Default(None);
+  Default(std::nullopt);
 }
 
-Optional<attr::SubjectMatchRule> isAttributeSubjectMatchSubRuleFor_record(StringRef Name, bool IsUnless) {
+std::optional<attr::SubjectMatchRule> isAttributeSubjectMatchSubRuleFor_record(StringRef Name, bool IsUnless) {
   if (IsUnless)
-    return llvm::StringSwitch<Optional<attr::SubjectMatchRule>>(Name).
+    return llvm::StringSwitch<std::optional<attr::SubjectMatchRule>>(Name).
     Case("is_union", attr::SubjectMatchRule_record_not_is_union).
-    Default(None);
-  return llvm::StringSwitch<Optional<attr::SubjectMatchRule>>(Name).
-  Default(None);
+    Default(std::nullopt);
+  return llvm::StringSwitch<std::optional<attr::SubjectMatchRule>>(Name).
+  Default(std::nullopt);
 }
 
-Optional<attr::SubjectMatchRule> isAttributeSubjectMatchSubRuleFor_hasType(StringRef Name, bool IsUnless) {
+std::optional<attr::SubjectMatchRule> isAttributeSubjectMatchSubRuleFor_hasType(StringRef Name, bool IsUnless) {
   if (IsUnless)
-    return llvm::StringSwitch<Optional<attr::SubjectMatchRule>>(Name).
-    Default(None);
-  return llvm::StringSwitch<Optional<attr::SubjectMatchRule>>(Name).
+    return llvm::StringSwitch<std::optional<attr::SubjectMatchRule>>(Name).
+    Default(std::nullopt);
+  return llvm::StringSwitch<std::optional<attr::SubjectMatchRule>>(Name).
   Case("functionType", attr::SubjectMatchRule_hasType_functionType).
-  Default(None);
+  Default(std::nullopt);
 }
 
-Optional<attr::SubjectMatchRule> isAttributeSubjectMatchSubRuleFor_variable(StringRef Name, bool IsUnless) {
+std::optional<attr::SubjectMatchRule> isAttributeSubjectMatchSubRuleFor_variable(StringRef Name, bool IsUnless) {
   if (IsUnless)
-    return llvm::StringSwitch<Optional<attr::SubjectMatchRule>>(Name).
+    return llvm::StringSwitch<std::optional<attr::SubjectMatchRule>>(Name).
     Case("is_parameter", attr::SubjectMatchRule_variable_not_is_parameter).
-    Default(None);
-  return llvm::StringSwitch<Optional<attr::SubjectMatchRule>>(Name).
+    Default(std::nullopt);
+  return llvm::StringSwitch<std::optional<attr::SubjectMatchRule>>(Name).
   Case("is_thread_local", attr::SubjectMatchRule_variable_is_thread_local).
   Case("is_global", attr::SubjectMatchRule_variable_is_global).
   Case("is_local", attr::SubjectMatchRule_variable_is_local).
   Case("is_parameter", attr::SubjectMatchRule_variable_is_parameter).
-  Default(None);
+  Default(std::nullopt);
 }
 
-std::pair<Optional<attr::SubjectMatchRule>, Optional<attr::SubjectMatchRule> (*)(StringRef, bool)> isAttributeSubjectMatchRule(StringRef Name) {
-  return llvm::StringSwitch<std::pair<Optional<attr::SubjectMatchRule>, Optional<attr::SubjectMatchRule> (*) (StringRef, bool)>>(Name).
+std::pair<std::optional<attr::SubjectMatchRule>, std::optional<attr::SubjectMatchRule> (*)(StringRef, bool)> isAttributeSubjectMatchRule(StringRef Name) {
+  return llvm::StringSwitch<std::pair<std::optional<attr::SubjectMatchRule>, std::optional<attr::SubjectMatchRule> (*) (StringRef, bool)>>(Name).
   Case("block", std::make_pair(attr::SubjectMatchRule_block, defaultIsAttributeSubjectMatchSubRuleFor)).
   Case("enum", std::make_pair(attr::SubjectMatchRule_enum, defaultIsAttributeSubjectMatchSubRuleFor)).
   Case("enum_constant", std::make_pair(attr::SubjectMatchRule_enum_constant, defaultIsAttributeSubjectMatchSubRuleFor)).
@@ -69,7 +69,7 @@ std::pair<Optional<attr::SubjectMatchRule>, Optional<attr::SubjectMatchRule> (*)
   Case("hasType", std::make_pair(attr::SubjectMatchRule_hasType_abstract, isAttributeSubjectMatchSubRuleFor_hasType)).
   Case("type_alias", std::make_pair(attr::SubjectMatchRule_type_alias, defaultIsAttributeSubjectMatchSubRuleFor)).
   Case("variable", std::make_pair(attr::SubjectMatchRule_variable, isAttributeSubjectMatchSubRuleFor_variable)).
-  Default(std::make_pair(None, defaultIsAttributeSubjectMatchSubRuleFor));
+  Default(std::make_pair(std::nullopt, defaultIsAttributeSubjectMatchSubRuleFor));
 }
 
 const char *validAttributeSubjectMatchSubRules(attr::SubjectMatchRule Rule) {
