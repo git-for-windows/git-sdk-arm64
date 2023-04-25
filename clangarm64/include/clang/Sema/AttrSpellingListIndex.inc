@@ -425,6 +425,12 @@
   case AT_CFGuard: {
     if (Name == "guard" && getSyntax() == AttributeCommonInfo::AS_Declspec && Scope == "")
         return 0;
+    if (Name == "guard" && getSyntax() == AttributeCommonInfo::AS_GNU && Scope == "")
+        return 1;
+    if (Name == "guard" && getSyntax() == AttributeCommonInfo::AS_CXX11 && Scope == "clang")
+        return 2;
+    if (Name == "guard" && getSyntax() == AttributeCommonInfo::AS_C2x && Scope == "clang")
+        return 3;
     break;
   }
   case AT_CFICanonicalJumpTable: {
@@ -966,8 +972,26 @@
         return 1;
     break;
   }
+  case AT_HLSLGroupSharedAddressSpace: {
+    if (Name == "groupshared" && getSyntax() == AttributeCommonInfo::AS_Keyword && Scope == "")
+        return 0;
+    break;
+  }
   case AT_HLSLNumThreads: {
     if (Name == "numthreads" && getSyntax() == AttributeCommonInfo::AS_Microsoft && Scope == "")
+        return 0;
+    break;
+  }
+  case AT_HLSLResource: {
+    break;
+  }
+  case AT_HLSLResourceBinding: {
+    if (Name == "register" && getSyntax() == AttributeCommonInfo::AS_HLSLSemantic && Scope == "")
+        return 0;
+    break;
+  }
+  case AT_HLSLSV_DispatchThreadID: {
+    if (Name == "SV_DispatchThreadID" && getSyntax() == AttributeCommonInfo::AS_HLSLSemantic && Scope == "")
         return 0;
     break;
   }
@@ -1186,6 +1210,15 @@
     if (Name == "may_alias" && getSyntax() == AttributeCommonInfo::AS_CXX11 && Scope == "gnu")
         return 1;
     if (Name == "may_alias" && getSyntax() == AttributeCommonInfo::AS_C2x && Scope == "gnu")
+        return 2;
+    break;
+  }
+  case AT_MaybeUndef: {
+    if (Name == "maybe_undef" && getSyntax() == AttributeCommonInfo::AS_GNU && Scope == "")
+        return 0;
+    if (Name == "maybe_undef" && getSyntax() == AttributeCommonInfo::AS_CXX11 && Scope == "clang")
+        return 1;
+    if (Name == "maybe_undef" && getSyntax() == AttributeCommonInfo::AS_C2x && Scope == "clang")
         return 2;
     break;
   }
@@ -1561,6 +1594,8 @@
         return 1;
     if (Name == "no_stack_protector" && getSyntax() == AttributeCommonInfo::AS_C2x && Scope == "clang")
         return 2;
+    if (Name == "safebuffers" && getSyntax() == AttributeCommonInfo::AS_Declspec && Scope == "")
+        return 3;
     break;
   }
   case AT_NoThreadSafetyAnalysis: {
@@ -1586,6 +1621,15 @@
   case AT_NoUniqueAddress: {
     if (Name == "no_unique_address" && getSyntax() == AttributeCommonInfo::AS_CXX11 && Scope == "")
         return 0;
+    break;
+  }
+  case AT_NoUwtable: {
+    if (Name == "nouwtable" && getSyntax() == AttributeCommonInfo::AS_GNU && Scope == "")
+        return 0;
+    if (Name == "nouwtable" && getSyntax() == AttributeCommonInfo::AS_CXX11 && Scope == "clang")
+        return 1;
+    if (Name == "nouwtable" && getSyntax() == AttributeCommonInfo::AS_C2x && Scope == "clang")
+        return 2;
     break;
   }
   case AT_NonNull: {
@@ -2215,6 +2259,15 @@
         return 2;
     break;
   }
+  case AT_ReadOnlyPlacement: {
+    if (Name == "enforce_read_only_placement" && getSyntax() == AttributeCommonInfo::AS_GNU && Scope == "")
+        return 0;
+    if (Name == "enforce_read_only_placement" && getSyntax() == AttributeCommonInfo::AS_CXX11 && Scope == "clang")
+        return 1;
+    if (Name == "enforce_read_only_placement" && getSyntax() == AttributeCommonInfo::AS_C2x && Scope == "clang")
+        return 2;
+    break;
+  }
   case AT_RegCall: {
     if (Name == "regcall" && getSyntax() == AttributeCommonInfo::AS_GNU && Scope == "")
         return 0;
@@ -2449,6 +2502,11 @@
   case AT_StrictFP: {
     break;
   }
+  case AT_StrictGuardStackCheck: {
+    if (Name == "strict_gs_check" && getSyntax() == AttributeCommonInfo::AS_Declspec && Scope == "")
+        return 0;
+    break;
+  }
   case AT_Suppress: {
     if (Name == "suppress" && getSyntax() == AttributeCommonInfo::AS_CXX11 && Scope == "gsl")
         return 0;
@@ -2606,6 +2664,15 @@
     if (Name == "target_clones" && getSyntax() == AttributeCommonInfo::AS_CXX11 && Scope == "gnu")
         return 1;
     if (Name == "target_clones" && getSyntax() == AttributeCommonInfo::AS_C2x && Scope == "gnu")
+        return 2;
+    break;
+  }
+  case AT_TargetVersion: {
+    if (Name == "target_version" && getSyntax() == AttributeCommonInfo::AS_GNU && Scope == "")
+        return 0;
+    if (Name == "target_version" && getSyntax() == AttributeCommonInfo::AS_CXX11 && Scope == "gnu")
+        return 1;
+    if (Name == "target_version" && getSyntax() == AttributeCommonInfo::AS_C2x && Scope == "gnu")
         return 2;
     break;
   }

@@ -77,6 +77,12 @@ FRIEND(Friend, Decl)
 FRIENDTEMPLATE(FriendTemplate, Decl)
 #undef FRIENDTEMPLATE
 
+#ifndef IMPLICITCONCEPTSPECIALIZATION
+#  define IMPLICITCONCEPTSPECIALIZATION(Type, Base) DECL(Type, Base)
+#endif
+IMPLICITCONCEPTSPECIALIZATION(ImplicitConceptSpecialization, Decl)
+#undef IMPLICITCONCEPTSPECIALIZATION
+
 #ifndef IMPORT
 #  define IMPORT(Type, Base) DECL(Type, Base)
 #endif
@@ -118,6 +124,12 @@ USINGENUM(UsingEnum, BaseUsingDecl)
 DECL_RANGE(BaseUsing, Using, UsingEnum)
 
 #undef BASEUSING
+
+#ifndef HLSLBUFFER
+#  define HLSLBUFFER(Type, Base) NAMED(Type, Base)
+#endif
+HLSLBUFFER(HLSLBuffer, NamedDecl)
+#undef HLSLBUFFER
 
 #ifndef LABEL
 #  define LABEL(Type, Base) NAMED(Type, Base)
@@ -621,6 +633,12 @@ REQUIRESEXPRBODY(RequiresExprBody, Decl)
 STATICASSERT(StaticAssert, Decl)
 #undef STATICASSERT
 
+#ifndef TOPLEVELSTMT
+#  define TOPLEVELSTMT(Type, Base) DECL(Type, Base)
+#endif
+TOPLEVELSTMT(TopLevelStmt, Decl)
+#undef TOPLEVELSTMT
+
 #ifndef TRANSLATIONUNIT
 #  define TRANSLATIONUNIT(Type, Base) DECL(Type, Base)
 #endif
@@ -654,6 +672,7 @@ DECL_CONTEXT(Block)
 DECL_CONTEXT(Captured)
 DECL_CONTEXT(Export)
 DECL_CONTEXT(ExternCContext)
+DECL_CONTEXT(HLSLBuffer)
 DECL_CONTEXT(LinkageSpec)
 DECL_CONTEXT(Namespace)
 DECL_CONTEXT(OMPDeclareMapper)

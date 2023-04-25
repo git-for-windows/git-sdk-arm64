@@ -450,6 +450,13 @@ struct WriteDispatcher<const TemplateTypeParmDecl*> {
   }
 };
 template <>
+struct WriteDispatcher<TypeOfKind> {
+  template <class BasicWriter, class... Args>
+  static void write(BasicWriter &W, Args &&... args) {
+    return W.writeTypeOfKind(std::forward<Args>(args)...);
+  }
+};
+template <>
 struct WriteDispatcher<uint32_t> {
   template <class BasicWriter, class... Args>
   static void write(BasicWriter &W, Args &&... args) {
@@ -513,7 +520,7 @@ struct WriteDispatcher<llvm::ArrayRef<T>> {
   }
 };
 template <class T>
-struct WriteDispatcher<llvm::Optional<T>> {
+struct WriteDispatcher<std::optional<T>> {
   template <class BasicWriter, class... Args>
   static void write(BasicWriter &W, Args &&... args) {
     return W.writeOptional(std::forward<Args>(args)...);
@@ -524,241 +531,241 @@ template <class ValueType>
 struct PackOptionalValue;
 template <>
 struct PackOptionalValue<CXXRecordDecl*> {
-  static CXXRecordDecl* pack(Optional<CXXRecordDecl*> value) {
+  static CXXRecordDecl* pack(std::optional<CXXRecordDecl*> value) {
     return value ? *value : nullptr;
   }
 };
 template <>
 struct PackOptionalValue<const CXXRecordDecl*> {
-  static const CXXRecordDecl* pack(Optional<const CXXRecordDecl*> value) {
+  static const CXXRecordDecl* pack(std::optional<const CXXRecordDecl*> value) {
     return value ? *value : nullptr;
   }
 };
 template <>
 struct PackOptionalValue<ConceptDecl*> {
-  static ConceptDecl* pack(Optional<ConceptDecl*> value) {
+  static ConceptDecl* pack(std::optional<ConceptDecl*> value) {
     return value ? *value : nullptr;
   }
 };
 template <>
 struct PackOptionalValue<const ConceptDecl*> {
-  static const ConceptDecl* pack(Optional<const ConceptDecl*> value) {
+  static const ConceptDecl* pack(std::optional<const ConceptDecl*> value) {
     return value ? *value : nullptr;
   }
 };
 template <>
 struct PackOptionalValue<Decl*> {
-  static Decl* pack(Optional<Decl*> value) {
+  static Decl* pack(std::optional<Decl*> value) {
     return value ? *value : nullptr;
   }
 };
 template <>
 struct PackOptionalValue<const Decl*> {
-  static const Decl* pack(Optional<const Decl*> value) {
+  static const Decl* pack(std::optional<const Decl*> value) {
     return value ? *value : nullptr;
   }
 };
 template <>
 struct PackOptionalValue<Expr*> {
-  static Expr* pack(Optional<Expr*> value) {
+  static Expr* pack(std::optional<Expr*> value) {
     return value ? *value : nullptr;
   }
 };
 template <>
 struct PackOptionalValue<const Expr*> {
-  static const Expr* pack(Optional<const Expr*> value) {
+  static const Expr* pack(std::optional<const Expr*> value) {
     return value ? *value : nullptr;
   }
 };
 template <>
 struct PackOptionalValue<FunctionDecl*> {
-  static FunctionDecl* pack(Optional<FunctionDecl*> value) {
+  static FunctionDecl* pack(std::optional<FunctionDecl*> value) {
     return value ? *value : nullptr;
   }
 };
 template <>
 struct PackOptionalValue<const FunctionDecl*> {
-  static const FunctionDecl* pack(Optional<const FunctionDecl*> value) {
+  static const FunctionDecl* pack(std::optional<const FunctionDecl*> value) {
     return value ? *value : nullptr;
   }
 };
 template <>
 struct PackOptionalValue<IdentifierInfo*> {
-  static IdentifierInfo* pack(Optional<IdentifierInfo*> value) {
+  static IdentifierInfo* pack(std::optional<IdentifierInfo*> value) {
     return value ? *value : nullptr;
   }
 };
 template <>
 struct PackOptionalValue<const IdentifierInfo*> {
-  static const IdentifierInfo* pack(Optional<const IdentifierInfo*> value) {
+  static const IdentifierInfo* pack(std::optional<const IdentifierInfo*> value) {
     return value ? *value : nullptr;
   }
 };
 template <>
 struct PackOptionalValue<NamedDecl*> {
-  static NamedDecl* pack(Optional<NamedDecl*> value) {
+  static NamedDecl* pack(std::optional<NamedDecl*> value) {
     return value ? *value : nullptr;
   }
 };
 template <>
 struct PackOptionalValue<const NamedDecl*> {
-  static const NamedDecl* pack(Optional<const NamedDecl*> value) {
+  static const NamedDecl* pack(std::optional<const NamedDecl*> value) {
     return value ? *value : nullptr;
   }
 };
 template <>
 struct PackOptionalValue<NamespaceAliasDecl*> {
-  static NamespaceAliasDecl* pack(Optional<NamespaceAliasDecl*> value) {
+  static NamespaceAliasDecl* pack(std::optional<NamespaceAliasDecl*> value) {
     return value ? *value : nullptr;
   }
 };
 template <>
 struct PackOptionalValue<const NamespaceAliasDecl*> {
-  static const NamespaceAliasDecl* pack(Optional<const NamespaceAliasDecl*> value) {
+  static const NamespaceAliasDecl* pack(std::optional<const NamespaceAliasDecl*> value) {
     return value ? *value : nullptr;
   }
 };
 template <>
 struct PackOptionalValue<NamespaceDecl*> {
-  static NamespaceDecl* pack(Optional<NamespaceDecl*> value) {
+  static NamespaceDecl* pack(std::optional<NamespaceDecl*> value) {
     return value ? *value : nullptr;
   }
 };
 template <>
 struct PackOptionalValue<const NamespaceDecl*> {
-  static const NamespaceDecl* pack(Optional<const NamespaceDecl*> value) {
+  static const NamespaceDecl* pack(std::optional<const NamespaceDecl*> value) {
     return value ? *value : nullptr;
   }
 };
 template <>
 struct PackOptionalValue<ObjCProtocolDecl*> {
-  static ObjCProtocolDecl* pack(Optional<ObjCProtocolDecl*> value) {
+  static ObjCProtocolDecl* pack(std::optional<ObjCProtocolDecl*> value) {
     return value ? *value : nullptr;
   }
 };
 template <>
 struct PackOptionalValue<const ObjCProtocolDecl*> {
-  static const ObjCProtocolDecl* pack(Optional<const ObjCProtocolDecl*> value) {
+  static const ObjCProtocolDecl* pack(std::optional<const ObjCProtocolDecl*> value) {
     return value ? *value : nullptr;
   }
 };
 template <>
 struct PackOptionalValue<ObjCTypeParamDecl*> {
-  static ObjCTypeParamDecl* pack(Optional<ObjCTypeParamDecl*> value) {
+  static ObjCTypeParamDecl* pack(std::optional<ObjCTypeParamDecl*> value) {
     return value ? *value : nullptr;
   }
 };
 template <>
 struct PackOptionalValue<const ObjCTypeParamDecl*> {
-  static const ObjCTypeParamDecl* pack(Optional<const ObjCTypeParamDecl*> value) {
+  static const ObjCTypeParamDecl* pack(std::optional<const ObjCTypeParamDecl*> value) {
     return value ? *value : nullptr;
   }
 };
 template <>
 struct PackOptionalValue<QualType> {
-  static QualType pack(Optional<QualType> value) {
+  static QualType pack(std::optional<QualType> value) {
     return value ? *value : QualType();
   }
 };
 template <>
 struct PackOptionalValue<Stmt*> {
-  static Stmt* pack(Optional<Stmt*> value) {
+  static Stmt* pack(std::optional<Stmt*> value) {
     return value ? *value : nullptr;
   }
 };
 template <>
 struct PackOptionalValue<const Stmt*> {
-  static const Stmt* pack(Optional<const Stmt*> value) {
+  static const Stmt* pack(std::optional<const Stmt*> value) {
     return value ? *value : nullptr;
   }
 };
 template <>
 struct PackOptionalValue<TagDecl*> {
-  static TagDecl* pack(Optional<TagDecl*> value) {
+  static TagDecl* pack(std::optional<TagDecl*> value) {
     return value ? *value : nullptr;
   }
 };
 template <>
 struct PackOptionalValue<const TagDecl*> {
-  static const TagDecl* pack(Optional<const TagDecl*> value) {
+  static const TagDecl* pack(std::optional<const TagDecl*> value) {
     return value ? *value : nullptr;
   }
 };
 template <>
 struct PackOptionalValue<TemplateDecl*> {
-  static TemplateDecl* pack(Optional<TemplateDecl*> value) {
+  static TemplateDecl* pack(std::optional<TemplateDecl*> value) {
     return value ? *value : nullptr;
   }
 };
 template <>
 struct PackOptionalValue<const TemplateDecl*> {
-  static const TemplateDecl* pack(Optional<const TemplateDecl*> value) {
+  static const TemplateDecl* pack(std::optional<const TemplateDecl*> value) {
     return value ? *value : nullptr;
   }
 };
 template <>
 struct PackOptionalValue<TemplateName> {
-  static TemplateName pack(Optional<TemplateName> value) {
+  static TemplateName pack(std::optional<TemplateName> value) {
     return value ? *value : TemplateName();
   }
 };
 template <>
 struct PackOptionalValue<TemplateTemplateParmDecl*> {
-  static TemplateTemplateParmDecl* pack(Optional<TemplateTemplateParmDecl*> value) {
+  static TemplateTemplateParmDecl* pack(std::optional<TemplateTemplateParmDecl*> value) {
     return value ? *value : nullptr;
   }
 };
 template <>
 struct PackOptionalValue<const TemplateTemplateParmDecl*> {
-  static const TemplateTemplateParmDecl* pack(Optional<const TemplateTemplateParmDecl*> value) {
+  static const TemplateTemplateParmDecl* pack(std::optional<const TemplateTemplateParmDecl*> value) {
     return value ? *value : nullptr;
   }
 };
 template <>
 struct PackOptionalValue<TemplateTypeParmDecl*> {
-  static TemplateTypeParmDecl* pack(Optional<TemplateTypeParmDecl*> value) {
+  static TemplateTypeParmDecl* pack(std::optional<TemplateTypeParmDecl*> value) {
     return value ? *value : nullptr;
   }
 };
 template <>
 struct PackOptionalValue<const TemplateTypeParmDecl*> {
-  static const TemplateTypeParmDecl* pack(Optional<const TemplateTypeParmDecl*> value) {
+  static const TemplateTypeParmDecl* pack(std::optional<const TemplateTypeParmDecl*> value) {
     return value ? *value : nullptr;
   }
 };
 template <>
 struct PackOptionalValue<uint32_t> {
-  static uint32_t pack(Optional<uint32_t> value) {
+  static uint32_t pack(std::optional<uint32_t> value) {
     return value ? *value + 1 : 0;
   }
 };
 template <>
 struct PackOptionalValue<uint64_t> {
-  static uint64_t pack(Optional<uint64_t> value) {
+  static uint64_t pack(std::optional<uint64_t> value) {
     return value ? *value + 1 : 0;
   }
 };
 template <>
 struct PackOptionalValue<UsingShadowDecl*> {
-  static UsingShadowDecl* pack(Optional<UsingShadowDecl*> value) {
+  static UsingShadowDecl* pack(std::optional<UsingShadowDecl*> value) {
     return value ? *value : nullptr;
   }
 };
 template <>
 struct PackOptionalValue<const UsingShadowDecl*> {
-  static const UsingShadowDecl* pack(Optional<const UsingShadowDecl*> value) {
+  static const UsingShadowDecl* pack(std::optional<const UsingShadowDecl*> value) {
     return value ? *value : nullptr;
   }
 };
 template <>
 struct PackOptionalValue<ValueDecl*> {
-  static ValueDecl* pack(Optional<ValueDecl*> value) {
+  static ValueDecl* pack(std::optional<ValueDecl*> value) {
     return value ? *value : nullptr;
   }
 };
 template <>
 struct PackOptionalValue<const ValueDecl*> {
-  static const ValueDecl* pack(Optional<const ValueDecl*> value) {
+  static const ValueDecl* pack(std::optional<const ValueDecl*> value) {
     return value ? *value : nullptr;
   }
 };
@@ -1158,10 +1165,10 @@ public:
     case TemplateArgument::TemplateExpansion: {
     TemplateName name = ( node.getAsTemplateOrTemplatePattern() );
     subW.find("name").writeTemplateName(name);
-    llvm::Optional<uint32_t> numExpansions = (
+    std::optional<uint32_t> numExpansions = (
       // Translate unsigned -> uint32_t just in case.
-      node.getNumTemplateExpansions().map(
-        [](unsigned i) { return uint32_t(i); })
+      llvm::transformOptional(node.getNumTemplateExpansions(),
+                              [](unsigned i) { return uint32_t(i); })
     );
     subW.find("numExpansions").writeOptional(numExpansions);
     return;
@@ -1236,7 +1243,7 @@ public:
   
     NestedNameSpecifier * qualifier = ( dtn->getQualifier() );
     subW.find("qualifier").writeNestedNameSpecifier(qualifier);
-    llvm::Optional<const IdentifierInfo*> identifier = ( makeOptionalFromPointer(
+    std::optional<const IdentifierInfo*> identifier = ( makeOptionalFromPointer(
                     dtn->isIdentifier()
                       ? dtn->getIdentifier()
                       : nullptr) );
@@ -1252,10 +1259,14 @@ public:
     
     auto parm = node.getAsSubstTemplateTemplateParm();
   
-    const TemplateTemplateParmDecl* parameter = ( parm->getParameter() );
-    subW.find("parameter").writeTemplateTemplateParmDeclRef(parameter);
     TemplateName replacement = ( parm->getReplacement() );
     subW.find("replacement").writeTemplateName(replacement);
+    const Decl* associatedDecl = ( parm->getAssociatedDecl() );
+    subW.find("associatedDecl").writeDeclRef(associatedDecl);
+    uint32_t index = ( parm->getIndex() );
+    subW.find("index").writeUInt32(index);
+    std::optional<uint32_t> packIndex = ( parm->getPackIndex() );
+    subW.find("packIndex").writeOptional(packIndex);
     return;
     }
 
@@ -1263,10 +1274,14 @@ public:
     
     auto parm = node.getAsSubstTemplateTemplateParmPack();
   
-    const TemplateTemplateParmDecl* parameterPack = ( parm->getParameterPack() );
-    subW.find("parameterPack").writeTemplateTemplateParmDeclRef(parameterPack);
     TemplateArgument argumentPack = ( parm->getArgumentPack() );
     subW.find("argumentPack").writeTemplateArgument(argumentPack);
+    const Decl* associatedDecl = ( parm->getAssociatedDecl() );
+    subW.find("associatedDecl").writeDeclRef(associatedDecl);
+    uint32_t index = ( parm->getIndex() );
+    subW.find("index").writeUInt32(index);
+    bool final = ( parm->getFinal() );
+    subW.find("final").writeBool(final);
     return;
     }
 
@@ -1281,6 +1296,9 @@ public:
   }
   void writeTemplateTypeParmDeclRef(const TemplateTypeParmDecl* value) {
     asImpl().writeDeclRef(value);
+  }
+  void writeTypeOfKind(TypeOfKind value) {
+    asImpl().writeEnum(value);
   }
   void writeUnaryTypeTransformKind(UnaryTransformType::UTTKind value) {
     asImpl().writeEnum(value);

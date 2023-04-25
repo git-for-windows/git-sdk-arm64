@@ -5,6 +5,15 @@
 # Commands may need to know the format version.
 set(CMAKE_IMPORT_FILE_VERSION 1)
 
+# Import target "clang-tblgen" for configuration "Release"
+set_property(TARGET clang-tblgen APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(clang-tblgen PROPERTIES
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/clang-tblgen.exe"
+  )
+
+list(APPEND _cmake_import_check_targets clang-tblgen )
+list(APPEND _cmake_import_check_files_for_clang-tblgen "${_IMPORT_PREFIX}/bin/clang-tblgen.exe" )
+
 # Import target "clangBasic" for configuration "Release"
 set_property(TARGET clangBasic APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
 set_target_properties(clangBasic PROPERTIES
@@ -245,6 +254,16 @@ set_target_properties(clangToolingInclusions PROPERTIES
 list(APPEND _cmake_import_check_targets clangToolingInclusions )
 list(APPEND _cmake_import_check_files_for_clangToolingInclusions "${_IMPORT_PREFIX}/lib/libclangToolingInclusions.a" )
 
+# Import target "clangToolingInclusionsStdlib" for configuration "Release"
+set_property(TARGET clangToolingInclusionsStdlib APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(clangToolingInclusionsStdlib PROPERTIES
+  IMPORTED_LINK_INTERFACE_LANGUAGES_RELEASE "CXX"
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/lib/libclangToolingInclusionsStdlib.a"
+  )
+
+list(APPEND _cmake_import_check_targets clangToolingInclusionsStdlib )
+list(APPEND _cmake_import_check_files_for_clangToolingInclusionsStdlib "${_IMPORT_PREFIX}/lib/libclangToolingInclusionsStdlib.a" )
+
 # Import target "clangToolingRefactoring" for configuration "Release"
 set_property(TARGET clangToolingRefactoring APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
 set_target_properties(clangToolingRefactoring PROPERTIES
@@ -459,15 +478,6 @@ set_target_properties(clang-offload-bundler PROPERTIES
 
 list(APPEND _cmake_import_check_targets clang-offload-bundler )
 list(APPEND _cmake_import_check_files_for_clang-offload-bundler "${_IMPORT_PREFIX}/bin/clang-offload-bundler.exe" )
-
-# Import target "clang-offload-wrapper" for configuration "Release"
-set_property(TARGET clang-offload-wrapper APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
-set_target_properties(clang-offload-wrapper PROPERTIES
-  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/clang-offload-wrapper.exe"
-  )
-
-list(APPEND _cmake_import_check_targets clang-offload-wrapper )
-list(APPEND _cmake_import_check_files_for_clang-offload-wrapper "${_IMPORT_PREFIX}/bin/clang-offload-wrapper.exe" )
 
 # Import target "clang-scan-deps" for configuration "Release"
 set_property(TARGET clang-scan-deps APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
@@ -1004,6 +1014,15 @@ set_target_properties(clangIncludeCleaner PROPERTIES
 list(APPEND _cmake_import_check_targets clangIncludeCleaner )
 list(APPEND _cmake_import_check_files_for_clangIncludeCleaner "${_IMPORT_PREFIX}/lib/libclangIncludeCleaner.a" )
 
+# Import target "clang-include-cleaner" for configuration "Release"
+set_property(TARGET clang-include-cleaner APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(clang-include-cleaner PROPERTIES
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/clang-include-cleaner.exe"
+  )
+
+list(APPEND _cmake_import_check_targets clang-include-cleaner )
+list(APPEND _cmake_import_check_files_for_clang-include-cleaner "${_IMPORT_PREFIX}/bin/clang-include-cleaner.exe" )
+
 # Import target "pp-trace" for configuration "Release"
 set_property(TARGET pp-trace APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
 set_target_properties(pp-trace PROPERTIES
@@ -1131,6 +1150,24 @@ set_target_properties(libclang_static PROPERTIES
 
 list(APPEND _cmake_import_check_targets libclang_static )
 list(APPEND _cmake_import_check_files_for_libclang_static "${_IMPORT_PREFIX}/lib/libclang.a" )
+
+# Import target "amdgpu-arch" for configuration "Release"
+set_property(TARGET amdgpu-arch APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(amdgpu-arch PROPERTIES
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/amdgpu-arch.exe"
+  )
+
+list(APPEND _cmake_import_check_targets amdgpu-arch )
+list(APPEND _cmake_import_check_files_for_amdgpu-arch "${_IMPORT_PREFIX}/bin/amdgpu-arch.exe" )
+
+# Import target "nvptx-arch" for configuration "Release"
+set_property(TARGET nvptx-arch APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(nvptx-arch PROPERTIES
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/nvptx-arch.exe"
+  )
+
+list(APPEND _cmake_import_check_targets nvptx-arch )
+list(APPEND _cmake_import_check_files_for_nvptx-arch "${_IMPORT_PREFIX}/bin/nvptx-arch.exe" )
 
 # Commands beyond this point should not need to know the version.
 set(CMAKE_IMPORT_FILE_VERSION)

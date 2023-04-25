@@ -324,6 +324,84 @@
     OS << " " << SA->getY();
     OS << " " << SA->getZ();
   }
+  void VisitHLSLResourceAttr(const HLSLResourceAttr *A) {
+    const auto *SA = cast<HLSLResourceAttr>(A); (void)SA;
+    switch(SA->getResourceType()) {
+    case HLSLResourceAttr::SRV:
+      OS << " SRV";
+      break;
+    case HLSLResourceAttr::UAV:
+      OS << " UAV";
+      break;
+    case HLSLResourceAttr::CBuffer:
+      OS << " CBuffer";
+      break;
+    case HLSLResourceAttr::Sampler:
+      OS << " Sampler";
+      break;
+    }
+    switch(SA->getResourceShape()) {
+    case HLSLResourceAttr::Texture1D:
+      OS << " Texture1D";
+      break;
+    case HLSLResourceAttr::Texture2D:
+      OS << " Texture2D";
+      break;
+    case HLSLResourceAttr::Texture2DMS:
+      OS << " Texture2DMS";
+      break;
+    case HLSLResourceAttr::Texture3D:
+      OS << " Texture3D";
+      break;
+    case HLSLResourceAttr::TextureCube:
+      OS << " TextureCube";
+      break;
+    case HLSLResourceAttr::Texture1DArray:
+      OS << " Texture1DArray";
+      break;
+    case HLSLResourceAttr::Texture2DArray:
+      OS << " Texture2DArray";
+      break;
+    case HLSLResourceAttr::Texture2DMSArray:
+      OS << " Texture2DMSArray";
+      break;
+    case HLSLResourceAttr::TextureCubeArray:
+      OS << " TextureCubeArray";
+      break;
+    case HLSLResourceAttr::TypedBuffer:
+      OS << " TypedBuffer";
+      break;
+    case HLSLResourceAttr::RawBuffer:
+      OS << " RawBuffer";
+      break;
+    case HLSLResourceAttr::StructuredBuffer:
+      OS << " StructuredBuffer";
+      break;
+    case HLSLResourceAttr::CBufferKind:
+      OS << " CBufferKind";
+      break;
+    case HLSLResourceAttr::SamplerKind:
+      OS << " SamplerKind";
+      break;
+    case HLSLResourceAttr::TBuffer:
+      OS << " TBuffer";
+      break;
+    case HLSLResourceAttr::RTAccelerationStructure:
+      OS << " RTAccelerationStructure";
+      break;
+    case HLSLResourceAttr::FeedbackTexture2D:
+      OS << " FeedbackTexture2D";
+      break;
+    case HLSLResourceAttr::FeedbackTexture2DArray:
+      OS << " FeedbackTexture2DArray";
+      break;
+    }
+  }
+  void VisitHLSLResourceBindingAttr(const HLSLResourceBindingAttr *A) {
+    const auto *SA = cast<HLSLResourceBindingAttr>(A); (void)SA;
+    OS << " \"" << SA->getSlot() << "\"";
+    OS << " \"" << SA->getSpace() << "\"";
+  }
   void VisitHLSLShaderAttr(const HLSLShaderAttr *A) {
     const auto *SA = cast<HLSLShaderAttr>(A); (void)SA;
     switch(SA->getType()) {
@@ -344,6 +422,9 @@
       break;
     case HLSLShaderAttr::Compute:
       OS << " Compute";
+      break;
+    case HLSLShaderAttr::Library:
+      OS << " Library";
       break;
     case HLSLShaderAttr::RayGeneration:
       OS << " RayGeneration";
@@ -539,6 +620,9 @@
     for (const auto &Val : SA->sanitizers())
       OS << " " << Val;
   }
+  void VisitNoStackProtectorAttr(const NoStackProtectorAttr *A) {
+    OS << " " << A->getSpelling();
+  }
   void VisitNonNullAttr(const NonNullAttr *A) {
     const auto *SA = cast<NonNullAttr>(A); (void)SA;
     for (const auto &Val : SA->args())
@@ -605,6 +689,9 @@
     case OMPDeclareTargetDeclAttr::MT_To:
       OS << " MT_To";
       break;
+    case OMPDeclareTargetDeclAttr::MT_Enter:
+      OS << " MT_Enter";
+      break;
     case OMPDeclareTargetDeclAttr::MT_Link:
       OS << " MT_Link";
       break;
@@ -627,17 +714,12 @@
     const auto *SA = cast<OMPDeclareVariantAttr>(A); (void)SA;
     OS << " " << SA->getTraitInfos();
     for (OMPDeclareVariantAttr::appendArgs_iterator I = SA->appendArgs_begin(), E = SA->appendArgs_end(); I != E; ++I) {
-      switch(*I) {
-    case OMPDeclareVariantAttr::Target:
-      OS << " Target";
-      break;
-    case OMPDeclareVariantAttr::TargetSync:
-      OS << " TargetSync";
-      break;
-    case OMPDeclareVariantAttr::Target_TargetSync:
-      OS << " Target_TargetSync";
-      break;
-      }
+      if (I->IsTarget && I->IsTargetSync)
+        OS << " Target_TargetSync";
+      else if (I->IsTarget)
+        OS << " Target";
+      else
+        OS << " TargetSync";
     }
   }
   void VisitObjCBridgeAttr(const ObjCBridgeAttr *A) {
@@ -969,6 +1051,10 @@
     const auto *SA = cast<TargetClonesAttr>(A); (void)SA;
     for (const auto &Val : SA->featuresStrs())
       OS << " " << Val;
+  }
+  void VisitTargetVersionAttr(const TargetVersionAttr *A) {
+    const auto *SA = cast<TargetVersionAttr>(A); (void)SA;
+    OS << " \"" << SA->getNamesStr() << "\"";
   }
   void VisitTestTypestateAttr(const TestTypestateAttr *A) {
     const auto *SA = cast<TestTypestateAttr>(A); (void)SA;

@@ -1355,6 +1355,14 @@
     New->setPackExpansion(isPackExpansion);
     break;
   }
+  case attr::HLSLGroupSharedAddressSpace: {
+    bool isImplicit = Record.readInt();
+    bool isPackExpansion = Record.readInt();
+    New = new (Context) HLSLGroupSharedAddressSpaceAttr(Context, Info);
+    New->setImplicit(isImplicit);
+    New->setPackExpansion(isPackExpansion);
+    break;
+  }
   case attr::HLSLNumThreads: {
     bool isInherited = Record.readInt();
     bool isImplicit = Record.readInt();
@@ -1363,6 +1371,40 @@
     int y = Record.readInt();
     int z = Record.readInt();
     New = new (Context) HLSLNumThreadsAttr(Context, Info, x, y, z);
+    cast<InheritableAttr>(New)->setInherited(isInherited);
+    New->setImplicit(isImplicit);
+    New->setPackExpansion(isPackExpansion);
+    break;
+  }
+  case attr::HLSLResource: {
+    bool isInherited = Record.readInt();
+    bool isImplicit = Record.readInt();
+    bool isPackExpansion = Record.readInt();
+    HLSLResourceAttr::ResourceClass resourceType(static_cast<HLSLResourceAttr::ResourceClass>(Record.readInt()));
+    HLSLResourceAttr::ResourceKind resourceShape(static_cast<HLSLResourceAttr::ResourceKind>(Record.readInt()));
+    New = new (Context) HLSLResourceAttr(Context, Info, resourceType, resourceShape);
+    cast<InheritableAttr>(New)->setInherited(isInherited);
+    New->setImplicit(isImplicit);
+    New->setPackExpansion(isPackExpansion);
+    break;
+  }
+  case attr::HLSLResourceBinding: {
+    bool isInherited = Record.readInt();
+    bool isImplicit = Record.readInt();
+    bool isPackExpansion = Record.readInt();
+    std::string slot= Record.readString();
+    std::string space= Record.readString();
+    New = new (Context) HLSLResourceBindingAttr(Context, Info, slot, space);
+    cast<InheritableAttr>(New)->setInherited(isInherited);
+    New->setImplicit(isImplicit);
+    New->setPackExpansion(isPackExpansion);
+    break;
+  }
+  case attr::HLSLSV_DispatchThreadID: {
+    bool isInherited = Record.readInt();
+    bool isImplicit = Record.readInt();
+    bool isPackExpansion = Record.readInt();
+    New = new (Context) HLSLSV_DispatchThreadIDAttr(Context, Info);
     cast<InheritableAttr>(New)->setInherited(isInherited);
     New->setImplicit(isImplicit);
     New->setPackExpansion(isPackExpansion);
@@ -1683,6 +1725,16 @@
     bool isImplicit = Record.readInt();
     bool isPackExpansion = Record.readInt();
     New = new (Context) MayAliasAttr(Context, Info);
+    cast<InheritableAttr>(New)->setInherited(isInherited);
+    New->setImplicit(isImplicit);
+    New->setPackExpansion(isPackExpansion);
+    break;
+  }
+  case attr::MaybeUndef: {
+    bool isInherited = Record.readInt();
+    bool isImplicit = Record.readInt();
+    bool isPackExpansion = Record.readInt();
+    New = new (Context) MaybeUndefAttr(Context, Info);
     cast<InheritableAttr>(New)->setInherited(isInherited);
     New->setImplicit(isImplicit);
     New->setPackExpansion(isPackExpansion);
@@ -2090,6 +2142,16 @@
     New->setPackExpansion(isPackExpansion);
     break;
   }
+  case attr::NoUwtable: {
+    bool isInherited = Record.readInt();
+    bool isImplicit = Record.readInt();
+    bool isPackExpansion = Record.readInt();
+    New = new (Context) NoUwtableAttr(Context, Info);
+    cast<InheritableAttr>(New)->setInherited(isInherited);
+    New->setImplicit(isImplicit);
+    New->setPackExpansion(isPackExpansion);
+    break;
+  }
   case attr::NonNull: {
     bool isInherited = Record.readInt();
     bool isImplicit = Record.readInt();
@@ -2219,10 +2281,13 @@
     for (unsigned i = 0; i != adjustArgsNeedDevicePtrSize; ++i)
       adjustArgsNeedDevicePtr.push_back(Record.readExpr());
     unsigned appendArgsSize = Record.readInt();
-    SmallVector<OMPDeclareVariantAttr::InteropType, 4> appendArgs;
+    SmallVector<OMPInteropInfo, 4> appendArgs;
     appendArgs.reserve(appendArgsSize);
-    for (unsigned i = appendArgsSize; i; --i)
-      appendArgs.push_back(static_cast<OMPDeclareVariantAttr::InteropType>(Record.readInt()));
+    for (unsigned I = 0, E = appendArgsSize; I != E; ++I) {
+      bool IsTarget = Record.readBool();
+      bool IsTargetSync = Record.readBool();
+      appendArgs.emplace_back(IsTarget, IsTargetSync);
+    }
     New = new (Context) OMPDeclareVariantAttr(Context, Info, variantFuncRef, traitInfos, adjustArgsNothing.data(), adjustArgsNothingSize, adjustArgsNeedDevicePtr.data(), adjustArgsNeedDevicePtrSize, appendArgs.data(), appendArgsSize);
     cast<InheritableAttr>(New)->setInherited(isInherited);
     New->setImplicit(isImplicit);
@@ -2952,6 +3017,16 @@
     New->setPackExpansion(isPackExpansion);
     break;
   }
+  case attr::ReadOnlyPlacement: {
+    bool isInherited = Record.readInt();
+    bool isImplicit = Record.readInt();
+    bool isPackExpansion = Record.readInt();
+    New = new (Context) ReadOnlyPlacementAttr(Context, Info);
+    cast<InheritableAttr>(New)->setInherited(isInherited);
+    New->setImplicit(isImplicit);
+    New->setPackExpansion(isPackExpansion);
+    break;
+  }
   case attr::RegCall: {
     bool isInherited = Record.readInt();
     bool isImplicit = Record.readInt();
@@ -3223,6 +3298,16 @@
     New->setPackExpansion(isPackExpansion);
     break;
   }
+  case attr::StrictGuardStackCheck: {
+    bool isInherited = Record.readInt();
+    bool isImplicit = Record.readInt();
+    bool isPackExpansion = Record.readInt();
+    New = new (Context) StrictGuardStackCheckAttr(Context, Info);
+    cast<InheritableAttr>(New)->setInherited(isInherited);
+    New->setImplicit(isImplicit);
+    New->setPackExpansion(isPackExpansion);
+    break;
+  }
   case attr::Suppress: {
     bool isImplicit = Record.readInt();
     bool isPackExpansion = Record.readInt();
@@ -3464,6 +3549,17 @@
     for (unsigned i = 0; i != featuresStrsSize; ++i)
       featuresStrs.push_back(featuresStrsStorage[i]);
     New = new (Context) TargetClonesAttr(Context, Info, featuresStrs.data(), featuresStrsSize);
+    cast<InheritableAttr>(New)->setInherited(isInherited);
+    New->setImplicit(isImplicit);
+    New->setPackExpansion(isPackExpansion);
+    break;
+  }
+  case attr::TargetVersion: {
+    bool isInherited = Record.readInt();
+    bool isImplicit = Record.readInt();
+    bool isPackExpansion = Record.readInt();
+    std::string namesStr= Record.readString();
+    New = new (Context) TargetVersionAttr(Context, Info, namesStr);
     cast<InheritableAttr>(New)->setInherited(isInherited);
     New->setImplicit(isImplicit);
     New->setPackExpansion(isPackExpansion);

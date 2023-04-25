@@ -338,6 +338,13 @@ struct ReadDispatcher<TemplateTypeParmDecl*> {
   }
 };
 template <>
+struct ReadDispatcher<TypeOfKind> {
+  template <class BasicReader, class... Args>
+  static TypeOfKind read(BasicReader &R, Args &&... args) {
+    return R.readTypeOfKind(std::forward<Args>(args)...);
+  }
+};
+template <>
 struct ReadDispatcher<uint32_t> {
   template <class BasicReader, class... Args>
   static uint32_t read(BasicReader &R, Args &&... args) {
@@ -387,9 +394,9 @@ struct ReadDispatcher<llvm::ArrayRef<T>> {
   }
 };
 template <class T>
-struct ReadDispatcher<llvm::Optional<T>> {
+struct ReadDispatcher<std::optional<T>> {
   template <class BasicReader, class... Args>
-  static llvm::Optional<T> read(BasicReader &R, Args &&... args) {
+  static std::optional<T> read(BasicReader &R, Args &&... args) {
     return R.readOptional(std::forward<Args>(args)...);
   }
 };
@@ -398,134 +405,134 @@ template <class ValueType>
 struct UnpackOptionalValue;
 template <>
 struct UnpackOptionalValue<CXXRecordDecl*> {
-  static Optional<CXXRecordDecl*> unpack(CXXRecordDecl* value) {
-    return value ? llvm::Optional<CXXRecordDecl*>(value) : llvm::None;
+  static std::optional<CXXRecordDecl*> unpack(CXXRecordDecl* value) {
+    return value ? std::optional<CXXRecordDecl*>(value) : std::nullopt;
   }
 };
 template <>
 struct UnpackOptionalValue<ConceptDecl*> {
-  static Optional<ConceptDecl*> unpack(ConceptDecl* value) {
-    return value ? llvm::Optional<ConceptDecl*>(value) : llvm::None;
+  static std::optional<ConceptDecl*> unpack(ConceptDecl* value) {
+    return value ? std::optional<ConceptDecl*>(value) : std::nullopt;
   }
 };
 template <>
 struct UnpackOptionalValue<Decl*> {
-  static Optional<Decl*> unpack(Decl* value) {
-    return value ? llvm::Optional<Decl*>(value) : llvm::None;
+  static std::optional<Decl*> unpack(Decl* value) {
+    return value ? std::optional<Decl*>(value) : std::nullopt;
   }
 };
 template <>
 struct UnpackOptionalValue<Expr*> {
-  static Optional<Expr*> unpack(Expr* value) {
-    return value ? llvm::Optional<Expr*>(value) : llvm::None;
+  static std::optional<Expr*> unpack(Expr* value) {
+    return value ? std::optional<Expr*>(value) : std::nullopt;
   }
 };
 template <>
 struct UnpackOptionalValue<FunctionDecl*> {
-  static Optional<FunctionDecl*> unpack(FunctionDecl* value) {
-    return value ? llvm::Optional<FunctionDecl*>(value) : llvm::None;
+  static std::optional<FunctionDecl*> unpack(FunctionDecl* value) {
+    return value ? std::optional<FunctionDecl*>(value) : std::nullopt;
   }
 };
 template <>
 struct UnpackOptionalValue<IdentifierInfo*> {
-  static Optional<IdentifierInfo*> unpack(IdentifierInfo* value) {
-    return value ? llvm::Optional<IdentifierInfo*>(value) : llvm::None;
+  static std::optional<IdentifierInfo*> unpack(IdentifierInfo* value) {
+    return value ? std::optional<IdentifierInfo*>(value) : std::nullopt;
   }
 };
 template <>
 struct UnpackOptionalValue<NamedDecl*> {
-  static Optional<NamedDecl*> unpack(NamedDecl* value) {
-    return value ? llvm::Optional<NamedDecl*>(value) : llvm::None;
+  static std::optional<NamedDecl*> unpack(NamedDecl* value) {
+    return value ? std::optional<NamedDecl*>(value) : std::nullopt;
   }
 };
 template <>
 struct UnpackOptionalValue<NamespaceAliasDecl*> {
-  static Optional<NamespaceAliasDecl*> unpack(NamespaceAliasDecl* value) {
-    return value ? llvm::Optional<NamespaceAliasDecl*>(value) : llvm::None;
+  static std::optional<NamespaceAliasDecl*> unpack(NamespaceAliasDecl* value) {
+    return value ? std::optional<NamespaceAliasDecl*>(value) : std::nullopt;
   }
 };
 template <>
 struct UnpackOptionalValue<NamespaceDecl*> {
-  static Optional<NamespaceDecl*> unpack(NamespaceDecl* value) {
-    return value ? llvm::Optional<NamespaceDecl*>(value) : llvm::None;
+  static std::optional<NamespaceDecl*> unpack(NamespaceDecl* value) {
+    return value ? std::optional<NamespaceDecl*>(value) : std::nullopt;
   }
 };
 template <>
 struct UnpackOptionalValue<ObjCProtocolDecl*> {
-  static Optional<ObjCProtocolDecl*> unpack(ObjCProtocolDecl* value) {
-    return value ? llvm::Optional<ObjCProtocolDecl*>(value) : llvm::None;
+  static std::optional<ObjCProtocolDecl*> unpack(ObjCProtocolDecl* value) {
+    return value ? std::optional<ObjCProtocolDecl*>(value) : std::nullopt;
   }
 };
 template <>
 struct UnpackOptionalValue<ObjCTypeParamDecl*> {
-  static Optional<ObjCTypeParamDecl*> unpack(ObjCTypeParamDecl* value) {
-    return value ? llvm::Optional<ObjCTypeParamDecl*>(value) : llvm::None;
+  static std::optional<ObjCTypeParamDecl*> unpack(ObjCTypeParamDecl* value) {
+    return value ? std::optional<ObjCTypeParamDecl*>(value) : std::nullopt;
   }
 };
 template <>
 struct UnpackOptionalValue<QualType> {
-  static Optional<QualType> unpack(QualType value) {
-    return value.isNull() ? llvm::None : llvm::Optional<QualType>(value);
+  static std::optional<QualType> unpack(QualType value) {
+    return value.isNull() ? std::nullopt : std::optional<QualType>(value);
   }
 };
 template <>
 struct UnpackOptionalValue<Stmt*> {
-  static Optional<Stmt*> unpack(Stmt* value) {
-    return value ? llvm::Optional<Stmt*>(value) : llvm::None;
+  static std::optional<Stmt*> unpack(Stmt* value) {
+    return value ? std::optional<Stmt*>(value) : std::nullopt;
   }
 };
 template <>
 struct UnpackOptionalValue<TagDecl*> {
-  static Optional<TagDecl*> unpack(TagDecl* value) {
-    return value ? llvm::Optional<TagDecl*>(value) : llvm::None;
+  static std::optional<TagDecl*> unpack(TagDecl* value) {
+    return value ? std::optional<TagDecl*>(value) : std::nullopt;
   }
 };
 template <>
 struct UnpackOptionalValue<TemplateDecl*> {
-  static Optional<TemplateDecl*> unpack(TemplateDecl* value) {
-    return value ? llvm::Optional<TemplateDecl*>(value) : llvm::None;
+  static std::optional<TemplateDecl*> unpack(TemplateDecl* value) {
+    return value ? std::optional<TemplateDecl*>(value) : std::nullopt;
   }
 };
 template <>
 struct UnpackOptionalValue<TemplateName> {
-  static Optional<TemplateName> unpack(TemplateName value) {
-    return value.isNull() ? llvm::None : llvm::Optional<TemplateName>(value);
+  static std::optional<TemplateName> unpack(TemplateName value) {
+    return value.isNull() ? std::nullopt : std::optional<TemplateName>(value);
   }
 };
 template <>
 struct UnpackOptionalValue<TemplateTemplateParmDecl*> {
-  static Optional<TemplateTemplateParmDecl*> unpack(TemplateTemplateParmDecl* value) {
-    return value ? llvm::Optional<TemplateTemplateParmDecl*>(value) : llvm::None;
+  static std::optional<TemplateTemplateParmDecl*> unpack(TemplateTemplateParmDecl* value) {
+    return value ? std::optional<TemplateTemplateParmDecl*>(value) : std::nullopt;
   }
 };
 template <>
 struct UnpackOptionalValue<TemplateTypeParmDecl*> {
-  static Optional<TemplateTypeParmDecl*> unpack(TemplateTypeParmDecl* value) {
-    return value ? llvm::Optional<TemplateTypeParmDecl*>(value) : llvm::None;
+  static std::optional<TemplateTypeParmDecl*> unpack(TemplateTypeParmDecl* value) {
+    return value ? std::optional<TemplateTypeParmDecl*>(value) : std::nullopt;
   }
 };
 template <>
 struct UnpackOptionalValue<uint32_t> {
-  static Optional<uint32_t> unpack(uint32_t value) {
-    return value ? llvm::Optional<uint32_t>(value - 1) : llvm::None;
+  static std::optional<uint32_t> unpack(uint32_t value) {
+    return value ? std::optional<uint32_t>(value - 1) : std::nullopt;
   }
 };
 template <>
 struct UnpackOptionalValue<uint64_t> {
-  static Optional<uint64_t> unpack(uint64_t value) {
-    return value ? llvm::Optional<uint64_t>(value - 1) : llvm::None;
+  static std::optional<uint64_t> unpack(uint64_t value) {
+    return value ? std::optional<uint64_t>(value - 1) : std::nullopt;
   }
 };
 template <>
 struct UnpackOptionalValue<UsingShadowDecl*> {
-  static Optional<UsingShadowDecl*> unpack(UsingShadowDecl* value) {
-    return value ? llvm::Optional<UsingShadowDecl*>(value) : llvm::None;
+  static std::optional<UsingShadowDecl*> unpack(UsingShadowDecl* value) {
+    return value ? std::optional<UsingShadowDecl*>(value) : std::nullopt;
   }
 };
 template <>
 struct UnpackOptionalValue<ValueDecl*> {
-  static Optional<ValueDecl*> unpack(ValueDecl* value) {
-    return value ? llvm::Optional<ValueDecl*>(value) : llvm::None;
+  static std::optional<ValueDecl*> unpack(ValueDecl* value) {
+    return value ? std::optional<ValueDecl*>(value) : std::nullopt;
   }
 };
 
@@ -667,53 +674,49 @@ public:
     bool isTypeInfo = subR.find("isTypeInfo").readBool();
     bool hasBase = subR.find("hasBase").readBool();
     bool isNullPtr = subR.find("isNullPtr").readBool();
-    llvm::Optional<QualType> typeInfo;
+    std::optional<QualType> typeInfo;
     if ( hasBase && isTypeInfo ) {
       typeInfo.emplace(subR.find("typeInfo").readQualType());
     }
-    llvm::Optional<QualType> type;
+    std::optional<QualType> type;
     if ( hasBase && isTypeInfo ) {
       type.emplace(subR.find("type").readQualType());
     }
-    llvm::Optional<uint32_t> callIndex;
+    std::optional<uint32_t> callIndex;
     if ( hasBase && !isTypeInfo ) {
       callIndex.emplace(subR.find("callIndex").readUInt32());
     }
-    llvm::Optional<uint32_t> version;
+    std::optional<uint32_t> version;
     if ( hasBase && !isTypeInfo ) {
       version.emplace(subR.find("version").readUInt32());
     }
-    llvm::Optional<Stmt*> stmt;
+    std::optional<Stmt*> stmt;
     if ( hasBase && !isTypeInfo && isExpr ) {
       stmt.emplace(subR.find("stmt").readStmtRef());
     }
-    llvm::Optional<Decl*> decl;
+    std::optional<Decl*> decl;
     if ( hasBase && !isTypeInfo && !isExpr ) {
       decl.emplace(subR.find("decl").readDeclRef());
     }
     uint32_t offsetQuantity = subR.find("offsetQuantity").readUInt32();
     llvm::SmallVector<APValue::LValuePathEntry, 8> lvaluePath_buffer_0;
-    llvm::Optional<APValue::LValuePathSerializationHelper> lvaluePath;
+    std::optional<APValue::LValuePathSerializationHelper> lvaluePath;
     if ( hasLValuePath ) {
       lvaluePath.emplace(subR.find("lvaluePath").readLValuePathSerializationHelper(lvaluePath_buffer_0));
     }
     
     (void)ctx;
     APValue::LValueBase base;
-    QualType elemTy;
     if (hasBase) {
       if (isTypeInfo) {
         base = APValue::LValueBase::getTypeInfo(
-            TypeInfoLValue(typeInfo.value().getTypePtr()), type.value());
-        elemTy = base.getTypeInfoType();
+            TypeInfoLValue(typeInfo->getTypePtr()), *type);
       } else if (isExpr) {
-        base = APValue::LValueBase(cast<Expr>(stmt.value()),
-                                   callIndex.value(), version.value());
-        elemTy = base.get<const Expr *>()->getType();
+        base = APValue::LValueBase(cast<Expr>(*stmt),
+                                   *callIndex, *version);
       } else {
-        base = APValue::LValueBase(cast<ValueDecl>(decl.value()),
-                                   callIndex.value(), version.value());
-        elemTy = base.get<const ValueDecl *>()->getType();
+        base = APValue::LValueBase(cast<ValueDecl>(*decl),
+                                   *callIndex, *version);
       }
     }
     CharUnits offset = CharUnits::fromQuantity(offsetQuantity);
@@ -726,7 +729,6 @@ public:
     auto pathLength = lvaluePath->Path.size();
     APValue::LValuePathEntry *path = result.setLValueUninit(
         base, offset, pathLength, isLValueOnePastTheEnd, isNullPtr).data();
-    assert(lvaluePath->getType() == elemTy && "Unexpected type reference!");
     llvm::copy(lvaluePath->Path, path);
     return result;
   
@@ -945,10 +947,11 @@ public:
 
     case TemplateArgument::TemplateExpansion: {
     TemplateName name = subR.find("name").readTemplateName();
-    llvm::Optional<uint32_t> numExpansions = subR.find("numExpansions").template readOptional<uint32_t>();
+    std::optional<uint32_t> numExpansions = subR.find("numExpansions").template readOptional<uint32_t>();
     
-    auto numExpansionsUnsigned =
-      numExpansions.map([](uint32_t i) { return unsigned(i); });
+    auto numExpansionsUnsigned = llvm::transformOptional(
+        numExpansions, [](uint32_t i) { return unsigned(i); });
+
     return TemplateArgument(name, numExpansionsUnsigned);
   
     }
@@ -968,7 +971,7 @@ public:
     TemplateArgument *ctxElements = new (ctx) TemplateArgument[elements.size()];
     for (size_t i = 0, e = elements.size(); i != e; ++i)
       ctxElements[i] = elements[i];
-    return TemplateArgument(llvm::makeArrayRef(ctxElements, elements.size()));
+    return TemplateArgument(llvm::ArrayRef(ctxElements, elements.size()));
   
     }
 
@@ -1034,8 +1037,8 @@ public:
 
     case TemplateName::DependentTemplate: {
     NestedNameSpecifier * qualifier = subR.find("qualifier").readNestedNameSpecifier();
-    llvm::Optional<IdentifierInfo*> identifier = subR.find("identifier").template readOptional<IdentifierInfo*>();
-    llvm::Optional<OverloadedOperatorKind> operatorKind;
+    std::optional<IdentifierInfo*> identifier = subR.find("identifier").template readOptional<IdentifierInfo*>();
+    std::optional<OverloadedOperatorKind> operatorKind;
     if ( !identifier ) {
       operatorKind.emplace(subR.find("operatorKind").readOverloadedOperatorKind());
     }
@@ -1049,18 +1052,22 @@ public:
     }
 
     case TemplateName::SubstTemplateTemplateParm: {
-    TemplateTemplateParmDecl* parameter = subR.find("parameter").readTemplateTemplateParmDeclRef();
     TemplateName replacement = subR.find("replacement").readTemplateName();
+    Decl* associatedDecl = subR.find("associatedDecl").readDeclRef();
+    uint32_t index = subR.find("index").readUInt32();
+    std::optional<uint32_t> packIndex = subR.find("packIndex").template readOptional<uint32_t>();
     
-    return ctx.getSubstTemplateTemplateParm(parameter, replacement);
+    return ctx.getSubstTemplateTemplateParm(replacement, associatedDecl, index, packIndex);
   
     }
 
     case TemplateName::SubstTemplateTemplateParmPack: {
-    TemplateTemplateParmDecl* parameterPack = subR.find("parameterPack").readTemplateTemplateParmDeclRef();
     TemplateArgument argumentPack = subR.find("argumentPack").readTemplateArgument();
+    Decl* associatedDecl = subR.find("associatedDecl").readDeclRef();
+    uint32_t index = subR.find("index").readUInt32();
+    bool final = subR.find("final").readBool();
     
-    return ctx.getSubstTemplateTemplateParmPack(parameterPack, argumentPack);
+    return ctx.getSubstTemplateTemplateParmPack(argumentPack, associatedDecl, index, final);
   
     }
 
@@ -1075,6 +1082,9 @@ public:
   }
   TemplateTypeParmDecl* readTemplateTypeParmDeclRef() {
     return cast_or_null<TemplateTypeParmDecl>(asImpl().readDeclRef());
+  }
+  TypeOfKind readTypeOfKind() {
+    return asImpl().template readEnum<TypeOfKind>();
   }
   UnaryTransformType::UTTKind readUnaryTypeTransformKind() {
     return asImpl().template readEnum<UnaryTransformType::UTTKind>();

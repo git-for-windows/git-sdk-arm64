@@ -961,6 +961,11 @@ Record.push_back(SA->getThunkType());
     Record.push_back(A->isPackExpansion());
     break;
   }
+  case attr::HLSLGroupSharedAddressSpace: {
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    break;
+  }
   case attr::HLSLNumThreads: {
     const auto *SA = cast<HLSLNumThreadsAttr>(A);
     Record.push_back(SA->isInherited());
@@ -969,6 +974,31 @@ Record.push_back(SA->getThunkType());
     Record.push_back(SA->getX());
     Record.push_back(SA->getY());
     Record.push_back(SA->getZ());
+    break;
+  }
+  case attr::HLSLResource: {
+    const auto *SA = cast<HLSLResourceAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+Record.push_back(SA->getResourceType());
+Record.push_back(SA->getResourceShape());
+    break;
+  }
+  case attr::HLSLResourceBinding: {
+    const auto *SA = cast<HLSLResourceBindingAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    Record.AddString(SA->getSlot());
+    Record.AddString(SA->getSpace());
+    break;
+  }
+  case attr::HLSLSV_DispatchThreadID: {
+    const auto *SA = cast<HLSLSV_DispatchThreadIDAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
     break;
   }
   case attr::HLSLSV_GroupIndex: {
@@ -1194,6 +1224,13 @@ Record.push_back(SA->getState());
   }
   case attr::MayAlias: {
     const auto *SA = cast<MayAliasAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    break;
+  }
+  case attr::MaybeUndef: {
+    const auto *SA = cast<MaybeUndefAttr>(A);
     Record.push_back(SA->isInherited());
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
@@ -1474,6 +1511,13 @@ Record.push_back(SA->getInterrupt());
     Record.push_back(A->isPackExpansion());
     break;
   }
+  case attr::NoUwtable: {
+    const auto *SA = cast<NoUwtableAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    break;
+  }
   case attr::NonNull: {
     const auto *SA = cast<NonNullAttr>(A);
     Record.push_back(SA->isInherited());
@@ -1567,8 +1611,10 @@ Record.push_back(SA->getDevType());
     for (auto &Val : SA->adjustArgsNeedDevicePtr())
       Record.AddStmt(Val);
     Record.push_back(SA->appendArgs_size());
-    for (OMPDeclareVariantAttr::appendArgs_iterator i = SA->appendArgs_begin(), e = SA->appendArgs_end(); i != e; ++i)
-      Record.push_back((*i));
+    for (OMPDeclareVariantAttr::appendArgs_iterator I = SA->appendArgs_begin(), E = SA->appendArgs_end(); I != E; ++I) {
+      Record.writeBool(I->IsTarget);
+      Record.writeBool(I->IsTargetSync);
+    }
     break;
   }
   case attr::OMPReferencedVar: {
@@ -2074,6 +2120,13 @@ Record.push_back(SA->getInterrupt());
     Record.push_back(A->isPackExpansion());
     break;
   }
+  case attr::ReadOnlyPlacement: {
+    const auto *SA = cast<ReadOnlyPlacementAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    break;
+  }
   case attr::RegCall: {
     const auto *SA = cast<RegCallAttr>(A);
     Record.push_back(SA->isInherited());
@@ -2264,6 +2317,13 @@ Record.push_back(SA->getNewState());
     Record.push_back(A->isPackExpansion());
     break;
   }
+  case attr::StrictGuardStackCheck: {
+    const auto *SA = cast<StrictGuardStackCheckAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    break;
+  }
   case attr::Suppress: {
     const auto *SA = cast<SuppressAttr>(A);
     Record.push_back(A->isImplicit());
@@ -2431,6 +2491,14 @@ Record.push_back(SA->getNewtypeKind());
     Record.push_back(SA->featuresStrs_size());
     for (auto &Val : SA->featuresStrs())
       Record.AddString(Val);
+    break;
+  }
+  case attr::TargetVersion: {
+    const auto *SA = cast<TargetVersionAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    Record.AddString(SA->getNamesStr());
     break;
   }
   case attr::TestTypestate: {
