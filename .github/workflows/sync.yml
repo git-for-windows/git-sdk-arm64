@@ -31,6 +31,35 @@ jobs:
           & .\update-via-pacman.ps1
       - name: use git-sdk-arm64's Bash and Git for Windows' git.exe
         run: "usr\\bin\\bash.exe -lc 'cygpath -aw /usr/bin >>$GITHUB_PATH && cygpath -aw /c/Program\ Files/Git/cmd/ >>$GITHUB_PATH'"
+      - name: deal with large DLL files
+        shell: bash
+        run: |
+          set -ex
+          large_dlls=$(find clangarm64/bin -size +100M)
+          test -n "$large_dlls" || exit 0
+
+          # Okay, we have a problem. GitHub does not like to host files >100MB.
+          # But libLLVM-<version>.dll easily blasts through that limit.
+          #
+          # Ideally, we would use UPX to compress that `.dll`, but there is no
+          # support for compressing Windows/ARM64 files using UPX (yet).
+          #
+          # So let's do the next best thing and `strip` the file. Sadly, we need
+          # to download the entire (also *large*) `mingw-w64-x86_64-llvm` to get
+          # `llvm-strip.exe` to perform this job because the already-installed
+          # `/usr/bin/strip.exe` does not know what to do with Windows/ARM64 files,
+          # either.
+
+          pacman -S --noconfirm mingw-w64-x86_64-llvm
+          ret=0
+          for dll in $large_dlls
+          do
+            /mingw64/bin/llvm-strip.exe $dll || ret=1
+          done
+          test 0 = $ret || exit $ret
+
+          # Clean up; We do *not* want the x86_64 LLVM packages in git-sdk-arm64!
+          pacman -R --noconfirm $(pacman -Q | grep mingw-w64-x86_64 | cut -f 1 -d ' ')
       - name: commit & push ARM64 SDK
         shell: bash
         run: |
