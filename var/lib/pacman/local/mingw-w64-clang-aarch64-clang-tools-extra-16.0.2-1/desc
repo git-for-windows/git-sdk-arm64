@@ -1,0 +1,42 @@
+%NAME%
+mingw-w64-clang-aarch64-clang-tools-extra
+
+%VERSION%
+16.0.2-1
+
+%BASE%
+mingw-w64-clang
+
+%DESC%
+Extra tools built using Clang's tooling APIs (mingw-w64)
+
+%URL%
+https://clang.llvm.org/
+
+%ARCH%
+any
+
+%BUILDDATE%
+1682435363
+
+%INSTALLDATE%
+1682565370
+
+%PACKAGER%
+CI (msys2-arm/msys2-autobuild/1a8a8810/4799100706)
+
+%SIZE%
+136967013
+
+%GROUPS%
+mingw-w64-clang-aarch64-toolchain
+
+%LICENSE%
+custom:Apache 2.0 with LLVM Exception
+
+%VALIDATION%
+pgp
+
+%DEPENDS%
+mingw-w64-clang-aarch64-clang=16.0.2
+

@@ -461,6 +461,15 @@ set_target_properties(clangHandleLLVM PROPERTIES
 list(APPEND _cmake_import_check_targets clangHandleLLVM )
 list(APPEND _cmake_import_check_files_for_clangHandleLLVM "${_IMPORT_PREFIX}/lib/libclangHandleLLVM.a" )
 
+# Import target "clang-linker-wrapper" for configuration "Release"
+set_property(TARGET clang-linker-wrapper APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(clang-linker-wrapper PROPERTIES
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/clang-linker-wrapper.exe"
+  )
+
+list(APPEND _cmake_import_check_targets clang-linker-wrapper )
+list(APPEND _cmake_import_check_files_for_clang-linker-wrapper "${_IMPORT_PREFIX}/bin/clang-linker-wrapper.exe" )
+
 # Import target "clang-offload-packager" for configuration "Release"
 set_property(TARGET clang-offload-packager APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
 set_target_properties(clang-offload-packager PROPERTIES
