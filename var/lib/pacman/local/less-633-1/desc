@@ -2,7 +2,7 @@
 less
 
 %VERSION%
-629-1
+633-1
 
 %BASE%
 less
@@ -17,16 +17,16 @@ http://www.greenwoodsoftware.com/less
 x86_64
 
 %BUILDDATE%
-1677571708
+1683229991
 
 %INSTALLDATE%
-1677817879
+1683342921
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/91ab3435/4290064394)
+CI (msys2/msys2-autobuild/1a8a8810/4886708583)
 
 %SIZE%
-263041
+263208
 
 %REASON%
 1
