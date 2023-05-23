@@ -33,15 +33,15 @@
 #   LibXslt::LibExslt           - the libexslt library
 #   LibXslt::xsltproc           - the xsltproc command-line executable
 
-set(LIBXSLT_VERSION "1.1.37")
+set(LIBXSLT_VERSION "1.1.38")
 set(LIBXSLT_VERSION_MAJOR "1")
 set(LIBXSLT_VERSION_MINOR "1")
-set(LIBXSLT_VERSION_PATCH "37")
+set(LIBXSLT_VERSION_PATCH "38")
 
-set(LIBEXSLT_VERSION "0.8.20")
+set(LIBEXSLT_VERSION "0.8.21")
 set(LIBEXSLT_VERSION_MAJOR "0")
 set(LIBEXSLT_VERSION_MINOR "8")
-set(LIBEXSLT_VERSION_PATCH "20")
+set(LIBEXSLT_VERSION_PATCH "21")
 
 get_filename_component(PACKAGE_PREFIX_DIR ${CMAKE_CURRENT_LIST_DIR}/../../../ ABSOLUTE)
 

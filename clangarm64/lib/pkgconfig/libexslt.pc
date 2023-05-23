@@ -5,7 +5,7 @@ includedir=${prefix}/include
 
 
 Name: libexslt
-Version: 0.8.20
+Version: 0.8.21
 Description: EXSLT Extension library
 Requires: libxml-2.0, libxslt
 Cflags: -I${includedir}

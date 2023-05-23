@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-wineditline
 
 %VERSION%
-2.205-3
+2.206-1
 
 %BASE%
 mingw-w64-wineditline
@@ -17,16 +17,16 @@ https://mingweditline.sourceforge.io/
 any
 
 %BUILDDATE%
-1620188275
+1684776025
 
 %INSTALLDATE%
-1671477740
+1684811748
 
 %PACKAGER%
-Unknown Packager
+CI (msys2-arm/msys2-autobuild/8d98d967/5048536662)
 
 %SIZE%
-175480
+179084
 
 %REASON%
 1
