@@ -1,5 +1,5 @@
 V=5.4
-R=5.4.4
+R=5.4.6
 
 prefix=/clangarm64
 INSTALL_BIN=${prefix}/bin
