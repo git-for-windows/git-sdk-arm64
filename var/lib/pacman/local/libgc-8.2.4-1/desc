@@ -2,7 +2,7 @@
 libgc
 
 %VERSION%
-8.2.2-1
+8.2.4-1
 
 %BASE%
 gc
@@ -17,16 +17,16 @@ https://www.hboehm.info/gc/
 x86_64
 
 %BUILDDATE%
-1661914568
+1685275443
 
 %INSTALLDATE%
-1662093408
+1685330154
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/9f4f288d/2960989035)
+CI (msys2/msys2-autobuild/6d6d83ea/5104164585)
 
 %SIZE%
-474022
+475055
 
 %REASON%
 1
