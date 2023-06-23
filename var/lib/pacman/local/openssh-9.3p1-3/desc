@@ -1,48 +1,46 @@
 %NAME%
-heimdal-libs
+openssh
 
 %VERSION%
-7.8.0-3
+9.3p1-3
 
 %BASE%
-heimdal
+openssh
 
 %DESC%
-Implementation of Kerberos V5 libraries
+Free version of the SSH connectivity tools
 
 %URL%
-https://www.h5l.org/
+http://www.openssh.org/portable.html
 
 %ARCH%
 x86_64
 
 %BUILDDATE%
-1668709868
+1687519846
 
 %INSTALLDATE%
-1668742651
+1687547807
 
 %PACKAGER%
 Johannes Schindelin <johannes.schindelin@gmx.de>
 
 %SIZE%
-2531485
-
-%REASON%
-1
+6590174
 
 %GROUPS%
-libraries
+net-utils
 
 %LICENSE%
-custom
+custom:BSD
 
 %VALIDATION%
 pgp
 
 %DEPENDS%
-libcrypt
+libfido2
+heimdal
 libedit
-libsqlite
-libopenssl
+libcrypt
+openssl
 

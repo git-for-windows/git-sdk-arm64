@@ -1,51 +1,47 @@
 %NAME%
-curl
+libfido2
 
 %VERSION%
-8.1.2-2
+1.13.0-2
 
 %BASE%
-curl
+libfido2
 
 %DESC%
-Multi-protocol file transfer utility
+Library functionality for FIDO 2.0, including communication with a device over USB
 
 %URL%
-https://curl.haxx.se
+https://developers.yubico.com/libfido2/
 
 %ARCH%
 x86_64
 
 %BUILDDATE%
-1687426667
+1687517511
 
 %INSTALLDATE%
-1687491046
+1687547807
 
 %PACKAGER%
 Johannes Schindelin <johannes.schindelin@gmx.de>
 
 %SIZE%
-1038796
+214721
 
 %REASON%
 1
 
 %GROUPS%
-base
+libraries
 
 %LICENSE%
-MIT
+BSD-2-Clause
 
 %VALIDATION%
 pgp
 
 %DEPENDS%
-ca-certificates
-libcurl
-libcrypt
-libnghttp2
-libpsl
+libcbor
 openssl
 zlib
 

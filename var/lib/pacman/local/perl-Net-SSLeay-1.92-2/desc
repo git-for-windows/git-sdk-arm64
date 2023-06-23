@@ -1,46 +1,51 @@
 %NAME%
-libfido2
+perl-Net-SSLeay
 
 %VERSION%
-1.13.0-1
+1.92-2
 
 %BASE%
-libfido2
+perl-Net-SSLeay
 
 %DESC%
-Library functionality for FIDO 2.0, including communication with a device over USB
+Perl extension for using OpenSSL
 
 %URL%
-https://developers.yubico.com/libfido2/
+http://search.cpan.org/dist/Net-SSLeay/
 
 %ARCH%
 x86_64
 
 %BUILDDATE%
-1677071247
+1687521226
 
 %INSTALLDATE%
-1677122330
+1687547807
 
 %PACKAGER%
 Johannes Schindelin <johannes.schindelin@gmx.de>
 
 %SIZE%
-214354
+689110
 
 %REASON%
 1
 
 %GROUPS%
-libraries
+perl-modules
 
 %LICENSE%
-BSD-2-Clause
+custom:BSD
 
 %VALIDATION%
 pgp
 
+%REPLACES%
+net-ssleay
+
 %DEPENDS%
-libcbor
 openssl
+
+%PROVIDES%
+net-ssleay
 
