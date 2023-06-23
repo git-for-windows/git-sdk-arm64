@@ -6,7 +6,7 @@
 #                            | (__| |_| |  _ <| |___
 #                             \___|\___/|_| \_\_____|
 #
-# Copyright (C) 2001 - 2022, Daniel Stenberg, <daniel@haxx.se>, et al.
+# Copyright (C) Daniel Stenberg, <daniel@haxx.se>, et al.
 #
 # This software is licensed as described in the file COPYING, which
 # you should have received as part of this distribution. The terms
@@ -74,7 +74,7 @@ while test $# -gt 0; do
         ;;
 
     --ca)
-        echo "/clangarm64/ssl/certs/ca-bundle.crt"
+        echo 
         ;;
 
     --cc)
@@ -86,7 +86,7 @@ while test $# -gt 0; do
         ;;
 
     --feature|--features)
-        for feature in AsynchDNS HSTS HTTP2 HTTPS-proxy IDN IPv6 Kerberos Largefile MultiSSL NTLM SPNEGO SSL SSPI TLS-SRP UnixSockets alt-svc brotli libz threadsafe zstd ""; do
+        for feature in AsynchDNS HSTS HTTPS-proxy IDN Kerberos Largefile NTLM PSL SPNEGO SSL SSPI UnixSockets alt-svc brotli libz threadsafe zstd ""; do
             test -n "$feature" && echo "$feature"
         done
         ;;
@@ -98,7 +98,7 @@ while test $# -gt 0; do
         ;;
 
     --version)
-        echo libcurl 7.87.0
+        echo libcurl 8.1.2
         exit 0
         ;;
 
@@ -110,11 +110,11 @@ while test $# -gt 0; do
         # dash as that's used for things like version 1.2.3-CVS
         cpatch=`echo $checkfor | cut -d. -f3 | cut -d- -f1`
 
-        vmajor=`echo 7.87.0 | cut -d. -f1`
-        vminor=`echo 7.87.0 | cut -d. -f2`
+        vmajor=`echo 8.1.2 | cut -d. -f1`
+        vminor=`echo 8.1.2 | cut -d. -f2`
         # when extracting the patch part we strip off everything after a
         # dash as that's used for things like version 1.2.3-CVS
-        vpatch=`echo 7.87.0 | cut -d. -f3 | cut -d- -f1`
+        vpatch=`echo 8.1.2 | cut -d. -f3 | cut -d- -f1`
 
         if test "$vmajor" -gt "$cmajor"; then
             exit 0;
@@ -130,12 +130,12 @@ while test $# -gt 0; do
             fi
         fi
 
-        echo "requested version $checkfor is newer than existing 7.87.0"
+        echo "requested version $checkfor is newer than existing 8.1.2"
         exit 1
         ;;
 
     --vernum)
-        echo 075700
+        echo 080102
         exit 0
         ;;
 
@@ -163,18 +163,18 @@ while test $# -gt 0; do
            CURLLIBDIR=""
         fi
         if test "Xyes" = "Xno"; then
-          echo ${CURLLIBDIR}-lcurl -lnghttp2 -lidn2 -lssh2 -lssh2 -lpsl -lbcrypt -ladvapi32 -lcrypt32 -lbcrypt -lssl -lcrypto -lssl -lcrypto -lgdi32 -lwldap32 -lzstd -lzstd -lbrotlidec -lbrotlidec -lz -lws2_32
+          echo ${CURLLIBDIR}-lcurl -lidn2 -lssh2 -lssh2 -lpsl -lbcrypt -ladvapi32 -lcrypt32 -lwldap32 -lzstd -lzstd -lbrotlidec -lbrotlidec -lz -lws2_32
         else
           echo ${CURLLIBDIR}-lcurl
         fi
         ;;
     --ssl-backends)
-        echo "Schannel, OpenSSL"
+        echo "Schannel"
         ;;
 
     --static-libs)
         if test "Xno" != "Xno" ; then
-          echo "${exec_prefix}/lib/libcurl.a" -pipe -lnghttp2 -lidn2 -lssh2 -lssh2 -lpsl -lbcrypt -ladvapi32 -lcrypt32 -lbcrypt -lssl -lcrypto -lssl -lcrypto -lgdi32 -lwldap32 -lzstd -lzstd -lbrotlidec -lbrotlidec -lz -lws2_32
+          echo "${exec_prefix}/lib/libcurl.a" -Wl,-pdb= -lidn2 -lssh2 -lssh2 -lpsl -lbcrypt -ladvapi32 -lcrypt32 -lwldap32 -lzstd -lzstd -lbrotlidec -lbrotlidec -lz -lws2_32
         else
           echo "curl was built with static libraries disabled" >&2
           exit 1
@@ -182,7 +182,7 @@ while test $# -gt 0; do
         ;;
 
     --configure)
-        echo " '--prefix=/clangarm64' '--build=aarch64-w64-mingw32' '--host=aarch64-w64-mingw32' '--target=aarch64-w64-mingw32' '--disable-pthreads' '--without-random' '--disable-static' '--enable-shared' '--enable-sspi' '--enable-ldap' '--enable-ldaps' '--with-brotli' '--with-ldap-lib=wldap32' '--with-libssh2' '--with-zstd' '--with-default-ssl-backend=openssl' '--with-openssl' '--with-schannel' '--with-ca-bundle=/clangarm64/ssl/certs/ca-bundle.crt' '--with-nghttp2=/clangarm64' '--without-librtmp' '--disable-debug' 'build_alias=aarch64-w64-mingw32' 'host_alias=aarch64-w64-mingw32' 'target_alias=aarch64-w64-mingw32' 'CC=clang' 'CFLAGS=-O2 -pipe -Wp,-D_FORTIFY_SOURCE=2 -fstack-protector-strong' 'LDFLAGS=-pipe' 'CPPFLAGS=-D__USE_MINGW_ANSI_STDIO=1'"
+        echo " '--prefix=/clangarm64' '--build=aarch64-w64-mingw32' '--host=aarch64-w64-mingw32' '--target=aarch64-w64-mingw32' '--disable-pthreads' '--without-random' '--disable-static' '--enable-shared' '--enable-sspi' '--enable-ldap' '--enable-ldaps' '--with-brotli' '--with-ldap-lib=wldap32' '--with-libssh2' '--with-zstd' '--with-schannel' '--without-nghttp2' '--without-ca-bundle' '--without-ca-path' '--without-librtmp' '--disable-debug' 'build_alias=aarch64-w64-mingw32' 'host_alias=aarch64-w64-mingw32' 'target_alias=aarch64-w64-mingw32' 'CC=clang' 'CFLAGS=-O2 -pipe -Wp,-D_FORTIFY_SOURCE=2 -fstack-protector-strong' 'LDFLAGS=-Wl,-pdb=' 'CPPFLAGS=-D__USE_MINGW_ANSI_STDIO=1'"
         ;;
 
     *)

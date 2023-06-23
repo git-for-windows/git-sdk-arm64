@@ -28,10 +28,10 @@ MODLIBS=           $(LOCALMODLIBS) $(BASEMODLIBS)
 
 # === Variables set by configure
 VERSION=	3.10
-srcdir=		../Python-3.10.9
-VPATH=		../Python-3.10.9
-abs_srcdir=	/c/M/mingw-w64-python/src/build-aarch64/../Python-3.10.9
-abs_builddir=	/c/M/mingw-w64-python/src/build-aarch64
+srcdir=		../Python-3.10.12
+VPATH=		../Python-3.10.12
+abs_srcdir=	/c/M/B/src/build-CLANGARM64/../Python-3.10.12
+abs_builddir=	/c/M/B/src/build-CLANGARM64
 
 
 CC=		clang
@@ -120,15 +120,15 @@ PY_CORE_CFLAGS=	$(PY_STDMODULE_CFLAGS) -DPy_BUILD_CORE
 PY_CORE_LDFLAGS=$(PY_LDFLAGS) $(PY_LDFLAGS_NODIST)
 # Strict or non-strict aliasing flags used to compile dtoa.c, see above
 CFLAGS_ALIASING=-fno-strict-aliasing
-RCFLAGS= -DFIELD3=9150 -O COFF
+RCFLAGS= -DFIELD3=12150 -O COFF
 
 
 # Machine-dependent subdirectories
 MACHDEP=	win32
 
 # Multiarch directory (may be empty)
-MULTIARCH=	aarch64-w64-windows-gnu
-MULTIARCH_CPPFLAGS = -DMULTIARCH=\"aarch64-w64-windows-gnu\"
+MULTIARCH=	
+MULTIARCH_CPPFLAGS = 
 
 # Install prefix for architecture-independent files
 prefix=		/clangarm64
@@ -140,10 +140,10 @@ exec_prefix=	${prefix}
 datarootdir=    ${prefix}/share
 
 # Locations needed for semi-native fixup of sysconfig.
-srcdir_b2h=		C:/M/mingw-w64-python/src/Python-3.10.9
-VPATH_b2h=		C:/M/mingw-w64-python/src/Python-3.10.9
-abs_srcdir_b2h=		C:/M/mingw-w64-python/src/Python-3.10.9
-abs_builddir_b2h=	C:/M/mingw-w64-python/src/build-aarch64
+srcdir_b2h=		C:/M/B/src/Python-3.10.12
+VPATH_b2h=		C:/M/B/src/Python-3.10.12
+abs_srcdir_b2h=		C:/M/B/src/Python-3.10.12
+abs_builddir_b2h=	C:/M/B/src/build-CLANGARM64
 prefix_b2h=		C:/msys64/clangarm64
 
 # Expanded directories
