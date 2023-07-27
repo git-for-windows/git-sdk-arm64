@@ -2,7 +2,7 @@
 libcurl
 
 %VERSION%
-8.2.0-1
+8.2.1-1
 
 %BASE%
 curl
@@ -17,10 +17,10 @@ https://curl.haxx.se
 x86_64
 
 %BUILDDATE%
-1689765474
+1690362412
 
 %INSTALLDATE%
-1689822932
+1690427665
 
 %PACKAGER%
 Johannes Schindelin <johannes.schindelin@gmx.de>
