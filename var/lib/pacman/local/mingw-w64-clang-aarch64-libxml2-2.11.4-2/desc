@@ -1,0 +1,47 @@
+%NAME%
+mingw-w64-clang-aarch64-libxml2
+
+%VERSION%
+2.11.4-2
+
+%BASE%
+mingw-w64-libxml2
+
+%DESC%
+XML parsing library, version 2 (mingw-w64)
+
+%URL%
+https://gitlab.gnome.org/GNOME/libxml2/-/wikis/home
+
+%ARCH%
+any
+
+%BUILDDATE%
+1690227623
+
+%INSTALLDATE%
+1690686895
+
+%PACKAGER%
+CI (msys2-arm/msys2-autobuild/37c0a844/5649075980)
+
+%SIZE%
+5951053
+
+%REASON%
+1
+
+%LICENSE%
+spdx:MIT
+
+%VALIDATION%
+pgp
+
+%DEPENDS%
+mingw-w64-clang-aarch64-libiconv
+mingw-w64-clang-aarch64-xz
+mingw-w64-clang-aarch64-zlib
+
+%OPTDEPENDS%
+mingw-w64-clang-aarch64-python: Python bindings
+
