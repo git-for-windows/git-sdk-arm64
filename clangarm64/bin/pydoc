@@ -1,4 +1,4 @@
-#!C:/msys64/clangarm64/bin/python3.11.exe
+#!/usr/bin/env python3.11.exe
 
 import pydoc
 if __name__ == '__main__':
