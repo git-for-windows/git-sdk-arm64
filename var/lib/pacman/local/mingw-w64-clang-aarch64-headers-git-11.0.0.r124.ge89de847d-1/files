@@ -1654,6 +1654,8 @@ clangarm64/include/windows.devices.power.h
 clangarm64/include/windows.devices.power.idl
 clangarm64/include/windows.devices.radios.h
 clangarm64/include/windows.devices.radios.idl
+clangarm64/include/windows.devices.usb.h
+clangarm64/include/windows.devices.usb.idl
 clangarm64/include/windows.foundation.collections.h
 clangarm64/include/windows.foundation.collections.idl
 clangarm64/include/windows.foundation.h
@@ -1707,6 +1709,8 @@ clangarm64/include/windows.security.credentials.h
 clangarm64/include/windows.security.credentials.idl
 clangarm64/include/windows.security.cryptography.h
 clangarm64/include/windows.security.cryptography.idl
+clangarm64/include/windows.security.isolation.h
+clangarm64/include/windows.security.isolation.idl
 clangarm64/include/windows.storage.h
 clangarm64/include/windows.storage.idl
 clangarm64/include/windows.storage.streams.h
@@ -1731,6 +1735,8 @@ clangarm64/include/windows.ui.h
 clangarm64/include/windows.ui.idl
 clangarm64/include/windows.ui.viewmanagement.h
 clangarm64/include/windows.ui.viewmanagement.idl
+clangarm64/include/windows.ui.xaml.hosting.desktopwindowxamlsource.h
+clangarm64/include/windows.ui.xaml.hosting.desktopwindowxamlsource.idl
 clangarm64/include/windowscontracts.h
 clangarm64/include/windowscontracts.idl
 clangarm64/include/windowsnumerics.h
@@ -1872,6 +1878,8 @@ clangarm64/include/wuapi.h
 clangarm64/include/wuapi.idl
 clangarm64/include/wuerror.h
 clangarm64/include/xa.h
+clangarm64/include/xamlom.h
+clangarm64/include/xamlom.idl
 clangarm64/include/xapo.h
 clangarm64/include/xapo.idl
 clangarm64/include/xapofx.h

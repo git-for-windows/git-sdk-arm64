@@ -393,6 +393,7 @@ clangarm64/lib/libwebauthn.a
 clangarm64/lib/libwebclnt.a
 clangarm64/lib/libwebsocket.a
 clangarm64/lib/libwecapi.a
+clangarm64/lib/libwer.a
 clangarm64/lib/libwevtapi.a
 clangarm64/lib/libwiashext.a
 clangarm64/lib/libwimgapi.a
