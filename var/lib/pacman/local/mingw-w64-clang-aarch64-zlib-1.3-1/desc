@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-zlib
 
 %VERSION%
-1.2.13-3
+1.3-1
 
 %BASE%
 mingw-w64-zlib
@@ -17,16 +17,16 @@ https://www.zlib.net/
 any
 
 %BUILDDATE%
-1674983731
+1692392922
 
 %INSTALLDATE%
-1675048721
+1692501255
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/34a63008/4036061703)
+CI (msys2-arm/msys2-autobuild/1f1fabad/5907090259)
 
 %SIZE%
-341049
+342884
 
 %REASON%
 1
