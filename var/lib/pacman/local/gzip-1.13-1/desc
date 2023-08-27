@@ -2,7 +2,7 @@
 gzip
 
 %VERSION%
-1.12-2
+1.13-1
 
 %BASE%
 gzip
@@ -17,16 +17,16 @@ https://www.gnu.org/software/gzip/
 x86_64
 
 %BUILDDATE%
-1656228703
+1693047038
 
 %INSTALLDATE%
-1656302644
+1693106086
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/7d84a7e0/2563370831)
+CI (msys2/msys2-autobuild/f368fb49/5984359171)
 
 %SIZE%
-170579
+172371
 
 %REASON%
 1

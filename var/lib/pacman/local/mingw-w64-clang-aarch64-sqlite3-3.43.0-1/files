@@ -3,6 +3,10 @@ clangarm64/
 clangarm64/bin/
 clangarm64/bin/dbhash.exe
 clangarm64/bin/libsqlite3-0.dll
+clangarm64/bin/showdb.exe
+clangarm64/bin/showjournal.exe
+clangarm64/bin/showstat4.exe
+clangarm64/bin/showwal.exe
 clangarm64/bin/sqldiff.exe
 clangarm64/bin/sqlite3.exe
 clangarm64/bin/sqlite3_analyzer.exe
@@ -14,10 +18,10 @@ clangarm64/lib/libsqlite3.a
 clangarm64/lib/libsqlite3.dll.a
 clangarm64/lib/pkgconfig/
 clangarm64/lib/pkgconfig/sqlite3.pc
-clangarm64/lib/sqlite3.42.0/
-clangarm64/lib/sqlite3.42.0/libtclsqlite3.dll
-clangarm64/lib/sqlite3.42.0/libtclsqlite3.dll.a
-clangarm64/lib/sqlite3.42.0/pkgIndex.tcl
+clangarm64/lib/sqlite3.43.0/
+clangarm64/lib/sqlite3.43.0/libtclsqlite3.dll
+clangarm64/lib/sqlite3.43.0/libtclsqlite3.dll.a
+clangarm64/lib/sqlite3.43.0/pkgIndex.tcl
 clangarm64/share/
 clangarm64/share/licenses/
 clangarm64/share/licenses/sqlite3/
@@ -78,6 +82,8 @@ clangarm64/share/sqlite/extensions/noop.c
 clangarm64/share/sqlite/extensions/noop.dll
 clangarm64/share/sqlite/extensions/normalize.c
 clangarm64/share/sqlite/extensions/normalize.dll
+clangarm64/share/sqlite/extensions/pcachetrace.c
+clangarm64/share/sqlite/extensions/pcachetrace.dll
 clangarm64/share/sqlite/extensions/percentile.c
 clangarm64/share/sqlite/extensions/percentile.dll
 clangarm64/share/sqlite/extensions/prefixes.c
