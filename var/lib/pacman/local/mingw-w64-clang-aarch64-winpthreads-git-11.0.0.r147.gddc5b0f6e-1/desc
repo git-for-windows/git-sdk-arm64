@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-winpthreads-git
 
 %VERSION%
-11.0.0.r124.ge89de847d-1
+11.0.0.r147.gddc5b0f6e-1
 
 %BASE%
 mingw-w64-winpthreads-git
@@ -17,13 +17,13 @@ https://mingw-w64.sourceforge.io/
 any
 
 %BUILDDATE%
-1692177396
+1693854043
 
 %INSTALLDATE%
-1692242108
+1693970141
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/1f1fabad/5876857120)
+CI (msys2-arm/msys2-autobuild/f368fb49/6076806312)
 
 %SIZE%
 274896
@@ -40,7 +40,7 @@ pgp
 
 %DEPENDS%
 mingw-w64-clang-aarch64-crt-git
-mingw-w64-clang-aarch64-libwinpthread-git=11.0.0.r124.ge89de847d
+mingw-w64-clang-aarch64-libwinpthread-git=11.0.0.r147.gddc5b0f6e
 
 %CONFLICTS%
 mingw-w64-clang-aarch64-winpthreads
