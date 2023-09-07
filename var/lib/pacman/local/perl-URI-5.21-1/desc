@@ -2,7 +2,7 @@
 perl-URI
 
 %VERSION%
-5.19-1
+5.21-1
 
 %BASE%
 perl-URI
@@ -17,16 +17,16 @@ https://metacpan.org/dist/URI
 any
 
 %BUILDDATE%
-1684443100
+1693979806
 
 %INSTALLDATE%
-1684552516
+1694056537
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/dfc132af/5018088051)
+CI (msys2/msys2-autobuild/0852421d/6093240423)
 
 %SIZE%
-173431
+180609
 
 %REASON%
 1

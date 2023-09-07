@@ -15,6 +15,8 @@ usr/share/man/man3/URI.data.3pm.gz
 usr/share/man/man3/URI.Escape.3pm.gz
 usr/share/man/man3/URI.file.3pm.gz
 usr/share/man/man3/URI.Heuristic.3pm.gz
+usr/share/man/man3/URI.icap.3pm.gz
+usr/share/man/man3/URI.icaps.3pm.gz
 usr/share/man/man3/URI.ldap.3pm.gz
 usr/share/man/man3/URI.QueryParam.3pm.gz
 usr/share/man/man3/URI.Split.3pm.gz
@@ -50,6 +52,8 @@ usr/share/perl5/vendor_perl/URI/gopher.pm
 usr/share/perl5/vendor_perl/URI/Heuristic.pm
 usr/share/perl5/vendor_perl/URI/http.pm
 usr/share/perl5/vendor_perl/URI/https.pm
+usr/share/perl5/vendor_perl/URI/icap.pm
+usr/share/perl5/vendor_perl/URI/icaps.pm
 usr/share/perl5/vendor_perl/URI/IRI.pm
 usr/share/perl5/vendor_perl/URI/ldap.pm
 usr/share/perl5/vendor_perl/URI/ldapi.pm

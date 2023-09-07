@@ -10,6 +10,7 @@ clangarm64/include/brotli/
 clangarm64/include/brotli/decode.h
 clangarm64/include/brotli/encode.h
 clangarm64/include/brotli/port.h
+clangarm64/include/brotli/shared_dictionary.h
 clangarm64/include/brotli/types.h
 clangarm64/lib/
 clangarm64/lib/libbrotlicommon.a

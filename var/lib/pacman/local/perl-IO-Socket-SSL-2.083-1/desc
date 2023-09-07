@@ -2,7 +2,7 @@
 perl-IO-Socket-SSL
 
 %VERSION%
-2.081-1
+2.083-1
 
 %BASE%
 perl-IO-Socket-SSL
@@ -17,16 +17,16 @@ https://metacpan.org/release/IO-Socket-SSL
 any
 
 %BUILDDATE%
-1677850675
+1693979847
 
 %INSTALLDATE%
-1677986932
+1694056537
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/91ab3435/4323861436)
+CI (msys2/msys2-autobuild/0852421d/6093240423)
 
 %SIZE%
-447846
+441327
 
 %REASON%
 1

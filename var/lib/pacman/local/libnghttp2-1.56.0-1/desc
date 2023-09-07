@@ -2,10 +2,10 @@
 libnghttp2
 
 %VERSION%
-1.55.1-1
+1.56.0-1
 
 %BASE%
-libnghttp2
+nghttp2
 
 %DESC%
 Framing layer of HTTP/2 is implemented as a reusable C library (runtime)
@@ -17,16 +17,16 @@ https://nghttp2.org/
 x86_64
 
 %BUILDDATE%
-1689362053
+1693899256
 
 %INSTALLDATE%
-1689564596
+1694056537
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/95ab14df/5557498600)
+CI (msys2/msys2-autobuild/0852421d/6081544812)
 
 %SIZE%
-172665
+171641
 
 %REASON%
 1
