@@ -521,6 +521,7 @@ clangarm64/include/dwrite_2.h
 clangarm64/include/dwrite_2.idl
 clangarm64/include/dwrite_3.h
 clangarm64/include/dwrite_3.idl
+clangarm64/include/dxcapi.h
 clangarm64/include/dxdiag.h
 clangarm64/include/dxerr8.h
 clangarm64/include/dxerr9.h
