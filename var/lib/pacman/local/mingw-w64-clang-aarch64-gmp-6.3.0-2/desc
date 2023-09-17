@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-gmp
 
 %VERSION%
-6.3.0-1
+6.3.0-2
 
 %BASE%
 mingw-w64-gmp
@@ -17,16 +17,16 @@ https://gmplib.org/
 any
 
 %BUILDDATE%
-1690871255
+1694804927
 
 %INSTALLDATE%
-1691118895
+1694920478
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/5b61a937/5723361349)
+CI (msys2-arm/msys2-autobuild/f368fb49/6201405369)
 
 %SIZE%
-2069981
+2070075
 
 %REASON%
 1
