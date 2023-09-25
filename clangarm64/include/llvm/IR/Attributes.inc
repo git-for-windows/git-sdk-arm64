@@ -88,6 +88,7 @@ ATTRIBUTE_ENUM(AllocSize,allocsize)
 ATTRIBUTE_ENUM(Dereferenceable,dereferenceable)
 ATTRIBUTE_ENUM(DereferenceableOrNull,dereferenceable_or_null)
 ATTRIBUTE_ENUM(Memory,memory)
+ATTRIBUTE_ENUM(NoFPClass,nofpclass)
 ATTRIBUTE_ENUM(StackAlignment,alignstack)
 ATTRIBUTE_ENUM(UWTable,uwtable)
 ATTRIBUTE_ENUM(VScaleRange,vscale_range)
@@ -108,6 +109,14 @@ ATTRIBUTE_STRBOOL(ProfileSampleAccurate,profile-sample-accurate)
 ATTRIBUTE_STRBOOL(UnsafeFPMath,unsafe-fp-math)
 ATTRIBUTE_STRBOOL(UseSampleProfile,use-sample-profile)
 #undef ATTRIBUTE_STRBOOL
+
+#ifndef ATTRIBUTE_COMPLEXSTR
+#define ATTRIBUTE_COMPLEXSTR(FIRST, SECOND) ATTRIBUTE_ALL(FIRST, SECOND)
+#endif
+
+ATTRIBUTE_COMPLEXSTR(DenormalFPMath,denormal-fp-math)
+ATTRIBUTE_COMPLEXSTR(DenormalFPMathF32,denormal-fp-math-f32)
+#undef ATTRIBUTE_COMPLEXSTR
 
 #undef ATTRIBUTE_ALL
 #endif
@@ -199,10 +208,11 @@ AllocSize = 77,
 Dereferenceable = 78,
 DereferenceableOrNull = 79,
 Memory = 80,
-StackAlignment = 81,
-UWTable = 82,
-VScaleRange = 83,
-LastIntAttr = 83,
+NoFPClass = 81,
+StackAlignment = 82,
+UWTable = 83,
+VScaleRange = 84,
+LastIntAttr = 84,
 #endif
 
 #ifdef GET_ATTR_COMPAT_FUNC
@@ -220,12 +230,14 @@ static inline bool hasCompatibleFnAttrs(const Function &Caller,
   Ret &= isEqual<ShadowCallStackAttr>(Caller, Callee);
   Ret &= isEqual<UseSampleProfileAttr>(Caller, Callee);
   Ret &= isEqual<NoProfileAttr>(Caller, Callee);
+  Ret &= checkDenormMode(Caller, Callee);
 
   return Ret;
 }
 
 static inline void mergeFnAttrs(Function &Caller,
                                 const Function &Callee) {
+  setAND<LessPreciseFPMADAttr>(Caller, Callee);
   setAND<NoInfsFPMathAttr>(Caller, Callee);
   setAND<NoNansFPMathAttr>(Caller, Callee);
   setAND<ApproxFuncFPMathAttr>(Caller, Callee);
@@ -241,7 +253,6 @@ static inline void mergeFnAttrs(Function &Caller,
   adjustMinLegalVectorWidth(Caller, Callee);
   adjustNullPointerValidAttr(Caller, Callee);
   setAND<MustProgressAttr>(Caller, Callee);
-  setAND<LessPreciseFPMADAttr>(Caller, Callee);
 }
 
 #endif
@@ -328,6 +339,7 @@ static const uint8_t AttrPropTable[] = {
 0 | AttributeProperty::ParamAttr | AttributeProperty::RetAttr,
 0 | AttributeProperty::ParamAttr | AttributeProperty::RetAttr,
 0 | AttributeProperty::FnAttr,
+0 | AttributeProperty::ParamAttr | AttributeProperty::RetAttr,
 0 | AttributeProperty::FnAttr | AttributeProperty::ParamAttr,
 0 | AttributeProperty::FnAttr,
 0 | AttributeProperty::FnAttr,

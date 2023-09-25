@@ -1,10 +1,12 @@
-﻿!mod$ v1 sum:e8c37a45c5b10b30
+﻿!mod$ v1 sum:3de69bacbaecaac6
 module omp_lib_kinds
 use,intrinsic::iso_c_binding,only:c_f_pointer
 use,intrinsic::iso_c_binding,only:c_ptr
 use,intrinsic::iso_c_binding,only:c_funptr
 use,intrinsic::iso_c_binding,only:c_sizeof
 use,intrinsic::iso_c_binding,only:c_loc
+use,intrinsic::iso_c_binding,only:operator(==)
+use,intrinsic::iso_c_binding,only:operator(/=)
 use,intrinsic::iso_c_binding,only:c_null_ptr
 use,intrinsic::iso_c_binding,only:c_null_funptr
 use,intrinsic::iso_c_binding,only:c_int8_t

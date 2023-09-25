@@ -13,9 +13,7 @@ namespace llvm {
 namespace Intrinsic {
 enum AMDGCNIntrinsics : unsigned {
 // Enum values for intrinsics
-    amdgcn_alignbyte = 1489,                          // llvm.amdgcn.alignbyte
-    amdgcn_atomic_dec,                         // llvm.amdgcn.atomic.dec
-    amdgcn_atomic_inc,                         // llvm.amdgcn.atomic.inc
+    amdgcn_alignbyte = 1812,                          // llvm.amdgcn.alignbyte
     amdgcn_ballot,                             // llvm.amdgcn.ballot
     amdgcn_buffer_atomic_add,                  // llvm.amdgcn.buffer.atomic.add
     amdgcn_buffer_atomic_and,                  // llvm.amdgcn.buffer.atomic.and
@@ -39,6 +37,7 @@ enum AMDGCNIntrinsics : unsigned {
     amdgcn_buffer_wbinvl1_vol,                 // llvm.amdgcn.buffer.wbinvl1.vol
     amdgcn_class,                              // llvm.amdgcn.class
     amdgcn_cos,                                // llvm.amdgcn.cos
+    amdgcn_cs_chain,                           // llvm.amdgcn.cs.chain
     amdgcn_cubeid,                             // llvm.amdgcn.cubeid
     amdgcn_cubema,                             // llvm.amdgcn.cubema
     amdgcn_cubesc,                             // llvm.amdgcn.cubesc
@@ -88,6 +87,7 @@ enum AMDGCNIntrinsics : unsigned {
     amdgcn_exp,                                // llvm.amdgcn.exp
     amdgcn_exp_compr,                          // llvm.amdgcn.exp.compr
     amdgcn_exp_row,                            // llvm.amdgcn.exp.row
+    amdgcn_exp2,                               // llvm.amdgcn.exp2
     amdgcn_fcmp,                               // llvm.amdgcn.fcmp
     amdgcn_fdiv_fast,                          // llvm.amdgcn.fdiv.fast
     amdgcn_fdot2,                              // llvm.amdgcn.fdot2
@@ -608,6 +608,7 @@ enum AMDGCNIntrinsics : unsigned {
     amdgcn_interp_p1_f16,                      // llvm.amdgcn.interp.p1.f16
     amdgcn_interp_p2,                          // llvm.amdgcn.interp.p2
     amdgcn_interp_p2_f16,                      // llvm.amdgcn.interp.p2.f16
+    amdgcn_inverse_ballot,                     // llvm.amdgcn.inverse.ballot
     amdgcn_is_private,                         // llvm.amdgcn.is.private
     amdgcn_is_shared,                          // llvm.amdgcn.is.shared
     amdgcn_kernarg_segment_ptr,                // llvm.amdgcn.kernarg.segment.ptr
@@ -618,8 +619,10 @@ enum AMDGCNIntrinsics : unsigned {
     amdgcn_lds_param_load,                     // llvm.amdgcn.lds.param.load
     amdgcn_lerp,                               // llvm.amdgcn.lerp
     amdgcn_live_mask,                          // llvm.amdgcn.live.mask
+    amdgcn_log,                                // llvm.amdgcn.log
     amdgcn_log_clamp,                          // llvm.amdgcn.log.clamp
     amdgcn_loop,                               // llvm.amdgcn.loop
+    amdgcn_make_buffer_rsrc,                   // llvm.amdgcn.make.buffer.rsrc
     amdgcn_mbcnt_hi,                           // llvm.amdgcn.mbcnt.hi
     amdgcn_mbcnt_lo,                           // llvm.amdgcn.mbcnt.lo
     amdgcn_mfma_f32_16x16x16bf16_1k,           // llvm.amdgcn.mfma.f32.16x16x16bf16.1k
@@ -698,6 +701,29 @@ enum AMDGCNIntrinsics : unsigned {
     amdgcn_raw_buffer_load_lds,                // llvm.amdgcn.raw.buffer.load.lds
     amdgcn_raw_buffer_store,                   // llvm.amdgcn.raw.buffer.store
     amdgcn_raw_buffer_store_format,            // llvm.amdgcn.raw.buffer.store.format
+    amdgcn_raw_ptr_buffer_atomic_add,          // llvm.amdgcn.raw.ptr.buffer.atomic.add
+    amdgcn_raw_ptr_buffer_atomic_and,          // llvm.amdgcn.raw.ptr.buffer.atomic.and
+    amdgcn_raw_ptr_buffer_atomic_cmpswap,      // llvm.amdgcn.raw.ptr.buffer.atomic.cmpswap
+    amdgcn_raw_ptr_buffer_atomic_dec,          // llvm.amdgcn.raw.ptr.buffer.atomic.dec
+    amdgcn_raw_ptr_buffer_atomic_fadd,         // llvm.amdgcn.raw.ptr.buffer.atomic.fadd
+    amdgcn_raw_ptr_buffer_atomic_fmax,         // llvm.amdgcn.raw.ptr.buffer.atomic.fmax
+    amdgcn_raw_ptr_buffer_atomic_fmin,         // llvm.amdgcn.raw.ptr.buffer.atomic.fmin
+    amdgcn_raw_ptr_buffer_atomic_inc,          // llvm.amdgcn.raw.ptr.buffer.atomic.inc
+    amdgcn_raw_ptr_buffer_atomic_or,           // llvm.amdgcn.raw.ptr.buffer.atomic.or
+    amdgcn_raw_ptr_buffer_atomic_smax,         // llvm.amdgcn.raw.ptr.buffer.atomic.smax
+    amdgcn_raw_ptr_buffer_atomic_smin,         // llvm.amdgcn.raw.ptr.buffer.atomic.smin
+    amdgcn_raw_ptr_buffer_atomic_sub,          // llvm.amdgcn.raw.ptr.buffer.atomic.sub
+    amdgcn_raw_ptr_buffer_atomic_swap,         // llvm.amdgcn.raw.ptr.buffer.atomic.swap
+    amdgcn_raw_ptr_buffer_atomic_umax,         // llvm.amdgcn.raw.ptr.buffer.atomic.umax
+    amdgcn_raw_ptr_buffer_atomic_umin,         // llvm.amdgcn.raw.ptr.buffer.atomic.umin
+    amdgcn_raw_ptr_buffer_atomic_xor,          // llvm.amdgcn.raw.ptr.buffer.atomic.xor
+    amdgcn_raw_ptr_buffer_load,                // llvm.amdgcn.raw.ptr.buffer.load
+    amdgcn_raw_ptr_buffer_load_format,         // llvm.amdgcn.raw.ptr.buffer.load.format
+    amdgcn_raw_ptr_buffer_load_lds,            // llvm.amdgcn.raw.ptr.buffer.load.lds
+    amdgcn_raw_ptr_buffer_store,               // llvm.amdgcn.raw.ptr.buffer.store
+    amdgcn_raw_ptr_buffer_store_format,        // llvm.amdgcn.raw.ptr.buffer.store.format
+    amdgcn_raw_ptr_tbuffer_load,               // llvm.amdgcn.raw.ptr.tbuffer.load
+    amdgcn_raw_ptr_tbuffer_store,              // llvm.amdgcn.raw.ptr.tbuffer.store
     amdgcn_raw_tbuffer_load,                   // llvm.amdgcn.raw.tbuffer.load
     amdgcn_raw_tbuffer_store,                  // llvm.amdgcn.raw.tbuffer.store
     amdgcn_rcp,                                // llvm.amdgcn.rcp
@@ -781,6 +807,29 @@ enum AMDGCNIntrinsics : unsigned {
     amdgcn_struct_buffer_load_lds,             // llvm.amdgcn.struct.buffer.load.lds
     amdgcn_struct_buffer_store,                // llvm.amdgcn.struct.buffer.store
     amdgcn_struct_buffer_store_format,         // llvm.amdgcn.struct.buffer.store.format
+    amdgcn_struct_ptr_buffer_atomic_add,       // llvm.amdgcn.struct.ptr.buffer.atomic.add
+    amdgcn_struct_ptr_buffer_atomic_and,       // llvm.amdgcn.struct.ptr.buffer.atomic.and
+    amdgcn_struct_ptr_buffer_atomic_cmpswap,   // llvm.amdgcn.struct.ptr.buffer.atomic.cmpswap
+    amdgcn_struct_ptr_buffer_atomic_dec,       // llvm.amdgcn.struct.ptr.buffer.atomic.dec
+    amdgcn_struct_ptr_buffer_atomic_fadd,      // llvm.amdgcn.struct.ptr.buffer.atomic.fadd
+    amdgcn_struct_ptr_buffer_atomic_fmax,      // llvm.amdgcn.struct.ptr.buffer.atomic.fmax
+    amdgcn_struct_ptr_buffer_atomic_fmin,      // llvm.amdgcn.struct.ptr.buffer.atomic.fmin
+    amdgcn_struct_ptr_buffer_atomic_inc,       // llvm.amdgcn.struct.ptr.buffer.atomic.inc
+    amdgcn_struct_ptr_buffer_atomic_or,        // llvm.amdgcn.struct.ptr.buffer.atomic.or
+    amdgcn_struct_ptr_buffer_atomic_smax,      // llvm.amdgcn.struct.ptr.buffer.atomic.smax
+    amdgcn_struct_ptr_buffer_atomic_smin,      // llvm.amdgcn.struct.ptr.buffer.atomic.smin
+    amdgcn_struct_ptr_buffer_atomic_sub,       // llvm.amdgcn.struct.ptr.buffer.atomic.sub
+    amdgcn_struct_ptr_buffer_atomic_swap,      // llvm.amdgcn.struct.ptr.buffer.atomic.swap
+    amdgcn_struct_ptr_buffer_atomic_umax,      // llvm.amdgcn.struct.ptr.buffer.atomic.umax
+    amdgcn_struct_ptr_buffer_atomic_umin,      // llvm.amdgcn.struct.ptr.buffer.atomic.umin
+    amdgcn_struct_ptr_buffer_atomic_xor,       // llvm.amdgcn.struct.ptr.buffer.atomic.xor
+    amdgcn_struct_ptr_buffer_load,             // llvm.amdgcn.struct.ptr.buffer.load
+    amdgcn_struct_ptr_buffer_load_format,      // llvm.amdgcn.struct.ptr.buffer.load.format
+    amdgcn_struct_ptr_buffer_load_lds,         // llvm.amdgcn.struct.ptr.buffer.load.lds
+    amdgcn_struct_ptr_buffer_store,            // llvm.amdgcn.struct.ptr.buffer.store
+    amdgcn_struct_ptr_buffer_store_format,     // llvm.amdgcn.struct.ptr.buffer.store.format
+    amdgcn_struct_ptr_tbuffer_load,            // llvm.amdgcn.struct.ptr.tbuffer.load
+    amdgcn_struct_ptr_tbuffer_store,           // llvm.amdgcn.struct.ptr.tbuffer.store
     amdgcn_struct_tbuffer_load,                // llvm.amdgcn.struct.tbuffer.load
     amdgcn_struct_tbuffer_store,               // llvm.amdgcn.struct.tbuffer.store
     amdgcn_sudot4,                             // llvm.amdgcn.sudot4
@@ -795,6 +844,8 @@ enum AMDGCNIntrinsics : unsigned {
     amdgcn_unreachable,                        // llvm.amdgcn.unreachable
     amdgcn_update_dpp,                         // llvm.amdgcn.update.dpp
     amdgcn_wave_barrier,                       // llvm.amdgcn.wave.barrier
+    amdgcn_wave_reduce_umax,                   // llvm.amdgcn.wave.reduce.umax
+    amdgcn_wave_reduce_umin,                   // llvm.amdgcn.wave.reduce.umin
     amdgcn_wavefrontsize,                      // llvm.amdgcn.wavefrontsize
     amdgcn_wmma_bf16_16x16x16_bf16,            // llvm.amdgcn.wmma.bf16.16x16x16.bf16
     amdgcn_wmma_f16_16x16x16_f16,              // llvm.amdgcn.wmma.f16.16x16x16.f16

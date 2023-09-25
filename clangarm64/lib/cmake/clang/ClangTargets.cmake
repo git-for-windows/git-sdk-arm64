@@ -19,7 +19,7 @@ set(CMAKE_IMPORT_FILE_VERSION 1)
 set(_cmake_targets_defined "")
 set(_cmake_targets_not_defined "")
 set(_cmake_expected_targets "")
-foreach(_cmake_expected_target IN ITEMS clang-tblgen clangBasic clangAPINotes clangLex clangParse clangAST clangDynamicASTMatchers clangASTMatchers clangCrossTU clangSema clangCodeGen clangAnalysis clangAnalysisFlowSensitive clangAnalysisFlowSensitiveModels clangEdit clangExtractAPI clangRewrite clangARCMigrate clangDriver clangSerialization clangRewriteFrontend clangFrontend clangFrontendTool clangToolingCore clangToolingInclusions clangToolingInclusionsStdlib clangToolingRefactoring clangToolingASTDiff clangToolingSyntax clangDependencyScanning clangTransformer clangTooling clangDirectoryWatcher clangIndex clangIndexSerialization clangStaticAnalyzerCore clangStaticAnalyzerCheckers clangStaticAnalyzerFrontend clangFormat clangInterpreter clangSupport diagtool clang clang-format clangHandleCXX clangHandleLLVM clang-linker-wrapper clang-offload-packager clang-offload-bundler clang-scan-deps clang-repl clang-rename clang-refactor clang-cpp clang-check clang-extdef-mapping clangApplyReplacements clang-apply-replacements clangReorderFields clang-reorder-fields modularize clangTidy clangTidyAndroidModule clangTidyAbseilModule clangTidyAlteraModule clangTidyBoostModule clangTidyBugproneModule clangTidyCERTModule clangTidyConcurrencyModule clangTidyCppCoreGuidelinesModule clangTidyDarwinModule clangTidyFuchsiaModule clangTidyGoogleModule clangTidyHICPPModule clangTidyLinuxKernelModule clangTidyLLVMModule clangTidyLLVMLibcModule clangTidyMiscModule clangTidyModernizeModule clangTidyMPIModule clangTidyObjCModule clangTidyOpenMPModule clangTidyPerformanceModule clangTidyPortabilityModule clangTidyReadabilityModule clangTidyZirconModule clangTidyPlugin clangTidyMain clang-tidy clangTidyUtils clangChangeNamespace clang-change-namespace clangDoc clang-doc clangIncludeFixer clangIncludeFixerPlugin clang-include-fixer findAllSymbols find-all-symbols clangMove clang-move clangQuery clang-query clangIncludeCleaner clang-include-cleaner pp-trace clangPseudoCLI clangPseudoCXX clangPseudoGrammar clangPseudo clang-pseudo clangdSupport clangDaemon clangDaemonTweaks clangd clangdRemoteIndex libclang libclang_static amdgpu-arch nvptx-arch)
+foreach(_cmake_expected_target IN ITEMS clang-tblgen clangBasic clangAPINotes clangLex clangParse clangAST clangDynamicASTMatchers clangASTMatchers clangCrossTU clangSema clangCodeGen clangAnalysis clangAnalysisFlowSensitive clangAnalysisFlowSensitiveModels clangEdit clangExtractAPI clangRewrite clangARCMigrate clangDriver clangSerialization clangRewriteFrontend clangFrontend clangFrontendTool clangToolingCore clangToolingInclusions clangToolingInclusionsStdlib clangToolingRefactoring clangToolingASTDiff clangToolingSyntax clangDependencyScanning clangTransformer clangTooling clangDirectoryWatcher clangIndex clangIndexSerialization clangStaticAnalyzerCore clangStaticAnalyzerCheckers clangStaticAnalyzerFrontend clangFormat clangInterpreter clangSupport diagtool clang clang-format clangHandleCXX clangHandleLLVM clang-linker-wrapper clang-offload-packager clang-offload-bundler clang-scan-deps clang-repl clang-rename clang-refactor clang-cpp clang-check clang-extdef-mapping clangApplyReplacements clang-apply-replacements clangReorderFields clang-reorder-fields modularize clangTidy clangTidyAndroidModule clangTidyAbseilModule clangTidyAlteraModule clangTidyBoostModule clangTidyBugproneModule clangTidyCERTModule clangTidyConcurrencyModule clangTidyCppCoreGuidelinesModule clangTidyDarwinModule clangTidyFuchsiaModule clangTidyGoogleModule clangTidyHICPPModule clangTidyLinuxKernelModule clangTidyLLVMModule clangTidyLLVMLibcModule clangTidyMiscModule clangTidyModernizeModule clangTidyMPIModule clangTidyObjCModule clangTidyOpenMPModule clangTidyPerformanceModule clangTidyPortabilityModule clangTidyReadabilityModule clangTidyZirconModule clangTidyPlugin clangTidyMain clang-tidy clangTidyUtils clangChangeNamespace clang-change-namespace clangDoc clang-doc clangIncludeFixer clangIncludeFixerPlugin clang-include-fixer findAllSymbols find-all-symbols clangMove clang-move clangQuery clang-query clangIncludeCleaner clang-include-cleaner pp-trace clangPseudoCLI clangPseudoCXX clangPseudoGrammar clangPseudo clang-pseudo clangdSupport clangDaemon clangDaemonTweaks clangdMain clangd clangdRemoteIndex libclang libclang_static amdgpu-arch nvptx-arch)
   list(APPEND _cmake_expected_targets "${_cmake_expected_target}")
   if(TARGET "${_cmake_expected_target}")
     list(APPEND _cmake_targets_defined "${_cmake_expected_target}")
@@ -125,7 +125,7 @@ set_target_properties(clangSema PROPERTIES
 add_library(clangCodeGen STATIC IMPORTED)
 
 set_target_properties(clangCodeGen PROPERTIES
-  INTERFACE_LINK_LIBRARIES "clangAnalysis;clangAST;clangBasic;clangFrontend;clangLex;clangSerialization;LLVM"
+  INTERFACE_LINK_LIBRARIES "clangAST;clangAnalysis;clangBasic;clangFrontend;clangLex;clangSerialization;LLVM"
 )
 
 # Create imported target clangAnalysis
@@ -139,7 +139,7 @@ set_target_properties(clangAnalysis PROPERTIES
 add_library(clangAnalysisFlowSensitive STATIC IMPORTED)
 
 set_target_properties(clangAnalysisFlowSensitive PROPERTIES
-  INTERFACE_LINK_LIBRARIES "clangAnalysis;clangAST;clangBasic;LLVM"
+  INTERFACE_LINK_LIBRARIES "clangAnalysis;clangAST;clangBasic;clangLex;LLVM"
 )
 
 # Create imported target clangAnalysisFlowSensitiveModels
@@ -223,7 +223,7 @@ set_target_properties(clangToolingCore PROPERTIES
 add_library(clangToolingInclusions STATIC IMPORTED)
 
 set_target_properties(clangToolingInclusions PROPERTIES
-  INTERFACE_LINK_LIBRARIES "clangBasic;clangLex;clangRewrite;clangToolingCore;LLVM"
+  INTERFACE_LINK_LIBRARIES "clangBasic;clangLex;clangToolingCore;LLVM"
 )
 
 # Create imported target clangToolingInclusionsStdlib
@@ -258,7 +258,7 @@ set_target_properties(clangToolingSyntax PROPERTIES
 add_library(clangDependencyScanning STATIC IMPORTED)
 
 set_target_properties(clangDependencyScanning PROPERTIES
-  INTERFACE_LINK_LIBRARIES "clangAST;clangBasic;clangCodeGen;clangDriver;clangFrontend;clangFrontendTool;clangLex;clangParse;clangSerialization;clangTooling;LLVM"
+  INTERFACE_LINK_LIBRARIES "clangAST;clangBasic;clangCodeGen;clangDriver;clangFrontend;clangLex;clangSerialization;clangTooling;LLVM"
 )
 
 # Create imported target clangTransformer
@@ -286,7 +286,7 @@ set_target_properties(clangDirectoryWatcher PROPERTIES
 add_library(clangIndex STATIC IMPORTED)
 
 set_target_properties(clangIndex PROPERTIES
-  INTERFACE_LINK_LIBRARIES "clangAST;clangBasic;clangFormat;clangFrontend;clangLex;clangRewrite;clangSerialization;clangToolingCore;LLVM"
+  INTERFACE_LINK_LIBRARIES "clangAST;clangBasic;clangFormat;clangFrontend;clangLex;clangSerialization;clangToolingCore;LLVM"
 )
 
 # Create imported target clangIndexSerialization
@@ -328,7 +328,7 @@ set_target_properties(clangFormat PROPERTIES
 add_library(clangInterpreter STATIC IMPORTED)
 
 set_target_properties(clangInterpreter PROPERTIES
-  INTERFACE_LINK_LIBRARIES "clangAST;clangAnalysis;clangBasic;clangDriver;clangEdit;clangFrontend;clangLex;clangParse;clangSema;clangSerialization;clangCodeGen;clangFrontendTool;LLVM"
+  INTERFACE_LINK_LIBRARIES "clangAST;clangAnalysis;clangBasic;clangCodeGen;clangDriver;clangFrontend;clangFrontendTool;clangLex;clangParse;clangSema;clangSerialization;LLVM"
 )
 
 # Create imported target clangSupport
@@ -474,7 +474,7 @@ set_target_properties(clangTidyConcurrencyModule PROPERTIES
 add_library(clangTidyCppCoreGuidelinesModule STATIC IMPORTED)
 
 set_target_properties(clangTidyCppCoreGuidelinesModule PROPERTIES
-  INTERFACE_LINK_LIBRARIES "clangTidy;clangTidyMiscModule;clangTidyModernizeModule;clangTidyReadabilityModule;clangTidyUtils;LLVM;\$<LINK_ONLY:clang-cpp>"
+  INTERFACE_LINK_LIBRARIES "clangTidy;clangTidyMiscModule;clangTidyModernizeModule;clangTidyPerformanceModule;clangTidyReadabilityModule;clangTidyUtils;LLVM;\$<LINK_ONLY:clang-cpp>"
 )
 
 # Create imported target clangTidyDarwinModule
@@ -530,7 +530,7 @@ set_target_properties(clangTidyLLVMLibcModule PROPERTIES
 add_library(clangTidyMiscModule STATIC IMPORTED)
 
 set_target_properties(clangTidyMiscModule PROPERTIES
-  INTERFACE_LINK_LIBRARIES "clangAnalysis;clangTidy;clangTidyUtils;LLVM;\$<LINK_ONLY:clang-cpp>"
+  INTERFACE_LINK_LIBRARIES "clangAnalysis;clangTidy;clangTidyUtils;LLVM;\$<LINK_ONLY:clang-cpp>;\$<LINK_ONLY:clangIncludeCleaner>"
 )
 
 # Create imported target clangTidyModernizeModule
@@ -743,6 +743,13 @@ add_library(clangDaemonTweaks STATIC IMPORTED)
 
 set_target_properties(clangDaemonTweaks PROPERTIES
   INTERFACE_LINK_LIBRARIES "clangAST;clangBasic;clangDaemon;clangdSupport;clangFormat;clangLex;clangSema;clangToolingCore;clangToolingRefactoring;clangToolingSyntax;LLVM"
+)
+
+# Create imported target clangdMain
+add_library(clangdMain STATIC IMPORTED)
+
+set_target_properties(clangdMain PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVM;\$<LINK_ONLY:clang-cpp>;\$<LINK_ONLY:clangTidy>;\$<LINK_ONLY:clangDaemon>;\$<LINK_ONLY:clangdRemoteIndex>;\$<LINK_ONLY:clangdSupport>"
 )
 
 # Create imported target clangd

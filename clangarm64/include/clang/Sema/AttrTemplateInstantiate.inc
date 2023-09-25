@@ -191,6 +191,10 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
       const auto *A = cast<ArmMveStrictPolymorphismAttr>(At);
       return A->clone(C);
     }
+    case attr::ArmStreaming: {
+      const auto *A = cast<ArmStreamingAttr>(At);
+      return A->clone(C);
+    }
     case attr::Artificial: {
       const auto *A = cast<ArtificialAttr>(At);
       return A->clone(C);
@@ -260,6 +264,10 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
     }
     case attr::Availability: {
       const auto *A = cast<AvailabilityAttr>(At);
+      return A->clone(C);
+    }
+    case attr::AvailableOnlyInDefaultEvalMethod: {
+      const auto *A = cast<AvailableOnlyInDefaultEvalMethodAttr>(At);
       return A->clone(C);
     }
     case attr::BPFPreserveAccessIndex: {
@@ -842,6 +850,10 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
     }
     case attr::NSReturnsRetained: {
       const auto *A = cast<NSReturnsRetainedAttr>(At);
+      return A->clone(C);
+    }
+    case attr::NVPTXKernel: {
+      const auto *A = cast<NVPTXKernelAttr>(At);
       return A->clone(C);
     }
     case attr::Naked: {
@@ -1615,6 +1627,10 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
       const auto *A = cast<UnlikelyAttr>(At);
       return A->clone(C);
     }
+    case attr::UnsafeBufferUsage: {
+      const auto *A = cast<UnsafeBufferUsageAttr>(At);
+      return A->clone(C);
+    }
     case attr::Unused: {
       const auto *A = cast<UnusedAttr>(At);
       return A->clone(C);
@@ -1672,6 +1688,10 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
     }
     case attr::WebAssemblyExportName: {
       const auto *A = cast<WebAssemblyExportNameAttr>(At);
+      return A->clone(C);
+    }
+    case attr::WebAssemblyFuncref: {
+      const auto *A = cast<WebAssemblyFuncrefAttr>(At);
       return A->clone(C);
     }
     case attr::WebAssemblyImportModule: {
@@ -1817,6 +1837,9 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
     case attr::ArmMveStrictPolymorphism: {
       return nullptr;
     }
+    case attr::ArmStreaming: {
+      return nullptr;
+    }
     case attr::Artificial: {
       return nullptr;
     }
@@ -1839,6 +1862,9 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
       return nullptr;
     }
     case attr::Availability: {
+      return nullptr;
+    }
+    case attr::AvailableOnlyInDefaultEvalMethod: {
       return nullptr;
     }
     case attr::BPFPreserveAccessIndex: {
@@ -2230,6 +2256,9 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
       return nullptr;
     }
     case attr::NSReturnsRetained: {
+      return nullptr;
+    }
+    case attr::NVPTXKernel: {
       return nullptr;
     }
     case attr::Naked: {
@@ -2748,12 +2777,16 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
       return nullptr;
     }
     case attr::Unavailable: {
-      return nullptr;
+      const auto *A = cast<UnavailableAttr>(At);
+      return A->clone(C);
     }
     case attr::Uninitialized: {
       return nullptr;
     }
     case attr::Unlikely: {
+      return nullptr;
+    }
+    case attr::UnsafeBufferUsage: {
       return nullptr;
     }
     case attr::Unused: {
@@ -2799,6 +2832,9 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
       return nullptr;
     }
     case attr::WebAssemblyExportName: {
+      return nullptr;
+    }
+    case attr::WebAssemblyFuncref: {
       return nullptr;
     }
     case attr::WebAssemblyImportModule: {

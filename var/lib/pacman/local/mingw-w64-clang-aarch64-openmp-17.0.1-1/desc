@@ -1,0 +1,42 @@
+%NAME%
+mingw-w64-clang-aarch64-openmp
+
+%VERSION%
+17.0.1-1
+
+%BASE%
+mingw-w64-openmp
+
+%DESC%
+LLVM OpenMP Library (mingw-w64)
+
+%URL%
+https://openmp.llvm.org/
+
+%ARCH%
+any
+
+%BUILDDATE%
+1695468824
+
+%INSTALLDATE%
+1695611749
+
+%PACKAGER%
+CI (msys2-arm/msys2-autobuild/3f5f60aa/6282917332)
+
+%SIZE%
+1996513
+
+%GROUPS%
+mingw-w64-clang-aarch64-toolchain
+
+%LICENSE%
+spdx:Apache-2.0 AND spdx:LLVM-exception
+
+%VALIDATION%
+pgp
+
+%PROVIDES%
+mingw-w64-clang-aarch64-omp
+

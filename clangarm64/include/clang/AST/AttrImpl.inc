@@ -31,13 +31,21 @@ AArch64SVEPcsAttr *AArch64SVEPcsAttr::Create(ASTContext &Ctx, const AttributeCom
   return A;
 }
 
-AArch64SVEPcsAttr *AArch64SVEPcsAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AArch64SVEPcsAttr *AArch64SVEPcsAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_aarch64_sve_pcs ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_aarch64_sve_pcs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_aarch64_sve_pcs ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_aarch64_sve_pcs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_aarch64_sve_pcs ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_aarch64_sve_pcs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-AArch64SVEPcsAttr *AArch64SVEPcsAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AArch64SVEPcsAttr *AArch64SVEPcsAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_aarch64_sve_pcs ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_aarch64_sve_pcs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_aarch64_sve_pcs ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_aarch64_sve_pcs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_aarch64_sve_pcs ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_aarch64_sve_pcs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -112,13 +120,21 @@ AArch64VectorPcsAttr *AArch64VectorPcsAttr::Create(ASTContext &Ctx, const Attrib
   return A;
 }
 
-AArch64VectorPcsAttr *AArch64VectorPcsAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AArch64VectorPcsAttr *AArch64VectorPcsAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_aarch64_vector_pcs ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_aarch64_vector_pcs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_aarch64_vector_pcs ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_aarch64_vector_pcs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_aarch64_vector_pcs ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_aarch64_vector_pcs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-AArch64VectorPcsAttr *AArch64VectorPcsAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AArch64VectorPcsAttr *AArch64VectorPcsAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_aarch64_vector_pcs ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_aarch64_vector_pcs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_aarch64_vector_pcs ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_aarch64_vector_pcs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_aarch64_vector_pcs ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_aarch64_vector_pcs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -193,13 +209,19 @@ AMDGPUFlatWorkGroupSizeAttr *AMDGPUFlatWorkGroupSizeAttr::Create(ASTContext &Ctx
   return A;
 }
 
-AMDGPUFlatWorkGroupSizeAttr *AMDGPUFlatWorkGroupSizeAttr::CreateImplicit(ASTContext &Ctx, Expr * Min, Expr * Max, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AMDGPUFlatWorkGroupSizeAttr *AMDGPUFlatWorkGroupSizeAttr::CreateImplicit(ASTContext &Ctx, Expr * Min, Expr * Max, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_amdgpu_flat_work_group_size ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_amdgpu_flat_work_group_size, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_amdgpu_flat_work_group_size ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_amdgpu_flat_work_group_size, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Min, Max, I);
 }
 
-AMDGPUFlatWorkGroupSizeAttr *AMDGPUFlatWorkGroupSizeAttr::Create(ASTContext &Ctx, Expr * Min, Expr * Max, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AMDGPUFlatWorkGroupSizeAttr *AMDGPUFlatWorkGroupSizeAttr::Create(ASTContext &Ctx, Expr * Min, Expr * Max, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_amdgpu_flat_work_group_size ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_amdgpu_flat_work_group_size, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_amdgpu_flat_work_group_size ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_amdgpu_flat_work_group_size, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Min, Max, I);
 }
 
@@ -295,13 +317,21 @@ AMDGPUKernelCallAttr *AMDGPUKernelCallAttr::Create(ASTContext &Ctx, const Attrib
   return A;
 }
 
-AMDGPUKernelCallAttr *AMDGPUKernelCallAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AMDGPUKernelCallAttr *AMDGPUKernelCallAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_amdgpu_kernel ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_amdgpu_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_amdgpu_kernel ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_amdgpu_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_amdgpu_kernel ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_amdgpu_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-AMDGPUKernelCallAttr *AMDGPUKernelCallAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AMDGPUKernelCallAttr *AMDGPUKernelCallAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_amdgpu_kernel ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_amdgpu_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_amdgpu_kernel ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_amdgpu_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_amdgpu_kernel ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_amdgpu_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -376,13 +406,19 @@ AMDGPUNumSGPRAttr *AMDGPUNumSGPRAttr::Create(ASTContext &Ctx, unsigned NumSGPR, 
   return A;
 }
 
-AMDGPUNumSGPRAttr *AMDGPUNumSGPRAttr::CreateImplicit(ASTContext &Ctx, unsigned NumSGPR, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AMDGPUNumSGPRAttr *AMDGPUNumSGPRAttr::CreateImplicit(ASTContext &Ctx, unsigned NumSGPR, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_amdgpu_num_sgpr ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_amdgpu_num_sgpr, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_amdgpu_num_sgpr ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_amdgpu_num_sgpr, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, NumSGPR, I);
 }
 
-AMDGPUNumSGPRAttr *AMDGPUNumSGPRAttr::Create(ASTContext &Ctx, unsigned NumSGPR, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AMDGPUNumSGPRAttr *AMDGPUNumSGPRAttr::Create(ASTContext &Ctx, unsigned NumSGPR, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_amdgpu_num_sgpr ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_amdgpu_num_sgpr, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_amdgpu_num_sgpr ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_amdgpu_num_sgpr, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, NumSGPR, I);
 }
 
@@ -462,13 +498,19 @@ AMDGPUNumVGPRAttr *AMDGPUNumVGPRAttr::Create(ASTContext &Ctx, unsigned NumVGPR, 
   return A;
 }
 
-AMDGPUNumVGPRAttr *AMDGPUNumVGPRAttr::CreateImplicit(ASTContext &Ctx, unsigned NumVGPR, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AMDGPUNumVGPRAttr *AMDGPUNumVGPRAttr::CreateImplicit(ASTContext &Ctx, unsigned NumVGPR, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_amdgpu_num_vgpr ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_amdgpu_num_vgpr, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_amdgpu_num_vgpr ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_amdgpu_num_vgpr, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, NumVGPR, I);
 }
 
-AMDGPUNumVGPRAttr *AMDGPUNumVGPRAttr::Create(ASTContext &Ctx, unsigned NumVGPR, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AMDGPUNumVGPRAttr *AMDGPUNumVGPRAttr::Create(ASTContext &Ctx, unsigned NumVGPR, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_amdgpu_num_vgpr ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_amdgpu_num_vgpr, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_amdgpu_num_vgpr ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_amdgpu_num_vgpr, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, NumVGPR, I);
 }
 
@@ -548,13 +590,19 @@ AMDGPUWavesPerEUAttr *AMDGPUWavesPerEUAttr::Create(ASTContext &Ctx, Expr * Min, 
   return A;
 }
 
-AMDGPUWavesPerEUAttr *AMDGPUWavesPerEUAttr::CreateImplicit(ASTContext &Ctx, Expr * Min, Expr * Max, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AMDGPUWavesPerEUAttr *AMDGPUWavesPerEUAttr::CreateImplicit(ASTContext &Ctx, Expr * Min, Expr * Max, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_amdgpu_waves_per_eu ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_amdgpu_waves_per_eu, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_amdgpu_waves_per_eu ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_amdgpu_waves_per_eu, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Min, Max, I);
 }
 
-AMDGPUWavesPerEUAttr *AMDGPUWavesPerEUAttr::Create(ASTContext &Ctx, Expr * Min, Expr * Max, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AMDGPUWavesPerEUAttr *AMDGPUWavesPerEUAttr::Create(ASTContext &Ctx, Expr * Min, Expr * Max, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_amdgpu_waves_per_eu ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_amdgpu_waves_per_eu, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_amdgpu_waves_per_eu ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_amdgpu_waves_per_eu, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Min, Max, I);
 }
 
@@ -659,13 +707,21 @@ ARMInterruptAttr *ARMInterruptAttr::Create(ASTContext &Ctx, InterruptType Interr
   return A;
 }
 
-ARMInterruptAttr *ARMInterruptAttr::CreateImplicit(ASTContext &Ctx, InterruptType Interrupt, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ARMInterruptAttr *ARMInterruptAttr::CreateImplicit(ASTContext &Ctx, InterruptType Interrupt, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_interrupt ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_interrupt ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_interrupt ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Interrupt, I);
 }
 
-ARMInterruptAttr *ARMInterruptAttr::Create(ASTContext &Ctx, InterruptType Interrupt, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ARMInterruptAttr *ARMInterruptAttr::Create(ASTContext &Ctx, InterruptType Interrupt, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_interrupt ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_interrupt ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_interrupt ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Interrupt, I);
 }
 
@@ -790,13 +846,21 @@ AVRInterruptAttr *AVRInterruptAttr::Create(ASTContext &Ctx, const AttributeCommo
   return A;
 }
 
-AVRInterruptAttr *AVRInterruptAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AVRInterruptAttr *AVRInterruptAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_interrupt ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_interrupt ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_interrupt ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-AVRInterruptAttr *AVRInterruptAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AVRInterruptAttr *AVRInterruptAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_interrupt ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_interrupt ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_interrupt ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -871,13 +935,21 @@ AVRSignalAttr *AVRSignalAttr::Create(ASTContext &Ctx, const AttributeCommonInfo 
   return A;
 }
 
-AVRSignalAttr *AVRSignalAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AVRSignalAttr *AVRSignalAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_signal ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_signal, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_signal ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_signal, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_signal ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_signal, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-AVRSignalAttr *AVRSignalAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AVRSignalAttr *AVRSignalAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_signal ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_signal, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_signal ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_signal, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_signal ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_signal, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -952,13 +1024,19 @@ AbiTagAttr *AbiTagAttr::Create(ASTContext &Ctx, StringRef *Tags, unsigned TagsSi
   return A;
 }
 
-AbiTagAttr *AbiTagAttr::CreateImplicit(ASTContext &Ctx, StringRef *Tags, unsigned TagsSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AbiTagAttr *AbiTagAttr::CreateImplicit(ASTContext &Ctx, StringRef *Tags, unsigned TagsSize, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_abi_tag ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_abi_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_abi_tag ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_abi_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Tags, TagsSize, I);
 }
 
-AbiTagAttr *AbiTagAttr::Create(ASTContext &Ctx, StringRef *Tags, unsigned TagsSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AbiTagAttr *AbiTagAttr::Create(ASTContext &Ctx, StringRef *Tags, unsigned TagsSize, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_abi_tag ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_abi_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_abi_tag ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_abi_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Tags, TagsSize, I);
 }
 
@@ -1060,13 +1138,27 @@ AcquireCapabilityAttr *AcquireCapabilityAttr::Create(ASTContext &Ctx, Expr * *Ar
   return A;
 }
 
-AcquireCapabilityAttr *AcquireCapabilityAttr::CreateImplicit(ASTContext &Ctx, Expr * *Args, unsigned ArgsSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax, AcquireCapabilityAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+AcquireCapabilityAttr *AcquireCapabilityAttr::CreateImplicit(ASTContext &Ctx, Expr * *Args, unsigned ArgsSize, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_acquire_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_acquire_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_acquire_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_acquire_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_acquire_shared_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_acquire_shared_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_acquire_shared_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_acquire_shared_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_exclusive_lock_function ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_exclusive_lock_function, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_shared_lock_function ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_shared_lock_function, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Args, ArgsSize, I);
 }
 
-AcquireCapabilityAttr *AcquireCapabilityAttr::Create(ASTContext &Ctx, Expr * *Args, unsigned ArgsSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax, AcquireCapabilityAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+AcquireCapabilityAttr *AcquireCapabilityAttr::Create(ASTContext &Ctx, Expr * *Args, unsigned ArgsSize, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_acquire_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_acquire_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_acquire_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_acquire_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_acquire_shared_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_acquire_shared_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_acquire_shared_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_acquire_shared_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_exclusive_lock_function ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_exclusive_lock_function, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_shared_lock_function ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_shared_lock_function, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Args, ArgsSize, I);
 }
 
@@ -1233,13 +1325,21 @@ AcquireHandleAttr *AcquireHandleAttr::Create(ASTContext &Ctx, llvm::StringRef Ha
   return A;
 }
 
-AcquireHandleAttr *AcquireHandleAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef HandleType, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AcquireHandleAttr *AcquireHandleAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef HandleType, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_acquire_handle ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_acquire_handle, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_acquire_handle ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_acquire_handle, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_acquire_handle ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_acquire_handle, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, HandleType, I);
 }
 
-AcquireHandleAttr *AcquireHandleAttr::Create(ASTContext &Ctx, llvm::StringRef HandleType, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AcquireHandleAttr *AcquireHandleAttr::Create(ASTContext &Ctx, llvm::StringRef HandleType, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_acquire_handle ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_acquire_handle, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_acquire_handle ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_acquire_handle, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_acquire_handle ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_acquire_handle, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, HandleType, I);
 }
 
@@ -1332,13 +1432,13 @@ AcquiredAfterAttr *AcquiredAfterAttr::Create(ASTContext &Ctx, Expr * *Args, unsi
   return A;
 }
 
-AcquiredAfterAttr *AcquiredAfterAttr::CreateImplicit(ASTContext &Ctx, Expr * *Args, unsigned ArgsSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AcquiredAfterAttr *AcquiredAfterAttr::CreateImplicit(ASTContext &Ctx, Expr * *Args, unsigned ArgsSize, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, Args, ArgsSize, I);
 }
 
-AcquiredAfterAttr *AcquiredAfterAttr::Create(ASTContext &Ctx, Expr * *Args, unsigned ArgsSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AcquiredAfterAttr *AcquiredAfterAttr::Create(ASTContext &Ctx, Expr * *Args, unsigned ArgsSize, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, Args, ArgsSize, I);
 }
 
@@ -1419,13 +1519,13 @@ AcquiredBeforeAttr *AcquiredBeforeAttr::Create(ASTContext &Ctx, Expr * *Args, un
   return A;
 }
 
-AcquiredBeforeAttr *AcquiredBeforeAttr::CreateImplicit(ASTContext &Ctx, Expr * *Args, unsigned ArgsSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AcquiredBeforeAttr *AcquiredBeforeAttr::CreateImplicit(ASTContext &Ctx, Expr * *Args, unsigned ArgsSize, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, Args, ArgsSize, I);
 }
 
-AcquiredBeforeAttr *AcquiredBeforeAttr::Create(ASTContext &Ctx, Expr * *Args, unsigned ArgsSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AcquiredBeforeAttr *AcquiredBeforeAttr::Create(ASTContext &Ctx, Expr * *Args, unsigned ArgsSize, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, Args, ArgsSize, I);
 }
 
@@ -1506,13 +1606,21 @@ AddressSpaceAttr *AddressSpaceAttr::Create(ASTContext &Ctx, int AddressSpace, co
   return A;
 }
 
-AddressSpaceAttr *AddressSpaceAttr::CreateImplicit(ASTContext &Ctx, int AddressSpace, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AddressSpaceAttr *AddressSpaceAttr::CreateImplicit(ASTContext &Ctx, int AddressSpace, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_address_space ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_address_space, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_address_space ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_address_space, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_address_space ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_address_space, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, AddressSpace, I);
 }
 
-AddressSpaceAttr *AddressSpaceAttr::Create(ASTContext &Ctx, int AddressSpace, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AddressSpaceAttr *AddressSpaceAttr::Create(ASTContext &Ctx, int AddressSpace, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_address_space ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_address_space, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_address_space ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_address_space, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_address_space ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_address_space, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, AddressSpace, I);
 }
 
@@ -1603,13 +1711,21 @@ AliasAttr *AliasAttr::Create(ASTContext &Ctx, llvm::StringRef Aliasee, const Att
   return A;
 }
 
-AliasAttr *AliasAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Aliasee, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AliasAttr *AliasAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Aliasee, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_alias ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_alias ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_alias ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Aliasee, I);
 }
 
-AliasAttr *AliasAttr::Create(ASTContext &Ctx, llvm::StringRef Aliasee, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AliasAttr *AliasAttr::Create(ASTContext &Ctx, llvm::StringRef Aliasee, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_alias ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_alias ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_alias ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Aliasee, I);
 }
 
@@ -1702,13 +1818,13 @@ AlignMac68kAttr *AlignMac68kAttr::Create(ASTContext &Ctx, const AttributeCommonI
   return A;
 }
 
-AlignMac68kAttr *AlignMac68kAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AlignMac68kAttr *AlignMac68kAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
   return CreateImplicit(Ctx, I);
 }
 
-AlignMac68kAttr *AlignMac68kAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AlignMac68kAttr *AlignMac68kAttr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
   return Create(Ctx, I);
 }
 
@@ -1751,13 +1867,13 @@ AlignNaturalAttr *AlignNaturalAttr::Create(ASTContext &Ctx, const AttributeCommo
   return A;
 }
 
-AlignNaturalAttr *AlignNaturalAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AlignNaturalAttr *AlignNaturalAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
   return CreateImplicit(Ctx, I);
 }
 
-AlignNaturalAttr *AlignNaturalAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AlignNaturalAttr *AlignNaturalAttr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
   return Create(Ctx, I);
 }
 
@@ -1800,13 +1916,13 @@ AlignValueAttr *AlignValueAttr::Create(ASTContext &Ctx, Expr * Alignment, const 
   return A;
 }
 
-AlignValueAttr *AlignValueAttr::CreateImplicit(ASTContext &Ctx, Expr * Alignment, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AlignValueAttr *AlignValueAttr::CreateImplicit(ASTContext &Ctx, Expr * Alignment, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, Alignment, I);
 }
 
-AlignValueAttr *AlignValueAttr::Create(ASTContext &Ctx, Expr * Alignment, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AlignValueAttr *AlignValueAttr::Create(ASTContext &Ctx, Expr * Alignment, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, Alignment, I);
 }
 
@@ -1875,13 +1991,27 @@ AlignedAttr *AlignedAttr::Create(ASTContext &Ctx, bool IsAlignmentExpr, void *Al
   return A;
 }
 
-AlignedAttr *AlignedAttr::CreateImplicit(ASTContext &Ctx, bool IsAlignmentExpr, void *Alignment, SourceRange Range, AttributeCommonInfo::Syntax Syntax, AlignedAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+AlignedAttr *AlignedAttr::CreateImplicit(ASTContext &Ctx, bool IsAlignmentExpr, void *Alignment, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_aligned ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_aligned, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_aligned ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_aligned, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_aligned ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_aligned, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Declspec_align ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_align, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Keyword_alignas ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_alignas, true /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Keyword_Alignas ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_Alignas, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, IsAlignmentExpr, Alignment, I);
 }
 
-AlignedAttr *AlignedAttr::Create(ASTContext &Ctx, bool IsAlignmentExpr, void *Alignment, SourceRange Range, AttributeCommonInfo::Syntax Syntax, AlignedAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+AlignedAttr *AlignedAttr::Create(ASTContext &Ctx, bool IsAlignmentExpr, void *Alignment, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_aligned ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_aligned, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_aligned ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_aligned, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_aligned ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_aligned, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Declspec_align ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_align, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Keyword_alignas ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_alignas, true /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Keyword_Alignas ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_Alignas, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, IsAlignmentExpr, Alignment, I);
 }
 
@@ -1926,13 +2056,6 @@ bool AlignedAttr::isAlignmentErrorDependent() const {
     return alignmentExpr && alignmentExpr->containsErrors();
   return alignmentType->getType()->containsErrors();
 }
-unsigned AlignedAttr::getAlignment(ASTContext &Ctx) const {
-  assert(!isAlignmentDependent());
-  if (isalignmentExpr)
-    return alignmentExpr ? alignmentExpr->EvaluateKnownConstInt(Ctx).getZExtValue() * Ctx.getCharWidth() : Ctx.getTargetDefaultAlignForAttributeAligned();
-  else
-    return 0; // FIXME
-}
 
 
 AlignedAttr *AlignedAttr::clone(ASTContext &C) const {
@@ -1952,12 +2075,13 @@ void AlignedAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) con
     break;
   case 0 : {
     OS << " __attribute__((aligned";
-    if (!isalignmentExpr || !alignmentExpr)
+    if (!((isalignmentExpr && alignmentExpr) || (!isalignmentExpr && alignmentType)))
       ++TrailingOmittedArgs;
-    if (!(!isalignmentExpr || !alignmentExpr)) {
+    if (!(!((isalignmentExpr && alignmentExpr) || (!isalignmentExpr && alignmentType)))) {
     DelimitAttributeArgument(OS, IsFirstArgument);
     OS << "";
-    alignmentExpr->printPretty(OS, nullptr, Policy);
+    if (isalignmentExpr && alignmentExpr)      alignmentExpr->printPretty(OS, nullptr, Policy);
+    if (!isalignmentExpr && alignmentType)      alignmentType->getType().print(OS, Policy);
     OS << "";
     }
     if (!IsFirstArgument)
@@ -1967,12 +2091,13 @@ void AlignedAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) con
   }
   case 1 : {
     OS << " [[gnu::aligned";
-    if (!isalignmentExpr || !alignmentExpr)
+    if (!((isalignmentExpr && alignmentExpr) || (!isalignmentExpr && alignmentType)))
       ++TrailingOmittedArgs;
-    if (!(!isalignmentExpr || !alignmentExpr)) {
+    if (!(!((isalignmentExpr && alignmentExpr) || (!isalignmentExpr && alignmentType)))) {
     DelimitAttributeArgument(OS, IsFirstArgument);
     OS << "";
-    alignmentExpr->printPretty(OS, nullptr, Policy);
+    if (isalignmentExpr && alignmentExpr)      alignmentExpr->printPretty(OS, nullptr, Policy);
+    if (!isalignmentExpr && alignmentType)      alignmentType->getType().print(OS, Policy);
     OS << "";
     }
     if (!IsFirstArgument)
@@ -1982,12 +2107,13 @@ void AlignedAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) con
   }
   case 2 : {
     OS << " [[gnu::aligned";
-    if (!isalignmentExpr || !alignmentExpr)
+    if (!((isalignmentExpr && alignmentExpr) || (!isalignmentExpr && alignmentType)))
       ++TrailingOmittedArgs;
-    if (!(!isalignmentExpr || !alignmentExpr)) {
+    if (!(!((isalignmentExpr && alignmentExpr) || (!isalignmentExpr && alignmentType)))) {
     DelimitAttributeArgument(OS, IsFirstArgument);
     OS << "";
-    alignmentExpr->printPretty(OS, nullptr, Policy);
+    if (isalignmentExpr && alignmentExpr)      alignmentExpr->printPretty(OS, nullptr, Policy);
+    if (!isalignmentExpr && alignmentType)      alignmentType->getType().print(OS, Policy);
     OS << "";
     }
     if (!IsFirstArgument)
@@ -1997,12 +2123,13 @@ void AlignedAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) con
   }
   case 3 : {
     OS << " __declspec(align";
-    if (!isalignmentExpr || !alignmentExpr)
+    if (!((isalignmentExpr && alignmentExpr) || (!isalignmentExpr && alignmentType)))
       ++TrailingOmittedArgs;
-    if (!(!isalignmentExpr || !alignmentExpr)) {
+    if (!(!((isalignmentExpr && alignmentExpr) || (!isalignmentExpr && alignmentType)))) {
     DelimitAttributeArgument(OS, IsFirstArgument);
     OS << "";
-    alignmentExpr->printPretty(OS, nullptr, Policy);
+    if (isalignmentExpr && alignmentExpr)      alignmentExpr->printPretty(OS, nullptr, Policy);
+    if (!isalignmentExpr && alignmentType)      alignmentType->getType().print(OS, Policy);
     OS << "";
     }
     if (!IsFirstArgument)
@@ -2012,12 +2139,13 @@ void AlignedAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) con
   }
   case 4 : {
     OS << " alignas";
-    if (!isalignmentExpr || !alignmentExpr)
+    if (!((isalignmentExpr && alignmentExpr) || (!isalignmentExpr && alignmentType)))
       ++TrailingOmittedArgs;
-    if (!(!isalignmentExpr || !alignmentExpr)) {
+    if (!(!((isalignmentExpr && alignmentExpr) || (!isalignmentExpr && alignmentType)))) {
     DelimitAttributeArgument(OS, IsFirstArgument);
     OS << "";
-    alignmentExpr->printPretty(OS, nullptr, Policy);
+    if (isalignmentExpr && alignmentExpr)      alignmentExpr->printPretty(OS, nullptr, Policy);
+    if (!isalignmentExpr && alignmentType)      alignmentType->getType().print(OS, Policy);
     OS << "";
     }
     if (!IsFirstArgument)
@@ -2027,12 +2155,13 @@ void AlignedAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) con
   }
   case 5 : {
     OS << " _Alignas";
-    if (!isalignmentExpr || !alignmentExpr)
+    if (!((isalignmentExpr && alignmentExpr) || (!isalignmentExpr && alignmentType)))
       ++TrailingOmittedArgs;
-    if (!(!isalignmentExpr || !alignmentExpr)) {
+    if (!(!((isalignmentExpr && alignmentExpr) || (!isalignmentExpr && alignmentType)))) {
     DelimitAttributeArgument(OS, IsFirstArgument);
     OS << "";
-    alignmentExpr->printPretty(OS, nullptr, Policy);
+    if (isalignmentExpr && alignmentExpr)      alignmentExpr->printPretty(OS, nullptr, Policy);
+    if (!isalignmentExpr && alignmentType)      alignmentType->getType().print(OS, Policy);
     OS << "";
     }
     if (!IsFirstArgument)
@@ -2081,13 +2210,21 @@ AllocAlignAttr *AllocAlignAttr::Create(ASTContext &Ctx, ParamIdx ParamIndex, con
   return A;
 }
 
-AllocAlignAttr *AllocAlignAttr::CreateImplicit(ASTContext &Ctx, ParamIdx ParamIndex, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AllocAlignAttr *AllocAlignAttr::CreateImplicit(ASTContext &Ctx, ParamIdx ParamIndex, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_alloc_align ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_alloc_align, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_alloc_align ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_alloc_align, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_alloc_align ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_alloc_align, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, ParamIndex, I);
 }
 
-AllocAlignAttr *AllocAlignAttr::Create(ASTContext &Ctx, ParamIdx ParamIndex, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AllocAlignAttr *AllocAlignAttr::Create(ASTContext &Ctx, ParamIdx ParamIndex, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_alloc_align ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_alloc_align, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_alloc_align ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_alloc_align, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_alloc_align ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_alloc_align, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, ParamIndex, I);
 }
 
@@ -2178,13 +2315,21 @@ AllocSizeAttr *AllocSizeAttr::Create(ASTContext &Ctx, ParamIdx ElemSizeParam, Pa
   return A;
 }
 
-AllocSizeAttr *AllocSizeAttr::CreateImplicit(ASTContext &Ctx, ParamIdx ElemSizeParam, ParamIdx NumElemsParam, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AllocSizeAttr *AllocSizeAttr::CreateImplicit(ASTContext &Ctx, ParamIdx ElemSizeParam, ParamIdx NumElemsParam, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_alloc_size ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_alloc_size, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_alloc_size ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_alloc_size, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_alloc_size ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_alloc_size, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, ElemSizeParam, NumElemsParam, I);
 }
 
-AllocSizeAttr *AllocSizeAttr::Create(ASTContext &Ctx, ParamIdx ElemSizeParam, ParamIdx NumElemsParam, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AllocSizeAttr *AllocSizeAttr::Create(ASTContext &Ctx, ParamIdx ElemSizeParam, ParamIdx NumElemsParam, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_alloc_size ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_alloc_size, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_alloc_size ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_alloc_size, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_alloc_size ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_alloc_size, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, ElemSizeParam, NumElemsParam, I);
 }
 
@@ -2306,13 +2451,19 @@ AlwaysDestroyAttr *AlwaysDestroyAttr::Create(ASTContext &Ctx, const AttributeCom
   return A;
 }
 
-AlwaysDestroyAttr *AlwaysDestroyAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AlwaysDestroyAttr *AlwaysDestroyAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_always_destroy ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_always_destroy, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_always_destroy ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_always_destroy, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-AlwaysDestroyAttr *AlwaysDestroyAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AlwaysDestroyAttr *AlwaysDestroyAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_always_destroy ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_always_destroy, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_always_destroy ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_always_destroy, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -2378,13 +2529,27 @@ AlwaysInlineAttr *AlwaysInlineAttr::Create(ASTContext &Ctx, const AttributeCommo
   return A;
 }
 
-AlwaysInlineAttr *AlwaysInlineAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax, AlwaysInlineAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+AlwaysInlineAttr *AlwaysInlineAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_always_inline ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_always_inline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_always_inline ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_always_inline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_always_inline ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_always_inline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_always_inline ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_always_inline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_always_inline ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_always_inline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Keyword_forceinline ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_forceinline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-AlwaysInlineAttr *AlwaysInlineAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax, AlwaysInlineAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+AlwaysInlineAttr *AlwaysInlineAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_always_inline ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_always_inline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_always_inline ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_always_inline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_always_inline ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_always_inline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_always_inline ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_always_inline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_always_inline ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_always_inline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Keyword_forceinline ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_forceinline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -2491,13 +2656,13 @@ AnalyzerNoReturnAttr *AnalyzerNoReturnAttr::Create(ASTContext &Ctx, const Attrib
   return A;
 }
 
-AnalyzerNoReturnAttr *AnalyzerNoReturnAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AnalyzerNoReturnAttr *AnalyzerNoReturnAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, I);
 }
 
-AnalyzerNoReturnAttr *AnalyzerNoReturnAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AnalyzerNoReturnAttr *AnalyzerNoReturnAttr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, I);
 }
 
@@ -2558,13 +2723,21 @@ AnnotateAttr *AnnotateAttr::Create(ASTContext &Ctx, llvm::StringRef Annotation, 
   return A;
 }
 
-AnnotateAttr *AnnotateAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Annotation, Expr * *Args, unsigned ArgsSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AnnotateAttr *AnnotateAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Annotation, Expr * *Args, unsigned ArgsSize, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_annotate ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_annotate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_annotate ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_annotate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_annotate ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_annotate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Annotation, Args, ArgsSize, I);
 }
 
-AnnotateAttr *AnnotateAttr::Create(ASTContext &Ctx, llvm::StringRef Annotation, Expr * *Args, unsigned ArgsSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AnnotateAttr *AnnotateAttr::Create(ASTContext &Ctx, llvm::StringRef Annotation, Expr * *Args, unsigned ArgsSize, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_annotate ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_annotate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_annotate ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_annotate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_annotate ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_annotate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Annotation, Args, ArgsSize, I);
 }
 
@@ -2585,13 +2758,21 @@ AnnotateAttr *AnnotateAttr::CreateWithDelayedArgs(ASTContext &Ctx, Expr * *Delay
   return A;
 }
 
-AnnotateAttr *AnnotateAttr::CreateImplicitWithDelayedArgs(ASTContext &Ctx, Expr * *DelayedArgs, unsigned DelayedArgsSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AnnotateAttr *AnnotateAttr::CreateImplicitWithDelayedArgs(ASTContext &Ctx, Expr * *DelayedArgs, unsigned DelayedArgsSize, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_annotate ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_annotate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_annotate ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_annotate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_annotate ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_annotate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicitWithDelayedArgs(Ctx, DelayedArgs, DelayedArgsSize, I);
 }
 
-AnnotateAttr *AnnotateAttr::CreateWithDelayedArgs(ASTContext &Ctx, Expr * *DelayedArgs, unsigned DelayedArgsSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AnnotateAttr *AnnotateAttr::CreateWithDelayedArgs(ASTContext &Ctx, Expr * *DelayedArgs, unsigned DelayedArgsSize, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_annotate ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_annotate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_annotate ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_annotate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_annotate ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_annotate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateWithDelayedArgs(Ctx, DelayedArgs, DelayedArgsSize, I);
 }
 
@@ -2730,13 +2911,19 @@ AnnotateTypeAttr *AnnotateTypeAttr::Create(ASTContext &Ctx, llvm::StringRef Anno
   return A;
 }
 
-AnnotateTypeAttr *AnnotateTypeAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Annotation, Expr * *Args, unsigned ArgsSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AnnotateTypeAttr *AnnotateTypeAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Annotation, Expr * *Args, unsigned ArgsSize, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == CXX11_clang_annotate_type ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_annotate_type, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_annotate_type ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_annotate_type, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Annotation, Args, ArgsSize, I);
 }
 
-AnnotateTypeAttr *AnnotateTypeAttr::Create(ASTContext &Ctx, llvm::StringRef Annotation, Expr * *Args, unsigned ArgsSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AnnotateTypeAttr *AnnotateTypeAttr::Create(ASTContext &Ctx, llvm::StringRef Annotation, Expr * *Args, unsigned ArgsSize, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == CXX11_clang_annotate_type ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_annotate_type, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_annotate_type ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_annotate_type, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Annotation, Args, ArgsSize, I);
 }
 
@@ -2757,13 +2944,19 @@ AnnotateTypeAttr *AnnotateTypeAttr::CreateWithDelayedArgs(ASTContext &Ctx, Expr 
   return A;
 }
 
-AnnotateTypeAttr *AnnotateTypeAttr::CreateImplicitWithDelayedArgs(ASTContext &Ctx, Expr * *DelayedArgs, unsigned DelayedArgsSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AnnotateTypeAttr *AnnotateTypeAttr::CreateImplicitWithDelayedArgs(ASTContext &Ctx, Expr * *DelayedArgs, unsigned DelayedArgsSize, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == CXX11_clang_annotate_type ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_annotate_type, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_annotate_type ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_annotate_type, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicitWithDelayedArgs(Ctx, DelayedArgs, DelayedArgsSize, I);
 }
 
-AnnotateTypeAttr *AnnotateTypeAttr::CreateWithDelayedArgs(ASTContext &Ctx, Expr * *DelayedArgs, unsigned DelayedArgsSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AnnotateTypeAttr *AnnotateTypeAttr::CreateWithDelayedArgs(ASTContext &Ctx, Expr * *DelayedArgs, unsigned DelayedArgsSize, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == CXX11_clang_annotate_type ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_annotate_type, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_annotate_type ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_annotate_type, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateWithDelayedArgs(Ctx, DelayedArgs, DelayedArgsSize, I);
 }
 
@@ -2885,13 +3078,21 @@ AnyX86InterruptAttr *AnyX86InterruptAttr::Create(ASTContext &Ctx, const Attribut
   return A;
 }
 
-AnyX86InterruptAttr *AnyX86InterruptAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AnyX86InterruptAttr *AnyX86InterruptAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_interrupt ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_interrupt ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_interrupt ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-AnyX86InterruptAttr *AnyX86InterruptAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AnyX86InterruptAttr *AnyX86InterruptAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_interrupt ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_interrupt ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_interrupt ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -2966,13 +3167,21 @@ AnyX86NoCallerSavedRegistersAttr *AnyX86NoCallerSavedRegistersAttr::Create(ASTCo
   return A;
 }
 
-AnyX86NoCallerSavedRegistersAttr *AnyX86NoCallerSavedRegistersAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AnyX86NoCallerSavedRegistersAttr *AnyX86NoCallerSavedRegistersAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_no_caller_saved_registers ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_no_caller_saved_registers, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_no_caller_saved_registers ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_no_caller_saved_registers, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_no_caller_saved_registers ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_no_caller_saved_registers, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-AnyX86NoCallerSavedRegistersAttr *AnyX86NoCallerSavedRegistersAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AnyX86NoCallerSavedRegistersAttr *AnyX86NoCallerSavedRegistersAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_no_caller_saved_registers ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_no_caller_saved_registers, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_no_caller_saved_registers ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_no_caller_saved_registers, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_no_caller_saved_registers ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_no_caller_saved_registers, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -3047,13 +3256,21 @@ AnyX86NoCfCheckAttr *AnyX86NoCfCheckAttr::Create(ASTContext &Ctx, const Attribut
   return A;
 }
 
-AnyX86NoCfCheckAttr *AnyX86NoCfCheckAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AnyX86NoCfCheckAttr *AnyX86NoCfCheckAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_nocf_check ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_nocf_check, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_nocf_check ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_nocf_check, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_nocf_check ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_nocf_check, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-AnyX86NoCfCheckAttr *AnyX86NoCfCheckAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AnyX86NoCfCheckAttr *AnyX86NoCfCheckAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_nocf_check ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_nocf_check, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_nocf_check ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_nocf_check, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_nocf_check ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_nocf_check, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -3128,13 +3345,21 @@ ArcWeakrefUnavailableAttr *ArcWeakrefUnavailableAttr::Create(ASTContext &Ctx, co
   return A;
 }
 
-ArcWeakrefUnavailableAttr *ArcWeakrefUnavailableAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ArcWeakrefUnavailableAttr *ArcWeakrefUnavailableAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_arc_weak_reference_unavailable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_arc_weak_reference_unavailable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_arc_weak_reference_unavailable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_arc_weak_reference_unavailable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_arc_weak_reference_unavailable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_arc_weak_reference_unavailable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-ArcWeakrefUnavailableAttr *ArcWeakrefUnavailableAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ArcWeakrefUnavailableAttr *ArcWeakrefUnavailableAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_arc_weak_reference_unavailable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_arc_weak_reference_unavailable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_arc_weak_reference_unavailable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_arc_weak_reference_unavailable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_arc_weak_reference_unavailable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_arc_weak_reference_unavailable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -3207,13 +3432,27 @@ ArgumentWithTypeTagAttr *ArgumentWithTypeTagAttr::Create(ASTContext &Ctx, Identi
   return A;
 }
 
-ArgumentWithTypeTagAttr *ArgumentWithTypeTagAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * ArgumentKind, ParamIdx ArgumentIdx, ParamIdx TypeTagIdx, bool IsPointer, SourceRange Range, AttributeCommonInfo::Syntax Syntax, ArgumentWithTypeTagAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+ArgumentWithTypeTagAttr *ArgumentWithTypeTagAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * ArgumentKind, ParamIdx ArgumentIdx, ParamIdx TypeTagIdx, bool IsPointer, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_argument_with_type_tag ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_argument_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_argument_with_type_tag ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_argument_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_argument_with_type_tag ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_argument_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_pointer_with_type_tag ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_pointer_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_pointer_with_type_tag ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_pointer_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_pointer_with_type_tag ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_pointer_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, ArgumentKind, ArgumentIdx, TypeTagIdx, IsPointer, I);
 }
 
-ArgumentWithTypeTagAttr *ArgumentWithTypeTagAttr::Create(ASTContext &Ctx, IdentifierInfo * ArgumentKind, ParamIdx ArgumentIdx, ParamIdx TypeTagIdx, bool IsPointer, SourceRange Range, AttributeCommonInfo::Syntax Syntax, ArgumentWithTypeTagAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+ArgumentWithTypeTagAttr *ArgumentWithTypeTagAttr::Create(ASTContext &Ctx, IdentifierInfo * ArgumentKind, ParamIdx ArgumentIdx, ParamIdx TypeTagIdx, bool IsPointer, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_argument_with_type_tag ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_argument_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_argument_with_type_tag ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_argument_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_argument_with_type_tag ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_argument_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_pointer_with_type_tag ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_pointer_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_pointer_with_type_tag ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_pointer_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_pointer_with_type_tag ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_pointer_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, ArgumentKind, ArgumentIdx, TypeTagIdx, IsPointer, I);
 }
 
@@ -3230,13 +3469,27 @@ ArgumentWithTypeTagAttr *ArgumentWithTypeTagAttr::Create(ASTContext &Ctx, Identi
   return A;
 }
 
-ArgumentWithTypeTagAttr *ArgumentWithTypeTagAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * ArgumentKind, ParamIdx ArgumentIdx, ParamIdx TypeTagIdx, SourceRange Range, AttributeCommonInfo::Syntax Syntax, ArgumentWithTypeTagAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+ArgumentWithTypeTagAttr *ArgumentWithTypeTagAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * ArgumentKind, ParamIdx ArgumentIdx, ParamIdx TypeTagIdx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_argument_with_type_tag ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_argument_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_argument_with_type_tag ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_argument_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_argument_with_type_tag ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_argument_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_pointer_with_type_tag ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_pointer_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_pointer_with_type_tag ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_pointer_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_pointer_with_type_tag ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_pointer_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, ArgumentKind, ArgumentIdx, TypeTagIdx, I);
 }
 
-ArgumentWithTypeTagAttr *ArgumentWithTypeTagAttr::Create(ASTContext &Ctx, IdentifierInfo * ArgumentKind, ParamIdx ArgumentIdx, ParamIdx TypeTagIdx, SourceRange Range, AttributeCommonInfo::Syntax Syntax, ArgumentWithTypeTagAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+ArgumentWithTypeTagAttr *ArgumentWithTypeTagAttr::Create(ASTContext &Ctx, IdentifierInfo * ArgumentKind, ParamIdx ArgumentIdx, ParamIdx TypeTagIdx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_argument_with_type_tag ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_argument_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_argument_with_type_tag ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_argument_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_argument_with_type_tag ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_argument_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_pointer_with_type_tag ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_pointer_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_pointer_with_type_tag ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_pointer_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_pointer_with_type_tag ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_pointer_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, ArgumentKind, ArgumentIdx, TypeTagIdx, I);
 }
 
@@ -3420,13 +3673,21 @@ ArmBuiltinAliasAttr *ArmBuiltinAliasAttr::Create(ASTContext &Ctx, IdentifierInfo
   return A;
 }
 
-ArmBuiltinAliasAttr *ArmBuiltinAliasAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * BuiltinName, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ArmBuiltinAliasAttr *ArmBuiltinAliasAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * BuiltinName, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_clang_arm_builtin_alias ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_clang_arm_builtin_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_clang_arm_builtin_alias ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_clang_arm_builtin_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_clang_arm_builtin_alias ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_clang_arm_builtin_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, BuiltinName, I);
 }
 
-ArmBuiltinAliasAttr *ArmBuiltinAliasAttr::Create(ASTContext &Ctx, IdentifierInfo * BuiltinName, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ArmBuiltinAliasAttr *ArmBuiltinAliasAttr::Create(ASTContext &Ctx, IdentifierInfo * BuiltinName, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_clang_arm_builtin_alias ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_clang_arm_builtin_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_clang_arm_builtin_alias ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_clang_arm_builtin_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_clang_arm_builtin_alias ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_clang_arm_builtin_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, BuiltinName, I);
 }
 
@@ -3517,13 +3778,21 @@ ArmMveStrictPolymorphismAttr *ArmMveStrictPolymorphismAttr::Create(ASTContext &C
   return A;
 }
 
-ArmMveStrictPolymorphismAttr *ArmMveStrictPolymorphismAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ArmMveStrictPolymorphismAttr *ArmMveStrictPolymorphismAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_clang_arm_mve_strict_polymorphism ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_clang_arm_mve_strict_polymorphism, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_clang_arm_mve_strict_polymorphism ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_clang_arm_mve_strict_polymorphism, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_clang_arm_mve_strict_polymorphism ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_clang_arm_mve_strict_polymorphism, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-ArmMveStrictPolymorphismAttr *ArmMveStrictPolymorphismAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ArmMveStrictPolymorphismAttr *ArmMveStrictPolymorphismAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_clang_arm_mve_strict_polymorphism ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_clang_arm_mve_strict_polymorphism, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_clang_arm_mve_strict_polymorphism ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_clang_arm_mve_strict_polymorphism, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_clang_arm_mve_strict_polymorphism ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_clang_arm_mve_strict_polymorphism, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -3581,6 +3850,73 @@ const char *ArmMveStrictPolymorphismAttr::getSpelling() const {
 }
 
 
+// ArmStreamingAttr implementation
+
+ArmStreamingAttr *ArmStreamingAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) ArmStreamingAttr(Ctx, CommonInfo);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+ArmStreamingAttr *ArmStreamingAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) ArmStreamingAttr(Ctx, CommonInfo);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+ArmStreamingAttr *ArmStreamingAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, true /*IsRegularKeywordAttribute*/});
+  return CreateImplicit(Ctx, I);
+}
+
+ArmStreamingAttr *ArmStreamingAttr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, true /*IsRegularKeywordAttribute*/});
+  return Create(Ctx, I);
+}
+
+ArmStreamingAttr::ArmStreamingAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             )
+  : TypeAttr(Ctx, CommonInfo, attr::ArmStreaming, false)
+  {
+}
+
+ArmStreamingAttr *ArmStreamingAttr::clone(ASTContext &C) const {
+  auto *A = new (C) ArmStreamingAttr(C, *this);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void ArmStreamingAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+  bool IsFirstArgument = true; (void)IsFirstArgument;
+  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    break;
+  case 0 : {
+    OS << " __arm_streaming";
+    OS << "";
+    break;
+  }
+}
+}
+
+const char *ArmStreamingAttr::getSpelling() const {
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    return "(No spelling)";
+  case 0:
+    return "__arm_streaming";
+  }
+}
+
+
 // ArtificialAttr implementation
 
 ArtificialAttr *ArtificialAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
@@ -3598,13 +3934,21 @@ ArtificialAttr *ArtificialAttr::Create(ASTContext &Ctx, const AttributeCommonInf
   return A;
 }
 
-ArtificialAttr *ArtificialAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ArtificialAttr *ArtificialAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_artificial ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_artificial, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_artificial ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_artificial, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_artificial ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_artificial, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-ArtificialAttr *ArtificialAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ArtificialAttr *ArtificialAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_artificial ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_artificial, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_artificial ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_artificial, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_artificial ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_artificial, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -3679,13 +4023,17 @@ AsmLabelAttr *AsmLabelAttr::Create(ASTContext &Ctx, llvm::StringRef Label, bool 
   return A;
 }
 
-AsmLabelAttr *AsmLabelAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Label, bool IsLiteralLabel, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AsmLabelAttr *AsmLabelAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Label, bool IsLiteralLabel, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == Keyword_asm ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_asm, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Label, IsLiteralLabel, I);
 }
 
-AsmLabelAttr *AsmLabelAttr::Create(ASTContext &Ctx, llvm::StringRef Label, bool IsLiteralLabel, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AsmLabelAttr *AsmLabelAttr::Create(ASTContext &Ctx, llvm::StringRef Label, bool IsLiteralLabel, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == Keyword_asm ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_asm, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Label, IsLiteralLabel, I);
 }
 
@@ -3704,13 +4052,17 @@ AsmLabelAttr *AsmLabelAttr::Create(ASTContext &Ctx, llvm::StringRef Label, const
   return A;
 }
 
-AsmLabelAttr *AsmLabelAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Label, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AsmLabelAttr *AsmLabelAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Label, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == Keyword_asm ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_asm, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Label, I);
 }
 
-AsmLabelAttr *AsmLabelAttr::Create(ASTContext &Ctx, llvm::StringRef Label, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AsmLabelAttr *AsmLabelAttr::Create(ASTContext &Ctx, llvm::StringRef Label, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == Keyword_asm ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_asm, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Label, I);
 }
 
@@ -3805,13 +4157,23 @@ AssertCapabilityAttr *AssertCapabilityAttr::Create(ASTContext &Ctx, Expr * *Args
   return A;
 }
 
-AssertCapabilityAttr *AssertCapabilityAttr::CreateImplicit(ASTContext &Ctx, Expr * *Args, unsigned ArgsSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax, AssertCapabilityAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+AssertCapabilityAttr *AssertCapabilityAttr::CreateImplicit(ASTContext &Ctx, Expr * *Args, unsigned ArgsSize, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_assert_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_assert_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_assert_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_assert_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_assert_shared_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_assert_shared_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_assert_shared_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_assert_shared_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Args, ArgsSize, I);
 }
 
-AssertCapabilityAttr *AssertCapabilityAttr::Create(ASTContext &Ctx, Expr * *Args, unsigned ArgsSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax, AssertCapabilityAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+AssertCapabilityAttr *AssertCapabilityAttr::Create(ASTContext &Ctx, Expr * *Args, unsigned ArgsSize, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_assert_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_assert_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_assert_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_assert_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_assert_shared_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_assert_shared_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_assert_shared_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_assert_shared_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Args, ArgsSize, I);
 }
 
@@ -3946,13 +4308,13 @@ AssertExclusiveLockAttr *AssertExclusiveLockAttr::Create(ASTContext &Ctx, Expr *
   return A;
 }
 
-AssertExclusiveLockAttr *AssertExclusiveLockAttr::CreateImplicit(ASTContext &Ctx, Expr * *Args, unsigned ArgsSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AssertExclusiveLockAttr *AssertExclusiveLockAttr::CreateImplicit(ASTContext &Ctx, Expr * *Args, unsigned ArgsSize, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, Args, ArgsSize, I);
 }
 
-AssertExclusiveLockAttr *AssertExclusiveLockAttr::Create(ASTContext &Ctx, Expr * *Args, unsigned ArgsSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AssertExclusiveLockAttr *AssertExclusiveLockAttr::Create(ASTContext &Ctx, Expr * *Args, unsigned ArgsSize, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, Args, ArgsSize, I);
 }
 
@@ -4033,13 +4395,13 @@ AssertSharedLockAttr *AssertSharedLockAttr::Create(ASTContext &Ctx, Expr * *Args
   return A;
 }
 
-AssertSharedLockAttr *AssertSharedLockAttr::CreateImplicit(ASTContext &Ctx, Expr * *Args, unsigned ArgsSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AssertSharedLockAttr *AssertSharedLockAttr::CreateImplicit(ASTContext &Ctx, Expr * *Args, unsigned ArgsSize, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, Args, ArgsSize, I);
 }
 
-AssertSharedLockAttr *AssertSharedLockAttr::Create(ASTContext &Ctx, Expr * *Args, unsigned ArgsSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AssertSharedLockAttr *AssertSharedLockAttr::Create(ASTContext &Ctx, Expr * *Args, unsigned ArgsSize, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, Args, ArgsSize, I);
 }
 
@@ -4120,13 +4482,21 @@ AssumeAlignedAttr *AssumeAlignedAttr::Create(ASTContext &Ctx, Expr * Alignment, 
   return A;
 }
 
-AssumeAlignedAttr *AssumeAlignedAttr::CreateImplicit(ASTContext &Ctx, Expr * Alignment, Expr * Offset, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AssumeAlignedAttr *AssumeAlignedAttr::CreateImplicit(ASTContext &Ctx, Expr * Alignment, Expr * Offset, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_assume_aligned ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_assume_aligned, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_assume_aligned ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_assume_aligned, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_assume_aligned ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_assume_aligned, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Alignment, Offset, I);
 }
 
-AssumeAlignedAttr *AssumeAlignedAttr::Create(ASTContext &Ctx, Expr * Alignment, Expr * Offset, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AssumeAlignedAttr *AssumeAlignedAttr::Create(ASTContext &Ctx, Expr * Alignment, Expr * Offset, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_assume_aligned ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_assume_aligned, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_assume_aligned ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_assume_aligned, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_assume_aligned ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_assume_aligned, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Alignment, Offset, I);
 }
 
@@ -4248,13 +4618,21 @@ AssumptionAttr *AssumptionAttr::Create(ASTContext &Ctx, llvm::StringRef Assumpti
   return A;
 }
 
-AssumptionAttr *AssumptionAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Assumption, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AssumptionAttr *AssumptionAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Assumption, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_assume ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_assume, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_assume ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_assume, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_assume ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_assume, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Assumption, I);
 }
 
-AssumptionAttr *AssumptionAttr::Create(ASTContext &Ctx, llvm::StringRef Assumption, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AssumptionAttr *AssumptionAttr::Create(ASTContext &Ctx, llvm::StringRef Assumption, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_assume ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_assume, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_assume ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_assume, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_assume ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_assume, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Assumption, I);
 }
 
@@ -4347,13 +4725,21 @@ AvailabilityAttr *AvailabilityAttr::Create(ASTContext &Ctx, IdentifierInfo * Pla
   return A;
 }
 
-AvailabilityAttr *AvailabilityAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * Platform, VersionTuple Introduced, VersionTuple Deprecated, VersionTuple Obsoleted, bool Unavailable, llvm::StringRef Message, bool Strict, llvm::StringRef Replacement, int Priority, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AvailabilityAttr *AvailabilityAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * Platform, VersionTuple Introduced, VersionTuple Deprecated, VersionTuple Obsoleted, bool Unavailable, llvm::StringRef Message, bool Strict, llvm::StringRef Replacement, int Priority, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_availability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_availability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_availability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_availability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_availability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_availability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Platform, Introduced, Deprecated, Obsoleted, Unavailable, Message, Strict, Replacement, Priority, I);
 }
 
-AvailabilityAttr *AvailabilityAttr::Create(ASTContext &Ctx, IdentifierInfo * Platform, VersionTuple Introduced, VersionTuple Deprecated, VersionTuple Obsoleted, bool Unavailable, llvm::StringRef Message, bool Strict, llvm::StringRef Replacement, int Priority, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+AvailabilityAttr *AvailabilityAttr::Create(ASTContext &Ctx, IdentifierInfo * Platform, VersionTuple Introduced, VersionTuple Deprecated, VersionTuple Obsoleted, bool Unavailable, llvm::StringRef Message, bool Strict, llvm::StringRef Replacement, int Priority, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_availability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_availability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_availability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_availability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_availability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_availability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Platform, Introduced, Deprecated, Obsoleted, Unavailable, Message, Strict, Replacement, Priority, I);
 }
 
@@ -4498,6 +4884,95 @@ const char *AvailabilityAttr::getSpelling() const {
 }
 
 
+// AvailableOnlyInDefaultEvalMethodAttr implementation
+
+AvailableOnlyInDefaultEvalMethodAttr *AvailableOnlyInDefaultEvalMethodAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) AvailableOnlyInDefaultEvalMethodAttr(Ctx, CommonInfo);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+AvailableOnlyInDefaultEvalMethodAttr *AvailableOnlyInDefaultEvalMethodAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) AvailableOnlyInDefaultEvalMethodAttr(Ctx, CommonInfo);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+AvailableOnlyInDefaultEvalMethodAttr *AvailableOnlyInDefaultEvalMethodAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_available_only_in_default_eval_method ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_available_only_in_default_eval_method, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_available_only_in_default_eval_method ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_available_only_in_default_eval_method, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_available_only_in_default_eval_method ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_available_only_in_default_eval_method, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
+  return CreateImplicit(Ctx, I);
+}
+
+AvailableOnlyInDefaultEvalMethodAttr *AvailableOnlyInDefaultEvalMethodAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_available_only_in_default_eval_method ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_available_only_in_default_eval_method, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_available_only_in_default_eval_method ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_available_only_in_default_eval_method, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_available_only_in_default_eval_method ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_available_only_in_default_eval_method, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
+  return Create(Ctx, I);
+}
+
+AvailableOnlyInDefaultEvalMethodAttr::AvailableOnlyInDefaultEvalMethodAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             )
+  : InheritableAttr(Ctx, CommonInfo, attr::AvailableOnlyInDefaultEvalMethod, false, false)
+  {
+}
+
+AvailableOnlyInDefaultEvalMethodAttr *AvailableOnlyInDefaultEvalMethodAttr::clone(ASTContext &C) const {
+  auto *A = new (C) AvailableOnlyInDefaultEvalMethodAttr(C, *this);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void AvailableOnlyInDefaultEvalMethodAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+  bool IsFirstArgument = true; (void)IsFirstArgument;
+  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    break;
+  case 0 : {
+    OS << " __attribute__((available_only_in_default_eval_method";
+    OS << "))";
+    break;
+  }
+  case 1 : {
+    OS << " [[clang::available_only_in_default_eval_method";
+    OS << "]]";
+    break;
+  }
+  case 2 : {
+    OS << " [[clang::available_only_in_default_eval_method";
+    OS << "]]";
+    break;
+  }
+}
+}
+
+const char *AvailableOnlyInDefaultEvalMethodAttr::getSpelling() const {
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    return "(No spelling)";
+  case 0:
+    return "available_only_in_default_eval_method";
+  case 1:
+    return "available_only_in_default_eval_method";
+  case 2:
+    return "available_only_in_default_eval_method";
+  }
+}
+
+
 // BPFPreserveAccessIndexAttr implementation
 
 BPFPreserveAccessIndexAttr *BPFPreserveAccessIndexAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
@@ -4515,13 +4990,21 @@ BPFPreserveAccessIndexAttr *BPFPreserveAccessIndexAttr::Create(ASTContext &Ctx, 
   return A;
 }
 
-BPFPreserveAccessIndexAttr *BPFPreserveAccessIndexAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+BPFPreserveAccessIndexAttr *BPFPreserveAccessIndexAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_preserve_access_index ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_preserve_access_index, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_preserve_access_index ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_preserve_access_index, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_preserve_access_index ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_preserve_access_index, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-BPFPreserveAccessIndexAttr *BPFPreserveAccessIndexAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+BPFPreserveAccessIndexAttr *BPFPreserveAccessIndexAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_preserve_access_index ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_preserve_access_index, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_preserve_access_index ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_preserve_access_index, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_preserve_access_index ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_preserve_access_index, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -4596,13 +5079,21 @@ BTFDeclTagAttr *BTFDeclTagAttr::Create(ASTContext &Ctx, llvm::StringRef BTFDeclT
   return A;
 }
 
-BTFDeclTagAttr *BTFDeclTagAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef BTFDeclTag, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+BTFDeclTagAttr *BTFDeclTagAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef BTFDeclTag, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_btf_decl_tag ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_btf_decl_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_btf_decl_tag ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_btf_decl_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_btf_decl_tag ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_btf_decl_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, BTFDeclTag, I);
 }
 
-BTFDeclTagAttr *BTFDeclTagAttr::Create(ASTContext &Ctx, llvm::StringRef BTFDeclTag, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+BTFDeclTagAttr *BTFDeclTagAttr::Create(ASTContext &Ctx, llvm::StringRef BTFDeclTag, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_btf_decl_tag ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_btf_decl_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_btf_decl_tag ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_btf_decl_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_btf_decl_tag ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_btf_decl_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, BTFDeclTag, I);
 }
 
@@ -4695,13 +5186,21 @@ BTFTypeTagAttr *BTFTypeTagAttr::Create(ASTContext &Ctx, llvm::StringRef BTFTypeT
   return A;
 }
 
-BTFTypeTagAttr *BTFTypeTagAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef BTFTypeTag, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+BTFTypeTagAttr *BTFTypeTagAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef BTFTypeTag, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_btf_type_tag ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_btf_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_btf_type_tag ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_btf_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_btf_type_tag ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_btf_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, BTFTypeTag, I);
 }
 
-BTFTypeTagAttr *BTFTypeTagAttr::Create(ASTContext &Ctx, llvm::StringRef BTFTypeTag, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+BTFTypeTagAttr *BTFTypeTagAttr::Create(ASTContext &Ctx, llvm::StringRef BTFTypeTag, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_btf_type_tag ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_btf_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_btf_type_tag ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_btf_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_btf_type_tag ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_btf_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, BTFTypeTag, I);
 }
 
@@ -4794,13 +5293,21 @@ BlocksAttr *BlocksAttr::Create(ASTContext &Ctx, BlockType Type, const AttributeC
   return A;
 }
 
-BlocksAttr *BlocksAttr::CreateImplicit(ASTContext &Ctx, BlockType Type, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+BlocksAttr *BlocksAttr::CreateImplicit(ASTContext &Ctx, BlockType Type, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_blocks ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_blocks, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_blocks ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_blocks, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_blocks ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_blocks, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Type, I);
 }
 
-BlocksAttr *BlocksAttr::Create(ASTContext &Ctx, BlockType Type, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+BlocksAttr *BlocksAttr::Create(ASTContext &Ctx, BlockType Type, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_blocks ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_blocks, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_blocks ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_blocks, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_blocks ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_blocks, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Type, I);
 }
 
@@ -4908,13 +5415,13 @@ BuiltinAttr *BuiltinAttr::Create(ASTContext &Ctx, unsigned ID, const AttributeCo
   return A;
 }
 
-BuiltinAttr *BuiltinAttr::CreateImplicit(ASTContext &Ctx, unsigned ID, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+BuiltinAttr *BuiltinAttr::CreateImplicit(ASTContext &Ctx, unsigned ID, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
   return CreateImplicit(Ctx, ID, I);
 }
 
-BuiltinAttr *BuiltinAttr::Create(ASTContext &Ctx, unsigned ID, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+BuiltinAttr *BuiltinAttr::Create(ASTContext &Ctx, unsigned ID, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
   return Create(Ctx, ID, I);
 }
 
@@ -4959,13 +5466,21 @@ BuiltinAliasAttr *BuiltinAliasAttr::Create(ASTContext &Ctx, IdentifierInfo * Bui
   return A;
 }
 
-BuiltinAliasAttr *BuiltinAliasAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * BuiltinName, SourceRange Range, AttributeCommonInfo::Syntax Syntax, BuiltinAliasAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+BuiltinAliasAttr *BuiltinAliasAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * BuiltinName, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == CXX11_clang_builtin_alias ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_builtin_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_builtin_alias ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_builtin_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_clang_builtin_alias ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_clang_builtin_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, BuiltinName, I);
 }
 
-BuiltinAliasAttr *BuiltinAliasAttr::Create(ASTContext &Ctx, IdentifierInfo * BuiltinName, SourceRange Range, AttributeCommonInfo::Syntax Syntax, BuiltinAliasAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+BuiltinAliasAttr *BuiltinAliasAttr::Create(ASTContext &Ctx, IdentifierInfo * BuiltinName, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == CXX11_clang_builtin_alias ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_builtin_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_builtin_alias ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_builtin_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_clang_builtin_alias ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_clang_builtin_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, BuiltinName, I);
 }
 
@@ -5064,13 +5579,13 @@ C11NoReturnAttr *C11NoReturnAttr::Create(ASTContext &Ctx, const AttributeCommonI
   return A;
 }
 
-C11NoReturnAttr *C11NoReturnAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+C11NoReturnAttr *C11NoReturnAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, I);
 }
 
-C11NoReturnAttr *C11NoReturnAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+C11NoReturnAttr *C11NoReturnAttr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, I);
 }
 
@@ -5131,13 +5646,23 @@ CDeclAttr *CDeclAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonI
   return A;
 }
 
-CDeclAttr *CDeclAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CDeclAttr *CDeclAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_cdecl ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_cdecl, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_cdecl ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_cdecl, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_cdecl ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_cdecl, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Keyword_cdecl ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_cdecl, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-CDeclAttr *CDeclAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CDeclAttr *CDeclAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_cdecl ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_cdecl, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_cdecl ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_cdecl, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_cdecl ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_cdecl, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Keyword_cdecl ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_cdecl, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -5226,13 +5751,21 @@ CFAuditedTransferAttr *CFAuditedTransferAttr::Create(ASTContext &Ctx, const Attr
   return A;
 }
 
-CFAuditedTransferAttr *CFAuditedTransferAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CFAuditedTransferAttr *CFAuditedTransferAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_cf_audited_transfer ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_cf_audited_transfer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_cf_audited_transfer ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_cf_audited_transfer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_cf_audited_transfer ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_cf_audited_transfer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-CFAuditedTransferAttr *CFAuditedTransferAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CFAuditedTransferAttr *CFAuditedTransferAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_cf_audited_transfer ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_cf_audited_transfer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_cf_audited_transfer ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_cf_audited_transfer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_cf_audited_transfer ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_cf_audited_transfer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -5307,13 +5840,21 @@ CFConsumedAttr *CFConsumedAttr::Create(ASTContext &Ctx, const AttributeCommonInf
   return A;
 }
 
-CFConsumedAttr *CFConsumedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CFConsumedAttr *CFConsumedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_cf_consumed ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_cf_consumed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_cf_consumed ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_cf_consumed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_cf_consumed ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_cf_consumed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-CFConsumedAttr *CFConsumedAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CFConsumedAttr *CFConsumedAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_cf_consumed ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_cf_consumed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_cf_consumed ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_cf_consumed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_cf_consumed ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_cf_consumed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -5388,13 +5929,23 @@ CFGuardAttr *CFGuardAttr::Create(ASTContext &Ctx, GuardArg Guard, const Attribut
   return A;
 }
 
-CFGuardAttr *CFGuardAttr::CreateImplicit(ASTContext &Ctx, GuardArg Guard, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CFGuardAttr *CFGuardAttr::CreateImplicit(ASTContext &Ctx, GuardArg Guard, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == Declspec_guard ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_guard, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_guard ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_guard, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_guard ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_guard, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_guard ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_guard, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Guard, I);
 }
 
-CFGuardAttr *CFGuardAttr::Create(ASTContext &Ctx, GuardArg Guard, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CFGuardAttr *CFGuardAttr::Create(ASTContext &Ctx, GuardArg Guard, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == Declspec_guard ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_guard, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_guard ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_guard, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_guard ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_guard, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_guard ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_guard, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Guard, I);
 }
 
@@ -5513,13 +6064,21 @@ CFICanonicalJumpTableAttr *CFICanonicalJumpTableAttr::Create(ASTContext &Ctx, co
   return A;
 }
 
-CFICanonicalJumpTableAttr *CFICanonicalJumpTableAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CFICanonicalJumpTableAttr *CFICanonicalJumpTableAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_cfi_canonical_jump_table ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_cfi_canonical_jump_table, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_cfi_canonical_jump_table ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_cfi_canonical_jump_table, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_cfi_canonical_jump_table ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_cfi_canonical_jump_table, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-CFICanonicalJumpTableAttr *CFICanonicalJumpTableAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CFICanonicalJumpTableAttr *CFICanonicalJumpTableAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_cfi_canonical_jump_table ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_cfi_canonical_jump_table, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_cfi_canonical_jump_table ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_cfi_canonical_jump_table, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_cfi_canonical_jump_table ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_cfi_canonical_jump_table, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -5594,13 +6153,21 @@ CFReturnsNotRetainedAttr *CFReturnsNotRetainedAttr::Create(ASTContext &Ctx, cons
   return A;
 }
 
-CFReturnsNotRetainedAttr *CFReturnsNotRetainedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CFReturnsNotRetainedAttr *CFReturnsNotRetainedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_cf_returns_not_retained ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_cf_returns_not_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_cf_returns_not_retained ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_cf_returns_not_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_cf_returns_not_retained ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_cf_returns_not_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-CFReturnsNotRetainedAttr *CFReturnsNotRetainedAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CFReturnsNotRetainedAttr *CFReturnsNotRetainedAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_cf_returns_not_retained ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_cf_returns_not_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_cf_returns_not_retained ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_cf_returns_not_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_cf_returns_not_retained ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_cf_returns_not_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -5675,13 +6242,21 @@ CFReturnsRetainedAttr *CFReturnsRetainedAttr::Create(ASTContext &Ctx, const Attr
   return A;
 }
 
-CFReturnsRetainedAttr *CFReturnsRetainedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CFReturnsRetainedAttr *CFReturnsRetainedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_cf_returns_retained ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_cf_returns_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_cf_returns_retained ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_cf_returns_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_cf_returns_retained ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_cf_returns_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-CFReturnsRetainedAttr *CFReturnsRetainedAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CFReturnsRetainedAttr *CFReturnsRetainedAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_cf_returns_retained ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_cf_returns_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_cf_returns_retained ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_cf_returns_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_cf_returns_retained ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_cf_returns_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -5756,13 +6331,21 @@ CFUnknownTransferAttr *CFUnknownTransferAttr::Create(ASTContext &Ctx, const Attr
   return A;
 }
 
-CFUnknownTransferAttr *CFUnknownTransferAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CFUnknownTransferAttr *CFUnknownTransferAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_cf_unknown_transfer ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_cf_unknown_transfer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_cf_unknown_transfer ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_cf_unknown_transfer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_cf_unknown_transfer ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_cf_unknown_transfer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-CFUnknownTransferAttr *CFUnknownTransferAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CFUnknownTransferAttr *CFUnknownTransferAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_cf_unknown_transfer ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_cf_unknown_transfer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_cf_unknown_transfer ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_cf_unknown_transfer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_cf_unknown_transfer ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_cf_unknown_transfer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -5837,13 +6420,23 @@ CPUDispatchAttr *CPUDispatchAttr::Create(ASTContext &Ctx, IdentifierInfo * *Cpus
   return A;
 }
 
-CPUDispatchAttr *CPUDispatchAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * *Cpus, unsigned CpusSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CPUDispatchAttr *CPUDispatchAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * *Cpus, unsigned CpusSize, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_cpu_dispatch ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_cpu_dispatch, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_cpu_dispatch ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_cpu_dispatch, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_cpu_dispatch ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_cpu_dispatch, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Declspec_cpu_dispatch ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_cpu_dispatch, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Cpus, CpusSize, I);
 }
 
-CPUDispatchAttr *CPUDispatchAttr::Create(ASTContext &Ctx, IdentifierInfo * *Cpus, unsigned CpusSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CPUDispatchAttr *CPUDispatchAttr::Create(ASTContext &Ctx, IdentifierInfo * *Cpus, unsigned CpusSize, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_cpu_dispatch ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_cpu_dispatch, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_cpu_dispatch ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_cpu_dispatch, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_cpu_dispatch ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_cpu_dispatch, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Declspec_cpu_dispatch ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_cpu_dispatch, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Cpus, CpusSize, I);
 }
 
@@ -5969,13 +6562,23 @@ CPUSpecificAttr *CPUSpecificAttr::Create(ASTContext &Ctx, IdentifierInfo * *Cpus
   return A;
 }
 
-CPUSpecificAttr *CPUSpecificAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * *Cpus, unsigned CpusSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CPUSpecificAttr *CPUSpecificAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * *Cpus, unsigned CpusSize, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_cpu_specific ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_cpu_specific, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_cpu_specific ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_cpu_specific, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_cpu_specific ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_cpu_specific, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Declspec_cpu_specific ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_cpu_specific, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Cpus, CpusSize, I);
 }
 
-CPUSpecificAttr *CPUSpecificAttr::Create(ASTContext &Ctx, IdentifierInfo * *Cpus, unsigned CpusSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CPUSpecificAttr *CPUSpecificAttr::Create(ASTContext &Ctx, IdentifierInfo * *Cpus, unsigned CpusSize, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_cpu_specific ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_cpu_specific, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_cpu_specific ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_cpu_specific, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_cpu_specific ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_cpu_specific, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Declspec_cpu_specific ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_cpu_specific, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Cpus, CpusSize, I);
 }
 
@@ -6101,13 +6704,19 @@ CUDAConstantAttr *CUDAConstantAttr::Create(ASTContext &Ctx, const AttributeCommo
   return A;
 }
 
-CUDAConstantAttr *CUDAConstantAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CUDAConstantAttr *CUDAConstantAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_constant ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_constant, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Declspec_constant ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_constant, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-CUDAConstantAttr *CUDAConstantAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CUDAConstantAttr *CUDAConstantAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_constant ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_constant, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Declspec_constant ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_constant, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -6175,13 +6784,19 @@ CUDADeviceAttr *CUDADeviceAttr::Create(ASTContext &Ctx, const AttributeCommonInf
   return A;
 }
 
-CUDADeviceAttr *CUDADeviceAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CUDADeviceAttr *CUDADeviceAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_device ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_device, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Declspec_device ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_device, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-CUDADeviceAttr *CUDADeviceAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CUDADeviceAttr *CUDADeviceAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_device ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_device, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Declspec_device ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_device, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -6249,13 +6864,19 @@ CUDADeviceBuiltinSurfaceTypeAttr *CUDADeviceBuiltinSurfaceTypeAttr::Create(ASTCo
   return A;
 }
 
-CUDADeviceBuiltinSurfaceTypeAttr *CUDADeviceBuiltinSurfaceTypeAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CUDADeviceBuiltinSurfaceTypeAttr *CUDADeviceBuiltinSurfaceTypeAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_device_builtin_surface_type ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_device_builtin_surface_type, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Declspec_device_builtin_surface_type ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_device_builtin_surface_type, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-CUDADeviceBuiltinSurfaceTypeAttr *CUDADeviceBuiltinSurfaceTypeAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CUDADeviceBuiltinSurfaceTypeAttr *CUDADeviceBuiltinSurfaceTypeAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_device_builtin_surface_type ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_device_builtin_surface_type, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Declspec_device_builtin_surface_type ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_device_builtin_surface_type, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -6323,13 +6944,19 @@ CUDADeviceBuiltinTextureTypeAttr *CUDADeviceBuiltinTextureTypeAttr::Create(ASTCo
   return A;
 }
 
-CUDADeviceBuiltinTextureTypeAttr *CUDADeviceBuiltinTextureTypeAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CUDADeviceBuiltinTextureTypeAttr *CUDADeviceBuiltinTextureTypeAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_device_builtin_texture_type ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_device_builtin_texture_type, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Declspec_device_builtin_texture_type ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_device_builtin_texture_type, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-CUDADeviceBuiltinTextureTypeAttr *CUDADeviceBuiltinTextureTypeAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CUDADeviceBuiltinTextureTypeAttr *CUDADeviceBuiltinTextureTypeAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_device_builtin_texture_type ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_device_builtin_texture_type, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Declspec_device_builtin_texture_type ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_device_builtin_texture_type, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -6397,13 +7024,19 @@ CUDAGlobalAttr *CUDAGlobalAttr::Create(ASTContext &Ctx, const AttributeCommonInf
   return A;
 }
 
-CUDAGlobalAttr *CUDAGlobalAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CUDAGlobalAttr *CUDAGlobalAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_global ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_global, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Declspec_global ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_global, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-CUDAGlobalAttr *CUDAGlobalAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CUDAGlobalAttr *CUDAGlobalAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_global ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_global, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Declspec_global ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_global, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -6471,13 +7104,19 @@ CUDAHostAttr *CUDAHostAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &C
   return A;
 }
 
-CUDAHostAttr *CUDAHostAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CUDAHostAttr *CUDAHostAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_host ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_host, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Declspec_host ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_host, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-CUDAHostAttr *CUDAHostAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CUDAHostAttr *CUDAHostAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_host ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_host, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Declspec_host ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_host, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -6545,13 +7184,13 @@ CUDAInvalidTargetAttr *CUDAInvalidTargetAttr::Create(ASTContext &Ctx, const Attr
   return A;
 }
 
-CUDAInvalidTargetAttr *CUDAInvalidTargetAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CUDAInvalidTargetAttr *CUDAInvalidTargetAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
   return CreateImplicit(Ctx, I);
 }
 
-CUDAInvalidTargetAttr *CUDAInvalidTargetAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CUDAInvalidTargetAttr *CUDAInvalidTargetAttr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
   return Create(Ctx, I);
 }
 
@@ -6594,13 +7233,19 @@ CUDALaunchBoundsAttr *CUDALaunchBoundsAttr::Create(ASTContext &Ctx, Expr * MaxTh
   return A;
 }
 
-CUDALaunchBoundsAttr *CUDALaunchBoundsAttr::CreateImplicit(ASTContext &Ctx, Expr * MaxThreads, Expr * MinBlocks, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CUDALaunchBoundsAttr *CUDALaunchBoundsAttr::CreateImplicit(ASTContext &Ctx, Expr * MaxThreads, Expr * MinBlocks, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_launch_bounds ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_launch_bounds, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Declspec_launch_bounds ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_launch_bounds, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, MaxThreads, MinBlocks, I);
 }
 
-CUDALaunchBoundsAttr *CUDALaunchBoundsAttr::Create(ASTContext &Ctx, Expr * MaxThreads, Expr * MinBlocks, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CUDALaunchBoundsAttr *CUDALaunchBoundsAttr::Create(ASTContext &Ctx, Expr * MaxThreads, Expr * MinBlocks, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_launch_bounds ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_launch_bounds, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Declspec_launch_bounds ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_launch_bounds, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, MaxThreads, MinBlocks, I);
 }
 
@@ -6705,13 +7350,19 @@ CUDASharedAttr *CUDASharedAttr::Create(ASTContext &Ctx, const AttributeCommonInf
   return A;
 }
 
-CUDASharedAttr *CUDASharedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CUDASharedAttr *CUDASharedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_shared ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_shared, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Declspec_shared ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_shared, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-CUDASharedAttr *CUDASharedAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CUDASharedAttr *CUDASharedAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_shared ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_shared, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Declspec_shared ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_shared, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -6777,13 +7428,21 @@ CXX11NoReturnAttr *CXX11NoReturnAttr::Create(ASTContext &Ctx, const AttributeCom
   return A;
 }
 
-CXX11NoReturnAttr *CXX11NoReturnAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax, CXX11NoReturnAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+CXX11NoReturnAttr *CXX11NoReturnAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == CXX11_noreturn ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_noreturn, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_noreturn ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_noreturn, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_Noreturn ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_Noreturn, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-CXX11NoReturnAttr *CXX11NoReturnAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax, CXX11NoReturnAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+CXX11NoReturnAttr *CXX11NoReturnAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == CXX11_noreturn ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_noreturn, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_noreturn ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_noreturn, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_Noreturn ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_Noreturn, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -6866,13 +7525,19 @@ CallableWhenAttr *CallableWhenAttr::Create(ASTContext &Ctx, ConsumedState *Calla
   return A;
 }
 
-CallableWhenAttr *CallableWhenAttr::CreateImplicit(ASTContext &Ctx, ConsumedState *CallableStates, unsigned CallableStatesSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CallableWhenAttr *CallableWhenAttr::CreateImplicit(ASTContext &Ctx, ConsumedState *CallableStates, unsigned CallableStatesSize, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_callable_when ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_callable_when, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_callable_when ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_callable_when, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, CallableStates, CallableStatesSize, I);
 }
 
-CallableWhenAttr *CallableWhenAttr::Create(ASTContext &Ctx, ConsumedState *CallableStates, unsigned CallableStatesSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CallableWhenAttr *CallableWhenAttr::Create(ASTContext &Ctx, ConsumedState *CallableStates, unsigned CallableStatesSize, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_callable_when ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_callable_when, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_callable_when ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_callable_when, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, CallableStates, CallableStatesSize, I);
 }
 
@@ -6989,13 +7654,21 @@ CallbackAttr *CallbackAttr::Create(ASTContext &Ctx, int *Encoding, unsigned Enco
   return A;
 }
 
-CallbackAttr *CallbackAttr::CreateImplicit(ASTContext &Ctx, int *Encoding, unsigned EncodingSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CallbackAttr *CallbackAttr::CreateImplicit(ASTContext &Ctx, int *Encoding, unsigned EncodingSize, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_callback ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_callback, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_callback ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_callback, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_callback ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_callback, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Encoding, EncodingSize, I);
 }
 
-CallbackAttr *CallbackAttr::Create(ASTContext &Ctx, int *Encoding, unsigned EncodingSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CallbackAttr *CallbackAttr::Create(ASTContext &Ctx, int *Encoding, unsigned EncodingSize, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_callback ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_callback, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_callback ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_callback, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_callback ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_callback, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Encoding, EncodingSize, I);
 }
 
@@ -7106,13 +7779,21 @@ CalledOnceAttr *CalledOnceAttr::Create(ASTContext &Ctx, const AttributeCommonInf
   return A;
 }
 
-CalledOnceAttr *CalledOnceAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CalledOnceAttr *CalledOnceAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_called_once ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_called_once, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_called_once ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_called_once, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_called_once ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_called_once, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-CalledOnceAttr *CalledOnceAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CalledOnceAttr *CalledOnceAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_called_once ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_called_once, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_called_once ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_called_once, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_called_once ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_called_once, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -7185,13 +7866,23 @@ CapabilityAttr *CapabilityAttr::Create(ASTContext &Ctx, llvm::StringRef Name, co
   return A;
 }
 
-CapabilityAttr *CapabilityAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Name, SourceRange Range, AttributeCommonInfo::Syntax Syntax, CapabilityAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+CapabilityAttr *CapabilityAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Name, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_shared_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_shared_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_shared_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_shared_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Name, I);
 }
 
-CapabilityAttr *CapabilityAttr::Create(ASTContext &Ctx, llvm::StringRef Name, SourceRange Range, AttributeCommonInfo::Syntax Syntax, CapabilityAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+CapabilityAttr *CapabilityAttr::Create(ASTContext &Ctx, llvm::StringRef Name, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_shared_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_shared_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_shared_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_shared_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Name, I);
 }
 
@@ -7304,13 +7995,13 @@ CapturedRecordAttr *CapturedRecordAttr::Create(ASTContext &Ctx, const AttributeC
   return A;
 }
 
-CapturedRecordAttr *CapturedRecordAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CapturedRecordAttr *CapturedRecordAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
   return CreateImplicit(Ctx, I);
 }
 
-CapturedRecordAttr *CapturedRecordAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CapturedRecordAttr *CapturedRecordAttr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
   return Create(Ctx, I);
 }
 
@@ -7353,13 +8044,19 @@ CarriesDependencyAttr *CarriesDependencyAttr::Create(ASTContext &Ctx, const Attr
   return A;
 }
 
-CarriesDependencyAttr *CarriesDependencyAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CarriesDependencyAttr *CarriesDependencyAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_carries_dependency ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_carries_dependency, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_carries_dependency ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_carries_dependency, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-CarriesDependencyAttr *CarriesDependencyAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CarriesDependencyAttr *CarriesDependencyAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_carries_dependency ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_carries_dependency, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_carries_dependency ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_carries_dependency, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -7427,13 +8124,21 @@ CleanupAttr *CleanupAttr::Create(ASTContext &Ctx, FunctionDecl * FunctionDecl, c
   return A;
 }
 
-CleanupAttr *CleanupAttr::CreateImplicit(ASTContext &Ctx, FunctionDecl * FunctionDecl, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CleanupAttr *CleanupAttr::CreateImplicit(ASTContext &Ctx, FunctionDecl * FunctionDecl, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_cleanup ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_cleanup, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_cleanup ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_cleanup, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_cleanup ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_cleanup, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, FunctionDecl, I);
 }
 
-CleanupAttr *CleanupAttr::Create(ASTContext &Ctx, FunctionDecl * FunctionDecl, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CleanupAttr *CleanupAttr::Create(ASTContext &Ctx, FunctionDecl * FunctionDecl, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_cleanup ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_cleanup, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_cleanup ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_cleanup, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_cleanup ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_cleanup, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, FunctionDecl, I);
 }
 
@@ -7524,13 +8229,13 @@ CmseNSCallAttr *CmseNSCallAttr::Create(ASTContext &Ctx, const AttributeCommonInf
   return A;
 }
 
-CmseNSCallAttr *CmseNSCallAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CmseNSCallAttr *CmseNSCallAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, I);
 }
 
-CmseNSCallAttr *CmseNSCallAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CmseNSCallAttr *CmseNSCallAttr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, I);
 }
 
@@ -7591,13 +8296,13 @@ CmseNSEntryAttr *CmseNSEntryAttr::Create(ASTContext &Ctx, const AttributeCommonI
   return A;
 }
 
-CmseNSEntryAttr *CmseNSEntryAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CmseNSEntryAttr *CmseNSEntryAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, I);
 }
 
-CmseNSEntryAttr *CmseNSEntryAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CmseNSEntryAttr *CmseNSEntryAttr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, I);
 }
 
@@ -7658,13 +8363,13 @@ CodeSegAttr *CodeSegAttr::Create(ASTContext &Ctx, llvm::StringRef Name, const At
   return A;
 }
 
-CodeSegAttr *CodeSegAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Name, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CodeSegAttr *CodeSegAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Name, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Declspec, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, Name, I);
 }
 
-CodeSegAttr *CodeSegAttr::Create(ASTContext &Ctx, llvm::StringRef Name, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CodeSegAttr *CodeSegAttr::Create(ASTContext &Ctx, llvm::StringRef Name, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Declspec, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, Name, I);
 }
 
@@ -7735,13 +8440,21 @@ ColdAttr *ColdAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInf
   return A;
 }
 
-ColdAttr *ColdAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ColdAttr *ColdAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_cold ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_cold, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_cold ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_cold, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_cold ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_cold, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-ColdAttr *ColdAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ColdAttr *ColdAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_cold ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_cold, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_cold ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_cold, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_cold ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_cold, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -7816,13 +8529,21 @@ CommonAttr *CommonAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &Commo
   return A;
 }
 
-CommonAttr *CommonAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CommonAttr *CommonAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_common ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_common, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_common ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_common, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_common ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_common, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-CommonAttr *CommonAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+CommonAttr *CommonAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_common ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_common, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_common ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_common, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_common ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_common, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -7897,13 +8618,21 @@ ConstAttr *ConstAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonI
   return A;
 }
 
-ConstAttr *ConstAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ConstAttr *ConstAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_const ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_const, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_const ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_const, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_const ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_const, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-ConstAttr *ConstAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ConstAttr *ConstAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_const ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_const, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_const ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_const, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_const ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_const, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -7997,13 +8726,21 @@ ConstInitAttr *ConstInitAttr::Create(ASTContext &Ctx, const AttributeCommonInfo 
   return A;
 }
 
-ConstInitAttr *ConstInitAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax, ConstInitAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+ConstInitAttr *ConstInitAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == Keyword_constinit ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_constinit, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_require_constant_initialization ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_require_constant_initialization, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_require_constant_initialization ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_require_constant_initialization, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-ConstInitAttr *ConstInitAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax, ConstInitAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+ConstInitAttr *ConstInitAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == Keyword_constinit ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_constinit, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_require_constant_initialization ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_require_constant_initialization, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_require_constant_initialization ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_require_constant_initialization, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -8086,13 +8823,21 @@ ConstructorAttr *ConstructorAttr::Create(ASTContext &Ctx, int Priority, const At
   return A;
 }
 
-ConstructorAttr *ConstructorAttr::CreateImplicit(ASTContext &Ctx, int Priority, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ConstructorAttr *ConstructorAttr::CreateImplicit(ASTContext &Ctx, int Priority, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_constructor ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_constructor, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_constructor ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_constructor, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_constructor ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_constructor, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Priority, I);
 }
 
-ConstructorAttr *ConstructorAttr::Create(ASTContext &Ctx, int Priority, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ConstructorAttr *ConstructorAttr::Create(ASTContext &Ctx, int Priority, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_constructor ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_constructor, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_constructor ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_constructor, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_constructor ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_constructor, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Priority, I);
 }
 
@@ -8190,13 +8935,19 @@ ConsumableAttr *ConsumableAttr::Create(ASTContext &Ctx, ConsumedState DefaultSta
   return A;
 }
 
-ConsumableAttr *ConsumableAttr::CreateImplicit(ASTContext &Ctx, ConsumedState DefaultState, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ConsumableAttr *ConsumableAttr::CreateImplicit(ASTContext &Ctx, ConsumedState DefaultState, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_consumable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_consumable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_consumable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_consumable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, DefaultState, I);
 }
 
-ConsumableAttr *ConsumableAttr::Create(ASTContext &Ctx, ConsumedState DefaultState, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ConsumableAttr *ConsumableAttr::Create(ASTContext &Ctx, ConsumedState DefaultState, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_consumable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_consumable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_consumable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_consumable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, DefaultState, I);
 }
 
@@ -8297,13 +9048,19 @@ ConsumableAutoCastAttr *ConsumableAutoCastAttr::Create(ASTContext &Ctx, const At
   return A;
 }
 
-ConsumableAutoCastAttr *ConsumableAutoCastAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ConsumableAutoCastAttr *ConsumableAutoCastAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_consumable_auto_cast_state ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_consumable_auto_cast_state, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_consumable_auto_cast_state ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_consumable_auto_cast_state, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-ConsumableAutoCastAttr *ConsumableAutoCastAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ConsumableAutoCastAttr *ConsumableAutoCastAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_consumable_auto_cast_state ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_consumable_auto_cast_state, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_consumable_auto_cast_state ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_consumable_auto_cast_state, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -8371,13 +9128,19 @@ ConsumableSetOnReadAttr *ConsumableSetOnReadAttr::Create(ASTContext &Ctx, const 
   return A;
 }
 
-ConsumableSetOnReadAttr *ConsumableSetOnReadAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ConsumableSetOnReadAttr *ConsumableSetOnReadAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_consumable_set_state_on_read ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_consumable_set_state_on_read, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_consumable_set_state_on_read ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_consumable_set_state_on_read, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-ConsumableSetOnReadAttr *ConsumableSetOnReadAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ConsumableSetOnReadAttr *ConsumableSetOnReadAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_consumable_set_state_on_read ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_consumable_set_state_on_read, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_consumable_set_state_on_read ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_consumable_set_state_on_read, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -8445,13 +9208,21 @@ ConvergentAttr *ConvergentAttr::Create(ASTContext &Ctx, const AttributeCommonInf
   return A;
 }
 
-ConvergentAttr *ConvergentAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ConvergentAttr *ConvergentAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_convergent ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_convergent, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_convergent ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_convergent, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_convergent ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_convergent, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-ConvergentAttr *ConvergentAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ConvergentAttr *ConvergentAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_convergent ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_convergent, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_convergent ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_convergent, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_convergent ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_convergent, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -8526,13 +9297,23 @@ DLLExportAttr *DLLExportAttr::Create(ASTContext &Ctx, const AttributeCommonInfo 
   return A;
 }
 
-DLLExportAttr *DLLExportAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+DLLExportAttr *DLLExportAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == Declspec_dllexport ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_dllexport, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_dllexport ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_dllexport, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_dllexport ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_dllexport, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_dllexport ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_dllexport, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-DLLExportAttr *DLLExportAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+DLLExportAttr *DLLExportAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == Declspec_dllexport ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_dllexport, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_dllexport ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_dllexport, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_dllexport ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_dllexport, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_dllexport ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_dllexport, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -8614,13 +9395,13 @@ DLLExportStaticLocalAttr *DLLExportStaticLocalAttr::Create(ASTContext &Ctx, cons
   return A;
 }
 
-DLLExportStaticLocalAttr *DLLExportStaticLocalAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+DLLExportStaticLocalAttr *DLLExportStaticLocalAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
   return CreateImplicit(Ctx, I);
 }
 
-DLLExportStaticLocalAttr *DLLExportStaticLocalAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+DLLExportStaticLocalAttr *DLLExportStaticLocalAttr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
   return Create(Ctx, I);
 }
 
@@ -8663,13 +9444,23 @@ DLLImportAttr *DLLImportAttr::Create(ASTContext &Ctx, const AttributeCommonInfo 
   return A;
 }
 
-DLLImportAttr *DLLImportAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+DLLImportAttr *DLLImportAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == Declspec_dllimport ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_dllimport, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_dllimport ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_dllimport, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_dllimport ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_dllimport, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_dllimport ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_dllimport, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-DLLImportAttr *DLLImportAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+DLLImportAttr *DLLImportAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == Declspec_dllimport ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_dllimport, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_dllimport ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_dllimport, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_dllimport ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_dllimport, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_dllimport ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_dllimport, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -8751,13 +9542,13 @@ DLLImportStaticLocalAttr *DLLImportStaticLocalAttr::Create(ASTContext &Ctx, cons
   return A;
 }
 
-DLLImportStaticLocalAttr *DLLImportStaticLocalAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+DLLImportStaticLocalAttr *DLLImportStaticLocalAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
   return CreateImplicit(Ctx, I);
 }
 
-DLLImportStaticLocalAttr *DLLImportStaticLocalAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+DLLImportStaticLocalAttr *DLLImportStaticLocalAttr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
   return Create(Ctx, I);
 }
 
@@ -8800,13 +9591,27 @@ DeprecatedAttr *DeprecatedAttr::Create(ASTContext &Ctx, llvm::StringRef Message,
   return A;
 }
 
-DeprecatedAttr *DeprecatedAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Message, llvm::StringRef Replacement, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+DeprecatedAttr *DeprecatedAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Message, llvm::StringRef Replacement, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_deprecated ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_deprecated, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_deprecated ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_deprecated, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_deprecated ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_deprecated, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Declspec_deprecated ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_deprecated, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_deprecated ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_deprecated, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_deprecated ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_deprecated, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Message, Replacement, I);
 }
 
-DeprecatedAttr *DeprecatedAttr::Create(ASTContext &Ctx, llvm::StringRef Message, llvm::StringRef Replacement, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+DeprecatedAttr *DeprecatedAttr::Create(ASTContext &Ctx, llvm::StringRef Message, llvm::StringRef Replacement, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_deprecated ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_deprecated, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_deprecated ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_deprecated, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_deprecated ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_deprecated, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Declspec_deprecated ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_deprecated, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_deprecated ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_deprecated, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_deprecated ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_deprecated, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Message, Replacement, I);
 }
 
@@ -8935,13 +9740,21 @@ DestructorAttr *DestructorAttr::Create(ASTContext &Ctx, int Priority, const Attr
   return A;
 }
 
-DestructorAttr *DestructorAttr::CreateImplicit(ASTContext &Ctx, int Priority, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+DestructorAttr *DestructorAttr::CreateImplicit(ASTContext &Ctx, int Priority, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_destructor ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_destructor, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_destructor ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_destructor, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_destructor ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_destructor, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Priority, I);
 }
 
-DestructorAttr *DestructorAttr::Create(ASTContext &Ctx, int Priority, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+DestructorAttr *DestructorAttr::Create(ASTContext &Ctx, int Priority, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_destructor ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_destructor, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_destructor ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_destructor, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_destructor ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_destructor, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Priority, I);
 }
 
@@ -9039,13 +9852,21 @@ DiagnoseAsBuiltinAttr *DiagnoseAsBuiltinAttr::Create(ASTContext &Ctx, FunctionDe
   return A;
 }
 
-DiagnoseAsBuiltinAttr *DiagnoseAsBuiltinAttr::CreateImplicit(ASTContext &Ctx, FunctionDecl * Function, unsigned *ArgIndices, unsigned ArgIndicesSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+DiagnoseAsBuiltinAttr *DiagnoseAsBuiltinAttr::CreateImplicit(ASTContext &Ctx, FunctionDecl * Function, unsigned *ArgIndices, unsigned ArgIndicesSize, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_diagnose_as_builtin ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_diagnose_as_builtin, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_diagnose_as_builtin ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_diagnose_as_builtin, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_diagnose_as_builtin ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_diagnose_as_builtin, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Function, ArgIndices, ArgIndicesSize, I);
 }
 
-DiagnoseAsBuiltinAttr *DiagnoseAsBuiltinAttr::Create(ASTContext &Ctx, FunctionDecl * Function, unsigned *ArgIndices, unsigned ArgIndicesSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+DiagnoseAsBuiltinAttr *DiagnoseAsBuiltinAttr::Create(ASTContext &Ctx, FunctionDecl * Function, unsigned *ArgIndices, unsigned ArgIndicesSize, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_diagnose_as_builtin ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_diagnose_as_builtin, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_diagnose_as_builtin ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_diagnose_as_builtin, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_diagnose_as_builtin ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_diagnose_as_builtin, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Function, ArgIndices, ArgIndicesSize, I);
 }
 
@@ -9168,13 +9989,13 @@ DiagnoseIfAttr *DiagnoseIfAttr::Create(ASTContext &Ctx, Expr * Cond, llvm::Strin
   return A;
 }
 
-DiagnoseIfAttr *DiagnoseIfAttr::CreateImplicit(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnosticType DiagnosticType, bool ArgDependent, NamedDecl * Parent, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+DiagnoseIfAttr *DiagnoseIfAttr::CreateImplicit(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnosticType DiagnosticType, bool ArgDependent, NamedDecl * Parent, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, Cond, Message, DiagnosticType, ArgDependent, Parent, I);
 }
 
-DiagnoseIfAttr *DiagnoseIfAttr::Create(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnosticType DiagnosticType, bool ArgDependent, NamedDecl * Parent, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+DiagnoseIfAttr *DiagnoseIfAttr::Create(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnosticType DiagnosticType, bool ArgDependent, NamedDecl * Parent, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, Cond, Message, DiagnosticType, ArgDependent, Parent, I);
 }
 
@@ -9193,13 +10014,13 @@ DiagnoseIfAttr *DiagnoseIfAttr::Create(ASTContext &Ctx, Expr * Cond, llvm::Strin
   return A;
 }
 
-DiagnoseIfAttr *DiagnoseIfAttr::CreateImplicit(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnosticType DiagnosticType, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+DiagnoseIfAttr *DiagnoseIfAttr::CreateImplicit(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnosticType DiagnosticType, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, Cond, Message, DiagnosticType, I);
 }
 
-DiagnoseIfAttr *DiagnoseIfAttr::Create(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnosticType DiagnosticType, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+DiagnoseIfAttr *DiagnoseIfAttr::Create(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnosticType DiagnosticType, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, Cond, Message, DiagnosticType, I);
 }
 
@@ -9327,13 +10148,21 @@ DisableSanitizerInstrumentationAttr *DisableSanitizerInstrumentationAttr::Create
   return A;
 }
 
-DisableSanitizerInstrumentationAttr *DisableSanitizerInstrumentationAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+DisableSanitizerInstrumentationAttr *DisableSanitizerInstrumentationAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_disable_sanitizer_instrumentation ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_disable_sanitizer_instrumentation, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_disable_sanitizer_instrumentation ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_disable_sanitizer_instrumentation, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_disable_sanitizer_instrumentation ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_disable_sanitizer_instrumentation, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-DisableSanitizerInstrumentationAttr *DisableSanitizerInstrumentationAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+DisableSanitizerInstrumentationAttr *DisableSanitizerInstrumentationAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_disable_sanitizer_instrumentation ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_disable_sanitizer_instrumentation, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_disable_sanitizer_instrumentation ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_disable_sanitizer_instrumentation, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_disable_sanitizer_instrumentation ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_disable_sanitizer_instrumentation, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -9408,13 +10237,21 @@ DisableTailCallsAttr *DisableTailCallsAttr::Create(ASTContext &Ctx, const Attrib
   return A;
 }
 
-DisableTailCallsAttr *DisableTailCallsAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+DisableTailCallsAttr *DisableTailCallsAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_disable_tail_calls ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_disable_tail_calls, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_disable_tail_calls ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_disable_tail_calls, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_disable_tail_calls ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_disable_tail_calls, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-DisableTailCallsAttr *DisableTailCallsAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+DisableTailCallsAttr *DisableTailCallsAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_disable_tail_calls ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_disable_tail_calls, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_disable_tail_calls ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_disable_tail_calls, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_disable_tail_calls ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_disable_tail_calls, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -9489,13 +10326,13 @@ EmptyBasesAttr *EmptyBasesAttr::Create(ASTContext &Ctx, const AttributeCommonInf
   return A;
 }
 
-EmptyBasesAttr *EmptyBasesAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+EmptyBasesAttr *EmptyBasesAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Declspec, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, I);
 }
 
-EmptyBasesAttr *EmptyBasesAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+EmptyBasesAttr *EmptyBasesAttr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Declspec, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, I);
 }
 
@@ -9556,13 +10393,13 @@ EnableIfAttr *EnableIfAttr::Create(ASTContext &Ctx, Expr * Cond, llvm::StringRef
   return A;
 }
 
-EnableIfAttr *EnableIfAttr::CreateImplicit(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+EnableIfAttr *EnableIfAttr::CreateImplicit(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, Cond, Message, I);
 }
 
-EnableIfAttr *EnableIfAttr::Create(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+EnableIfAttr *EnableIfAttr::Create(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, Cond, Message, I);
 }
 
@@ -9641,13 +10478,21 @@ EnforceTCBAttr *EnforceTCBAttr::Create(ASTContext &Ctx, llvm::StringRef TCBName,
   return A;
 }
 
-EnforceTCBAttr *EnforceTCBAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef TCBName, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+EnforceTCBAttr *EnforceTCBAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef TCBName, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_enforce_tcb ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_enforce_tcb, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_enforce_tcb ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_enforce_tcb, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_enforce_tcb ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_enforce_tcb, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, TCBName, I);
 }
 
-EnforceTCBAttr *EnforceTCBAttr::Create(ASTContext &Ctx, llvm::StringRef TCBName, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+EnforceTCBAttr *EnforceTCBAttr::Create(ASTContext &Ctx, llvm::StringRef TCBName, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_enforce_tcb ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_enforce_tcb, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_enforce_tcb ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_enforce_tcb, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_enforce_tcb ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_enforce_tcb, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, TCBName, I);
 }
 
@@ -9740,13 +10585,21 @@ EnforceTCBLeafAttr *EnforceTCBLeafAttr::Create(ASTContext &Ctx, llvm::StringRef 
   return A;
 }
 
-EnforceTCBLeafAttr *EnforceTCBLeafAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef TCBName, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+EnforceTCBLeafAttr *EnforceTCBLeafAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef TCBName, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_enforce_tcb_leaf ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_enforce_tcb_leaf, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_enforce_tcb_leaf ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_enforce_tcb_leaf, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_enforce_tcb_leaf ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_enforce_tcb_leaf, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, TCBName, I);
 }
 
-EnforceTCBLeafAttr *EnforceTCBLeafAttr::Create(ASTContext &Ctx, llvm::StringRef TCBName, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+EnforceTCBLeafAttr *EnforceTCBLeafAttr::Create(ASTContext &Ctx, llvm::StringRef TCBName, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_enforce_tcb_leaf ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_enforce_tcb_leaf, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_enforce_tcb_leaf ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_enforce_tcb_leaf, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_enforce_tcb_leaf ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_enforce_tcb_leaf, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, TCBName, I);
 }
 
@@ -9839,13 +10692,21 @@ EnumExtensibilityAttr *EnumExtensibilityAttr::Create(ASTContext &Ctx, Kind Exten
   return A;
 }
 
-EnumExtensibilityAttr *EnumExtensibilityAttr::CreateImplicit(ASTContext &Ctx, Kind Extensibility, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+EnumExtensibilityAttr *EnumExtensibilityAttr::CreateImplicit(ASTContext &Ctx, Kind Extensibility, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_enum_extensibility ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_enum_extensibility, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_enum_extensibility ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_enum_extensibility, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_enum_extensibility ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_enum_extensibility, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Extensibility, I);
 }
 
-EnumExtensibilityAttr *EnumExtensibilityAttr::Create(ASTContext &Ctx, Kind Extensibility, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+EnumExtensibilityAttr *EnumExtensibilityAttr::Create(ASTContext &Ctx, Kind Extensibility, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_enum_extensibility ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_enum_extensibility, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_enum_extensibility ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_enum_extensibility, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_enum_extensibility ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_enum_extensibility, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Extensibility, I);
 }
 
@@ -9953,13 +10814,27 @@ ErrorAttr *ErrorAttr::Create(ASTContext &Ctx, llvm::StringRef UserDiagnostic, co
   return A;
 }
 
-ErrorAttr *ErrorAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef UserDiagnostic, SourceRange Range, AttributeCommonInfo::Syntax Syntax, ErrorAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+ErrorAttr *ErrorAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef UserDiagnostic, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_error ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_error, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_error ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_error, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_error ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_error, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_warning ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_warning, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_warning ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_warning, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_warning ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_warning, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, UserDiagnostic, I);
 }
 
-ErrorAttr *ErrorAttr::Create(ASTContext &Ctx, llvm::StringRef UserDiagnostic, SourceRange Range, AttributeCommonInfo::Syntax Syntax, ErrorAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+ErrorAttr *ErrorAttr::Create(ASTContext &Ctx, llvm::StringRef UserDiagnostic, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_error ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_error, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_error ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_error, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_error ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_error, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_warning ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_warning, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_warning ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_warning, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_warning ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_warning, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, UserDiagnostic, I);
 }
 
@@ -10096,13 +10971,21 @@ ExcludeFromExplicitInstantiationAttr *ExcludeFromExplicitInstantiationAttr::Crea
   return A;
 }
 
-ExcludeFromExplicitInstantiationAttr *ExcludeFromExplicitInstantiationAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ExcludeFromExplicitInstantiationAttr *ExcludeFromExplicitInstantiationAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_exclude_from_explicit_instantiation ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_exclude_from_explicit_instantiation, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_exclude_from_explicit_instantiation ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_exclude_from_explicit_instantiation, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_exclude_from_explicit_instantiation ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_exclude_from_explicit_instantiation, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-ExcludeFromExplicitInstantiationAttr *ExcludeFromExplicitInstantiationAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ExcludeFromExplicitInstantiationAttr *ExcludeFromExplicitInstantiationAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_exclude_from_explicit_instantiation ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_exclude_from_explicit_instantiation, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_exclude_from_explicit_instantiation ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_exclude_from_explicit_instantiation, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_exclude_from_explicit_instantiation ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_exclude_from_explicit_instantiation, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -10177,13 +11060,13 @@ ExclusiveTrylockFunctionAttr *ExclusiveTrylockFunctionAttr::Create(ASTContext &C
   return A;
 }
 
-ExclusiveTrylockFunctionAttr *ExclusiveTrylockFunctionAttr::CreateImplicit(ASTContext &Ctx, Expr * SuccessValue, Expr * *Args, unsigned ArgsSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ExclusiveTrylockFunctionAttr *ExclusiveTrylockFunctionAttr::CreateImplicit(ASTContext &Ctx, Expr * SuccessValue, Expr * *Args, unsigned ArgsSize, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, SuccessValue, Args, ArgsSize, I);
 }
 
-ExclusiveTrylockFunctionAttr *ExclusiveTrylockFunctionAttr::Create(ASTContext &Ctx, Expr * SuccessValue, Expr * *Args, unsigned ArgsSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ExclusiveTrylockFunctionAttr *ExclusiveTrylockFunctionAttr::Create(ASTContext &Ctx, Expr * SuccessValue, Expr * *Args, unsigned ArgsSize, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, SuccessValue, Args, ArgsSize, I);
 }
 
@@ -10259,45 +11142,57 @@ const char *ExclusiveTrylockFunctionAttr::getSpelling() const {
 
 // ExternalSourceSymbolAttr implementation
 
-ExternalSourceSymbolAttr *ExternalSourceSymbolAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Language, llvm::StringRef DefinedIn, bool GeneratedDeclaration, const AttributeCommonInfo &CommonInfo) {
-  auto *A = new (Ctx) ExternalSourceSymbolAttr(Ctx, CommonInfo, Language, DefinedIn, GeneratedDeclaration);
+ExternalSourceSymbolAttr *ExternalSourceSymbolAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Language, llvm::StringRef DefinedIn, bool GeneratedDeclaration, llvm::StringRef USR, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) ExternalSourceSymbolAttr(Ctx, CommonInfo, Language, DefinedIn, GeneratedDeclaration, USR);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-ExternalSourceSymbolAttr *ExternalSourceSymbolAttr::Create(ASTContext &Ctx, llvm::StringRef Language, llvm::StringRef DefinedIn, bool GeneratedDeclaration, const AttributeCommonInfo &CommonInfo) {
-  auto *A = new (Ctx) ExternalSourceSymbolAttr(Ctx, CommonInfo, Language, DefinedIn, GeneratedDeclaration);
+ExternalSourceSymbolAttr *ExternalSourceSymbolAttr::Create(ASTContext &Ctx, llvm::StringRef Language, llvm::StringRef DefinedIn, bool GeneratedDeclaration, llvm::StringRef USR, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) ExternalSourceSymbolAttr(Ctx, CommonInfo, Language, DefinedIn, GeneratedDeclaration, USR);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-ExternalSourceSymbolAttr *ExternalSourceSymbolAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Language, llvm::StringRef DefinedIn, bool GeneratedDeclaration, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
-  return CreateImplicit(Ctx, Language, DefinedIn, GeneratedDeclaration, I);
+ExternalSourceSymbolAttr *ExternalSourceSymbolAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Language, llvm::StringRef DefinedIn, bool GeneratedDeclaration, llvm::StringRef USR, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_external_source_symbol ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_external_source_symbol, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_external_source_symbol ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_external_source_symbol, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_external_source_symbol ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_external_source_symbol, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
+  return CreateImplicit(Ctx, Language, DefinedIn, GeneratedDeclaration, USR, I);
 }
 
-ExternalSourceSymbolAttr *ExternalSourceSymbolAttr::Create(ASTContext &Ctx, llvm::StringRef Language, llvm::StringRef DefinedIn, bool GeneratedDeclaration, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
-  return Create(Ctx, Language, DefinedIn, GeneratedDeclaration, I);
+ExternalSourceSymbolAttr *ExternalSourceSymbolAttr::Create(ASTContext &Ctx, llvm::StringRef Language, llvm::StringRef DefinedIn, bool GeneratedDeclaration, llvm::StringRef USR, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_external_source_symbol ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_external_source_symbol, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_external_source_symbol ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_external_source_symbol, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_external_source_symbol ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_external_source_symbol, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
+  return Create(Ctx, Language, DefinedIn, GeneratedDeclaration, USR, I);
 }
 
 ExternalSourceSymbolAttr::ExternalSourceSymbolAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
               , llvm::StringRef Language
               , llvm::StringRef DefinedIn
               , bool GeneratedDeclaration
+              , llvm::StringRef USR
              )
   : InheritableAttr(Ctx, CommonInfo, attr::ExternalSourceSymbol, false, false)
               , languageLength(Language.size()),language(new (Ctx, 1) char[languageLength])
               , definedInLength(DefinedIn.size()),definedIn(new (Ctx, 1) char[definedInLength])
               , generatedDeclaration(GeneratedDeclaration)
+              , uSRLength(USR.size()),uSR(new (Ctx, 1) char[uSRLength])
   {
     if (!Language.empty())
       std::memcpy(language, Language.data(), languageLength);
     if (!DefinedIn.empty())
       std::memcpy(definedIn, DefinedIn.data(), definedInLength);
+    if (!USR.empty())
+      std::memcpy(uSR, USR.data(), uSRLength);
 }
 
 ExternalSourceSymbolAttr::ExternalSourceSymbolAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
@@ -10306,6 +11201,7 @@ ExternalSourceSymbolAttr::ExternalSourceSymbolAttr(ASTContext &Ctx, const Attrib
               , languageLength(0),language(nullptr)
               , definedInLength(0),definedIn(nullptr)
               , generatedDeclaration()
+              , uSRLength(0),uSR(nullptr)
   {
 }
 
@@ -10315,8 +11211,10 @@ ExternalSourceSymbolAttr::ExternalSourceSymbolAttr(ASTContext &Ctx, const Attrib
 
 
 
+
+
 ExternalSourceSymbolAttr *ExternalSourceSymbolAttr::clone(ASTContext &C) const {
-  auto *A = new (C) ExternalSourceSymbolAttr(C, *this, getLanguage(), getDefinedIn(), generatedDeclaration);
+  auto *A = new (C) ExternalSourceSymbolAttr(C, *this, getLanguage(), getDefinedIn(), generatedDeclaration, getUSR());
   A->Inherited = Inherited;
   A->IsPackExpansion = IsPackExpansion;
   A->setImplicit(Implicit);
@@ -10338,6 +11236,8 @@ void ExternalSourceSymbolAttr::printPretty(raw_ostream &OS, const PrintingPolicy
     OS << "\"" << getDefinedIn() << "\"";
     DelimitAttributeArgument(OS, IsFirstArgument);
     OS << "" << getGeneratedDeclaration() << "";
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "\"" << getUSR() << "\"";
     if (!IsFirstArgument)
       OS << ")";
     OS << "))";
@@ -10351,6 +11251,8 @@ void ExternalSourceSymbolAttr::printPretty(raw_ostream &OS, const PrintingPolicy
     OS << "\"" << getDefinedIn() << "\"";
     DelimitAttributeArgument(OS, IsFirstArgument);
     OS << "" << getGeneratedDeclaration() << "";
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "\"" << getUSR() << "\"";
     if (!IsFirstArgument)
       OS << ")";
     OS << "]]";
@@ -10364,6 +11266,8 @@ void ExternalSourceSymbolAttr::printPretty(raw_ostream &OS, const PrintingPolicy
     OS << "\"" << getDefinedIn() << "\"";
     DelimitAttributeArgument(OS, IsFirstArgument);
     OS << "" << getGeneratedDeclaration() << "";
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "\"" << getUSR() << "\"";
     if (!IsFirstArgument)
       OS << ")";
     OS << "]]";
@@ -10404,13 +11308,27 @@ FallThroughAttr *FallThroughAttr::Create(ASTContext &Ctx, const AttributeCommonI
   return A;
 }
 
-FallThroughAttr *FallThroughAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+FallThroughAttr *FallThroughAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == CXX11_fallthrough ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_fallthrough, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_fallthrough ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_fallthrough, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_fallthrough ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_fallthrough, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_fallthrough ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_fallthrough, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_fallthrough ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_fallthrough, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_fallthrough ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_fallthrough, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-FallThroughAttr *FallThroughAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+FallThroughAttr *FallThroughAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == CXX11_fallthrough ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_fallthrough, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_fallthrough ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_fallthrough, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_fallthrough ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_fallthrough, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_fallthrough ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_fallthrough, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_fallthrough ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_fallthrough, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_fallthrough ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_fallthrough, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -10506,13 +11424,23 @@ FastCallAttr *FastCallAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &C
   return A;
 }
 
-FastCallAttr *FastCallAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+FastCallAttr *FastCallAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_fastcall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_fastcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_fastcall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_fastcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_fastcall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_fastcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Keyword_fastcall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_fastcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-FastCallAttr *FastCallAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+FastCallAttr *FastCallAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_fastcall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_fastcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_fastcall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_fastcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_fastcall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_fastcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Keyword_fastcall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_fastcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -10599,13 +11527,19 @@ FinalAttr *FinalAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonI
   return A;
 }
 
-FinalAttr *FinalAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax, FinalAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+FinalAttr *FinalAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == Keyword_final ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_final, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Keyword_sealed ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_sealed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-FinalAttr *FinalAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax, FinalAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+FinalAttr *FinalAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == Keyword_final ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_final, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Keyword_sealed ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_sealed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -10680,13 +11614,21 @@ FlagEnumAttr *FlagEnumAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &C
   return A;
 }
 
-FlagEnumAttr *FlagEnumAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+FlagEnumAttr *FlagEnumAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_flag_enum ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_flag_enum, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_flag_enum ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_flag_enum, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_flag_enum ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_flag_enum, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-FlagEnumAttr *FlagEnumAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+FlagEnumAttr *FlagEnumAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_flag_enum ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_flag_enum, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_flag_enum ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_flag_enum, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_flag_enum ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_flag_enum, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -10761,13 +11703,21 @@ FlattenAttr *FlattenAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &Com
   return A;
 }
 
-FlattenAttr *FlattenAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+FlattenAttr *FlattenAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_flatten ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_flatten, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_flatten ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_flatten, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_flatten ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_flatten, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-FlattenAttr *FlattenAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+FlattenAttr *FlattenAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_flatten ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_flatten, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_flatten ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_flatten, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_flatten ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_flatten, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -10842,13 +11792,21 @@ FormatAttr *FormatAttr::Create(ASTContext &Ctx, IdentifierInfo * Type, int Forma
   return A;
 }
 
-FormatAttr *FormatAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * Type, int FormatIdx, int FirstArg, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+FormatAttr *FormatAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * Type, int FormatIdx, int FirstArg, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_format ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_format, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_format ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_format, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_format ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_format, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Type, FormatIdx, FirstArg, I);
 }
 
-FormatAttr *FormatAttr::Create(ASTContext &Ctx, IdentifierInfo * Type, int FormatIdx, int FirstArg, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+FormatAttr *FormatAttr::Create(ASTContext &Ctx, IdentifierInfo * Type, int FormatIdx, int FirstArg, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_format ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_format, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_format ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_format, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_format ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_format, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Type, FormatIdx, FirstArg, I);
 }
 
@@ -10959,13 +11917,21 @@ FormatArgAttr *FormatArgAttr::Create(ASTContext &Ctx, ParamIdx FormatIdx, const 
   return A;
 }
 
-FormatArgAttr *FormatArgAttr::CreateImplicit(ASTContext &Ctx, ParamIdx FormatIdx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+FormatArgAttr *FormatArgAttr::CreateImplicit(ASTContext &Ctx, ParamIdx FormatIdx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_format_arg ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_format_arg, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_format_arg ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_format_arg, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_format_arg ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_format_arg, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, FormatIdx, I);
 }
 
-FormatArgAttr *FormatArgAttr::Create(ASTContext &Ctx, ParamIdx FormatIdx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+FormatArgAttr *FormatArgAttr::Create(ASTContext &Ctx, ParamIdx FormatIdx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_format_arg ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_format_arg, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_format_arg ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_format_arg, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_format_arg ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_format_arg, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, FormatIdx, I);
 }
 
@@ -11056,13 +12022,21 @@ FunctionReturnThunksAttr *FunctionReturnThunksAttr::Create(ASTContext &Ctx, Kind
   return A;
 }
 
-FunctionReturnThunksAttr *FunctionReturnThunksAttr::CreateImplicit(ASTContext &Ctx, Kind ThunkType, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+FunctionReturnThunksAttr *FunctionReturnThunksAttr::CreateImplicit(ASTContext &Ctx, Kind ThunkType, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_function_return ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_function_return, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_function_return ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_function_return, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_function_return ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_function_return, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, ThunkType, I);
 }
 
-FunctionReturnThunksAttr *FunctionReturnThunksAttr::Create(ASTContext &Ctx, Kind ThunkType, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+FunctionReturnThunksAttr *FunctionReturnThunksAttr::Create(ASTContext &Ctx, Kind ThunkType, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_function_return ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_function_return, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_function_return ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_function_return, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_function_return ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_function_return, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, ThunkType, I);
 }
 
@@ -11172,13 +12146,21 @@ GNUInlineAttr *GNUInlineAttr::Create(ASTContext &Ctx, const AttributeCommonInfo 
   return A;
 }
 
-GNUInlineAttr *GNUInlineAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+GNUInlineAttr *GNUInlineAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_gnu_inline ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_gnu_inline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_gnu_inline ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_gnu_inline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_gnu_inline ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_gnu_inline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-GNUInlineAttr *GNUInlineAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+GNUInlineAttr *GNUInlineAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_gnu_inline ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_gnu_inline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_gnu_inline ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_gnu_inline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_gnu_inline ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_gnu_inline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -11253,13 +12235,13 @@ GuardedByAttr *GuardedByAttr::Create(ASTContext &Ctx, Expr * Arg, const Attribut
   return A;
 }
 
-GuardedByAttr *GuardedByAttr::CreateImplicit(ASTContext &Ctx, Expr * Arg, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+GuardedByAttr *GuardedByAttr::CreateImplicit(ASTContext &Ctx, Expr * Arg, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, Arg, I);
 }
 
-GuardedByAttr *GuardedByAttr::Create(ASTContext &Ctx, Expr * Arg, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+GuardedByAttr *GuardedByAttr::Create(ASTContext &Ctx, Expr * Arg, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, Arg, I);
 }
 
@@ -11330,13 +12312,19 @@ GuardedVarAttr *GuardedVarAttr::Create(ASTContext &Ctx, const AttributeCommonInf
   return A;
 }
 
-GuardedVarAttr *GuardedVarAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+GuardedVarAttr *GuardedVarAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_guarded_var ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_guarded_var, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_guarded_var ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_guarded_var, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-GuardedVarAttr *GuardedVarAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+GuardedVarAttr *GuardedVarAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_guarded_var ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_guarded_var, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_guarded_var ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_guarded_var, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -11404,13 +12392,19 @@ HIPManagedAttr *HIPManagedAttr::Create(ASTContext &Ctx, const AttributeCommonInf
   return A;
 }
 
-HIPManagedAttr *HIPManagedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+HIPManagedAttr *HIPManagedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_managed ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_managed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Declspec_managed ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_managed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-HIPManagedAttr *HIPManagedAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+HIPManagedAttr *HIPManagedAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_managed ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_managed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Declspec_managed ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_managed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -11478,13 +12472,13 @@ HLSLGroupSharedAddressSpaceAttr *HLSLGroupSharedAddressSpaceAttr::Create(ASTCont
   return A;
 }
 
-HLSLGroupSharedAddressSpaceAttr *HLSLGroupSharedAddressSpaceAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+HLSLGroupSharedAddressSpaceAttr *HLSLGroupSharedAddressSpaceAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, I);
 }
 
-HLSLGroupSharedAddressSpaceAttr *HLSLGroupSharedAddressSpaceAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+HLSLGroupSharedAddressSpaceAttr *HLSLGroupSharedAddressSpaceAttr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, I);
 }
 
@@ -11545,13 +12539,13 @@ HLSLNumThreadsAttr *HLSLNumThreadsAttr::Create(ASTContext &Ctx, int X, int Y, in
   return A;
 }
 
-HLSLNumThreadsAttr *HLSLNumThreadsAttr::CreateImplicit(ASTContext &Ctx, int X, int Y, int Z, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+HLSLNumThreadsAttr *HLSLNumThreadsAttr::CreateImplicit(ASTContext &Ctx, int X, int Y, int Z, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Microsoft, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, X, Y, Z, I);
 }
 
-HLSLNumThreadsAttr *HLSLNumThreadsAttr::Create(ASTContext &Ctx, int X, int Y, int Z, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+HLSLNumThreadsAttr *HLSLNumThreadsAttr::Create(ASTContext &Ctx, int X, int Y, int Z, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Microsoft, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, X, Y, Z, I);
 }
 
@@ -11632,13 +12626,13 @@ HLSLResourceAttr *HLSLResourceAttr::Create(ASTContext &Ctx, ResourceClass Resour
   return A;
 }
 
-HLSLResourceAttr *HLSLResourceAttr::CreateImplicit(ASTContext &Ctx, ResourceClass ResourceType, ResourceKind ResourceShape, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+HLSLResourceAttr *HLSLResourceAttr::CreateImplicit(ASTContext &Ctx, ResourceClass ResourceType, ResourceKind ResourceShape, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
   return CreateImplicit(Ctx, ResourceType, ResourceShape, I);
 }
 
-HLSLResourceAttr *HLSLResourceAttr::Create(ASTContext &Ctx, ResourceClass ResourceType, ResourceKind ResourceShape, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+HLSLResourceAttr *HLSLResourceAttr::Create(ASTContext &Ctx, ResourceClass ResourceType, ResourceKind ResourceShape, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
   return Create(Ctx, ResourceType, ResourceShape, I);
 }
 
@@ -11763,13 +12757,13 @@ HLSLResourceBindingAttr *HLSLResourceBindingAttr::Create(ASTContext &Ctx, llvm::
   return A;
 }
 
-HLSLResourceBindingAttr *HLSLResourceBindingAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Slot, llvm::StringRef Space, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+HLSLResourceBindingAttr *HLSLResourceBindingAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Slot, llvm::StringRef Space, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_HLSLSemantic, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, Slot, Space, I);
 }
 
-HLSLResourceBindingAttr *HLSLResourceBindingAttr::Create(ASTContext &Ctx, llvm::StringRef Slot, llvm::StringRef Space, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+HLSLResourceBindingAttr *HLSLResourceBindingAttr::Create(ASTContext &Ctx, llvm::StringRef Slot, llvm::StringRef Space, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_HLSLSemantic, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, Slot, Space, I);
 }
 
@@ -11859,13 +12853,13 @@ HLSLSV_DispatchThreadIDAttr *HLSLSV_DispatchThreadIDAttr::Create(ASTContext &Ctx
   return A;
 }
 
-HLSLSV_DispatchThreadIDAttr *HLSLSV_DispatchThreadIDAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+HLSLSV_DispatchThreadIDAttr *HLSLSV_DispatchThreadIDAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_HLSLSemantic, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, I);
 }
 
-HLSLSV_DispatchThreadIDAttr *HLSLSV_DispatchThreadIDAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+HLSLSV_DispatchThreadIDAttr *HLSLSV_DispatchThreadIDAttr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_HLSLSemantic, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, I);
 }
 
@@ -11926,13 +12920,13 @@ HLSLSV_GroupIndexAttr *HLSLSV_GroupIndexAttr::Create(ASTContext &Ctx, const Attr
   return A;
 }
 
-HLSLSV_GroupIndexAttr *HLSLSV_GroupIndexAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+HLSLSV_GroupIndexAttr *HLSLSV_GroupIndexAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_HLSLSemantic, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, I);
 }
 
-HLSLSV_GroupIndexAttr *HLSLSV_GroupIndexAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+HLSLSV_GroupIndexAttr *HLSLSV_GroupIndexAttr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_HLSLSemantic, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, I);
 }
 
@@ -11993,13 +12987,13 @@ HLSLShaderAttr *HLSLShaderAttr::Create(ASTContext &Ctx, ShaderType Type, const A
   return A;
 }
 
-HLSLShaderAttr *HLSLShaderAttr::CreateImplicit(ASTContext &Ctx, ShaderType Type, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+HLSLShaderAttr *HLSLShaderAttr::CreateImplicit(ASTContext &Ctx, ShaderType Type, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Microsoft, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, Type, I);
 }
 
-HLSLShaderAttr *HLSLShaderAttr::Create(ASTContext &Ctx, ShaderType Type, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+HLSLShaderAttr *HLSLShaderAttr::Create(ASTContext &Ctx, ShaderType Type, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Microsoft, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, Type, I);
 }
 
@@ -12113,13 +13107,21 @@ HotAttr *HotAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo)
   return A;
 }
 
-HotAttr *HotAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+HotAttr *HotAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_hot ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_hot, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_hot ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_hot, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_hot ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_hot, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-HotAttr *HotAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+HotAttr *HotAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_hot ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_hot, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_hot ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_hot, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_hot ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_hot, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -12194,13 +13196,21 @@ IBActionAttr *IBActionAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &C
   return A;
 }
 
-IBActionAttr *IBActionAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+IBActionAttr *IBActionAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_ibaction ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_ibaction, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_ibaction ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_ibaction, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_ibaction ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_ibaction, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-IBActionAttr *IBActionAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+IBActionAttr *IBActionAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_ibaction ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_ibaction, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_ibaction ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_ibaction, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_ibaction ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_ibaction, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -12275,13 +13285,21 @@ IBOutletAttr *IBOutletAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &C
   return A;
 }
 
-IBOutletAttr *IBOutletAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+IBOutletAttr *IBOutletAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_iboutlet ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_iboutlet, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_iboutlet ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_iboutlet, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_iboutlet ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_iboutlet, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-IBOutletAttr *IBOutletAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+IBOutletAttr *IBOutletAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_iboutlet ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_iboutlet, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_iboutlet ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_iboutlet, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_iboutlet ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_iboutlet, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -12356,13 +13374,21 @@ IBOutletCollectionAttr *IBOutletCollectionAttr::Create(ASTContext &Ctx, TypeSour
   return A;
 }
 
-IBOutletCollectionAttr *IBOutletCollectionAttr::CreateImplicit(ASTContext &Ctx, TypeSourceInfo * Interface, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+IBOutletCollectionAttr *IBOutletCollectionAttr::CreateImplicit(ASTContext &Ctx, TypeSourceInfo * Interface, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_iboutletcollection ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_iboutletcollection, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_iboutletcollection ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_iboutletcollection, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_iboutletcollection ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_iboutletcollection, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Interface, I);
 }
 
-IBOutletCollectionAttr *IBOutletCollectionAttr::Create(ASTContext &Ctx, TypeSourceInfo * Interface, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+IBOutletCollectionAttr *IBOutletCollectionAttr::Create(ASTContext &Ctx, TypeSourceInfo * Interface, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_iboutletcollection ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_iboutletcollection, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_iboutletcollection ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_iboutletcollection, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_iboutletcollection ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_iboutletcollection, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Interface, I);
 }
 
@@ -12472,13 +13498,21 @@ IFuncAttr *IFuncAttr::Create(ASTContext &Ctx, llvm::StringRef Resolver, const At
   return A;
 }
 
-IFuncAttr *IFuncAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Resolver, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+IFuncAttr *IFuncAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Resolver, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_ifunc ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_ifunc, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_ifunc ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_ifunc, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_ifunc ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_ifunc, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Resolver, I);
 }
 
-IFuncAttr *IFuncAttr::Create(ASTContext &Ctx, llvm::StringRef Resolver, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+IFuncAttr *IFuncAttr::Create(ASTContext &Ctx, llvm::StringRef Resolver, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_ifunc ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_ifunc, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_ifunc ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_ifunc, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_ifunc ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_ifunc, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Resolver, I);
 }
 
@@ -12571,13 +13605,19 @@ InitPriorityAttr *InitPriorityAttr::Create(ASTContext &Ctx, unsigned Priority, c
   return A;
 }
 
-InitPriorityAttr *InitPriorityAttr::CreateImplicit(ASTContext &Ctx, unsigned Priority, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+InitPriorityAttr *InitPriorityAttr::CreateImplicit(ASTContext &Ctx, unsigned Priority, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_init_priority ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_init_priority, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_init_priority ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_init_priority, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Priority, I);
 }
 
-InitPriorityAttr *InitPriorityAttr::Create(ASTContext &Ctx, unsigned Priority, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+InitPriorityAttr *InitPriorityAttr::Create(ASTContext &Ctx, unsigned Priority, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_init_priority ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_init_priority, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_init_priority ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_init_priority, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Priority, I);
 }
 
@@ -12657,13 +13697,13 @@ InitSegAttr *InitSegAttr::Create(ASTContext &Ctx, llvm::StringRef Section, const
   return A;
 }
 
-InitSegAttr *InitSegAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Section, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+InitSegAttr *InitSegAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Section, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Pragma, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, Section, I);
 }
 
-InitSegAttr *InitSegAttr::Create(ASTContext &Ctx, llvm::StringRef Section, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+InitSegAttr *InitSegAttr::Create(ASTContext &Ctx, llvm::StringRef Section, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Pragma, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, Section, I);
 }
 
@@ -12730,13 +13770,19 @@ IntelOclBiccAttr *IntelOclBiccAttr::Create(ASTContext &Ctx, const AttributeCommo
   return A;
 }
 
-IntelOclBiccAttr *IntelOclBiccAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+IntelOclBiccAttr *IntelOclBiccAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_intel_ocl_bicc ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_intel_ocl_bicc, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_intel_ocl_bicc ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_intel_ocl_bicc, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-IntelOclBiccAttr *IntelOclBiccAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+IntelOclBiccAttr *IntelOclBiccAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_intel_ocl_bicc ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_intel_ocl_bicc, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_intel_ocl_bicc ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_intel_ocl_bicc, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -12804,13 +13850,21 @@ InternalLinkageAttr *InternalLinkageAttr::Create(ASTContext &Ctx, const Attribut
   return A;
 }
 
-InternalLinkageAttr *InternalLinkageAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+InternalLinkageAttr *InternalLinkageAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_internal_linkage ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_internal_linkage, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_internal_linkage ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_internal_linkage, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_internal_linkage ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_internal_linkage, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-InternalLinkageAttr *InternalLinkageAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+InternalLinkageAttr *InternalLinkageAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_internal_linkage ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_internal_linkage, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_internal_linkage ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_internal_linkage, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_internal_linkage ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_internal_linkage, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -12885,13 +13939,21 @@ LTOVisibilityPublicAttr *LTOVisibilityPublicAttr::Create(ASTContext &Ctx, const 
   return A;
 }
 
-LTOVisibilityPublicAttr *LTOVisibilityPublicAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+LTOVisibilityPublicAttr *LTOVisibilityPublicAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_lto_visibility_public ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_lto_visibility_public, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_lto_visibility_public ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_lto_visibility_public, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_lto_visibility_public ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_lto_visibility_public, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-LTOVisibilityPublicAttr *LTOVisibilityPublicAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+LTOVisibilityPublicAttr *LTOVisibilityPublicAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_lto_visibility_public ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_lto_visibility_public, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_lto_visibility_public ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_lto_visibility_public, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_lto_visibility_public ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_lto_visibility_public, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -12966,13 +14028,13 @@ LayoutVersionAttr *LayoutVersionAttr::Create(ASTContext &Ctx, unsigned Version, 
   return A;
 }
 
-LayoutVersionAttr *LayoutVersionAttr::CreateImplicit(ASTContext &Ctx, unsigned Version, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+LayoutVersionAttr *LayoutVersionAttr::CreateImplicit(ASTContext &Ctx, unsigned Version, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Declspec, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, Version, I);
 }
 
-LayoutVersionAttr *LayoutVersionAttr::Create(ASTContext &Ctx, unsigned Version, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+LayoutVersionAttr *LayoutVersionAttr::Create(ASTContext &Ctx, unsigned Version, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Declspec, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, Version, I);
 }
 
@@ -13041,13 +14103,21 @@ LeafAttr *LeafAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInf
   return A;
 }
 
-LeafAttr *LeafAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+LeafAttr *LeafAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_leaf ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_leaf, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_leaf ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_leaf, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_leaf ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_leaf, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-LeafAttr *LeafAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+LeafAttr *LeafAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_leaf ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_leaf, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_leaf ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_leaf, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_leaf ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_leaf, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -13122,13 +14192,19 @@ LifetimeBoundAttr *LifetimeBoundAttr::Create(ASTContext &Ctx, const AttributeCom
   return A;
 }
 
-LifetimeBoundAttr *LifetimeBoundAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+LifetimeBoundAttr *LifetimeBoundAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_lifetimebound ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_lifetimebound, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_lifetimebound ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_lifetimebound, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-LifetimeBoundAttr *LifetimeBoundAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+LifetimeBoundAttr *LifetimeBoundAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_lifetimebound ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_lifetimebound, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_lifetimebound ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_lifetimebound, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -13196,13 +14272,19 @@ LikelyAttr *LikelyAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &Commo
   return A;
 }
 
-LikelyAttr *LikelyAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+LikelyAttr *LikelyAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == CXX11_likely ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_likely, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_likely ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_likely, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-LikelyAttr *LikelyAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+LikelyAttr *LikelyAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == CXX11_likely ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_likely, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_likely ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_likely, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -13270,13 +14352,21 @@ LoaderUninitializedAttr *LoaderUninitializedAttr::Create(ASTContext &Ctx, const 
   return A;
 }
 
-LoaderUninitializedAttr *LoaderUninitializedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+LoaderUninitializedAttr *LoaderUninitializedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_loader_uninitialized ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_loader_uninitialized, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_loader_uninitialized ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_loader_uninitialized, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_loader_uninitialized ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_loader_uninitialized, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-LoaderUninitializedAttr *LoaderUninitializedAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+LoaderUninitializedAttr *LoaderUninitializedAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_loader_uninitialized ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_loader_uninitialized, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_loader_uninitialized ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_loader_uninitialized, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_loader_uninitialized ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_loader_uninitialized, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -13351,13 +14441,13 @@ LockReturnedAttr *LockReturnedAttr::Create(ASTContext &Ctx, Expr * Arg, const At
   return A;
 }
 
-LockReturnedAttr *LockReturnedAttr::CreateImplicit(ASTContext &Ctx, Expr * Arg, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+LockReturnedAttr *LockReturnedAttr::CreateImplicit(ASTContext &Ctx, Expr * Arg, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, Arg, I);
 }
 
-LockReturnedAttr *LockReturnedAttr::Create(ASTContext &Ctx, Expr * Arg, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+LockReturnedAttr *LockReturnedAttr::Create(ASTContext &Ctx, Expr * Arg, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, Arg, I);
 }
 
@@ -13428,13 +14518,13 @@ LocksExcludedAttr *LocksExcludedAttr::Create(ASTContext &Ctx, Expr * *Args, unsi
   return A;
 }
 
-LocksExcludedAttr *LocksExcludedAttr::CreateImplicit(ASTContext &Ctx, Expr * *Args, unsigned ArgsSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+LocksExcludedAttr *LocksExcludedAttr::CreateImplicit(ASTContext &Ctx, Expr * *Args, unsigned ArgsSize, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, Args, ArgsSize, I);
 }
 
-LocksExcludedAttr *LocksExcludedAttr::Create(ASTContext &Ctx, Expr * *Args, unsigned ArgsSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+LocksExcludedAttr *LocksExcludedAttr::Create(ASTContext &Ctx, Expr * *Args, unsigned ArgsSize, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, Args, ArgsSize, I);
 }
 
@@ -13513,13 +14603,25 @@ LoopHintAttr *LoopHintAttr::Create(ASTContext &Ctx, OptionType Option, LoopHintS
   return A;
 }
 
-LoopHintAttr *LoopHintAttr::CreateImplicit(ASTContext &Ctx, OptionType Option, LoopHintState State, Expr * Value, SourceRange Range, AttributeCommonInfo::Syntax Syntax, LoopHintAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+LoopHintAttr *LoopHintAttr::CreateImplicit(ASTContext &Ctx, OptionType Option, LoopHintState State, Expr * Value, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == Pragma_clang_loop ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Pragma, Pragma_clang_loop, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Pragma_unroll ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Pragma, Pragma_unroll, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Pragma_nounroll ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Pragma, Pragma_nounroll, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Pragma_unroll_and_jam ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Pragma, Pragma_unroll_and_jam, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Pragma_nounroll_and_jam ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Pragma, Pragma_nounroll_and_jam, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_Pragma, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Option, State, Value, I);
 }
 
-LoopHintAttr *LoopHintAttr::Create(ASTContext &Ctx, OptionType Option, LoopHintState State, Expr * Value, SourceRange Range, AttributeCommonInfo::Syntax Syntax, LoopHintAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+LoopHintAttr *LoopHintAttr::Create(ASTContext &Ctx, OptionType Option, LoopHintState State, Expr * Value, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == Pragma_clang_loop ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Pragma, Pragma_clang_loop, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Pragma_unroll ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Pragma, Pragma_unroll, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Pragma_nounroll ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Pragma, Pragma_nounroll, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Pragma_unroll_and_jam ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Pragma, Pragma_unroll_and_jam, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Pragma_nounroll_and_jam ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Pragma, Pragma_nounroll_and_jam, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_Pragma, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Option, State, Value, I);
 }
 
@@ -13698,13 +14800,13 @@ M68kInterruptAttr *M68kInterruptAttr::Create(ASTContext &Ctx, unsigned Number, c
   return A;
 }
 
-M68kInterruptAttr *M68kInterruptAttr::CreateImplicit(ASTContext &Ctx, unsigned Number, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+M68kInterruptAttr *M68kInterruptAttr::CreateImplicit(ASTContext &Ctx, unsigned Number, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, Number, I);
 }
 
-M68kInterruptAttr *M68kInterruptAttr::Create(ASTContext &Ctx, unsigned Number, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+M68kInterruptAttr *M68kInterruptAttr::Create(ASTContext &Ctx, unsigned Number, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, Number, I);
 }
 
@@ -13773,13 +14875,21 @@ MIGServerRoutineAttr *MIGServerRoutineAttr::Create(ASTContext &Ctx, const Attrib
   return A;
 }
 
-MIGServerRoutineAttr *MIGServerRoutineAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+MIGServerRoutineAttr *MIGServerRoutineAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_mig_server_routine ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_mig_server_routine, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_mig_server_routine ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_mig_server_routine, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_mig_server_routine ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_mig_server_routine, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-MIGServerRoutineAttr *MIGServerRoutineAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+MIGServerRoutineAttr *MIGServerRoutineAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_mig_server_routine ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_mig_server_routine, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_mig_server_routine ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_mig_server_routine, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_mig_server_routine ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_mig_server_routine, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -13854,13 +14964,21 @@ MSABIAttr *MSABIAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonI
   return A;
 }
 
-MSABIAttr *MSABIAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+MSABIAttr *MSABIAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_ms_abi ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_ms_abi, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_ms_abi ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_ms_abi, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_ms_abi ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_ms_abi, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-MSABIAttr *MSABIAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+MSABIAttr *MSABIAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_ms_abi ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_ms_abi, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_ms_abi ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_ms_abi, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_ms_abi ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_ms_abi, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -13935,13 +15053,13 @@ MSAllocatorAttr *MSAllocatorAttr::Create(ASTContext &Ctx, const AttributeCommonI
   return A;
 }
 
-MSAllocatorAttr *MSAllocatorAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+MSAllocatorAttr *MSAllocatorAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Declspec, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, I);
 }
 
-MSAllocatorAttr *MSAllocatorAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+MSAllocatorAttr *MSAllocatorAttr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Declspec, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, I);
 }
 
@@ -14000,13 +15118,23 @@ MSInheritanceAttr *MSInheritanceAttr::Create(ASTContext &Ctx, bool BestCase, con
   return A;
 }
 
-MSInheritanceAttr *MSInheritanceAttr::CreateImplicit(ASTContext &Ctx, bool BestCase, SourceRange Range, AttributeCommonInfo::Syntax Syntax, MSInheritanceAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+MSInheritanceAttr *MSInheritanceAttr::CreateImplicit(ASTContext &Ctx, bool BestCase, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == Keyword_single_inheritance ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_single_inheritance, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Keyword_multiple_inheritance ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_multiple_inheritance, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Keyword_virtual_inheritance ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_virtual_inheritance, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Keyword_unspecified_inheritance ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_unspecified_inheritance, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, BestCase, I);
 }
 
-MSInheritanceAttr *MSInheritanceAttr::Create(ASTContext &Ctx, bool BestCase, SourceRange Range, AttributeCommonInfo::Syntax Syntax, MSInheritanceAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+MSInheritanceAttr *MSInheritanceAttr::Create(ASTContext &Ctx, bool BestCase, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == Keyword_single_inheritance ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_single_inheritance, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Keyword_multiple_inheritance ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_multiple_inheritance, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Keyword_virtual_inheritance ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_virtual_inheritance, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Keyword_unspecified_inheritance ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_unspecified_inheritance, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, BestCase, I);
 }
 
@@ -14023,13 +15151,23 @@ MSInheritanceAttr *MSInheritanceAttr::Create(ASTContext &Ctx, const AttributeCom
   return A;
 }
 
-MSInheritanceAttr *MSInheritanceAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax, MSInheritanceAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+MSInheritanceAttr *MSInheritanceAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == Keyword_single_inheritance ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_single_inheritance, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Keyword_multiple_inheritance ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_multiple_inheritance, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Keyword_virtual_inheritance ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_virtual_inheritance, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Keyword_unspecified_inheritance ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_unspecified_inheritance, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-MSInheritanceAttr *MSInheritanceAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax, MSInheritanceAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+MSInheritanceAttr *MSInheritanceAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == Keyword_single_inheritance ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_single_inheritance, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Keyword_multiple_inheritance ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_multiple_inheritance, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Keyword_virtual_inheritance ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_virtual_inheritance, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Keyword_unspecified_inheritance ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_unspecified_inheritance, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -14131,13 +15269,13 @@ MSNoVTableAttr *MSNoVTableAttr::Create(ASTContext &Ctx, const AttributeCommonInf
   return A;
 }
 
-MSNoVTableAttr *MSNoVTableAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+MSNoVTableAttr *MSNoVTableAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Declspec, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, I);
 }
 
-MSNoVTableAttr *MSNoVTableAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+MSNoVTableAttr *MSNoVTableAttr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Declspec, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, I);
 }
 
@@ -14198,13 +15336,21 @@ MSP430InterruptAttr *MSP430InterruptAttr::Create(ASTContext &Ctx, unsigned Numbe
   return A;
 }
 
-MSP430InterruptAttr *MSP430InterruptAttr::CreateImplicit(ASTContext &Ctx, unsigned Number, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+MSP430InterruptAttr *MSP430InterruptAttr::CreateImplicit(ASTContext &Ctx, unsigned Number, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_interrupt ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_interrupt ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_interrupt ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Number, I);
 }
 
-MSP430InterruptAttr *MSP430InterruptAttr::Create(ASTContext &Ctx, unsigned Number, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+MSP430InterruptAttr *MSP430InterruptAttr::Create(ASTContext &Ctx, unsigned Number, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_interrupt ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_interrupt ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_interrupt ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Number, I);
 }
 
@@ -14295,13 +15441,21 @@ MSStructAttr *MSStructAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &C
   return A;
 }
 
-MSStructAttr *MSStructAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+MSStructAttr *MSStructAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_ms_struct ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_ms_struct, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_ms_struct ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_ms_struct, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_ms_struct ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_ms_struct, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-MSStructAttr *MSStructAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+MSStructAttr *MSStructAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_ms_struct ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_ms_struct, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_ms_struct ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_ms_struct, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_ms_struct ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_ms_struct, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -14376,13 +15530,13 @@ MSVtorDispAttr *MSVtorDispAttr::Create(ASTContext &Ctx, unsigned Vdm, const Attr
   return A;
 }
 
-MSVtorDispAttr *MSVtorDispAttr::CreateImplicit(ASTContext &Ctx, unsigned Vdm, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+MSVtorDispAttr *MSVtorDispAttr::CreateImplicit(ASTContext &Ctx, unsigned Vdm, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
   return CreateImplicit(Ctx, Vdm, I);
 }
 
-MSVtorDispAttr *MSVtorDispAttr::Create(ASTContext &Ctx, unsigned Vdm, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+MSVtorDispAttr *MSVtorDispAttr::Create(ASTContext &Ctx, unsigned Vdm, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
   return Create(Ctx, Vdm, I);
 }
 
@@ -14429,13 +15583,13 @@ MaxFieldAlignmentAttr *MaxFieldAlignmentAttr::Create(ASTContext &Ctx, unsigned A
   return A;
 }
 
-MaxFieldAlignmentAttr *MaxFieldAlignmentAttr::CreateImplicit(ASTContext &Ctx, unsigned Alignment, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+MaxFieldAlignmentAttr *MaxFieldAlignmentAttr::CreateImplicit(ASTContext &Ctx, unsigned Alignment, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
   return CreateImplicit(Ctx, Alignment, I);
 }
 
-MaxFieldAlignmentAttr *MaxFieldAlignmentAttr::Create(ASTContext &Ctx, unsigned Alignment, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+MaxFieldAlignmentAttr *MaxFieldAlignmentAttr::Create(ASTContext &Ctx, unsigned Alignment, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
   return Create(Ctx, Alignment, I);
 }
 
@@ -14482,13 +15636,21 @@ MayAliasAttr *MayAliasAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &C
   return A;
 }
 
-MayAliasAttr *MayAliasAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+MayAliasAttr *MayAliasAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_may_alias ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_may_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_may_alias ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_may_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_may_alias ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_may_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-MayAliasAttr *MayAliasAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+MayAliasAttr *MayAliasAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_may_alias ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_may_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_may_alias ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_may_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_may_alias ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_may_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -14563,13 +15725,21 @@ MaybeUndefAttr *MaybeUndefAttr::Create(ASTContext &Ctx, const AttributeCommonInf
   return A;
 }
 
-MaybeUndefAttr *MaybeUndefAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+MaybeUndefAttr *MaybeUndefAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_maybe_undef ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_maybe_undef, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_maybe_undef ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_maybe_undef, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_maybe_undef ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_maybe_undef, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-MaybeUndefAttr *MaybeUndefAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+MaybeUndefAttr *MaybeUndefAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_maybe_undef ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_maybe_undef, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_maybe_undef ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_maybe_undef, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_maybe_undef ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_maybe_undef, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -14644,13 +15814,21 @@ MicroMipsAttr *MicroMipsAttr::Create(ASTContext &Ctx, const AttributeCommonInfo 
   return A;
 }
 
-MicroMipsAttr *MicroMipsAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+MicroMipsAttr *MicroMipsAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_micromips ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_micromips, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_micromips ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_micromips, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_micromips ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_micromips, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-MicroMipsAttr *MicroMipsAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+MicroMipsAttr *MicroMipsAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_micromips ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_micromips, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_micromips ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_micromips, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_micromips ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_micromips, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -14725,13 +15903,21 @@ MinSizeAttr *MinSizeAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &Com
   return A;
 }
 
-MinSizeAttr *MinSizeAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+MinSizeAttr *MinSizeAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_minsize ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_minsize, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_minsize ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_minsize, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_minsize ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_minsize, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-MinSizeAttr *MinSizeAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+MinSizeAttr *MinSizeAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_minsize ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_minsize, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_minsize ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_minsize, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_minsize ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_minsize, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -14806,13 +15992,21 @@ MinVectorWidthAttr *MinVectorWidthAttr::Create(ASTContext &Ctx, unsigned VectorW
   return A;
 }
 
-MinVectorWidthAttr *MinVectorWidthAttr::CreateImplicit(ASTContext &Ctx, unsigned VectorWidth, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+MinVectorWidthAttr *MinVectorWidthAttr::CreateImplicit(ASTContext &Ctx, unsigned VectorWidth, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_min_vector_width ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_min_vector_width, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_min_vector_width ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_min_vector_width, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_min_vector_width ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_min_vector_width, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, VectorWidth, I);
 }
 
-MinVectorWidthAttr *MinVectorWidthAttr::Create(ASTContext &Ctx, unsigned VectorWidth, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+MinVectorWidthAttr *MinVectorWidthAttr::Create(ASTContext &Ctx, unsigned VectorWidth, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_min_vector_width ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_min_vector_width, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_min_vector_width ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_min_vector_width, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_min_vector_width ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_min_vector_width, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, VectorWidth, I);
 }
 
@@ -14903,13 +16097,21 @@ Mips16Attr *Mips16Attr::Create(ASTContext &Ctx, const AttributeCommonInfo &Commo
   return A;
 }
 
-Mips16Attr *Mips16Attr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+Mips16Attr *Mips16Attr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_mips16 ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_mips16, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_mips16 ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_mips16, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_mips16 ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_mips16, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-Mips16Attr *Mips16Attr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+Mips16Attr *Mips16Attr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_mips16 ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_mips16, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_mips16 ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_mips16, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_mips16 ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_mips16, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -14984,13 +16186,21 @@ MipsInterruptAttr *MipsInterruptAttr::Create(ASTContext &Ctx, InterruptType Inte
   return A;
 }
 
-MipsInterruptAttr *MipsInterruptAttr::CreateImplicit(ASTContext &Ctx, InterruptType Interrupt, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+MipsInterruptAttr *MipsInterruptAttr::CreateImplicit(ASTContext &Ctx, InterruptType Interrupt, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_interrupt ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_interrupt ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_interrupt ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Interrupt, I);
 }
 
-MipsInterruptAttr *MipsInterruptAttr::Create(ASTContext &Ctx, InterruptType Interrupt, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+MipsInterruptAttr *MipsInterruptAttr::Create(ASTContext &Ctx, InterruptType Interrupt, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_interrupt ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_interrupt ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_interrupt ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Interrupt, I);
 }
 
@@ -15113,13 +16323,27 @@ MipsLongCallAttr *MipsLongCallAttr::Create(ASTContext &Ctx, const AttributeCommo
   return A;
 }
 
-MipsLongCallAttr *MipsLongCallAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax, MipsLongCallAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+MipsLongCallAttr *MipsLongCallAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_long_call ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_long_call, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_long_call ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_long_call, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_long_call ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_long_call, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_far ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_far, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_far ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_far, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_far ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_far, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-MipsLongCallAttr *MipsLongCallAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax, MipsLongCallAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+MipsLongCallAttr *MipsLongCallAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_long_call ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_long_call, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_long_call ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_long_call, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_long_call ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_long_call, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_far ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_far, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_far ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_far, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_far ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_far, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -15224,13 +16448,27 @@ MipsShortCallAttr *MipsShortCallAttr::Create(ASTContext &Ctx, const AttributeCom
   return A;
 }
 
-MipsShortCallAttr *MipsShortCallAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax, MipsShortCallAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+MipsShortCallAttr *MipsShortCallAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_short_call ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_short_call, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_short_call ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_short_call, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_short_call ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_short_call, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_near ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_near, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_near ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_near, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_near ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_near, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-MipsShortCallAttr *MipsShortCallAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax, MipsShortCallAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+MipsShortCallAttr *MipsShortCallAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_short_call ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_short_call, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_short_call ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_short_call, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_short_call ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_short_call, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_near ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_near, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_near ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_near, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_near ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_near, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -15337,13 +16575,21 @@ ModeAttr *ModeAttr::Create(ASTContext &Ctx, IdentifierInfo * Mode, const Attribu
   return A;
 }
 
-ModeAttr *ModeAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * Mode, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ModeAttr *ModeAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * Mode, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_mode ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_mode, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_mode ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_mode, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_mode ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_mode, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Mode, I);
 }
 
-ModeAttr *ModeAttr::Create(ASTContext &Ctx, IdentifierInfo * Mode, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ModeAttr *ModeAttr::Create(ASTContext &Ctx, IdentifierInfo * Mode, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_mode ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_mode, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_mode ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_mode, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_mode ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_mode, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Mode, I);
 }
 
@@ -15434,13 +16680,21 @@ MustTailAttr *MustTailAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &C
   return A;
 }
 
-MustTailAttr *MustTailAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+MustTailAttr *MustTailAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_musttail ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_musttail, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_musttail ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_musttail, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_musttail ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_musttail, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-MustTailAttr *MustTailAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+MustTailAttr *MustTailAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_musttail ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_musttail, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_musttail ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_musttail, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_musttail ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_musttail, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -15515,13 +16769,21 @@ NSConsumedAttr *NSConsumedAttr::Create(ASTContext &Ctx, const AttributeCommonInf
   return A;
 }
 
-NSConsumedAttr *NSConsumedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NSConsumedAttr *NSConsumedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_ns_consumed ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_ns_consumed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_ns_consumed ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_ns_consumed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_ns_consumed ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_ns_consumed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-NSConsumedAttr *NSConsumedAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NSConsumedAttr *NSConsumedAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_ns_consumed ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_ns_consumed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_ns_consumed ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_ns_consumed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_ns_consumed ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_ns_consumed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -15596,13 +16858,21 @@ NSConsumesSelfAttr *NSConsumesSelfAttr::Create(ASTContext &Ctx, const AttributeC
   return A;
 }
 
-NSConsumesSelfAttr *NSConsumesSelfAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NSConsumesSelfAttr *NSConsumesSelfAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_ns_consumes_self ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_ns_consumes_self, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_ns_consumes_self ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_ns_consumes_self, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_ns_consumes_self ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_ns_consumes_self, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-NSConsumesSelfAttr *NSConsumesSelfAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NSConsumesSelfAttr *NSConsumesSelfAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_ns_consumes_self ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_ns_consumes_self, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_ns_consumes_self ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_ns_consumes_self, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_ns_consumes_self ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_ns_consumes_self, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -15677,13 +16947,13 @@ NSErrorDomainAttr *NSErrorDomainAttr::Create(ASTContext &Ctx, VarDecl * ErrorDom
   return A;
 }
 
-NSErrorDomainAttr *NSErrorDomainAttr::CreateImplicit(ASTContext &Ctx, VarDecl * ErrorDomain, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NSErrorDomainAttr *NSErrorDomainAttr::CreateImplicit(ASTContext &Ctx, VarDecl * ErrorDomain, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, ErrorDomain, I);
 }
 
-NSErrorDomainAttr *NSErrorDomainAttr::Create(ASTContext &Ctx, VarDecl * ErrorDomain, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NSErrorDomainAttr *NSErrorDomainAttr::Create(ASTContext &Ctx, VarDecl * ErrorDomain, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, ErrorDomain, I);
 }
 
@@ -15752,13 +17022,21 @@ NSReturnsAutoreleasedAttr *NSReturnsAutoreleasedAttr::Create(ASTContext &Ctx, co
   return A;
 }
 
-NSReturnsAutoreleasedAttr *NSReturnsAutoreleasedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NSReturnsAutoreleasedAttr *NSReturnsAutoreleasedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_ns_returns_autoreleased ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_ns_returns_autoreleased, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_ns_returns_autoreleased ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_ns_returns_autoreleased, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_ns_returns_autoreleased ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_ns_returns_autoreleased, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-NSReturnsAutoreleasedAttr *NSReturnsAutoreleasedAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NSReturnsAutoreleasedAttr *NSReturnsAutoreleasedAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_ns_returns_autoreleased ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_ns_returns_autoreleased, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_ns_returns_autoreleased ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_ns_returns_autoreleased, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_ns_returns_autoreleased ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_ns_returns_autoreleased, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -15833,13 +17111,21 @@ NSReturnsNotRetainedAttr *NSReturnsNotRetainedAttr::Create(ASTContext &Ctx, cons
   return A;
 }
 
-NSReturnsNotRetainedAttr *NSReturnsNotRetainedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NSReturnsNotRetainedAttr *NSReturnsNotRetainedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_ns_returns_not_retained ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_ns_returns_not_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_ns_returns_not_retained ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_ns_returns_not_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_ns_returns_not_retained ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_ns_returns_not_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-NSReturnsNotRetainedAttr *NSReturnsNotRetainedAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NSReturnsNotRetainedAttr *NSReturnsNotRetainedAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_ns_returns_not_retained ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_ns_returns_not_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_ns_returns_not_retained ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_ns_returns_not_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_ns_returns_not_retained ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_ns_returns_not_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -15914,13 +17200,21 @@ NSReturnsRetainedAttr *NSReturnsRetainedAttr::Create(ASTContext &Ctx, const Attr
   return A;
 }
 
-NSReturnsRetainedAttr *NSReturnsRetainedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NSReturnsRetainedAttr *NSReturnsRetainedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_ns_returns_retained ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_ns_returns_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_ns_returns_retained ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_ns_returns_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_ns_returns_retained ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_ns_returns_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-NSReturnsRetainedAttr *NSReturnsRetainedAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NSReturnsRetainedAttr *NSReturnsRetainedAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_ns_returns_retained ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_ns_returns_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_ns_returns_retained ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_ns_returns_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_ns_returns_retained ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_ns_returns_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -15978,6 +17272,95 @@ const char *NSReturnsRetainedAttr::getSpelling() const {
 }
 
 
+// NVPTXKernelAttr implementation
+
+NVPTXKernelAttr *NVPTXKernelAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) NVPTXKernelAttr(Ctx, CommonInfo);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+NVPTXKernelAttr *NVPTXKernelAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) NVPTXKernelAttr(Ctx, CommonInfo);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+NVPTXKernelAttr *NVPTXKernelAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_nvptx_kernel ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_nvptx_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_nvptx_kernel ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_nvptx_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_nvptx_kernel ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_nvptx_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
+  return CreateImplicit(Ctx, I);
+}
+
+NVPTXKernelAttr *NVPTXKernelAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_nvptx_kernel ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_nvptx_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_nvptx_kernel ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_nvptx_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_nvptx_kernel ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_nvptx_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
+  return Create(Ctx, I);
+}
+
+NVPTXKernelAttr::NVPTXKernelAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             )
+  : InheritableAttr(Ctx, CommonInfo, attr::NVPTXKernel, false, false)
+  {
+}
+
+NVPTXKernelAttr *NVPTXKernelAttr::clone(ASTContext &C) const {
+  auto *A = new (C) NVPTXKernelAttr(C, *this);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void NVPTXKernelAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+  bool IsFirstArgument = true; (void)IsFirstArgument;
+  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    break;
+  case 0 : {
+    OS << " __attribute__((nvptx_kernel";
+    OS << "))";
+    break;
+  }
+  case 1 : {
+    OS << " [[clang::nvptx_kernel";
+    OS << "]]";
+    break;
+  }
+  case 2 : {
+    OS << " [[clang::nvptx_kernel";
+    OS << "]]";
+    break;
+  }
+}
+}
+
+const char *NVPTXKernelAttr::getSpelling() const {
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    return "(No spelling)";
+  case 0:
+    return "nvptx_kernel";
+  case 1:
+    return "nvptx_kernel";
+  case 2:
+    return "nvptx_kernel";
+  }
+}
+
+
 // NakedAttr implementation
 
 NakedAttr *NakedAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
@@ -15995,13 +17378,23 @@ NakedAttr *NakedAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonI
   return A;
 }
 
-NakedAttr *NakedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NakedAttr *NakedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_naked ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_naked, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_naked ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_naked, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_naked ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_naked, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Declspec_naked ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_naked, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-NakedAttr *NakedAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NakedAttr *NakedAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_naked ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_naked, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_naked ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_naked, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_naked ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_naked, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Declspec_naked ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_naked, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -16083,13 +17476,13 @@ NoAliasAttr *NoAliasAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &Com
   return A;
 }
 
-NoAliasAttr *NoAliasAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NoAliasAttr *NoAliasAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Declspec, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, I);
 }
 
-NoAliasAttr *NoAliasAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NoAliasAttr *NoAliasAttr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Declspec, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, I);
 }
 
@@ -16150,13 +17543,21 @@ NoBuiltinAttr *NoBuiltinAttr::Create(ASTContext &Ctx, StringRef *BuiltinNames, u
   return A;
 }
 
-NoBuiltinAttr *NoBuiltinAttr::CreateImplicit(ASTContext &Ctx, StringRef *BuiltinNames, unsigned BuiltinNamesSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NoBuiltinAttr *NoBuiltinAttr::CreateImplicit(ASTContext &Ctx, StringRef *BuiltinNames, unsigned BuiltinNamesSize, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_no_builtin ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_no_builtin, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_no_builtin ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_no_builtin, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_no_builtin ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_no_builtin, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, BuiltinNames, BuiltinNamesSize, I);
 }
 
-NoBuiltinAttr *NoBuiltinAttr::Create(ASTContext &Ctx, StringRef *BuiltinNames, unsigned BuiltinNamesSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NoBuiltinAttr *NoBuiltinAttr::Create(ASTContext &Ctx, StringRef *BuiltinNames, unsigned BuiltinNamesSize, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_no_builtin ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_no_builtin, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_no_builtin ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_no_builtin, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_no_builtin ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_no_builtin, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, BuiltinNames, BuiltinNamesSize, I);
 }
 
@@ -16275,13 +17676,21 @@ NoCommonAttr *NoCommonAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &C
   return A;
 }
 
-NoCommonAttr *NoCommonAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NoCommonAttr *NoCommonAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_nocommon ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_nocommon, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_nocommon ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_nocommon, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_nocommon ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_nocommon, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-NoCommonAttr *NoCommonAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NoCommonAttr *NoCommonAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_nocommon ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_nocommon, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_nocommon ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_nocommon, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_nocommon ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_nocommon, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -16356,13 +17765,21 @@ NoDebugAttr *NoDebugAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &Com
   return A;
 }
 
-NoDebugAttr *NoDebugAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NoDebugAttr *NoDebugAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_nodebug ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_nodebug, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_nodebug ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_nodebug, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_nodebug ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_nodebug, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-NoDebugAttr *NoDebugAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NoDebugAttr *NoDebugAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_nodebug ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_nodebug, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_nodebug ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_nodebug, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_nodebug ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_nodebug, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -16437,13 +17854,21 @@ NoDerefAttr *NoDerefAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &Com
   return A;
 }
 
-NoDerefAttr *NoDerefAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NoDerefAttr *NoDerefAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_noderef ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_noderef, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_noderef ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_noderef, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_noderef ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_noderef, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-NoDerefAttr *NoDerefAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NoDerefAttr *NoDerefAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_noderef ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_noderef, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_noderef ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_noderef, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_noderef ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_noderef, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -16518,13 +17943,19 @@ NoDestroyAttr *NoDestroyAttr::Create(ASTContext &Ctx, const AttributeCommonInfo 
   return A;
 }
 
-NoDestroyAttr *NoDestroyAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NoDestroyAttr *NoDestroyAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_no_destroy ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_no_destroy, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_no_destroy ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_no_destroy, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-NoDestroyAttr *NoDestroyAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NoDestroyAttr *NoDestroyAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_no_destroy ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_no_destroy, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_no_destroy ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_no_destroy, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -16592,13 +18023,21 @@ NoDuplicateAttr *NoDuplicateAttr::Create(ASTContext &Ctx, const AttributeCommonI
   return A;
 }
 
-NoDuplicateAttr *NoDuplicateAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NoDuplicateAttr *NoDuplicateAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_noduplicate ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_noduplicate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_noduplicate ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_noduplicate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_noduplicate ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_noduplicate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-NoDuplicateAttr *NoDuplicateAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NoDuplicateAttr *NoDuplicateAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_noduplicate ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_noduplicate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_noduplicate ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_noduplicate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_noduplicate ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_noduplicate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -16673,13 +18112,21 @@ NoEscapeAttr *NoEscapeAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &C
   return A;
 }
 
-NoEscapeAttr *NoEscapeAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NoEscapeAttr *NoEscapeAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_noescape ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_noescape, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_noescape ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_noescape, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_noescape ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_noescape, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-NoEscapeAttr *NoEscapeAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NoEscapeAttr *NoEscapeAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_noescape ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_noescape, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_noescape ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_noescape, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_noescape ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_noescape, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -16754,13 +18201,29 @@ NoInlineAttr *NoInlineAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &C
   return A;
 }
 
-NoInlineAttr *NoInlineAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NoInlineAttr *NoInlineAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == Keyword_noinline ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_noinline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_noinline ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_noinline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_noinline ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_noinline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_noinline ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_noinline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_noinline ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_noinline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_noinline ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_noinline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Declspec_noinline ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_noinline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-NoInlineAttr *NoInlineAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NoInlineAttr *NoInlineAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == Keyword_noinline ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_noinline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_noinline ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_noinline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_noinline ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_noinline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_noinline ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_noinline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_noinline ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_noinline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_noinline ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_noinline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Declspec_noinline ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_noinline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -16863,13 +18326,21 @@ NoInstrumentFunctionAttr *NoInstrumentFunctionAttr::Create(ASTContext &Ctx, cons
   return A;
 }
 
-NoInstrumentFunctionAttr *NoInstrumentFunctionAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NoInstrumentFunctionAttr *NoInstrumentFunctionAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_no_instrument_function ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_no_instrument_function, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_no_instrument_function ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_no_instrument_function, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_no_instrument_function ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_no_instrument_function, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-NoInstrumentFunctionAttr *NoInstrumentFunctionAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NoInstrumentFunctionAttr *NoInstrumentFunctionAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_no_instrument_function ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_no_instrument_function, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_no_instrument_function ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_no_instrument_function, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_no_instrument_function ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_no_instrument_function, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -16944,13 +18415,21 @@ NoMergeAttr *NoMergeAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &Com
   return A;
 }
 
-NoMergeAttr *NoMergeAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NoMergeAttr *NoMergeAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_nomerge ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_nomerge, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_nomerge ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_nomerge, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_nomerge ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_nomerge, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-NoMergeAttr *NoMergeAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NoMergeAttr *NoMergeAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_nomerge ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_nomerge, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_nomerge ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_nomerge, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_nomerge ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_nomerge, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -17025,13 +18504,21 @@ NoMicroMipsAttr *NoMicroMipsAttr::Create(ASTContext &Ctx, const AttributeCommonI
   return A;
 }
 
-NoMicroMipsAttr *NoMicroMipsAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NoMicroMipsAttr *NoMicroMipsAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_nomicromips ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_nomicromips, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_nomicromips ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_nomicromips, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_nomicromips ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_nomicromips, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-NoMicroMipsAttr *NoMicroMipsAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NoMicroMipsAttr *NoMicroMipsAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_nomicromips ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_nomicromips, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_nomicromips ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_nomicromips, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_nomicromips ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_nomicromips, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -17106,13 +18593,21 @@ NoMips16Attr *NoMips16Attr::Create(ASTContext &Ctx, const AttributeCommonInfo &C
   return A;
 }
 
-NoMips16Attr *NoMips16Attr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NoMips16Attr *NoMips16Attr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_nomips16 ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_nomips16, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_nomips16 ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_nomips16, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_nomips16 ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_nomips16, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-NoMips16Attr *NoMips16Attr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NoMips16Attr *NoMips16Attr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_nomips16 ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_nomips16, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_nomips16 ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_nomips16, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_nomips16 ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_nomips16, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -17187,13 +18682,21 @@ NoProfileFunctionAttr *NoProfileFunctionAttr::Create(ASTContext &Ctx, const Attr
   return A;
 }
 
-NoProfileFunctionAttr *NoProfileFunctionAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NoProfileFunctionAttr *NoProfileFunctionAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_no_profile_instrument_function ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_no_profile_instrument_function, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_no_profile_instrument_function ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_no_profile_instrument_function, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_no_profile_instrument_function ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_no_profile_instrument_function, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-NoProfileFunctionAttr *NoProfileFunctionAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NoProfileFunctionAttr *NoProfileFunctionAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_no_profile_instrument_function ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_no_profile_instrument_function, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_no_profile_instrument_function ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_no_profile_instrument_function, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_no_profile_instrument_function ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_no_profile_instrument_function, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -17268,13 +18771,21 @@ NoRandomizeLayoutAttr *NoRandomizeLayoutAttr::Create(ASTContext &Ctx, const Attr
   return A;
 }
 
-NoRandomizeLayoutAttr *NoRandomizeLayoutAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NoRandomizeLayoutAttr *NoRandomizeLayoutAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_no_randomize_layout ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_no_randomize_layout, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_no_randomize_layout ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_no_randomize_layout, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_no_randomize_layout ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_no_randomize_layout, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-NoRandomizeLayoutAttr *NoRandomizeLayoutAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NoRandomizeLayoutAttr *NoRandomizeLayoutAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_no_randomize_layout ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_no_randomize_layout, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_no_randomize_layout ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_no_randomize_layout, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_no_randomize_layout ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_no_randomize_layout, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -17349,13 +18860,23 @@ NoReturnAttr *NoReturnAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &C
   return A;
 }
 
-NoReturnAttr *NoReturnAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NoReturnAttr *NoReturnAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_noreturn ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_noreturn, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_noreturn ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_noreturn, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_noreturn ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_noreturn, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Declspec_noreturn ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_noreturn, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-NoReturnAttr *NoReturnAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NoReturnAttr *NoReturnAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_noreturn ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_noreturn, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_noreturn ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_noreturn, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_noreturn ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_noreturn, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Declspec_noreturn ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_noreturn, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -17437,13 +18958,21 @@ NoSanitizeAttr *NoSanitizeAttr::Create(ASTContext &Ctx, StringRef *Sanitizers, u
   return A;
 }
 
-NoSanitizeAttr *NoSanitizeAttr::CreateImplicit(ASTContext &Ctx, StringRef *Sanitizers, unsigned SanitizersSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NoSanitizeAttr *NoSanitizeAttr::CreateImplicit(ASTContext &Ctx, StringRef *Sanitizers, unsigned SanitizersSize, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_no_sanitize ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_no_sanitize, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_no_sanitize ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_no_sanitize, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_no_sanitize ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_no_sanitize, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Sanitizers, SanitizersSize, I);
 }
 
-NoSanitizeAttr *NoSanitizeAttr::Create(ASTContext &Ctx, StringRef *Sanitizers, unsigned SanitizersSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NoSanitizeAttr *NoSanitizeAttr::Create(ASTContext &Ctx, StringRef *Sanitizers, unsigned SanitizersSize, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_no_sanitize ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_no_sanitize, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_no_sanitize ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_no_sanitize, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_no_sanitize ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_no_sanitize, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Sanitizers, SanitizersSize, I);
 }
 
@@ -17562,13 +19091,21 @@ NoSpeculativeLoadHardeningAttr *NoSpeculativeLoadHardeningAttr::Create(ASTContex
   return A;
 }
 
-NoSpeculativeLoadHardeningAttr *NoSpeculativeLoadHardeningAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NoSpeculativeLoadHardeningAttr *NoSpeculativeLoadHardeningAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_no_speculative_load_hardening ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_no_speculative_load_hardening, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_no_speculative_load_hardening ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_no_speculative_load_hardening, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_no_speculative_load_hardening ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_no_speculative_load_hardening, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-NoSpeculativeLoadHardeningAttr *NoSpeculativeLoadHardeningAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NoSpeculativeLoadHardeningAttr *NoSpeculativeLoadHardeningAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_no_speculative_load_hardening ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_no_speculative_load_hardening, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_no_speculative_load_hardening ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_no_speculative_load_hardening, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_no_speculative_load_hardening ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_no_speculative_load_hardening, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -17643,13 +19180,21 @@ NoSplitStackAttr *NoSplitStackAttr::Create(ASTContext &Ctx, const AttributeCommo
   return A;
 }
 
-NoSplitStackAttr *NoSplitStackAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NoSplitStackAttr *NoSplitStackAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_no_split_stack ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_no_split_stack, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_no_split_stack ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_no_split_stack, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_no_split_stack ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_no_split_stack, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-NoSplitStackAttr *NoSplitStackAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NoSplitStackAttr *NoSplitStackAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_no_split_stack ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_no_split_stack, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_no_split_stack ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_no_split_stack, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_no_split_stack ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_no_split_stack, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -17722,13 +19267,23 @@ NoStackProtectorAttr *NoStackProtectorAttr::Create(ASTContext &Ctx, const Attrib
   return A;
 }
 
-NoStackProtectorAttr *NoStackProtectorAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax, NoStackProtectorAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+NoStackProtectorAttr *NoStackProtectorAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_no_stack_protector ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_no_stack_protector, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_no_stack_protector ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_no_stack_protector, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_no_stack_protector ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_no_stack_protector, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Declspec_safebuffers ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_safebuffers, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-NoStackProtectorAttr *NoStackProtectorAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax, NoStackProtectorAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+NoStackProtectorAttr *NoStackProtectorAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_no_stack_protector ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_no_stack_protector, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_no_stack_protector ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_no_stack_protector, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_no_stack_protector ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_no_stack_protector, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Declspec_safebuffers ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_safebuffers, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -17819,13 +19374,21 @@ NoThreadSafetyAnalysisAttr *NoThreadSafetyAnalysisAttr::Create(ASTContext &Ctx, 
   return A;
 }
 
-NoThreadSafetyAnalysisAttr *NoThreadSafetyAnalysisAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NoThreadSafetyAnalysisAttr *NoThreadSafetyAnalysisAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_no_thread_safety_analysis ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_no_thread_safety_analysis, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_no_thread_safety_analysis ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_no_thread_safety_analysis, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_no_thread_safety_analysis ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_no_thread_safety_analysis, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-NoThreadSafetyAnalysisAttr *NoThreadSafetyAnalysisAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NoThreadSafetyAnalysisAttr *NoThreadSafetyAnalysisAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_no_thread_safety_analysis ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_no_thread_safety_analysis, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_no_thread_safety_analysis ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_no_thread_safety_analysis, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_no_thread_safety_analysis ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_no_thread_safety_analysis, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -17900,13 +19463,23 @@ NoThrowAttr *NoThrowAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &Com
   return A;
 }
 
-NoThrowAttr *NoThrowAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NoThrowAttr *NoThrowAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_nothrow ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_nothrow, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_nothrow ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_nothrow, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_nothrow ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_nothrow, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Declspec_nothrow ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_nothrow, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-NoThrowAttr *NoThrowAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NoThrowAttr *NoThrowAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_nothrow ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_nothrow, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_nothrow ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_nothrow, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_nothrow ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_nothrow, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Declspec_nothrow ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_nothrow, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -17988,13 +19561,13 @@ NoUniqueAddressAttr *NoUniqueAddressAttr::Create(ASTContext &Ctx, const Attribut
   return A;
 }
 
-NoUniqueAddressAttr *NoUniqueAddressAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NoUniqueAddressAttr *NoUniqueAddressAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, I);
 }
 
-NoUniqueAddressAttr *NoUniqueAddressAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NoUniqueAddressAttr *NoUniqueAddressAttr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, I);
 }
 
@@ -18055,13 +19628,21 @@ NoUwtableAttr *NoUwtableAttr::Create(ASTContext &Ctx, const AttributeCommonInfo 
   return A;
 }
 
-NoUwtableAttr *NoUwtableAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NoUwtableAttr *NoUwtableAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_nouwtable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_nouwtable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_nouwtable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_nouwtable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_nouwtable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_nouwtable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-NoUwtableAttr *NoUwtableAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NoUwtableAttr *NoUwtableAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_nouwtable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_nouwtable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_nouwtable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_nouwtable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_nouwtable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_nouwtable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -18136,13 +19717,21 @@ NonNullAttr *NonNullAttr::Create(ASTContext &Ctx, ParamIdx *Args, unsigned ArgsS
   return A;
 }
 
-NonNullAttr *NonNullAttr::CreateImplicit(ASTContext &Ctx, ParamIdx *Args, unsigned ArgsSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NonNullAttr *NonNullAttr::CreateImplicit(ASTContext &Ctx, ParamIdx *Args, unsigned ArgsSize, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_nonnull ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_nonnull, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_nonnull ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_nonnull, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_nonnull ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_nonnull, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Args, ArgsSize, I);
 }
 
-NonNullAttr *NonNullAttr::Create(ASTContext &Ctx, ParamIdx *Args, unsigned ArgsSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NonNullAttr *NonNullAttr::Create(ASTContext &Ctx, ParamIdx *Args, unsigned ArgsSize, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_nonnull ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_nonnull, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_nonnull ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_nonnull, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_nonnull ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_nonnull, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Args, ArgsSize, I);
 }
 
@@ -18253,13 +19842,21 @@ NotTailCalledAttr *NotTailCalledAttr::Create(ASTContext &Ctx, const AttributeCom
   return A;
 }
 
-NotTailCalledAttr *NotTailCalledAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NotTailCalledAttr *NotTailCalledAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_not_tail_called ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_not_tail_called, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_not_tail_called ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_not_tail_called, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_not_tail_called ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_not_tail_called, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-NotTailCalledAttr *NotTailCalledAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+NotTailCalledAttr *NotTailCalledAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_not_tail_called ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_not_tail_called, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_not_tail_called ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_not_tail_called, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_not_tail_called ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_not_tail_called, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -18334,13 +19931,13 @@ OMPAllocateDeclAttr *OMPAllocateDeclAttr::Create(ASTContext &Ctx, AllocatorTypeT
   return A;
 }
 
-OMPAllocateDeclAttr *OMPAllocateDeclAttr::CreateImplicit(ASTContext &Ctx, AllocatorTypeTy AllocatorType, Expr * Allocator, Expr * Alignment, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+OMPAllocateDeclAttr *OMPAllocateDeclAttr::CreateImplicit(ASTContext &Ctx, AllocatorTypeTy AllocatorType, Expr * Allocator, Expr * Alignment, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
   return CreateImplicit(Ctx, AllocatorType, Allocator, Alignment, I);
 }
 
-OMPAllocateDeclAttr *OMPAllocateDeclAttr::Create(ASTContext &Ctx, AllocatorTypeTy AllocatorType, Expr * Allocator, Expr * Alignment, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+OMPAllocateDeclAttr *OMPAllocateDeclAttr::Create(ASTContext &Ctx, AllocatorTypeTy AllocatorType, Expr * Allocator, Expr * Alignment, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
   return Create(Ctx, AllocatorType, Allocator, Alignment, I);
 }
 
@@ -18430,13 +20027,13 @@ OMPCaptureKindAttr *OMPCaptureKindAttr::Create(ASTContext &Ctx, unsigned Capture
   return A;
 }
 
-OMPCaptureKindAttr *OMPCaptureKindAttr::CreateImplicit(ASTContext &Ctx, unsigned CaptureKindVal, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+OMPCaptureKindAttr *OMPCaptureKindAttr::CreateImplicit(ASTContext &Ctx, unsigned CaptureKindVal, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
   return CreateImplicit(Ctx, CaptureKindVal, I);
 }
 
-OMPCaptureKindAttr *OMPCaptureKindAttr::Create(ASTContext &Ctx, unsigned CaptureKindVal, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+OMPCaptureKindAttr *OMPCaptureKindAttr::Create(ASTContext &Ctx, unsigned CaptureKindVal, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
   return Create(Ctx, CaptureKindVal, I);
 }
 
@@ -18483,13 +20080,13 @@ OMPCaptureNoInitAttr *OMPCaptureNoInitAttr::Create(ASTContext &Ctx, const Attrib
   return A;
 }
 
-OMPCaptureNoInitAttr *OMPCaptureNoInitAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+OMPCaptureNoInitAttr *OMPCaptureNoInitAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
   return CreateImplicit(Ctx, I);
 }
 
-OMPCaptureNoInitAttr *OMPCaptureNoInitAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+OMPCaptureNoInitAttr *OMPCaptureNoInitAttr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
   return Create(Ctx, I);
 }
 
@@ -18532,13 +20129,13 @@ OMPDeclareSimdDeclAttr *OMPDeclareSimdDeclAttr::Create(ASTContext &Ctx, BranchSt
   return A;
 }
 
-OMPDeclareSimdDeclAttr *OMPDeclareSimdDeclAttr::CreateImplicit(ASTContext &Ctx, BranchStateTy BranchState, Expr * Simdlen, Expr * *Uniforms, unsigned UniformsSize, Expr * *Aligneds, unsigned AlignedsSize, Expr * *Alignments, unsigned AlignmentsSize, Expr * *Linears, unsigned LinearsSize, unsigned *Modifiers, unsigned ModifiersSize, Expr * *Steps, unsigned StepsSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+OMPDeclareSimdDeclAttr *OMPDeclareSimdDeclAttr::CreateImplicit(ASTContext &Ctx, BranchStateTy BranchState, Expr * Simdlen, Expr * *Uniforms, unsigned UniformsSize, Expr * *Aligneds, unsigned AlignedsSize, Expr * *Alignments, unsigned AlignmentsSize, Expr * *Linears, unsigned LinearsSize, unsigned *Modifiers, unsigned ModifiersSize, Expr * *Steps, unsigned StepsSize, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Pragma, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, BranchState, Simdlen, Uniforms, UniformsSize, Aligneds, AlignedsSize, Alignments, AlignmentsSize, Linears, LinearsSize, Modifiers, ModifiersSize, Steps, StepsSize, I);
 }
 
-OMPDeclareSimdDeclAttr *OMPDeclareSimdDeclAttr::Create(ASTContext &Ctx, BranchStateTy BranchState, Expr * Simdlen, Expr * *Uniforms, unsigned UniformsSize, Expr * *Aligneds, unsigned AlignedsSize, Expr * *Alignments, unsigned AlignmentsSize, Expr * *Linears, unsigned LinearsSize, unsigned *Modifiers, unsigned ModifiersSize, Expr * *Steps, unsigned StepsSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+OMPDeclareSimdDeclAttr *OMPDeclareSimdDeclAttr::Create(ASTContext &Ctx, BranchStateTy BranchState, Expr * Simdlen, Expr * *Uniforms, unsigned UniformsSize, Expr * *Aligneds, unsigned AlignedsSize, Expr * *Alignments, unsigned AlignmentsSize, Expr * *Linears, unsigned LinearsSize, unsigned *Modifiers, unsigned ModifiersSize, Expr * *Steps, unsigned StepsSize, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Pragma, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, BranchState, Simdlen, Uniforms, UniformsSize, Aligneds, AlignedsSize, Alignments, AlignmentsSize, Linears, LinearsSize, Modifiers, ModifiersSize, Steps, StepsSize, I);
 }
 
@@ -18674,13 +20271,13 @@ OMPDeclareTargetDeclAttr *OMPDeclareTargetDeclAttr::Create(ASTContext &Ctx, MapT
   return A;
 }
 
-OMPDeclareTargetDeclAttr *OMPDeclareTargetDeclAttr::CreateImplicit(ASTContext &Ctx, MapTypeTy MapType, DevTypeTy DevType, Expr * IndirectExpr, bool Indirect, unsigned Level, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+OMPDeclareTargetDeclAttr *OMPDeclareTargetDeclAttr::CreateImplicit(ASTContext &Ctx, MapTypeTy MapType, DevTypeTy DevType, Expr * IndirectExpr, bool Indirect, unsigned Level, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Pragma, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, MapType, DevType, IndirectExpr, Indirect, Level, I);
 }
 
-OMPDeclareTargetDeclAttr *OMPDeclareTargetDeclAttr::Create(ASTContext &Ctx, MapTypeTy MapType, DevTypeTy DevType, Expr * IndirectExpr, bool Indirect, unsigned Level, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+OMPDeclareTargetDeclAttr *OMPDeclareTargetDeclAttr::Create(ASTContext &Ctx, MapTypeTy MapType, DevTypeTy DevType, Expr * IndirectExpr, bool Indirect, unsigned Level, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Pragma, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, MapType, DevType, IndirectExpr, Indirect, Level, I);
 }
 
@@ -18803,13 +20400,13 @@ OMPDeclareVariantAttr *OMPDeclareVariantAttr::Create(ASTContext &Ctx, Expr * Var
   return A;
 }
 
-OMPDeclareVariantAttr *OMPDeclareVariantAttr::CreateImplicit(ASTContext &Ctx, Expr * VariantFuncRef, OMPTraitInfo * TraitInfos, Expr * *AdjustArgsNothing, unsigned AdjustArgsNothingSize, Expr * *AdjustArgsNeedDevicePtr, unsigned AdjustArgsNeedDevicePtrSize, OMPInteropInfo *AppendArgs, unsigned AppendArgsSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+OMPDeclareVariantAttr *OMPDeclareVariantAttr::CreateImplicit(ASTContext &Ctx, Expr * VariantFuncRef, OMPTraitInfo * TraitInfos, Expr * *AdjustArgsNothing, unsigned AdjustArgsNothingSize, Expr * *AdjustArgsNeedDevicePtr, unsigned AdjustArgsNeedDevicePtrSize, OMPInteropInfo *AppendArgs, unsigned AppendArgsSize, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Pragma, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, VariantFuncRef, TraitInfos, AdjustArgsNothing, AdjustArgsNothingSize, AdjustArgsNeedDevicePtr, AdjustArgsNeedDevicePtrSize, AppendArgs, AppendArgsSize, I);
 }
 
-OMPDeclareVariantAttr *OMPDeclareVariantAttr::Create(ASTContext &Ctx, Expr * VariantFuncRef, OMPTraitInfo * TraitInfos, Expr * *AdjustArgsNothing, unsigned AdjustArgsNothingSize, Expr * *AdjustArgsNeedDevicePtr, unsigned AdjustArgsNeedDevicePtrSize, OMPInteropInfo *AppendArgs, unsigned AppendArgsSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+OMPDeclareVariantAttr *OMPDeclareVariantAttr::Create(ASTContext &Ctx, Expr * VariantFuncRef, OMPTraitInfo * TraitInfos, Expr * *AdjustArgsNothing, unsigned AdjustArgsNothingSize, Expr * *AdjustArgsNeedDevicePtr, unsigned AdjustArgsNeedDevicePtrSize, OMPInteropInfo *AppendArgs, unsigned AppendArgsSize, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Pragma, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, VariantFuncRef, TraitInfos, AdjustArgsNothing, AdjustArgsNothingSize, AdjustArgsNeedDevicePtr, AdjustArgsNeedDevicePtrSize, AppendArgs, AppendArgsSize, I);
 }
 
@@ -18908,13 +20505,13 @@ OMPReferencedVarAttr *OMPReferencedVarAttr::Create(ASTContext &Ctx, Expr * Ref, 
   return A;
 }
 
-OMPReferencedVarAttr *OMPReferencedVarAttr::CreateImplicit(ASTContext &Ctx, Expr * Ref, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+OMPReferencedVarAttr *OMPReferencedVarAttr::CreateImplicit(ASTContext &Ctx, Expr * Ref, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
   return CreateImplicit(Ctx, Ref, I);
 }
 
-OMPReferencedVarAttr *OMPReferencedVarAttr::Create(ASTContext &Ctx, Expr * Ref, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+OMPReferencedVarAttr *OMPReferencedVarAttr::Create(ASTContext &Ctx, Expr * Ref, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
   return Create(Ctx, Ref, I);
 }
 
@@ -18961,13 +20558,13 @@ OMPThreadPrivateDeclAttr *OMPThreadPrivateDeclAttr::Create(ASTContext &Ctx, cons
   return A;
 }
 
-OMPThreadPrivateDeclAttr *OMPThreadPrivateDeclAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+OMPThreadPrivateDeclAttr *OMPThreadPrivateDeclAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
   return CreateImplicit(Ctx, I);
 }
 
-OMPThreadPrivateDeclAttr *OMPThreadPrivateDeclAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+OMPThreadPrivateDeclAttr *OMPThreadPrivateDeclAttr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
   return Create(Ctx, I);
 }
 
@@ -19010,13 +20607,21 @@ OSConsumedAttr *OSConsumedAttr::Create(ASTContext &Ctx, const AttributeCommonInf
   return A;
 }
 
-OSConsumedAttr *OSConsumedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+OSConsumedAttr *OSConsumedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_os_consumed ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_os_consumed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_os_consumed ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_os_consumed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_os_consumed ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_os_consumed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-OSConsumedAttr *OSConsumedAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+OSConsumedAttr *OSConsumedAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_os_consumed ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_os_consumed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_os_consumed ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_os_consumed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_os_consumed ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_os_consumed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -19091,13 +20696,21 @@ OSConsumesThisAttr *OSConsumesThisAttr::Create(ASTContext &Ctx, const AttributeC
   return A;
 }
 
-OSConsumesThisAttr *OSConsumesThisAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+OSConsumesThisAttr *OSConsumesThisAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_os_consumes_this ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_os_consumes_this, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_os_consumes_this ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_os_consumes_this, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_os_consumes_this ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_os_consumes_this, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-OSConsumesThisAttr *OSConsumesThisAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+OSConsumesThisAttr *OSConsumesThisAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_os_consumes_this ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_os_consumes_this, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_os_consumes_this ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_os_consumes_this, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_os_consumes_this ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_os_consumes_this, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -19172,13 +20785,21 @@ OSReturnsNotRetainedAttr *OSReturnsNotRetainedAttr::Create(ASTContext &Ctx, cons
   return A;
 }
 
-OSReturnsNotRetainedAttr *OSReturnsNotRetainedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+OSReturnsNotRetainedAttr *OSReturnsNotRetainedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_os_returns_not_retained ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_os_returns_not_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_os_returns_not_retained ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_os_returns_not_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_os_returns_not_retained ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_os_returns_not_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-OSReturnsNotRetainedAttr *OSReturnsNotRetainedAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+OSReturnsNotRetainedAttr *OSReturnsNotRetainedAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_os_returns_not_retained ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_os_returns_not_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_os_returns_not_retained ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_os_returns_not_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_os_returns_not_retained ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_os_returns_not_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -19253,13 +20874,21 @@ OSReturnsRetainedAttr *OSReturnsRetainedAttr::Create(ASTContext &Ctx, const Attr
   return A;
 }
 
-OSReturnsRetainedAttr *OSReturnsRetainedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+OSReturnsRetainedAttr *OSReturnsRetainedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_os_returns_retained ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_os_returns_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_os_returns_retained ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_os_returns_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_os_returns_retained ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_os_returns_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-OSReturnsRetainedAttr *OSReturnsRetainedAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+OSReturnsRetainedAttr *OSReturnsRetainedAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_os_returns_retained ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_os_returns_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_os_returns_retained ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_os_returns_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_os_returns_retained ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_os_returns_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -19334,13 +20963,21 @@ OSReturnsRetainedOnNonZeroAttr *OSReturnsRetainedOnNonZeroAttr::Create(ASTContex
   return A;
 }
 
-OSReturnsRetainedOnNonZeroAttr *OSReturnsRetainedOnNonZeroAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+OSReturnsRetainedOnNonZeroAttr *OSReturnsRetainedOnNonZeroAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_os_returns_retained_on_non_zero ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_os_returns_retained_on_non_zero, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_os_returns_retained_on_non_zero ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_os_returns_retained_on_non_zero, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_os_returns_retained_on_non_zero ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_os_returns_retained_on_non_zero, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-OSReturnsRetainedOnNonZeroAttr *OSReturnsRetainedOnNonZeroAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+OSReturnsRetainedOnNonZeroAttr *OSReturnsRetainedOnNonZeroAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_os_returns_retained_on_non_zero ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_os_returns_retained_on_non_zero, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_os_returns_retained_on_non_zero ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_os_returns_retained_on_non_zero, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_os_returns_retained_on_non_zero ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_os_returns_retained_on_non_zero, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -19415,13 +21052,21 @@ OSReturnsRetainedOnZeroAttr *OSReturnsRetainedOnZeroAttr::Create(ASTContext &Ctx
   return A;
 }
 
-OSReturnsRetainedOnZeroAttr *OSReturnsRetainedOnZeroAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+OSReturnsRetainedOnZeroAttr *OSReturnsRetainedOnZeroAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_os_returns_retained_on_zero ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_os_returns_retained_on_zero, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_os_returns_retained_on_zero ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_os_returns_retained_on_zero, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_os_returns_retained_on_zero ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_os_returns_retained_on_zero, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-OSReturnsRetainedOnZeroAttr *OSReturnsRetainedOnZeroAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+OSReturnsRetainedOnZeroAttr *OSReturnsRetainedOnZeroAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_os_returns_retained_on_zero ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_os_returns_retained_on_zero, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_os_returns_retained_on_zero ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_os_returns_retained_on_zero, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_os_returns_retained_on_zero ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_os_returns_retained_on_zero, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -19496,13 +21141,21 @@ ObjCBoxableAttr *ObjCBoxableAttr::Create(ASTContext &Ctx, const AttributeCommonI
   return A;
 }
 
-ObjCBoxableAttr *ObjCBoxableAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCBoxableAttr *ObjCBoxableAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_boxable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_boxable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_boxable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_boxable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_boxable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_boxable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-ObjCBoxableAttr *ObjCBoxableAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCBoxableAttr *ObjCBoxableAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_boxable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_boxable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_boxable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_boxable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_boxable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_boxable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -19577,13 +21230,21 @@ ObjCBridgeAttr *ObjCBridgeAttr::Create(ASTContext &Ctx, IdentifierInfo * Bridged
   return A;
 }
 
-ObjCBridgeAttr *ObjCBridgeAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * BridgedType, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCBridgeAttr *ObjCBridgeAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * BridgedType, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_bridge ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_bridge, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_bridge ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_bridge, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_bridge ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_bridge, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, BridgedType, I);
 }
 
-ObjCBridgeAttr *ObjCBridgeAttr::Create(ASTContext &Ctx, IdentifierInfo * BridgedType, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCBridgeAttr *ObjCBridgeAttr::Create(ASTContext &Ctx, IdentifierInfo * BridgedType, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_bridge ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_bridge, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_bridge ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_bridge, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_bridge ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_bridge, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, BridgedType, I);
 }
 
@@ -19674,13 +21335,21 @@ ObjCBridgeMutableAttr *ObjCBridgeMutableAttr::Create(ASTContext &Ctx, Identifier
   return A;
 }
 
-ObjCBridgeMutableAttr *ObjCBridgeMutableAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * BridgedType, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCBridgeMutableAttr *ObjCBridgeMutableAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * BridgedType, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_bridge_mutable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_bridge_mutable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_bridge_mutable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_bridge_mutable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_bridge_mutable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_bridge_mutable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, BridgedType, I);
 }
 
-ObjCBridgeMutableAttr *ObjCBridgeMutableAttr::Create(ASTContext &Ctx, IdentifierInfo * BridgedType, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCBridgeMutableAttr *ObjCBridgeMutableAttr::Create(ASTContext &Ctx, IdentifierInfo * BridgedType, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_bridge_mutable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_bridge_mutable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_bridge_mutable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_bridge_mutable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_bridge_mutable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_bridge_mutable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, BridgedType, I);
 }
 
@@ -19771,13 +21440,21 @@ ObjCBridgeRelatedAttr *ObjCBridgeRelatedAttr::Create(ASTContext &Ctx, Identifier
   return A;
 }
 
-ObjCBridgeRelatedAttr *ObjCBridgeRelatedAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * RelatedClass, IdentifierInfo * ClassMethod, IdentifierInfo * InstanceMethod, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCBridgeRelatedAttr *ObjCBridgeRelatedAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * RelatedClass, IdentifierInfo * ClassMethod, IdentifierInfo * InstanceMethod, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_bridge_related ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_bridge_related, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_bridge_related ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_bridge_related, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_bridge_related ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_bridge_related, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, RelatedClass, ClassMethod, InstanceMethod, I);
 }
 
-ObjCBridgeRelatedAttr *ObjCBridgeRelatedAttr::Create(ASTContext &Ctx, IdentifierInfo * RelatedClass, IdentifierInfo * ClassMethod, IdentifierInfo * InstanceMethod, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCBridgeRelatedAttr *ObjCBridgeRelatedAttr::Create(ASTContext &Ctx, IdentifierInfo * RelatedClass, IdentifierInfo * ClassMethod, IdentifierInfo * InstanceMethod, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_bridge_related ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_bridge_related, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_bridge_related ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_bridge_related, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_bridge_related ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_bridge_related, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, RelatedClass, ClassMethod, InstanceMethod, I);
 }
 
@@ -19888,13 +21565,21 @@ ObjCClassStubAttr *ObjCClassStubAttr::Create(ASTContext &Ctx, const AttributeCom
   return A;
 }
 
-ObjCClassStubAttr *ObjCClassStubAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCClassStubAttr *ObjCClassStubAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_class_stub ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_class_stub, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_class_stub ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_class_stub, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_class_stub ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_class_stub, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-ObjCClassStubAttr *ObjCClassStubAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCClassStubAttr *ObjCClassStubAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_class_stub ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_class_stub, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_class_stub ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_class_stub, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_class_stub ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_class_stub, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -19969,13 +21654,21 @@ ObjCDesignatedInitializerAttr *ObjCDesignatedInitializerAttr::Create(ASTContext 
   return A;
 }
 
-ObjCDesignatedInitializerAttr *ObjCDesignatedInitializerAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCDesignatedInitializerAttr *ObjCDesignatedInitializerAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_designated_initializer ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_designated_initializer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_designated_initializer ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_designated_initializer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_designated_initializer ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_designated_initializer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-ObjCDesignatedInitializerAttr *ObjCDesignatedInitializerAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCDesignatedInitializerAttr *ObjCDesignatedInitializerAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_designated_initializer ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_designated_initializer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_designated_initializer ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_designated_initializer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_designated_initializer ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_designated_initializer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -20050,13 +21743,21 @@ ObjCDirectAttr *ObjCDirectAttr::Create(ASTContext &Ctx, const AttributeCommonInf
   return A;
 }
 
-ObjCDirectAttr *ObjCDirectAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCDirectAttr *ObjCDirectAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_direct ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_direct, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_direct ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_direct, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_direct ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_direct, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-ObjCDirectAttr *ObjCDirectAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCDirectAttr *ObjCDirectAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_direct ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_direct, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_direct ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_direct, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_direct ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_direct, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -20131,13 +21832,21 @@ ObjCDirectMembersAttr *ObjCDirectMembersAttr::Create(ASTContext &Ctx, const Attr
   return A;
 }
 
-ObjCDirectMembersAttr *ObjCDirectMembersAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCDirectMembersAttr *ObjCDirectMembersAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_direct_members ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_direct_members, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_direct_members ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_direct_members, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_direct_members ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_direct_members, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-ObjCDirectMembersAttr *ObjCDirectMembersAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCDirectMembersAttr *ObjCDirectMembersAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_direct_members ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_direct_members, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_direct_members ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_direct_members, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_direct_members ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_direct_members, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -20212,13 +21921,21 @@ ObjCExceptionAttr *ObjCExceptionAttr::Create(ASTContext &Ctx, const AttributeCom
   return A;
 }
 
-ObjCExceptionAttr *ObjCExceptionAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCExceptionAttr *ObjCExceptionAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_exception ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_exception, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_exception ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_exception, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_exception ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_exception, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-ObjCExceptionAttr *ObjCExceptionAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCExceptionAttr *ObjCExceptionAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_exception ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_exception, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_exception ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_exception, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_exception ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_exception, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -20293,13 +22010,21 @@ ObjCExplicitProtocolImplAttr *ObjCExplicitProtocolImplAttr::Create(ASTContext &C
   return A;
 }
 
-ObjCExplicitProtocolImplAttr *ObjCExplicitProtocolImplAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCExplicitProtocolImplAttr *ObjCExplicitProtocolImplAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_protocol_requires_explicit_implementation ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_protocol_requires_explicit_implementation, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_protocol_requires_explicit_implementation ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_protocol_requires_explicit_implementation, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_protocol_requires_explicit_implementation ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_protocol_requires_explicit_implementation, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-ObjCExplicitProtocolImplAttr *ObjCExplicitProtocolImplAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCExplicitProtocolImplAttr *ObjCExplicitProtocolImplAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_protocol_requires_explicit_implementation ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_protocol_requires_explicit_implementation, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_protocol_requires_explicit_implementation ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_protocol_requires_explicit_implementation, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_protocol_requires_explicit_implementation ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_protocol_requires_explicit_implementation, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -20374,13 +22099,21 @@ ObjCExternallyRetainedAttr *ObjCExternallyRetainedAttr::Create(ASTContext &Ctx, 
   return A;
 }
 
-ObjCExternallyRetainedAttr *ObjCExternallyRetainedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCExternallyRetainedAttr *ObjCExternallyRetainedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_externally_retained ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_externally_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_externally_retained ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_externally_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_externally_retained ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_externally_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-ObjCExternallyRetainedAttr *ObjCExternallyRetainedAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCExternallyRetainedAttr *ObjCExternallyRetainedAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_externally_retained ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_externally_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_externally_retained ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_externally_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_externally_retained ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_externally_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -20455,13 +22188,21 @@ ObjCGCAttr *ObjCGCAttr::Create(ASTContext &Ctx, IdentifierInfo * Kind, const Att
   return A;
 }
 
-ObjCGCAttr *ObjCGCAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * Kind, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCGCAttr *ObjCGCAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * Kind, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_gc ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_gc, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_gc ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_gc, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_gc ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_gc, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Kind, I);
 }
 
-ObjCGCAttr *ObjCGCAttr::Create(ASTContext &Ctx, IdentifierInfo * Kind, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCGCAttr *ObjCGCAttr::Create(ASTContext &Ctx, IdentifierInfo * Kind, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_gc ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_gc, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_gc ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_gc, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_gc ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_gc, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Kind, I);
 }
 
@@ -20552,13 +22293,21 @@ ObjCIndependentClassAttr *ObjCIndependentClassAttr::Create(ASTContext &Ctx, cons
   return A;
 }
 
-ObjCIndependentClassAttr *ObjCIndependentClassAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCIndependentClassAttr *ObjCIndependentClassAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_independent_class ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_independent_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_independent_class ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_independent_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_independent_class ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_independent_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-ObjCIndependentClassAttr *ObjCIndependentClassAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCIndependentClassAttr *ObjCIndependentClassAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_independent_class ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_independent_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_independent_class ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_independent_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_independent_class ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_independent_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -20633,13 +22382,13 @@ ObjCInertUnsafeUnretainedAttr *ObjCInertUnsafeUnretainedAttr::Create(ASTContext 
   return A;
 }
 
-ObjCInertUnsafeUnretainedAttr *ObjCInertUnsafeUnretainedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCInertUnsafeUnretainedAttr *ObjCInertUnsafeUnretainedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, I);
 }
 
-ObjCInertUnsafeUnretainedAttr *ObjCInertUnsafeUnretainedAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCInertUnsafeUnretainedAttr *ObjCInertUnsafeUnretainedAttr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, I);
 }
 
@@ -20700,13 +22449,13 @@ ObjCKindOfAttr *ObjCKindOfAttr::Create(ASTContext &Ctx, const AttributeCommonInf
   return A;
 }
 
-ObjCKindOfAttr *ObjCKindOfAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCKindOfAttr *ObjCKindOfAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, I);
 }
 
-ObjCKindOfAttr *ObjCKindOfAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCKindOfAttr *ObjCKindOfAttr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, I);
 }
 
@@ -20767,13 +22516,21 @@ ObjCMethodFamilyAttr *ObjCMethodFamilyAttr::Create(ASTContext &Ctx, FamilyKind F
   return A;
 }
 
-ObjCMethodFamilyAttr *ObjCMethodFamilyAttr::CreateImplicit(ASTContext &Ctx, FamilyKind Family, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCMethodFamilyAttr *ObjCMethodFamilyAttr::CreateImplicit(ASTContext &Ctx, FamilyKind Family, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_method_family ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_method_family, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_method_family ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_method_family, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_method_family ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_method_family, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Family, I);
 }
 
-ObjCMethodFamilyAttr *ObjCMethodFamilyAttr::Create(ASTContext &Ctx, FamilyKind Family, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCMethodFamilyAttr *ObjCMethodFamilyAttr::Create(ASTContext &Ctx, FamilyKind Family, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_method_family ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_method_family, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_method_family ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_method_family, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_method_family ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_method_family, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Family, I);
 }
 
@@ -20891,13 +22648,21 @@ ObjCNSObjectAttr *ObjCNSObjectAttr::Create(ASTContext &Ctx, const AttributeCommo
   return A;
 }
 
-ObjCNSObjectAttr *ObjCNSObjectAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCNSObjectAttr *ObjCNSObjectAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_NSObject ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_NSObject, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_NSObject ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_NSObject, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_NSObject ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_NSObject, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-ObjCNSObjectAttr *ObjCNSObjectAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCNSObjectAttr *ObjCNSObjectAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_NSObject ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_NSObject, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_NSObject ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_NSObject, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_NSObject ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_NSObject, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -20972,13 +22737,21 @@ ObjCNonLazyClassAttr *ObjCNonLazyClassAttr::Create(ASTContext &Ctx, const Attrib
   return A;
 }
 
-ObjCNonLazyClassAttr *ObjCNonLazyClassAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCNonLazyClassAttr *ObjCNonLazyClassAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_nonlazy_class ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_nonlazy_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_nonlazy_class ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_nonlazy_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_nonlazy_class ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_nonlazy_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-ObjCNonLazyClassAttr *ObjCNonLazyClassAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCNonLazyClassAttr *ObjCNonLazyClassAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_nonlazy_class ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_nonlazy_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_nonlazy_class ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_nonlazy_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_nonlazy_class ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_nonlazy_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -21053,13 +22826,21 @@ ObjCNonRuntimeProtocolAttr *ObjCNonRuntimeProtocolAttr::Create(ASTContext &Ctx, 
   return A;
 }
 
-ObjCNonRuntimeProtocolAttr *ObjCNonRuntimeProtocolAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCNonRuntimeProtocolAttr *ObjCNonRuntimeProtocolAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_non_runtime_protocol ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_non_runtime_protocol, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_non_runtime_protocol ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_non_runtime_protocol, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_non_runtime_protocol ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_non_runtime_protocol, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-ObjCNonRuntimeProtocolAttr *ObjCNonRuntimeProtocolAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCNonRuntimeProtocolAttr *ObjCNonRuntimeProtocolAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_non_runtime_protocol ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_non_runtime_protocol, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_non_runtime_protocol ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_non_runtime_protocol, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_non_runtime_protocol ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_non_runtime_protocol, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -21134,13 +22915,21 @@ ObjCOwnershipAttr *ObjCOwnershipAttr::Create(ASTContext &Ctx, IdentifierInfo * K
   return A;
 }
 
-ObjCOwnershipAttr *ObjCOwnershipAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * Kind, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCOwnershipAttr *ObjCOwnershipAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * Kind, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_ownership ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_ownership, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_ownership ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_ownership, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_ownership ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_ownership, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Kind, I);
 }
 
-ObjCOwnershipAttr *ObjCOwnershipAttr::Create(ASTContext &Ctx, IdentifierInfo * Kind, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCOwnershipAttr *ObjCOwnershipAttr::Create(ASTContext &Ctx, IdentifierInfo * Kind, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_ownership ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_ownership, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_ownership ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_ownership, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_ownership ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_ownership, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Kind, I);
 }
 
@@ -21231,13 +23020,21 @@ ObjCPreciseLifetimeAttr *ObjCPreciseLifetimeAttr::Create(ASTContext &Ctx, const 
   return A;
 }
 
-ObjCPreciseLifetimeAttr *ObjCPreciseLifetimeAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCPreciseLifetimeAttr *ObjCPreciseLifetimeAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_precise_lifetime ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_precise_lifetime, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_precise_lifetime ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_precise_lifetime, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_precise_lifetime ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_precise_lifetime, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-ObjCPreciseLifetimeAttr *ObjCPreciseLifetimeAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCPreciseLifetimeAttr *ObjCPreciseLifetimeAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_precise_lifetime ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_precise_lifetime, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_precise_lifetime ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_precise_lifetime, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_precise_lifetime ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_precise_lifetime, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -21312,13 +23109,21 @@ ObjCRequiresPropertyDefsAttr *ObjCRequiresPropertyDefsAttr::Create(ASTContext &C
   return A;
 }
 
-ObjCRequiresPropertyDefsAttr *ObjCRequiresPropertyDefsAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCRequiresPropertyDefsAttr *ObjCRequiresPropertyDefsAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_requires_property_definitions ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_requires_property_definitions, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_requires_property_definitions ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_requires_property_definitions, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_requires_property_definitions ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_requires_property_definitions, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-ObjCRequiresPropertyDefsAttr *ObjCRequiresPropertyDefsAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCRequiresPropertyDefsAttr *ObjCRequiresPropertyDefsAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_requires_property_definitions ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_requires_property_definitions, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_requires_property_definitions ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_requires_property_definitions, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_requires_property_definitions ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_requires_property_definitions, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -21393,13 +23198,21 @@ ObjCRequiresSuperAttr *ObjCRequiresSuperAttr::Create(ASTContext &Ctx, const Attr
   return A;
 }
 
-ObjCRequiresSuperAttr *ObjCRequiresSuperAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCRequiresSuperAttr *ObjCRequiresSuperAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_requires_super ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_requires_super, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_requires_super ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_requires_super, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_requires_super ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_requires_super, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-ObjCRequiresSuperAttr *ObjCRequiresSuperAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCRequiresSuperAttr *ObjCRequiresSuperAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_requires_super ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_requires_super, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_requires_super ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_requires_super, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_requires_super ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_requires_super, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -21474,13 +23287,21 @@ ObjCReturnsInnerPointerAttr *ObjCReturnsInnerPointerAttr::Create(ASTContext &Ctx
   return A;
 }
 
-ObjCReturnsInnerPointerAttr *ObjCReturnsInnerPointerAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCReturnsInnerPointerAttr *ObjCReturnsInnerPointerAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_returns_inner_pointer ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_returns_inner_pointer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_returns_inner_pointer ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_returns_inner_pointer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_returns_inner_pointer ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_returns_inner_pointer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-ObjCReturnsInnerPointerAttr *ObjCReturnsInnerPointerAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCReturnsInnerPointerAttr *ObjCReturnsInnerPointerAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_returns_inner_pointer ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_returns_inner_pointer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_returns_inner_pointer ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_returns_inner_pointer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_returns_inner_pointer ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_returns_inner_pointer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -21555,13 +23376,21 @@ ObjCRootClassAttr *ObjCRootClassAttr::Create(ASTContext &Ctx, const AttributeCom
   return A;
 }
 
-ObjCRootClassAttr *ObjCRootClassAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCRootClassAttr *ObjCRootClassAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_root_class ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_root_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_root_class ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_root_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_root_class ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_root_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-ObjCRootClassAttr *ObjCRootClassAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCRootClassAttr *ObjCRootClassAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_root_class ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_root_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_root_class ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_root_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_root_class ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_root_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -21636,13 +23465,21 @@ ObjCRuntimeNameAttr *ObjCRuntimeNameAttr::Create(ASTContext &Ctx, llvm::StringRe
   return A;
 }
 
-ObjCRuntimeNameAttr *ObjCRuntimeNameAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef MetadataName, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCRuntimeNameAttr *ObjCRuntimeNameAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef MetadataName, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_runtime_name ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_runtime_name, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_runtime_name ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_runtime_name, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_runtime_name ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_runtime_name, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, MetadataName, I);
 }
 
-ObjCRuntimeNameAttr *ObjCRuntimeNameAttr::Create(ASTContext &Ctx, llvm::StringRef MetadataName, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCRuntimeNameAttr *ObjCRuntimeNameAttr::Create(ASTContext &Ctx, llvm::StringRef MetadataName, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_runtime_name ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_runtime_name, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_runtime_name ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_runtime_name, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_runtime_name ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_runtime_name, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, MetadataName, I);
 }
 
@@ -21735,13 +23572,21 @@ ObjCRuntimeVisibleAttr *ObjCRuntimeVisibleAttr::Create(ASTContext &Ctx, const At
   return A;
 }
 
-ObjCRuntimeVisibleAttr *ObjCRuntimeVisibleAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCRuntimeVisibleAttr *ObjCRuntimeVisibleAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_runtime_visible ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_runtime_visible, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_runtime_visible ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_runtime_visible, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_runtime_visible ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_runtime_visible, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-ObjCRuntimeVisibleAttr *ObjCRuntimeVisibleAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCRuntimeVisibleAttr *ObjCRuntimeVisibleAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_runtime_visible ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_runtime_visible, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_runtime_visible ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_runtime_visible, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_runtime_visible ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_runtime_visible, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -21816,13 +23661,21 @@ ObjCSubclassingRestrictedAttr *ObjCSubclassingRestrictedAttr::Create(ASTContext 
   return A;
 }
 
-ObjCSubclassingRestrictedAttr *ObjCSubclassingRestrictedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCSubclassingRestrictedAttr *ObjCSubclassingRestrictedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_subclassing_restricted ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_subclassing_restricted, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_subclassing_restricted ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_subclassing_restricted, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_subclassing_restricted ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_subclassing_restricted, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-ObjCSubclassingRestrictedAttr *ObjCSubclassingRestrictedAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ObjCSubclassingRestrictedAttr *ObjCSubclassingRestrictedAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_objc_subclassing_restricted ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_subclassing_restricted, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_objc_subclassing_restricted ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_subclassing_restricted, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_objc_subclassing_restricted ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_subclassing_restricted, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -21895,13 +23748,21 @@ OpenCLAccessAttr *OpenCLAccessAttr::Create(ASTContext &Ctx, const AttributeCommo
   return A;
 }
 
-OpenCLAccessAttr *OpenCLAccessAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax, OpenCLAccessAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+OpenCLAccessAttr *OpenCLAccessAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == Keyword_read_only ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_read_only, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Keyword_write_only ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_write_only, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Keyword_read_write ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_read_write, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-OpenCLAccessAttr *OpenCLAccessAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax, OpenCLAccessAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+OpenCLAccessAttr *OpenCLAccessAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == Keyword_read_only ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_read_only, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Keyword_write_only ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_write_only, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Keyword_read_write ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_read_write, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -22006,13 +23867,23 @@ OpenCLConstantAddressSpaceAttr *OpenCLConstantAddressSpaceAttr::Create(ASTContex
   return A;
 }
 
-OpenCLConstantAddressSpaceAttr *OpenCLConstantAddressSpaceAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax, OpenCLConstantAddressSpaceAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+OpenCLConstantAddressSpaceAttr *OpenCLConstantAddressSpaceAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == Keyword_constant ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_constant, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_opencl_constant ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_opencl_constant, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_opencl_constant ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_opencl_constant, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_opencl_constant ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_opencl_constant, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-OpenCLConstantAddressSpaceAttr *OpenCLConstantAddressSpaceAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax, OpenCLConstantAddressSpaceAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+OpenCLConstantAddressSpaceAttr *OpenCLConstantAddressSpaceAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == Keyword_constant ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_constant, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_opencl_constant ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_opencl_constant, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_opencl_constant ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_opencl_constant, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_opencl_constant ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_opencl_constant, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -22109,13 +23980,23 @@ OpenCLGenericAddressSpaceAttr *OpenCLGenericAddressSpaceAttr::Create(ASTContext 
   return A;
 }
 
-OpenCLGenericAddressSpaceAttr *OpenCLGenericAddressSpaceAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax, OpenCLGenericAddressSpaceAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+OpenCLGenericAddressSpaceAttr *OpenCLGenericAddressSpaceAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == Keyword_generic ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_generic, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_opencl_generic ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_opencl_generic, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_opencl_generic ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_opencl_generic, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_opencl_generic ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_opencl_generic, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-OpenCLGenericAddressSpaceAttr *OpenCLGenericAddressSpaceAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax, OpenCLGenericAddressSpaceAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+OpenCLGenericAddressSpaceAttr *OpenCLGenericAddressSpaceAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == Keyword_generic ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_generic, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_opencl_generic ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_opencl_generic, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_opencl_generic ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_opencl_generic, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_opencl_generic ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_opencl_generic, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -22212,13 +24093,23 @@ OpenCLGlobalAddressSpaceAttr *OpenCLGlobalAddressSpaceAttr::Create(ASTContext &C
   return A;
 }
 
-OpenCLGlobalAddressSpaceAttr *OpenCLGlobalAddressSpaceAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax, OpenCLGlobalAddressSpaceAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+OpenCLGlobalAddressSpaceAttr *OpenCLGlobalAddressSpaceAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == Keyword_global ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_global, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_opencl_global ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_opencl_global, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_opencl_global ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_opencl_global, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_opencl_global ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_opencl_global, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-OpenCLGlobalAddressSpaceAttr *OpenCLGlobalAddressSpaceAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax, OpenCLGlobalAddressSpaceAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+OpenCLGlobalAddressSpaceAttr *OpenCLGlobalAddressSpaceAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == Keyword_global ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_global, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_opencl_global ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_opencl_global, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_opencl_global ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_opencl_global, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_opencl_global ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_opencl_global, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -22317,13 +24208,21 @@ OpenCLGlobalDeviceAddressSpaceAttr *OpenCLGlobalDeviceAddressSpaceAttr::Create(A
   return A;
 }
 
-OpenCLGlobalDeviceAddressSpaceAttr *OpenCLGlobalDeviceAddressSpaceAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+OpenCLGlobalDeviceAddressSpaceAttr *OpenCLGlobalDeviceAddressSpaceAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_opencl_global_device ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_opencl_global_device, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_opencl_global_device ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_opencl_global_device, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_opencl_global_device ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_opencl_global_device, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-OpenCLGlobalDeviceAddressSpaceAttr *OpenCLGlobalDeviceAddressSpaceAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+OpenCLGlobalDeviceAddressSpaceAttr *OpenCLGlobalDeviceAddressSpaceAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_opencl_global_device ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_opencl_global_device, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_opencl_global_device ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_opencl_global_device, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_opencl_global_device ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_opencl_global_device, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -22398,13 +24297,21 @@ OpenCLGlobalHostAddressSpaceAttr *OpenCLGlobalHostAddressSpaceAttr::Create(ASTCo
   return A;
 }
 
-OpenCLGlobalHostAddressSpaceAttr *OpenCLGlobalHostAddressSpaceAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+OpenCLGlobalHostAddressSpaceAttr *OpenCLGlobalHostAddressSpaceAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_opencl_global_host ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_opencl_global_host, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_opencl_global_host ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_opencl_global_host, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_opencl_global_host ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_opencl_global_host, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-OpenCLGlobalHostAddressSpaceAttr *OpenCLGlobalHostAddressSpaceAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+OpenCLGlobalHostAddressSpaceAttr *OpenCLGlobalHostAddressSpaceAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_opencl_global_host ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_opencl_global_host, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_opencl_global_host ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_opencl_global_host, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_opencl_global_host ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_opencl_global_host, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -22479,13 +24386,13 @@ OpenCLIntelReqdSubGroupSizeAttr *OpenCLIntelReqdSubGroupSizeAttr::Create(ASTCont
   return A;
 }
 
-OpenCLIntelReqdSubGroupSizeAttr *OpenCLIntelReqdSubGroupSizeAttr::CreateImplicit(ASTContext &Ctx, unsigned SubGroupSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+OpenCLIntelReqdSubGroupSizeAttr *OpenCLIntelReqdSubGroupSizeAttr::CreateImplicit(ASTContext &Ctx, unsigned SubGroupSize, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, SubGroupSize, I);
 }
 
-OpenCLIntelReqdSubGroupSizeAttr *OpenCLIntelReqdSubGroupSizeAttr::Create(ASTContext &Ctx, unsigned SubGroupSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+OpenCLIntelReqdSubGroupSizeAttr *OpenCLIntelReqdSubGroupSizeAttr::Create(ASTContext &Ctx, unsigned SubGroupSize, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, SubGroupSize, I);
 }
 
@@ -22554,13 +24461,17 @@ OpenCLKernelAttr *OpenCLKernelAttr::Create(ASTContext &Ctx, const AttributeCommo
   return A;
 }
 
-OpenCLKernelAttr *OpenCLKernelAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+OpenCLKernelAttr *OpenCLKernelAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == Keyword_kernel ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-OpenCLKernelAttr *OpenCLKernelAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+OpenCLKernelAttr *OpenCLKernelAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == Keyword_kernel ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -22626,13 +24537,23 @@ OpenCLLocalAddressSpaceAttr *OpenCLLocalAddressSpaceAttr::Create(ASTContext &Ctx
   return A;
 }
 
-OpenCLLocalAddressSpaceAttr *OpenCLLocalAddressSpaceAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax, OpenCLLocalAddressSpaceAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+OpenCLLocalAddressSpaceAttr *OpenCLLocalAddressSpaceAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == Keyword_local ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_local, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_opencl_local ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_opencl_local, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_opencl_local ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_opencl_local, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_opencl_local ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_opencl_local, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-OpenCLLocalAddressSpaceAttr *OpenCLLocalAddressSpaceAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax, OpenCLLocalAddressSpaceAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+OpenCLLocalAddressSpaceAttr *OpenCLLocalAddressSpaceAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == Keyword_local ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_local, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_opencl_local ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_opencl_local, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_opencl_local ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_opencl_local, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_opencl_local ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_opencl_local, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -22729,13 +24650,23 @@ OpenCLPrivateAddressSpaceAttr *OpenCLPrivateAddressSpaceAttr::Create(ASTContext 
   return A;
 }
 
-OpenCLPrivateAddressSpaceAttr *OpenCLPrivateAddressSpaceAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax, OpenCLPrivateAddressSpaceAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+OpenCLPrivateAddressSpaceAttr *OpenCLPrivateAddressSpaceAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == Keyword_private ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_private, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_opencl_private ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_opencl_private, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_opencl_private ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_opencl_private, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_opencl_private ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_opencl_private, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-OpenCLPrivateAddressSpaceAttr *OpenCLPrivateAddressSpaceAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax, OpenCLPrivateAddressSpaceAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+OpenCLPrivateAddressSpaceAttr *OpenCLPrivateAddressSpaceAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == Keyword_private ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_private, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_opencl_private ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_opencl_private, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_opencl_private ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_opencl_private, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_opencl_private ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_opencl_private, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -22834,13 +24765,13 @@ OpenCLUnrollHintAttr *OpenCLUnrollHintAttr::Create(ASTContext &Ctx, unsigned Unr
   return A;
 }
 
-OpenCLUnrollHintAttr *OpenCLUnrollHintAttr::CreateImplicit(ASTContext &Ctx, unsigned UnrollHint, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+OpenCLUnrollHintAttr *OpenCLUnrollHintAttr::CreateImplicit(ASTContext &Ctx, unsigned UnrollHint, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, UnrollHint, I);
 }
 
-OpenCLUnrollHintAttr *OpenCLUnrollHintAttr::Create(ASTContext &Ctx, unsigned UnrollHint, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+OpenCLUnrollHintAttr *OpenCLUnrollHintAttr::Create(ASTContext &Ctx, unsigned UnrollHint, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, UnrollHint, I);
 }
 
@@ -22916,13 +24847,21 @@ OptimizeNoneAttr *OptimizeNoneAttr::Create(ASTContext &Ctx, const AttributeCommo
   return A;
 }
 
-OptimizeNoneAttr *OptimizeNoneAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+OptimizeNoneAttr *OptimizeNoneAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_optnone ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_optnone, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_optnone ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_optnone, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_optnone ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_optnone, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-OptimizeNoneAttr *OptimizeNoneAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+OptimizeNoneAttr *OptimizeNoneAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_optnone ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_optnone, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_optnone ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_optnone, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_optnone ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_optnone, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -22997,13 +24936,21 @@ OverloadableAttr *OverloadableAttr::Create(ASTContext &Ctx, const AttributeCommo
   return A;
 }
 
-OverloadableAttr *OverloadableAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+OverloadableAttr *OverloadableAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_overloadable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_overloadable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_overloadable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_overloadable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_overloadable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_overloadable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-OverloadableAttr *OverloadableAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+OverloadableAttr *OverloadableAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_overloadable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_overloadable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_overloadable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_overloadable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_overloadable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_overloadable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -23078,13 +25025,13 @@ OverrideAttr *OverrideAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &C
   return A;
 }
 
-OverrideAttr *OverrideAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+OverrideAttr *OverrideAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, I);
 }
 
-OverrideAttr *OverrideAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+OverrideAttr *OverrideAttr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, I);
 }
 
@@ -23145,13 +25092,13 @@ OwnerAttr *OwnerAttr::Create(ASTContext &Ctx, TypeSourceInfo * DerefType, const 
   return A;
 }
 
-OwnerAttr *OwnerAttr::CreateImplicit(ASTContext &Ctx, TypeSourceInfo * DerefType, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+OwnerAttr *OwnerAttr::CreateImplicit(ASTContext &Ctx, TypeSourceInfo * DerefType, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, DerefType, I);
 }
 
-OwnerAttr *OwnerAttr::Create(ASTContext &Ctx, TypeSourceInfo * DerefType, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+OwnerAttr *OwnerAttr::Create(ASTContext &Ctx, TypeSourceInfo * DerefType, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, DerefType, I);
 }
 
@@ -23229,13 +25176,33 @@ OwnershipAttr *OwnershipAttr::Create(ASTContext &Ctx, IdentifierInfo * Module, P
   return A;
 }
 
-OwnershipAttr *OwnershipAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * Module, ParamIdx *Args, unsigned ArgsSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax, OwnershipAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+OwnershipAttr *OwnershipAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * Module, ParamIdx *Args, unsigned ArgsSize, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_ownership_holds ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_ownership_holds, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_ownership_holds ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_ownership_holds, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_ownership_holds ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_ownership_holds, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_ownership_returns ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_ownership_returns, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_ownership_returns ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_ownership_returns, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_ownership_returns ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_ownership_returns, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_ownership_takes ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_ownership_takes, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_ownership_takes ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_ownership_takes, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_ownership_takes ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_ownership_takes, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Module, Args, ArgsSize, I);
 }
 
-OwnershipAttr *OwnershipAttr::Create(ASTContext &Ctx, IdentifierInfo * Module, ParamIdx *Args, unsigned ArgsSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax, OwnershipAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+OwnershipAttr *OwnershipAttr::Create(ASTContext &Ctx, IdentifierInfo * Module, ParamIdx *Args, unsigned ArgsSize, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_ownership_holds ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_ownership_holds, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_ownership_holds ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_ownership_holds, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_ownership_holds ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_ownership_holds, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_ownership_returns ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_ownership_returns, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_ownership_returns ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_ownership_returns, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_ownership_returns ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_ownership_returns, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_ownership_takes ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_ownership_takes, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_ownership_takes ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_ownership_takes, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_ownership_takes ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_ownership_takes, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Module, Args, ArgsSize, I);
 }
 
@@ -23474,13 +25441,21 @@ PackedAttr *PackedAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &Commo
   return A;
 }
 
-PackedAttr *PackedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+PackedAttr *PackedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_packed ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_packed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_packed ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_packed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_packed ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_packed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-PackedAttr *PackedAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+PackedAttr *PackedAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_packed ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_packed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_packed ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_packed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_packed ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_packed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -23555,13 +25530,19 @@ ParamTypestateAttr *ParamTypestateAttr::Create(ASTContext &Ctx, ConsumedState Pa
   return A;
 }
 
-ParamTypestateAttr *ParamTypestateAttr::CreateImplicit(ASTContext &Ctx, ConsumedState ParamState, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ParamTypestateAttr *ParamTypestateAttr::CreateImplicit(ASTContext &Ctx, ConsumedState ParamState, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_param_typestate ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_param_typestate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_param_typestate ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_param_typestate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, ParamState, I);
 }
 
-ParamTypestateAttr *ParamTypestateAttr::Create(ASTContext &Ctx, ConsumedState ParamState, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ParamTypestateAttr *ParamTypestateAttr::Create(ASTContext &Ctx, ConsumedState ParamState, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_param_typestate ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_param_typestate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_param_typestate ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_param_typestate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, ParamState, I);
 }
 
@@ -23662,13 +25643,23 @@ PascalAttr *PascalAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &Commo
   return A;
 }
 
-PascalAttr *PascalAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+PascalAttr *PascalAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_pascal ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_pascal, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_pascal ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_pascal, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_pascal ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_pascal, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Keyword_pascal ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_pascal, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-PascalAttr *PascalAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+PascalAttr *PascalAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_pascal ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_pascal, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_pascal ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_pascal, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_pascal ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_pascal, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Keyword_pascal ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_pascal, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -23755,13 +25746,27 @@ PassObjectSizeAttr *PassObjectSizeAttr::Create(ASTContext &Ctx, int Type, const 
   return A;
 }
 
-PassObjectSizeAttr *PassObjectSizeAttr::CreateImplicit(ASTContext &Ctx, int Type, SourceRange Range, AttributeCommonInfo::Syntax Syntax, PassObjectSizeAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+PassObjectSizeAttr *PassObjectSizeAttr::CreateImplicit(ASTContext &Ctx, int Type, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_pass_object_size ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_pass_object_size, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_pass_object_size ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_pass_object_size, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_pass_object_size ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_pass_object_size, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_pass_dynamic_object_size ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_pass_dynamic_object_size, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_pass_dynamic_object_size ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_pass_dynamic_object_size, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_pass_dynamic_object_size ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_pass_dynamic_object_size, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Type, I);
 }
 
-PassObjectSizeAttr *PassObjectSizeAttr::Create(ASTContext &Ctx, int Type, SourceRange Range, AttributeCommonInfo::Syntax Syntax, PassObjectSizeAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+PassObjectSizeAttr *PassObjectSizeAttr::Create(ASTContext &Ctx, int Type, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_pass_object_size ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_pass_object_size, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_pass_object_size ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_pass_object_size, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_pass_object_size ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_pass_object_size, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_pass_dynamic_object_size ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_pass_dynamic_object_size, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_pass_dynamic_object_size ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_pass_dynamic_object_size, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_pass_dynamic_object_size ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_pass_dynamic_object_size, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Type, I);
 }
 
@@ -23896,13 +25901,21 @@ PatchableFunctionEntryAttr *PatchableFunctionEntryAttr::Create(ASTContext &Ctx, 
   return A;
 }
 
-PatchableFunctionEntryAttr *PatchableFunctionEntryAttr::CreateImplicit(ASTContext &Ctx, unsigned Count, int Offset, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+PatchableFunctionEntryAttr *PatchableFunctionEntryAttr::CreateImplicit(ASTContext &Ctx, unsigned Count, int Offset, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_patchable_function_entry ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_patchable_function_entry, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_patchable_function_entry ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_patchable_function_entry, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_patchable_function_entry ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_patchable_function_entry, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Count, Offset, I);
 }
 
-PatchableFunctionEntryAttr *PatchableFunctionEntryAttr::Create(ASTContext &Ctx, unsigned Count, int Offset, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+PatchableFunctionEntryAttr *PatchableFunctionEntryAttr::Create(ASTContext &Ctx, unsigned Count, int Offset, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_patchable_function_entry ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_patchable_function_entry, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_patchable_function_entry ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_patchable_function_entry, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_patchable_function_entry ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_patchable_function_entry, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Count, Offset, I);
 }
 
@@ -24012,13 +26025,21 @@ PcsAttr *PcsAttr::Create(ASTContext &Ctx, PCSType PCS, const AttributeCommonInfo
   return A;
 }
 
-PcsAttr *PcsAttr::CreateImplicit(ASTContext &Ctx, PCSType PCS, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+PcsAttr *PcsAttr::CreateImplicit(ASTContext &Ctx, PCSType PCS, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_pcs ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_pcs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_pcs ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_pcs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_pcs ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_pcs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, PCS, I);
 }
 
-PcsAttr *PcsAttr::Create(ASTContext &Ctx, PCSType PCS, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+PcsAttr *PcsAttr::Create(ASTContext &Ctx, PCSType PCS, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_pcs ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_pcs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_pcs ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_pcs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_pcs ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_pcs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, PCS, I);
 }
 
@@ -24128,13 +26149,13 @@ PointerAttr *PointerAttr::Create(ASTContext &Ctx, TypeSourceInfo * DerefType, co
   return A;
 }
 
-PointerAttr *PointerAttr::CreateImplicit(ASTContext &Ctx, TypeSourceInfo * DerefType, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+PointerAttr *PointerAttr::CreateImplicit(ASTContext &Ctx, TypeSourceInfo * DerefType, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, DerefType, I);
 }
 
-PointerAttr *PointerAttr::Create(ASTContext &Ctx, TypeSourceInfo * DerefType, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+PointerAttr *PointerAttr::Create(ASTContext &Ctx, TypeSourceInfo * DerefType, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, DerefType, I);
 }
 
@@ -24214,13 +26235,13 @@ PragmaClangBSSSectionAttr *PragmaClangBSSSectionAttr::Create(ASTContext &Ctx, ll
   return A;
 }
 
-PragmaClangBSSSectionAttr *PragmaClangBSSSectionAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Name, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+PragmaClangBSSSectionAttr *PragmaClangBSSSectionAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Name, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
   return CreateImplicit(Ctx, Name, I);
 }
 
-PragmaClangBSSSectionAttr *PragmaClangBSSSectionAttr::Create(ASTContext &Ctx, llvm::StringRef Name, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+PragmaClangBSSSectionAttr *PragmaClangBSSSectionAttr::Create(ASTContext &Ctx, llvm::StringRef Name, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
   return Create(Ctx, Name, I);
 }
 
@@ -24269,13 +26290,13 @@ PragmaClangDataSectionAttr *PragmaClangDataSectionAttr::Create(ASTContext &Ctx, 
   return A;
 }
 
-PragmaClangDataSectionAttr *PragmaClangDataSectionAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Name, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+PragmaClangDataSectionAttr *PragmaClangDataSectionAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Name, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
   return CreateImplicit(Ctx, Name, I);
 }
 
-PragmaClangDataSectionAttr *PragmaClangDataSectionAttr::Create(ASTContext &Ctx, llvm::StringRef Name, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+PragmaClangDataSectionAttr *PragmaClangDataSectionAttr::Create(ASTContext &Ctx, llvm::StringRef Name, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
   return Create(Ctx, Name, I);
 }
 
@@ -24324,13 +26345,13 @@ PragmaClangRelroSectionAttr *PragmaClangRelroSectionAttr::Create(ASTContext &Ctx
   return A;
 }
 
-PragmaClangRelroSectionAttr *PragmaClangRelroSectionAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Name, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+PragmaClangRelroSectionAttr *PragmaClangRelroSectionAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Name, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
   return CreateImplicit(Ctx, Name, I);
 }
 
-PragmaClangRelroSectionAttr *PragmaClangRelroSectionAttr::Create(ASTContext &Ctx, llvm::StringRef Name, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+PragmaClangRelroSectionAttr *PragmaClangRelroSectionAttr::Create(ASTContext &Ctx, llvm::StringRef Name, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
   return Create(Ctx, Name, I);
 }
 
@@ -24379,13 +26400,13 @@ PragmaClangRodataSectionAttr *PragmaClangRodataSectionAttr::Create(ASTContext &C
   return A;
 }
 
-PragmaClangRodataSectionAttr *PragmaClangRodataSectionAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Name, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+PragmaClangRodataSectionAttr *PragmaClangRodataSectionAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Name, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
   return CreateImplicit(Ctx, Name, I);
 }
 
-PragmaClangRodataSectionAttr *PragmaClangRodataSectionAttr::Create(ASTContext &Ctx, llvm::StringRef Name, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+PragmaClangRodataSectionAttr *PragmaClangRodataSectionAttr::Create(ASTContext &Ctx, llvm::StringRef Name, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
   return Create(Ctx, Name, I);
 }
 
@@ -24434,13 +26455,13 @@ PragmaClangTextSectionAttr *PragmaClangTextSectionAttr::Create(ASTContext &Ctx, 
   return A;
 }
 
-PragmaClangTextSectionAttr *PragmaClangTextSectionAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Name, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+PragmaClangTextSectionAttr *PragmaClangTextSectionAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Name, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
   return CreateImplicit(Ctx, Name, I);
 }
 
-PragmaClangTextSectionAttr *PragmaClangTextSectionAttr::Create(ASTContext &Ctx, llvm::StringRef Name, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+PragmaClangTextSectionAttr *PragmaClangTextSectionAttr::Create(ASTContext &Ctx, llvm::StringRef Name, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
   return Create(Ctx, Name, I);
 }
 
@@ -24489,13 +26510,19 @@ PreferredNameAttr *PreferredNameAttr::Create(ASTContext &Ctx, TypeSourceInfo * T
   return A;
 }
 
-PreferredNameAttr *PreferredNameAttr::CreateImplicit(ASTContext &Ctx, TypeSourceInfo * TypedefType, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+PreferredNameAttr *PreferredNameAttr::CreateImplicit(ASTContext &Ctx, TypeSourceInfo * TypedefType, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_preferred_name ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_preferred_name, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_preferred_name ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_preferred_name, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, TypedefType, I);
 }
 
-PreferredNameAttr *PreferredNameAttr::Create(ASTContext &Ctx, TypeSourceInfo * TypedefType, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+PreferredNameAttr *PreferredNameAttr::Create(ASTContext &Ctx, TypeSourceInfo * TypedefType, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_preferred_name ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_preferred_name, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_preferred_name ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_preferred_name, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, TypedefType, I);
 }
 
@@ -24575,13 +26602,21 @@ PreserveAllAttr *PreserveAllAttr::Create(ASTContext &Ctx, const AttributeCommonI
   return A;
 }
 
-PreserveAllAttr *PreserveAllAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+PreserveAllAttr *PreserveAllAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_preserve_all ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_preserve_all, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_preserve_all ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_preserve_all, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_preserve_all ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_preserve_all, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-PreserveAllAttr *PreserveAllAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+PreserveAllAttr *PreserveAllAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_preserve_all ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_preserve_all, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_preserve_all ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_preserve_all, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_preserve_all ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_preserve_all, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -24656,13 +26691,21 @@ PreserveMostAttr *PreserveMostAttr::Create(ASTContext &Ctx, const AttributeCommo
   return A;
 }
 
-PreserveMostAttr *PreserveMostAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+PreserveMostAttr *PreserveMostAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_preserve_most ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_preserve_most, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_preserve_most ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_preserve_most, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_preserve_most ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_preserve_most, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-PreserveMostAttr *PreserveMostAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+PreserveMostAttr *PreserveMostAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_preserve_most ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_preserve_most, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_preserve_most ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_preserve_most, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_preserve_most ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_preserve_most, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -24737,13 +26780,13 @@ PtGuardedByAttr *PtGuardedByAttr::Create(ASTContext &Ctx, Expr * Arg, const Attr
   return A;
 }
 
-PtGuardedByAttr *PtGuardedByAttr::CreateImplicit(ASTContext &Ctx, Expr * Arg, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+PtGuardedByAttr *PtGuardedByAttr::CreateImplicit(ASTContext &Ctx, Expr * Arg, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, Arg, I);
 }
 
-PtGuardedByAttr *PtGuardedByAttr::Create(ASTContext &Ctx, Expr * Arg, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+PtGuardedByAttr *PtGuardedByAttr::Create(ASTContext &Ctx, Expr * Arg, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, Arg, I);
 }
 
@@ -24814,13 +26857,19 @@ PtGuardedVarAttr *PtGuardedVarAttr::Create(ASTContext &Ctx, const AttributeCommo
   return A;
 }
 
-PtGuardedVarAttr *PtGuardedVarAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+PtGuardedVarAttr *PtGuardedVarAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_pt_guarded_var ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_pt_guarded_var, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_pt_guarded_var ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_pt_guarded_var, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-PtGuardedVarAttr *PtGuardedVarAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+PtGuardedVarAttr *PtGuardedVarAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_pt_guarded_var ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_pt_guarded_var, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_pt_guarded_var ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_pt_guarded_var, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -24888,13 +26937,13 @@ Ptr32Attr *Ptr32Attr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonI
   return A;
 }
 
-Ptr32Attr *Ptr32Attr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+Ptr32Attr *Ptr32Attr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, I);
 }
 
-Ptr32Attr *Ptr32Attr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+Ptr32Attr *Ptr32Attr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, I);
 }
 
@@ -24955,13 +27004,13 @@ Ptr64Attr *Ptr64Attr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonI
   return A;
 }
 
-Ptr64Attr *Ptr64Attr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+Ptr64Attr *Ptr64Attr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, I);
 }
 
-Ptr64Attr *Ptr64Attr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+Ptr64Attr *Ptr64Attr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, I);
 }
 
@@ -25022,13 +27071,21 @@ PureAttr *PureAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInf
   return A;
 }
 
-PureAttr *PureAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+PureAttr *PureAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_pure ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_pure, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_pure ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_pure, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_pure ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_pure, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-PureAttr *PureAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+PureAttr *PureAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_pure ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_pure, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_pure ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_pure, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_pure ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_pure, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -25103,13 +27160,21 @@ RISCVInterruptAttr *RISCVInterruptAttr::Create(ASTContext &Ctx, InterruptType In
   return A;
 }
 
-RISCVInterruptAttr *RISCVInterruptAttr::CreateImplicit(ASTContext &Ctx, InterruptType Interrupt, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+RISCVInterruptAttr *RISCVInterruptAttr::CreateImplicit(ASTContext &Ctx, InterruptType Interrupt, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_interrupt ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_interrupt ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_interrupt ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Interrupt, I);
 }
 
-RISCVInterruptAttr *RISCVInterruptAttr::Create(ASTContext &Ctx, InterruptType Interrupt, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+RISCVInterruptAttr *RISCVInterruptAttr::Create(ASTContext &Ctx, InterruptType Interrupt, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_interrupt ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_interrupt ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_interrupt ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Interrupt, I);
 }
 
@@ -25132,7 +27197,6 @@ RISCVInterruptAttr::RISCVInterruptAttr(ASTContext &Ctx, const AttributeCommonInf
 
 bool RISCVInterruptAttr::ConvertStrToInterruptType(StringRef Val, InterruptType &Out) {
   std::optional<InterruptType> R = llvm::StringSwitch<std::optional<InterruptType>>(Val)
-    .Case("user", RISCVInterruptAttr::user)
     .Case("supervisor", RISCVInterruptAttr::supervisor)
     .Case("machine", RISCVInterruptAttr::machine)
     .Default(std::optional<InterruptType>());
@@ -25145,7 +27209,6 @@ bool RISCVInterruptAttr::ConvertStrToInterruptType(StringRef Val, InterruptType 
 
 const char *RISCVInterruptAttr::ConvertInterruptTypeToStr(InterruptType Val) {
   switch(Val) {
-  case RISCVInterruptAttr::user: return "user";
   case RISCVInterruptAttr::supervisor: return "supervisor";
   case RISCVInterruptAttr::machine: return "machine";
   }
@@ -25228,13 +27291,21 @@ RandomizeLayoutAttr *RandomizeLayoutAttr::Create(ASTContext &Ctx, const Attribut
   return A;
 }
 
-RandomizeLayoutAttr *RandomizeLayoutAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+RandomizeLayoutAttr *RandomizeLayoutAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_randomize_layout ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_randomize_layout, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_randomize_layout ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_randomize_layout, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_randomize_layout ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_randomize_layout, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-RandomizeLayoutAttr *RandomizeLayoutAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+RandomizeLayoutAttr *RandomizeLayoutAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_randomize_layout ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_randomize_layout, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_randomize_layout ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_randomize_layout, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_randomize_layout ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_randomize_layout, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -25309,13 +27380,21 @@ ReadOnlyPlacementAttr *ReadOnlyPlacementAttr::Create(ASTContext &Ctx, const Attr
   return A;
 }
 
-ReadOnlyPlacementAttr *ReadOnlyPlacementAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ReadOnlyPlacementAttr *ReadOnlyPlacementAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_enforce_read_only_placement ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_enforce_read_only_placement, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_enforce_read_only_placement ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_enforce_read_only_placement, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_enforce_read_only_placement ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_enforce_read_only_placement, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-ReadOnlyPlacementAttr *ReadOnlyPlacementAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ReadOnlyPlacementAttr *ReadOnlyPlacementAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_enforce_read_only_placement ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_enforce_read_only_placement, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_enforce_read_only_placement ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_enforce_read_only_placement, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_enforce_read_only_placement ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_enforce_read_only_placement, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -25390,13 +27469,23 @@ RegCallAttr *RegCallAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &Com
   return A;
 }
 
-RegCallAttr *RegCallAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+RegCallAttr *RegCallAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_regcall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_regcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_regcall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_regcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_regcall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_regcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Keyword_regcall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_regcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-RegCallAttr *RegCallAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+RegCallAttr *RegCallAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_regcall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_regcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_regcall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_regcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_regcall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_regcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Keyword_regcall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_regcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -25478,13 +27567,19 @@ ReinitializesAttr *ReinitializesAttr::Create(ASTContext &Ctx, const AttributeCom
   return A;
 }
 
-ReinitializesAttr *ReinitializesAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ReinitializesAttr *ReinitializesAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_reinitializes ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_reinitializes, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_reinitializes ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_reinitializes, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-ReinitializesAttr *ReinitializesAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ReinitializesAttr *ReinitializesAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_reinitializes ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_reinitializes, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_reinitializes ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_reinitializes, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -25550,13 +27645,31 @@ ReleaseCapabilityAttr *ReleaseCapabilityAttr::Create(ASTContext &Ctx, Expr * *Ar
   return A;
 }
 
-ReleaseCapabilityAttr *ReleaseCapabilityAttr::CreateImplicit(ASTContext &Ctx, Expr * *Args, unsigned ArgsSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax, ReleaseCapabilityAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+ReleaseCapabilityAttr *ReleaseCapabilityAttr::CreateImplicit(ASTContext &Ctx, Expr * *Args, unsigned ArgsSize, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_release_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_release_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_release_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_release_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_release_shared_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_release_shared_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_release_shared_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_release_shared_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_release_generic_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_release_generic_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_release_generic_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_release_generic_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_unlock_function ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_unlock_function, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_unlock_function ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_unlock_function, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Args, ArgsSize, I);
 }
 
-ReleaseCapabilityAttr *ReleaseCapabilityAttr::Create(ASTContext &Ctx, Expr * *Args, unsigned ArgsSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax, ReleaseCapabilityAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+ReleaseCapabilityAttr *ReleaseCapabilityAttr::Create(ASTContext &Ctx, Expr * *Args, unsigned ArgsSize, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_release_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_release_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_release_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_release_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_release_shared_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_release_shared_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_release_shared_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_release_shared_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_release_generic_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_release_generic_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_release_generic_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_release_generic_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_unlock_function ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_unlock_function, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_unlock_function ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_unlock_function, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Args, ArgsSize, I);
 }
 
@@ -25755,13 +27868,21 @@ ReleaseHandleAttr *ReleaseHandleAttr::Create(ASTContext &Ctx, llvm::StringRef Ha
   return A;
 }
 
-ReleaseHandleAttr *ReleaseHandleAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef HandleType, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ReleaseHandleAttr *ReleaseHandleAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef HandleType, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_release_handle ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_release_handle, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_release_handle ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_release_handle, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_release_handle ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_release_handle, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, HandleType, I);
 }
 
-ReleaseHandleAttr *ReleaseHandleAttr::Create(ASTContext &Ctx, llvm::StringRef HandleType, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ReleaseHandleAttr *ReleaseHandleAttr::Create(ASTContext &Ctx, llvm::StringRef HandleType, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_release_handle ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_release_handle, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_release_handle ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_release_handle, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_release_handle ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_release_handle, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, HandleType, I);
 }
 
@@ -25854,13 +27975,13 @@ RenderScriptKernelAttr *RenderScriptKernelAttr::Create(ASTContext &Ctx, const At
   return A;
 }
 
-RenderScriptKernelAttr *RenderScriptKernelAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+RenderScriptKernelAttr *RenderScriptKernelAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, I);
 }
 
-RenderScriptKernelAttr *RenderScriptKernelAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+RenderScriptKernelAttr *RenderScriptKernelAttr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, I);
 }
 
@@ -25921,13 +28042,13 @@ ReqdWorkGroupSizeAttr *ReqdWorkGroupSizeAttr::Create(ASTContext &Ctx, unsigned X
   return A;
 }
 
-ReqdWorkGroupSizeAttr *ReqdWorkGroupSizeAttr::CreateImplicit(ASTContext &Ctx, unsigned XDim, unsigned YDim, unsigned ZDim, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ReqdWorkGroupSizeAttr *ReqdWorkGroupSizeAttr::CreateImplicit(ASTContext &Ctx, unsigned XDim, unsigned YDim, unsigned ZDim, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, XDim, YDim, ZDim, I);
 }
 
-ReqdWorkGroupSizeAttr *ReqdWorkGroupSizeAttr::Create(ASTContext &Ctx, unsigned XDim, unsigned YDim, unsigned ZDim, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ReqdWorkGroupSizeAttr *ReqdWorkGroupSizeAttr::Create(ASTContext &Ctx, unsigned XDim, unsigned YDim, unsigned ZDim, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, XDim, YDim, ZDim, I);
 }
 
@@ -26006,13 +28127,31 @@ RequiresCapabilityAttr *RequiresCapabilityAttr::Create(ASTContext &Ctx, Expr * *
   return A;
 }
 
-RequiresCapabilityAttr *RequiresCapabilityAttr::CreateImplicit(ASTContext &Ctx, Expr * *Args, unsigned ArgsSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax, RequiresCapabilityAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+RequiresCapabilityAttr *RequiresCapabilityAttr::CreateImplicit(ASTContext &Ctx, Expr * *Args, unsigned ArgsSize, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_requires_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_requires_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_requires_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_requires_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_exclusive_locks_required ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_exclusive_locks_required, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_exclusive_locks_required ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_exclusive_locks_required, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_requires_shared_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_requires_shared_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_requires_shared_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_requires_shared_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_shared_locks_required ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_shared_locks_required, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_shared_locks_required ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_shared_locks_required, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Args, ArgsSize, I);
 }
 
-RequiresCapabilityAttr *RequiresCapabilityAttr::Create(ASTContext &Ctx, Expr * *Args, unsigned ArgsSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax, RequiresCapabilityAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+RequiresCapabilityAttr *RequiresCapabilityAttr::Create(ASTContext &Ctx, Expr * *Args, unsigned ArgsSize, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_requires_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_requires_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_requires_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_requires_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_exclusive_locks_required ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_exclusive_locks_required, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_exclusive_locks_required ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_exclusive_locks_required, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_requires_shared_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_requires_shared_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_requires_shared_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_requires_shared_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_shared_locks_required ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_shared_locks_required, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_shared_locks_required ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_shared_locks_required, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Args, ArgsSize, I);
 }
 
@@ -26209,13 +28348,23 @@ RestrictAttr *RestrictAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &C
   return A;
 }
 
-RestrictAttr *RestrictAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax, RestrictAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+RestrictAttr *RestrictAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == Declspec_restrict ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_restrict, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_malloc ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_malloc, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_malloc ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_malloc, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_malloc ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_malloc, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-RestrictAttr *RestrictAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax, RestrictAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+RestrictAttr *RestrictAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == Declspec_restrict ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_restrict, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_malloc ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_malloc, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_malloc ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_malloc, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_malloc ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_malloc, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -26306,13 +28455,21 @@ RetainAttr *RetainAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &Commo
   return A;
 }
 
-RetainAttr *RetainAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+RetainAttr *RetainAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_retain ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_retain, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_retain ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_retain, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_retain ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_retain, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-RetainAttr *RetainAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+RetainAttr *RetainAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_retain ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_retain, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_retain ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_retain, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_retain ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_retain, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -26387,13 +28544,19 @@ ReturnTypestateAttr *ReturnTypestateAttr::Create(ASTContext &Ctx, ConsumedState 
   return A;
 }
 
-ReturnTypestateAttr *ReturnTypestateAttr::CreateImplicit(ASTContext &Ctx, ConsumedState State, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ReturnTypestateAttr *ReturnTypestateAttr::CreateImplicit(ASTContext &Ctx, ConsumedState State, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_return_typestate ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_return_typestate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_return_typestate ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_return_typestate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, State, I);
 }
 
-ReturnTypestateAttr *ReturnTypestateAttr::Create(ASTContext &Ctx, ConsumedState State, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ReturnTypestateAttr *ReturnTypestateAttr::Create(ASTContext &Ctx, ConsumedState State, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_return_typestate ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_return_typestate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_return_typestate ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_return_typestate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, State, I);
 }
 
@@ -26494,13 +28657,21 @@ ReturnsNonNullAttr *ReturnsNonNullAttr::Create(ASTContext &Ctx, const AttributeC
   return A;
 }
 
-ReturnsNonNullAttr *ReturnsNonNullAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ReturnsNonNullAttr *ReturnsNonNullAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_returns_nonnull ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_returns_nonnull, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_returns_nonnull ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_returns_nonnull, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_returns_nonnull ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_returns_nonnull, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-ReturnsNonNullAttr *ReturnsNonNullAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ReturnsNonNullAttr *ReturnsNonNullAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_returns_nonnull ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_returns_nonnull, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_returns_nonnull ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_returns_nonnull, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_returns_nonnull ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_returns_nonnull, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -26575,13 +28746,21 @@ ReturnsTwiceAttr *ReturnsTwiceAttr::Create(ASTContext &Ctx, const AttributeCommo
   return A;
 }
 
-ReturnsTwiceAttr *ReturnsTwiceAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ReturnsTwiceAttr *ReturnsTwiceAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_returns_twice ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_returns_twice, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_returns_twice ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_returns_twice, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_returns_twice ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_returns_twice, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-ReturnsTwiceAttr *ReturnsTwiceAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ReturnsTwiceAttr *ReturnsTwiceAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_returns_twice ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_returns_twice, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_returns_twice ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_returns_twice, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_returns_twice ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_returns_twice, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -26656,13 +28835,13 @@ SPtrAttr *SPtrAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInf
   return A;
 }
 
-SPtrAttr *SPtrAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SPtrAttr *SPtrAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, I);
 }
 
-SPtrAttr *SPtrAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SPtrAttr *SPtrAttr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, I);
 }
 
@@ -26723,13 +28902,21 @@ SYCLKernelAttr *SYCLKernelAttr::Create(ASTContext &Ctx, const AttributeCommonInf
   return A;
 }
 
-SYCLKernelAttr *SYCLKernelAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SYCLKernelAttr *SYCLKernelAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_sycl_kernel ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_sycl_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_sycl_kernel ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_sycl_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_sycl_kernel ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_sycl_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-SYCLKernelAttr *SYCLKernelAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SYCLKernelAttr *SYCLKernelAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_sycl_kernel ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_sycl_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_sycl_kernel ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_sycl_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_sycl_kernel ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_sycl_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -26804,13 +28991,21 @@ SYCLSpecialClassAttr *SYCLSpecialClassAttr::Create(ASTContext &Ctx, const Attrib
   return A;
 }
 
-SYCLSpecialClassAttr *SYCLSpecialClassAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SYCLSpecialClassAttr *SYCLSpecialClassAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_sycl_special_class ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_sycl_special_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_sycl_special_class ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_sycl_special_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_sycl_special_class ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_sycl_special_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-SYCLSpecialClassAttr *SYCLSpecialClassAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SYCLSpecialClassAttr *SYCLSpecialClassAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_sycl_special_class ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_sycl_special_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_sycl_special_class ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_sycl_special_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_sycl_special_class ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_sycl_special_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -26885,13 +29080,19 @@ ScopedLockableAttr *ScopedLockableAttr::Create(ASTContext &Ctx, const AttributeC
   return A;
 }
 
-ScopedLockableAttr *ScopedLockableAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ScopedLockableAttr *ScopedLockableAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_scoped_lockable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_scoped_lockable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_scoped_lockable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_scoped_lockable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-ScopedLockableAttr *ScopedLockableAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ScopedLockableAttr *ScopedLockableAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_scoped_lockable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_scoped_lockable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_scoped_lockable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_scoped_lockable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -26957,13 +29158,23 @@ SectionAttr *SectionAttr::Create(ASTContext &Ctx, llvm::StringRef Name, const At
   return A;
 }
 
-SectionAttr *SectionAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Name, SourceRange Range, AttributeCommonInfo::Syntax Syntax, SectionAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+SectionAttr *SectionAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Name, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_section ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_section, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_section ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_section, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_section ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_section, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Declspec_allocate ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_allocate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Name, I);
 }
 
-SectionAttr *SectionAttr::Create(ASTContext &Ctx, llvm::StringRef Name, SourceRange Range, AttributeCommonInfo::Syntax Syntax, SectionAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+SectionAttr *SectionAttr::Create(ASTContext &Ctx, llvm::StringRef Name, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_section ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_section, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_section ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_section, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_section ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_section, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Declspec_allocate ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_allocate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Name, I);
 }
 
@@ -27076,13 +29287,23 @@ SelectAnyAttr *SelectAnyAttr::Create(ASTContext &Ctx, const AttributeCommonInfo 
   return A;
 }
 
-SelectAnyAttr *SelectAnyAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SelectAnyAttr *SelectAnyAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == Declspec_selectany ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_selectany, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_selectany ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_selectany, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_selectany ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_selectany, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_selectany ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_selectany, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-SelectAnyAttr *SelectAnyAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SelectAnyAttr *SelectAnyAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == Declspec_selectany ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_selectany, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_selectany ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_selectany, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_selectany ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_selectany, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_selectany ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_selectany, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -27164,13 +29385,21 @@ SentinelAttr *SentinelAttr::Create(ASTContext &Ctx, int Sentinel, int NullPos, c
   return A;
 }
 
-SentinelAttr *SentinelAttr::CreateImplicit(ASTContext &Ctx, int Sentinel, int NullPos, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SentinelAttr *SentinelAttr::CreateImplicit(ASTContext &Ctx, int Sentinel, int NullPos, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_sentinel ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_sentinel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_sentinel ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_sentinel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_sentinel ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_sentinel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Sentinel, NullPos, I);
 }
 
-SentinelAttr *SentinelAttr::Create(ASTContext &Ctx, int Sentinel, int NullPos, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SentinelAttr *SentinelAttr::Create(ASTContext &Ctx, int Sentinel, int NullPos, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_sentinel ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_sentinel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_sentinel ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_sentinel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_sentinel ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_sentinel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Sentinel, NullPos, I);
 }
 
@@ -27279,13 +29508,19 @@ SetTypestateAttr *SetTypestateAttr::Create(ASTContext &Ctx, ConsumedState NewSta
   return A;
 }
 
-SetTypestateAttr *SetTypestateAttr::CreateImplicit(ASTContext &Ctx, ConsumedState NewState, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SetTypestateAttr *SetTypestateAttr::CreateImplicit(ASTContext &Ctx, ConsumedState NewState, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_set_typestate ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_set_typestate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_set_typestate ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_set_typestate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, NewState, I);
 }
 
-SetTypestateAttr *SetTypestateAttr::Create(ASTContext &Ctx, ConsumedState NewState, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SetTypestateAttr *SetTypestateAttr::Create(ASTContext &Ctx, ConsumedState NewState, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_set_typestate ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_set_typestate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_set_typestate ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_set_typestate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, NewState, I);
 }
 
@@ -27386,13 +29621,13 @@ SharedTrylockFunctionAttr *SharedTrylockFunctionAttr::Create(ASTContext &Ctx, Ex
   return A;
 }
 
-SharedTrylockFunctionAttr *SharedTrylockFunctionAttr::CreateImplicit(ASTContext &Ctx, Expr * SuccessValue, Expr * *Args, unsigned ArgsSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SharedTrylockFunctionAttr *SharedTrylockFunctionAttr::CreateImplicit(ASTContext &Ctx, Expr * SuccessValue, Expr * *Args, unsigned ArgsSize, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, SuccessValue, Args, ArgsSize, I);
 }
 
-SharedTrylockFunctionAttr *SharedTrylockFunctionAttr::Create(ASTContext &Ctx, Expr * SuccessValue, Expr * *Args, unsigned ArgsSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SharedTrylockFunctionAttr *SharedTrylockFunctionAttr::Create(ASTContext &Ctx, Expr * SuccessValue, Expr * *Args, unsigned ArgsSize, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, SuccessValue, Args, ArgsSize, I);
 }
 
@@ -27483,13 +29718,21 @@ SpeculativeLoadHardeningAttr *SpeculativeLoadHardeningAttr::Create(ASTContext &C
   return A;
 }
 
-SpeculativeLoadHardeningAttr *SpeculativeLoadHardeningAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SpeculativeLoadHardeningAttr *SpeculativeLoadHardeningAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_speculative_load_hardening ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_speculative_load_hardening, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_speculative_load_hardening ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_speculative_load_hardening, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_speculative_load_hardening ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_speculative_load_hardening, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-SpeculativeLoadHardeningAttr *SpeculativeLoadHardeningAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SpeculativeLoadHardeningAttr *SpeculativeLoadHardeningAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_speculative_load_hardening ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_speculative_load_hardening, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_speculative_load_hardening ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_speculative_load_hardening, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_speculative_load_hardening ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_speculative_load_hardening, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -27564,13 +29807,19 @@ StandaloneDebugAttr *StandaloneDebugAttr::Create(ASTContext &Ctx, const Attribut
   return A;
 }
 
-StandaloneDebugAttr *StandaloneDebugAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+StandaloneDebugAttr *StandaloneDebugAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_standalone_debug ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_standalone_debug, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_standalone_debug ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_standalone_debug, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-StandaloneDebugAttr *StandaloneDebugAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+StandaloneDebugAttr *StandaloneDebugAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_standalone_debug ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_standalone_debug, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_standalone_debug ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_standalone_debug, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -27638,13 +29887,23 @@ StdCallAttr *StdCallAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &Com
   return A;
 }
 
-StdCallAttr *StdCallAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+StdCallAttr *StdCallAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_stdcall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_stdcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_stdcall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_stdcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_stdcall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_stdcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Keyword_stdcall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_stdcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-StdCallAttr *StdCallAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+StdCallAttr *StdCallAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_stdcall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_stdcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_stdcall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_stdcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_stdcall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_stdcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Keyword_stdcall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_stdcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -27733,13 +29992,13 @@ StrictFPAttr *StrictFPAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &C
   return A;
 }
 
-StrictFPAttr *StrictFPAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+StrictFPAttr *StrictFPAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
   return CreateImplicit(Ctx, I);
 }
 
-StrictFPAttr *StrictFPAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+StrictFPAttr *StrictFPAttr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
   return Create(Ctx, I);
 }
 
@@ -27782,13 +30041,13 @@ StrictGuardStackCheckAttr *StrictGuardStackCheckAttr::Create(ASTContext &Ctx, co
   return A;
 }
 
-StrictGuardStackCheckAttr *StrictGuardStackCheckAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+StrictGuardStackCheckAttr *StrictGuardStackCheckAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Declspec, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, I);
 }
 
-StrictGuardStackCheckAttr *StrictGuardStackCheckAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+StrictGuardStackCheckAttr *StrictGuardStackCheckAttr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Declspec, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, I);
 }
 
@@ -27849,13 +30108,13 @@ SuppressAttr *SuppressAttr::Create(ASTContext &Ctx, StringRef *DiagnosticIdentif
   return A;
 }
 
-SuppressAttr *SuppressAttr::CreateImplicit(ASTContext &Ctx, StringRef *DiagnosticIdentifiers, unsigned DiagnosticIdentifiersSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SuppressAttr *SuppressAttr::CreateImplicit(ASTContext &Ctx, StringRef *DiagnosticIdentifiers, unsigned DiagnosticIdentifiersSize, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, DiagnosticIdentifiers, DiagnosticIdentifiersSize, I);
 }
 
-SuppressAttr *SuppressAttr::Create(ASTContext &Ctx, StringRef *DiagnosticIdentifiers, unsigned DiagnosticIdentifiersSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SuppressAttr *SuppressAttr::Create(ASTContext &Ctx, StringRef *DiagnosticIdentifiers, unsigned DiagnosticIdentifiersSize, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, DiagnosticIdentifiers, DiagnosticIdentifiersSize, I);
 }
 
@@ -27944,13 +30203,21 @@ SwiftAsyncAttr *SwiftAsyncAttr::Create(ASTContext &Ctx, Kind Kind, ParamIdx Comp
   return A;
 }
 
-SwiftAsyncAttr *SwiftAsyncAttr::CreateImplicit(ASTContext &Ctx, Kind Kind, ParamIdx CompletionHandlerIndex, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SwiftAsyncAttr *SwiftAsyncAttr::CreateImplicit(ASTContext &Ctx, Kind Kind, ParamIdx CompletionHandlerIndex, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_swift_async ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_swift_async, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_swift_async ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_swift_async, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_swift_async ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_swift_async, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Kind, CompletionHandlerIndex, I);
 }
 
-SwiftAsyncAttr *SwiftAsyncAttr::Create(ASTContext &Ctx, Kind Kind, ParamIdx CompletionHandlerIndex, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SwiftAsyncAttr *SwiftAsyncAttr::Create(ASTContext &Ctx, Kind Kind, ParamIdx CompletionHandlerIndex, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_swift_async ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_swift_async, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_swift_async ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_swift_async, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_swift_async ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_swift_async, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Kind, CompletionHandlerIndex, I);
 }
 
@@ -28093,13 +30360,21 @@ SwiftAsyncCallAttr *SwiftAsyncCallAttr::Create(ASTContext &Ctx, const AttributeC
   return A;
 }
 
-SwiftAsyncCallAttr *SwiftAsyncCallAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SwiftAsyncCallAttr *SwiftAsyncCallAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_swiftasynccall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_swiftasynccall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_swiftasynccall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_swiftasynccall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_swiftasynccall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_swiftasynccall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-SwiftAsyncCallAttr *SwiftAsyncCallAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SwiftAsyncCallAttr *SwiftAsyncCallAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_swiftasynccall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_swiftasynccall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_swiftasynccall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_swiftasynccall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_swiftasynccall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_swiftasynccall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -28174,13 +30449,21 @@ SwiftAsyncContextAttr *SwiftAsyncContextAttr::Create(ASTContext &Ctx, const Attr
   return A;
 }
 
-SwiftAsyncContextAttr *SwiftAsyncContextAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SwiftAsyncContextAttr *SwiftAsyncContextAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_swift_async_context ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_swift_async_context, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_swift_async_context ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_swift_async_context, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_swift_async_context ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_swift_async_context, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-SwiftAsyncContextAttr *SwiftAsyncContextAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SwiftAsyncContextAttr *SwiftAsyncContextAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_swift_async_context ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_swift_async_context, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_swift_async_context ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_swift_async_context, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_swift_async_context ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_swift_async_context, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -28255,13 +30538,21 @@ SwiftAsyncErrorAttr *SwiftAsyncErrorAttr::Create(ASTContext &Ctx, ConventionKind
   return A;
 }
 
-SwiftAsyncErrorAttr *SwiftAsyncErrorAttr::CreateImplicit(ASTContext &Ctx, ConventionKind Convention, unsigned HandlerParamIdx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SwiftAsyncErrorAttr *SwiftAsyncErrorAttr::CreateImplicit(ASTContext &Ctx, ConventionKind Convention, unsigned HandlerParamIdx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_swift_async_error ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_swift_async_error, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_swift_async_error ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_swift_async_error, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_swift_async_error ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_swift_async_error, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Convention, HandlerParamIdx, I);
 }
 
-SwiftAsyncErrorAttr *SwiftAsyncErrorAttr::Create(ASTContext &Ctx, ConventionKind Convention, unsigned HandlerParamIdx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SwiftAsyncErrorAttr *SwiftAsyncErrorAttr::Create(ASTContext &Ctx, ConventionKind Convention, unsigned HandlerParamIdx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_swift_async_error ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_swift_async_error, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_swift_async_error ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_swift_async_error, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_swift_async_error ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_swift_async_error, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Convention, HandlerParamIdx, I);
 }
 
@@ -28394,13 +30685,13 @@ SwiftAsyncNameAttr *SwiftAsyncNameAttr::Create(ASTContext &Ctx, llvm::StringRef 
   return A;
 }
 
-SwiftAsyncNameAttr *SwiftAsyncNameAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Name, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SwiftAsyncNameAttr *SwiftAsyncNameAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Name, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, Name, I);
 }
 
-SwiftAsyncNameAttr *SwiftAsyncNameAttr::Create(ASTContext &Ctx, llvm::StringRef Name, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SwiftAsyncNameAttr *SwiftAsyncNameAttr::Create(ASTContext &Ctx, llvm::StringRef Name, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, Name, I);
 }
 
@@ -28471,13 +30762,13 @@ SwiftAttrAttr *SwiftAttrAttr::Create(ASTContext &Ctx, llvm::StringRef Attribute,
   return A;
 }
 
-SwiftAttrAttr *SwiftAttrAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Attribute, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SwiftAttrAttr *SwiftAttrAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Attribute, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, Attribute, I);
 }
 
-SwiftAttrAttr *SwiftAttrAttr::Create(ASTContext &Ctx, llvm::StringRef Attribute, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SwiftAttrAttr *SwiftAttrAttr::Create(ASTContext &Ctx, llvm::StringRef Attribute, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, Attribute, I);
 }
 
@@ -28548,13 +30839,13 @@ SwiftBridgeAttr *SwiftBridgeAttr::Create(ASTContext &Ctx, llvm::StringRef SwiftT
   return A;
 }
 
-SwiftBridgeAttr *SwiftBridgeAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef SwiftType, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SwiftBridgeAttr *SwiftBridgeAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef SwiftType, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, SwiftType, I);
 }
 
-SwiftBridgeAttr *SwiftBridgeAttr::Create(ASTContext &Ctx, llvm::StringRef SwiftType, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SwiftBridgeAttr *SwiftBridgeAttr::Create(ASTContext &Ctx, llvm::StringRef SwiftType, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, SwiftType, I);
 }
 
@@ -28625,13 +30916,13 @@ SwiftBridgedTypedefAttr *SwiftBridgedTypedefAttr::Create(ASTContext &Ctx, const 
   return A;
 }
 
-SwiftBridgedTypedefAttr *SwiftBridgedTypedefAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SwiftBridgedTypedefAttr *SwiftBridgedTypedefAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, I);
 }
 
-SwiftBridgedTypedefAttr *SwiftBridgedTypedefAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SwiftBridgedTypedefAttr *SwiftBridgedTypedefAttr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, I);
 }
 
@@ -28692,13 +30983,21 @@ SwiftCallAttr *SwiftCallAttr::Create(ASTContext &Ctx, const AttributeCommonInfo 
   return A;
 }
 
-SwiftCallAttr *SwiftCallAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SwiftCallAttr *SwiftCallAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_swiftcall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_swiftcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_swiftcall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_swiftcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_swiftcall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_swiftcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-SwiftCallAttr *SwiftCallAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SwiftCallAttr *SwiftCallAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_swiftcall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_swiftcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_swiftcall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_swiftcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_swiftcall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_swiftcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -28773,13 +31072,21 @@ SwiftContextAttr *SwiftContextAttr::Create(ASTContext &Ctx, const AttributeCommo
   return A;
 }
 
-SwiftContextAttr *SwiftContextAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SwiftContextAttr *SwiftContextAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_swift_context ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_swift_context, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_swift_context ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_swift_context, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_swift_context ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_swift_context, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-SwiftContextAttr *SwiftContextAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SwiftContextAttr *SwiftContextAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_swift_context ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_swift_context, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_swift_context ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_swift_context, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_swift_context ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_swift_context, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -28854,13 +31161,13 @@ SwiftErrorAttr *SwiftErrorAttr::Create(ASTContext &Ctx, ConventionKind Conventio
   return A;
 }
 
-SwiftErrorAttr *SwiftErrorAttr::CreateImplicit(ASTContext &Ctx, ConventionKind Convention, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SwiftErrorAttr *SwiftErrorAttr::CreateImplicit(ASTContext &Ctx, ConventionKind Convention, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, Convention, I);
 }
 
-SwiftErrorAttr *SwiftErrorAttr::Create(ASTContext &Ctx, ConventionKind Convention, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SwiftErrorAttr *SwiftErrorAttr::Create(ASTContext &Ctx, ConventionKind Convention, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, Convention, I);
 }
 
@@ -28954,13 +31261,21 @@ SwiftErrorResultAttr *SwiftErrorResultAttr::Create(ASTContext &Ctx, const Attrib
   return A;
 }
 
-SwiftErrorResultAttr *SwiftErrorResultAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SwiftErrorResultAttr *SwiftErrorResultAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_swift_error_result ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_swift_error_result, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_swift_error_result ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_swift_error_result, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_swift_error_result ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_swift_error_result, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-SwiftErrorResultAttr *SwiftErrorResultAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SwiftErrorResultAttr *SwiftErrorResultAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_swift_error_result ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_swift_error_result, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_swift_error_result ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_swift_error_result, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_swift_error_result ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_swift_error_result, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -29035,13 +31350,21 @@ SwiftIndirectResultAttr *SwiftIndirectResultAttr::Create(ASTContext &Ctx, const 
   return A;
 }
 
-SwiftIndirectResultAttr *SwiftIndirectResultAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SwiftIndirectResultAttr *SwiftIndirectResultAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_swift_indirect_result ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_swift_indirect_result, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_swift_indirect_result ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_swift_indirect_result, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_swift_indirect_result ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_swift_indirect_result, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-SwiftIndirectResultAttr *SwiftIndirectResultAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SwiftIndirectResultAttr *SwiftIndirectResultAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_swift_indirect_result ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_swift_indirect_result, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_swift_indirect_result ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_swift_indirect_result, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_swift_indirect_result ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_swift_indirect_result, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -29116,13 +31439,13 @@ SwiftNameAttr *SwiftNameAttr::Create(ASTContext &Ctx, llvm::StringRef Name, cons
   return A;
 }
 
-SwiftNameAttr *SwiftNameAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Name, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SwiftNameAttr *SwiftNameAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Name, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, Name, I);
 }
 
-SwiftNameAttr *SwiftNameAttr::Create(ASTContext &Ctx, llvm::StringRef Name, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SwiftNameAttr *SwiftNameAttr::Create(ASTContext &Ctx, llvm::StringRef Name, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, Name, I);
 }
 
@@ -29191,13 +31514,19 @@ SwiftNewTypeAttr *SwiftNewTypeAttr::Create(ASTContext &Ctx, NewtypeKind NewtypeK
   return A;
 }
 
-SwiftNewTypeAttr *SwiftNewTypeAttr::CreateImplicit(ASTContext &Ctx, NewtypeKind NewtypeKind, SourceRange Range, AttributeCommonInfo::Syntax Syntax, SwiftNewTypeAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+SwiftNewTypeAttr *SwiftNewTypeAttr::CreateImplicit(ASTContext &Ctx, NewtypeKind NewtypeKind, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_swift_newtype ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_swift_newtype, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_swift_wrapper ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_swift_wrapper, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, NewtypeKind, I);
 }
 
-SwiftNewTypeAttr *SwiftNewTypeAttr::Create(ASTContext &Ctx, NewtypeKind NewtypeKind, SourceRange Range, AttributeCommonInfo::Syntax Syntax, SwiftNewTypeAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+SwiftNewTypeAttr *SwiftNewTypeAttr::Create(ASTContext &Ctx, NewtypeKind NewtypeKind, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_swift_newtype ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_swift_newtype, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_swift_wrapper ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_swift_wrapper, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, NewtypeKind, I);
 }
 
@@ -29303,13 +31632,13 @@ SwiftObjCMembersAttr *SwiftObjCMembersAttr::Create(ASTContext &Ctx, const Attrib
   return A;
 }
 
-SwiftObjCMembersAttr *SwiftObjCMembersAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SwiftObjCMembersAttr *SwiftObjCMembersAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, I);
 }
 
-SwiftObjCMembersAttr *SwiftObjCMembersAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SwiftObjCMembersAttr *SwiftObjCMembersAttr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, I);
 }
 
@@ -29370,13 +31699,13 @@ SwiftPrivateAttr *SwiftPrivateAttr::Create(ASTContext &Ctx, const AttributeCommo
   return A;
 }
 
-SwiftPrivateAttr *SwiftPrivateAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SwiftPrivateAttr *SwiftPrivateAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, I);
 }
 
-SwiftPrivateAttr *SwiftPrivateAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SwiftPrivateAttr *SwiftPrivateAttr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, I);
 }
 
@@ -29437,13 +31766,21 @@ SysVABIAttr *SysVABIAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &Com
   return A;
 }
 
-SysVABIAttr *SysVABIAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SysVABIAttr *SysVABIAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_sysv_abi ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_sysv_abi, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_sysv_abi ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_sysv_abi, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_sysv_abi ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_sysv_abi, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-SysVABIAttr *SysVABIAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+SysVABIAttr *SysVABIAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_sysv_abi ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_sysv_abi, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_sysv_abi ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_sysv_abi, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_sysv_abi ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_sysv_abi, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -29518,13 +31855,21 @@ TLSModelAttr *TLSModelAttr::Create(ASTContext &Ctx, llvm::StringRef Model, const
   return A;
 }
 
-TLSModelAttr *TLSModelAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Model, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+TLSModelAttr *TLSModelAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Model, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_tls_model ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_tls_model, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_tls_model ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_tls_model, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_tls_model ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_tls_model, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Model, I);
 }
 
-TLSModelAttr *TLSModelAttr::Create(ASTContext &Ctx, llvm::StringRef Model, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+TLSModelAttr *TLSModelAttr::Create(ASTContext &Ctx, llvm::StringRef Model, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_tls_model ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_tls_model, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_tls_model ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_tls_model, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_tls_model ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_tls_model, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Model, I);
 }
 
@@ -29617,13 +31962,21 @@ TargetAttr *TargetAttr::Create(ASTContext &Ctx, llvm::StringRef FeaturesStr, con
   return A;
 }
 
-TargetAttr *TargetAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef FeaturesStr, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+TargetAttr *TargetAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef FeaturesStr, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_target ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_target, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_target ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_target, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_target ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_target, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, FeaturesStr, I);
 }
 
-TargetAttr *TargetAttr::Create(ASTContext &Ctx, llvm::StringRef FeaturesStr, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+TargetAttr *TargetAttr::Create(ASTContext &Ctx, llvm::StringRef FeaturesStr, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_target ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_target, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_target ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_target, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_target ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_target, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, FeaturesStr, I);
 }
 
@@ -29716,13 +32069,21 @@ TargetClonesAttr *TargetClonesAttr::Create(ASTContext &Ctx, StringRef *FeaturesS
   return A;
 }
 
-TargetClonesAttr *TargetClonesAttr::CreateImplicit(ASTContext &Ctx, StringRef *FeaturesStrs, unsigned FeaturesStrsSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+TargetClonesAttr *TargetClonesAttr::CreateImplicit(ASTContext &Ctx, StringRef *FeaturesStrs, unsigned FeaturesStrsSize, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_target_clones ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_target_clones, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_target_clones ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_target_clones, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_target_clones ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_target_clones, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, FeaturesStrs, FeaturesStrsSize, I);
 }
 
-TargetClonesAttr *TargetClonesAttr::Create(ASTContext &Ctx, StringRef *FeaturesStrs, unsigned FeaturesStrsSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+TargetClonesAttr *TargetClonesAttr::Create(ASTContext &Ctx, StringRef *FeaturesStrs, unsigned FeaturesStrsSize, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_target_clones ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_target_clones, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_target_clones ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_target_clones, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_target_clones ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_target_clones, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, FeaturesStrs, FeaturesStrsSize, I);
 }
 
@@ -29841,13 +32202,21 @@ TargetVersionAttr *TargetVersionAttr::Create(ASTContext &Ctx, llvm::StringRef Na
   return A;
 }
 
-TargetVersionAttr *TargetVersionAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef NamesStr, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+TargetVersionAttr *TargetVersionAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef NamesStr, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_target_version ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_target_version, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_target_version ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_target_version, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_target_version ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_target_version, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, NamesStr, I);
 }
 
-TargetVersionAttr *TargetVersionAttr::Create(ASTContext &Ctx, llvm::StringRef NamesStr, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+TargetVersionAttr *TargetVersionAttr::Create(ASTContext &Ctx, llvm::StringRef NamesStr, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_target_version ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_target_version, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_target_version ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_target_version, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_target_version ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_target_version, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, NamesStr, I);
 }
 
@@ -29940,13 +32309,19 @@ TestTypestateAttr *TestTypestateAttr::Create(ASTContext &Ctx, ConsumedState Test
   return A;
 }
 
-TestTypestateAttr *TestTypestateAttr::CreateImplicit(ASTContext &Ctx, ConsumedState TestState, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+TestTypestateAttr *TestTypestateAttr::CreateImplicit(ASTContext &Ctx, ConsumedState TestState, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_test_typestate ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_test_typestate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_test_typestate ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_test_typestate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, TestState, I);
 }
 
-TestTypestateAttr *TestTypestateAttr::Create(ASTContext &Ctx, ConsumedState TestState, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+TestTypestateAttr *TestTypestateAttr::Create(ASTContext &Ctx, ConsumedState TestState, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_test_typestate ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_test_typestate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_test_typestate ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_test_typestate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, TestState, I);
 }
 
@@ -30045,13 +32420,23 @@ ThisCallAttr *ThisCallAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &C
   return A;
 }
 
-ThisCallAttr *ThisCallAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ThisCallAttr *ThisCallAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_thiscall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_thiscall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_thiscall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_thiscall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_thiscall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_thiscall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Keyword_thiscall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_thiscall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-ThisCallAttr *ThisCallAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ThisCallAttr *ThisCallAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_thiscall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_thiscall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_thiscall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_thiscall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_thiscall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_thiscall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Keyword_thiscall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_thiscall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -30140,13 +32525,13 @@ ThreadAttr *ThreadAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &Commo
   return A;
 }
 
-ThreadAttr *ThreadAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ThreadAttr *ThreadAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Declspec, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, I);
 }
 
-ThreadAttr *ThreadAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ThreadAttr *ThreadAttr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Declspec, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, I);
 }
 
@@ -30207,13 +32592,21 @@ TransparentUnionAttr *TransparentUnionAttr::Create(ASTContext &Ctx, const Attrib
   return A;
 }
 
-TransparentUnionAttr *TransparentUnionAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+TransparentUnionAttr *TransparentUnionAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_transparent_union ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_transparent_union, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_transparent_union ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_transparent_union, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_transparent_union ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_transparent_union, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-TransparentUnionAttr *TransparentUnionAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+TransparentUnionAttr *TransparentUnionAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_transparent_union ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_transparent_union, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_transparent_union ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_transparent_union, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_transparent_union ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_transparent_union, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -30288,13 +32681,19 @@ TrivialABIAttr *TrivialABIAttr::Create(ASTContext &Ctx, const AttributeCommonInf
   return A;
 }
 
-TrivialABIAttr *TrivialABIAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+TrivialABIAttr *TrivialABIAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_trivial_abi ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_trivial_abi, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_trivial_abi ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_trivial_abi, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-TrivialABIAttr *TrivialABIAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+TrivialABIAttr *TrivialABIAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_trivial_abi ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_trivial_abi, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_trivial_abi ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_trivial_abi, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -30360,13 +32759,23 @@ TryAcquireCapabilityAttr *TryAcquireCapabilityAttr::Create(ASTContext &Ctx, Expr
   return A;
 }
 
-TryAcquireCapabilityAttr *TryAcquireCapabilityAttr::CreateImplicit(ASTContext &Ctx, Expr * SuccessValue, Expr * *Args, unsigned ArgsSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax, TryAcquireCapabilityAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+TryAcquireCapabilityAttr *TryAcquireCapabilityAttr::CreateImplicit(ASTContext &Ctx, Expr * SuccessValue, Expr * *Args, unsigned ArgsSize, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_try_acquire_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_try_acquire_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_try_acquire_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_try_acquire_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_try_acquire_shared_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_try_acquire_shared_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_try_acquire_shared_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_try_acquire_shared_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, SuccessValue, Args, ArgsSize, I);
 }
 
-TryAcquireCapabilityAttr *TryAcquireCapabilityAttr::Create(ASTContext &Ctx, Expr * SuccessValue, Expr * *Args, unsigned ArgsSize, SourceRange Range, AttributeCommonInfo::Syntax Syntax, TryAcquireCapabilityAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+TryAcquireCapabilityAttr *TryAcquireCapabilityAttr::Create(ASTContext &Ctx, Expr * SuccessValue, Expr * *Args, unsigned ArgsSize, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_try_acquire_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_try_acquire_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_try_acquire_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_try_acquire_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_try_acquire_shared_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_try_acquire_shared_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_try_acquire_shared_capability ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_try_acquire_shared_capability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, SuccessValue, Args, ArgsSize, I);
 }
 
@@ -30523,13 +32932,13 @@ TypeNonNullAttr *TypeNonNullAttr::Create(ASTContext &Ctx, const AttributeCommonI
   return A;
 }
 
-TypeNonNullAttr *TypeNonNullAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+TypeNonNullAttr *TypeNonNullAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, I);
 }
 
-TypeNonNullAttr *TypeNonNullAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+TypeNonNullAttr *TypeNonNullAttr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, I);
 }
 
@@ -30590,13 +32999,13 @@ TypeNullUnspecifiedAttr *TypeNullUnspecifiedAttr::Create(ASTContext &Ctx, const 
   return A;
 }
 
-TypeNullUnspecifiedAttr *TypeNullUnspecifiedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+TypeNullUnspecifiedAttr *TypeNullUnspecifiedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, I);
 }
 
-TypeNullUnspecifiedAttr *TypeNullUnspecifiedAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+TypeNullUnspecifiedAttr *TypeNullUnspecifiedAttr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, I);
 }
 
@@ -30657,13 +33066,13 @@ TypeNullableAttr *TypeNullableAttr::Create(ASTContext &Ctx, const AttributeCommo
   return A;
 }
 
-TypeNullableAttr *TypeNullableAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+TypeNullableAttr *TypeNullableAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, I);
 }
 
-TypeNullableAttr *TypeNullableAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+TypeNullableAttr *TypeNullableAttr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, I);
 }
 
@@ -30724,13 +33133,13 @@ TypeNullableResultAttr *TypeNullableResultAttr::Create(ASTContext &Ctx, const At
   return A;
 }
 
-TypeNullableResultAttr *TypeNullableResultAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+TypeNullableResultAttr *TypeNullableResultAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, I);
 }
 
-TypeNullableResultAttr *TypeNullableResultAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+TypeNullableResultAttr *TypeNullableResultAttr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, I);
 }
 
@@ -30791,13 +33200,21 @@ TypeTagForDatatypeAttr *TypeTagForDatatypeAttr::Create(ASTContext &Ctx, Identifi
   return A;
 }
 
-TypeTagForDatatypeAttr *TypeTagForDatatypeAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * ArgumentKind, TypeSourceInfo * MatchingCType, bool LayoutCompatible, bool MustBeNull, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+TypeTagForDatatypeAttr *TypeTagForDatatypeAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * ArgumentKind, TypeSourceInfo * MatchingCType, bool LayoutCompatible, bool MustBeNull, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_type_tag_for_datatype ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_type_tag_for_datatype, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_type_tag_for_datatype ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_type_tag_for_datatype, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_type_tag_for_datatype ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_type_tag_for_datatype, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, ArgumentKind, MatchingCType, LayoutCompatible, MustBeNull, I);
 }
 
-TypeTagForDatatypeAttr *TypeTagForDatatypeAttr::Create(ASTContext &Ctx, IdentifierInfo * ArgumentKind, TypeSourceInfo * MatchingCType, bool LayoutCompatible, bool MustBeNull, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+TypeTagForDatatypeAttr *TypeTagForDatatypeAttr::Create(ASTContext &Ctx, IdentifierInfo * ArgumentKind, TypeSourceInfo * MatchingCType, bool LayoutCompatible, bool MustBeNull, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_type_tag_for_datatype ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_type_tag_for_datatype, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_type_tag_for_datatype ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_type_tag_for_datatype, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_type_tag_for_datatype ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_type_tag_for_datatype, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, ArgumentKind, MatchingCType, LayoutCompatible, MustBeNull, I);
 }
 
@@ -30918,13 +33335,21 @@ TypeVisibilityAttr *TypeVisibilityAttr::Create(ASTContext &Ctx, VisibilityType V
   return A;
 }
 
-TypeVisibilityAttr *TypeVisibilityAttr::CreateImplicit(ASTContext &Ctx, VisibilityType Visibility, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+TypeVisibilityAttr *TypeVisibilityAttr::CreateImplicit(ASTContext &Ctx, VisibilityType Visibility, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_type_visibility ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_type_visibility, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_type_visibility ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_type_visibility, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_type_visibility ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_type_visibility, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Visibility, I);
 }
 
-TypeVisibilityAttr *TypeVisibilityAttr::Create(ASTContext &Ctx, VisibilityType Visibility, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+TypeVisibilityAttr *TypeVisibilityAttr::Create(ASTContext &Ctx, VisibilityType Visibility, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_type_visibility ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_type_visibility, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_type_visibility ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_type_visibility, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_type_visibility ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_type_visibility, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Visibility, I);
 }
 
@@ -31037,13 +33462,13 @@ UPtrAttr *UPtrAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInf
   return A;
 }
 
-UPtrAttr *UPtrAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+UPtrAttr *UPtrAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, I);
 }
 
-UPtrAttr *UPtrAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+UPtrAttr *UPtrAttr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, I);
 }
 
@@ -31104,13 +33529,21 @@ UnavailableAttr *UnavailableAttr::Create(ASTContext &Ctx, llvm::StringRef Messag
   return A;
 }
 
-UnavailableAttr *UnavailableAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Message, ImplicitReason ImplicitReason, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+UnavailableAttr *UnavailableAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Message, ImplicitReason ImplicitReason, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_unavailable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_unavailable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_unavailable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_unavailable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_unavailable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_unavailable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Message, ImplicitReason, I);
 }
 
-UnavailableAttr *UnavailableAttr::Create(ASTContext &Ctx, llvm::StringRef Message, ImplicitReason ImplicitReason, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+UnavailableAttr *UnavailableAttr::Create(ASTContext &Ctx, llvm::StringRef Message, ImplicitReason ImplicitReason, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_unavailable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_unavailable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_unavailable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_unavailable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_unavailable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_unavailable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Message, ImplicitReason, I);
 }
 
@@ -31129,13 +33562,21 @@ UnavailableAttr *UnavailableAttr::Create(ASTContext &Ctx, llvm::StringRef Messag
   return A;
 }
 
-UnavailableAttr *UnavailableAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Message, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+UnavailableAttr *UnavailableAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Message, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_unavailable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_unavailable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_unavailable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_unavailable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_unavailable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_unavailable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Message, I);
 }
 
-UnavailableAttr *UnavailableAttr::Create(ASTContext &Ctx, llvm::StringRef Message, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+UnavailableAttr *UnavailableAttr::Create(ASTContext &Ctx, llvm::StringRef Message, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_unavailable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_unavailable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_unavailable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_unavailable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_unavailable ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_unavailable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Message, I);
 }
 
@@ -31251,13 +33692,19 @@ UninitializedAttr *UninitializedAttr::Create(ASTContext &Ctx, const AttributeCom
   return A;
 }
 
-UninitializedAttr *UninitializedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+UninitializedAttr *UninitializedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_uninitialized ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_uninitialized, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_uninitialized ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_uninitialized, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-UninitializedAttr *UninitializedAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+UninitializedAttr *UninitializedAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_uninitialized ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_uninitialized, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_uninitialized ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_uninitialized, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -31325,13 +33772,19 @@ UnlikelyAttr *UnlikelyAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &C
   return A;
 }
 
-UnlikelyAttr *UnlikelyAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+UnlikelyAttr *UnlikelyAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == CXX11_unlikely ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_unlikely, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_unlikely ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_unlikely, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-UnlikelyAttr *UnlikelyAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+UnlikelyAttr *UnlikelyAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == CXX11_unlikely ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_unlikely, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_unlikely ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_unlikely, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -31382,6 +33835,95 @@ const char *UnlikelyAttr::getSpelling() const {
 }
 
 
+// UnsafeBufferUsageAttr implementation
+
+UnsafeBufferUsageAttr *UnsafeBufferUsageAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) UnsafeBufferUsageAttr(Ctx, CommonInfo);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+UnsafeBufferUsageAttr *UnsafeBufferUsageAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) UnsafeBufferUsageAttr(Ctx, CommonInfo);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+UnsafeBufferUsageAttr *UnsafeBufferUsageAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_unsafe_buffer_usage ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_unsafe_buffer_usage, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_unsafe_buffer_usage ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_unsafe_buffer_usage, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_unsafe_buffer_usage ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_unsafe_buffer_usage, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
+  return CreateImplicit(Ctx, I);
+}
+
+UnsafeBufferUsageAttr *UnsafeBufferUsageAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_unsafe_buffer_usage ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_unsafe_buffer_usage, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_unsafe_buffer_usage ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_unsafe_buffer_usage, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_unsafe_buffer_usage ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_unsafe_buffer_usage, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
+  return Create(Ctx, I);
+}
+
+UnsafeBufferUsageAttr::UnsafeBufferUsageAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             )
+  : InheritableAttr(Ctx, CommonInfo, attr::UnsafeBufferUsage, false, false)
+  {
+}
+
+UnsafeBufferUsageAttr *UnsafeBufferUsageAttr::clone(ASTContext &C) const {
+  auto *A = new (C) UnsafeBufferUsageAttr(C, *this);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void UnsafeBufferUsageAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+  bool IsFirstArgument = true; (void)IsFirstArgument;
+  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    break;
+  case 0 : {
+    OS << " __attribute__((unsafe_buffer_usage";
+    OS << "))";
+    break;
+  }
+  case 1 : {
+    OS << " [[clang::unsafe_buffer_usage";
+    OS << "]]";
+    break;
+  }
+  case 2 : {
+    OS << " [[clang::unsafe_buffer_usage";
+    OS << "]]";
+    break;
+  }
+}
+}
+
+const char *UnsafeBufferUsageAttr::getSpelling() const {
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    return "(No spelling)";
+  case 0:
+    return "unsafe_buffer_usage";
+  case 1:
+    return "unsafe_buffer_usage";
+  case 2:
+    return "unsafe_buffer_usage";
+  }
+}
+
+
 // UnusedAttr implementation
 
 UnusedAttr *UnusedAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
@@ -31397,13 +33939,25 @@ UnusedAttr *UnusedAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &Commo
   return A;
 }
 
-UnusedAttr *UnusedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax, UnusedAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+UnusedAttr *UnusedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == CXX11_maybe_unused ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_maybe_unused, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_unused ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_unused, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_unused ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_unused, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_unused ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_unused, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_maybe_unused ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_maybe_unused, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-UnusedAttr *UnusedAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax, UnusedAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+UnusedAttr *UnusedAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == CXX11_maybe_unused ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_maybe_unused, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_unused ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_unused, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_unused ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_unused, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_unused ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_unused, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_maybe_unused ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_maybe_unused, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -31502,13 +34056,21 @@ UseHandleAttr *UseHandleAttr::Create(ASTContext &Ctx, llvm::StringRef HandleType
   return A;
 }
 
-UseHandleAttr *UseHandleAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef HandleType, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+UseHandleAttr *UseHandleAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef HandleType, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_use_handle ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_use_handle, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_use_handle ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_use_handle, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_use_handle ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_use_handle, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, HandleType, I);
 }
 
-UseHandleAttr *UseHandleAttr::Create(ASTContext &Ctx, llvm::StringRef HandleType, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+UseHandleAttr *UseHandleAttr::Create(ASTContext &Ctx, llvm::StringRef HandleType, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_use_handle ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_use_handle, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_use_handle ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_use_handle, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_use_handle ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_use_handle, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, HandleType, I);
 }
 
@@ -31601,13 +34163,21 @@ UsedAttr *UsedAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInf
   return A;
 }
 
-UsedAttr *UsedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+UsedAttr *UsedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_used ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_used, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_used ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_used, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_used ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_used, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-UsedAttr *UsedAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+UsedAttr *UsedAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_used ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_used, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_used ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_used, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_used ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_used, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -31682,13 +34252,19 @@ UsingIfExistsAttr *UsingIfExistsAttr::Create(ASTContext &Ctx, const AttributeCom
   return A;
 }
 
-UsingIfExistsAttr *UsingIfExistsAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+UsingIfExistsAttr *UsingIfExistsAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_using_if_exists ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_using_if_exists, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_using_if_exists ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_using_if_exists, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-UsingIfExistsAttr *UsingIfExistsAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+UsingIfExistsAttr *UsingIfExistsAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_using_if_exists ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_using_if_exists, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_using_if_exists ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_using_if_exists, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -31756,13 +34332,19 @@ UuidAttr *UuidAttr::Create(ASTContext &Ctx, llvm::StringRef Guid, MSGuidDecl * G
   return A;
 }
 
-UuidAttr *UuidAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Guid, MSGuidDecl * GuidDecl, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+UuidAttr *UuidAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Guid, MSGuidDecl * GuidDecl, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == Declspec_uuid ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_uuid, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Microsoft_uuid ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Microsoft, Microsoft_uuid, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Guid, GuidDecl, I);
 }
 
-UuidAttr *UuidAttr::Create(ASTContext &Ctx, llvm::StringRef Guid, MSGuidDecl * GuidDecl, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+UuidAttr *UuidAttr::Create(ASTContext &Ctx, llvm::StringRef Guid, MSGuidDecl * GuidDecl, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == Declspec_uuid ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_uuid, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Microsoft_uuid ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Microsoft, Microsoft_uuid, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Guid, GuidDecl, I);
 }
 
@@ -31781,13 +34363,19 @@ UuidAttr *UuidAttr::Create(ASTContext &Ctx, llvm::StringRef Guid, const Attribut
   return A;
 }
 
-UuidAttr *UuidAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Guid, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+UuidAttr *UuidAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Guid, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == Declspec_uuid ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_uuid, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Microsoft_uuid ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Microsoft, Microsoft_uuid, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Guid, I);
 }
 
-UuidAttr *UuidAttr::Create(ASTContext &Ctx, llvm::StringRef Guid, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+UuidAttr *UuidAttr::Create(ASTContext &Ctx, llvm::StringRef Guid, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == Declspec_uuid ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_uuid, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Microsoft_uuid ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Microsoft, Microsoft_uuid, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Guid, I);
 }
 
@@ -31884,13 +34472,19 @@ VecReturnAttr *VecReturnAttr::Create(ASTContext &Ctx, const AttributeCommonInfo 
   return A;
 }
 
-VecReturnAttr *VecReturnAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+VecReturnAttr *VecReturnAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_vecreturn ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_vecreturn, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_vecreturn ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_vecreturn, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-VecReturnAttr *VecReturnAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+VecReturnAttr *VecReturnAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_vecreturn ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_vecreturn, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_vecreturn ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_vecreturn, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -31958,13 +34552,13 @@ VecTypeHintAttr *VecTypeHintAttr::Create(ASTContext &Ctx, TypeSourceInfo * TypeH
   return A;
 }
 
-VecTypeHintAttr *VecTypeHintAttr::CreateImplicit(ASTContext &Ctx, TypeSourceInfo * TypeHint, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+VecTypeHintAttr *VecTypeHintAttr::CreateImplicit(ASTContext &Ctx, TypeSourceInfo * TypeHint, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, TypeHint, I);
 }
 
-VecTypeHintAttr *VecTypeHintAttr::Create(ASTContext &Ctx, TypeSourceInfo * TypeHint, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+VecTypeHintAttr *VecTypeHintAttr::Create(ASTContext &Ctx, TypeSourceInfo * TypeHint, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, TypeHint, I);
 }
 
@@ -32033,13 +34627,23 @@ VectorCallAttr *VectorCallAttr::Create(ASTContext &Ctx, const AttributeCommonInf
   return A;
 }
 
-VectorCallAttr *VectorCallAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+VectorCallAttr *VectorCallAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_vectorcall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_vectorcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_vectorcall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_vectorcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_vectorcall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_vectorcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Keyword_vectorcall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_vectorcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-VectorCallAttr *VectorCallAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+VectorCallAttr *VectorCallAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_vectorcall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_vectorcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_vectorcall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_vectorcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_vectorcall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_vectorcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == Keyword_vectorcall ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_vectorcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -32128,13 +34732,21 @@ VisibilityAttr *VisibilityAttr::Create(ASTContext &Ctx, VisibilityType Visibilit
   return A;
 }
 
-VisibilityAttr *VisibilityAttr::CreateImplicit(ASTContext &Ctx, VisibilityType Visibility, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+VisibilityAttr *VisibilityAttr::CreateImplicit(ASTContext &Ctx, VisibilityType Visibility, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_visibility ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_visibility, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_visibility ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_visibility, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_visibility ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_visibility, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Visibility, I);
 }
 
-VisibilityAttr *VisibilityAttr::Create(ASTContext &Ctx, VisibilityType Visibility, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+VisibilityAttr *VisibilityAttr::Create(ASTContext &Ctx, VisibilityType Visibility, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_visibility ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_visibility, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_visibility ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_visibility, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_visibility ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_visibility, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Visibility, I);
 }
 
@@ -32247,13 +34859,21 @@ WarnUnusedAttr *WarnUnusedAttr::Create(ASTContext &Ctx, const AttributeCommonInf
   return A;
 }
 
-WarnUnusedAttr *WarnUnusedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+WarnUnusedAttr *WarnUnusedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_warn_unused ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_warn_unused, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_warn_unused ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_warn_unused, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_warn_unused ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_warn_unused, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-WarnUnusedAttr *WarnUnusedAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+WarnUnusedAttr *WarnUnusedAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_warn_unused ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_warn_unused, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_warn_unused ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_warn_unused, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_warn_unused ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_warn_unused, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -32326,13 +34946,27 @@ WarnUnusedResultAttr *WarnUnusedResultAttr::Create(ASTContext &Ctx, llvm::String
   return A;
 }
 
-WarnUnusedResultAttr *WarnUnusedResultAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Message, SourceRange Range, AttributeCommonInfo::Syntax Syntax, WarnUnusedResultAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+WarnUnusedResultAttr *WarnUnusedResultAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Message, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == CXX11_nodiscard ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_nodiscard, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_nodiscard ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_nodiscard, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_warn_unused_result ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_warn_unused_result, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_warn_unused_result ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_warn_unused_result, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_warn_unused_result ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_warn_unused_result, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_warn_unused_result ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_warn_unused_result, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Message, I);
 }
 
-WarnUnusedResultAttr *WarnUnusedResultAttr::Create(ASTContext &Ctx, llvm::StringRef Message, SourceRange Range, AttributeCommonInfo::Syntax Syntax, WarnUnusedResultAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+WarnUnusedResultAttr *WarnUnusedResultAttr::Create(ASTContext &Ctx, llvm::StringRef Message, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == CXX11_nodiscard ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_nodiscard, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_nodiscard ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_nodiscard, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_warn_unused_result ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_warn_unused_result, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_warn_unused_result ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_warn_unused_result, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_warn_unused_result ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_warn_unused_result, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_warn_unused_result ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_warn_unused_result, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Message, I);
 }
 
@@ -32476,13 +35110,21 @@ WeakAttr *WeakAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInf
   return A;
 }
 
-WeakAttr *WeakAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+WeakAttr *WeakAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_weak ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_weak, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_weak ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_weak, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_weak ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_weak, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-WeakAttr *WeakAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+WeakAttr *WeakAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_weak ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_weak, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_weak ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_weak, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_weak ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_weak, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -32557,13 +35199,21 @@ WeakImportAttr *WeakImportAttr::Create(ASTContext &Ctx, const AttributeCommonInf
   return A;
 }
 
-WeakImportAttr *WeakImportAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+WeakImportAttr *WeakImportAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_weak_import ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_weak_import, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_weak_import ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_weak_import, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_weak_import ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_weak_import, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-WeakImportAttr *WeakImportAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+WeakImportAttr *WeakImportAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_weak_import ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_weak_import, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_weak_import ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_weak_import, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_weak_import ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_weak_import, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -32638,13 +35288,21 @@ WeakRefAttr *WeakRefAttr::Create(ASTContext &Ctx, llvm::StringRef Aliasee, const
   return A;
 }
 
-WeakRefAttr *WeakRefAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Aliasee, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+WeakRefAttr *WeakRefAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Aliasee, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_weakref ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_weakref, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_weakref ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_weakref, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_weakref ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_weakref, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, Aliasee, I);
 }
 
-WeakRefAttr *WeakRefAttr::Create(ASTContext &Ctx, llvm::StringRef Aliasee, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+WeakRefAttr *WeakRefAttr::Create(ASTContext &Ctx, llvm::StringRef Aliasee, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_weakref ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_weakref, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_weakref ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_weakref, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_weakref ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_weakref, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, Aliasee, I);
 }
 
@@ -32744,13 +35402,21 @@ WebAssemblyExportNameAttr *WebAssemblyExportNameAttr::Create(ASTContext &Ctx, ll
   return A;
 }
 
-WebAssemblyExportNameAttr *WebAssemblyExportNameAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef ExportName, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+WebAssemblyExportNameAttr *WebAssemblyExportNameAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef ExportName, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_export_name ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_export_name, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_export_name ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_export_name, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_export_name ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_export_name, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, ExportName, I);
 }
 
-WebAssemblyExportNameAttr *WebAssemblyExportNameAttr::Create(ASTContext &Ctx, llvm::StringRef ExportName, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+WebAssemblyExportNameAttr *WebAssemblyExportNameAttr::Create(ASTContext &Ctx, llvm::StringRef ExportName, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_export_name ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_export_name, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_export_name ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_export_name, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_export_name ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_export_name, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, ExportName, I);
 }
 
@@ -32826,6 +35492,73 @@ const char *WebAssemblyExportNameAttr::getSpelling() const {
 }
 
 
+// WebAssemblyFuncrefAttr implementation
+
+WebAssemblyFuncrefAttr *WebAssemblyFuncrefAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) WebAssemblyFuncrefAttr(Ctx, CommonInfo);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+WebAssemblyFuncrefAttr *WebAssemblyFuncrefAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) WebAssemblyFuncrefAttr(Ctx, CommonInfo);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+WebAssemblyFuncrefAttr *WebAssemblyFuncrefAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
+  return CreateImplicit(Ctx, I);
+}
+
+WebAssemblyFuncrefAttr *WebAssemblyFuncrefAttr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
+  return Create(Ctx, I);
+}
+
+WebAssemblyFuncrefAttr::WebAssemblyFuncrefAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             )
+  : TypeAttr(Ctx, CommonInfo, attr::WebAssemblyFuncref, false)
+  {
+}
+
+WebAssemblyFuncrefAttr *WebAssemblyFuncrefAttr::clone(ASTContext &C) const {
+  auto *A = new (C) WebAssemblyFuncrefAttr(C, *this);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void WebAssemblyFuncrefAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+  bool IsFirstArgument = true; (void)IsFirstArgument;
+  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    break;
+  case 0 : {
+    OS << " __funcref";
+    OS << "";
+    break;
+  }
+}
+}
+
+const char *WebAssemblyFuncrefAttr::getSpelling() const {
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    return "(No spelling)";
+  case 0:
+    return "__funcref";
+  }
+}
+
+
 // WebAssemblyImportModuleAttr implementation
 
 WebAssemblyImportModuleAttr *WebAssemblyImportModuleAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef ImportModule, const AttributeCommonInfo &CommonInfo) {
@@ -32843,13 +35576,21 @@ WebAssemblyImportModuleAttr *WebAssemblyImportModuleAttr::Create(ASTContext &Ctx
   return A;
 }
 
-WebAssemblyImportModuleAttr *WebAssemblyImportModuleAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef ImportModule, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+WebAssemblyImportModuleAttr *WebAssemblyImportModuleAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef ImportModule, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_import_module ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_import_module, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_import_module ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_import_module, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_import_module ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_import_module, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, ImportModule, I);
 }
 
-WebAssemblyImportModuleAttr *WebAssemblyImportModuleAttr::Create(ASTContext &Ctx, llvm::StringRef ImportModule, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+WebAssemblyImportModuleAttr *WebAssemblyImportModuleAttr::Create(ASTContext &Ctx, llvm::StringRef ImportModule, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_import_module ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_import_module, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_import_module ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_import_module, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_import_module ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_import_module, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, ImportModule, I);
 }
 
@@ -32942,13 +35683,21 @@ WebAssemblyImportNameAttr *WebAssemblyImportNameAttr::Create(ASTContext &Ctx, ll
   return A;
 }
 
-WebAssemblyImportNameAttr *WebAssemblyImportNameAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef ImportName, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+WebAssemblyImportNameAttr *WebAssemblyImportNameAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef ImportName, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_import_name ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_import_name, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_import_name ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_import_name, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_import_name ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_import_name, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, ImportName, I);
 }
 
-WebAssemblyImportNameAttr *WebAssemblyImportNameAttr::Create(ASTContext &Ctx, llvm::StringRef ImportName, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+WebAssemblyImportNameAttr *WebAssemblyImportNameAttr::Create(ASTContext &Ctx, llvm::StringRef ImportName, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_import_name ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_import_name, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_import_name ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_import_name, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_import_name ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_import_name, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, ImportName, I);
 }
 
@@ -33041,13 +35790,13 @@ WorkGroupSizeHintAttr *WorkGroupSizeHintAttr::Create(ASTContext &Ctx, unsigned X
   return A;
 }
 
-WorkGroupSizeHintAttr *WorkGroupSizeHintAttr::CreateImplicit(ASTContext &Ctx, unsigned XDim, unsigned YDim, unsigned ZDim, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+WorkGroupSizeHintAttr *WorkGroupSizeHintAttr::CreateImplicit(ASTContext &Ctx, unsigned XDim, unsigned YDim, unsigned ZDim, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, XDim, YDim, ZDim, I);
 }
 
-WorkGroupSizeHintAttr *WorkGroupSizeHintAttr::Create(ASTContext &Ctx, unsigned XDim, unsigned YDim, unsigned ZDim, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+WorkGroupSizeHintAttr *WorkGroupSizeHintAttr::Create(ASTContext &Ctx, unsigned XDim, unsigned YDim, unsigned ZDim, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, XDim, YDim, ZDim, I);
 }
 
@@ -33128,13 +35877,21 @@ X86ForceAlignArgPointerAttr *X86ForceAlignArgPointerAttr::Create(ASTContext &Ctx
   return A;
 }
 
-X86ForceAlignArgPointerAttr *X86ForceAlignArgPointerAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+X86ForceAlignArgPointerAttr *X86ForceAlignArgPointerAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_force_align_arg_pointer ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_force_align_arg_pointer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_force_align_arg_pointer ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_force_align_arg_pointer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_force_align_arg_pointer ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_force_align_arg_pointer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-X86ForceAlignArgPointerAttr *X86ForceAlignArgPointerAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+X86ForceAlignArgPointerAttr *X86ForceAlignArgPointerAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_force_align_arg_pointer ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_force_align_arg_pointer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_force_align_arg_pointer ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_force_align_arg_pointer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_force_align_arg_pointer ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_force_align_arg_pointer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -33207,13 +35964,27 @@ XRayInstrumentAttr *XRayInstrumentAttr::Create(ASTContext &Ctx, const AttributeC
   return A;
 }
 
-XRayInstrumentAttr *XRayInstrumentAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax, XRayInstrumentAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+XRayInstrumentAttr *XRayInstrumentAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_xray_always_instrument ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_xray_always_instrument, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_xray_always_instrument ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_xray_always_instrument, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_xray_always_instrument ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_xray_always_instrument, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_xray_never_instrument ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_xray_never_instrument, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_xray_never_instrument ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_xray_never_instrument, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_xray_never_instrument ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_xray_never_instrument, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, I);
 }
 
-XRayInstrumentAttr *XRayInstrumentAttr::Create(ASTContext &Ctx, SourceRange Range, AttributeCommonInfo::Syntax Syntax, XRayInstrumentAttr::Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax, S);
+XRayInstrumentAttr *XRayInstrumentAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_xray_always_instrument ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_xray_always_instrument, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_xray_always_instrument ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_xray_always_instrument, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_xray_always_instrument ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_xray_always_instrument, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == GNU_xray_never_instrument ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_xray_never_instrument, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_xray_never_instrument ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_xray_never_instrument, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_xray_never_instrument ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_xray_never_instrument, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, I);
 }
 
@@ -33320,13 +36091,21 @@ XRayLogArgsAttr *XRayLogArgsAttr::Create(ASTContext &Ctx, unsigned ArgumentCount
   return A;
 }
 
-XRayLogArgsAttr *XRayLogArgsAttr::CreateImplicit(ASTContext &Ctx, unsigned ArgumentCount, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+XRayLogArgsAttr *XRayLogArgsAttr::CreateImplicit(ASTContext &Ctx, unsigned ArgumentCount, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_xray_log_args ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_xray_log_args, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_xray_log_args ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_xray_log_args, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_xray_log_args ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_xray_log_args, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, ArgumentCount, I);
 }
 
-XRayLogArgsAttr *XRayLogArgsAttr::Create(ASTContext &Ctx, unsigned ArgumentCount, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+XRayLogArgsAttr *XRayLogArgsAttr::Create(ASTContext &Ctx, unsigned ArgumentCount, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_xray_log_args ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_xray_log_args, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_clang_xray_log_args ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_xray_log_args, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_clang_xray_log_args ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_xray_log_args, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, ArgumentCount, I);
 }
 
@@ -33417,13 +36196,21 @@ ZeroCallUsedRegsAttr *ZeroCallUsedRegsAttr::Create(ASTContext &Ctx, ZeroCallUsed
   return A;
 }
 
-ZeroCallUsedRegsAttr *ZeroCallUsedRegsAttr::CreateImplicit(ASTContext &Ctx, ZeroCallUsedRegsKind ZeroCallUsedRegs, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ZeroCallUsedRegsAttr *ZeroCallUsedRegsAttr::CreateImplicit(ASTContext &Ctx, ZeroCallUsedRegsKind ZeroCallUsedRegs, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_zero_call_used_regs ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_zero_call_used_regs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_zero_call_used_regs ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_zero_call_used_regs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_zero_call_used_regs ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_zero_call_used_regs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return CreateImplicit(Ctx, ZeroCallUsedRegs, I);
 }
 
-ZeroCallUsedRegsAttr *ZeroCallUsedRegsAttr::Create(ASTContext &Ctx, ZeroCallUsedRegsKind ZeroCallUsedRegs, SourceRange Range, AttributeCommonInfo::Syntax Syntax) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, Syntax);
+ZeroCallUsedRegsAttr *ZeroCallUsedRegsAttr::Create(ASTContext &Ctx, ZeroCallUsedRegsKind ZeroCallUsedRegs, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, (
+    S == GNU_zero_call_used_regs ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_zero_call_used_regs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == CXX11_gnu_zero_call_used_regs ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_zero_call_used_regs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    S == C2x_gnu_zero_call_used_regs ? AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_zero_call_used_regs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/} :
+    (llvm_unreachable("Unknown attribute spelling!"),  AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/})));
   return Create(Ctx, ZeroCallUsedRegs, I);
 }
 
@@ -33601,6 +36388,8 @@ const char *Attr::getSpelling() const {
     return cast<ArmBuiltinAliasAttr>(this)->getSpelling();
   case attr::ArmMveStrictPolymorphism:
     return cast<ArmMveStrictPolymorphismAttr>(this)->getSpelling();
+  case attr::ArmStreaming:
+    return cast<ArmStreamingAttr>(this)->getSpelling();
   case attr::Artificial:
     return cast<ArtificialAttr>(this)->getSpelling();
   case attr::AsmLabel:
@@ -33617,6 +36406,8 @@ const char *Attr::getSpelling() const {
     return cast<AssumptionAttr>(this)->getSpelling();
   case attr::Availability:
     return cast<AvailabilityAttr>(this)->getSpelling();
+  case attr::AvailableOnlyInDefaultEvalMethod:
+    return cast<AvailableOnlyInDefaultEvalMethodAttr>(this)->getSpelling();
   case attr::BPFPreserveAccessIndex:
     return cast<BPFPreserveAccessIndexAttr>(this)->getSpelling();
   case attr::BTFDeclTag:
@@ -33875,6 +36666,8 @@ const char *Attr::getSpelling() const {
     return cast<NSReturnsNotRetainedAttr>(this)->getSpelling();
   case attr::NSReturnsRetained:
     return cast<NSReturnsRetainedAttr>(this)->getSpelling();
+  case attr::NVPTXKernel:
+    return cast<NVPTXKernelAttr>(this)->getSpelling();
   case attr::Naked:
     return cast<NakedAttr>(this)->getSpelling();
   case attr::NoAlias:
@@ -34221,6 +37014,8 @@ const char *Attr::getSpelling() const {
     return cast<UninitializedAttr>(this)->getSpelling();
   case attr::Unlikely:
     return cast<UnlikelyAttr>(this)->getSpelling();
+  case attr::UnsafeBufferUsage:
+    return cast<UnsafeBufferUsageAttr>(this)->getSpelling();
   case attr::Unused:
     return cast<UnusedAttr>(this)->getSpelling();
   case attr::UseHandle:
@@ -34251,6 +37046,8 @@ const char *Attr::getSpelling() const {
     return cast<WeakRefAttr>(this)->getSpelling();
   case attr::WebAssemblyExportName:
     return cast<WebAssemblyExportNameAttr>(this)->getSpelling();
+  case attr::WebAssemblyFuncref:
+    return cast<WebAssemblyFuncrefAttr>(this)->getSpelling();
   case attr::WebAssemblyImportModule:
     return cast<WebAssemblyImportModuleAttr>(this)->getSpelling();
   case attr::WebAssemblyImportName:
@@ -34341,6 +37138,8 @@ Attr *Attr::clone(ASTContext &C) const {
     return cast<ArmBuiltinAliasAttr>(this)->clone(C);
   case attr::ArmMveStrictPolymorphism:
     return cast<ArmMveStrictPolymorphismAttr>(this)->clone(C);
+  case attr::ArmStreaming:
+    return cast<ArmStreamingAttr>(this)->clone(C);
   case attr::Artificial:
     return cast<ArtificialAttr>(this)->clone(C);
   case attr::AsmLabel:
@@ -34357,6 +37156,8 @@ Attr *Attr::clone(ASTContext &C) const {
     return cast<AssumptionAttr>(this)->clone(C);
   case attr::Availability:
     return cast<AvailabilityAttr>(this)->clone(C);
+  case attr::AvailableOnlyInDefaultEvalMethod:
+    return cast<AvailableOnlyInDefaultEvalMethodAttr>(this)->clone(C);
   case attr::BPFPreserveAccessIndex:
     return cast<BPFPreserveAccessIndexAttr>(this)->clone(C);
   case attr::BTFDeclTag:
@@ -34615,6 +37416,8 @@ Attr *Attr::clone(ASTContext &C) const {
     return cast<NSReturnsNotRetainedAttr>(this)->clone(C);
   case attr::NSReturnsRetained:
     return cast<NSReturnsRetainedAttr>(this)->clone(C);
+  case attr::NVPTXKernel:
+    return cast<NVPTXKernelAttr>(this)->clone(C);
   case attr::Naked:
     return cast<NakedAttr>(this)->clone(C);
   case attr::NoAlias:
@@ -34961,6 +37764,8 @@ Attr *Attr::clone(ASTContext &C) const {
     return cast<UninitializedAttr>(this)->clone(C);
   case attr::Unlikely:
     return cast<UnlikelyAttr>(this)->clone(C);
+  case attr::UnsafeBufferUsage:
+    return cast<UnsafeBufferUsageAttr>(this)->clone(C);
   case attr::Unused:
     return cast<UnusedAttr>(this)->clone(C);
   case attr::UseHandle:
@@ -34991,6 +37796,8 @@ Attr *Attr::clone(ASTContext &C) const {
     return cast<WeakRefAttr>(this)->clone(C);
   case attr::WebAssemblyExportName:
     return cast<WebAssemblyExportNameAttr>(this)->clone(C);
+  case attr::WebAssemblyFuncref:
+    return cast<WebAssemblyFuncrefAttr>(this)->clone(C);
   case attr::WebAssemblyImportModule:
     return cast<WebAssemblyImportModuleAttr>(this)->clone(C);
   case attr::WebAssemblyImportName:
@@ -35081,6 +37888,8 @@ void Attr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
     return cast<ArmBuiltinAliasAttr>(this)->printPretty(OS, Policy);
   case attr::ArmMveStrictPolymorphism:
     return cast<ArmMveStrictPolymorphismAttr>(this)->printPretty(OS, Policy);
+  case attr::ArmStreaming:
+    return cast<ArmStreamingAttr>(this)->printPretty(OS, Policy);
   case attr::Artificial:
     return cast<ArtificialAttr>(this)->printPretty(OS, Policy);
   case attr::AsmLabel:
@@ -35097,6 +37906,8 @@ void Attr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
     return cast<AssumptionAttr>(this)->printPretty(OS, Policy);
   case attr::Availability:
     return cast<AvailabilityAttr>(this)->printPretty(OS, Policy);
+  case attr::AvailableOnlyInDefaultEvalMethod:
+    return cast<AvailableOnlyInDefaultEvalMethodAttr>(this)->printPretty(OS, Policy);
   case attr::BPFPreserveAccessIndex:
     return cast<BPFPreserveAccessIndexAttr>(this)->printPretty(OS, Policy);
   case attr::BTFDeclTag:
@@ -35355,6 +38166,8 @@ void Attr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
     return cast<NSReturnsNotRetainedAttr>(this)->printPretty(OS, Policy);
   case attr::NSReturnsRetained:
     return cast<NSReturnsRetainedAttr>(this)->printPretty(OS, Policy);
+  case attr::NVPTXKernel:
+    return cast<NVPTXKernelAttr>(this)->printPretty(OS, Policy);
   case attr::Naked:
     return cast<NakedAttr>(this)->printPretty(OS, Policy);
   case attr::NoAlias:
@@ -35701,6 +38514,8 @@ void Attr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
     return cast<UninitializedAttr>(this)->printPretty(OS, Policy);
   case attr::Unlikely:
     return cast<UnlikelyAttr>(this)->printPretty(OS, Policy);
+  case attr::UnsafeBufferUsage:
+    return cast<UnsafeBufferUsageAttr>(this)->printPretty(OS, Policy);
   case attr::Unused:
     return cast<UnusedAttr>(this)->printPretty(OS, Policy);
   case attr::UseHandle:
@@ -35731,6 +38546,8 @@ void Attr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
     return cast<WeakRefAttr>(this)->printPretty(OS, Policy);
   case attr::WebAssemblyExportName:
     return cast<WebAssemblyExportNameAttr>(this)->printPretty(OS, Policy);
+  case attr::WebAssemblyFuncref:
+    return cast<WebAssemblyFuncrefAttr>(this)->printPretty(OS, Policy);
   case attr::WebAssemblyImportModule:
     return cast<WebAssemblyImportModuleAttr>(this)->printPretty(OS, Policy);
   case attr::WebAssemblyImportName:

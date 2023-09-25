@@ -1120,6 +1120,16 @@ set_target_properties(clangDaemonTweaks PROPERTIES
 list(APPEND _cmake_import_check_targets clangDaemonTweaks )
 list(APPEND _cmake_import_check_files_for_clangDaemonTweaks "${_IMPORT_PREFIX}/lib/libclangDaemonTweaks.a" )
 
+# Import target "clangdMain" for configuration "Release"
+set_property(TARGET clangdMain APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(clangdMain PROPERTIES
+  IMPORTED_LINK_INTERFACE_LANGUAGES_RELEASE "CXX"
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/lib/libclangdMain.a"
+  )
+
+list(APPEND _cmake_import_check_targets clangdMain )
+list(APPEND _cmake_import_check_files_for_clangdMain "${_IMPORT_PREFIX}/lib/libclangdMain.a" )
+
 # Import target "clangd" for configuration "Release"
 set_property(TARGET clangd APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
 set_target_properties(clangd PROPERTIES

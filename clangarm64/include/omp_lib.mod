@@ -1,10 +1,12 @@
-﻿!mod$ v1 sum:e49adfa9ea3f274f
+﻿!mod$ v1 sum:cbf534046853bf7d
 module omp_lib
 use omp_lib_kinds,only:c_f_pointer
 use omp_lib_kinds,only:c_ptr
 use omp_lib_kinds,only:c_funptr
 use omp_lib_kinds,only:c_sizeof
 use omp_lib_kinds,only:c_loc
+use omp_lib_kinds,only:operator(==)
+use omp_lib_kinds,only:operator(/=)
 use omp_lib_kinds,only:c_null_ptr
 use omp_lib_kinds,only:c_null_funptr
 use omp_lib_kinds,only:c_int8_t
@@ -179,295 +181,295 @@ integer(4),parameter::omp_ifr_level_zero=6_4
 integer(4),parameter::omp_ifr_last=7_4
 integer(8),parameter::omp_interop_none=0_8
 interface
-subroutine omp_set_num_threads(num_threads) bind(c, name="omp_set_num_threads")
+subroutine omp_set_num_threads(num_threads) bind(c)
 integer(4),value::num_threads
 end
 end interface
 interface
-subroutine omp_set_dynamic(dynamic_threads) bind(c, name="omp_set_dynamic")
+subroutine omp_set_dynamic(dynamic_threads) bind(c)
 logical(4),value::dynamic_threads
 end
 end interface
 interface
-subroutine omp_set_nested(nested) bind(c, name="omp_set_nested")
+subroutine omp_set_nested(nested) bind(c)
 logical(4),value::nested
 end
 end interface
 interface
-function omp_get_num_threads() bind(c, name="omp_get_num_threads")
+function omp_get_num_threads() bind(c)
 integer(4)::omp_get_num_threads
 end
 end interface
 interface
-function omp_get_max_threads() bind(c, name="omp_get_max_threads")
+function omp_get_max_threads() bind(c)
 integer(4)::omp_get_max_threads
 end
 end interface
 interface
-function omp_get_thread_num() bind(c, name="omp_get_thread_num")
+function omp_get_thread_num() bind(c)
 integer(4)::omp_get_thread_num
 end
 end interface
 interface
-function omp_get_num_procs() bind(c, name="omp_get_num_procs")
+function omp_get_num_procs() bind(c)
 integer(4)::omp_get_num_procs
 end
 end interface
 interface
-function omp_in_parallel() bind(c, name="omp_in_parallel")
+function omp_in_parallel() bind(c)
 logical(4)::omp_in_parallel
 end
 end interface
 interface
-function omp_in_final() bind(c, name="omp_in_final")
+function omp_in_final() bind(c)
 logical(4)::omp_in_final
 end
 end interface
 interface
-function omp_get_dynamic() bind(c, name="omp_get_dynamic")
+function omp_get_dynamic() bind(c)
 logical(4)::omp_get_dynamic
 end
 end interface
 interface
-function omp_get_nested() bind(c, name="omp_get_nested")
+function omp_get_nested() bind(c)
 logical(4)::omp_get_nested
 end
 end interface
 interface
-function omp_get_thread_limit() bind(c, name="omp_get_thread_limit")
+function omp_get_thread_limit() bind(c)
 integer(4)::omp_get_thread_limit
 end
 end interface
 interface
-subroutine omp_set_max_active_levels(max_levels) bind(c, name="omp_set_max_active_levels")
+subroutine omp_set_max_active_levels(max_levels) bind(c)
 integer(4),value::max_levels
 end
 end interface
 interface
-function omp_get_max_active_levels() bind(c, name="omp_get_max_active_levels")
+function omp_get_max_active_levels() bind(c)
 integer(4)::omp_get_max_active_levels
 end
 end interface
 interface
-function omp_get_level() bind(c, name="omp_get_level")
+function omp_get_level() bind(c)
 integer(4)::omp_get_level
 end
 end interface
 interface
-function omp_get_active_level() bind(c, name="omp_get_active_level")
+function omp_get_active_level() bind(c)
 integer(4)::omp_get_active_level
 end
 end interface
 interface
-function omp_get_ancestor_thread_num(level) bind(c, name="omp_get_ancestor_thread_num")
+function omp_get_ancestor_thread_num(level) bind(c)
 integer(4),value::level
 integer(4)::omp_get_ancestor_thread_num
 end
 end interface
 interface
-function omp_get_team_size(level) bind(c, name="omp_get_team_size")
+function omp_get_team_size(level) bind(c)
 integer(4),value::level
 integer(4)::omp_get_team_size
 end
 end interface
 interface
-subroutine omp_set_schedule(kind,chunk_size) bind(c, name="omp_set_schedule")
+subroutine omp_set_schedule(kind,chunk_size) bind(c)
 integer(4),value::kind
 integer(4),value::chunk_size
 end
 end interface
 interface
-subroutine omp_get_schedule(kind,chunk_size) bind(c, name="omp_get_schedule")
+subroutine omp_get_schedule(kind,chunk_size) bind(c)
 integer(4)::kind
 integer(4)::chunk_size
 end
 end interface
 interface
-function omp_get_proc_bind() bind(c, name="omp_get_proc_bind")
+function omp_get_proc_bind() bind(c)
 integer(4)::omp_get_proc_bind
 end
 end interface
 interface
-function omp_get_num_places() bind(c, name="omp_get_num_places")
+function omp_get_num_places() bind(c)
 integer(4)::omp_get_num_places
 end
 end interface
 interface
-function omp_get_place_num_procs(place_num) bind(c, name="omp_get_place_num_procs")
+function omp_get_place_num_procs(place_num) bind(c)
 integer(4),value::place_num
 integer(4)::omp_get_place_num_procs
 end
 end interface
 interface
-subroutine omp_get_place_proc_ids(place_num,ids) bind(c, name="omp_get_place_proc_ids")
+subroutine omp_get_place_proc_ids(place_num,ids) bind(c)
 integer(4),value::place_num
 integer(4)::ids(1_8:*)
 end
 end interface
 interface
-function omp_get_place_num() bind(c, name="omp_get_place_num")
+function omp_get_place_num() bind(c)
 integer(4)::omp_get_place_num
 end
 end interface
 interface
-function omp_get_partition_num_places() bind(c, name="omp_get_partition_num_places")
+function omp_get_partition_num_places() bind(c)
 integer(4)::omp_get_partition_num_places
 end
 end interface
 interface
-subroutine omp_get_partition_place_nums(place_nums) bind(c, name="omp_get_partition_place_nums")
+subroutine omp_get_partition_place_nums(place_nums) bind(c)
 integer(4)::place_nums(1_8:*)
 end
 end interface
 interface
-function omp_get_wtime() bind(c, name="omp_get_wtime")
+function omp_get_wtime() bind(c)
 real(8)::omp_get_wtime
 end
 end interface
 interface
-function omp_get_wtick() bind(c, name="omp_get_wtick")
+function omp_get_wtick() bind(c)
 real(8)::omp_get_wtick
 end
 end interface
 interface
-function omp_get_default_device() bind(c, name="omp_get_default_device")
+function omp_get_default_device() bind(c)
 integer(4)::omp_get_default_device
 end
 end interface
 interface
-subroutine omp_set_default_device(device_num) bind(c, name="omp_set_default_device")
+subroutine omp_set_default_device(device_num) bind(c)
 integer(4),value::device_num
 end
 end interface
 interface
-function omp_get_num_devices() bind(c, name="omp_get_num_devices")
+function omp_get_num_devices() bind(c)
 integer(4)::omp_get_num_devices
 end
 end interface
 interface
-function omp_get_num_teams() bind(c, name="omp_get_num_teams")
+function omp_get_num_teams() bind(c)
 integer(4)::omp_get_num_teams
 end
 end interface
 interface
-function omp_get_team_num() bind(c, name="omp_get_team_num")
+function omp_get_team_num() bind(c)
 integer(4)::omp_get_team_num
 end
 end interface
 interface
-function omp_get_cancellation() bind(c, name="omp_get_cancellation")
+function omp_get_cancellation() bind(c)
 integer(4)::omp_get_cancellation
 end
 end interface
 interface
-function omp_is_initial_device() bind(c, name="omp_is_initial_device")
+function omp_is_initial_device() bind(c)
 logical(4)::omp_is_initial_device
 end
 end interface
 interface
-function omp_get_initial_device() bind(c, name="omp_get_initial_device")
+function omp_get_initial_device() bind(c)
 integer(4)::omp_get_initial_device
 end
 end interface
 interface
-function omp_get_device_num() bind(c, name="omp_get_device_num")
+function omp_get_device_num() bind(c)
 integer(4)::omp_get_device_num
 end
 end interface
 interface
-function omp_pause_resource(kind,device_num) bind(c, name="omp_pause_resource")
+function omp_pause_resource(kind,device_num) bind(c)
 integer(4),value::kind
 integer(4),value::device_num
 integer(4)::omp_pause_resource
 end
 end interface
 interface
-function omp_pause_resource_all(kind) bind(c, name="omp_pause_resource_all")
+function omp_pause_resource_all(kind) bind(c)
 integer(4),value::kind
 integer(4)::omp_pause_resource_all
 end
 end interface
 interface
-function omp_get_supported_active_levels() bind(c, name="omp_get_supported_active_levels")
+function omp_get_supported_active_levels() bind(c)
 integer(4)::omp_get_supported_active_levels
 end
 end interface
 interface
-subroutine omp_fulfill_event(event) bind(c, name="omp_fulfill_event")
+subroutine omp_fulfill_event(event) bind(c)
 integer(8),value::event
 end
 end interface
 interface
-subroutine omp_init_lock(svar) bind(c, name="omp_init_lock")
+subroutine omp_init_lock(svar) bind(c)
 integer(8)::svar
 end
 end interface
 interface
-subroutine omp_destroy_lock(svar) bind(c, name="omp_destroy_lock")
+subroutine omp_destroy_lock(svar) bind(c)
 integer(8)::svar
 end
 end interface
 interface
-subroutine omp_set_lock(svar) bind(c, name="omp_set_lock")
+subroutine omp_set_lock(svar) bind(c)
 integer(8)::svar
 end
 end interface
 interface
-subroutine omp_unset_lock(svar) bind(c, name="omp_unset_lock")
+subroutine omp_unset_lock(svar) bind(c)
 integer(8)::svar
 end
 end interface
 interface
-function omp_test_lock(svar) bind(c, name="omp_test_lock")
+function omp_test_lock(svar) bind(c)
 integer(8)::svar
 logical(4)::omp_test_lock
 end
 end interface
 interface
-subroutine omp_init_nest_lock(nvar) bind(c, name="omp_init_nest_lock")
+subroutine omp_init_nest_lock(nvar) bind(c)
 integer(8)::nvar
 end
 end interface
 interface
-subroutine omp_destroy_nest_lock(nvar) bind(c, name="omp_destroy_nest_lock")
+subroutine omp_destroy_nest_lock(nvar) bind(c)
 integer(8)::nvar
 end
 end interface
 interface
-subroutine omp_set_nest_lock(nvar) bind(c, name="omp_set_nest_lock")
+subroutine omp_set_nest_lock(nvar) bind(c)
 integer(8)::nvar
 end
 end interface
 interface
-subroutine omp_unset_nest_lock(nvar) bind(c, name="omp_unset_nest_lock")
+subroutine omp_unset_nest_lock(nvar) bind(c)
 integer(8)::nvar
 end
 end interface
 interface
-function omp_test_nest_lock(nvar) bind(c, name="omp_test_nest_lock")
+function omp_test_nest_lock(nvar) bind(c)
 integer(8)::nvar
 integer(4)::omp_test_nest_lock
 end
 end interface
 interface
-function omp_get_max_task_priority() bind(c, name="omp_get_max_task_priority")
+function omp_get_max_task_priority() bind(c)
 integer(4)::omp_get_max_task_priority
 end
 end interface
 interface
-subroutine omp_init_lock_with_hint(svar,hint) bind(c, name="omp_init_lock_with_hint")
+subroutine omp_init_lock_with_hint(svar,hint) bind(c)
 integer(8)::svar
 integer(4),value::hint
 end
 end interface
 interface
-subroutine omp_init_nest_lock_with_hint(nvar,hint) bind(c, name="omp_init_nest_lock_with_hint")
+subroutine omp_init_nest_lock_with_hint(nvar,hint) bind(c)
 integer(8)::nvar
 integer(4),value::hint
 end
 end interface
 interface
-function omp_control_tool(command,modifier,arg) bind(c, name="omp_control_tool")
+function omp_control_tool(command,modifier,arg) bind(c)
 integer(4),value::command
 integer(4),value::modifier
 integer(8),optional::arg
@@ -484,17 +486,17 @@ integer(8)::omp_init_allocator
 end
 end interface
 interface
-subroutine omp_destroy_allocator(allocator) bind(c, name="omp_destroy_allocator")
+subroutine omp_destroy_allocator(allocator) bind(c)
 integer(8),value::allocator
 end
 end interface
 interface
-subroutine omp_set_default_allocator(allocator) bind(c, name="omp_set_default_allocator")
+subroutine omp_set_default_allocator(allocator) bind(c)
 integer(8),value::allocator
 end
 end interface
 interface
-function omp_get_default_allocator() bind(c, name="omp_get_default_allocator")
+function omp_get_default_allocator() bind(c)
 integer(8)::omp_get_default_allocator
 end
 end interface
@@ -522,32 +524,32 @@ integer(8)::omp_capture_affinity
 end
 end interface
 interface
-subroutine omp_set_num_teams(num_teams) bind(c, name="omp_set_num_teams")
+subroutine omp_set_num_teams(num_teams) bind(c)
 integer(4),value::num_teams
 end
 end interface
 interface
-function omp_get_max_teams() bind(c, name="omp_get_max_teams")
+function omp_get_max_teams() bind(c)
 integer(4)::omp_get_max_teams
 end
 end interface
 interface
-subroutine omp_set_teams_thread_limit(thread_limit) bind(c, name="omp_set_teams_thread_limit")
+subroutine omp_set_teams_thread_limit(thread_limit) bind(c)
 integer(4),value::thread_limit
 end
 end interface
 interface
-function omp_get_teams_thread_limit() bind(c, name="omp_get_teams_thread_limit")
+function omp_get_teams_thread_limit() bind(c)
 integer(4)::omp_get_teams_thread_limit
 end
 end interface
 interface
-subroutine omp_display_env(verbose) bind(c, name="omp_display_env")
+subroutine omp_display_env(verbose) bind(c)
 logical(4),value::verbose
 end
 end interface
 interface
-function omp_target_alloc(size,device_num) bind(c, name="omp_target_alloc")
+function omp_target_alloc(size,device_num) bind(c)
 use omp_lib_kinds,only:c_ptr
 integer(8),value::size
 integer(4),value::device_num
@@ -555,14 +557,14 @@ type(c_ptr)::omp_target_alloc
 end
 end interface
 interface
-subroutine omp_target_free(device_ptr,device_num) bind(c, name="omp_target_free")
+subroutine omp_target_free(device_ptr,device_num) bind(c)
 use omp_lib_kinds,only:c_ptr
 type(c_ptr),value::device_ptr
 integer(4),value::device_num
 end
 end interface
 interface
-function omp_target_is_present(ptr,device_num) bind(c, name="omp_target_is_present")
+function omp_target_is_present(ptr,device_num) bind(c)
 use omp_lib_kinds,only:c_ptr
 type(c_ptr),value::ptr
 integer(4),value::device_num
@@ -570,7 +572,7 @@ integer(4)::omp_target_is_present
 end
 end interface
 interface
-function omp_target_memcpy(dst,src,length,dst_offset,src_offset,dst_device_num,src_device_num) bind(c, name="omp_target_memcpy")
+function omp_target_memcpy(dst,src,length,dst_offset,src_offset,dst_device_num,src_device_num) bind(c)
 use omp_lib_kinds,only:c_ptr
 type(c_ptr),value::dst
 type(c_ptr),value::src
@@ -583,7 +585,7 @@ integer(4)::omp_target_memcpy
 end
 end interface
 interface
-function omp_target_memcpy_rect(dst,src,element_size,num_dims,volume,dst_offsets,src_offsets,dst_dimensions,src_dimensions,dst_device_num,src_device_num) bind(c, name="omp_target_memcpy_rect")
+function omp_target_memcpy_rect(dst,src,element_size,num_dims,volume,dst_offsets,src_offsets,dst_dimensions,src_dimensions,dst_device_num,src_device_num) bind(c)
 use omp_lib_kinds,only:c_ptr
 type(c_ptr),value::dst
 type(c_ptr),value::src
@@ -600,7 +602,7 @@ integer(4)::omp_target_memcpy_rect
 end
 end interface
 interface
-function omp_target_memcpy_async(dst,src,length,dst_offset,src_offset,dst_device_num,src_device_num,depobj_count,depobj_list) bind(c, name="omp_target_memcpy_async")
+function omp_target_memcpy_async(dst,src,length,dst_offset,src_offset,dst_device_num,src_device_num,depobj_count,depobj_list) bind(c)
 use omp_lib_kinds,only:c_ptr
 type(c_ptr),value::dst
 type(c_ptr),value::src
@@ -615,7 +617,7 @@ integer(4)::omp_target_memcpy_async
 end
 end interface
 interface
-function omp_target_memcpy_rect_async(dst,src,element_size,num_dims,volume,dst_offsets,src_offsets,dst_dimensions,src_dimensions,dst_device_num,src_device_num,depobj_count,depobj_list) bind(c, name="omp_target_memcpy_rect_async")
+function omp_target_memcpy_rect_async(dst,src,element_size,num_dims,volume,dst_offsets,src_offsets,dst_dimensions,src_dimensions,dst_device_num,src_device_num,depobj_count,depobj_list) bind(c)
 use omp_lib_kinds,only:c_ptr
 type(c_ptr),value::dst
 type(c_ptr),value::src
@@ -634,7 +636,7 @@ integer(4)::omp_target_memcpy_rect_async
 end
 end interface
 interface
-function omp_target_associate_ptr(host_ptr,device_ptr,size,device_offset,device_num) bind(c, name="omp_target_associate_ptr")
+function omp_target_associate_ptr(host_ptr,device_ptr,size,device_offset,device_num) bind(c)
 use omp_lib_kinds,only:c_ptr
 type(c_ptr),value::host_ptr
 type(c_ptr),value::device_ptr
@@ -645,7 +647,7 @@ integer(4)::omp_target_associate_ptr
 end
 end interface
 interface
-function omp_get_mapped_ptr(ptr,device_num) bind(c, name="omp_get_mapped_ptr")
+function omp_get_mapped_ptr(ptr,device_num) bind(c)
 use omp_lib_kinds,only:c_ptr
 type(c_ptr),value::ptr
 integer(4),value::device_num
@@ -653,7 +655,7 @@ type(c_ptr)::omp_get_mapped_ptr
 end
 end interface
 interface
-function omp_target_disassociate_ptr(ptr,device_num) bind(c, name="omp_target_disassociate_ptr")
+function omp_target_disassociate_ptr(ptr,device_num) bind(c)
 use omp_lib_kinds,only:c_ptr
 type(c_ptr),value::ptr
 integer(4),value::device_num
@@ -661,7 +663,7 @@ integer(4)::omp_target_disassociate_ptr
 end
 end interface
 interface
-function omp_target_is_accessible(ptr,size,device_num) bind(c, name="omp_target_is_accessible")
+function omp_target_is_accessible(ptr,size,device_num) bind(c)
 use omp_lib_kinds,only:c_ptr
 type(c_ptr),value::ptr
 integer(8),value::size
@@ -670,7 +672,7 @@ integer(4)::omp_target_is_accessible
 end
 end interface
 interface
-function omp_alloc(size,allocator) bind(c, name="omp_alloc")
+function omp_alloc(size,allocator) bind(c)
 use omp_lib_kinds,only:c_ptr
 integer(8),value::size
 integer(8),value::allocator
@@ -678,7 +680,7 @@ type(c_ptr)::omp_alloc
 end
 end interface
 interface
-function omp_aligned_alloc(alignment,size,allocator) bind(c, name="omp_aligned_alloc")
+function omp_aligned_alloc(alignment,size,allocator) bind(c)
 use omp_lib_kinds,only:c_ptr
 integer(8),value::alignment
 integer(8),value::size
@@ -687,7 +689,7 @@ type(c_ptr)::omp_aligned_alloc
 end
 end interface
 interface
-function omp_calloc(nmemb,size,allocator) bind(c, name="omp_calloc")
+function omp_calloc(nmemb,size,allocator) bind(c)
 use omp_lib_kinds,only:c_ptr
 integer(8),value::nmemb
 integer(8),value::size
@@ -696,7 +698,7 @@ type(c_ptr)::omp_calloc
 end
 end interface
 interface
-function omp_aligned_calloc(alignment,nmemb,size,allocator) bind(c, name="omp_aligned_calloc")
+function omp_aligned_calloc(alignment,nmemb,size,allocator) bind(c)
 use omp_lib_kinds,only:c_ptr
 integer(8),value::alignment
 integer(8),value::nmemb
@@ -706,7 +708,7 @@ type(c_ptr)::omp_aligned_calloc
 end
 end interface
 interface
-function omp_realloc(ptr,size,allocator,free_allocator) bind(c, name="omp_realloc")
+function omp_realloc(ptr,size,allocator,free_allocator) bind(c)
 use omp_lib_kinds,only:c_ptr
 type(c_ptr),value::ptr
 integer(8),value::size
@@ -716,169 +718,169 @@ type(c_ptr)::omp_realloc
 end
 end interface
 interface
-subroutine omp_free(ptr,allocator) bind(c, name="omp_free")
+subroutine omp_free(ptr,allocator) bind(c)
 use omp_lib_kinds,only:c_ptr
 type(c_ptr),value::ptr
 integer(8),value::allocator
 end
 end interface
 interface
-function omp_in_explicit_task() bind(c, name="omp_in_explicit_task")
+function omp_in_explicit_task() bind(c)
 logical(4)::omp_in_explicit_task
 end
 end interface
 interface
-subroutine kmp_set_stacksize(size) bind(c, name="kmp_set_stacksize")
+subroutine kmp_set_stacksize(size) bind(c)
 integer(4),value::size
 end
 end interface
 interface
-subroutine kmp_set_stacksize_s(size) bind(c, name="kmp_set_stacksize_s")
+subroutine kmp_set_stacksize_s(size) bind(c)
 integer(8),value::size
 end
 end interface
 interface
-subroutine kmp_set_blocktime(msec) bind(c, name="kmp_set_blocktime")
+subroutine kmp_set_blocktime(msec) bind(c)
 integer(4),value::msec
 end
 end interface
 interface
-subroutine kmp_set_library_serial() bind(c, name="kmp_set_library_serial")
+subroutine kmp_set_library_serial() bind(c)
 end
 end interface
 interface
-subroutine kmp_set_library_turnaround() bind(c, name="kmp_set_library_turnaround")
+subroutine kmp_set_library_turnaround() bind(c)
 end
 end interface
 interface
-subroutine kmp_set_library_throughput() bind(c, name="kmp_set_library_throughput")
+subroutine kmp_set_library_throughput() bind(c)
 end
 end interface
 interface
-subroutine kmp_set_library(libnum) bind(c, name="kmp_set_library")
+subroutine kmp_set_library(libnum) bind(c)
 integer(4),value::libnum
 end
 end interface
 interface
-subroutine kmp_set_defaults(string) bind(c, name="kmp_set_defaults")
+subroutine kmp_set_defaults(string) bind(c)
 character(1_8,1)::string(1_8:*)
 end
 end interface
 interface
-function kmp_get_stacksize() bind(c, name="kmp_get_stacksize")
+function kmp_get_stacksize() bind(c)
 integer(4)::kmp_get_stacksize
 end
 end interface
 interface
-function kmp_get_stacksize_s() bind(c, name="kmp_get_stacksize_s")
+function kmp_get_stacksize_s() bind(c)
 integer(8)::kmp_get_stacksize_s
 end
 end interface
 interface
-function kmp_get_blocktime() bind(c, name="kmp_get_blocktime")
+function kmp_get_blocktime() bind(c)
 integer(4)::kmp_get_blocktime
 end
 end interface
 interface
-function kmp_get_library() bind(c, name="kmp_get_library")
+function kmp_get_library() bind(c)
 integer(4)::kmp_get_library
 end
 end interface
 interface
-subroutine kmp_set_disp_num_buffers(num) bind(c, name="kmp_set_disp_num_buffers")
+subroutine kmp_set_disp_num_buffers(num) bind(c)
 integer(4),value::num
 end
 end interface
 interface
-function kmp_set_affinity(mask) bind(c, name="kmp_set_affinity")
+function kmp_set_affinity(mask) bind(c)
 integer(8)::mask
 integer(4)::kmp_set_affinity
 end
 end interface
 interface
-function kmp_get_affinity(mask) bind(c, name="kmp_get_affinity")
+function kmp_get_affinity(mask) bind(c)
 integer(8)::mask
 integer(4)::kmp_get_affinity
 end
 end interface
 interface
-function kmp_get_affinity_max_proc() bind(c, name="kmp_get_affinity_max_proc")
+function kmp_get_affinity_max_proc() bind(c)
 integer(4)::kmp_get_affinity_max_proc
 end
 end interface
 interface
-subroutine kmp_create_affinity_mask(mask) bind(c, name="kmp_create_affinity_mask")
+subroutine kmp_create_affinity_mask(mask) bind(c)
 integer(8)::mask
 end
 end interface
 interface
-subroutine kmp_destroy_affinity_mask(mask) bind(c, name="kmp_destroy_affinity_mask")
+subroutine kmp_destroy_affinity_mask(mask) bind(c)
 integer(8)::mask
 end
 end interface
 interface
-function kmp_set_affinity_mask_proc(proc,mask) bind(c, name="kmp_set_affinity_mask_proc")
+function kmp_set_affinity_mask_proc(proc,mask) bind(c)
 integer(4),value::proc
 integer(8)::mask
 integer(4)::kmp_set_affinity_mask_proc
 end
 end interface
 interface
-function kmp_unset_affinity_mask_proc(proc,mask) bind(c, name="kmp_unset_affinity_mask_proc")
+function kmp_unset_affinity_mask_proc(proc,mask) bind(c)
 integer(4),value::proc
 integer(8)::mask
 integer(4)::kmp_unset_affinity_mask_proc
 end
 end interface
 interface
-function kmp_get_affinity_mask_proc(proc,mask) bind(c, name="kmp_get_affinity_mask_proc")
+function kmp_get_affinity_mask_proc(proc,mask) bind(c)
 integer(4),value::proc
 integer(8)::mask
 integer(4)::kmp_get_affinity_mask_proc
 end
 end interface
 interface
-function kmp_malloc(size) bind(c, name="kmp_malloc")
+function kmp_malloc(size) bind(c)
 integer(8),value::size
 integer(8)::kmp_malloc
 end
 end interface
 interface
-function kmp_aligned_malloc(size,alignment) bind(c, name="kmp_aligned_malloc")
+function kmp_aligned_malloc(size,alignment) bind(c)
 integer(8),value::size
 integer(8),value::alignment
 integer(8)::kmp_aligned_malloc
 end
 end interface
 interface
-function kmp_calloc(nelem,elsize) bind(c, name="kmp_calloc")
+function kmp_calloc(nelem,elsize) bind(c)
 integer(8),value::nelem
 integer(8),value::elsize
 integer(8)::kmp_calloc
 end
 end interface
 interface
-function kmp_realloc(ptr,size) bind(c, name="kmp_realloc")
+function kmp_realloc(ptr,size) bind(c)
 integer(8),value::ptr
 integer(8),value::size
 integer(8)::kmp_realloc
 end
 end interface
 interface
-subroutine kmp_free(ptr) bind(c, name="kmp_free")
+subroutine kmp_free(ptr) bind(c)
 integer(8),value::ptr
 end
 end interface
 interface
-subroutine kmp_set_warnings_on() bind(c, name="kmp_set_warnings_on")
+subroutine kmp_set_warnings_on() bind(c)
 end
 end interface
 interface
-subroutine kmp_set_warnings_off() bind(c, name="kmp_set_warnings_off")
+subroutine kmp_set_warnings_off() bind(c)
 end
 end interface
 interface
-function kmp_get_cancellation_status(cancelkind) bind(c, name="kmp_get_cancellation_status")
+function kmp_get_cancellation_status(cancelkind) bind(c)
 integer(4),value::cancelkind
 logical(4)::kmp_get_cancellation_status
 end

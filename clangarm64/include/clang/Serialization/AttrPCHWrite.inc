@@ -295,6 +295,11 @@ Record.push_back(SA->getInterrupt());
     Record.push_back(A->isPackExpansion());
     break;
   }
+  case attr::ArmStreaming: {
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    break;
+  }
   case attr::Artificial: {
     const auto *SA = cast<ArtificialAttr>(A);
     Record.push_back(SA->isInherited());
@@ -372,6 +377,13 @@ Record.push_back(SA->getInterrupt());
     Record.push_back(SA->getStrict());
     Record.AddString(SA->getReplacement());
     Record.push_back(SA->getPriority());
+    break;
+  }
+  case attr::AvailableOnlyInDefaultEvalMethod: {
+    const auto *SA = cast<AvailableOnlyInDefaultEvalMethodAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
     break;
   }
   case attr::BPFPreserveAccessIndex: {
@@ -871,6 +883,7 @@ Record.push_back(SA->getExtensibility());
     Record.AddString(SA->getLanguage());
     Record.AddString(SA->getDefinedIn());
     Record.push_back(SA->getGeneratedDeclaration());
+    Record.AddString(SA->getUSR());
     break;
   }
   case attr::FallThrough: {
@@ -1337,6 +1350,13 @@ Record.push_back(SA->getInterrupt());
   }
   case attr::NSReturnsRetained: {
     const auto *SA = cast<NSReturnsRetainedAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    break;
+  }
+  case attr::NVPTXKernel: {
+    const auto *SA = cast<NVPTXKernelAttr>(A);
     Record.push_back(SA->isInherited());
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
@@ -2611,6 +2631,13 @@ Record.push_back(SA->getImplicitReason());
     Record.push_back(A->isPackExpansion());
     break;
   }
+  case attr::UnsafeBufferUsage: {
+    const auto *SA = cast<UnsafeBufferUsageAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    break;
+  }
   case attr::Unused: {
     const auto *SA = cast<UnusedAttr>(A);
     Record.push_back(SA->isInherited());
@@ -2722,6 +2749,11 @@ Record.push_back(SA->getVisibility());
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
     Record.AddString(SA->getExportName());
+    break;
+  }
+  case attr::WebAssemblyFuncref: {
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
     break;
   }
   case attr::WebAssemblyImportModule: {

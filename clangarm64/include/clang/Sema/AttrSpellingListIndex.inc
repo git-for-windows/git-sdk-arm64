@@ -284,6 +284,11 @@
         return 2;
     break;
   }
+  case AT_ArmStreaming: {
+    if (Name == "__arm_streaming" && getSyntax() == AttributeCommonInfo::AS_Keyword && Scope == "")
+        return 0;
+    break;
+  }
   case AT_ArmSveVectorBits: {
     if (Name == "arm_sve_vector_bits" && getSyntax() == AttributeCommonInfo::AS_GNU && Scope == "")
         return 0;
@@ -343,6 +348,15 @@
     if (Name == "availability" && getSyntax() == AttributeCommonInfo::AS_CXX11 && Scope == "clang")
         return 1;
     if (Name == "availability" && getSyntax() == AttributeCommonInfo::AS_C2x && Scope == "clang")
+        return 2;
+    break;
+  }
+  case AT_AvailableOnlyInDefaultEvalMethod: {
+    if (Name == "available_only_in_default_eval_method" && getSyntax() == AttributeCommonInfo::AS_GNU && Scope == "")
+        return 0;
+    if (Name == "available_only_in_default_eval_method" && getSyntax() == AttributeCommonInfo::AS_CXX11 && Scope == "clang")
+        return 1;
+    if (Name == "available_only_in_default_eval_method" && getSyntax() == AttributeCommonInfo::AS_C2x && Scope == "clang")
         return 2;
     break;
   }
@@ -1356,6 +1370,15 @@
         return 2;
     break;
   }
+  case AT_NVPTXKernel: {
+    if (Name == "nvptx_kernel" && getSyntax() == AttributeCommonInfo::AS_GNU && Scope == "")
+        return 0;
+    if (Name == "nvptx_kernel" && getSyntax() == AttributeCommonInfo::AS_CXX11 && Scope == "clang")
+        return 1;
+    if (Name == "nvptx_kernel" && getSyntax() == AttributeCommonInfo::AS_C2x && Scope == "clang")
+        return 2;
+    break;
+  }
   case AT_Naked: {
     if (Name == "naked" && getSyntax() == AttributeCommonInfo::AS_GNU && Scope == "")
         return 0;
@@ -2250,6 +2273,11 @@
         return 2;
     break;
   }
+  case AT_RISCVRVVVectorBits: {
+    if (Name == "riscv_rvv_vector_bits" && getSyntax() == AttributeCommonInfo::AS_GNU && Scope == "")
+        return 0;
+    break;
+  }
   case AT_RandomizeLayout: {
     if (Name == "randomize_layout" && getSyntax() == AttributeCommonInfo::AS_GNU && Scope == "")
         return 0;
@@ -2794,6 +2822,15 @@
         return 1;
     break;
   }
+  case AT_UnsafeBufferUsage: {
+    if (Name == "unsafe_buffer_usage" && getSyntax() == AttributeCommonInfo::AS_GNU && Scope == "")
+        return 0;
+    if (Name == "unsafe_buffer_usage" && getSyntax() == AttributeCommonInfo::AS_CXX11 && Scope == "clang")
+        return 1;
+    if (Name == "unsafe_buffer_usage" && getSyntax() == AttributeCommonInfo::AS_C2x && Scope == "clang")
+        return 2;
+    break;
+  }
   case AT_Unused: {
     if (Name == "maybe_unused" && getSyntax() == AttributeCommonInfo::AS_CXX11 && Scope == "")
         return 0;
@@ -2940,6 +2977,11 @@
         return 1;
     if (Name == "export_name" && getSyntax() == AttributeCommonInfo::AS_C2x && Scope == "clang")
         return 2;
+    break;
+  }
+  case AT_WebAssemblyFuncref: {
+    if (Name == "__funcref" && getSyntax() == AttributeCommonInfo::AS_Keyword && Scope == "")
+        return 0;
     break;
   }
   case AT_WebAssemblyImportModule: {

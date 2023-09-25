@@ -787,6 +787,27 @@ public:
     return;
     }
 
+    case APValue::Indeterminate: {
+    return;
+    }
+
+    case APValue::Int: {
+    llvm::APSInt value = ( node.getInt() );
+    subW.find("value").writeAPSInt(value);
+    return;
+    }
+
+    case APValue::Float: {
+    uint32_t semantics = (
+      static_cast<uint32_t>(
+        llvm::APFloatBase::SemanticsToEnum(node.getFloat().getSemantics()))
+    );
+    subW.find("semantics").writeUInt32(semantics);
+    llvm::APInt value = ( node.getFloat().bitcastToAPInt() );
+    subW.find("value").writeAPInt(value);
+    return;
+    }
+
     case APValue::FixedPoint: {
     llvm::FixedPointSemantics semantics = ( node.getFixedPoint().getSemantics() );
     subW.find("semantics").writeFixedPointSemantics(semantics);
@@ -828,10 +849,6 @@ public:
   
     llvm::ArrayRef<APValue> elements = ( buffer );
     subW.find("elements").writeArray(elements);
-    return;
-    }
-
-    case APValue::Indeterminate: {
     return;
     }
 
@@ -887,12 +904,6 @@ public:
     return;
     }
 
-    case APValue::Int: {
-    llvm::APSInt value = ( node.getInt() );
-    subW.find("value").writeAPSInt(value);
-    return;
-    }
-
     case APValue::MemberPointer: {
     bool isDerived = ( node.isMemberPointerToDerivedMember() );
     subW.find("isDerived").writeBool(isDerived);
@@ -910,10 +921,13 @@ public:
         lvalueBase ? lvalueBase.dyn_cast<const Expr *>() : nullptr;
     bool lvalueBaseIsExpr = (bool) expr;
     bool lvalueBaseIsTypeInfo = lvalueBase.is<TypeInfoLValue>();
+    bool lvalueBaseIsDynamicAlloc = lvalueBase.is<DynamicAllocLValue>();
     QualType elemTy;
     if (lvalueBase) {
       if (lvalueBaseIsTypeInfo) {
         elemTy = lvalueBase.getTypeInfoType();
+      } else if (lvalueBaseIsDynamicAlloc) {
+        elemTy = lvalueBase.getDynamicAllocType();
       } else if (lvalueBaseIsExpr) {
         elemTy = expr->getType();
       } else {
@@ -929,6 +943,8 @@ public:
     subW.find("isExpr").writeBool(isExpr);
     bool isTypeInfo = ( lvalueBaseIsTypeInfo );
     subW.find("isTypeInfo").writeBool(isTypeInfo);
+    bool isDynamicAlloc = ( lvalueBaseIsDynamicAlloc );
+    subW.find("isDynamicAlloc").writeBool(isDynamicAlloc);
     bool hasBase = ( static_cast<bool>(lvalueBase) );
     subW.find("hasBase").writeBool(hasBase);
     bool isNullPtr = ( node.isNullPointer() );
@@ -939,8 +955,16 @@ public:
     );
     subW.find("typeInfo").writeQualType(typeInfo);
     }
-    if ( hasBase && isTypeInfo ) {
-    QualType type = ( node.getLValueBase().getTypeInfoType() );
+    if ( hasBase && isDynamicAlloc ) {
+    uint32_t dynamicAlloc = ( node.getLValueBase().get<DynamicAllocLValue>().getIndex() );
+    subW.find("dynamicAlloc").writeUInt32(dynamicAlloc);
+    }
+    if ( hasBase && (isTypeInfo || isDynamicAlloc) ) {
+    QualType type = (
+      isTypeInfo
+        ? node.getLValueBase().getTypeInfoType()
+        : node.getLValueBase().getDynamicAllocType()
+    );
     subW.find("type").writeQualType(type);
     }
     if ( hasBase && !isTypeInfo ) {
@@ -955,7 +979,7 @@ public:
     const Stmt* stmt = ( const_cast<Expr *>(expr) );
     subW.find("stmt").writeStmtRef(stmt);
     }
-    if ( hasBase && !isTypeInfo && !isExpr ) {
+    if ( hasBase && !isTypeInfo && !isDynamicAlloc && !isExpr ) {
     const Decl* decl = ( lvalueBase.get<const ValueDecl *>() );
     subW.find("decl").writeDeclRef(decl);
     }
@@ -967,17 +991,6 @@ public:
     );
     subW.find("lvaluePath").writeLValuePathSerializationHelper(lvaluePath);
     }
-    return;
-    }
-
-    case APValue::Float: {
-    llvm::APInt value = ( node.getFloat().bitcastToAPInt() );
-    subW.find("value").writeAPInt(value);
-    uint32_t semantics = (
-      static_cast<uint32_t>(
-        llvm::APFloatBase::SemanticsToEnum(node.getFloat().getSemantics()))
-    );
-    subW.find("semantics").writeUInt32(semantics);
     return;
     }
 
@@ -1013,16 +1026,6 @@ public:
     DeclarationName::NameKind kind = (node.getNameKind());
     subW.find("kind").writeDeclarationNameKind(kind);
     switch (kind) {
-    case DeclarationName::CXXLiteralOperatorName: {
-    const IdentifierInfo* identifier = ( node.getCXXLiteralIdentifier() );
-    subW.find("identifier").writeIdentifier(identifier);
-    return;
-    }
-
-    case DeclarationName::CXXUsingDirective: {
-    return;
-    }
-
     case DeclarationName::Identifier: {
     const IdentifierInfo* identifier = ( node.getAsIdentifierInfo() );
     subW.find("identifier").writeIdentifier(identifier);
@@ -1074,6 +1077,16 @@ public:
     case DeclarationName::CXXOperatorName: {
     OverloadedOperatorKind operatorKind = ( node.getCXXOverloadedOperator() );
     subW.find("operatorKind").writeOverloadedOperatorKind(operatorKind);
+    return;
+    }
+
+    case DeclarationName::CXXLiteralOperatorName: {
+    const IdentifierInfo* identifier = ( node.getCXXLiteralIdentifier() );
+    subW.find("identifier").writeIdentifier(identifier);
+    return;
+    }
+
+    case DeclarationName::CXXUsingDirective: {
     return;
     }
 
@@ -1131,6 +1144,8 @@ public:
     case TemplateArgument::Type: {
     QualType type = ( node.getAsType() );
     subW.find("type").writeQualType(type);
+    bool isDefaulted = ( node.getIsDefaulted() );
+    subW.find("isDefaulted").writeBool(isDefaulted);
     return;
     }
 
@@ -1139,12 +1154,16 @@ public:
     subW.find("declaration").writeValueDeclRef(declaration);
     QualType parameterType = ( node.getParamTypeForDecl() );
     subW.find("parameterType").writeQualType(parameterType);
+    bool isDefaulted = ( node.getIsDefaulted() );
+    subW.find("isDefaulted").writeBool(isDefaulted);
     return;
     }
 
     case TemplateArgument::NullPtr: {
     QualType type = ( node.getNullPtrType() );
     subW.find("type").writeQualType(type);
+    bool isDefaulted = ( node.getIsDefaulted() );
+    subW.find("isDefaulted").writeBool(isDefaulted);
     return;
     }
 
@@ -1153,12 +1172,16 @@ public:
     subW.find("value").writeAPSInt(value);
     QualType type = ( node.getIntegralType() );
     subW.find("type").writeQualType(type);
+    bool isDefaulted = ( node.getIsDefaulted() );
+    subW.find("isDefaulted").writeBool(isDefaulted);
     return;
     }
 
     case TemplateArgument::Template: {
     TemplateName name = ( node.getAsTemplateOrTemplatePattern() );
     subW.find("name").writeTemplateName(name);
+    bool isDefaulted = ( node.getIsDefaulted() );
+    subW.find("isDefaulted").writeBool(isDefaulted);
     return;
     }
 
@@ -1171,12 +1194,16 @@ public:
                               [](unsigned i) { return uint32_t(i); })
     );
     subW.find("numExpansions").writeOptional(numExpansions);
+    bool isDefaulted = ( node.getIsDefaulted() );
+    subW.find("isDefaulted").writeBool(isDefaulted);
     return;
     }
 
     case TemplateArgument::Expression: {
     const Expr* expression = ( node.getAsExpr() );
     subW.find("expression").writeExprRef(expression);
+    bool isDefaulted = ( node.getIsDefaulted() );
+    subW.find("isDefaulted").writeBool(isDefaulted);
     return;
     }
 

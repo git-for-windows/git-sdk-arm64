@@ -553,6 +553,25 @@ public:
      return APValue(); 
     }
 
+    case APValue::Indeterminate: {
+     return APValue::IndeterminateValue(); 
+    }
+
+    case APValue::Int: {
+    llvm::APSInt value = subR.find("value").readAPSInt();
+     return APValue(value); 
+    }
+
+    case APValue::Float: {
+    uint32_t semantics = subR.find("semantics").readUInt32();
+    llvm::APInt value = subR.find("value").readAPInt();
+    
+    const llvm::fltSemantics &floatSema = llvm::APFloatBase::EnumToSemantics(
+        static_cast<llvm::APFloatBase::Semantics>(semantics));
+    return APValue(llvm::APFloat(floatSema, value));
+  
+    }
+
     case APValue::FixedPoint: {
     llvm::FixedPointSemantics semantics = subR.find("semantics").readFixedPointSemantics();
     llvm::APSInt value = subR.find("value").readAPSInt();
@@ -591,10 +610,6 @@ public:
       result.getVectorElt(i) = elements[i];
     return result;
   
-    }
-
-    case APValue::Indeterminate: {
-     return APValue::IndeterminateValue(); 
     }
 
     case APValue::Array: {
@@ -646,11 +661,6 @@ public:
   
     }
 
-    case APValue::Int: {
-    llvm::APSInt value = subR.find("value").readAPSInt();
-     return APValue(value); 
-    }
-
     case APValue::MemberPointer: {
     bool isDerived = subR.find("isDerived").readBool();
     ValueDecl* member = subR.find("member").readValueDeclRef();
@@ -672,14 +682,19 @@ public:
     bool isLValueOnePastTheEnd = subR.find("isLValueOnePastTheEnd").readBool();
     bool isExpr = subR.find("isExpr").readBool();
     bool isTypeInfo = subR.find("isTypeInfo").readBool();
+    bool isDynamicAlloc = subR.find("isDynamicAlloc").readBool();
     bool hasBase = subR.find("hasBase").readBool();
     bool isNullPtr = subR.find("isNullPtr").readBool();
     std::optional<QualType> typeInfo;
     if ( hasBase && isTypeInfo ) {
       typeInfo.emplace(subR.find("typeInfo").readQualType());
     }
+    std::optional<uint32_t> dynamicAlloc;
+    if ( hasBase && isDynamicAlloc ) {
+      dynamicAlloc.emplace(subR.find("dynamicAlloc").readUInt32());
+    }
     std::optional<QualType> type;
-    if ( hasBase && isTypeInfo ) {
+    if ( hasBase && (isTypeInfo || isDynamicAlloc) ) {
       type.emplace(subR.find("type").readQualType());
     }
     std::optional<uint32_t> callIndex;
@@ -695,7 +710,7 @@ public:
       stmt.emplace(subR.find("stmt").readStmtRef());
     }
     std::optional<Decl*> decl;
-    if ( hasBase && !isTypeInfo && !isExpr ) {
+    if ( hasBase && !isTypeInfo && !isDynamicAlloc && !isExpr ) {
       decl.emplace(subR.find("decl").readDeclRef());
     }
     uint32_t offsetQuantity = subR.find("offsetQuantity").readUInt32();
@@ -711,6 +726,9 @@ public:
       if (isTypeInfo) {
         base = APValue::LValueBase::getTypeInfo(
             TypeInfoLValue(typeInfo->getTypePtr()), *type);
+      } else if (isDynamicAlloc) {
+        base = APValue::LValueBase::getDynamicAlloc(
+            DynamicAllocLValue(*dynamicAlloc), *type);
       } else if (isExpr) {
         base = APValue::LValueBase(cast<Expr>(*stmt),
                                    *callIndex, *version);
@@ -731,16 +749,6 @@ public:
         base, offset, pathLength, isLValueOnePastTheEnd, isNullPtr).data();
     llvm::copy(lvaluePath->Path, path);
     return result;
-  
-    }
-
-    case APValue::Float: {
-    llvm::APInt value = subR.find("value").readAPInt();
-    uint32_t semantics = subR.find("semantics").readUInt32();
-    
-    const llvm::fltSemantics &floatSema = llvm::APFloatBase::EnumToSemantics(
-        static_cast<llvm::APFloatBase::Semantics>(semantics));
-    return APValue(llvm::APFloat(floatSema, value));
   
     }
 
@@ -776,19 +784,6 @@ public:
     auto &&subR = asImpl().readObject();
     DeclarationName::NameKind kind = subR.find("kind").readDeclarationNameKind();
     switch (kind) {
-    case DeclarationName::CXXLiteralOperatorName: {
-    IdentifierInfo* identifier = subR.find("identifier").readIdentifier();
-    
-    return ctx.DeclarationNames.getCXXLiteralOperatorName(identifier);
-  
-    }
-
-    case DeclarationName::CXXUsingDirective: {
-    
-    return DeclarationName::getUsingDirectiveName();
-  
-    }
-
     case DeclarationName::Identifier: {
     IdentifierInfo* identifier = subR.find("identifier").readIdentifier();
     
@@ -855,6 +850,19 @@ public:
   
     }
 
+    case DeclarationName::CXXLiteralOperatorName: {
+    IdentifierInfo* identifier = subR.find("identifier").readIdentifier();
+    
+    return ctx.DeclarationNames.getCXXLiteralOperatorName(identifier);
+  
+    }
+
+    case DeclarationName::CXXUsingDirective: {
+    
+    return DeclarationName::getUsingDirectiveName();
+  
+    }
+
     }
     llvm_unreachable("bad DeclarationName::NameKind");
   }
@@ -910,56 +918,63 @@ public:
 
     case TemplateArgument::Type: {
     QualType type = subR.find("type").readQualType();
+    bool isDefaulted = subR.find("isDefaulted").readBool();
     
-    return TemplateArgument(type);
+    return TemplateArgument(type, /* isNullPtr */ false, isDefaulted);
   
     }
 
     case TemplateArgument::Declaration: {
     ValueDecl* declaration = subR.find("declaration").readValueDeclRef();
     QualType parameterType = subR.find("parameterType").readQualType();
+    bool isDefaulted = subR.find("isDefaulted").readBool();
     
-    return TemplateArgument(declaration, parameterType);
+    return TemplateArgument(declaration, parameterType, isDefaulted);
   
     }
 
     case TemplateArgument::NullPtr: {
     QualType type = subR.find("type").readQualType();
+    bool isDefaulted = subR.find("isDefaulted").readBool();
     
-    return TemplateArgument(type, /*nullptr*/ true);
+    return TemplateArgument(type, /*nullptr*/ true, isDefaulted);
   
     }
 
     case TemplateArgument::Integral: {
     llvm::APSInt value = subR.find("value").readAPSInt();
     QualType type = subR.find("type").readQualType();
+    bool isDefaulted = subR.find("isDefaulted").readBool();
     
-    return TemplateArgument(ctx, value, type);
+    return TemplateArgument(ctx, value, type, isDefaulted);
   
     }
 
     case TemplateArgument::Template: {
     TemplateName name = subR.find("name").readTemplateName();
+    bool isDefaulted = subR.find("isDefaulted").readBool();
     
-    return TemplateArgument(name);
+    return TemplateArgument(name, isDefaulted);
   
     }
 
     case TemplateArgument::TemplateExpansion: {
     TemplateName name = subR.find("name").readTemplateName();
     std::optional<uint32_t> numExpansions = subR.find("numExpansions").template readOptional<uint32_t>();
+    bool isDefaulted = subR.find("isDefaulted").readBool();
     
     auto numExpansionsUnsigned = llvm::transformOptional(
         numExpansions, [](uint32_t i) { return unsigned(i); });
 
-    return TemplateArgument(name, numExpansionsUnsigned);
+    return TemplateArgument(name, numExpansionsUnsigned, isDefaulted);
   
     }
 
     case TemplateArgument::Expression: {
     Expr* expression = subR.find("expression").readExprRef();
+    bool isDefaulted = subR.find("isDefaulted").readBool();
     
-    return TemplateArgument(expression);
+    return TemplateArgument(expression, isDefaulted);
   
     }
 

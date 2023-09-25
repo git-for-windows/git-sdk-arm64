@@ -45,6 +45,16 @@ set_target_properties(LLVMTableGenGlobalISel PROPERTIES
 list(APPEND _cmake_import_check_targets LLVMTableGenGlobalISel )
 list(APPEND _cmake_import_check_files_for_LLVMTableGenGlobalISel "${_IMPORT_PREFIX}/lib/libLLVMTableGenGlobalISel.a" )
 
+# Import target "LLVMTableGenCommon" for configuration "Release"
+set_property(TARGET LLVMTableGenCommon APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(LLVMTableGenCommon PROPERTIES
+  IMPORTED_LINK_INTERFACE_LANGUAGES_RELEASE "CXX"
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/lib/libLLVMTableGenCommon.a"
+  )
+
+list(APPEND _cmake_import_check_targets LLVMTableGenCommon )
+list(APPEND _cmake_import_check_files_for_LLVMTableGenCommon "${_IMPORT_PREFIX}/lib/libLLVMTableGenCommon.a" )
+
 # Import target "llvm-tblgen" for configuration "Release"
 set_property(TARGET llvm-tblgen APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
 set_target_properties(llvm-tblgen PROPERTIES
@@ -123,6 +133,16 @@ set_target_properties(LLVMIRReader PROPERTIES
 
 list(APPEND _cmake_import_check_targets LLVMIRReader )
 list(APPEND _cmake_import_check_files_for_LLVMIRReader "${_IMPORT_PREFIX}/lib/libLLVMIRReader.a" )
+
+# Import target "LLVMCodeGenTypes" for configuration "Release"
+set_property(TARGET LLVMCodeGenTypes APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(LLVMCodeGenTypes PROPERTIES
+  IMPORTED_LINK_INTERFACE_LANGUAGES_RELEASE "CXX"
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/lib/libLLVMCodeGenTypes.a"
+  )
+
+list(APPEND _cmake_import_check_targets LLVMCodeGenTypes )
+list(APPEND _cmake_import_check_files_for_LLVMCodeGenTypes "${_IMPORT_PREFIX}/lib/libLLVMCodeGenTypes.a" )
 
 # Import target "LLVMCodeGen" for configuration "Release"
 set_property(TARGET LLVMCodeGen APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
@@ -573,6 +593,16 @@ set_target_properties(LLVMSymbolize PROPERTIES
 
 list(APPEND _cmake_import_check_targets LLVMSymbolize )
 list(APPEND _cmake_import_check_files_for_LLVMSymbolize "${_IMPORT_PREFIX}/lib/libLLVMSymbolize.a" )
+
+# Import target "LLVMDebugInfoBTF" for configuration "Release"
+set_property(TARGET LLVMDebugInfoBTF APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(LLVMDebugInfoBTF PROPERTIES
+  IMPORTED_LINK_INTERFACE_LANGUAGES_RELEASE "CXX"
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/lib/libLLVMDebugInfoBTF.a"
+  )
+
+list(APPEND _cmake_import_check_targets LLVMDebugInfoBTF )
+list(APPEND _cmake_import_check_files_for_LLVMDebugInfoBTF "${_IMPORT_PREFIX}/lib/libLLVMDebugInfoBTF.a" )
 
 # Import target "LLVMDWP" for configuration "Release"
 set_property(TARGET LLVMDWP APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
@@ -2417,12 +2447,12 @@ list(APPEND _cmake_import_check_files_for_llvm-rtdyld "${_IMPORT_PREFIX}/bin/llv
 # Import target "LLVM" for configuration "Release"
 set_property(TARGET LLVM APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
 set_target_properties(LLVM PROPERTIES
-  IMPORTED_IMPLIB_RELEASE "${_IMPORT_PREFIX}/lib/libLLVM-16.dll.a"
-  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/libLLVM-16.dll"
+  IMPORTED_IMPLIB_RELEASE "${_IMPORT_PREFIX}/lib/libLLVM-17.dll.a"
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/libLLVM-17.dll"
   )
 
 list(APPEND _cmake_import_check_targets LLVM )
-list(APPEND _cmake_import_check_files_for_LLVM "${_IMPORT_PREFIX}/lib/libLLVM-16.dll.a" "${_IMPORT_PREFIX}/bin/libLLVM-16.dll" )
+list(APPEND _cmake_import_check_files_for_LLVM "${_IMPORT_PREFIX}/lib/libLLVM-17.dll.a" "${_IMPORT_PREFIX}/bin/libLLVM-17.dll" )
 
 # Import target "llvm-sim" for configuration "Release"
 set_property(TARGET llvm-sim APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)

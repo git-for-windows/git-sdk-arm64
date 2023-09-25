@@ -837,7 +837,7 @@ static AttributeCommonInfo::Kind getAttrKind(StringRef Name, AttributeCommonInfo
       break;
     }
     break;
-  case 12:	 // 10 strings to match.
+  case 12:	 // 11 strings to match.
     switch (Name[0]) {
     default: break;
     case 'a':	 // 1 string to match.
@@ -874,6 +874,10 @@ static AttributeCommonInfo::Kind getAttrKind(StringRef Name, AttributeCommonInfo
         return AttributeCommonInfo::AT_CPUSpecific;	 // "cpu_specific"
       }
       break;
+    case 'n':	 // 1 string to match.
+      if (memcmp(Name.data()+1, "vptx_kernel", 11) != 0)
+        break;
+      return AttributeCommonInfo::AT_NVPTXKernel;	 // "nvptx_kernel"
     case 'o':	 // 3 strings to match.
       switch (Name[1]) {
       default: break;
@@ -1528,7 +1532,7 @@ static AttributeCommonInfo::Kind getAttrKind(StringRef Name, AttributeCommonInfo
       return AttributeCommonInfo::AT_WarnUnusedResult;	 // "warn_unused_result"
     }
     break;
-  case 19:	 // 19 strings to match.
+  case 19:	 // 20 strings to match.
     switch (Name[0]) {
     default: break;
     case 'a':	 // 2 strings to match.
@@ -1651,6 +1655,10 @@ static AttributeCommonInfo::Kind getAttrKind(StringRef Name, AttributeCommonInfo
       if (memcmp(Name.data()+1, "wift_async_context", 18) != 0)
         break;
       return AttributeCommonInfo::AT_SwiftAsyncContext;	 // "swift_async_context"
+    case 'u':	 // 1 string to match.
+      if (memcmp(Name.data()+1, "nsafe_buffer_usage", 18) != 0)
+        break;
+      return AttributeCommonInfo::AT_UnsafeBufferUsage;	 // "unsafe_buffer_usage"
     case 'z':	 // 1 string to match.
       if (memcmp(Name.data()+1, "ero_call_used_regs", 18) != 0)
         break;
@@ -1699,7 +1707,7 @@ static AttributeCommonInfo::Kind getAttrKind(StringRef Name, AttributeCommonInfo
       return AttributeCommonInfo::AT_WorkGroupSizeHint;	 // "work_group_size_hint"
     }
     break;
-  case 21:	 // 10 strings to match.
+  case 21:	 // 11 strings to match.
     switch (Name[0]) {
     default: break;
     case 'a':	 // 1 string to match.
@@ -1727,6 +1735,10 @@ static AttributeCommonInfo::Kind getAttrKind(StringRef Name, AttributeCommonInfo
         return AttributeCommonInfo::AT_BPFPreserveAccessIndex;	 // "preserve_access_index"
       }
       break;
+    case 'r':	 // 1 string to match.
+      if (memcmp(Name.data()+1, "iscv_rvv_vector_bits", 20) != 0)
+        break;
+      return AttributeCommonInfo::AT_RISCVRVVVectorBits;	 // "riscv_rvv_vector_bits"
     case 's':	 // 3 strings to match.
       switch (Name[1]) {
       default: break;
@@ -2057,6 +2069,10 @@ static AttributeCommonInfo::Kind getAttrKind(StringRef Name, AttributeCommonInfo
       return AttributeCommonInfo::AT_ArcWeakrefUnavailable;	 // "objc_arc_weak_reference_unavailable"
     }
     break;
+  case 37:	 // 1 string to match.
+    if (memcmp(Name.data()+0, "available_only_in_default_eval_method", 37) != 0)
+      break;
+    return AttributeCommonInfo::AT_AvailableOnlyInDefaultEvalMethod;	 // "available_only_in_default_eval_method"
   case 46:	 // 1 string to match.
     if (memcmp(Name.data()+0, "objc_protocol_requires_explicit_implementation", 46) != 0)
       break;
@@ -3203,10 +3219,10 @@ static AttributeCommonInfo::Kind getAttrKind(StringRef Name, AttributeCommonInfo
       break;
     }
     break;
-  case 19:	 // 12 strings to match.
+  case 19:	 // 13 strings to match.
     switch (Name[0]) {
     default: break;
-    case 'c':	 // 9 strings to match.
+    case 'c':	 // 10 strings to match.
       if (memcmp(Name.data()+1, "lang::", 6) != 0)
         break;
       switch (Name[7]) {
@@ -3245,6 +3261,10 @@ static AttributeCommonInfo::Kind getAttrKind(StringRef Name, AttributeCommonInfo
           return AttributeCommonInfo::AT_CPUSpecific;	 // "clang::cpu_specific"
         }
         break;
+      case 'n':	 // 1 string to match.
+        if (memcmp(Name.data()+8, "vptx_kernel", 11) != 0)
+          break;
+        return AttributeCommonInfo::AT_NVPTXKernel;	 // "clang::nvptx_kernel"
       case 'o':	 // 3 strings to match.
         switch (Name[8]) {
         default: break;
@@ -3819,7 +3839,7 @@ static AttributeCommonInfo::Kind getAttrKind(StringRef Name, AttributeCommonInfo
       return AttributeCommonInfo::AT_WarnUnusedResult;	 // "clang::warn_unused_result"
     }
     break;
-  case 26:	 // 13 strings to match.
+  case 26:	 // 14 strings to match.
     if (memcmp(Name.data()+0, "clang::", 7) != 0)
       break;
     switch (Name[7]) {
@@ -3902,6 +3922,10 @@ static AttributeCommonInfo::Kind getAttrKind(StringRef Name, AttributeCommonInfo
       if (memcmp(Name.data()+8, "wift_async_context", 18) != 0)
         break;
       return AttributeCommonInfo::AT_SwiftAsyncContext;	 // "clang::swift_async_context"
+    case 'u':	 // 1 string to match.
+      if (memcmp(Name.data()+8, "nsafe_buffer_usage", 18) != 0)
+        break;
+      return AttributeCommonInfo::AT_UnsafeBufferUsage;	 // "clang::unsafe_buffer_usage"
     }
     break;
   case 27:	 // 5 strings to match.
@@ -4280,6 +4304,10 @@ static AttributeCommonInfo::Kind getAttrKind(StringRef Name, AttributeCommonInfo
       return AttributeCommonInfo::AT_ArcWeakrefUnavailable;	 // "clang::objc_arc_weak_reference_unavailable"
     }
     break;
+  case 44:	 // 1 string to match.
+    if (memcmp(Name.data()+0, "clang::available_only_in_default_eval_method", 44) != 0)
+      break;
+    return AttributeCommonInfo::AT_AvailableOnlyInDefaultEvalMethod;	 // "clang::available_only_in_default_eval_method"
   case 53:	 // 1 string to match.
     if (memcmp(Name.data()+0, "clang::objc_protocol_requires_explicit_implementation", 53) != 0)
       break;
@@ -5082,10 +5110,10 @@ static AttributeCommonInfo::Kind getAttrKind(StringRef Name, AttributeCommonInfo
       break;
     }
     break;
-  case 19:	 // 12 strings to match.
+  case 19:	 // 13 strings to match.
     switch (Name[0]) {
     default: break;
-    case 'c':	 // 9 strings to match.
+    case 'c':	 // 10 strings to match.
       if (memcmp(Name.data()+1, "lang::", 6) != 0)
         break;
       switch (Name[7]) {
@@ -5124,6 +5152,10 @@ static AttributeCommonInfo::Kind getAttrKind(StringRef Name, AttributeCommonInfo
           return AttributeCommonInfo::AT_CPUSpecific;	 // "clang::cpu_specific"
         }
         break;
+      case 'n':	 // 1 string to match.
+        if (memcmp(Name.data()+8, "vptx_kernel", 11) != 0)
+          break;
+        return AttributeCommonInfo::AT_NVPTXKernel;	 // "clang::nvptx_kernel"
       case 'o':	 // 3 strings to match.
         switch (Name[8]) {
         default: break;
@@ -5564,7 +5596,7 @@ static AttributeCommonInfo::Kind getAttrKind(StringRef Name, AttributeCommonInfo
       break;
     }
     break;
-  case 26:	 // 11 strings to match.
+  case 26:	 // 12 strings to match.
     if (memcmp(Name.data()+0, "clang::", 7) != 0)
       break;
     switch (Name[7]) {
@@ -5639,6 +5671,10 @@ static AttributeCommonInfo::Kind getAttrKind(StringRef Name, AttributeCommonInfo
       if (memcmp(Name.data()+8, "wift_async_context", 18) != 0)
         break;
       return AttributeCommonInfo::AT_SwiftAsyncContext;	 // "clang::swift_async_context"
+    case 'u':	 // 1 string to match.
+      if (memcmp(Name.data()+8, "nsafe_buffer_usage", 18) != 0)
+        break;
+      return AttributeCommonInfo::AT_UnsafeBufferUsage;	 // "clang::unsafe_buffer_usage"
     }
     break;
   case 27:	 // 5 strings to match.
@@ -5934,6 +5970,10 @@ static AttributeCommonInfo::Kind getAttrKind(StringRef Name, AttributeCommonInfo
       return AttributeCommonInfo::AT_ArcWeakrefUnavailable;	 // "clang::objc_arc_weak_reference_unavailable"
     }
     break;
+  case 44:	 // 1 string to match.
+    if (memcmp(Name.data()+0, "clang::available_only_in_default_eval_method", 44) != 0)
+      break;
+    return AttributeCommonInfo::AT_AvailableOnlyInDefaultEvalMethod;	 // "clang::available_only_in_default_eval_method"
   case 53:	 // 1 string to match.
     if (memcmp(Name.data()+0, "clang::objc_protocol_requires_explicit_implementation", 53) != 0)
       break;
@@ -6096,19 +6136,23 @@ static AttributeCommonInfo::Kind getAttrKind(StringRef Name, AttributeCommonInfo
       return AttributeCommonInfo::AT_OpenCLConstantAddressSpace;	 // "constant"
     }
     break;
-  case 9:	 // 9 strings to match.
+  case 9:	 // 10 strings to match.
     switch (Name[0]) {
     default: break;
-    case '_':	 // 7 strings to match.
+    case '_':	 // 8 strings to match.
       switch (Name[1]) {
       default: break;
       case 'N':	 // 1 string to match.
         if (memcmp(Name.data()+2, "ullable", 7) != 0)
           break;
         return AttributeCommonInfo::AT_TypeNullable;	 // "_Nullable"
-      case '_':	 // 4 strings to match.
+      case '_':	 // 5 strings to match.
         switch (Name[2]) {
         default: break;
+        case 'f':	 // 1 string to match.
+          if (memcmp(Name.data()+3, "uncref", 6) != 0)
+            break;
+          return AttributeCommonInfo::AT_WebAssemblyFuncref;	 // "__funcref"
         case 'g':	 // 1 string to match.
           if (memcmp(Name.data()+3, "eneric", 6) != 0)
             break;
@@ -6228,6 +6272,10 @@ static AttributeCommonInfo::Kind getAttrKind(StringRef Name, AttributeCommonInfo
     if (memcmp(Name.data()+0, "__forceinline", 13) != 0)
       break;
     return AttributeCommonInfo::AT_AlwaysInline;	 // "__forceinline"
+  case 15:	 // 1 string to match.
+    if (memcmp(Name.data()+0, "__arm_streaming", 15) != 0)
+      break;
+    return AttributeCommonInfo::AT_ArmStreaming;	 // "__arm_streaming"
   case 16:	 // 1 string to match.
     if (memcmp(Name.data()+0, "_Nullable_result", 16) != 0)
       break;

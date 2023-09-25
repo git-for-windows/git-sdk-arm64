@@ -292,6 +292,7 @@
     OS << " \"" << SA->getLanguage() << "\"";
     OS << " \"" << SA->getDefinedIn() << "\"";
     if (SA->getGeneratedDeclaration()) OS << " GeneratedDeclaration";
+    OS << " \"" << SA->getUSR() << "\"";
   }
   void VisitFinalAttr(const FinalAttr *A) {
     OS << " " << A->getSpelling();
@@ -882,9 +883,6 @@
   void VisitRISCVInterruptAttr(const RISCVInterruptAttr *A) {
     const auto *SA = cast<RISCVInterruptAttr>(A); (void)SA;
     switch(SA->getInterrupt()) {
-    case RISCVInterruptAttr::user:
-      OS << " user";
-      break;
     case RISCVInterruptAttr::supervisor:
       OS << " supervisor";
       break;

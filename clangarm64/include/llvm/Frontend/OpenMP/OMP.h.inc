@@ -257,6 +257,7 @@ enum class Clause {
   OMPC_device,
   OMPC_device_type,
   OMPC_dist_schedule,
+  OMPC_doacross,
   OMPC_dynamic_allocators,
   OMPC_exclusive,
   OMPC_filter,
@@ -331,7 +332,7 @@ enum class Clause {
   OMPC_write,
 };
 
-static constexpr std::size_t Clause_enumSize = 99;
+static constexpr std::size_t Clause_enumSize = 100;
 
 constexpr auto OMPC_acq_rel = llvm::omp::Clause::OMPC_acq_rel;
 constexpr auto OMPC_acquire = llvm::omp::Clause::OMPC_acquire;
@@ -360,6 +361,7 @@ constexpr auto OMPC_detach = llvm::omp::Clause::OMPC_detach;
 constexpr auto OMPC_device = llvm::omp::Clause::OMPC_device;
 constexpr auto OMPC_device_type = llvm::omp::Clause::OMPC_device_type;
 constexpr auto OMPC_dist_schedule = llvm::omp::Clause::OMPC_dist_schedule;
+constexpr auto OMPC_doacross = llvm::omp::Clause::OMPC_doacross;
 constexpr auto OMPC_dynamic_allocators = llvm::omp::Clause::OMPC_dynamic_allocators;
 constexpr auto OMPC_exclusive = llvm::omp::Clause::OMPC_exclusive;
 constexpr auto OMPC_filter = llvm::omp::Clause::OMPC_filter;

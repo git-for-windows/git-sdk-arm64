@@ -418,6 +418,14 @@
     New->setPackExpansion(isPackExpansion);
     break;
   }
+  case attr::ArmStreaming: {
+    bool isImplicit = Record.readInt();
+    bool isPackExpansion = Record.readInt();
+    New = new (Context) ArmStreamingAttr(Context, Info);
+    New->setImplicit(isImplicit);
+    New->setPackExpansion(isPackExpansion);
+    break;
+  }
   case attr::Artificial: {
     bool isInherited = Record.readInt();
     bool isImplicit = Record.readInt();
@@ -522,6 +530,16 @@
     std::string replacement= Record.readString();
     int priority = Record.readInt();
     New = new (Context) AvailabilityAttr(Context, Info, platform, introduced, deprecated, obsoleted, unavailable, message, strict, replacement, priority);
+    cast<InheritableAttr>(New)->setInherited(isInherited);
+    New->setImplicit(isImplicit);
+    New->setPackExpansion(isPackExpansion);
+    break;
+  }
+  case attr::AvailableOnlyInDefaultEvalMethod: {
+    bool isInherited = Record.readInt();
+    bool isImplicit = Record.readInt();
+    bool isPackExpansion = Record.readInt();
+    New = new (Context) AvailableOnlyInDefaultEvalMethodAttr(Context, Info);
     cast<InheritableAttr>(New)->setInherited(isInherited);
     New->setImplicit(isImplicit);
     New->setPackExpansion(isPackExpansion);
@@ -1225,7 +1243,8 @@
     std::string language= Record.readString();
     std::string definedIn= Record.readString();
     bool generatedDeclaration = Record.readInt();
-    New = new (Context) ExternalSourceSymbolAttr(Context, Info, language, definedIn, generatedDeclaration);
+    std::string uSR= Record.readString();
+    New = new (Context) ExternalSourceSymbolAttr(Context, Info, language, definedIn, generatedDeclaration, uSR);
     cast<InheritableAttr>(New)->setInherited(isInherited);
     New->setImplicit(isImplicit);
     New->setPackExpansion(isPackExpansion);
@@ -1885,6 +1904,16 @@
     bool isImplicit = Record.readInt();
     bool isPackExpansion = Record.readInt();
     New = new (Context) NSReturnsRetainedAttr(Context, Info);
+    cast<InheritableAttr>(New)->setInherited(isInherited);
+    New->setImplicit(isImplicit);
+    New->setPackExpansion(isPackExpansion);
+    break;
+  }
+  case attr::NVPTXKernel: {
+    bool isInherited = Record.readInt();
+    bool isImplicit = Record.readInt();
+    bool isPackExpansion = Record.readInt();
+    New = new (Context) NVPTXKernelAttr(Context, Info);
     cast<InheritableAttr>(New)->setInherited(isInherited);
     New->setImplicit(isImplicit);
     New->setPackExpansion(isPackExpansion);
@@ -3725,6 +3754,16 @@
     New->setPackExpansion(isPackExpansion);
     break;
   }
+  case attr::UnsafeBufferUsage: {
+    bool isInherited = Record.readInt();
+    bool isImplicit = Record.readInt();
+    bool isPackExpansion = Record.readInt();
+    New = new (Context) UnsafeBufferUsageAttr(Context, Info);
+    cast<InheritableAttr>(New)->setInherited(isInherited);
+    New->setImplicit(isImplicit);
+    New->setPackExpansion(isPackExpansion);
+    break;
+  }
   case attr::Unused: {
     bool isInherited = Record.readInt();
     bool isImplicit = Record.readInt();
@@ -3879,6 +3918,14 @@
     std::string exportName= Record.readString();
     New = new (Context) WebAssemblyExportNameAttr(Context, Info, exportName);
     cast<InheritableAttr>(New)->setInherited(isInherited);
+    New->setImplicit(isImplicit);
+    New->setPackExpansion(isPackExpansion);
+    break;
+  }
+  case attr::WebAssemblyFuncref: {
+    bool isImplicit = Record.readInt();
+    bool isPackExpansion = Record.readInt();
+    New = new (Context) WebAssemblyFuncrefAttr(Context, Info);
     New->setImplicit(isImplicit);
     New->setPackExpansion(isPackExpansion);
     break;

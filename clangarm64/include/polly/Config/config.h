@@ -12,7 +12,4 @@
 #ifndef POLLY_CONFIG_H
 #define POLLY_CONFIG_H
 
-/* #undef CUDA_FOUND */
-/* #undef GPU_CODEGEN */
-
 #endif

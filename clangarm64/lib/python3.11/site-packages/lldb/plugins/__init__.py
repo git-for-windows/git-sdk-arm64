@@ -1,4 +1,4 @@
-__all__ = ["scripted_platform"]
+__all__ = ["scripted_process", "scripted_platform"]
 for x in __all__:
   __import__('lldb.plugins.' + x)
 
