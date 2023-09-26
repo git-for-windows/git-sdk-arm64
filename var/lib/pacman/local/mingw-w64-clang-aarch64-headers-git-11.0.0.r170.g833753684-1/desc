@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-headers-git
 
 %VERSION%
-11.0.0.r159.g0605217f5-1
+11.0.0.r170.g833753684-1
 
 %BASE%
 mingw-w64-headers-git
@@ -17,16 +17,16 @@ https://mingw-w64.sourceforge.io/
 any
 
 %BUILDDATE%
-1694628045
+1695664824
 
 %INSTALLDATE%
-1694747733
+1695698077
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/f368fb49/6176104020)
+CI (msys2-arm/msys2-autobuild/3f5f60aa/6303052459)
 
 %SIZE%
-81907850
+81934833
 
 %GROUPS%
 mingw-w64-clang-aarch64-toolchain

@@ -242,9 +242,13 @@ clangarm64/include/custcntl.h
 clangarm64/include/d2d1.h
 clangarm64/include/d2d1_1.h
 clangarm64/include/d2d1_1helper.h
+clangarm64/include/d2d1_2.h
+clangarm64/include/d2d1_2helper.h
 clangarm64/include/d2d1effectauthor.h
 clangarm64/include/d2d1effecthelpers.h
 clangarm64/include/d2d1effects.h
+clangarm64/include/d2d1effects_1.h
+clangarm64/include/d2d1effects_2.h
 clangarm64/include/d2d1helper.h
 clangarm64/include/d2dbasetypes.h
 clangarm64/include/d2derr.h
