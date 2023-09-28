@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-termcap
 
 %VERSION%
-1.3.1-6
+1.3.1-7
 
 %BASE%
 mingw-w64-termcap
@@ -17,16 +17,16 @@ https://www.gnu.org/software/termutils/
 any
 
 %BUILDDATE%
-1619823852
+1695816965
 
 %INSTALLDATE%
-1671471241
+1695870884
 
 %PACKAGER%
-Unknown Packager
+CI (msys2-arm/msys2-autobuild/3f5f60aa/6325708208)
 
 %SIZE%
-65354
+68652
 
 %REASON%
 1

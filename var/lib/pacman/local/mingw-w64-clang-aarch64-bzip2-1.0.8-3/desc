@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-bzip2
 
 %VERSION%
-1.0.8-2
+1.0.8-3
 
 %BASE%
 mingw-w64-bzip2
@@ -11,22 +11,22 @@ mingw-w64-bzip2
 A high-quality data compression program (mingw-w64)
 
 %URL%
-http://www.bzip.org
+https://sourceware.org/bzip2/
 
 %ARCH%
 any
 
 %BUILDDATE%
-1619867508
+1695797842
 
 %INSTALLDATE%
-1671471213
+1695870884
 
 %PACKAGER%
-Unknown Packager
+CI (msys2-arm/msys2-autobuild/3f5f60aa/6322455789)
 
 %SIZE%
-348685
+377559
 
 %REASON%
 1
