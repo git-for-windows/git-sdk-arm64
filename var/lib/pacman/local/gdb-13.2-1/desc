@@ -2,7 +2,7 @@
 gdb
 
 %VERSION%
-13.1-2
+13.2-1
 
 %BASE%
 gdb
@@ -17,16 +17,16 @@ https://www.gnu.org/software/gdb/
 x86_64
 
 %BUILDDATE%
-1694796792
+1696410438
 
 %INSTALLDATE%
-1695006938
+1696475692
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/0852421d/6200370894)
+CI (msys2/msys2-autobuild/a79a8c4c/6403823233)
 
 %SIZE%
-13826490
+13827001
 
 %LICENSE%
 spdx:GPL-3.0-or-later

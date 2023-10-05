@@ -713,6 +713,7 @@ usr/share/vim/vim90/ftplugin/jsonnet.vim
 usr/share/vim/vim90/ftplugin/jsp.vim
 usr/share/vim/vim90/ftplugin/julia.vim
 usr/share/vim/vim90/ftplugin/kconfig.vim
+usr/share/vim/vim90/ftplugin/kotlin.vim
 usr/share/vim/vim90/ftplugin/kwt.vim
 usr/share/vim/vim90/ftplugin/ld.vim
 usr/share/vim/vim90/ftplugin/less.vim
@@ -965,6 +966,7 @@ usr/share/vim/vim90/indent/json.vim
 usr/share/vim/vim90/indent/jsonc.vim
 usr/share/vim/vim90/indent/jsp.vim
 usr/share/vim/vim90/indent/julia.vim
+usr/share/vim/vim90/indent/kotlin.vim
 usr/share/vim/vim90/indent/krl.vim
 usr/share/vim/vim90/indent/ld.vim
 usr/share/vim/vim90/indent/less.vim
@@ -1854,6 +1856,7 @@ usr/share/vim/vim90/syntax/julia.vim
 usr/share/vim/vim90/syntax/kconfig.vim
 usr/share/vim/vim90/syntax/kivy.vim
 usr/share/vim/vim90/syntax/kix.vim
+usr/share/vim/vim90/syntax/kotlin.vim
 usr/share/vim/vim90/syntax/krl.vim
 usr/share/vim/vim90/syntax/kscript.vim
 usr/share/vim/vim90/syntax/kwt.vim
