@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-nghttp2
 
 %VERSION%
-1.56.0-1
+1.57.0-1
 
 %BASE%
 mingw-w64-nghttp2
@@ -17,16 +17,16 @@ https://nghttp2.org/
 any
 
 %BUILDDATE%
-1694010575
+1697048012
 
 %INSTALLDATE%
-1694056537
+1697166944
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/f368fb49/6098405973)
+CI (msys2-arm/msys2-autobuild/a79a8c4c/6486351347)
 
 %SIZE%
-770287
+773971
 
 %REASON%
 1
