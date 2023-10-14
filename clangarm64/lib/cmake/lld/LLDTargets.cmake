@@ -76,7 +76,7 @@ set_target_properties(lldCOFF PROPERTIES
 add_library(lldELF STATIC IMPORTED)
 
 set_target_properties(lldELF PROPERTIES
-  INTERFACE_LINK_LIBRARIES "lldCommon;ZLIB::ZLIB;zstd::libzstd_static;LLVM"
+  INTERFACE_LINK_LIBRARIES "lldCommon;ZLIB::ZLIB;zstd::libzstd_shared;LLVM"
 )
 
 # Create imported target lldMachO

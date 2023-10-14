@@ -62,7 +62,7 @@ add_library(LLVMDemangle STATIC IMPORTED)
 add_library(LLVMSupport STATIC IMPORTED)
 
 set_target_properties(LLVMSupport PROPERTIES
-  INTERFACE_LINK_LIBRARIES "psapi;shell32;ole32;uuid;advapi32;ZLIB::ZLIB;zstd::libzstd_static;LLVMDemangle"
+  INTERFACE_LINK_LIBRARIES "psapi;shell32;ole32;uuid;advapi32;ZLIB::ZLIB;zstd::libzstd_shared;LLVMDemangle"
 )
 
 # Create imported target LLVMTableGen

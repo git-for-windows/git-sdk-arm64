@@ -1,0 +1,42 @@
+%NAME%
+mingw-w64-clang-aarch64-polly
+
+%VERSION%
+17.0.2-1
+
+%BASE%
+mingw-w64-polly
+
+%DESC%
+Polly - Polyhedral optimizations for LLVM (mingw-w64)
+
+%URL%
+https://polly.llvm.org/
+
+%ARCH%
+any
+
+%BUILDDATE%
+1697103009
+
+%INSTALLDATE%
+1697253379
+
+%PACKAGER%
+CI (msys2-arm/msys2-autobuild/a79a8c4c/6493622286)
+
+%SIZE%
+11907186
+
+%GROUPS%
+mingw-w64-clang-aarch64-toolchain
+
+%LICENSE%
+spdx:Apache-2.0 WITH LLVM-exception
+
+%VALIDATION%
+pgp
+
+%DEPENDS%
+mingw-w64-clang-aarch64-llvm
+
