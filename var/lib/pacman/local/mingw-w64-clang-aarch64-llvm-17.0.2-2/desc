@@ -1,0 +1,42 @@
+%NAME%
+mingw-w64-clang-aarch64-llvm
+
+%VERSION%
+17.0.2-2
+
+%BASE%
+mingw-w64-clang
+
+%DESC%
+Low Level Virtual Machine (mingw-w64)
+
+%URL%
+https://llvm.org/
+
+%ARCH%
+any
+
+%BUILDDATE%
+1697185786
+
+%INSTALLDATE%
+1697598973
+
+%PACKAGER%
+CI (msys2-arm/msys2-autobuild/a79a8c4c/6505860277)
+
+%SIZE%
+423306511
+
+%GROUPS%
+mingw-w64-clang-aarch64-toolchain
+
+%LICENSE%
+spdx:Apache-2.0 WITH LLVM-exception
+
+%VALIDATION%
+pgp
+
+%DEPENDS%
+mingw-w64-clang-aarch64-llvm-libs
+
