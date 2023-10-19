@@ -1,0 +1,45 @@
+%NAME%
+mingw-w64-clang-aarch64-lld
+
+%VERSION%
+17.0.2-3
+
+%BASE%
+mingw-w64-clang
+
+%DESC%
+Linker tools for LLVM (mingw-w64)
+
+%URL%
+https://lld.llvm.org/
+
+%ARCH%
+any
+
+%BUILDDATE%
+1697660648
+
+%INSTALLDATE%
+1697685365
+
+%PACKAGER%
+Johannes Schindelin <johannes.schindelin@gmx.de>
+
+%SIZE%
+41033779
+
+%GROUPS%
+mingw-w64-clang-aarch64-toolchain
+
+%LICENSE%
+spdx:Apache-2.0 WITH LLVM-exception
+
+%VALIDATION%
+pgp
+
+%DEPENDS%
+mingw-w64-clang-aarch64-llvm=17.0.2
+
+%PROVIDES%
+mingw-w64-clang-aarch64-binutils
+
