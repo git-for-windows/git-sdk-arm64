@@ -2,7 +2,7 @@
 info
 
 %VERSION%
-7.0.3-3
+7.1-1
 
 %BASE%
 texinfo
@@ -17,16 +17,16 @@ https://www.gnu.org/software/texinfo/
 x86_64
 
 %BUILDDATE%
-1689278767
+1698131282
 
 %INSTALLDATE%
-1689391768
+1698290089
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/95ab14df/5547382409)
+CI (msys2/msys2-autobuild/1ed7c15c/6623465995)
 
 %SIZE%
-422177
+466699
 
 %LICENSE%
 spdx:GPL-3.0-or-later
