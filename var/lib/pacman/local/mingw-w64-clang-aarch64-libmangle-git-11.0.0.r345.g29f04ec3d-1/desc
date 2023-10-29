@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-libmangle-git
 
 %VERSION%
-11.0.0.r239.g037ba0184-1
+11.0.0.r345.g29f04ec3d-1
 
 %BASE%
 mingw-w64-libmangle-git
@@ -17,13 +17,13 @@ https://mingw-w64.sourceforge.io/
 any
 
 %BUILDDATE%
-1698178300
+1698431078
 
 %INSTALLDATE%
-1698290092
+1698549317
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/1ed7c15c/6631876825)
+CI (msys2-arm/msys2-autobuild/1ed7c15c/6670732819)
 
 %SIZE%
 47131

@@ -215,6 +215,7 @@ clangarm64/lib/libmgmtapi.a
 clangarm64/lib/libmi.a
 clangarm64/lib/libmidimap.a
 clangarm64/lib/libmincore.a
+clangarm64/lib/libmincore_downlevel.a
 clangarm64/lib/libmingw32.a
 clangarm64/lib/libmingwex.a
 clangarm64/lib/libmingwthrd.a
@@ -274,6 +275,7 @@ clangarm64/lib/libole32.a
 clangarm64/lib/liboleacc.a
 clangarm64/lib/liboleaut32.a
 clangarm64/lib/liboledlg.a
+clangarm64/lib/libonecore_apiset.a
 clangarm64/lib/libopengl32.a
 clangarm64/lib/libosuninst.a
 clangarm64/lib/libp2p.a
