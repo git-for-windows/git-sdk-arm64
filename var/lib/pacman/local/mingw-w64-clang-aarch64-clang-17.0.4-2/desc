@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-clang
 
 %VERSION%
-17.0.2-3
+17.0.4-2
 
 %BASE%
 mingw-w64-clang
@@ -17,16 +17,16 @@ https://clang.llvm.org/
 any
 
 %BUILDDATE%
-1697660648
+1698846341
 
 %INSTALLDATE%
-1697685373
+1698894920
 
 %PACKAGER%
 Johannes Schindelin <johannes.schindelin@gmx.de>
 
 %SIZE%
-336273074
+336313917
 
 %GROUPS%
 mingw-w64-clang-aarch64-toolchain
@@ -38,11 +38,11 @@ spdx:Apache-2.0 WITH LLVM-exception
 pgp
 
 %DEPENDS%
-mingw-w64-clang-aarch64-llvm=17.0.2
-mingw-w64-clang-aarch64-compiler-rt=17.0.2
+mingw-w64-clang-aarch64-llvm=17.0.4
+mingw-w64-clang-aarch64-compiler-rt=17.0.4
 mingw-w64-clang-aarch64-crt
 mingw-w64-clang-aarch64-headers
-mingw-w64-clang-aarch64-lld=17.0.2
+mingw-w64-clang-aarch64-lld=17.0.4
 mingw-w64-clang-aarch64-winpthreads
 
 %PROVIDES%

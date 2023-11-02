@@ -161,7 +161,7 @@ DIAG(note_constexpr_subobject_declared_here, CLASS_NOTE, (unsigned)diag::Severit
 DIAG(note_constexpr_temporary_here, CLASS_NOTE, (unsigned)diag::Severity::Fatal, "temporary created here", 0, SFINAE_Suppress, false, false, true, false, 0)
 DIAG(note_constexpr_this, CLASS_NOTE, (unsigned)diag::Severity::Fatal, "%select{|implicit }0use of 'this' pointer is only allowed within the evaluation of a call to a 'constexpr' member function", 0, SFINAE_Suppress, false, false, true, false, 0)
 DIAG(note_constexpr_typeid_polymorphic, CLASS_NOTE, (unsigned)diag::Severity::Fatal, "typeid applied to expression of polymorphic type %0 is not allowed in a constant expression in C++ standards before C++20", 0, SFINAE_Suppress, false, false, true, false, 0)
-DIAG(note_constexpr_uninitialized, CLASS_NOTE, (unsigned)diag::Severity::Fatal, "subobject %0 is not initialized", 0, SFINAE_Suppress, false, false, true, false, 0)
+DIAG(note_constexpr_uninitialized, CLASS_NOTE, (unsigned)diag::Severity::Fatal, "subobject %select{of type |}0%1 is not initialized", 0, SFINAE_Suppress, false, false, true, false, 0)
 DIAG(note_constexpr_uninitialized_base, CLASS_NOTE, (unsigned)diag::Severity::Fatal, "constructor of base class %0 is not called", 0, SFINAE_Suppress, false, false, true, false, 0)
 DIAG(note_constexpr_union_member_change_during_init, CLASS_NOTE, (unsigned)diag::Severity::Fatal, "assignment would change active union member during the initialization of a different member of the same union", 0, SFINAE_Suppress, false, false, true, false, 0)
 DIAG(note_constexpr_unsized_array_indexed, CLASS_NOTE, (unsigned)diag::Severity::Fatal, "indexing of array without known bound is not allowed in a constant expression", 0, SFINAE_Suppress, false, false, true, false, 0)

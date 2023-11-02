@@ -1,32 +1,32 @@
 %NAME%
-mingw-w64-clang-aarch64-clang-tools-extra
+mingw-w64-clang-aarch64-compiler-rt
 
 %VERSION%
-17.0.2-3
+17.0.4-2
 
 %BASE%
 mingw-w64-clang
 
 %DESC%
-Extra tools built using Clang's tooling APIs (mingw-w64)
+Runtime libraries for Clang and LLVM (mingw-w64)
 
 %URL%
-https://clang.llvm.org/
+https://compiler-rt.llvm.org/
 
 %ARCH%
 any
 
 %BUILDDATE%
-1697660648
+1698846341
 
 %INSTALLDATE%
-1697685376
+1698894914
 
 %PACKAGER%
 Johannes Schindelin <johannes.schindelin@gmx.de>
 
 %SIZE%
-156077202
+403239
 
 %GROUPS%
 mingw-w64-clang-aarch64-toolchain
@@ -36,7 +36,4 @@ spdx:Apache-2.0 WITH LLVM-exception
 
 %VALIDATION%
 pgp
-
-%DEPENDS%
-mingw-w64-clang-aarch64-clang=17.0.2
 

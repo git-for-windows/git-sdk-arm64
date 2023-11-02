@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-clang-analyzer
 
 %VERSION%
-17.0.2-3
+17.0.4-2
 
 %BASE%
 mingw-w64-clang
@@ -17,10 +17,10 @@ https://clang-analyzer.llvm.org/
 any
 
 %BUILDDATE%
-1697660648
+1698846341
 
 %INSTALLDATE%
-1697685373
+1698894920
 
 %PACKAGER%
 Johannes Schindelin <johannes.schindelin@gmx.de>
@@ -38,6 +38,6 @@ spdx:Apache-2.0 WITH LLVM-exception
 pgp
 
 %DEPENDS%
-mingw-w64-clang-aarch64-clang=17.0.2
+mingw-w64-clang-aarch64-clang=17.0.4
 mingw-w64-clang-aarch64-python
 
