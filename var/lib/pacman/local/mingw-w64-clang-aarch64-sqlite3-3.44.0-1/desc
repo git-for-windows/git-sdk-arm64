@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-sqlite3
 
 %VERSION%
-3.43.2-1
+3.44.0-1
 
 %BASE%
 mingw-w64-sqlite3
@@ -11,22 +11,22 @@ mingw-w64-sqlite3
 A C library that implements an SQL database engine (mingw-w64)
 
 %URL%
-https://www.sqlite.org
+https://www.sqlite.org/
 
 %ARCH%
 any
 
 %BUILDDATE%
-1697007994
+1699003080
 
 %INSTALLDATE%
-1697080547
+1699067711
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/a79a8c4c/6478675488)
+CI (msys2-arm/msys2-autobuild/1ed7c15c/6743243277)
 
 %SIZE%
-21555632
+21726069
 
 %REASON%
 1
@@ -35,6 +35,7 @@ CI (msys2-arm/msys2-autobuild/a79a8c4c/6478675488)
 PublicDomain
 
 %VALIDATION%
+sha256
 pgp
 
 %REPLACES%
@@ -50,6 +51,6 @@ mingw-w64-clang-aarch64-zlib
 mingw-w64-clang-aarch64-sqlite-analyzer
 
 %PROVIDES%
-mingw-w64-clang-aarch64-sqlite=3.43.2
-mingw-w64-clang-aarch64-sqlite-analyzer=3.43.2
+mingw-w64-clang-aarch64-sqlite=3.44.0
+mingw-w64-clang-aarch64-sqlite-analyzer=3.44.0
 
