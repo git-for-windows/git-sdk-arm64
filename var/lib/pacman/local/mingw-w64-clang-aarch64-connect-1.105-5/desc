@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-connect
 
 %VERSION%
-1.105-4
+1.105-5
 
 %BASE%
 mingw-w64-connect
@@ -17,20 +17,21 @@ https://github.com/gotoh/ssh-connect
 any
 
 %BUILDDATE%
-1682543992
+1699231346
 
 %INSTALLDATE%
-1682651744
+1699326885
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/1a8a8810/4813461504)
+CI (msys2-arm/msys2-autobuild/1ed7c15c/6764821379)
 
 %SIZE%
-156221
+156733
 
 %LICENSE%
 GPL2+
 
 %VALIDATION%
+sha256
 pgp
 
