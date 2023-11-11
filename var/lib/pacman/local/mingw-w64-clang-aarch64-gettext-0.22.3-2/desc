@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-gettext
 
 %VERSION%
-0.22.3-1
+0.22.3-2
 
 %BASE%
 mingw-w64-gettext
@@ -17,16 +17,16 @@ https://www.gnu.org/software/gettext/
 any
 
 %BUILDDATE%
-1698657087
+1699649680
 
 %INSTALLDATE%
-1698808519
+1699672647
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/1ed7c15c/6690578495)
+CI (msys2-arm/msys2-autobuild/1ed7c15c/6829502328)
 
 %SIZE%
-18779881
+18779871
 
 %REASON%
 1
@@ -35,6 +35,7 @@ CI (msys2-arm/msys2-autobuild/1ed7c15c/6690578495)
 spdx:GPL-3.0-or-later AND LGPL-2.1-or-later
 
 %VALIDATION%
+sha256
 pgp
 
 %DEPENDS%
