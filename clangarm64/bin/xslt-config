@@ -60,7 +60,7 @@ while test $# -gt 0; do
 	;;
 
     --version)
-	echo 1.1.38
+	echo 1.1.39
 	exit 0
 	;;
 
@@ -74,7 +74,7 @@ while test $# -gt 0; do
 	;;
 
     --cflags)
-        cflags="-I${includedir}/libxml2 "
+        cflags="-I${includedir}/libxml2  "
         if test "$includedir" != "/usr/include"; then
             cflags="$cflags -I${includedir}"
         fi
