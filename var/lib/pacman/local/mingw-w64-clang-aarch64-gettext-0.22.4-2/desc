@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-gettext
 
 %VERSION%
-0.22.3-2
+0.22.4-2
 
 %BASE%
 mingw-w64-gettext
@@ -17,16 +17,16 @@ https://www.gnu.org/software/gettext/
 any
 
 %BUILDDATE%
-1699649680
+1700483673
 
 %INSTALLDATE%
-1699672647
+1700622952
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/1ed7c15c/6829502328)
+CI (msys2-arm/msys2-autobuild/1ed7c15c/6930135430)
 
 %SIZE%
-18779871
+19257468
 
 %REASON%
 1
