@@ -1,14 +1,14 @@
 %NAME%
-libasprintf
+gettext
 
 %VERSION%
-0.22.3-1
+0.22.4-1
 
 %BASE%
 gettext
 
 %DESC%
-C-style formatted output in C++ (runtime)
+GNU internationalization library
 
 %URL%
 https://www.gnu.org/software/gettext/
@@ -17,22 +17,19 @@ https://www.gnu.org/software/gettext/
 x86_64
 
 %BUILDDATE%
-1696521912
+1700600723
 
 %INSTALLDATE%
-1696994121
+1700709301
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/a79a8c4c/6421521240)
+CI (msys2/msys2-autobuild/1ed7c15c/6949490990)
 
 %SIZE%
-11346
+7626651
 
 %REASON%
 1
-
-%GROUPS%
-libraries
 
 %LICENSE%
 GPL
@@ -41,5 +38,7 @@ GPL
 pgp
 
 %DEPENDS%
-gcc-libs
+libintl
+libgettextpo
+libasprintf
 
