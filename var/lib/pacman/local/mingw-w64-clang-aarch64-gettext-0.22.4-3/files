@@ -41,11 +41,9 @@ clangarm64/lib/gettext/urlget.exe
 clangarm64/lib/gettext/user-email
 clangarm64/lib/libasprintf.a
 clangarm64/lib/libasprintf.dll.a
-clangarm64/lib/libgettextlib.a
 clangarm64/lib/libgettextlib.dll.a
 clangarm64/lib/libgettextpo.a
 clangarm64/lib/libgettextpo.dll.a
-clangarm64/lib/libgettextsrc.a
 clangarm64/lib/libgettextsrc.dll.a
 clangarm64/lib/libintl.a
 clangarm64/lib/libintl.dll.a
