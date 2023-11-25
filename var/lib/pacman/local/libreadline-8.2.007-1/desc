@@ -2,7 +2,7 @@
 libreadline
 
 %VERSION%
-8.2.001-3
+8.2.007-1
 
 %BASE%
 readline
@@ -17,16 +17,16 @@ https://tiswww.case.edu/php/chet/readline/rltop.html
 x86_64
 
 %BUILDDATE%
-1673990995
+1700730888
 
 %INSTALLDATE%
-1674121474
+1700882110
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/77a21114/3943256219)
+CI (msys2/msys2-autobuild/1ed7c15c/6967397687)
 
 %SIZE%
-609225
+608713
 
 %REASON%
 1
