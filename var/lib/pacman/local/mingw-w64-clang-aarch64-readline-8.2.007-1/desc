@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-readline
 
 %VERSION%
-8.2.001-6
+8.2.007-1
 
 %BASE%
 mingw-w64-readline
@@ -17,16 +17,16 @@ https://cnswww.cns.cwru.edu/php/chet/readline/rltop.html
 any
 
 %BUILDDATE%
-1673342409
+1701022375
 
 %INSTALLDATE%
-1673493458
+1701141323
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/bb7b43f8/3881852713)
+CI (msys2-arm/msys2-autobuild/1ed7c15c/6997201436)
 
 %SIZE%
-1709297
+1422119
 
 %REASON%
 1
@@ -35,6 +35,7 @@ CI (msys2-arm/msys2-autobuild/bb7b43f8/3881852713)
 spdx:GPL-3.0-or-later
 
 %VALIDATION%
+sha256
 pgp
 
 %DEPENDS%
