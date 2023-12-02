@@ -294,8 +294,6 @@ OPTION(prefix_1, llvm::StringLiteral("c-isystem"), c_isystem, Separate, INVALID,
        "Add directory to the C SYSTEM include search path", "<directory>", nullptr)
 OPTION(prefix_1, llvm::StringLiteral("canonical-prefixes"), canonical_prefixes, Flag, INVALID, INVALID, nullptr, HelpHidden | CoreOption, 0,
        "Use absolute paths for invoking subcommands (default)", nullptr, nullptr)
-OPTION(prefix_1, llvm::StringLiteral("canonical-system-headers"), canonical_system_headers, Flag, INVALID, INVALID, nullptr, CC1Option | NoDriverOption, 0,
-       "Canonicalize system headers in dependency output", nullptr, nullptr)
 OPTION(prefix_1, llvm::StringLiteral("cc1as"), cc1as, Flag, INVALID, INVALID, nullptr, CC1Option | NoDriverOption, 0, nullptr, nullptr, nullptr)
 OPTION(prefix_1, llvm::StringLiteral("cc1"), cc1, Flag, INVALID, INVALID, nullptr, CC1Option | NoDriverOption, 0, nullptr, nullptr, nullptr)
 OPTION(prefix_1, llvm::StringLiteral("ccc-arcmt-check"), ccc_arcmt_check, Flag, internal_driver_Group, INVALID, nullptr, NoXarchOption | HelpHidden, 0,
@@ -2278,7 +2276,7 @@ OPTION(prefix_1, llvm::StringLiteral("fopenmp-extensions"), fopenmp_extensions, 
        "Enable all Clang extensions for OpenMP directives and clauses", nullptr, nullptr)
 OPTION(prefix_1, llvm::StringLiteral("fopenmp-host-ir-file-path"), fopenmp_host_ir_file_path, Separate, INVALID, INVALID, nullptr, CC1Option | FC1Option | NoDriverOption, 0,
        "Path to the IR file produced by the frontend for the host.", nullptr, nullptr)
-OPTION(prefix_1, llvm::StringLiteral("fopenmp-is-device"), anonymous_1832, Flag, INVALID, fopenmp_is_target_device, nullptr, CC1Option | FC1Option | NoDriverOption, 0, nullptr, nullptr, nullptr)
+OPTION(prefix_1, llvm::StringLiteral("fopenmp-is-device"), anonymous_1831, Flag, INVALID, fopenmp_is_target_device, nullptr, CC1Option | FC1Option | NoDriverOption, 0, nullptr, nullptr, nullptr)
 OPTION(prefix_1, llvm::StringLiteral("fopenmp-is-target-device"), fopenmp_is_target_device, Flag, INVALID, INVALID, nullptr, CC1Option | FC1Option | NoDriverOption, 0,
        "Generate code only for an OpenMP target device.", nullptr, nullptr)
 OPTION(prefix_1, llvm::StringLiteral("fopenmp-new-driver"), fopenmp_new_driver, Flag, INVALID, INVALID, nullptr, HelpHidden, 0,
@@ -3040,7 +3038,7 @@ OPTION(prefix_1, llvm::StringLiteral("gstrict-dwarf"), gstrict_dwarf, Flag, g_fl
        "Restrict DWARF features to those defined in the specified version, avoiding features from later versions.", nullptr, nullptr)
 OPTION(prefix_2, llvm::StringLiteral("GS"), _SLASH_GS, Flag, cl_Group, INVALID, nullptr, CLOption | NoXarchOption | CLDXCOption, 0,
        "Enable buffer security check (default)", nullptr, nullptr)
-OPTION(prefix_2, llvm::StringLiteral("Gs"), anonymous_1853, Flag, cl_Group, mstack_probe_size, "4096\0", CLOption | NoXarchOption | CLDXCOption, 0,
+OPTION(prefix_2, llvm::StringLiteral("Gs"), anonymous_1852, Flag, cl_Group, mstack_probe_size, "4096\0", CLOption | NoXarchOption | CLDXCOption, 0,
        "Use stack probes (default)", nullptr, nullptr)
 OPTION(prefix_2, llvm::StringLiteral("Gs"), _SLASH_Gs, Joined, cl_Group, mstack_probe_size, nullptr, CLOption | NoXarchOption | CLDXCOption, 0,
        "Set stack probe size (default 4096)", nullptr, nullptr)
@@ -4257,16 +4255,16 @@ OPTION(prefix_3, llvm::StringLiteral("nvptx-arch-tool="), nvptx_arch_tool_EQ, Jo
 OPTION(prefix_1, llvm::StringLiteral("n"), n, Flag, INVALID, INVALID, nullptr, CC1AsOption | NoDriverOption, 0,
        "Don't automatically start assembly file with a text section", nullptr, nullptr)
 OPTION(prefix_1, llvm::StringLiteral("O0"), O0, Flag, O_Group, INVALID, nullptr, CC1Option | FC1Option | HelpHidden, 0, nullptr, nullptr, nullptr)
-OPTION(prefix_2, llvm::StringLiteral("O1"), anonymous_1854, Flag, cl_Group, _SLASH_O, "1\0", CLOption | NoXarchOption | CLDXCOption, 0,
+OPTION(prefix_2, llvm::StringLiteral("O1"), anonymous_1853, Flag, cl_Group, _SLASH_O, "1\0", CLOption | NoXarchOption | CLDXCOption, 0,
        "Optimize for size  (like /Og     /Os /Oy /Ob2 /GF /Gy)", nullptr, nullptr)
-OPTION(prefix_2, llvm::StringLiteral("O2"), anonymous_1855, Flag, cl_Group, _SLASH_O, "2\0", CLOption | NoXarchOption | CLDXCOption, 0,
+OPTION(prefix_2, llvm::StringLiteral("O2"), anonymous_1854, Flag, cl_Group, _SLASH_O, "2\0", CLOption | NoXarchOption | CLDXCOption, 0,
        "Optimize for speed (like /Og /Oi /Ot /Oy /Ob2 /GF /Gy)", nullptr, nullptr)
 OPTION(prefix_1, llvm::StringLiteral("O4"), O4, Flag, O_Group, INVALID, nullptr, CC1Option | FC1Option | HelpHidden, 0, nullptr, nullptr, nullptr)
-OPTION(prefix_2, llvm::StringLiteral("Ob0"), anonymous_1856, Flag, cl_Group, _SLASH_O, "b0\0", CLOption | NoXarchOption | CLDXCOption, 0,
+OPTION(prefix_2, llvm::StringLiteral("Ob0"), anonymous_1855, Flag, cl_Group, _SLASH_O, "b0\0", CLOption | NoXarchOption | CLDXCOption, 0,
        "Disable function inlining", nullptr, nullptr)
-OPTION(prefix_2, llvm::StringLiteral("Ob1"), anonymous_1857, Flag, cl_Group, _SLASH_O, "b1\0", CLOption | NoXarchOption | CLDXCOption, 0,
+OPTION(prefix_2, llvm::StringLiteral("Ob1"), anonymous_1856, Flag, cl_Group, _SLASH_O, "b1\0", CLOption | NoXarchOption | CLDXCOption, 0,
        "Only inline functions explicitly or implicitly marked inline", nullptr, nullptr)
-OPTION(prefix_2, llvm::StringLiteral("Ob2"), anonymous_1858, Flag, cl_Group, _SLASH_O, "b2\0", CLOption | NoXarchOption | CLDXCOption, 0,
+OPTION(prefix_2, llvm::StringLiteral("Ob2"), anonymous_1857, Flag, cl_Group, _SLASH_O, "b2\0", CLOption | NoXarchOption | CLDXCOption, 0,
        "Inline functions as deemed beneficial by the compiler", nullptr, nullptr)
 OPTION(prefix_1, llvm::StringLiteral("ObjC++"), ObjCXX, Flag, INVALID, INVALID, nullptr, NoXarchOption, 0,
        "Treat source input files as Objective-C++ inputs", nullptr, nullptr)
@@ -4315,7 +4313,7 @@ OPTION(prefix_1, llvm::StringLiteral("object-file-name="), object_file_name_EQ, 
        "Set the output <file> for debug infos", "<file>", nullptr)
 OPTION(prefix_1, llvm::StringLiteral("object-file-name"), object_file_name, Separate, INVALID, object_file_name_EQ, nullptr, CC1Option | CC1AsOption | CoreOption, 0, nullptr, nullptr, nullptr)
 OPTION(prefix_1, llvm::StringLiteral("object"), object, Flag, INVALID, INVALID, nullptr, 0, 0, nullptr, nullptr, nullptr)
-OPTION(prefix_2, llvm::StringLiteral("Od"), anonymous_1859, Flag, cl_Group, _SLASH_O, "d\0", CLDXCOption | NoXarchOption | CLDXCOption, 0,
+OPTION(prefix_2, llvm::StringLiteral("Od"), anonymous_1858, Flag, cl_Group, _SLASH_O, "d\0", CLDXCOption | NoXarchOption | CLDXCOption, 0,
        "Disable optimization", nullptr, nullptr)
 OPTION(prefix_1, llvm::StringLiteral("Ofast"), Ofast, Joined, O_Group, INVALID, nullptr, CC1Option | FlangOption, 0, nullptr, nullptr, nullptr)
 OPTION(prefix_3, llvm::StringLiteral("offload-add-rpath"), offload_add_rpath, Flag, INVALID, frtlib_add_rpath, nullptr, NoArgumentUnused, 0, nullptr, nullptr, nullptr)
@@ -4333,11 +4331,11 @@ OPTION(prefix_3, llvm::StringLiteral("offload-new-driver"), offload_new_driver, 
        "Use the new driver for offloading compilation.", nullptr, nullptr)
 OPTION(prefix_3, llvm::StringLiteral("offload="), offload_EQ, CommaJoined, INVALID, INVALID, nullptr, NoXarchOption, 0,
        "Specify comma-separated list of offloading target triples (CUDA and HIP only)", nullptr, nullptr)
-OPTION(prefix_2, llvm::StringLiteral("Og"), anonymous_1860, Flag, cl_Group, _SLASH_O, "g\0", CLOption | NoXarchOption | CLDXCOption, 0,
+OPTION(prefix_2, llvm::StringLiteral("Og"), anonymous_1859, Flag, cl_Group, _SLASH_O, "g\0", CLOption | NoXarchOption | CLDXCOption, 0,
        "No effect", nullptr, nullptr)
-OPTION(prefix_2, llvm::StringLiteral("Oi-"), anonymous_1862, Flag, cl_Group, _SLASH_O, "i-\0", CLOption | NoXarchOption | CLDXCOption, 0,
+OPTION(prefix_2, llvm::StringLiteral("Oi-"), anonymous_1861, Flag, cl_Group, _SLASH_O, "i-\0", CLOption | NoXarchOption | CLDXCOption, 0,
        "Disable use of builtin functions", nullptr, nullptr)
-OPTION(prefix_2, llvm::StringLiteral("Oi"), anonymous_1861, Flag, cl_Group, _SLASH_O, "i\0", CLOption | NoXarchOption | CLDXCOption, 0,
+OPTION(prefix_2, llvm::StringLiteral("Oi"), anonymous_1860, Flag, cl_Group, _SLASH_O, "i\0", CLOption | NoXarchOption | CLDXCOption, 0,
        "Enable use of builtin functions", nullptr, nullptr)
 OPTION(prefix_2, llvm::StringLiteral("openmp-"), _SLASH_openmp_, Flag, cl_Group, fno_openmp, nullptr, CLOption | NoXarchOption | CLDXCOption, 0,
        "Disable OpenMP support", nullptr, nullptr)
@@ -4353,9 +4351,9 @@ OPTION(prefix_1, llvm::StringLiteral("opt-record-passes"), opt_record_passes, Se
        "Only record remark information for passes whose names match the given regular expression", nullptr, nullptr)
 OPTION(prefix_3, llvm::StringLiteral("optimize="), _optimize_EQ, Joined, INVALID, O, nullptr, 0, 0, nullptr, nullptr, nullptr)
 OPTION(prefix_3, llvm::StringLiteral("optimize"), _optimize, Flag, INVALID, O, nullptr, 0, 0, nullptr, nullptr, nullptr)
-OPTION(prefix_2, llvm::StringLiteral("Os"), anonymous_1863, Flag, cl_Group, _SLASH_O, "s\0", CLOption | NoXarchOption | CLDXCOption, 0,
+OPTION(prefix_2, llvm::StringLiteral("Os"), anonymous_1862, Flag, cl_Group, _SLASH_O, "s\0", CLOption | NoXarchOption | CLDXCOption, 0,
        "Optimize for size", nullptr, nullptr)
-OPTION(prefix_2, llvm::StringLiteral("Ot"), anonymous_1864, Flag, cl_Group, _SLASH_O, "t\0", CLOption | NoXarchOption | CLDXCOption, 0,
+OPTION(prefix_2, llvm::StringLiteral("Ot"), anonymous_1863, Flag, cl_Group, _SLASH_O, "t\0", CLOption | NoXarchOption | CLDXCOption, 0,
        "Optimize for speed", nullptr, nullptr)
 OPTION(prefix_1, llvm::StringLiteral("output-asm-variant"), output_asm_variant, Separate, INVALID, INVALID, nullptr, CC1AsOption | NoDriverOption, 0,
        "Select the asm variant index to use for output", nullptr, nullptr)
@@ -4363,11 +4361,11 @@ OPTION(prefix_3, llvm::StringLiteral("output-class-directory="), _output_class_d
 OPTION(prefix_3, llvm::StringLiteral("output-class-directory"), _output_class_directory, Separate, INVALID, foutput_class_dir_EQ, nullptr, 0, 0, nullptr, nullptr, nullptr)
 OPTION(prefix_3, llvm::StringLiteral("output="), _output_EQ, Joined, INVALID, o, nullptr, 0, 0, nullptr, nullptr, nullptr)
 OPTION(prefix_3, llvm::StringLiteral("output"), _output, Separate, INVALID, o, nullptr, 0, 0, nullptr, nullptr, nullptr)
-OPTION(prefix_2, llvm::StringLiteral("Ox"), anonymous_1865, Flag, cl_Group, _SLASH_O, "x\0", CLOption | NoXarchOption | CLDXCOption, 0,
+OPTION(prefix_2, llvm::StringLiteral("Ox"), anonymous_1864, Flag, cl_Group, _SLASH_O, "x\0", CLOption | NoXarchOption | CLDXCOption, 0,
        "Deprecated (like /Og /Oi /Ot /Oy /Ob2); use /O2", nullptr, nullptr)
-OPTION(prefix_2, llvm::StringLiteral("Oy-"), anonymous_1867, Flag, cl_Group, _SLASH_O, "y-\0", CLOption | NoXarchOption | CLDXCOption, 0,
+OPTION(prefix_2, llvm::StringLiteral("Oy-"), anonymous_1866, Flag, cl_Group, _SLASH_O, "y-\0", CLOption | NoXarchOption | CLDXCOption, 0,
        "Disable frame pointer omission (x86 only, default)", nullptr, nullptr)
-OPTION(prefix_2, llvm::StringLiteral("Oy"), anonymous_1866, Flag, cl_Group, _SLASH_O, "y\0", CLOption | NoXarchOption | CLDXCOption, 0,
+OPTION(prefix_2, llvm::StringLiteral("Oy"), anonymous_1865, Flag, cl_Group, _SLASH_O, "y\0", CLOption | NoXarchOption | CLDXCOption, 0,
        "Enable frame pointer omission (x86 only)", nullptr, nullptr)
 OPTION(prefix_1, llvm::StringLiteral("O"), O_flag, Flag, INVALID, O, "1\0", CC1Option | FC1Option, 0, nullptr, nullptr, nullptr)
 OPTION(prefix_1, llvm::StringLiteral("O"), O, Joined, O_Group, INVALID, nullptr, CC1Option | FC1Option, 0, nullptr, nullptr, nullptr)
@@ -4474,7 +4472,7 @@ OPTION(prefix_2, llvm::StringLiteral("P"), _SLASH_P, Flag, cl_Group, INVALID, nu
 OPTION(prefix_1, llvm::StringLiteral("p"), p, Flag, INVALID, INVALID, nullptr, 0, 0,
        "Enable mcount instrumentation with prof", nullptr, nullptr)
 OPTION(prefix_2, llvm::StringLiteral("Qfast_transcendentals"), _SLASH_Qfast_transcendentals, Flag, cl_Group, INVALID, nullptr, CLOption | NoXarchOption | CLDXCOption, 0, nullptr, nullptr, nullptr)
-OPTION(prefix_2, llvm::StringLiteral("Qgather-"), anonymous_1868, Flag, cl_Group, mno_gather, nullptr, CLOption | NoXarchOption | CLDXCOption, 0,
+OPTION(prefix_2, llvm::StringLiteral("Qgather-"), anonymous_1867, Flag, cl_Group, mno_gather, nullptr, CLOption | NoXarchOption | CLDXCOption, 0,
        "Disable generation of gather instructions in auto-vectorization(x86 only)", nullptr, nullptr)
 OPTION(prefix_2, llvm::StringLiteral("QIfist"), _SLASH_QIfist, Flag, cl_Group, INVALID, nullptr, CLOption | NoXarchOption | CLDXCOption, 0, nullptr, nullptr, nullptr)
 OPTION(prefix_2, llvm::StringLiteral("Qimprecise_fwaits"), _SLASH_Qimprecise_fwaits, Flag, cl_Group, INVALID, nullptr, CLOption | NoXarchOption | CLDXCOption, 0, nullptr, nullptr, nullptr)
@@ -4485,7 +4483,7 @@ OPTION(prefix_1, llvm::StringLiteral("Qn"), Qn, Flag, INVALID, INVALID, nullptr,
 OPTION(prefix_2, llvm::StringLiteral("Qpar-report"), _SLASH_Qpar_report, Joined, cl_Group, INVALID, nullptr, CLOption | NoXarchOption | CLDXCOption, 0, nullptr, nullptr, nullptr)
 OPTION(prefix_2, llvm::StringLiteral("Qpar"), _SLASH_Qpar, Flag, cl_Group, INVALID, nullptr, CLOption | NoXarchOption | CLDXCOption, 0, nullptr, nullptr, nullptr)
 OPTION(prefix_2, llvm::StringLiteral("Qsafe_fp_loads"), _SLASH_Qsafe_fp_loads, Flag, cl_Group, INVALID, nullptr, CLOption | NoXarchOption | CLDXCOption, 0, nullptr, nullptr, nullptr)
-OPTION(prefix_2, llvm::StringLiteral("Qscatter-"), anonymous_1869, Flag, cl_Group, mno_scatter, nullptr, CLOption | NoXarchOption | CLDXCOption, 0,
+OPTION(prefix_2, llvm::StringLiteral("Qscatter-"), anonymous_1868, Flag, cl_Group, mno_scatter, nullptr, CLOption | NoXarchOption | CLDXCOption, 0,
        "Disable generation of scatter instructions in auto-vectorization(x86 only)", nullptr, nullptr)
 OPTION(prefix_2, llvm::StringLiteral("Qspectre-load-cf"), _SLASH_Qspectre_load_cf, Flag, cl_Group, INVALID, nullptr, CLOption | NoXarchOption | CLDXCOption, 0, nullptr, nullptr, nullptr)
 OPTION(prefix_2, llvm::StringLiteral("Qspectre-load"), _SLASH_Qspectre_load, Flag, cl_Group, INVALID, nullptr, CLOption | NoXarchOption | CLDXCOption, 0, nullptr, nullptr, nullptr)
@@ -4910,10 +4908,10 @@ OPTION(prefix_1, llvm::StringLiteral("Xflang"), Xflang, Separate, CompileOnly_Gr
        "Pass <arg> to the flang compiler", "<arg>", nullptr)
 OPTION(prefix_1, llvm::StringLiteral("Xlinker"), Xlinker, Separate, Link_Group, INVALID, nullptr, LinkerInput | RenderAsInput, 0,
        "Pass <arg> to the linker", "<arg>", nullptr)
-OPTION(prefix_1, llvm::StringLiteral("Xmicrosoft-visualc-tools-root"), anonymous_1870, Separate, INVALID, _SLASH_vctoolsdir, nullptr, 0, 0, nullptr, nullptr, nullptr)
-OPTION(prefix_1, llvm::StringLiteral("Xmicrosoft-visualc-tools-version"), anonymous_1871, Separate, INVALID, _SLASH_vctoolsversion, nullptr, 0, 0, nullptr, nullptr, nullptr)
-OPTION(prefix_1, llvm::StringLiteral("Xmicrosoft-windows-sdk-root"), anonymous_1872, Separate, INVALID, _SLASH_winsdkdir, nullptr, 0, 0, nullptr, nullptr, nullptr)
-OPTION(prefix_1, llvm::StringLiteral("Xmicrosoft-windows-sdk-version"), anonymous_1873, Separate, INVALID, _SLASH_winsdkversion, nullptr, 0, 0, nullptr, nullptr, nullptr)
+OPTION(prefix_1, llvm::StringLiteral("Xmicrosoft-visualc-tools-root"), anonymous_1869, Separate, INVALID, _SLASH_vctoolsdir, nullptr, 0, 0, nullptr, nullptr, nullptr)
+OPTION(prefix_1, llvm::StringLiteral("Xmicrosoft-visualc-tools-version"), anonymous_1870, Separate, INVALID, _SLASH_vctoolsversion, nullptr, 0, 0, nullptr, nullptr, nullptr)
+OPTION(prefix_1, llvm::StringLiteral("Xmicrosoft-windows-sdk-root"), anonymous_1871, Separate, INVALID, _SLASH_winsdkdir, nullptr, 0, 0, nullptr, nullptr, nullptr)
+OPTION(prefix_1, llvm::StringLiteral("Xmicrosoft-windows-sdk-version"), anonymous_1872, Separate, INVALID, _SLASH_winsdkversion, nullptr, 0, 0, nullptr, nullptr, nullptr)
 OPTION(prefix_1, llvm::StringLiteral("Xoffload-linker"), Xoffload_linker, JoinedAndSeparate, Link_Group, INVALID, nullptr, 0, 0,
        "Pass <arg> to the offload linkers or the ones idenfied by -<triple>", "<triple> <arg>", nullptr)
 OPTION(prefix_1, llvm::StringLiteral("Xopenmp-target="), Xopenmp_target_EQ, JoinedAndSeparate, CompileOnly_Group, INVALID, nullptr, 0, 0,
@@ -7789,10 +7787,6 @@ CODEGEN_OPTION_WITH_MARSHALLING(prefix_1, llvm::StringLiteral("fexperimental-ass
 #ifdef DEPENDENCY_OUTPUT_OPTION_WITH_MARSHALLING
 DEPENDENCY_OUTPUT_OPTION_WITH_MARSHALLING(prefix_1, llvm::StringLiteral("sys-header-deps"), sys_header_deps, Flag, INVALID, INVALID, nullptr, CC1Option | NoDriverOption, 0,
        "Include system headers in dependency output", nullptr, nullptr, "-sys-header-deps", true, 0, DependencyOutputOpts.IncludeSystemHeaders, false, false, false, normalizeSimpleFlag, denormalizeSimpleFlag, mergeForwardValue, extractForwardValue, -1)
-#endif // DEPENDENCY_OUTPUT_OPTION_WITH_MARSHALLING
-#ifdef DEPENDENCY_OUTPUT_OPTION_WITH_MARSHALLING
-DEPENDENCY_OUTPUT_OPTION_WITH_MARSHALLING(prefix_1, llvm::StringLiteral("canonical-system-headers"), canonical_system_headers, Flag, INVALID, INVALID, nullptr, CC1Option | NoDriverOption, 0,
-       "Canonicalize system headers in dependency output", nullptr, nullptr, "-canonical-system-headers", true, 0, DependencyOutputOpts.CanonicalSystemHeaders, false, false, false, normalizeSimpleFlag, denormalizeSimpleFlag, mergeForwardValue, extractForwardValue, -1)
 #endif // DEPENDENCY_OUTPUT_OPTION_WITH_MARSHALLING
 #ifdef DEPENDENCY_OUTPUT_OPTION_WITH_MARSHALLING
 DEPENDENCY_OUTPUT_OPTION_WITH_MARSHALLING(prefix_1, llvm::StringLiteral("module-file-deps"), module_file_deps, Flag, INVALID, INVALID, nullptr, CC1Option | NoDriverOption, 0,

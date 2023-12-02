@@ -1,0 +1,10 @@
+%FILES%
+clangarm64/
+clangarm64/bin/
+clangarm64/bin/libclang-cpp.dll
+clangarm64/bin/libclang.dll
+clangarm64/share/
+clangarm64/share/licenses/
+clangarm64/share/licenses/clang-libs/
+clangarm64/share/licenses/clang-libs/LICENSE
+
