@@ -59,6 +59,7 @@ clangarm64/lib/libcabinet.a
 clangarm64/lib/libcabview.a
 clangarm64/lib/libcfgbkend.a
 clangarm64/lib/libcfgmgr32.a
+clangarm64/lib/libchakrart.a
 clangarm64/lib/libclb.a
 clangarm64/lib/libclbcatq.a
 clangarm64/lib/libcliconfg.a
@@ -108,6 +109,7 @@ clangarm64/lib/libdevobj.a
 clangarm64/lib/libdevrtl.a
 clangarm64/lib/libdfscli.a
 clangarm64/lib/libdhcpcsvc.a
+clangarm64/lib/libdhcpcsvc6.a
 clangarm64/lib/libdhcpsapi.a
 clangarm64/lib/libdiagnosticdataquery.a
 clangarm64/lib/libdimsroam.a
@@ -144,6 +146,7 @@ clangarm64/lib/libeapphost.a
 clangarm64/lib/libeappprxy.a
 clangarm64/lib/libefsadu.a
 clangarm64/lib/libelscore.a
+clangarm64/lib/libesent.a
 clangarm64/lib/libesentprf.a
 clangarm64/lib/libevr.a
 clangarm64/lib/libfdeploy.a
@@ -170,6 +173,7 @@ clangarm64/lib/libiassvcs.a
 clangarm64/lib/libicm32.a
 clangarm64/lib/libicmp.a
 clangarm64/lib/libicmui.a
+clangarm64/lib/libicu.a
 clangarm64/lib/libiernonce.a
 clangarm64/lib/libimagehlp.a
 clangarm64/lib/libimgutil.a
@@ -226,6 +230,7 @@ clangarm64/lib/libmoldname.a
 clangarm64/lib/libmpr.a
 clangarm64/lib/libmsacm32.a
 clangarm64/lib/libmsafd.a
+clangarm64/lib/libmsajapi.a
 clangarm64/lib/libmscat32.a
 clangarm64/lib/libmscms.a
 clangarm64/lib/libmsctf.a
@@ -275,6 +280,7 @@ clangarm64/lib/libole32.a
 clangarm64/lib/liboleacc.a
 clangarm64/lib/liboleaut32.a
 clangarm64/lib/liboledlg.a
+clangarm64/lib/libonecore.a
 clangarm64/lib/libonecore_apiset.a
 clangarm64/lib/libopengl32.a
 clangarm64/lib/libosuninst.a
@@ -395,6 +401,7 @@ clangarm64/lib/libwbemuuid.a
 clangarm64/lib/libwdigest.a
 clangarm64/lib/libwebauthn.a
 clangarm64/lib/libwebclnt.a
+clangarm64/lib/libwebservices.a
 clangarm64/lib/libwebsocket.a
 clangarm64/lib/libwecapi.a
 clangarm64/lib/libwer.a
