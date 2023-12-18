@@ -2,7 +2,10 @@
 winpty
 
 %VERSION%
-0.4.3-1
+0.4.3-2
+
+%BASE%
+winpty
 
 %DESC%
 A Windows software package providing an interface similar to a Unix pty-master for communicating with Windows console programs
@@ -14,16 +17,16 @@ https://github.com/rprichard/winpty
 x86_64
 
 %BUILDDATE%
-1496308102
+1702826350
 
 %INSTALLDATE%
-1496785643
+1702869331
 
 %PACKAGER%
-Alexey Pavlov <alexpux@gmail.com>
+CI (msys2/msys2-autobuild/0eca067d/7239359855)
 
 %SIZE%
-3319808
+1080734
 
 %LICENSE%
 MIT

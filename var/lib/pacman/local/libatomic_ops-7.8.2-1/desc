@@ -2,7 +2,7 @@
 libatomic_ops
 
 %VERSION%
-7.8.0-1
+7.8.2-1
 
 %BASE%
 libatomic_ops
@@ -17,13 +17,13 @@ https://github.com/ivmai/libatomic_ops
 any
 
 %BUILDDATE%
-1680206003
+1702748155
 
 %INSTALLDATE%
-1682405874
+1702869331
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/3116e844/4568378326)
+CI (msys2/msys2-autobuild/0eca067d/7233343658)
 
 %SIZE%
 21647

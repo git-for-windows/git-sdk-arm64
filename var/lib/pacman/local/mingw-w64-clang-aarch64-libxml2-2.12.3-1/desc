@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-libxml2
 
 %VERSION%
-2.12.2-1
+2.12.3-1
 
 %BASE%
 mingw-w64-libxml2
@@ -17,16 +17,16 @@ https://gitlab.gnome.org/GNOME/libxml2/-/wikis/home
 any
 
 %BUILDDATE%
-1701853934
+1702813599
 
 %INSTALLDATE%
-1702005337
+1702869331
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/1ed7c15c/7112409933)
+CI (msys2-arm/msys2-autobuild/0eca067d/7238257273)
 
 %SIZE%
-6000268
+6000463
 
 %REASON%
 1
