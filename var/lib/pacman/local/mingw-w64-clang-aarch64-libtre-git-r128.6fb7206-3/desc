@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-libtre-git
 
 %VERSION%
-r128.6fb7206-2
+r128.6fb7206-3
 
 %BASE%
 mingw-w64-libtre-git
@@ -17,16 +17,16 @@ https://github.com/laurikari/tre
 any
 
 %BUILDDATE%
-1619876964
+1702885327
 
 %INSTALLDATE%
-1671471213
+1702955711
 
 %PACKAGER%
-Unknown Packager
+CI (msys2-arm/msys2-autobuild/0eca067d/7245021856)
 
 %SIZE%
-233874
+240894
 
 %REASON%
 1
@@ -35,6 +35,7 @@ Unknown Packager
 BSD
 
 %VALIDATION%
+sha256
 pgp
 
 %DEPENDS%
