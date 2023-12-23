@@ -24,6 +24,9 @@ clangarm64/share/locale/fi/LC_MESSAGES/tre.mo
 clangarm64/share/locale/sv/
 clangarm64/share/locale/sv/LC_MESSAGES/
 clangarm64/share/locale/sv/LC_MESSAGES/tre.mo
+clangarm64/share/locale/zh_CN/
+clangarm64/share/locale/zh_CN/LC_MESSAGES/
+clangarm64/share/locale/zh_CN/LC_MESSAGES/tre.mo
 clangarm64/share/man/
 clangarm64/share/man/man1/
 clangarm64/share/man/man1/aarch64-w64-mingw32-agrep.1.gz
