@@ -51,4 +51,8 @@ clangarm64/doc/git-credential-manager/
 clangarm64/doc/git-credential-manager/LICENSE
 clangarm64/doc/git-credential-manager/NOTICE
 clangarm64/doc/git-credential-manager/README.md
+clangarm64/share/
+clangarm64/share/doc/
+clangarm64/share/doc/git-doc/
+clangarm64/share/doc/git-doc/git-credential-manager.html
 
