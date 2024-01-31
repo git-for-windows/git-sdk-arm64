@@ -1,8 +1,8 @@
 %NAME%
-openssl
+libopenssl
 
 %VERSION%
-3.2.0-1
+3.2.1-1
 
 %BASE%
 openssl
@@ -17,30 +17,26 @@ https://www.openssl.org
 x86_64
 
 %BUILDDATE%
-1705138445
+1706648519
 
 %INSTALLDATE%
-1705202170
+1706670879
 
 %PACKAGER%
 Johannes Schindelin <johannes.schindelin@gmx.de>
 
 %SIZE%
-1389669
+4366261
 
 %REASON%
 1
+
+%GROUPS%
+libraries
 
 %LICENSE%
 spdx:Apache-2.0
 
 %VALIDATION%
 pgp
-
-%DEPENDS%
-libopenssl
-
-%OPTDEPENDS%
-ca-certificates
-perl
 

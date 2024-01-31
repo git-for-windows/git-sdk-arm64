@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-libidn2
 
 %VERSION%
-2.3.4-1
+2.3.7-1
 
 %BASE%
 mingw-w64-libidn2
@@ -11,22 +11,22 @@ mingw-w64-libidn2
 Implementation of the Stringprep, Punycode and IDNA specifications (mingw-w64)
 
 %URL%
-https://www.gnu.org/software/libidn
+https://www.gnu.org/software/libidn/#libidn2
 
 %ARCH%
 any
 
 %BUILDDATE%
-1675761463
+1706530579
 
 %INSTALLDATE%
-1675862732
+1706670879
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/34a63008/4112280284)
+CI (msys2-arm/msys2-autobuild/1c45f2ab/7695835659)
 
 %SIZE%
-715241
+727448
 
 %REASON%
 1
@@ -36,6 +36,7 @@ spdx:GPL-2.0-or-later
 spdx:LGPL-3.0-or-later
 
 %VALIDATION%
+sha256
 pgp
 
 %DEPENDS%
