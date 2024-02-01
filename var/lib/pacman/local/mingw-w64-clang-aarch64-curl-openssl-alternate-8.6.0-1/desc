@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-curl-openssl-alternate
 
 %VERSION%
-8.5.0-1
+8.6.0-1
 
 %BASE%
 mingw-w64-curl
@@ -17,16 +17,16 @@ https://curl.se/
 any
 
 %BUILDDATE%
-1701873541
+1706701389
 
 %INSTALLDATE%
-1701918950
+1706757364
 
 %PACKAGER%
 Johannes Schindelin <johannes.schindelin@gmx.de>
 
 %SIZE%
-711168
+727040
 
 %LICENSE%
 spdx:MIT
