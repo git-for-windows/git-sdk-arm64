@@ -2,7 +2,7 @@
 libcbor
 
 %VERSION%
-0.10.2-1
+0.11.0-1
 
 %BASE%
 libcbor
@@ -17,16 +17,16 @@ https://github.com/PJK/libcbor
 x86_64
 
 %BUILDDATE%
-1675247997
+1707150383
 
 %INSTALLDATE%
-1675307913
+1707189325
 
 %PACKAGER%
 Johannes Schindelin <johannes.schindelin@gmx.de>
 
 %SIZE%
-51083
+50025
 
 %REASON%
 1
