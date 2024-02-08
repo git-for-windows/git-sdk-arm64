@@ -1,32 +1,32 @@
 %NAME%
-libexpat
+libgc
 
 %VERSION%
-2.5.0-1
+8.2.6-1
 
 %BASE%
-expat
+gc
 
 %DESC%
-An XML parser library
+A garbage collector for C and C++
 
 %URL%
-https://libexpat.github.io/
+https://www.hboehm.info/gc/
 
 %ARCH%
 x86_64
 
 %BUILDDATE%
-1666777003
+1707242609
 
 %INSTALLDATE%
-1666929688
+1707362131
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/5d06444a/3327790646)
+CI (msys2/msys2-autobuild/d4515ba2/7804049944)
 
 %SIZE%
-172090
+475702
 
 %REASON%
 1
@@ -35,7 +35,7 @@ CI (msys2/msys2-autobuild/5d06444a/3327790646)
 libraries
 
 %LICENSE%
-spdx:MIT
+MIT
 
 %VALIDATION%
 pgp

@@ -1,32 +1,32 @@
 %NAME%
-mingw-w64-clang-aarch64-expat
+expat
 
 %VERSION%
-2.5.0-1
+2.6.0-1
 
 %BASE%
-mingw-w64-expat
+expat
 
 %DESC%
-An XML parser library (mingw-w64)
+An XML parser library
 
 %URL%
 https://libexpat.github.io/
 
 %ARCH%
-any
+x86_64
 
 %BUILDDATE%
-1667479134
+1707285381
 
 %INSTALLDATE%
-1671471195
+1707362131
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/3f00fa83/3385691771)
+CI (msys2/msys2-autobuild/d4515ba2/7810531199)
 
 %SIZE%
-566507
+108733
 
 %REASON%
 1

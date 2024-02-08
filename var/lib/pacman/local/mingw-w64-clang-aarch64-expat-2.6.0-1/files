@@ -9,11 +9,11 @@ clangarm64/include/expat_config.h
 clangarm64/include/expat_external.h
 clangarm64/lib/
 clangarm64/lib/cmake/
-clangarm64/lib/cmake/expat-2.5.0/
-clangarm64/lib/cmake/expat-2.5.0/expat-config-version.cmake
-clangarm64/lib/cmake/expat-2.5.0/expat-config.cmake
-clangarm64/lib/cmake/expat-2.5.0/expat-noconfig.cmake
-clangarm64/lib/cmake/expat-2.5.0/expat.cmake
+clangarm64/lib/cmake/expat-2.6.0/
+clangarm64/lib/cmake/expat-2.6.0/expat-config-version.cmake
+clangarm64/lib/cmake/expat-2.6.0/expat-config.cmake
+clangarm64/lib/cmake/expat-2.6.0/expat-noconfig.cmake
+clangarm64/lib/cmake/expat-2.6.0/expat.cmake
 clangarm64/lib/libexpat.a
 clangarm64/lib/libexpat.dll.a
 clangarm64/lib/pkgconfig/
@@ -26,4 +26,7 @@ clangarm64/share/doc/expat/changelog
 clangarm64/share/licenses/
 clangarm64/share/licenses/expat/
 clangarm64/share/licenses/expat/COPYING
+clangarm64/share/man/
+clangarm64/share/man/man1/
+clangarm64/share/man/man1/xmlwf.1.gz
 
