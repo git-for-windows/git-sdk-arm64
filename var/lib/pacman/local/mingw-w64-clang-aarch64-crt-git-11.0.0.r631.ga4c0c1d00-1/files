@@ -288,6 +288,7 @@ clangarm64/lib/liboleaut32.a
 clangarm64/lib/liboledlg.a
 clangarm64/lib/libonecore.a
 clangarm64/lib/libonecore_apiset.a
+clangarm64/lib/libonecoreuap_apiset.a
 clangarm64/lib/libopengl32.a
 clangarm64/lib/libosuninst.a
 clangarm64/lib/libp2p.a
@@ -446,6 +447,7 @@ clangarm64/lib/libwscapi.a
 clangarm64/lib/libwscsvc.a
 clangarm64/lib/libwshbth.a
 clangarm64/lib/libwslapi.a
+clangarm64/lib/libwsmsvc.a
 clangarm64/lib/libwsock32.a
 clangarm64/lib/libwtsapi32.a
 clangarm64/lib/libxaudio2_8.a
