@@ -2,7 +2,7 @@
 python
 
 %VERSION%
-3.11.7-1
+3.11.8-1
 
 %BASE%
 python
@@ -17,16 +17,16 @@ https://www.python.org/
 x86_64
 
 %BUILDDATE%
-1705755304
+1707778846
 
 %INSTALLDATE%
-1705893396
+1707880586
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/1c45f2ab/7594480876)
+CI (msys2/msys2-autobuild/d4515ba2/7879011349)
 
 %SIZE%
-200608490
+201285822
 
 %LICENSE%
 custom

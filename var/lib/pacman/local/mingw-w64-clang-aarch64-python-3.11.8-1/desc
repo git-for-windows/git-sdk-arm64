@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-python
 
 %VERSION%
-3.11.7-2
+3.11.8-1
 
 %BASE%
 mingw-w64-python
@@ -17,16 +17,16 @@ https://www.python.org/
 any
 
 %BUILDDATE%
-1707585376
+1707814671
 
 %INSTALLDATE%
-1707621275
+1707880577
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/d4515ba2/7856292272)
+CI (msys2-arm/msys2-autobuild/d4515ba2/7883929664)
 
 %SIZE%
-201204295
+201886804
 
 %REASON%
 1
