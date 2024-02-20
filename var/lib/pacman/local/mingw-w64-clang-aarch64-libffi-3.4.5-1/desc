@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-libffi
 
 %VERSION%
-3.4.4-1
+3.4.5-1
 
 %BASE%
 mingw-w64-libffi
@@ -17,16 +17,16 @@ https://sourceware.org/libffi
 any
 
 %BUILDDATE%
-1666970524
+1708202260
 
 %INSTALLDATE%
-1671471193
+1708398870
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/3a324f9f/3346529899)
+CI (msys2-arm/msys2-autobuild/d4515ba2/7944137300)
 
 %SIZE%
-113984
+117624
 
 %REASON%
 1
@@ -35,5 +35,6 @@ CI (msys2-arm/msys2-autobuild/3a324f9f/3346529899)
 MIT
 
 %VALIDATION%
+sha256
 pgp
 
