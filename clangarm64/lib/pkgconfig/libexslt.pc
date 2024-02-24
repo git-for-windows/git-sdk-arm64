@@ -9,5 +9,6 @@ Version: 0.8.21
 Description: EXSLT Extension library
 Requires: libxml-2.0, libxslt
 Cflags: -I${includedir} 
+Cflags.private: -DLIBEXSLT_STATIC
 Libs: -L${libdir} -lexslt
 Libs.private: -lm 

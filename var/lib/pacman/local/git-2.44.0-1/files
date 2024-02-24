@@ -136,6 +136,7 @@ usr/lib/git-core/git-remote-https.exe
 usr/lib/git-core/git-remote.exe
 usr/lib/git-core/git-repack.exe
 usr/lib/git-core/git-replace.exe
+usr/lib/git-core/git-replay.exe
 usr/lib/git-core/git-request-pull
 usr/lib/git-core/git-rerere.exe
 usr/lib/git-core/git-reset.exe
@@ -677,6 +678,7 @@ usr/share/man/man1/git-remote-fd.1.gz
 usr/share/man/man1/git-remote.1.gz
 usr/share/man/man1/git-repack.1.gz
 usr/share/man/man1/git-replace.1.gz
+usr/share/man/man1/git-replay.1.gz
 usr/share/man/man1/git-request-pull.1.gz
 usr/share/man/man1/git-rerere.1.gz
 usr/share/man/man1/git-reset.1.gz
