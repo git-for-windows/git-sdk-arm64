@@ -1,32 +1,32 @@
 %NAME%
-liblzma
+libnpth
 
 %VERSION%
-5.4.6-2
+1.7-1
 
 %BASE%
-xz
+npth
 
 %DESC%
-Library for XZ and LZMA compressed files
+New portable threads library
 
 %URL%
-https://tukaani.org/xz/
+https://gnupg.org/
 
 %ARCH%
 x86_64
 
 %BUILDDATE%
-1706738396
+1708767618
 
 %INSTALLDATE%
-1706930168
+1709003997
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/d5779cd6/7732878953)
+CI (msys2/msys2-autobuild/d4515ba2/8029701412)
 
 %SIZE%
-174786
+17194
 
 %REASON%
 1
@@ -35,10 +35,11 @@ CI (msys2/msys2-autobuild/d5779cd6/7732878953)
 libraries
 
 %LICENSE%
-GPL
 LGPL
-custom
 
 %VALIDATION%
 pgp
+
+%DEPENDS%
+gcc-libs
 
