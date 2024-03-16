@@ -1,14 +1,16 @@
-﻿!mod$ v1 sum:3de69bacbaecaac6
+﻿!mod$ v1 sum:1e317a1ea37acee4
 module omp_lib_kinds
-use,intrinsic::iso_c_binding,only:c_f_pointer
-use,intrinsic::iso_c_binding,only:c_ptr
+use,intrinsic::iso_c_binding,only:c_associated
+use,intrinsic::iso_c_binding,only:c_funloc
 use,intrinsic::iso_c_binding,only:c_funptr
-use,intrinsic::iso_c_binding,only:c_sizeof
+use,intrinsic::iso_c_binding,only:c_f_pointer
 use,intrinsic::iso_c_binding,only:c_loc
+use,intrinsic::iso_c_binding,only:c_null_funptr
+use,intrinsic::iso_c_binding,only:c_null_ptr
+use,intrinsic::iso_c_binding,only:c_ptr
+use,intrinsic::iso_c_binding,only:c_sizeof
 use,intrinsic::iso_c_binding,only:operator(==)
 use,intrinsic::iso_c_binding,only:operator(/=)
-use,intrinsic::iso_c_binding,only:c_null_ptr
-use,intrinsic::iso_c_binding,only:c_null_funptr
 use,intrinsic::iso_c_binding,only:c_int8_t
 use,intrinsic::iso_c_binding,only:c_int16_t
 use,intrinsic::iso_c_binding,only:c_int32_t
@@ -49,11 +51,9 @@ use,intrinsic::iso_c_binding,only:c_new_line
 use,intrinsic::iso_c_binding,only:c_carriage_return
 use,intrinsic::iso_c_binding,only:c_horizontal_tab
 use,intrinsic::iso_c_binding,only:c_vertical_tab
-use,intrinsic::iso_c_binding,only:c_associated
-use,intrinsic::iso_c_binding,only:c_f_procpointer
 use,intrinsic::iso_c_binding,only:c_float128
 use,intrinsic::iso_c_binding,only:c_float128_complex
-use,intrinsic::iso_c_binding,only:c_funloc
+use,intrinsic::iso_c_binding,only:c_f_procpointer
 integer(4),parameter::omp_integer_kind=4_4
 integer(4),parameter::omp_logical_kind=4_4
 integer(4),parameter::omp_real_kind=4_4

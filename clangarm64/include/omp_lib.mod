@@ -1,14 +1,16 @@
-﻿!mod$ v1 sum:cbf534046853bf7d
+﻿!mod$ v1 sum:4260d890b8f27605
 module omp_lib
-use omp_lib_kinds,only:c_f_pointer
-use omp_lib_kinds,only:c_ptr
+use omp_lib_kinds,only:c_associated
+use omp_lib_kinds,only:c_funloc
 use omp_lib_kinds,only:c_funptr
-use omp_lib_kinds,only:c_sizeof
+use omp_lib_kinds,only:c_f_pointer
 use omp_lib_kinds,only:c_loc
+use omp_lib_kinds,only:c_null_funptr
+use omp_lib_kinds,only:c_null_ptr
+use omp_lib_kinds,only:c_ptr
+use omp_lib_kinds,only:c_sizeof
 use omp_lib_kinds,only:operator(==)
 use omp_lib_kinds,only:operator(/=)
-use omp_lib_kinds,only:c_null_ptr
-use omp_lib_kinds,only:c_null_funptr
 use omp_lib_kinds,only:c_int8_t
 use omp_lib_kinds,only:c_int16_t
 use omp_lib_kinds,only:c_int32_t
@@ -49,11 +51,9 @@ use omp_lib_kinds,only:c_new_line
 use omp_lib_kinds,only:c_carriage_return
 use omp_lib_kinds,only:c_horizontal_tab
 use omp_lib_kinds,only:c_vertical_tab
-use omp_lib_kinds,only:c_associated
-use omp_lib_kinds,only:c_f_procpointer
 use omp_lib_kinds,only:c_float128
 use omp_lib_kinds,only:c_float128_complex
-use omp_lib_kinds,only:c_funloc
+use omp_lib_kinds,only:c_f_procpointer
 use omp_lib_kinds,only:omp_integer_kind
 use omp_lib_kinds,only:omp_logical_kind
 use omp_lib_kinds,only:omp_real_kind
@@ -633,6 +633,28 @@ integer(4),value::src_device_num
 integer(4),value::depobj_count
 integer(8),optional::depobj_list(1_8:*)
 integer(4)::omp_target_memcpy_rect_async
+end
+end interface
+interface
+function omp_target_memset(ptr,val,count,device_num) bind(c)
+use,intrinsic::iso_c_binding,only:c_ptr
+type(c_ptr),value::ptr
+integer(4),value::val
+integer(8),value::count
+integer(4),value::device_num
+type(c_ptr)::omp_target_memset
+end
+end interface
+interface
+function omp_target_memset_async(ptr,val,count,device_num,depobj_count,depobj_list) bind(c)
+use,intrinsic::iso_c_binding,only:c_ptr
+type(c_ptr),value::ptr
+integer(4),value::val
+integer(8),value::count
+integer(4),value::device_num
+integer(4),value::depobj_count
+integer(8),optional::depobj_list(1_8:*)
+type(c_ptr)::omp_target_memset_async
 end
 end interface
 interface
