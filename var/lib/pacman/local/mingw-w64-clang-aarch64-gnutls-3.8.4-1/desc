@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-gnutls
 
 %VERSION%
-3.8.2-1
+3.8.4-1
 
 %BASE%
 mingw-w64-gnutls
@@ -17,16 +17,16 @@ https://www.gnutls.org/
 any
 
 %BUILDDATE%
-1700746233
+1711026084
 
 %INSTALLDATE%
-1700795702
+1711077335
 
 %PACKAGER%
 Johannes Schindelin <johannes.schindelin@gmx.de>
 
 %SIZE%
-13124906
+13207056
 
 %REASON%
 1
