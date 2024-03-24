@@ -1,0 +1,40 @@
+%NAME%
+mingw-w64-clang-aarch64-libunwind
+
+%VERSION%
+18.1.2-1
+
+%BASE%
+mingw-w64-libc++
+
+%DESC%
+A new implementation of a stack unwinder for C++ exceptions (mingw-w64)
+
+%URL%
+https://llvm.org/
+
+%ARCH%
+any
+
+%BUILDDATE%
+1711110803
+
+%INSTALLDATE%
+1711250081
+
+%PACKAGER%
+CI (msys2-arm/msys2-autobuild/3e617554/8390304195)
+
+%SIZE%
+226973
+
+%GROUPS%
+mingw-w64-clang-aarch64-toolchain
+
+%LICENSE%
+spdx:Apache-2.0 WITH LLVM-exception
+
+%VALIDATION%
+sha256
+pgp
+

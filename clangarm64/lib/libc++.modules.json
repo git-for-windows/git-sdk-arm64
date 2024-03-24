@@ -5,7 +5,7 @@
     {
       "logical-name": "std",
       "source-path": "../share/libc++/v1/std.cppm",
-      "is-standard-library": true,
+      "is-std-library": true,
       "local-arguments": {
         "system-include-directories": [
           "../share/libc++/v1"
