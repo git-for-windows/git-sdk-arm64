@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-zstd
 
 %VERSION%
-1.5.5-1
+1.5.6-1
 
 %BASE%
 mingw-w64-zstd
@@ -17,16 +17,16 @@ https://facebook.github.io/zstd/
 any
 
 %BUILDDATE%
-1680693477
+1711568157
 
 %INSTALLDATE%
-1682405876
+1711595712
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/3116e844/4617744224)
+CI (msys2-arm/msys2-autobuild/3e617554/8456929765)
 
 %SIZE%
-2446907
+2430823
 
 %REASON%
 1
@@ -35,6 +35,7 @@ CI (msys2-arm/msys2-autobuild/3116e844/4617744224)
 BSD
 
 %VALIDATION%
+sha256
 pgp
 
 %DEPENDS%
