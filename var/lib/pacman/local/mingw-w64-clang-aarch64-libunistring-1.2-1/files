@@ -8,6 +8,7 @@ clangarm64/include/uniconv.h
 clangarm64/include/unictype.h
 clangarm64/include/unigbrk.h
 clangarm64/include/unilbrk.h
+clangarm64/include/unimetadata.h
 clangarm64/include/uniname.h
 clangarm64/include/uninorm.h
 clangarm64/include/unistdio.h
@@ -45,6 +46,7 @@ clangarm64/share/doc/libunistring/libunistring_2.html
 clangarm64/share/doc/libunistring/libunistring_20.html
 clangarm64/share/doc/libunistring/libunistring_21.html
 clangarm64/share/doc/libunistring/libunistring_22.html
+clangarm64/share/doc/libunistring/libunistring_23.html
 clangarm64/share/doc/libunistring/libunistring_3.html
 clangarm64/share/doc/libunistring/libunistring_4.html
 clangarm64/share/doc/libunistring/libunistring_5.html
@@ -53,6 +55,7 @@ clangarm64/share/doc/libunistring/libunistring_7.html
 clangarm64/share/doc/libunistring/libunistring_8.html
 clangarm64/share/doc/libunistring/libunistring_9.html
 clangarm64/share/doc/libunistring/libunistring_abt.html
+clangarm64/share/doc/libunistring/libunistring_fot.html
 clangarm64/share/doc/libunistring/libunistring_toc.html
 clangarm64/share/info/
 clangarm64/share/info/libunistring.info.gz

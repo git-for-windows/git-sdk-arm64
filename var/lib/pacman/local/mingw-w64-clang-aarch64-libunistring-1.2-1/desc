@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-libunistring
 
 %VERSION%
-1.1-1
+1.2-1
 
 %BASE%
 mingw-w64-libunistring
@@ -17,16 +17,16 @@ https://www.gnu.org/software/libunistring
 any
 
 %BUILDDATE%
-1675667046
+1711725053
 
 %INSTALLDATE%
-1675722697
+1711854993
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/34a63008/4101161216)
+CI (msys2-arm/msys2-autobuild/3e617554/8482399683)
 
 %SIZE%
-5597542
+5711123
 
 %REASON%
 1
@@ -35,6 +35,7 @@ CI (msys2-arm/msys2-autobuild/34a63008/4101161216)
 spdx:LGPL-3.0-or-later OR GPL-3.0-or-later
 
 %VALIDATION%
+sha256
 pgp
 
 %DEPENDS%
