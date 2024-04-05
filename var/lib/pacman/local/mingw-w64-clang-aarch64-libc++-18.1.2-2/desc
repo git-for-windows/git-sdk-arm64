@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-libc++
 
 %VERSION%
-18.1.2-1
+18.1.2-2
 
 %BASE%
 mingw-w64-libc++
@@ -17,13 +17,13 @@ https://libcxx.llvm.org/
 any
 
 %BUILDDATE%
-1711110803
+1712185331
 
 %INSTALLDATE%
-1711250082
+1712287052
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/3e617554/8390304195)
+CI (msys2-arm/msys2-autobuild/3e617554/8546593940)
 
 %SIZE%
 13954759

@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-tk
 
 %VERSION%
-8.6.12-2
+8.6.13-1
 
 %BASE%
 mingw-w64-tk
@@ -17,16 +17,16 @@ https://tcl.sourceforge.io/
 any
 
 %BUILDDATE%
-1687420220
+1712172998
 
 %INSTALLDATE%
-1687491058
+1712287052
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/79096b75/5342495195)
+CI (msys2-arm/msys2-autobuild/3e617554/8544496966)
 
 %SIZE%
-5285407
+5387878
 
 %REASON%
 1
@@ -35,8 +35,9 @@ CI (msys2-arm/msys2-autobuild/79096b75/5342495195)
 custom
 
 %VALIDATION%
+sha256
 pgp
 
 %DEPENDS%
-mingw-w64-clang-aarch64-tcl>=8.6.12
+mingw-w64-clang-aarch64-tcl>=8.6.13
 
