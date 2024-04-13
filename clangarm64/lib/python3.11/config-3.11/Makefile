@@ -29,9 +29,9 @@ MODLIBS=           $(LOCALMODLIBS) $(BASEMODLIBS)
 
 # === Variables set by configure
 VERSION=	3.11
-srcdir=		../Python-3.11.8
-VPATH=		../Python-3.11.8
-abs_srcdir=	/c/M/B/src/build-CLANGARM64/../Python-3.11.8
+srcdir=		../Python-3.11.9
+VPATH=		../Python-3.11.9
+abs_srcdir=	/c/M/B/src/build-CLANGARM64/../Python-3.11.9
 abs_builddir=	/c/M/B/src/build-CLANGARM64
 
 
@@ -96,7 +96,7 @@ CONFIGURE_LDFLAGS_NODIST=
 # of _bootstrap_python and _freeze_module tools, which don't need LTO.
 CONFIGURE_LDFLAGS_NOLTO=
 CONFIGURE_CPPFLAGS=	-I$(srcdir)/PC -D__USE_MINGW_ANSI_STDIO=1 -I.
-CONFIGURE_LDFLAGS=	-pipe
+CONFIGURE_LDFLAGS=	
 # Avoid assigning CFLAGS, LDFLAGS, etc. so users can use them on the
 # command line to append to these values without stomping the pre-set
 # values.
@@ -125,7 +125,7 @@ PY_CORE_CFLAGS=	$(PY_STDMODULE_CFLAGS) -DPy_BUILD_CORE
 PY_CORE_LDFLAGS=$(PY_LDFLAGS) $(PY_LDFLAGS_NODIST)
 # Strict or non-strict aliasing flags used to compile dtoa.c, see above
 CFLAGS_ALIASING=-fno-strict-aliasing
-RCFLAGS= -DFIELD3=8150 -O COFF
+RCFLAGS= -DFIELD3=9150 -O COFF
 
 
 # Machine-dependent subdirectories
@@ -145,8 +145,8 @@ exec_prefix=	${prefix}
 datarootdir=    ${prefix}/share
 
 # Locations needed for semi-native fixup of sysconfig.
-srcdir_b2h=		C:/M/B/src/Python-3.11.8
-abs_srcdir_b2h=		C:/M/B/src/Python-3.11.8
+srcdir_b2h=		C:/M/B/src/Python-3.11.9
+abs_srcdir_b2h=		C:/M/B/src/Python-3.11.9
 abs_builddir_b2h=	C:/M/B/src/build-CLANGARM64
 prefix_b2h=		C:/msys64/clangarm64
 
@@ -367,7 +367,7 @@ EXEMODE=	755
 FILEMODE=	644
 
 # configure script arguments
-CONFIG_ARGS=	 '--prefix=/clangarm64' '--host=aarch64-w64-mingw32' '--build=aarch64-w64-mingw32' '--enable-shared' '--with-system-expat' '--with-system-ffi' '--with-system-libmpdec' '--without-ensurepip' '--enable-loadable-sqlite-extensions' '--with-tzpath=/clangarm64/share/zoneinfo' '--enable-optimizations' 'build_alias=aarch64-w64-mingw32' 'host_alias=aarch64-w64-mingw32' 'PKG_CONFIG_PATH=/clangarm64/lib/pkgconfig:/clangarm64/share/pkgconfig' 'CC=clang' 'CFLAGS=-O2 -pipe -Wp,-D_FORTIFY_SOURCE=2 -fstack-protector-strong -O3' 'LDFLAGS=-pipe' 'CPPFLAGS=-D__USE_MINGW_ANSI_STDIO=1'
+CONFIG_ARGS=	 '--prefix=/clangarm64' '--host=aarch64-w64-mingw32' '--build=aarch64-w64-mingw32' '--enable-shared' '--with-system-expat' '--with-system-ffi' '--with-system-libmpdec' '--without-ensurepip' '--enable-loadable-sqlite-extensions' '--with-tzpath=/clangarm64/share/zoneinfo' '--enable-optimizations' 'build_alias=aarch64-w64-mingw32' 'host_alias=aarch64-w64-mingw32' 'PKG_CONFIG_PATH=/clangarm64/lib/pkgconfig:/clangarm64/share/pkgconfig' 'CC=clang' 'CFLAGS=-O2 -pipe -Wp,-D_FORTIFY_SOURCE=2 -fstack-protector-strong -O3' 'LDFLAGS=' 'CPPFLAGS=-D__USE_MINGW_ANSI_STDIO=1'
 
 
 # Subdirectories with code
@@ -2222,6 +2222,7 @@ TESTSUBDIRS=	ctypes/test \
 		test/test_json \
 		test/test_module \
 		test/test_peg_generator \
+		test/test_pydoc \
 		test/test_sqlite3 \
 		test/test_tomllib \
 		test/test_tomllib/data \
@@ -2256,7 +2257,11 @@ TESTSUBDIRS=	ctypes/test \
 		tkinter/test/test_tkinter \
 		tkinter/test/test_ttk \
 		unittest/test \
-		unittest/test/testmock
+		unittest/test/testmock \
+		test/test_concurrent_futures \
+		test/test_multiprocessing_fork \
+		test/test_multiprocessing_forkserver \
+		test/test_multiprocessing_spawn
 
 TEST_MODULES=yes
 libinstall:	all $(srcdir)/Modules/xxmodule.c
