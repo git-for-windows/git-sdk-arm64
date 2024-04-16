@@ -2,7 +2,7 @@
 libassuan
 
 %VERSION%
-2.5.6-1
+2.5.7-1
 
 %BASE%
 libassuan
@@ -17,16 +17,16 @@ https://gnupg.org/related_software/libassuan
 x86_64
 
 %BUILDDATE%
-1687251904
+1713165517
 
 %INSTALLDATE%
-1687491047
+1713237427
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/79096b75/5320598960)
+CI (msys2/msys2-autobuild/8d08599c/8684990783)
 
 %SIZE%
-149057
+149083
 
 %REASON%
 1
