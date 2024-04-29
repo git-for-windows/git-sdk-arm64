@@ -2,7 +2,7 @@
 unrar
 
 %VERSION%
-7.0.7-1
+7.0.8-1
 
 %BASE%
 unrar
@@ -17,13 +17,13 @@ https://www.rarlab.com/rar_add.htm
 x86_64
 
 %BUILDDATE%
-1709189111
+1714230149
 
 %INSTALLDATE%
-1709349246
+1714360592
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/d4515ba2/8092081453)
+CI (msys2/msys2-autobuild/9c7e8d31/8860657873)
 
 %SIZE%
 354938

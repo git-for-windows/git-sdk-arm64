@@ -1491,6 +1491,7 @@ clangarm64/include/tcguid.h
 clangarm64/include/tchar.h
 clangarm64/include/tcpestats.h
 clangarm64/include/tcpmib.h
+clangarm64/include/tcpxcv.h
 clangarm64/include/tdh.h
 clangarm64/include/tdi.h
 clangarm64/include/tdiinfo.h
