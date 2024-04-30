@@ -26,7 +26,7 @@ jobs:
           persist-credentials: true
           token: ${{ secrets.PUSH_TOKEN }}
       - name: Update all Pacman packages
-        shell: pwsh
+        shell: powershell
         run: |
           & .\update-via-pacman.ps1
       - name: use git-sdk-arm64's Bash and Git for Windows' git.exe
