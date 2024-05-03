@@ -25,6 +25,10 @@ jobs:
         with:
           persist-credentials: true
           token: ${{ secrets.PUSH_TOKEN }}
+      - name: Work around Pacman hangs
+        shell: pwsh
+        run: |
+          Start-Process powershell -ArgumentList "-File .\work-around-hanging-pacman.ps1" -NoNewWindow
       - name: Update all Pacman packages
         shell: pwsh
         run: |
