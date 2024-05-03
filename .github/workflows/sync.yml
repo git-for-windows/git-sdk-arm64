@@ -1,8 +1,7 @@
 name: sync
 
 on:
-  schedule:
-    - cron: "57 2 * * *"
+  push:
   workflow_dispatch:
     inputs:
       debug_with_ssh_key:
