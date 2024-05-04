@@ -50,7 +50,8 @@ jobs:
             unzip -q -d "$name" /tmp/"$name".zip ||
             return 1
           done &&
-          tar -xvf "$PWD"/MSYS-packages/pacman-*.pkg.tar* usr/bin/pacman.exe
+          tar -xvf "$PWD"/MSYS-packages/pacman-*.pkg.tar* usr/bin/pacman.exe &&
+          sed -i 's/^\(# *\)\?\(IgnorePkg *=.*\)/\1 pacman/' etc/pacman.conf
       - name: Update all Pacman packages
         shell: pwsh
         run: |
