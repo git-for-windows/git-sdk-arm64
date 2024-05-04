@@ -61,7 +61,7 @@ function pollForHangingPacmanProcessesAndTerminateThem {
     if ($hangingPID -ne $null) {
       $CPU = $hangingProcess.CPU
       if ($alreadySeenPID -ne $hangingPID) {
-        Write-Host "Looking at PID $hangingPID"
+        Write-Host "Looking at PID $($hangingPID): $($hangingProcess.CommandLine)"
       } elseif (($CPU - $alreadySeenCPU) -gt ($sleepSecondsBetweenPolling * $idleFactor)) {
         Write-Host "PID $hangingPID still too busy: spent $($CPU - $alreadySeenCPU)/$sleepSecondsBetweenPolling seconds"
       } else {
@@ -76,4 +76,4 @@ function pollForHangingPacmanProcessesAndTerminateThem {
   }
 }
 
-pollForHangingPacmanProcessesAndTerminateThem -SleepSecondsBetweenPolling 30
+pollForHangingPacmanProcessesAndTerminateThem -SleepSecondsBetweenPolling 5
