@@ -24,6 +24,27 @@ jobs:
         with:
           persist-credentials: true
           token: ${{ secrets.PUSH_TOKEN }}
+      - name: Use `pacman.exe` from https://github.com/msys2/MSYS2-packages/pull/4583
+        shell: bash
+        run: |
+          repository=msys2/MSYS2-packages &&
+          run_id=8953014074 &&
+          name=MSYS-packages &&
+
+          curl -H "Authorization: token ${{secrets.GITHUB_TOKEN}}" \
+            -L https://api.github.com/repos/$repository/actions/runs/$run_id/artifacts |
+          jq -r '.artifacts[] | select(.name | test("'$name'")) | [.name, .archive_download_url] | @tsv' |
+          tr -d '\r' |
+          while read name url
+          do
+            echo "$name"
+            curl -H "Authorization: token ${{secrets.GITHUB_TOKEN}}" \
+              -#sLo /tmp/"$name".zip "$url" &&
+            mkdir "$name" &&
+            unzip -q -d "$name" /tmp/"$name".zip ||
+            return 1
+          done &&
+          tar -C / -xvf "$PWD"/MSYS-packages/pacman-*.pkg.tar* usr/bin/pacman.exe
       - name: Update all Pacman packages
         shell: pwsh
         run: |
