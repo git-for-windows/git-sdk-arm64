@@ -31,13 +31,16 @@ jobs:
           run_id=8953014074 &&
           name=MSYS-packages &&
 
-          # Yeah, yeah, I know, it does not belong in `/usr/`, but this is just for testing, okay?
-          curl -Lo /usr/bin/jq.exe https://github.com/jqlang/jq/releases/download/jq-1.7.1/jq-windows-amd64.exe &&
-
           curl -H "Authorization: token ${{secrets.GITHUB_TOKEN}}" \
             -L https://api.github.com/repos/$repository/actions/runs/$run_id/artifacts |
-          jq -r '.artifacts[] | select(.name | test("'$name'")) | [.name, .archive_download_url] | @tsv' |
-          tr -d '\r' |
+          sed -n '
+            /^    {/{s/.*//;x}
+            /^      "name":/H
+            /^      "archive_download_url":/H
+            /^    }/{
+              s/.*//;x
+              s/.*"name": "\([^"]*\).*": "\([^"]*\).*/\1 \2/p
+            }' |
           while read name url
           do
             echo "$name"
@@ -47,7 +50,7 @@ jobs:
             unzip -q -d "$name" /tmp/"$name".zip ||
             return 1
           done &&
-          tar -C / -xvf "$PWD"/MSYS-packages/pacman-*.pkg.tar* usr/bin/pacman.exe
+          tar -xvf "$PWD"/MSYS-packages/pacman-*.pkg.tar* usr/bin/pacman.exe
       - name: Update all Pacman packages
         shell: pwsh
         run: |
