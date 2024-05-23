@@ -1,8 +1,8 @@
 %NAME%
-mingw-w64-clang-aarch64-curl-openssl-alternate
+mingw-w64-clang-aarch64-curl-winssl
 
 %VERSION%
-8.6.0-1
+8.8.0-1
 
 %BASE%
 mingw-w64-curl
@@ -17,25 +17,26 @@ https://curl.se/
 any
 
 %BUILDDATE%
-1706701389
+1716416232
 
 %INSTALLDATE%
-1706757364
+1716433613
 
 %PACKAGER%
 Johannes Schindelin <johannes.schindelin@gmx.de>
 
 %SIZE%
-727040
+1847828
+
+%REASON%
+1
 
 %LICENSE%
 spdx:MIT
 
 %VALIDATION%
+sha256
 pgp
-
-%REPLACES%
-mingw-w64-clang-aarch64-curl
 
 %DEPENDS%
 mingw-w64-clang-aarch64-gcc-libs
@@ -45,9 +46,15 @@ mingw-w64-clang-aarch64-libidn2
 mingw-w64-clang-aarch64-libpsl
 mingw-w64-clang-aarch64-zlib
 mingw-w64-clang-aarch64-zstd
-mingw-w64-clang-aarch64-ca-certificates
-mingw-w64-clang-aarch64-libssh2
-mingw-w64-clang-aarch64-openssl
-mingw-w64-clang-aarch64-nghttp2
-mingw-w64-clang-aarch64-curl-winssl
+mingw-w64-clang-aarch64-libssh2-wincng
+
+%CONFLICTS%
+mingw-w64-clang-aarch64-curl
+mingw-w64-clang-aarch64-curl-gnutls
+
+%PROVIDES%
+mingw-w64-clang-aarch64-curl
+
+%XDATA%
+pkgtype=split
 
