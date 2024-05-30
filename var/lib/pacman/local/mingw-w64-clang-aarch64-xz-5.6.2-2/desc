@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-xz
 
 %VERSION%
-5.6.1-2
+5.6.2-2
 
 %BASE%
 mingw-w64-xz
@@ -17,16 +17,16 @@ https://tukaani.org/xz
 any
 
 %BUILDDATE%
-1711742450
+1717015985
 
 %INSTALLDATE%
-1711768708
+1717038644
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/3e617554/8485001157)
+CI (msys2-arm/msys2-autobuild/59bb7f6f/9292800515)
 
 %SIZE%
-3687877
+3897226
 
 %REASON%
 1
@@ -40,4 +40,7 @@ pgp
 
 %DEPENDS%
 mingw-w64-clang-aarch64-gettext-runtime
+
+%XDATA%
+pkgtype=pkg
 
