@@ -2,7 +2,7 @@
 xz
 
 %VERSION%
-5.6.1-2
+5.6.2-1
 
 %BASE%
 xz
@@ -17,16 +17,16 @@ https://tukaani.org/xz/
 x86_64
 
 %BUILDDATE%
-1711743597
+1717025217
 
 %INSTALLDATE%
-1711768708
+1717124970
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/3e617554/8485170386)
+CI (msys2/msys2-autobuild/59bb7f6f/9294368313)
 
 %SIZE%
-3659418
+3840869
 
 %REASON%
 1
@@ -46,4 +46,7 @@ pgp
 liblzma
 libiconv
 libintl
+
+%XDATA%
+pkgtype=split
 
