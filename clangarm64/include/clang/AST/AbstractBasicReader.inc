@@ -3,6 +3,7 @@
 |* Helper classes for BasicReaders                                            *|
 |*                                                                            *|
 |* Automatically generated file, do not edit!                                 *|
+|* From: PropertiesBase.td                                                    *|
 |*                                                                            *|
 \*===----------------------------------------------------------------------===*/
 
@@ -37,9 +38,9 @@ struct ReadDispatcher<APValue::ValueKind> {
   }
 };
 template <>
-struct ReadDispatcher<ArrayType::ArraySizeModifier> {
+struct ReadDispatcher<ArraySizeModifier> {
   template <class BasicReader, class... Args>
-  static ArrayType::ArraySizeModifier read(BasicReader &R, Args &&... args) {
+  static ArraySizeModifier read(BasicReader &R, Args &&... args) {
     return R.readArraySizeModifier(std::forward<Args>(args)...);
   }
 };
@@ -380,9 +381,9 @@ struct ReadDispatcher<ValueDecl*> {
   }
 };
 template <>
-struct ReadDispatcher<VectorType::VectorKind> {
+struct ReadDispatcher<VectorKind> {
   template <class BasicReader, class... Args>
-  static VectorType::VectorKind read(BasicReader &R, Args &&... args) {
+  static VectorKind read(BasicReader &R, Args &&... args) {
     return R.readVectorKind(std::forward<Args>(args)...);
   }
 };
@@ -758,8 +759,8 @@ public:
   APValue::ValueKind readAPValueKind() {
     return asImpl().template readEnum<APValue::ValueKind>();
   }
-  ArrayType::ArraySizeModifier readArraySizeModifier() {
-    return asImpl().template readEnum<ArrayType::ArraySizeModifier>();
+  ArraySizeModifier readArraySizeModifier() {
+    return asImpl().template readEnum<ArraySizeModifier>();
   }
   attr::Kind readAttrKind() {
     return asImpl().template readEnum<attr::Kind>();
@@ -950,6 +951,15 @@ public:
   
     }
 
+    case TemplateArgument::StructuralValue: {
+    APValue value = subR.find("value").readAPValue();
+    QualType type = subR.find("type").readQualType();
+    bool isDefaulted = subR.find("isDefaulted").readBool();
+    
+    return TemplateArgument(ctx, type, value, isDefaulted);
+  
+    }
+
     case TemplateArgument::Template: {
     TemplateName name = subR.find("name").readTemplateName();
     bool isDefaulted = subR.find("isDefaulted").readBool();
@@ -1110,8 +1120,8 @@ public:
   ValueDecl* readValueDeclRef() {
     return cast_or_null<ValueDecl>(asImpl().readDeclRef());
   }
-  VectorType::VectorKind readVectorKind() {
-    return asImpl().template readEnum<VectorType::VectorKind>();
+  VectorKind readVectorKind() {
+    return asImpl().template readEnum<VectorKind>();
   }
 };
 

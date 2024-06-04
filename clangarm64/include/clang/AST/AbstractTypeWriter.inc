@@ -3,6 +3,7 @@
 |* A CRTP writer for Clang Type nodes                                         *|
 |*                                                                            *|
 |* Automatically generated file, do not edit!                                 *|
+|* From: TypeProperties.td                                                    *|
 |*                                                                            *|
 \*===----------------------------------------------------------------------===*/
 
@@ -146,7 +147,7 @@ public:
     W.find("size").writeExprRef(size);
     QualType elementType = ( node->getElementType() );
     W.find("elementType").writeQualType(elementType);
-    ArrayType::ArraySizeModifier sizeModifier = ( node->getSizeModifier() );
+    ArraySizeModifier sizeModifier = ( node->getSizeModifier() );
     W.find("sizeModifier").writeArraySizeModifier(sizeModifier);
     Qualifiers indexQualifiers = ( Qualifiers::fromCVRMask(node->getIndexTypeCVRQualifiers()) );
     W.find("indexQualifiers").writeQualifiers(indexQualifiers);
@@ -161,7 +162,7 @@ public:
     W.find("rightBracketLoc").writeSourceLocation(rightBracketLoc);
     QualType elementType = ( node->getElementType() );
     W.find("elementType").writeQualType(elementType);
-    ArrayType::ArraySizeModifier sizeModifier = ( node->getSizeModifier() );
+    ArraySizeModifier sizeModifier = ( node->getSizeModifier() );
     W.find("sizeModifier").writeArraySizeModifier(sizeModifier);
     Qualifiers indexQualifiers = ( Qualifiers::fromCVRMask(node->getIndexTypeCVRQualifiers()) );
     W.find("indexQualifiers").writeQualifiers(indexQualifiers);
@@ -170,7 +171,7 @@ public:
   void writeIncompleteArrayType(const IncompleteArrayType *node) {
     QualType elementType = ( node->getElementType() );
     W.find("elementType").writeQualType(elementType);
-    ArrayType::ArraySizeModifier sizeModifier = ( node->getSizeModifier() );
+    ArraySizeModifier sizeModifier = ( node->getSizeModifier() );
     W.find("sizeModifier").writeArraySizeModifier(sizeModifier);
     Qualifiers indexQualifiers = ( Qualifiers::fromCVRMask(node->getIndexTypeCVRQualifiers()) );
     W.find("indexQualifiers").writeQualifiers(indexQualifiers);
@@ -185,7 +186,7 @@ public:
     W.find("size").writeExprRef(size);
     QualType elementType = ( node->getElementType() );
     W.find("elementType").writeQualType(elementType);
-    ArrayType::ArraySizeModifier sizeModifier = ( node->getSizeModifier() );
+    ArraySizeModifier sizeModifier = ( node->getSizeModifier() );
     W.find("sizeModifier").writeArraySizeModifier(sizeModifier);
     Qualifiers indexQualifiers = ( Qualifiers::fromCVRMask(node->getIndexTypeCVRQualifiers()) );
     W.find("indexQualifiers").writeQualifiers(indexQualifiers);
@@ -325,7 +326,7 @@ public:
     W.find("size").writeExprRef(size);
     SourceLocation attributeLoc = ( node->getAttributeLoc() );
     W.find("attributeLoc").writeSourceLocation(attributeLoc);
-    VectorType::VectorKind vectorKind = ( node->getVectorKind() );
+    VectorKind vectorKind = ( node->getVectorKind() );
     W.find("vectorKind").writeVectorKind(vectorKind);
   }
 
@@ -379,6 +380,8 @@ public:
                     ? node->getExtParameterInfos()
                     : llvm::ArrayRef<FunctionProtoType::ExtParameterInfo>() );
     W.find("extParameterInfo").writeArray(extParameterInfo);
+    uint32_t AArch64SMEAttributes = ( node->getAArch64SMEAttributes() );
+    W.find("AArch64SMEAttributes").writeUInt32(AArch64SMEAttributes);
     QualType returnType = ( node->getReturnType() );
     W.find("returnType").writeQualType(returnType);
     bool noReturn = ( node->getExtInfo().getNoReturn() );
@@ -616,7 +619,7 @@ public:
     W.find("elementType").writeQualType(elementType);
     uint32_t numElements = ( node->getNumElements() );
     W.find("numElements").writeUInt32(numElements);
-    VectorType::VectorKind vectorKind = ( node->getVectorKind() );
+    VectorKind vectorKind = ( node->getVectorKind() );
     W.find("vectorKind").writeVectorKind(vectorKind);
   }
 

@@ -3,6 +3,7 @@
 |* Attribute text node traverser                                              *|
 |*                                                                            *|
 |* Automatically generated file, do not edit!                                 *|
+|* From: Attr.td                                                              *|
 |*                                                                            *|
 \*===----------------------------------------------------------------------===*/
 
@@ -78,6 +79,11 @@
     const auto *SA = cast<CUDALaunchBoundsAttr>(A); (void)SA;
     Visit(SA->getMaxThreads());
     Visit(SA->getMinBlocks());
+    Visit(SA->getMaxBlocks());
+  }
+  void VisitCodeAlignAttr(const CodeAlignAttr *A) {
+    const auto *SA = cast<CodeAlignAttr>(A); (void)SA;
+    Visit(SA->getAlignment());
   }
   void VisitDiagnoseIfAttr(const DiagnoseIfAttr *A) {
     const auto *SA = cast<DiagnoseIfAttr>(A); (void)SA;
@@ -164,6 +170,10 @@
     Visit(SA->getSuccessValue());
     for (SharedTrylockFunctionAttr::args_iterator I = SA->args_begin(), E = SA->args_end(); I != E; ++I)
       Visit(*I);
+  }
+  void VisitSwiftVersionedAdditionAttr(const SwiftVersionedAdditionAttr *A) {
+    const auto *SA = cast<SwiftVersionedAdditionAttr>(A); (void)SA;
+    Visit(SA->getAdditionalAttr());
   }
   void VisitTryAcquireCapabilityAttr(const TryAcquireCapabilityAttr *A) {
     const auto *SA = cast<TryAcquireCapabilityAttr>(A); (void)SA;

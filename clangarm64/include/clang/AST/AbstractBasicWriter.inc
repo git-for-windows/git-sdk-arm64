@@ -3,6 +3,7 @@
 |* Helper classes for BasicWriters                                            *|
 |*                                                                            *|
 |* Automatically generated file, do not edit!                                 *|
+|* From: PropertiesBase.td                                                    *|
 |*                                                                            *|
 \*===----------------------------------------------------------------------===*/
 
@@ -37,7 +38,7 @@ struct WriteDispatcher<APValue::ValueKind> {
   }
 };
 template <>
-struct WriteDispatcher<ArrayType::ArraySizeModifier> {
+struct WriteDispatcher<ArraySizeModifier> {
   template <class BasicWriter, class... Args>
   static void write(BasicWriter &W, Args &&... args) {
     return W.writeArraySizeModifier(std::forward<Args>(args)...);
@@ -506,7 +507,7 @@ struct WriteDispatcher<const ValueDecl*> {
   }
 };
 template <>
-struct WriteDispatcher<VectorType::VectorKind> {
+struct WriteDispatcher<VectorKind> {
   template <class BasicWriter, class... Args>
   static void write(BasicWriter &W, Args &&... args) {
     return W.writeVectorKind(std::forward<Args>(args)...);
@@ -1000,7 +1001,7 @@ public:
   void writeAPValueKind(APValue::ValueKind value) {
     asImpl().writeEnum(value);
   }
-  void writeArraySizeModifier(ArrayType::ArraySizeModifier value) {
+  void writeArraySizeModifier(ArraySizeModifier value) {
     asImpl().writeEnum(value);
   }
   void writeAttrKind(attr::Kind value) {
@@ -1177,6 +1178,16 @@ public:
     return;
     }
 
+    case TemplateArgument::StructuralValue: {
+    APValue value = ( node.getAsStructuralValue() );
+    subW.find("value").writeAPValue(value);
+    QualType type = ( node.getStructuralValueType() );
+    subW.find("type").writeQualType(type);
+    bool isDefaulted = ( node.getIsDefaulted() );
+    subW.find("isDefaulted").writeBool(isDefaulted);
+    return;
+    }
+
     case TemplateArgument::Template: {
     TemplateName name = ( node.getAsTemplateOrTemplatePattern() );
     subW.find("name").writeTemplateName(name);
@@ -1336,7 +1347,7 @@ public:
   void writeValueDeclRef(const ValueDecl* value) {
     asImpl().writeDeclRef(value);
   }
-  void writeVectorKind(VectorType::VectorKind value) {
+  void writeVectorKind(VectorKind value) {
     asImpl().writeEnum(value);
   }
 };

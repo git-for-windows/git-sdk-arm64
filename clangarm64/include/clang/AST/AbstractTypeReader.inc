@@ -3,6 +3,7 @@
 |* A CRTP reader for Clang Type nodes                                         *|
 |*                                                                            *|
 |* Automatically generated file, do not edit!                                 *|
+|* From: TypeProperties.td                                                    *|
 |*                                                                            *|
 \*===----------------------------------------------------------------------===*/
 
@@ -145,7 +146,7 @@ public:
     llvm::APInt sizeValue = R.find("sizeValue").readAPInt();
     Expr* size = R.find("size").readExprRef();
     QualType elementType = R.find("elementType").readQualType();
-    ArrayType::ArraySizeModifier sizeModifier = R.find("sizeModifier").readArraySizeModifier();
+    ArraySizeModifier sizeModifier = R.find("sizeModifier").readArraySizeModifier();
     Qualifiers indexQualifiers = R.find("indexQualifiers").readQualifiers();
     
     return ctx.getConstantArrayType(elementType, sizeValue, size,
@@ -160,7 +161,7 @@ public:
     SourceLocation leftBracketLoc = R.find("leftBracketLoc").readSourceLocation();
     SourceLocation rightBracketLoc = R.find("rightBracketLoc").readSourceLocation();
     QualType elementType = R.find("elementType").readQualType();
-    ArrayType::ArraySizeModifier sizeModifier = R.find("sizeModifier").readArraySizeModifier();
+    ArraySizeModifier sizeModifier = R.find("sizeModifier").readArraySizeModifier();
     Qualifiers indexQualifiers = R.find("indexQualifiers").readQualifiers();
     
     return ctx.getDependentSizedArrayType(elementType, size, sizeModifier,
@@ -173,7 +174,7 @@ public:
   QualType readIncompleteArrayType() {
     auto &ctx = R.getASTContext();
     QualType elementType = R.find("elementType").readQualType();
-    ArrayType::ArraySizeModifier sizeModifier = R.find("sizeModifier").readArraySizeModifier();
+    ArraySizeModifier sizeModifier = R.find("sizeModifier").readArraySizeModifier();
     Qualifiers indexQualifiers = R.find("indexQualifiers").readQualifiers();
     
     return ctx.getIncompleteArrayType(elementType, sizeModifier,
@@ -187,7 +188,7 @@ public:
     SourceLocation rightBracketLoc = R.find("rightBracketLoc").readSourceLocation();
     Expr* size = R.find("size").readExprRef();
     QualType elementType = R.find("elementType").readQualType();
-    ArrayType::ArraySizeModifier sizeModifier = R.find("sizeModifier").readArraySizeModifier();
+    ArraySizeModifier sizeModifier = R.find("sizeModifier").readArraySizeModifier();
     Qualifiers indexQualifiers = R.find("indexQualifiers").readQualifiers();
     
     return ctx.getVariableArrayType(elementType, size, sizeModifier,
@@ -382,7 +383,7 @@ public:
     QualType elementType = R.find("elementType").readQualType();
     Expr* size = R.find("size").readExprRef();
     SourceLocation attributeLoc = R.find("attributeLoc").readSourceLocation();
-    VectorType::VectorKind vectorKind = R.find("vectorKind").readVectorKind();
+    VectorKind vectorKind = R.find("vectorKind").readVectorKind();
     
     return ctx.getDependentVectorType(elementType, size, attributeLoc,
                                       vectorKind);
@@ -433,6 +434,7 @@ public:
     llvm::ArrayRef<QualType> parameters = R.find("parameters").template readArray<QualType>(parameters_buffer_0);
     llvm::SmallVector<FunctionProtoType::ExtParameterInfo, 8> extParameterInfo_buffer_0;
     llvm::ArrayRef<FunctionProtoType::ExtParameterInfo> extParameterInfo = R.find("extParameterInfo").template readArray<FunctionProtoType::ExtParameterInfo>(extParameterInfo_buffer_0);
+    uint32_t AArch64SMEAttributes = R.find("AArch64SMEAttributes").readUInt32();
     QualType returnType = R.find("returnType").readQualType();
     bool noReturn = R.find("noReturn").readBool();
     bool hasRegParm = R.find("hasRegParm").readBool();
@@ -456,6 +458,7 @@ public:
     epi.ExceptionSpec = exceptionSpecifier;
     epi.ExtParameterInfos =
       extParameterInfo.empty() ? nullptr : extParameterInfo.data();
+    epi.AArch64SMEAttributes = AArch64SMEAttributes;
     return ctx.getFunctionType(returnType, parameters, epi);
   
   }
@@ -761,7 +764,7 @@ public:
     auto &ctx = R.getASTContext();
     QualType elementType = R.find("elementType").readQualType();
     uint32_t numElements = R.find("numElements").readUInt32();
-    VectorType::VectorKind vectorKind = R.find("vectorKind").readVectorKind();
+    VectorKind vectorKind = R.find("vectorKind").readVectorKind();
     
     return ctx.getVectorType(elementType, numElements, vectorKind);
   

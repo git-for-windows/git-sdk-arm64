@@ -11,6 +11,7 @@ LLVM_ENABLE_BITMASK_ENUMS_IN_NAMESPACE();
 
 enum class Directive {
   OMPD_allocate,
+  OMPD_allocators,
   OMPD_assumes,
   OMPD_atomic,
   OMPD_barrier,
@@ -114,14 +115,16 @@ enum class Directive {
   OMPD_loop,
   OMPD_masked,
   OMPD_parallel_loop,
+  OMPD_scope,
   OMPD_target_parallel_loop,
   OMPD_target_teams_loop,
   OMPD_teams_loop,
 };
 
-static constexpr std::size_t Directive_enumSize = 107;
+static constexpr std::size_t Directive_enumSize = 109;
 
 constexpr auto OMPD_allocate = llvm::omp::Directive::OMPD_allocate;
+constexpr auto OMPD_allocators = llvm::omp::Directive::OMPD_allocators;
 constexpr auto OMPD_assumes = llvm::omp::Directive::OMPD_assumes;
 constexpr auto OMPD_atomic = llvm::omp::Directive::OMPD_atomic;
 constexpr auto OMPD_barrier = llvm::omp::Directive::OMPD_barrier;
@@ -225,6 +228,7 @@ constexpr auto OMPD_interop = llvm::omp::Directive::OMPD_interop;
 constexpr auto OMPD_loop = llvm::omp::Directive::OMPD_loop;
 constexpr auto OMPD_masked = llvm::omp::Directive::OMPD_masked;
 constexpr auto OMPD_parallel_loop = llvm::omp::Directive::OMPD_parallel_loop;
+constexpr auto OMPD_scope = llvm::omp::Directive::OMPD_scope;
 constexpr auto OMPD_target_parallel_loop = llvm::omp::Directive::OMPD_target_parallel_loop;
 constexpr auto OMPD_target_teams_loop = llvm::omp::Directive::OMPD_target_teams_loop;
 constexpr auto OMPD_teams_loop = llvm::omp::Directive::OMPD_teams_loop;
@@ -259,7 +263,9 @@ enum class Clause {
   OMPC_dist_schedule,
   OMPC_doacross,
   OMPC_dynamic_allocators,
+  OMPC_enter,
   OMPC_exclusive,
+  OMPC_fail,
   OMPC_filter,
   OMPC_final,
   OMPC_firstprivate,
@@ -293,7 +299,9 @@ enum class Clause {
   OMPC_num_tasks,
   OMPC_num_teams,
   OMPC_num_threads,
+  OMPC_ompx_attribute,
   OMPC_ompx_dyn_cgroup_mem,
+  OMPC_ompx_bare,
   OMPC_order,
   OMPC_ordered,
   OMPC_partial,
@@ -332,7 +340,7 @@ enum class Clause {
   OMPC_write,
 };
 
-static constexpr std::size_t Clause_enumSize = 100;
+static constexpr std::size_t Clause_enumSize = 104;
 
 constexpr auto OMPC_acq_rel = llvm::omp::Clause::OMPC_acq_rel;
 constexpr auto OMPC_acquire = llvm::omp::Clause::OMPC_acquire;
@@ -363,7 +371,9 @@ constexpr auto OMPC_device_type = llvm::omp::Clause::OMPC_device_type;
 constexpr auto OMPC_dist_schedule = llvm::omp::Clause::OMPC_dist_schedule;
 constexpr auto OMPC_doacross = llvm::omp::Clause::OMPC_doacross;
 constexpr auto OMPC_dynamic_allocators = llvm::omp::Clause::OMPC_dynamic_allocators;
+constexpr auto OMPC_enter = llvm::omp::Clause::OMPC_enter;
 constexpr auto OMPC_exclusive = llvm::omp::Clause::OMPC_exclusive;
+constexpr auto OMPC_fail = llvm::omp::Clause::OMPC_fail;
 constexpr auto OMPC_filter = llvm::omp::Clause::OMPC_filter;
 constexpr auto OMPC_final = llvm::omp::Clause::OMPC_final;
 constexpr auto OMPC_firstprivate = llvm::omp::Clause::OMPC_firstprivate;
@@ -397,7 +407,9 @@ constexpr auto OMPC_novariants = llvm::omp::Clause::OMPC_novariants;
 constexpr auto OMPC_num_tasks = llvm::omp::Clause::OMPC_num_tasks;
 constexpr auto OMPC_num_teams = llvm::omp::Clause::OMPC_num_teams;
 constexpr auto OMPC_num_threads = llvm::omp::Clause::OMPC_num_threads;
+constexpr auto OMPC_ompx_attribute = llvm::omp::Clause::OMPC_ompx_attribute;
 constexpr auto OMPC_ompx_dyn_cgroup_mem = llvm::omp::Clause::OMPC_ompx_dyn_cgroup_mem;
+constexpr auto OMPC_ompx_bare = llvm::omp::Clause::OMPC_ompx_bare;
 constexpr auto OMPC_order = llvm::omp::Clause::OMPC_order;
 constexpr auto OMPC_ordered = llvm::omp::Clause::OMPC_ordered;
 constexpr auto OMPC_partial = llvm::omp::Clause::OMPC_partial;

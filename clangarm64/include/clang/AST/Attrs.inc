@@ -3,6 +3,7 @@
 |* Attribute classes' definitions                                             *|
 |*                                                                            *|
 |* Automatically generated file, do not edit!                                 *|
+|* From: Attr.td                                                              *|
 |*                                                                            *|
 \*===----------------------------------------------------------------------===*/
 
@@ -21,7 +22,7 @@ public:
   enum Spelling {
     GNU_aarch64_sve_pcs = 0,
     CXX11_clang_aarch64_sve_pcs = 1,
-    C2x_clang_aarch64_sve_pcs = 2,
+    C23_clang_aarch64_sve_pcs = 2,
   SpellingNotCalculated = 15
 
   };
@@ -50,7 +51,7 @@ public:
   enum Spelling {
     GNU_aarch64_vector_pcs = 0,
     CXX11_clang_aarch64_vector_pcs = 1,
-    C2x_clang_aarch64_vector_pcs = 2,
+    C23_clang_aarch64_vector_pcs = 2,
   SpellingNotCalculated = 15
 
   };
@@ -121,7 +122,7 @@ public:
   enum Spelling {
     GNU_amdgpu_kernel = 0,
     CXX11_clang_amdgpu_kernel = 1,
-    C2x_clang_amdgpu_kernel = 2,
+    C23_clang_amdgpu_kernel = 2,
   SpellingNotCalculated = 15
 
   };
@@ -271,26 +272,26 @@ public:
     Generic
   };
 private:
-  InterruptType interrupt;
+  ARMInterruptAttr::InterruptType interrupt;
 
 public:
   enum Spelling {
     GNU_interrupt = 0,
     CXX11_gnu_interrupt = 1,
-    C2x_gnu_interrupt = 2,
+    C23_gnu_interrupt = 2,
   SpellingNotCalculated = 15
 
   };
 
   // Factory methods
-  static ARMInterruptAttr *CreateImplicit(ASTContext &Ctx, InterruptType Interrupt, const AttributeCommonInfo &CommonInfo);
-  static ARMInterruptAttr *Create(ASTContext &Ctx, InterruptType Interrupt, const AttributeCommonInfo &CommonInfo);
-  static ARMInterruptAttr *CreateImplicit(ASTContext &Ctx, InterruptType Interrupt, SourceRange Range = {}, Spelling S = GNU_interrupt);
-  static ARMInterruptAttr *Create(ASTContext &Ctx, InterruptType Interrupt, SourceRange Range = {}, Spelling S = GNU_interrupt);
+  static ARMInterruptAttr *CreateImplicit(ASTContext &Ctx, ARMInterruptAttr::InterruptType Interrupt, const AttributeCommonInfo &CommonInfo);
+  static ARMInterruptAttr *Create(ASTContext &Ctx, ARMInterruptAttr::InterruptType Interrupt, const AttributeCommonInfo &CommonInfo);
+  static ARMInterruptAttr *CreateImplicit(ASTContext &Ctx, ARMInterruptAttr::InterruptType Interrupt, SourceRange Range = {}, Spelling S = GNU_interrupt);
+  static ARMInterruptAttr *Create(ASTContext &Ctx, ARMInterruptAttr::InterruptType Interrupt, SourceRange Range = {}, Spelling S = GNU_interrupt);
 
   // Constructors
   ARMInterruptAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , InterruptType Interrupt
+              , ARMInterruptAttr::InterruptType Interrupt
              );
   ARMInterruptAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
              );
@@ -299,12 +300,12 @@ public:
   void printPretty(raw_ostream &OS,
                    const PrintingPolicy &Policy) const;
   const char *getSpelling() const;
-  InterruptType getInterrupt() const {
+  ARMInterruptAttr::InterruptType getInterrupt() const {
     return interrupt;
   }
 
-  static bool ConvertStrToInterruptType(StringRef Val, InterruptType &Out);
-  static const char *ConvertInterruptTypeToStr(InterruptType Val);
+  static bool ConvertStrToInterruptType(StringRef Val, ARMInterruptAttr::InterruptType &Out);
+  static const char *ConvertInterruptTypeToStr(ARMInterruptAttr::InterruptType Val);
 
 
   static bool classof(const Attr *A) { return A->getKind() == attr::ARMInterrupt; }
@@ -315,7 +316,7 @@ public:
   enum Spelling {
     GNU_interrupt = 0,
     CXX11_gnu_interrupt = 1,
-    C2x_gnu_interrupt = 2,
+    C23_gnu_interrupt = 2,
   SpellingNotCalculated = 15
 
   };
@@ -344,7 +345,7 @@ public:
   enum Spelling {
     GNU_signal = 0,
     CXX11_gnu_signal = 1,
-    C2x_gnu_signal = 2,
+    C23_gnu_signal = 2,
   SpellingNotCalculated = 15
 
   };
@@ -466,7 +467,7 @@ public:
   enum Spelling {
     GNU_acquire_handle = 0,
     CXX11_clang_acquire_handle = 1,
-    C2x_clang_acquire_handle = 2,
+    C23_clang_acquire_handle = 2,
   SpellingNotCalculated = 15
 
   };
@@ -579,7 +580,7 @@ public:
   enum Spelling {
     GNU_address_space = 0,
     CXX11_clang_address_space = 1,
-    C2x_clang_address_space = 2,
+    C23_clang_address_space = 2,
   SpellingNotCalculated = 15
 
   };
@@ -616,7 +617,7 @@ public:
   enum Spelling {
     GNU_alias = 0,
     CXX11_gnu_alias = 1,
-    C2x_gnu_alias = 2,
+    C23_gnu_alias = 2,
   SpellingNotCalculated = 15
 
   };
@@ -737,7 +738,7 @@ public:
   enum Spelling {
     GNU_aligned = 0,
     CXX11_gnu_aligned = 1,
-    C2x_gnu_aligned = 2,
+    C23_gnu_aligned = 2,
     Declspec_align = 3,
     Keyword_alignas = 4,
     Keyword_Alignas = 5,
@@ -801,7 +802,7 @@ public:
   enum Spelling {
     GNU_alloc_align = 0,
     CXX11_gnu_alloc_align = 1,
-    C2x_gnu_alloc_align = 2,
+    C23_gnu_alloc_align = 2,
   SpellingNotCalculated = 15
 
   };
@@ -839,7 +840,7 @@ public:
   enum Spelling {
     GNU_alloc_size = 0,
     CXX11_gnu_alloc_size = 1,
-    C2x_gnu_alloc_size = 2,
+    C23_gnu_alloc_size = 2,
   SpellingNotCalculated = 15
 
   };
@@ -909,9 +910,9 @@ public:
   enum Spelling {
     GNU_always_inline = 0,
     CXX11_gnu_always_inline = 1,
-    C2x_gnu_always_inline = 2,
+    C23_gnu_always_inline = 2,
     CXX11_clang_always_inline = 3,
-    C2x_clang_always_inline = 4,
+    C23_clang_always_inline = 4,
     Keyword_forceinline = 5,
   SpellingNotCalculated = 15
 
@@ -974,7 +975,7 @@ public:
   enum Spelling {
     GNU_annotate = 0,
     CXX11_clang_annotate = 1,
-    C2x_clang_annotate = 2,
+    C23_clang_annotate = 2,
   SpellingNotCalculated = 15
 
   };
@@ -1061,7 +1062,7 @@ char *annotation;
 public:
   enum Spelling {
     CXX11_clang_annotate_type = 0,
-    C2x_clang_annotate_type = 1,
+    C23_clang_annotate_type = 1,
   SpellingNotCalculated = 15
 
   };
@@ -1131,7 +1132,7 @@ public:
   enum Spelling {
     GNU_interrupt = 0,
     CXX11_gnu_interrupt = 1,
-    C2x_gnu_interrupt = 2,
+    C23_gnu_interrupt = 2,
   SpellingNotCalculated = 15
 
   };
@@ -1160,7 +1161,7 @@ public:
   enum Spelling {
     GNU_no_caller_saved_registers = 0,
     CXX11_gnu_no_caller_saved_registers = 1,
-    C2x_gnu_no_caller_saved_registers = 2,
+    C23_gnu_no_caller_saved_registers = 2,
   SpellingNotCalculated = 15
 
   };
@@ -1189,7 +1190,7 @@ public:
   enum Spelling {
     GNU_nocf_check = 0,
     CXX11_gnu_nocf_check = 1,
-    C2x_gnu_nocf_check = 2,
+    C23_gnu_nocf_check = 2,
   SpellingNotCalculated = 15
 
   };
@@ -1218,7 +1219,7 @@ public:
   enum Spelling {
     GNU_objc_arc_weak_reference_unavailable = 0,
     CXX11_clang_objc_arc_weak_reference_unavailable = 1,
-    C2x_clang_objc_arc_weak_reference_unavailable = 2,
+    C23_clang_objc_arc_weak_reference_unavailable = 2,
   SpellingNotCalculated = 15
 
   };
@@ -1255,10 +1256,10 @@ public:
   enum Spelling {
     GNU_argument_with_type_tag = 0,
     CXX11_clang_argument_with_type_tag = 1,
-    C2x_clang_argument_with_type_tag = 2,
+    C23_clang_argument_with_type_tag = 2,
     GNU_pointer_with_type_tag = 3,
     CXX11_clang_pointer_with_type_tag = 4,
-    C2x_clang_pointer_with_type_tag = 5,
+    C23_clang_pointer_with_type_tag = 5,
   SpellingNotCalculated = 15
 
   };
@@ -1319,7 +1320,7 @@ public:
   enum Spelling {
     GNU_clang_arm_builtin_alias = 0,
     CXX11_clang_clang_arm_builtin_alias = 1,
-    C2x_clang_clang_arm_builtin_alias = 2,
+    C23_clang_clang_arm_builtin_alias = 2,
   SpellingNotCalculated = 15
 
   };
@@ -1348,12 +1349,101 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ArmBuiltinAlias; }
 };
 
+class ArmInAttr : public TypeAttr {
+  unsigned inArgs_Size;
+  StringRef *inArgs_;
+
+public:
+  // Factory methods
+  static ArmInAttr *CreateImplicit(ASTContext &Ctx, StringRef *InArgs, unsigned InArgsSize, const AttributeCommonInfo &CommonInfo);
+  static ArmInAttr *Create(ASTContext &Ctx, StringRef *InArgs, unsigned InArgsSize, const AttributeCommonInfo &CommonInfo);
+  static ArmInAttr *CreateImplicit(ASTContext &Ctx, StringRef *InArgs, unsigned InArgsSize, SourceRange Range = {});
+  static ArmInAttr *Create(ASTContext &Ctx, StringRef *InArgs, unsigned InArgsSize, SourceRange Range = {});
+
+  // Constructors
+  ArmInAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , StringRef *InArgs, unsigned InArgsSize
+             );
+  ArmInAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             );
+
+  ArmInAttr *clone(ASTContext &C) const;
+  void printPretty(raw_ostream &OS,
+                   const PrintingPolicy &Policy) const;
+  const char *getSpelling() const;
+  typedef StringRef* inArgs_iterator;
+  inArgs_iterator inArgs_begin() const { return inArgs_; }
+  inArgs_iterator inArgs_end() const { return inArgs_ + inArgs_Size; }
+  unsigned inArgs_size() const { return inArgs_Size; }
+  llvm::iterator_range<inArgs_iterator> inArgs() const { return llvm::make_range(inArgs_begin(), inArgs_end()); }
+
+
+
+
+  static bool classof(const Attr *A) { return A->getKind() == attr::ArmIn; }
+};
+
+class ArmInOutAttr : public TypeAttr {
+  unsigned inOutArgs_Size;
+  StringRef *inOutArgs_;
+
+public:
+  // Factory methods
+  static ArmInOutAttr *CreateImplicit(ASTContext &Ctx, StringRef *InOutArgs, unsigned InOutArgsSize, const AttributeCommonInfo &CommonInfo);
+  static ArmInOutAttr *Create(ASTContext &Ctx, StringRef *InOutArgs, unsigned InOutArgsSize, const AttributeCommonInfo &CommonInfo);
+  static ArmInOutAttr *CreateImplicit(ASTContext &Ctx, StringRef *InOutArgs, unsigned InOutArgsSize, SourceRange Range = {});
+  static ArmInOutAttr *Create(ASTContext &Ctx, StringRef *InOutArgs, unsigned InOutArgsSize, SourceRange Range = {});
+
+  // Constructors
+  ArmInOutAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , StringRef *InOutArgs, unsigned InOutArgsSize
+             );
+  ArmInOutAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             );
+
+  ArmInOutAttr *clone(ASTContext &C) const;
+  void printPretty(raw_ostream &OS,
+                   const PrintingPolicy &Policy) const;
+  const char *getSpelling() const;
+  typedef StringRef* inOutArgs_iterator;
+  inOutArgs_iterator inOutArgs_begin() const { return inOutArgs_; }
+  inOutArgs_iterator inOutArgs_end() const { return inOutArgs_ + inOutArgs_Size; }
+  unsigned inOutArgs_size() const { return inOutArgs_Size; }
+  llvm::iterator_range<inOutArgs_iterator> inOutArgs() const { return llvm::make_range(inOutArgs_begin(), inOutArgs_end()); }
+
+
+
+
+  static bool classof(const Attr *A) { return A->getKind() == attr::ArmInOut; }
+};
+
+class ArmLocallyStreamingAttr : public InheritableAttr {
+public:
+  // Factory methods
+  static ArmLocallyStreamingAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static ArmLocallyStreamingAttr *Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static ArmLocallyStreamingAttr *CreateImplicit(ASTContext &Ctx, SourceRange Range = {});
+  static ArmLocallyStreamingAttr *Create(ASTContext &Ctx, SourceRange Range = {});
+
+  // Constructors
+  ArmLocallyStreamingAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             );
+
+  ArmLocallyStreamingAttr *clone(ASTContext &C) const;
+  void printPretty(raw_ostream &OS,
+                   const PrintingPolicy &Policy) const;
+  const char *getSpelling() const;
+
+
+  static bool classof(const Attr *A) { return A->getKind() == attr::ArmLocallyStreaming; }
+};
+
 class ArmMveStrictPolymorphismAttr : public TypeAttr {
 public:
   enum Spelling {
     GNU_clang_arm_mve_strict_polymorphism = 0,
     CXX11_clang_clang_arm_mve_strict_polymorphism = 1,
-    C2x_clang_clang_arm_mve_strict_polymorphism = 2,
+    C23_clang_clang_arm_mve_strict_polymorphism = 2,
   SpellingNotCalculated = 15
 
   };
@@ -1377,6 +1467,115 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ArmMveStrictPolymorphism; }
 };
 
+class ArmNewAttr : public InheritableAttr {
+  unsigned newArgs_Size;
+  StringRef *newArgs_;
+
+public:
+  // Factory methods
+  static ArmNewAttr *CreateImplicit(ASTContext &Ctx, StringRef *NewArgs, unsigned NewArgsSize, const AttributeCommonInfo &CommonInfo);
+  static ArmNewAttr *Create(ASTContext &Ctx, StringRef *NewArgs, unsigned NewArgsSize, const AttributeCommonInfo &CommonInfo);
+  static ArmNewAttr *CreateImplicit(ASTContext &Ctx, StringRef *NewArgs, unsigned NewArgsSize, SourceRange Range = {});
+  static ArmNewAttr *Create(ASTContext &Ctx, StringRef *NewArgs, unsigned NewArgsSize, SourceRange Range = {});
+
+  // Constructors
+  ArmNewAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , StringRef *NewArgs, unsigned NewArgsSize
+             );
+  ArmNewAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             );
+
+  ArmNewAttr *clone(ASTContext &C) const;
+  void printPretty(raw_ostream &OS,
+                   const PrintingPolicy &Policy) const;
+  const char *getSpelling() const;
+  typedef StringRef* newArgs_iterator;
+  newArgs_iterator newArgs_begin() const { return newArgs_; }
+  newArgs_iterator newArgs_end() const { return newArgs_ + newArgs_Size; }
+  unsigned newArgs_size() const { return newArgs_Size; }
+  llvm::iterator_range<newArgs_iterator> newArgs() const { return llvm::make_range(newArgs_begin(), newArgs_end()); }
+
+
+
+    bool isNewZA() const {
+      return llvm::is_contained(newArgs(), "za");
+    }
+    bool isNewZT0() const {
+      return llvm::is_contained(newArgs(), "zt0");
+    }
+  
+
+  static bool classof(const Attr *A) { return A->getKind() == attr::ArmNew; }
+};
+
+class ArmOutAttr : public TypeAttr {
+  unsigned outArgs_Size;
+  StringRef *outArgs_;
+
+public:
+  // Factory methods
+  static ArmOutAttr *CreateImplicit(ASTContext &Ctx, StringRef *OutArgs, unsigned OutArgsSize, const AttributeCommonInfo &CommonInfo);
+  static ArmOutAttr *Create(ASTContext &Ctx, StringRef *OutArgs, unsigned OutArgsSize, const AttributeCommonInfo &CommonInfo);
+  static ArmOutAttr *CreateImplicit(ASTContext &Ctx, StringRef *OutArgs, unsigned OutArgsSize, SourceRange Range = {});
+  static ArmOutAttr *Create(ASTContext &Ctx, StringRef *OutArgs, unsigned OutArgsSize, SourceRange Range = {});
+
+  // Constructors
+  ArmOutAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , StringRef *OutArgs, unsigned OutArgsSize
+             );
+  ArmOutAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             );
+
+  ArmOutAttr *clone(ASTContext &C) const;
+  void printPretty(raw_ostream &OS,
+                   const PrintingPolicy &Policy) const;
+  const char *getSpelling() const;
+  typedef StringRef* outArgs_iterator;
+  outArgs_iterator outArgs_begin() const { return outArgs_; }
+  outArgs_iterator outArgs_end() const { return outArgs_ + outArgs_Size; }
+  unsigned outArgs_size() const { return outArgs_Size; }
+  llvm::iterator_range<outArgs_iterator> outArgs() const { return llvm::make_range(outArgs_begin(), outArgs_end()); }
+
+
+
+
+  static bool classof(const Attr *A) { return A->getKind() == attr::ArmOut; }
+};
+
+class ArmPreservesAttr : public TypeAttr {
+  unsigned preserveArgs_Size;
+  StringRef *preserveArgs_;
+
+public:
+  // Factory methods
+  static ArmPreservesAttr *CreateImplicit(ASTContext &Ctx, StringRef *PreserveArgs, unsigned PreserveArgsSize, const AttributeCommonInfo &CommonInfo);
+  static ArmPreservesAttr *Create(ASTContext &Ctx, StringRef *PreserveArgs, unsigned PreserveArgsSize, const AttributeCommonInfo &CommonInfo);
+  static ArmPreservesAttr *CreateImplicit(ASTContext &Ctx, StringRef *PreserveArgs, unsigned PreserveArgsSize, SourceRange Range = {});
+  static ArmPreservesAttr *Create(ASTContext &Ctx, StringRef *PreserveArgs, unsigned PreserveArgsSize, SourceRange Range = {});
+
+  // Constructors
+  ArmPreservesAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , StringRef *PreserveArgs, unsigned PreserveArgsSize
+             );
+  ArmPreservesAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             );
+
+  ArmPreservesAttr *clone(ASTContext &C) const;
+  void printPretty(raw_ostream &OS,
+                   const PrintingPolicy &Policy) const;
+  const char *getSpelling() const;
+  typedef StringRef* preserveArgs_iterator;
+  preserveArgs_iterator preserveArgs_begin() const { return preserveArgs_; }
+  preserveArgs_iterator preserveArgs_end() const { return preserveArgs_ + preserveArgs_Size; }
+  unsigned preserveArgs_size() const { return preserveArgs_Size; }
+  llvm::iterator_range<preserveArgs_iterator> preserveArgs() const { return llvm::make_range(preserveArgs_begin(), preserveArgs_end()); }
+
+
+
+
+  static bool classof(const Attr *A) { return A->getKind() == attr::ArmPreserves; }
+};
+
 class ArmStreamingAttr : public TypeAttr {
 public:
   // Factory methods
@@ -1398,12 +1597,33 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ArmStreaming; }
 };
 
+class ArmStreamingCompatibleAttr : public TypeAttr {
+public:
+  // Factory methods
+  static ArmStreamingCompatibleAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static ArmStreamingCompatibleAttr *Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static ArmStreamingCompatibleAttr *CreateImplicit(ASTContext &Ctx, SourceRange Range = {});
+  static ArmStreamingCompatibleAttr *Create(ASTContext &Ctx, SourceRange Range = {});
+
+  // Constructors
+  ArmStreamingCompatibleAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             );
+
+  ArmStreamingCompatibleAttr *clone(ASTContext &C) const;
+  void printPretty(raw_ostream &OS,
+                   const PrintingPolicy &Policy) const;
+  const char *getSpelling() const;
+
+
+  static bool classof(const Attr *A) { return A->getKind() == attr::ArmStreamingCompatible; }
+};
+
 class ArtificialAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_artificial = 0,
     CXX11_gnu_artificial = 1,
-    C2x_gnu_artificial = 2,
+    C23_gnu_artificial = 2,
   SpellingNotCalculated = 15
 
   };
@@ -1612,7 +1832,7 @@ public:
   enum Spelling {
     GNU_assume_aligned = 0,
     CXX11_gnu_assume_aligned = 1,
-    C2x_gnu_assume_aligned = 2,
+    C23_gnu_assume_aligned = 2,
   SpellingNotCalculated = 15
 
   };
@@ -1657,7 +1877,7 @@ public:
   enum Spelling {
     GNU_assume = 0,
     CXX11_clang_assume = 1,
-    C2x_clang_assume = 2,
+    C23_clang_assume = 2,
   SpellingNotCalculated = 15
 
   };
@@ -1723,7 +1943,7 @@ public:
   enum Spelling {
     GNU_availability = 0,
     CXX11_clang_availability = 1,
-    C2x_clang_availability = 2,
+    C23_clang_availability = 2,
   SpellingNotCalculated = 15
 
   };
@@ -1874,7 +2094,7 @@ public:
   enum Spelling {
     GNU_available_only_in_default_eval_method = 0,
     CXX11_clang_available_only_in_default_eval_method = 1,
-    C2x_clang_available_only_in_default_eval_method = 2,
+    C23_clang_available_only_in_default_eval_method = 2,
   SpellingNotCalculated = 15
 
   };
@@ -1903,7 +2123,7 @@ public:
   enum Spelling {
     GNU_preserve_access_index = 0,
     CXX11_clang_preserve_access_index = 1,
-    C2x_clang_preserve_access_index = 2,
+    C23_clang_preserve_access_index = 2,
   SpellingNotCalculated = 15
 
   };
@@ -1927,6 +2147,35 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::BPFPreserveAccessIndex; }
 };
 
+class BPFPreserveStaticOffsetAttr : public InheritableAttr {
+public:
+  enum Spelling {
+    GNU_preserve_static_offset = 0,
+    CXX11_clang_preserve_static_offset = 1,
+    C23_clang_preserve_static_offset = 2,
+  SpellingNotCalculated = 15
+
+  };
+
+  // Factory methods
+  static BPFPreserveStaticOffsetAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static BPFPreserveStaticOffsetAttr *Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static BPFPreserveStaticOffsetAttr *CreateImplicit(ASTContext &Ctx, SourceRange Range = {}, Spelling S = GNU_preserve_static_offset);
+  static BPFPreserveStaticOffsetAttr *Create(ASTContext &Ctx, SourceRange Range = {}, Spelling S = GNU_preserve_static_offset);
+
+  // Constructors
+  BPFPreserveStaticOffsetAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             );
+
+  BPFPreserveStaticOffsetAttr *clone(ASTContext &C) const;
+  void printPretty(raw_ostream &OS,
+                   const PrintingPolicy &Policy) const;
+  const char *getSpelling() const;
+
+
+  static bool classof(const Attr *A) { return A->getKind() == attr::BPFPreserveStaticOffset; }
+};
+
 class BTFDeclTagAttr : public InheritableAttr {
 unsigned bTFDeclTagLength;
 char *bTFDeclTag;
@@ -1935,7 +2184,7 @@ public:
   enum Spelling {
     GNU_btf_decl_tag = 0,
     CXX11_clang_btf_decl_tag = 1,
-    C2x_clang_btf_decl_tag = 2,
+    C23_clang_btf_decl_tag = 2,
   SpellingNotCalculated = 15
 
   };
@@ -1981,7 +2230,7 @@ public:
   enum Spelling {
     GNU_btf_type_tag = 0,
     CXX11_clang_btf_type_tag = 1,
-    C2x_clang_btf_type_tag = 2,
+    C23_clang_btf_type_tag = 2,
   SpellingNotCalculated = 15
 
   };
@@ -2025,38 +2274,38 @@ public:
     ByRef
   };
 private:
-  BlockType type;
+  BlocksAttr::BlockType type;
 
 public:
   enum Spelling {
     GNU_blocks = 0,
     CXX11_clang_blocks = 1,
-    C2x_clang_blocks = 2,
+    C23_clang_blocks = 2,
   SpellingNotCalculated = 15
 
   };
 
   // Factory methods
-  static BlocksAttr *CreateImplicit(ASTContext &Ctx, BlockType Type, const AttributeCommonInfo &CommonInfo);
-  static BlocksAttr *Create(ASTContext &Ctx, BlockType Type, const AttributeCommonInfo &CommonInfo);
-  static BlocksAttr *CreateImplicit(ASTContext &Ctx, BlockType Type, SourceRange Range = {}, Spelling S = GNU_blocks);
-  static BlocksAttr *Create(ASTContext &Ctx, BlockType Type, SourceRange Range = {}, Spelling S = GNU_blocks);
+  static BlocksAttr *CreateImplicit(ASTContext &Ctx, BlocksAttr::BlockType Type, const AttributeCommonInfo &CommonInfo);
+  static BlocksAttr *Create(ASTContext &Ctx, BlocksAttr::BlockType Type, const AttributeCommonInfo &CommonInfo);
+  static BlocksAttr *CreateImplicit(ASTContext &Ctx, BlocksAttr::BlockType Type, SourceRange Range = {}, Spelling S = GNU_blocks);
+  static BlocksAttr *Create(ASTContext &Ctx, BlocksAttr::BlockType Type, SourceRange Range = {}, Spelling S = GNU_blocks);
 
   // Constructors
   BlocksAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , BlockType Type
+              , BlocksAttr::BlockType Type
              );
 
   BlocksAttr *clone(ASTContext &C) const;
   void printPretty(raw_ostream &OS,
                    const PrintingPolicy &Policy) const;
   const char *getSpelling() const;
-  BlockType getType() const {
+  BlocksAttr::BlockType getType() const {
     return type;
   }
 
-  static bool ConvertStrToBlockType(StringRef Val, BlockType &Out);
-  static const char *ConvertBlockTypeToStr(BlockType Val);
+  static bool ConvertStrToBlockType(StringRef Val, BlocksAttr::BlockType &Out);
+  static const char *ConvertBlockTypeToStr(BlocksAttr::BlockType Val);
 
 
   static bool classof(const Attr *A) { return A->getKind() == attr::Blocks; }
@@ -2096,7 +2345,7 @@ IdentifierInfo * builtinName;
 public:
   enum Spelling {
     CXX11_clang_builtin_alias = 0,
-    C2x_clang_builtin_alias = 1,
+    C23_clang_builtin_alias = 1,
     GNU_clang_builtin_alias = 2,
   SpellingNotCalculated = 15
 
@@ -2153,7 +2402,7 @@ public:
   enum Spelling {
     GNU_cdecl = 0,
     CXX11_gnu_cdecl = 1,
-    C2x_gnu_cdecl = 2,
+    C23_gnu_cdecl = 2,
     Keyword_cdecl = 3,
   SpellingNotCalculated = 15
 
@@ -2183,7 +2432,7 @@ public:
   enum Spelling {
     GNU_cf_audited_transfer = 0,
     CXX11_clang_cf_audited_transfer = 1,
-    C2x_clang_cf_audited_transfer = 2,
+    C23_clang_cf_audited_transfer = 2,
   SpellingNotCalculated = 15
 
   };
@@ -2212,7 +2461,7 @@ public:
   enum Spelling {
     GNU_cf_consumed = 0,
     CXX11_clang_cf_consumed = 1,
-    C2x_clang_cf_consumed = 2,
+    C23_clang_cf_consumed = 2,
   SpellingNotCalculated = 15
 
   };
@@ -2242,39 +2491,39 @@ public:
     nocf
   };
 private:
-  GuardArg guard;
+  CFGuardAttr::GuardArg guard;
 
 public:
   enum Spelling {
     Declspec_guard = 0,
     GNU_guard = 1,
     CXX11_clang_guard = 2,
-    C2x_clang_guard = 3,
+    C23_clang_guard = 3,
   SpellingNotCalculated = 15
 
   };
 
   // Factory methods
-  static CFGuardAttr *CreateImplicit(ASTContext &Ctx, GuardArg Guard, const AttributeCommonInfo &CommonInfo);
-  static CFGuardAttr *Create(ASTContext &Ctx, GuardArg Guard, const AttributeCommonInfo &CommonInfo);
-  static CFGuardAttr *CreateImplicit(ASTContext &Ctx, GuardArg Guard, SourceRange Range = {}, Spelling S = Declspec_guard);
-  static CFGuardAttr *Create(ASTContext &Ctx, GuardArg Guard, SourceRange Range = {}, Spelling S = Declspec_guard);
+  static CFGuardAttr *CreateImplicit(ASTContext &Ctx, CFGuardAttr::GuardArg Guard, const AttributeCommonInfo &CommonInfo);
+  static CFGuardAttr *Create(ASTContext &Ctx, CFGuardAttr::GuardArg Guard, const AttributeCommonInfo &CommonInfo);
+  static CFGuardAttr *CreateImplicit(ASTContext &Ctx, CFGuardAttr::GuardArg Guard, SourceRange Range = {}, Spelling S = Declspec_guard);
+  static CFGuardAttr *Create(ASTContext &Ctx, CFGuardAttr::GuardArg Guard, SourceRange Range = {}, Spelling S = Declspec_guard);
 
   // Constructors
   CFGuardAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , GuardArg Guard
+              , CFGuardAttr::GuardArg Guard
              );
 
   CFGuardAttr *clone(ASTContext &C) const;
   void printPretty(raw_ostream &OS,
                    const PrintingPolicy &Policy) const;
   const char *getSpelling() const;
-  GuardArg getGuard() const {
+  CFGuardAttr::GuardArg getGuard() const {
     return guard;
   }
 
-  static bool ConvertStrToGuardArg(StringRef Val, GuardArg &Out);
-  static const char *ConvertGuardArgToStr(GuardArg Val);
+  static bool ConvertStrToGuardArg(StringRef Val, CFGuardAttr::GuardArg &Out);
+  static const char *ConvertGuardArgToStr(CFGuardAttr::GuardArg Val);
 
 
   static bool classof(const Attr *A) { return A->getKind() == attr::CFGuard; }
@@ -2285,7 +2534,7 @@ public:
   enum Spelling {
     GNU_cfi_canonical_jump_table = 0,
     CXX11_clang_cfi_canonical_jump_table = 1,
-    C2x_clang_cfi_canonical_jump_table = 2,
+    C23_clang_cfi_canonical_jump_table = 2,
   SpellingNotCalculated = 15
 
   };
@@ -2314,7 +2563,7 @@ public:
   enum Spelling {
     GNU_cf_returns_not_retained = 0,
     CXX11_clang_cf_returns_not_retained = 1,
-    C2x_clang_cf_returns_not_retained = 2,
+    C23_clang_cf_returns_not_retained = 2,
   SpellingNotCalculated = 15
 
   };
@@ -2343,7 +2592,7 @@ public:
   enum Spelling {
     GNU_cf_returns_retained = 0,
     CXX11_clang_cf_returns_retained = 1,
-    C2x_clang_cf_returns_retained = 2,
+    C23_clang_cf_returns_retained = 2,
   SpellingNotCalculated = 15
 
   };
@@ -2372,7 +2621,7 @@ public:
   enum Spelling {
     GNU_cf_unknown_transfer = 0,
     CXX11_clang_cf_unknown_transfer = 1,
-    C2x_clang_cf_unknown_transfer = 2,
+    C23_clang_cf_unknown_transfer = 2,
   SpellingNotCalculated = 15
 
   };
@@ -2404,7 +2653,7 @@ public:
   enum Spelling {
     GNU_cpu_dispatch = 0,
     CXX11_clang_cpu_dispatch = 1,
-    C2x_clang_cpu_dispatch = 2,
+    C23_clang_cpu_dispatch = 2,
     Declspec_cpu_dispatch = 3,
   SpellingNotCalculated = 15
 
@@ -2447,7 +2696,7 @@ public:
   enum Spelling {
     GNU_cpu_specific = 0,
     CXX11_clang_cpu_specific = 1,
-    C2x_clang_cpu_specific = 2,
+    C23_clang_cpu_specific = 2,
     Declspec_cpu_specific = 3,
   SpellingNotCalculated = 15
 
@@ -2680,6 +2929,8 @@ Expr * maxThreads;
 
 Expr * minBlocks;
 
+Expr * maxBlocks;
+
 public:
   enum Spelling {
     GNU_launch_bounds = 0,
@@ -2689,15 +2940,16 @@ public:
   };
 
   // Factory methods
-  static CUDALaunchBoundsAttr *CreateImplicit(ASTContext &Ctx, Expr * MaxThreads, Expr * MinBlocks, const AttributeCommonInfo &CommonInfo);
-  static CUDALaunchBoundsAttr *Create(ASTContext &Ctx, Expr * MaxThreads, Expr * MinBlocks, const AttributeCommonInfo &CommonInfo);
-  static CUDALaunchBoundsAttr *CreateImplicit(ASTContext &Ctx, Expr * MaxThreads, Expr * MinBlocks, SourceRange Range = {}, Spelling S = GNU_launch_bounds);
-  static CUDALaunchBoundsAttr *Create(ASTContext &Ctx, Expr * MaxThreads, Expr * MinBlocks, SourceRange Range = {}, Spelling S = GNU_launch_bounds);
+  static CUDALaunchBoundsAttr *CreateImplicit(ASTContext &Ctx, Expr * MaxThreads, Expr * MinBlocks, Expr * MaxBlocks, const AttributeCommonInfo &CommonInfo);
+  static CUDALaunchBoundsAttr *Create(ASTContext &Ctx, Expr * MaxThreads, Expr * MinBlocks, Expr * MaxBlocks, const AttributeCommonInfo &CommonInfo);
+  static CUDALaunchBoundsAttr *CreateImplicit(ASTContext &Ctx, Expr * MaxThreads, Expr * MinBlocks, Expr * MaxBlocks, SourceRange Range = {}, Spelling S = GNU_launch_bounds);
+  static CUDALaunchBoundsAttr *Create(ASTContext &Ctx, Expr * MaxThreads, Expr * MinBlocks, Expr * MaxBlocks, SourceRange Range = {}, Spelling S = GNU_launch_bounds);
 
   // Constructors
   CUDALaunchBoundsAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
               , Expr * MaxThreads
               , Expr * MinBlocks
+              , Expr * MaxBlocks
              );
   CUDALaunchBoundsAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
               , Expr * MaxThreads
@@ -2713,6 +2965,10 @@ public:
 
   Expr * getMinBlocks() const {
     return minBlocks;
+  }
+
+  Expr * getMaxBlocks() const {
+    return maxBlocks;
   }
 
 
@@ -2752,8 +3008,8 @@ class CXX11NoReturnAttr : public InheritableAttr {
 public:
   enum Spelling {
     CXX11_noreturn = 0,
-    C2x_noreturn = 1,
-    C2x_Noreturn = 2,
+    C23_noreturn = 1,
+    C23_Noreturn = 2,
   SpellingNotCalculated = 15
 
   };
@@ -2821,8 +3077,8 @@ public:
   llvm::iterator_range<callableStates_iterator> callableStates() const { return llvm::make_range(callableStates_begin(), callableStates_end()); }
 
 
-  static bool ConvertStrToConsumedState(StringRef Val, ConsumedState &Out);
-  static const char *ConvertConsumedStateToStr(ConsumedState Val);
+  static bool ConvertStrToConsumedState(StringRef Val, CallableWhenAttr::ConsumedState &Out);
+  static const char *ConvertConsumedStateToStr(CallableWhenAttr::ConsumedState Val);
 
 
   static bool classof(const Attr *A) { return A->getKind() == attr::CallableWhen; }
@@ -2836,7 +3092,7 @@ public:
   enum Spelling {
     GNU_callback = 0,
     CXX11_clang_callback = 1,
-    C2x_clang_callback = 2,
+    C23_clang_callback = 2,
   SpellingNotCalculated = 15
 
   };
@@ -2875,7 +3131,7 @@ public:
   enum Spelling {
     GNU_called_once = 0,
     CXX11_clang_called_once = 1,
-    C2x_clang_called_once = 2,
+    C23_clang_called_once = 2,
   SpellingNotCalculated = 15
 
   };
@@ -3005,7 +3261,7 @@ public:
   enum Spelling {
     GNU_cleanup = 0,
     CXX11_gnu_cleanup = 1,
-    C2x_gnu_cleanup = 2,
+    C23_gnu_cleanup = 2,
   SpellingNotCalculated = 15
 
   };
@@ -3076,6 +3332,84 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::CmseNSEntry; }
 };
 
+class CodeAlignAttr : public StmtAttr {
+Expr * alignment;
+
+public:
+  enum Spelling {
+    GNU_code_align = 0,
+    CXX11_clang_code_align = 1,
+    C23_clang_code_align = 2,
+  SpellingNotCalculated = 15
+
+  };
+
+  // Factory methods
+  static CodeAlignAttr *CreateImplicit(ASTContext &Ctx, Expr * Alignment, const AttributeCommonInfo &CommonInfo);
+  static CodeAlignAttr *Create(ASTContext &Ctx, Expr * Alignment, const AttributeCommonInfo &CommonInfo);
+  static CodeAlignAttr *CreateImplicit(ASTContext &Ctx, Expr * Alignment, SourceRange Range = {}, Spelling S = GNU_code_align);
+  static CodeAlignAttr *Create(ASTContext &Ctx, Expr * Alignment, SourceRange Range = {}, Spelling S = GNU_code_align);
+
+  // Constructors
+  CodeAlignAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , Expr * Alignment
+             );
+
+  CodeAlignAttr *clone(ASTContext &C) const;
+  void printPretty(raw_ostream &OS,
+                   const PrintingPolicy &Policy) const;
+  const char *getSpelling() const;
+  Expr * getAlignment() const {
+    return alignment;
+  }
+
+
+    static constexpr int MinimumAlignment = 1;
+    static constexpr int MaximumAlignment = 4096;
+  
+
+  static bool classof(const Attr *A) { return A->getKind() == attr::CodeAlign; }
+};
+
+class CodeModelAttr : public InheritableAttr {
+private:
+  llvm::CodeModel::Model model;
+
+public:
+  enum Spelling {
+    GNU_model = 0,
+    CXX11_gnu_model = 1,
+    C23_gnu_model = 2,
+  SpellingNotCalculated = 15
+
+  };
+
+  // Factory methods
+  static CodeModelAttr *CreateImplicit(ASTContext &Ctx, llvm::CodeModel::Model Model, const AttributeCommonInfo &CommonInfo);
+  static CodeModelAttr *Create(ASTContext &Ctx, llvm::CodeModel::Model Model, const AttributeCommonInfo &CommonInfo);
+  static CodeModelAttr *CreateImplicit(ASTContext &Ctx, llvm::CodeModel::Model Model, SourceRange Range = {}, Spelling S = GNU_model);
+  static CodeModelAttr *Create(ASTContext &Ctx, llvm::CodeModel::Model Model, SourceRange Range = {}, Spelling S = GNU_model);
+
+  // Constructors
+  CodeModelAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , llvm::CodeModel::Model Model
+             );
+
+  CodeModelAttr *clone(ASTContext &C) const;
+  void printPretty(raw_ostream &OS,
+                   const PrintingPolicy &Policy) const;
+  const char *getSpelling() const;
+  llvm::CodeModel::Model getModel() const {
+    return model;
+  }
+
+  static bool ConvertStrToModel(StringRef Val, llvm::CodeModel::Model &Out);
+  static const char *ConvertModelToStr(llvm::CodeModel::Model Val);
+
+
+  static bool classof(const Attr *A) { return A->getKind() == attr::CodeModel; }
+};
+
 class CodeSegAttr : public InheritableAttr {
 unsigned nameLength;
 char *name;
@@ -3119,7 +3453,7 @@ public:
   enum Spelling {
     GNU_cold = 0,
     CXX11_gnu_cold = 1,
-    C2x_gnu_cold = 2,
+    C23_gnu_cold = 2,
   SpellingNotCalculated = 15
 
   };
@@ -3148,7 +3482,7 @@ public:
   enum Spelling {
     GNU_common = 0,
     CXX11_gnu_common = 1,
-    C2x_gnu_common = 2,
+    C23_gnu_common = 2,
   SpellingNotCalculated = 15
 
   };
@@ -3177,7 +3511,7 @@ public:
   enum Spelling {
     GNU_const = 0,
     CXX11_gnu_const = 1,
-    C2x_gnu_const = 2,
+    C23_gnu_const = 2,
   SpellingNotCalculated = 15
 
   };
@@ -3239,7 +3573,7 @@ public:
   enum Spelling {
     GNU_constructor = 0,
     CXX11_gnu_constructor = 1,
-    C2x_gnu_constructor = 2,
+    C23_gnu_constructor = 2,
   SpellingNotCalculated = 15
 
   };
@@ -3280,7 +3614,7 @@ public:
     Unconsumed
   };
 private:
-  ConsumedState defaultState;
+  ConsumableAttr::ConsumedState defaultState;
 
 public:
   enum Spelling {
@@ -3291,26 +3625,26 @@ public:
   };
 
   // Factory methods
-  static ConsumableAttr *CreateImplicit(ASTContext &Ctx, ConsumedState DefaultState, const AttributeCommonInfo &CommonInfo);
-  static ConsumableAttr *Create(ASTContext &Ctx, ConsumedState DefaultState, const AttributeCommonInfo &CommonInfo);
-  static ConsumableAttr *CreateImplicit(ASTContext &Ctx, ConsumedState DefaultState, SourceRange Range = {}, Spelling S = GNU_consumable);
-  static ConsumableAttr *Create(ASTContext &Ctx, ConsumedState DefaultState, SourceRange Range = {}, Spelling S = GNU_consumable);
+  static ConsumableAttr *CreateImplicit(ASTContext &Ctx, ConsumableAttr::ConsumedState DefaultState, const AttributeCommonInfo &CommonInfo);
+  static ConsumableAttr *Create(ASTContext &Ctx, ConsumableAttr::ConsumedState DefaultState, const AttributeCommonInfo &CommonInfo);
+  static ConsumableAttr *CreateImplicit(ASTContext &Ctx, ConsumableAttr::ConsumedState DefaultState, SourceRange Range = {}, Spelling S = GNU_consumable);
+  static ConsumableAttr *Create(ASTContext &Ctx, ConsumableAttr::ConsumedState DefaultState, SourceRange Range = {}, Spelling S = GNU_consumable);
 
   // Constructors
   ConsumableAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , ConsumedState DefaultState
+              , ConsumableAttr::ConsumedState DefaultState
              );
 
   ConsumableAttr *clone(ASTContext &C) const;
   void printPretty(raw_ostream &OS,
                    const PrintingPolicy &Policy) const;
   const char *getSpelling() const;
-  ConsumedState getDefaultState() const {
+  ConsumableAttr::ConsumedState getDefaultState() const {
     return defaultState;
   }
 
-  static bool ConvertStrToConsumedState(StringRef Val, ConsumedState &Out);
-  static const char *ConvertConsumedStateToStr(ConsumedState Val);
+  static bool ConvertStrToConsumedState(StringRef Val, ConsumableAttr::ConsumedState &Out);
+  static const char *ConvertConsumedStateToStr(ConsumableAttr::ConsumedState Val);
 
 
   static bool classof(const Attr *A) { return A->getKind() == attr::Consumable; }
@@ -3377,7 +3711,7 @@ public:
   enum Spelling {
     GNU_convergent = 0,
     CXX11_clang_convergent = 1,
-    C2x_clang_convergent = 2,
+    C23_clang_convergent = 2,
   SpellingNotCalculated = 15
 
   };
@@ -3401,13 +3735,200 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Convergent; }
 };
 
+class CoroDisableLifetimeBoundAttr : public InheritableAttr {
+public:
+  enum Spelling {
+    GNU_coro_disable_lifetimebound = 0,
+    CXX11_clang_coro_disable_lifetimebound = 1,
+    C23_clang_coro_disable_lifetimebound = 2,
+  SpellingNotCalculated = 15
+
+  };
+
+  // Factory methods
+  static CoroDisableLifetimeBoundAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static CoroDisableLifetimeBoundAttr *Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static CoroDisableLifetimeBoundAttr *CreateImplicit(ASTContext &Ctx, SourceRange Range = {}, Spelling S = GNU_coro_disable_lifetimebound);
+  static CoroDisableLifetimeBoundAttr *Create(ASTContext &Ctx, SourceRange Range = {}, Spelling S = GNU_coro_disable_lifetimebound);
+
+  // Constructors
+  CoroDisableLifetimeBoundAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             );
+
+  CoroDisableLifetimeBoundAttr *clone(ASTContext &C) const;
+  void printPretty(raw_ostream &OS,
+                   const PrintingPolicy &Policy) const;
+  const char *getSpelling() const;
+
+
+  static bool classof(const Attr *A) { return A->getKind() == attr::CoroDisableLifetimeBound; }
+};
+
+class CoroLifetimeBoundAttr : public InheritableAttr {
+public:
+  enum Spelling {
+    GNU_coro_lifetimebound = 0,
+    CXX11_clang_coro_lifetimebound = 1,
+    C23_clang_coro_lifetimebound = 2,
+  SpellingNotCalculated = 15
+
+  };
+
+  // Factory methods
+  static CoroLifetimeBoundAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static CoroLifetimeBoundAttr *Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static CoroLifetimeBoundAttr *CreateImplicit(ASTContext &Ctx, SourceRange Range = {}, Spelling S = GNU_coro_lifetimebound);
+  static CoroLifetimeBoundAttr *Create(ASTContext &Ctx, SourceRange Range = {}, Spelling S = GNU_coro_lifetimebound);
+
+  // Constructors
+  CoroLifetimeBoundAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             );
+
+  CoroLifetimeBoundAttr *clone(ASTContext &C) const;
+  void printPretty(raw_ostream &OS,
+                   const PrintingPolicy &Policy) const;
+  const char *getSpelling() const;
+
+
+  static bool classof(const Attr *A) { return A->getKind() == attr::CoroLifetimeBound; }
+};
+
+class CoroOnlyDestroyWhenCompleteAttr : public InheritableAttr {
+public:
+  enum Spelling {
+    GNU_coro_only_destroy_when_complete = 0,
+    CXX11_clang_coro_only_destroy_when_complete = 1,
+    C23_clang_coro_only_destroy_when_complete = 2,
+  SpellingNotCalculated = 15
+
+  };
+
+  // Factory methods
+  static CoroOnlyDestroyWhenCompleteAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static CoroOnlyDestroyWhenCompleteAttr *Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static CoroOnlyDestroyWhenCompleteAttr *CreateImplicit(ASTContext &Ctx, SourceRange Range = {}, Spelling S = GNU_coro_only_destroy_when_complete);
+  static CoroOnlyDestroyWhenCompleteAttr *Create(ASTContext &Ctx, SourceRange Range = {}, Spelling S = GNU_coro_only_destroy_when_complete);
+
+  // Constructors
+  CoroOnlyDestroyWhenCompleteAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             );
+
+  CoroOnlyDestroyWhenCompleteAttr *clone(ASTContext &C) const;
+  void printPretty(raw_ostream &OS,
+                   const PrintingPolicy &Policy) const;
+  const char *getSpelling() const;
+
+
+  static bool classof(const Attr *A) { return A->getKind() == attr::CoroOnlyDestroyWhenComplete; }
+};
+
+class CoroReturnTypeAttr : public InheritableAttr {
+public:
+  enum Spelling {
+    GNU_coro_return_type = 0,
+    CXX11_clang_coro_return_type = 1,
+    C23_clang_coro_return_type = 2,
+  SpellingNotCalculated = 15
+
+  };
+
+  // Factory methods
+  static CoroReturnTypeAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static CoroReturnTypeAttr *Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static CoroReturnTypeAttr *CreateImplicit(ASTContext &Ctx, SourceRange Range = {}, Spelling S = GNU_coro_return_type);
+  static CoroReturnTypeAttr *Create(ASTContext &Ctx, SourceRange Range = {}, Spelling S = GNU_coro_return_type);
+
+  // Constructors
+  CoroReturnTypeAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             );
+
+  CoroReturnTypeAttr *clone(ASTContext &C) const;
+  void printPretty(raw_ostream &OS,
+                   const PrintingPolicy &Policy) const;
+  const char *getSpelling() const;
+
+
+  static bool classof(const Attr *A) { return A->getKind() == attr::CoroReturnType; }
+};
+
+class CoroWrapperAttr : public InheritableAttr {
+public:
+  enum Spelling {
+    GNU_coro_wrapper = 0,
+    CXX11_clang_coro_wrapper = 1,
+    C23_clang_coro_wrapper = 2,
+  SpellingNotCalculated = 15
+
+  };
+
+  // Factory methods
+  static CoroWrapperAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static CoroWrapperAttr *Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static CoroWrapperAttr *CreateImplicit(ASTContext &Ctx, SourceRange Range = {}, Spelling S = GNU_coro_wrapper);
+  static CoroWrapperAttr *Create(ASTContext &Ctx, SourceRange Range = {}, Spelling S = GNU_coro_wrapper);
+
+  // Constructors
+  CoroWrapperAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             );
+
+  CoroWrapperAttr *clone(ASTContext &C) const;
+  void printPretty(raw_ostream &OS,
+                   const PrintingPolicy &Policy) const;
+  const char *getSpelling() const;
+
+
+  static bool classof(const Attr *A) { return A->getKind() == attr::CoroWrapper; }
+};
+
+class CountedByAttr : public InheritableAttr {
+IdentifierInfo * countedByField;
+
+public:
+  enum Spelling {
+    GNU_counted_by = 0,
+    CXX11_clang_counted_by = 1,
+    C23_clang_counted_by = 2,
+  SpellingNotCalculated = 15
+
+  };
+
+  // Factory methods
+  static CountedByAttr *CreateImplicit(ASTContext &Ctx, IdentifierInfo * CountedByField, const AttributeCommonInfo &CommonInfo);
+  static CountedByAttr *Create(ASTContext &Ctx, IdentifierInfo * CountedByField, const AttributeCommonInfo &CommonInfo);
+  static CountedByAttr *CreateImplicit(ASTContext &Ctx, IdentifierInfo * CountedByField, SourceRange Range = {}, Spelling S = GNU_counted_by);
+  static CountedByAttr *Create(ASTContext &Ctx, IdentifierInfo * CountedByField, SourceRange Range = {}, Spelling S = GNU_counted_by);
+
+  // Constructors
+  CountedByAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , IdentifierInfo * CountedByField
+             );
+
+  CountedByAttr *clone(ASTContext &C) const;
+  void printPretty(raw_ostream &OS,
+                   const PrintingPolicy &Policy) const;
+  const char *getSpelling() const;
+  IdentifierInfo * getCountedByField() const {
+    return countedByField;
+  }
+
+
+    private:
+      SourceRange CountedByFieldLoc;
+    public:
+      SourceRange getCountedByFieldLoc() const { return CountedByFieldLoc; }
+      void setCountedByFieldLoc(SourceRange Loc) { CountedByFieldLoc = Loc; }
+  
+
+  static bool classof(const Attr *A) { return A->getKind() == attr::CountedBy; }
+};
+
 class DLLExportAttr : public InheritableAttr {
 public:
   enum Spelling {
     Declspec_dllexport = 0,
     GNU_dllexport = 1,
     CXX11_gnu_dllexport = 2,
-    C2x_gnu_dllexport = 3,
+    C23_gnu_dllexport = 3,
   SpellingNotCalculated = 15
 
   };
@@ -3458,7 +3979,7 @@ public:
     Declspec_dllimport = 0,
     GNU_dllimport = 1,
     CXX11_gnu_dllimport = 2,
-    C2x_gnu_dllimport = 3,
+    C23_gnu_dllimport = 3,
   SpellingNotCalculated = 15
 
   };
@@ -3521,10 +4042,10 @@ public:
   enum Spelling {
     GNU_deprecated = 0,
     CXX11_gnu_deprecated = 1,
-    C2x_gnu_deprecated = 2,
+    C23_gnu_deprecated = 2,
     Declspec_deprecated = 3,
     CXX11_deprecated = 4,
-    C2x_deprecated = 5,
+    C23_deprecated = 5,
   SpellingNotCalculated = 15
 
   };
@@ -3585,7 +4106,7 @@ public:
   enum Spelling {
     GNU_destructor = 0,
     CXX11_gnu_destructor = 1,
-    C2x_gnu_destructor = 2,
+    C23_gnu_destructor = 2,
   SpellingNotCalculated = 15
 
   };
@@ -3628,7 +4149,7 @@ public:
   enum Spelling {
     GNU_diagnose_as_builtin = 0,
     CXX11_clang_diagnose_as_builtin = 1,
-    C2x_clang_diagnose_as_builtin = 2,
+    C23_clang_diagnose_as_builtin = 2,
   SpellingNotCalculated = 15
 
   };
@@ -3680,7 +4201,7 @@ public:
     DT_Warning
   };
 private:
-  DiagnosticType diagnosticType;
+  DiagnoseIfAttr::DiagnosticType diagnosticType;
 
 bool argDependent;
 
@@ -3688,27 +4209,27 @@ NamedDecl * parent;
 
 public:
   // Factory methods
-  static DiagnoseIfAttr *CreateImplicit(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnosticType DiagnosticType, bool ArgDependent, NamedDecl * Parent, const AttributeCommonInfo &CommonInfo);
-  static DiagnoseIfAttr *Create(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnosticType DiagnosticType, bool ArgDependent, NamedDecl * Parent, const AttributeCommonInfo &CommonInfo);
-  static DiagnoseIfAttr *CreateImplicit(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnosticType DiagnosticType, bool ArgDependent, NamedDecl * Parent, SourceRange Range = {});
-  static DiagnoseIfAttr *Create(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnosticType DiagnosticType, bool ArgDependent, NamedDecl * Parent, SourceRange Range = {});
-  static DiagnoseIfAttr *CreateImplicit(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnosticType DiagnosticType, const AttributeCommonInfo &CommonInfo);
-  static DiagnoseIfAttr *Create(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnosticType DiagnosticType, const AttributeCommonInfo &CommonInfo);
-  static DiagnoseIfAttr *CreateImplicit(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnosticType DiagnosticType, SourceRange Range = {});
-  static DiagnoseIfAttr *Create(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnosticType DiagnosticType, SourceRange Range = {});
+  static DiagnoseIfAttr *CreateImplicit(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnoseIfAttr::DiagnosticType DiagnosticType, bool ArgDependent, NamedDecl * Parent, const AttributeCommonInfo &CommonInfo);
+  static DiagnoseIfAttr *Create(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnoseIfAttr::DiagnosticType DiagnosticType, bool ArgDependent, NamedDecl * Parent, const AttributeCommonInfo &CommonInfo);
+  static DiagnoseIfAttr *CreateImplicit(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnoseIfAttr::DiagnosticType DiagnosticType, bool ArgDependent, NamedDecl * Parent, SourceRange Range = {});
+  static DiagnoseIfAttr *Create(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnoseIfAttr::DiagnosticType DiagnosticType, bool ArgDependent, NamedDecl * Parent, SourceRange Range = {});
+  static DiagnoseIfAttr *CreateImplicit(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnoseIfAttr::DiagnosticType DiagnosticType, const AttributeCommonInfo &CommonInfo);
+  static DiagnoseIfAttr *Create(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnoseIfAttr::DiagnosticType DiagnosticType, const AttributeCommonInfo &CommonInfo);
+  static DiagnoseIfAttr *CreateImplicit(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnoseIfAttr::DiagnosticType DiagnosticType, SourceRange Range = {});
+  static DiagnoseIfAttr *Create(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnoseIfAttr::DiagnosticType DiagnosticType, SourceRange Range = {});
 
   // Constructors
   DiagnoseIfAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
               , Expr * Cond
               , llvm::StringRef Message
-              , DiagnosticType DiagnosticType
+              , DiagnoseIfAttr::DiagnosticType DiagnosticType
               , bool ArgDependent
               , NamedDecl * Parent
              );
   DiagnoseIfAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
               , Expr * Cond
               , llvm::StringRef Message
-              , DiagnosticType DiagnosticType
+              , DiagnoseIfAttr::DiagnosticType DiagnosticType
              );
 
   DiagnoseIfAttr *clone(ASTContext &C) const;
@@ -3732,12 +4253,12 @@ public:
       std::memcpy(this->message, S.data(), messageLength);
   }
 
-  DiagnosticType getDiagnosticType() const {
+  DiagnoseIfAttr::DiagnosticType getDiagnosticType() const {
     return diagnosticType;
   }
 
-  static bool ConvertStrToDiagnosticType(StringRef Val, DiagnosticType &Out);
-  static const char *ConvertDiagnosticTypeToStr(DiagnosticType Val);
+  static bool ConvertStrToDiagnosticType(StringRef Val, DiagnoseIfAttr::DiagnosticType &Out);
+  static const char *ConvertDiagnosticTypeToStr(DiagnoseIfAttr::DiagnosticType Val);
   bool getArgDependent() const {
     return argDependent;
   }
@@ -3759,7 +4280,7 @@ public:
   enum Spelling {
     GNU_disable_sanitizer_instrumentation = 0,
     CXX11_clang_disable_sanitizer_instrumentation = 1,
-    C2x_clang_disable_sanitizer_instrumentation = 2,
+    C23_clang_disable_sanitizer_instrumentation = 2,
   SpellingNotCalculated = 15
 
   };
@@ -3788,7 +4309,7 @@ public:
   enum Spelling {
     GNU_disable_tail_calls = 0,
     CXX11_clang_disable_tail_calls = 1,
-    C2x_clang_disable_tail_calls = 2,
+    C23_clang_disable_tail_calls = 2,
   SpellingNotCalculated = 15
 
   };
@@ -3886,7 +4407,7 @@ public:
   enum Spelling {
     GNU_enforce_tcb = 0,
     CXX11_clang_enforce_tcb = 1,
-    C2x_clang_enforce_tcb = 2,
+    C23_clang_enforce_tcb = 2,
   SpellingNotCalculated = 15
 
   };
@@ -3932,7 +4453,7 @@ public:
   enum Spelling {
     GNU_enforce_tcb_leaf = 0,
     CXX11_clang_enforce_tcb_leaf = 1,
-    C2x_clang_enforce_tcb_leaf = 2,
+    C23_clang_enforce_tcb_leaf = 2,
   SpellingNotCalculated = 15
 
   };
@@ -3977,38 +4498,38 @@ public:
     Open
   };
 private:
-  Kind extensibility;
+  EnumExtensibilityAttr::Kind extensibility;
 
 public:
   enum Spelling {
     GNU_enum_extensibility = 0,
     CXX11_clang_enum_extensibility = 1,
-    C2x_clang_enum_extensibility = 2,
+    C23_clang_enum_extensibility = 2,
   SpellingNotCalculated = 15
 
   };
 
   // Factory methods
-  static EnumExtensibilityAttr *CreateImplicit(ASTContext &Ctx, Kind Extensibility, const AttributeCommonInfo &CommonInfo);
-  static EnumExtensibilityAttr *Create(ASTContext &Ctx, Kind Extensibility, const AttributeCommonInfo &CommonInfo);
-  static EnumExtensibilityAttr *CreateImplicit(ASTContext &Ctx, Kind Extensibility, SourceRange Range = {}, Spelling S = GNU_enum_extensibility);
-  static EnumExtensibilityAttr *Create(ASTContext &Ctx, Kind Extensibility, SourceRange Range = {}, Spelling S = GNU_enum_extensibility);
+  static EnumExtensibilityAttr *CreateImplicit(ASTContext &Ctx, EnumExtensibilityAttr::Kind Extensibility, const AttributeCommonInfo &CommonInfo);
+  static EnumExtensibilityAttr *Create(ASTContext &Ctx, EnumExtensibilityAttr::Kind Extensibility, const AttributeCommonInfo &CommonInfo);
+  static EnumExtensibilityAttr *CreateImplicit(ASTContext &Ctx, EnumExtensibilityAttr::Kind Extensibility, SourceRange Range = {}, Spelling S = GNU_enum_extensibility);
+  static EnumExtensibilityAttr *Create(ASTContext &Ctx, EnumExtensibilityAttr::Kind Extensibility, SourceRange Range = {}, Spelling S = GNU_enum_extensibility);
 
   // Constructors
   EnumExtensibilityAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , Kind Extensibility
+              , EnumExtensibilityAttr::Kind Extensibility
              );
 
   EnumExtensibilityAttr *clone(ASTContext &C) const;
   void printPretty(raw_ostream &OS,
                    const PrintingPolicy &Policy) const;
   const char *getSpelling() const;
-  Kind getExtensibility() const {
+  EnumExtensibilityAttr::Kind getExtensibility() const {
     return extensibility;
   }
 
-  static bool ConvertStrToKind(StringRef Val, Kind &Out);
-  static const char *ConvertKindToStr(Kind Val);
+  static bool ConvertStrToKind(StringRef Val, EnumExtensibilityAttr::Kind &Out);
+  static const char *ConvertKindToStr(EnumExtensibilityAttr::Kind Val);
 
 
   static bool classof(const Attr *A) { return A->getKind() == attr::EnumExtensibility; }
@@ -4022,10 +4543,10 @@ public:
   enum Spelling {
     GNU_error = 0,
     CXX11_gnu_error = 1,
-    C2x_gnu_error = 2,
+    C23_gnu_error = 2,
     GNU_warning = 3,
     CXX11_gnu_warning = 4,
-    C2x_gnu_warning = 5,
+    C23_gnu_warning = 5,
   SpellingNotCalculated = 15
 
   };
@@ -4075,7 +4596,7 @@ public:
   enum Spelling {
     GNU_exclude_from_explicit_instantiation = 0,
     CXX11_clang_exclude_from_explicit_instantiation = 1,
-    C2x_clang_exclude_from_explicit_instantiation = 2,
+    C23_clang_exclude_from_explicit_instantiation = 2,
   SpellingNotCalculated = 15
 
   };
@@ -4157,7 +4678,7 @@ public:
   enum Spelling {
     GNU_external_source_symbol = 0,
     CXX11_clang_external_source_symbol = 1,
-    C2x_clang_external_source_symbol = 2,
+    C23_clang_external_source_symbol = 2,
   SpellingNotCalculated = 15
 
   };
@@ -4234,11 +4755,11 @@ class FallThroughAttr : public StmtAttr {
 public:
   enum Spelling {
     CXX11_fallthrough = 0,
-    C2x_fallthrough = 1,
+    C23_fallthrough = 1,
     CXX11_clang_fallthrough = 2,
     GNU_fallthrough = 3,
     CXX11_gnu_fallthrough = 4,
-    C2x_gnu_fallthrough = 5,
+    C23_gnu_fallthrough = 5,
   SpellingNotCalculated = 15
 
   };
@@ -4267,7 +4788,7 @@ public:
   enum Spelling {
     GNU_fastcall = 0,
     CXX11_gnu_fastcall = 1,
-    C2x_gnu_fastcall = 2,
+    C23_gnu_fastcall = 2,
     Keyword_fastcall = 3,
   SpellingNotCalculated = 15
 
@@ -4327,7 +4848,7 @@ public:
   enum Spelling {
     GNU_flag_enum = 0,
     CXX11_clang_flag_enum = 1,
-    C2x_clang_flag_enum = 2,
+    C23_clang_flag_enum = 2,
   SpellingNotCalculated = 15
 
   };
@@ -4356,7 +4877,7 @@ public:
   enum Spelling {
     GNU_flatten = 0,
     CXX11_gnu_flatten = 1,
-    C2x_gnu_flatten = 2,
+    C23_gnu_flatten = 2,
   SpellingNotCalculated = 15
 
   };
@@ -4391,7 +4912,7 @@ public:
   enum Spelling {
     GNU_format = 0,
     CXX11_gnu_format = 1,
-    C2x_gnu_format = 2,
+    C23_gnu_format = 2,
   SpellingNotCalculated = 15
 
   };
@@ -4437,7 +4958,7 @@ public:
   enum Spelling {
     GNU_format_arg = 0,
     CXX11_gnu_format_arg = 1,
-    C2x_gnu_format_arg = 2,
+    C23_gnu_format_arg = 2,
   SpellingNotCalculated = 15
 
   };
@@ -4473,38 +4994,38 @@ public:
     Extern
   };
 private:
-  Kind thunkType;
+  FunctionReturnThunksAttr::Kind thunkType;
 
 public:
   enum Spelling {
     GNU_function_return = 0,
     CXX11_gnu_function_return = 1,
-    C2x_gnu_function_return = 2,
+    C23_gnu_function_return = 2,
   SpellingNotCalculated = 15
 
   };
 
   // Factory methods
-  static FunctionReturnThunksAttr *CreateImplicit(ASTContext &Ctx, Kind ThunkType, const AttributeCommonInfo &CommonInfo);
-  static FunctionReturnThunksAttr *Create(ASTContext &Ctx, Kind ThunkType, const AttributeCommonInfo &CommonInfo);
-  static FunctionReturnThunksAttr *CreateImplicit(ASTContext &Ctx, Kind ThunkType, SourceRange Range = {}, Spelling S = GNU_function_return);
-  static FunctionReturnThunksAttr *Create(ASTContext &Ctx, Kind ThunkType, SourceRange Range = {}, Spelling S = GNU_function_return);
+  static FunctionReturnThunksAttr *CreateImplicit(ASTContext &Ctx, FunctionReturnThunksAttr::Kind ThunkType, const AttributeCommonInfo &CommonInfo);
+  static FunctionReturnThunksAttr *Create(ASTContext &Ctx, FunctionReturnThunksAttr::Kind ThunkType, const AttributeCommonInfo &CommonInfo);
+  static FunctionReturnThunksAttr *CreateImplicit(ASTContext &Ctx, FunctionReturnThunksAttr::Kind ThunkType, SourceRange Range = {}, Spelling S = GNU_function_return);
+  static FunctionReturnThunksAttr *Create(ASTContext &Ctx, FunctionReturnThunksAttr::Kind ThunkType, SourceRange Range = {}, Spelling S = GNU_function_return);
 
   // Constructors
   FunctionReturnThunksAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , Kind ThunkType
+              , FunctionReturnThunksAttr::Kind ThunkType
              );
 
   FunctionReturnThunksAttr *clone(ASTContext &C) const;
   void printPretty(raw_ostream &OS,
                    const PrintingPolicy &Policy) const;
   const char *getSpelling() const;
-  Kind getThunkType() const {
+  FunctionReturnThunksAttr::Kind getThunkType() const {
     return thunkType;
   }
 
-  static bool ConvertStrToKind(StringRef Val, Kind &Out);
-  static const char *ConvertKindToStr(Kind Val);
+  static bool ConvertStrToKind(StringRef Val, FunctionReturnThunksAttr::Kind &Out);
+  static const char *ConvertKindToStr(FunctionReturnThunksAttr::Kind Val);
 
 
   static bool classof(const Attr *A) { return A->getKind() == attr::FunctionReturnThunks; }
@@ -4515,7 +5036,7 @@ public:
   enum Spelling {
     GNU_gnu_inline = 0,
     CXX11_gnu_gnu_inline = 1,
-    C2x_gnu_gnu_inline = 2,
+    C23_gnu_gnu_inline = 2,
   SpellingNotCalculated = 15
 
   };
@@ -4686,70 +5207,107 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::HLSLNumThreads; }
 };
 
-class HLSLResourceAttr : public InheritableAttr {
-public:
-  enum ResourceClass {
-    SRV,
-    UAV,
-    CBuffer,
-    Sampler
-  };
-private:
-  ResourceClass resourceType;
+class HLSLParamModifierAttr : public TypeAttr {
+bool mergedSpelling;
 
 public:
-  enum ResourceKind {
-    Texture1D,
-    Texture2D,
-    Texture2DMS,
-    Texture3D,
-    TextureCube,
-    Texture1DArray,
-    Texture2DArray,
-    Texture2DMSArray,
-    TextureCubeArray,
-    TypedBuffer,
-    RawBuffer,
-    StructuredBuffer,
-    CBufferKind,
-    SamplerKind,
-    TBuffer,
-    RTAccelerationStructure,
-    FeedbackTexture2D,
-    FeedbackTexture2DArray
+  enum Spelling {
+    Keyword_in = 0,
+    Keyword_inout = 1,
+    Keyword_out = 2,
+  SpellingNotCalculated = 15
+
   };
+
+  // Factory methods
+  static HLSLParamModifierAttr *CreateImplicit(ASTContext &Ctx, bool MergedSpelling, const AttributeCommonInfo &CommonInfo);
+  static HLSLParamModifierAttr *Create(ASTContext &Ctx, bool MergedSpelling, const AttributeCommonInfo &CommonInfo);
+  static HLSLParamModifierAttr *CreateImplicit(ASTContext &Ctx, bool MergedSpelling, SourceRange Range = {}, Spelling S = Keyword_in);
+  static HLSLParamModifierAttr *Create(ASTContext &Ctx, bool MergedSpelling, SourceRange Range = {}, Spelling S = Keyword_in);
+  static HLSLParamModifierAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static HLSLParamModifierAttr *Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static HLSLParamModifierAttr *CreateImplicit(ASTContext &Ctx, SourceRange Range = {}, Spelling S = Keyword_in);
+  static HLSLParamModifierAttr *Create(ASTContext &Ctx, SourceRange Range = {}, Spelling S = Keyword_in);
+
+  // Constructors
+  HLSLParamModifierAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , bool MergedSpelling
+             );
+  HLSLParamModifierAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             );
+
+  HLSLParamModifierAttr *clone(ASTContext &C) const;
+  void printPretty(raw_ostream &OS,
+                   const PrintingPolicy &Policy) const;
+  const char *getSpelling() const;
+  Spelling getSemanticSpelling() const;
+  bool isIn() const { return getAttributeSpellingListIndex() == 0; }
+  bool isInOut() const { return getAttributeSpellingListIndex() == 1; }
+  bool isOut() const { return getAttributeSpellingListIndex() == 2; }
+  bool isAnyOut() const { return getAttributeSpellingListIndex() == 2 ||
+    getAttributeSpellingListIndex() == 1; }
+  bool isAnyIn() const { return getAttributeSpellingListIndex() == 0 ||
+    getAttributeSpellingListIndex() == 1; }
+  bool getMergedSpelling() const {
+    return mergedSpelling;
+  }
+
+  static const bool DefaultMergedSpelling = false;
+
+
+
+  static bool classof(const Attr *A) { return A->getKind() == attr::HLSLParamModifier; }
+};
+
+class HLSLResourceAttr : public InheritableAttr {
 private:
-  ResourceKind resourceShape;
+  llvm::hlsl::ResourceClass resourceClass;
+
+private:
+  llvm::hlsl::ResourceKind resourceKind;
+
+bool isROV;
 
 public:
   // Factory methods
-  static HLSLResourceAttr *CreateImplicit(ASTContext &Ctx, ResourceClass ResourceType, ResourceKind ResourceShape, const AttributeCommonInfo &CommonInfo);
-  static HLSLResourceAttr *Create(ASTContext &Ctx, ResourceClass ResourceType, ResourceKind ResourceShape, const AttributeCommonInfo &CommonInfo);
-  static HLSLResourceAttr *CreateImplicit(ASTContext &Ctx, ResourceClass ResourceType, ResourceKind ResourceShape, SourceRange Range = {});
-  static HLSLResourceAttr *Create(ASTContext &Ctx, ResourceClass ResourceType, ResourceKind ResourceShape, SourceRange Range = {});
+  static HLSLResourceAttr *CreateImplicit(ASTContext &Ctx, llvm::hlsl::ResourceClass ResourceClass, llvm::hlsl::ResourceKind ResourceKind, bool IsROV, const AttributeCommonInfo &CommonInfo);
+  static HLSLResourceAttr *Create(ASTContext &Ctx, llvm::hlsl::ResourceClass ResourceClass, llvm::hlsl::ResourceKind ResourceKind, bool IsROV, const AttributeCommonInfo &CommonInfo);
+  static HLSLResourceAttr *CreateImplicit(ASTContext &Ctx, llvm::hlsl::ResourceClass ResourceClass, llvm::hlsl::ResourceKind ResourceKind, bool IsROV, SourceRange Range = {});
+  static HLSLResourceAttr *Create(ASTContext &Ctx, llvm::hlsl::ResourceClass ResourceClass, llvm::hlsl::ResourceKind ResourceKind, bool IsROV, SourceRange Range = {});
 
   // Constructors
   HLSLResourceAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , ResourceClass ResourceType
-              , ResourceKind ResourceShape
+              , llvm::hlsl::ResourceClass ResourceClass
+              , llvm::hlsl::ResourceKind ResourceKind
+              , bool IsROV
+             );
+  HLSLResourceAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , llvm::hlsl::ResourceClass ResourceClass
+              , llvm::hlsl::ResourceKind ResourceKind
              );
 
   HLSLResourceAttr *clone(ASTContext &C) const;
   void printPretty(raw_ostream &OS,
                    const PrintingPolicy &Policy) const;
   const char *getSpelling() const;
-  ResourceClass getResourceType() const {
-    return resourceType;
+  llvm::hlsl::ResourceClass getResourceClass() const {
+    return resourceClass;
   }
 
-  static bool ConvertStrToResourceClass(StringRef Val, ResourceClass &Out);
-  static const char *ConvertResourceClassToStr(ResourceClass Val);
-  ResourceKind getResourceShape() const {
-    return resourceShape;
+  static bool ConvertStrToResourceClass(StringRef Val, llvm::hlsl::ResourceClass &Out);
+  static const char *ConvertResourceClassToStr(llvm::hlsl::ResourceClass Val);
+  llvm::hlsl::ResourceKind getResourceKind() const {
+    return resourceKind;
   }
 
-  static bool ConvertStrToResourceKind(StringRef Val, ResourceKind &Out);
-  static const char *ConvertResourceKindToStr(ResourceKind Val);
+  static bool ConvertStrToResourceKind(StringRef Val, llvm::hlsl::ResourceKind &Out);
+  static const char *ConvertResourceKindToStr(llvm::hlsl::ResourceKind Val);
+  bool getIsROV() const {
+    return isROV;
+  }
+
+  static const bool DefaultIsROV = false;
+
 
 
   static bool classof(const Attr *A) { return A->getKind() == attr::HLSLResource; }
@@ -4864,7 +5422,6 @@ public:
     Hull,
     Domain,
     Compute,
-    Library,
     RayGeneration,
     Intersection,
     AnyHit,
@@ -4875,30 +5432,30 @@ public:
     Amplification
   };
 private:
-  ShaderType type;
+  HLSLShaderAttr::ShaderType type;
 
 public:
   // Factory methods
-  static HLSLShaderAttr *CreateImplicit(ASTContext &Ctx, ShaderType Type, const AttributeCommonInfo &CommonInfo);
-  static HLSLShaderAttr *Create(ASTContext &Ctx, ShaderType Type, const AttributeCommonInfo &CommonInfo);
-  static HLSLShaderAttr *CreateImplicit(ASTContext &Ctx, ShaderType Type, SourceRange Range = {});
-  static HLSLShaderAttr *Create(ASTContext &Ctx, ShaderType Type, SourceRange Range = {});
+  static HLSLShaderAttr *CreateImplicit(ASTContext &Ctx, HLSLShaderAttr::ShaderType Type, const AttributeCommonInfo &CommonInfo);
+  static HLSLShaderAttr *Create(ASTContext &Ctx, HLSLShaderAttr::ShaderType Type, const AttributeCommonInfo &CommonInfo);
+  static HLSLShaderAttr *CreateImplicit(ASTContext &Ctx, HLSLShaderAttr::ShaderType Type, SourceRange Range = {});
+  static HLSLShaderAttr *Create(ASTContext &Ctx, HLSLShaderAttr::ShaderType Type, SourceRange Range = {});
 
   // Constructors
   HLSLShaderAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , ShaderType Type
+              , HLSLShaderAttr::ShaderType Type
              );
 
   HLSLShaderAttr *clone(ASTContext &C) const;
   void printPretty(raw_ostream &OS,
                    const PrintingPolicy &Policy) const;
   const char *getSpelling() const;
-  ShaderType getType() const {
+  HLSLShaderAttr::ShaderType getType() const {
     return type;
   }
 
-  static bool ConvertStrToShaderType(StringRef Val, ShaderType &Out);
-  static const char *ConvertShaderTypeToStr(ShaderType Val);
+  static bool ConvertStrToShaderType(StringRef Val, HLSLShaderAttr::ShaderType &Out);
+  static const char *ConvertShaderTypeToStr(HLSLShaderAttr::ShaderType Val);
 
 
   static bool classof(const Attr *A) { return A->getKind() == attr::HLSLShader; }
@@ -4909,7 +5466,7 @@ public:
   enum Spelling {
     GNU_hot = 0,
     CXX11_gnu_hot = 1,
-    C2x_gnu_hot = 2,
+    C23_gnu_hot = 2,
   SpellingNotCalculated = 15
 
   };
@@ -4938,7 +5495,7 @@ public:
   enum Spelling {
     GNU_ibaction = 0,
     CXX11_clang_ibaction = 1,
-    C2x_clang_ibaction = 2,
+    C23_clang_ibaction = 2,
   SpellingNotCalculated = 15
 
   };
@@ -4967,7 +5524,7 @@ public:
   enum Spelling {
     GNU_iboutlet = 0,
     CXX11_clang_iboutlet = 1,
-    C2x_clang_iboutlet = 2,
+    C23_clang_iboutlet = 2,
   SpellingNotCalculated = 15
 
   };
@@ -4998,7 +5555,7 @@ public:
   enum Spelling {
     GNU_iboutletcollection = 0,
     CXX11_clang_iboutletcollection = 1,
-    C2x_clang_iboutletcollection = 2,
+    C23_clang_iboutletcollection = 2,
   SpellingNotCalculated = 15
 
   };
@@ -5039,7 +5596,7 @@ public:
   enum Spelling {
     GNU_ifunc = 0,
     CXX11_gnu_ifunc = 1,
-    C2x_gnu_ifunc = 2,
+    C23_gnu_ifunc = 2,
   SpellingNotCalculated = 15
 
   };
@@ -5187,7 +5744,7 @@ public:
   enum Spelling {
     GNU_internal_linkage = 0,
     CXX11_clang_internal_linkage = 1,
-    C2x_clang_internal_linkage = 2,
+    C23_clang_internal_linkage = 2,
   SpellingNotCalculated = 15
 
   };
@@ -5216,7 +5773,7 @@ public:
   enum Spelling {
     GNU_lto_visibility_public = 0,
     CXX11_clang_lto_visibility_public = 1,
-    C2x_clang_lto_visibility_public = 2,
+    C23_clang_lto_visibility_public = 2,
   SpellingNotCalculated = 15
 
   };
@@ -5273,7 +5830,7 @@ public:
   enum Spelling {
     GNU_leaf = 0,
     CXX11_gnu_leaf = 1,
-    C2x_gnu_leaf = 2,
+    C23_gnu_leaf = 2,
   SpellingNotCalculated = 15
 
   };
@@ -5329,7 +5886,7 @@ class LikelyAttr : public StmtAttr {
 public:
   enum Spelling {
     CXX11_likely = 0,
-    C2x_clang_likely = 1,
+    C23_clang_likely = 1,
   SpellingNotCalculated = 15
 
   };
@@ -5358,7 +5915,7 @@ public:
   enum Spelling {
     GNU_loader_uninitialized = 0,
     CXX11_clang_loader_uninitialized = 1,
-    C2x_clang_loader_uninitialized = 2,
+    C23_clang_loader_uninitialized = 2,
   SpellingNotCalculated = 15
 
   };
@@ -5461,7 +6018,7 @@ public:
     VectorizePredicate
   };
 private:
-  OptionType option;
+  LoopHintAttr::OptionType option;
 
 public:
   enum LoopHintState {
@@ -5474,7 +6031,7 @@ public:
     Full
   };
 private:
-  LoopHintState state;
+  LoopHintAttr::LoopHintState state;
 
 Expr * value;
 
@@ -5490,15 +6047,15 @@ public:
   };
 
   // Factory methods
-  static LoopHintAttr *CreateImplicit(ASTContext &Ctx, OptionType Option, LoopHintState State, Expr * Value, const AttributeCommonInfo &CommonInfo);
-  static LoopHintAttr *Create(ASTContext &Ctx, OptionType Option, LoopHintState State, Expr * Value, const AttributeCommonInfo &CommonInfo);
-  static LoopHintAttr *CreateImplicit(ASTContext &Ctx, OptionType Option, LoopHintState State, Expr * Value, SourceRange Range = {}, Spelling S = Pragma_clang_loop);
-  static LoopHintAttr *Create(ASTContext &Ctx, OptionType Option, LoopHintState State, Expr * Value, SourceRange Range = {}, Spelling S = Pragma_clang_loop);
+  static LoopHintAttr *CreateImplicit(ASTContext &Ctx, LoopHintAttr::OptionType Option, LoopHintAttr::LoopHintState State, Expr * Value, const AttributeCommonInfo &CommonInfo);
+  static LoopHintAttr *Create(ASTContext &Ctx, LoopHintAttr::OptionType Option, LoopHintAttr::LoopHintState State, Expr * Value, const AttributeCommonInfo &CommonInfo);
+  static LoopHintAttr *CreateImplicit(ASTContext &Ctx, LoopHintAttr::OptionType Option, LoopHintAttr::LoopHintState State, Expr * Value, SourceRange Range = {}, Spelling S = Pragma_clang_loop);
+  static LoopHintAttr *Create(ASTContext &Ctx, LoopHintAttr::OptionType Option, LoopHintAttr::LoopHintState State, Expr * Value, SourceRange Range = {}, Spelling S = Pragma_clang_loop);
 
   // Constructors
   LoopHintAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , OptionType Option
-              , LoopHintState State
+              , LoopHintAttr::OptionType Option
+              , LoopHintAttr::LoopHintState State
               , Expr * Value
              );
 
@@ -5507,18 +6064,18 @@ public:
                    const PrintingPolicy &Policy) const;
   const char *getSpelling() const;
   Spelling getSemanticSpelling() const;
-  OptionType getOption() const {
+  LoopHintAttr::OptionType getOption() const {
     return option;
   }
 
-  static bool ConvertStrToOptionType(StringRef Val, OptionType &Out);
-  static const char *ConvertOptionTypeToStr(OptionType Val);
-  LoopHintState getState() const {
+  static bool ConvertStrToOptionType(StringRef Val, LoopHintAttr::OptionType &Out);
+  static const char *ConvertOptionTypeToStr(LoopHintAttr::OptionType Val);
+  LoopHintAttr::LoopHintState getState() const {
     return state;
   }
 
-  static bool ConvertStrToLoopHintState(StringRef Val, LoopHintState &Out);
-  static const char *ConvertLoopHintStateToStr(LoopHintState Val);
+  static bool ConvertStrToLoopHintState(StringRef Val, LoopHintAttr::LoopHintState &Out);
+  static const char *ConvertLoopHintStateToStr(LoopHintAttr::LoopHintState Val);
   Expr * getValue() const {
     return value;
   }
@@ -5583,12 +6140,41 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::M68kInterrupt; }
 };
 
+class M68kRTDAttr : public InheritableAttr {
+public:
+  enum Spelling {
+    GNU_m68k_rtd = 0,
+    CXX11_clang_m68k_rtd = 1,
+    C23_clang_m68k_rtd = 2,
+  SpellingNotCalculated = 15
+
+  };
+
+  // Factory methods
+  static M68kRTDAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static M68kRTDAttr *Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static M68kRTDAttr *CreateImplicit(ASTContext &Ctx, SourceRange Range = {}, Spelling S = GNU_m68k_rtd);
+  static M68kRTDAttr *Create(ASTContext &Ctx, SourceRange Range = {}, Spelling S = GNU_m68k_rtd);
+
+  // Constructors
+  M68kRTDAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             );
+
+  M68kRTDAttr *clone(ASTContext &C) const;
+  void printPretty(raw_ostream &OS,
+                   const PrintingPolicy &Policy) const;
+  const char *getSpelling() const;
+
+
+  static bool classof(const Attr *A) { return A->getKind() == attr::M68kRTD; }
+};
+
 class MIGServerRoutineAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_mig_server_routine = 0,
     CXX11_clang_mig_server_routine = 1,
-    C2x_clang_mig_server_routine = 2,
+    C23_clang_mig_server_routine = 2,
   SpellingNotCalculated = 15
 
   };
@@ -5617,7 +6203,7 @@ public:
   enum Spelling {
     GNU_ms_abi = 0,
     CXX11_gnu_ms_abi = 1,
-    C2x_gnu_ms_abi = 2,
+    C23_gnu_ms_abi = 2,
   SpellingNotCalculated = 15
 
   };
@@ -5660,6 +6246,27 @@ public:
 
 
   static bool classof(const Attr *A) { return A->getKind() == attr::MSAllocator; }
+};
+
+class MSConstexprAttr : public InheritableAttr {
+public:
+  // Factory methods
+  static MSConstexprAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static MSConstexprAttr *Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static MSConstexprAttr *CreateImplicit(ASTContext &Ctx, SourceRange Range = {});
+  static MSConstexprAttr *Create(ASTContext &Ctx, SourceRange Range = {});
+
+  // Constructors
+  MSConstexprAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             );
+
+  MSConstexprAttr *clone(ASTContext &C) const;
+  void printPretty(raw_ostream &OS,
+                   const PrintingPolicy &Policy) const;
+  const char *getSpelling() const;
+
+
+  static bool classof(const Attr *A) { return A->getKind() == attr::MSConstexpr; }
 };
 
 class MSInheritanceAttr : public InheritableAttr {
@@ -5741,7 +6348,7 @@ public:
   enum Spelling {
     GNU_interrupt = 0,
     CXX11_gnu_interrupt = 1,
-    C2x_gnu_interrupt = 2,
+    C23_gnu_interrupt = 2,
   SpellingNotCalculated = 15
 
   };
@@ -5775,7 +6382,7 @@ public:
   enum Spelling {
     GNU_ms_struct = 0,
     CXX11_gnu_ms_struct = 1,
-    C2x_gnu_ms_struct = 2,
+    C23_gnu_ms_struct = 2,
   SpellingNotCalculated = 15
 
   };
@@ -5862,7 +6469,7 @@ public:
   enum Spelling {
     GNU_may_alias = 0,
     CXX11_gnu_may_alias = 1,
-    C2x_gnu_may_alias = 2,
+    C23_gnu_may_alias = 2,
   SpellingNotCalculated = 15
 
   };
@@ -5891,7 +6498,7 @@ public:
   enum Spelling {
     GNU_maybe_undef = 0,
     CXX11_clang_maybe_undef = 1,
-    C2x_clang_maybe_undef = 2,
+    C23_clang_maybe_undef = 2,
   SpellingNotCalculated = 15
 
   };
@@ -5920,7 +6527,7 @@ public:
   enum Spelling {
     GNU_micromips = 0,
     CXX11_gnu_micromips = 1,
-    C2x_gnu_micromips = 2,
+    C23_gnu_micromips = 2,
   SpellingNotCalculated = 15
 
   };
@@ -5949,7 +6556,7 @@ public:
   enum Spelling {
     GNU_minsize = 0,
     CXX11_clang_minsize = 1,
-    C2x_clang_minsize = 2,
+    C23_clang_minsize = 2,
   SpellingNotCalculated = 15
 
   };
@@ -5980,7 +6587,7 @@ public:
   enum Spelling {
     GNU_min_vector_width = 0,
     CXX11_clang_min_vector_width = 1,
-    C2x_clang_min_vector_width = 2,
+    C23_clang_min_vector_width = 2,
   SpellingNotCalculated = 15
 
   };
@@ -6014,7 +6621,7 @@ public:
   enum Spelling {
     GNU_mips16 = 0,
     CXX11_gnu_mips16 = 1,
-    C2x_gnu_mips16 = 2,
+    C23_gnu_mips16 = 2,
   SpellingNotCalculated = 15
 
   };
@@ -6052,38 +6659,38 @@ public:
     eic
   };
 private:
-  InterruptType interrupt;
+  MipsInterruptAttr::InterruptType interrupt;
 
 public:
   enum Spelling {
     GNU_interrupt = 0,
     CXX11_gnu_interrupt = 1,
-    C2x_gnu_interrupt = 2,
+    C23_gnu_interrupt = 2,
   SpellingNotCalculated = 15
 
   };
 
   // Factory methods
-  static MipsInterruptAttr *CreateImplicit(ASTContext &Ctx, InterruptType Interrupt, const AttributeCommonInfo &CommonInfo);
-  static MipsInterruptAttr *Create(ASTContext &Ctx, InterruptType Interrupt, const AttributeCommonInfo &CommonInfo);
-  static MipsInterruptAttr *CreateImplicit(ASTContext &Ctx, InterruptType Interrupt, SourceRange Range = {}, Spelling S = GNU_interrupt);
-  static MipsInterruptAttr *Create(ASTContext &Ctx, InterruptType Interrupt, SourceRange Range = {}, Spelling S = GNU_interrupt);
+  static MipsInterruptAttr *CreateImplicit(ASTContext &Ctx, MipsInterruptAttr::InterruptType Interrupt, const AttributeCommonInfo &CommonInfo);
+  static MipsInterruptAttr *Create(ASTContext &Ctx, MipsInterruptAttr::InterruptType Interrupt, const AttributeCommonInfo &CommonInfo);
+  static MipsInterruptAttr *CreateImplicit(ASTContext &Ctx, MipsInterruptAttr::InterruptType Interrupt, SourceRange Range = {}, Spelling S = GNU_interrupt);
+  static MipsInterruptAttr *Create(ASTContext &Ctx, MipsInterruptAttr::InterruptType Interrupt, SourceRange Range = {}, Spelling S = GNU_interrupt);
 
   // Constructors
   MipsInterruptAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , InterruptType Interrupt
+              , MipsInterruptAttr::InterruptType Interrupt
              );
 
   MipsInterruptAttr *clone(ASTContext &C) const;
   void printPretty(raw_ostream &OS,
                    const PrintingPolicy &Policy) const;
   const char *getSpelling() const;
-  InterruptType getInterrupt() const {
+  MipsInterruptAttr::InterruptType getInterrupt() const {
     return interrupt;
   }
 
-  static bool ConvertStrToInterruptType(StringRef Val, InterruptType &Out);
-  static const char *ConvertInterruptTypeToStr(InterruptType Val);
+  static bool ConvertStrToInterruptType(StringRef Val, MipsInterruptAttr::InterruptType &Out);
+  static const char *ConvertInterruptTypeToStr(MipsInterruptAttr::InterruptType Val);
 
 
   static bool classof(const Attr *A) { return A->getKind() == attr::MipsInterrupt; }
@@ -6094,10 +6701,10 @@ public:
   enum Spelling {
     GNU_long_call = 0,
     CXX11_gnu_long_call = 1,
-    C2x_gnu_long_call = 2,
+    C23_gnu_long_call = 2,
     GNU_far = 3,
     CXX11_gnu_far = 4,
-    C2x_gnu_far = 5,
+    C23_gnu_far = 5,
   SpellingNotCalculated = 15
 
   };
@@ -6127,10 +6734,10 @@ public:
   enum Spelling {
     GNU_short_call = 0,
     CXX11_gnu_short_call = 1,
-    C2x_gnu_short_call = 2,
+    C23_gnu_short_call = 2,
     GNU_near = 3,
     CXX11_gnu_near = 4,
-    C2x_gnu_near = 5,
+    C23_gnu_near = 5,
   SpellingNotCalculated = 15
 
   };
@@ -6162,7 +6769,7 @@ public:
   enum Spelling {
     GNU_mode = 0,
     CXX11_gnu_mode = 1,
-    C2x_gnu_mode = 2,
+    C23_gnu_mode = 2,
   SpellingNotCalculated = 15
 
   };
@@ -6196,7 +6803,7 @@ public:
   enum Spelling {
     GNU_musttail = 0,
     CXX11_clang_musttail = 1,
-    C2x_clang_musttail = 2,
+    C23_clang_musttail = 2,
   SpellingNotCalculated = 15
 
   };
@@ -6225,7 +6832,7 @@ public:
   enum Spelling {
     GNU_ns_consumed = 0,
     CXX11_clang_ns_consumed = 1,
-    C2x_clang_ns_consumed = 2,
+    C23_clang_ns_consumed = 2,
   SpellingNotCalculated = 15
 
   };
@@ -6254,7 +6861,7 @@ public:
   enum Spelling {
     GNU_ns_consumes_self = 0,
     CXX11_clang_ns_consumes_self = 1,
-    C2x_clang_ns_consumes_self = 2,
+    C23_clang_ns_consumes_self = 2,
   SpellingNotCalculated = 15
 
   };
@@ -6279,25 +6886,25 @@ public:
 };
 
 class NSErrorDomainAttr : public InheritableAttr {
-VarDecl * errorDomain;
+IdentifierInfo * errorDomain;
 
 public:
   // Factory methods
-  static NSErrorDomainAttr *CreateImplicit(ASTContext &Ctx, VarDecl * ErrorDomain, const AttributeCommonInfo &CommonInfo);
-  static NSErrorDomainAttr *Create(ASTContext &Ctx, VarDecl * ErrorDomain, const AttributeCommonInfo &CommonInfo);
-  static NSErrorDomainAttr *CreateImplicit(ASTContext &Ctx, VarDecl * ErrorDomain, SourceRange Range = {});
-  static NSErrorDomainAttr *Create(ASTContext &Ctx, VarDecl * ErrorDomain, SourceRange Range = {});
+  static NSErrorDomainAttr *CreateImplicit(ASTContext &Ctx, IdentifierInfo * ErrorDomain, const AttributeCommonInfo &CommonInfo);
+  static NSErrorDomainAttr *Create(ASTContext &Ctx, IdentifierInfo * ErrorDomain, const AttributeCommonInfo &CommonInfo);
+  static NSErrorDomainAttr *CreateImplicit(ASTContext &Ctx, IdentifierInfo * ErrorDomain, SourceRange Range = {});
+  static NSErrorDomainAttr *Create(ASTContext &Ctx, IdentifierInfo * ErrorDomain, SourceRange Range = {});
 
   // Constructors
   NSErrorDomainAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , VarDecl * ErrorDomain
+              , IdentifierInfo * ErrorDomain
              );
 
   NSErrorDomainAttr *clone(ASTContext &C) const;
   void printPretty(raw_ostream &OS,
                    const PrintingPolicy &Policy) const;
   const char *getSpelling() const;
-  VarDecl * getErrorDomain() const {
+  IdentifierInfo * getErrorDomain() const {
     return errorDomain;
   }
 
@@ -6311,7 +6918,7 @@ public:
   enum Spelling {
     GNU_ns_returns_autoreleased = 0,
     CXX11_clang_ns_returns_autoreleased = 1,
-    C2x_clang_ns_returns_autoreleased = 2,
+    C23_clang_ns_returns_autoreleased = 2,
   SpellingNotCalculated = 15
 
   };
@@ -6340,7 +6947,7 @@ public:
   enum Spelling {
     GNU_ns_returns_not_retained = 0,
     CXX11_clang_ns_returns_not_retained = 1,
-    C2x_clang_ns_returns_not_retained = 2,
+    C23_clang_ns_returns_not_retained = 2,
   SpellingNotCalculated = 15
 
   };
@@ -6369,7 +6976,7 @@ public:
   enum Spelling {
     GNU_ns_returns_retained = 0,
     CXX11_clang_ns_returns_retained = 1,
-    C2x_clang_ns_returns_retained = 2,
+    C23_clang_ns_returns_retained = 2,
   SpellingNotCalculated = 15
 
   };
@@ -6398,7 +7005,7 @@ public:
   enum Spelling {
     GNU_nvptx_kernel = 0,
     CXX11_clang_nvptx_kernel = 1,
-    C2x_clang_nvptx_kernel = 2,
+    C23_clang_nvptx_kernel = 2,
   SpellingNotCalculated = 15
 
   };
@@ -6427,7 +7034,7 @@ public:
   enum Spelling {
     GNU_naked = 0,
     CXX11_gnu_naked = 1,
-    C2x_gnu_naked = 2,
+    C23_gnu_naked = 2,
     Declspec_naked = 3,
   SpellingNotCalculated = 15
 
@@ -6481,7 +7088,7 @@ public:
   enum Spelling {
     GNU_no_builtin = 0,
     CXX11_clang_no_builtin = 1,
-    C2x_clang_no_builtin = 2,
+    C23_clang_no_builtin = 2,
   SpellingNotCalculated = 15
 
   };
@@ -6520,7 +7127,7 @@ public:
   enum Spelling {
     GNU_nocommon = 0,
     CXX11_gnu_nocommon = 1,
-    C2x_gnu_nocommon = 2,
+    C23_gnu_nocommon = 2,
   SpellingNotCalculated = 15
 
   };
@@ -6549,7 +7156,7 @@ public:
   enum Spelling {
     GNU_nodebug = 0,
     CXX11_gnu_nodebug = 1,
-    C2x_gnu_nodebug = 2,
+    C23_gnu_nodebug = 2,
   SpellingNotCalculated = 15
 
   };
@@ -6578,7 +7185,7 @@ public:
   enum Spelling {
     GNU_noderef = 0,
     CXX11_clang_noderef = 1,
-    C2x_clang_noderef = 2,
+    C23_clang_noderef = 2,
   SpellingNotCalculated = 15
 
   };
@@ -6635,7 +7242,7 @@ public:
   enum Spelling {
     GNU_noduplicate = 0,
     CXX11_clang_noduplicate = 1,
-    C2x_clang_noduplicate = 2,
+    C23_clang_noduplicate = 2,
   SpellingNotCalculated = 15
 
   };
@@ -6664,7 +7271,7 @@ public:
   enum Spelling {
     GNU_noescape = 0,
     CXX11_clang_noescape = 1,
-    C2x_clang_noescape = 2,
+    C23_clang_noescape = 2,
   SpellingNotCalculated = 15
 
   };
@@ -6694,9 +7301,9 @@ public:
     Keyword_noinline = 0,
     GNU_noinline = 1,
     CXX11_gnu_noinline = 2,
-    C2x_gnu_noinline = 3,
+    C23_gnu_noinline = 3,
     CXX11_clang_noinline = 4,
-    C2x_clang_noinline = 5,
+    C23_clang_noinline = 5,
     Declspec_noinline = 6,
   SpellingNotCalculated = 15
 
@@ -6728,7 +7335,7 @@ public:
   enum Spelling {
     GNU_no_instrument_function = 0,
     CXX11_gnu_no_instrument_function = 1,
-    C2x_gnu_no_instrument_function = 2,
+    C23_gnu_no_instrument_function = 2,
   SpellingNotCalculated = 15
 
   };
@@ -6757,7 +7364,7 @@ public:
   enum Spelling {
     GNU_nomerge = 0,
     CXX11_clang_nomerge = 1,
-    C2x_clang_nomerge = 2,
+    C23_clang_nomerge = 2,
   SpellingNotCalculated = 15
 
   };
@@ -6786,7 +7393,7 @@ public:
   enum Spelling {
     GNU_nomicromips = 0,
     CXX11_gnu_nomicromips = 1,
-    C2x_gnu_nomicromips = 2,
+    C23_gnu_nomicromips = 2,
   SpellingNotCalculated = 15
 
   };
@@ -6815,7 +7422,7 @@ public:
   enum Spelling {
     GNU_nomips16 = 0,
     CXX11_gnu_nomips16 = 1,
-    C2x_gnu_nomips16 = 2,
+    C23_gnu_nomips16 = 2,
   SpellingNotCalculated = 15
 
   };
@@ -6844,7 +7451,7 @@ public:
   enum Spelling {
     GNU_no_profile_instrument_function = 0,
     CXX11_gnu_no_profile_instrument_function = 1,
-    C2x_gnu_no_profile_instrument_function = 2,
+    C23_gnu_no_profile_instrument_function = 2,
   SpellingNotCalculated = 15
 
   };
@@ -6873,7 +7480,7 @@ public:
   enum Spelling {
     GNU_no_randomize_layout = 0,
     CXX11_gnu_no_randomize_layout = 1,
-    C2x_gnu_no_randomize_layout = 2,
+    C23_gnu_no_randomize_layout = 2,
   SpellingNotCalculated = 15
 
   };
@@ -6902,7 +7509,7 @@ public:
   enum Spelling {
     GNU_noreturn = 0,
     CXX11_gnu_noreturn = 1,
-    C2x_gnu_noreturn = 2,
+    C23_gnu_noreturn = 2,
     Declspec_noreturn = 3,
   SpellingNotCalculated = 15
 
@@ -6935,7 +7542,7 @@ public:
   enum Spelling {
     GNU_no_sanitize = 0,
     CXX11_clang_no_sanitize = 1,
-    C2x_clang_no_sanitize = 2,
+    C23_clang_no_sanitize = 2,
   SpellingNotCalculated = 15
 
   };
@@ -6988,7 +7595,7 @@ public:
   enum Spelling {
     GNU_no_speculative_load_hardening = 0,
     CXX11_clang_no_speculative_load_hardening = 1,
-    C2x_clang_no_speculative_load_hardening = 2,
+    C23_clang_no_speculative_load_hardening = 2,
   SpellingNotCalculated = 15
 
   };
@@ -7017,7 +7624,7 @@ public:
   enum Spelling {
     GNU_no_split_stack = 0,
     CXX11_gnu_no_split_stack = 1,
-    C2x_gnu_no_split_stack = 2,
+    C23_gnu_no_split_stack = 2,
   SpellingNotCalculated = 15
 
   };
@@ -7046,8 +7653,10 @@ public:
   enum Spelling {
     GNU_no_stack_protector = 0,
     CXX11_clang_no_stack_protector = 1,
-    C2x_clang_no_stack_protector = 2,
-    Declspec_safebuffers = 3,
+    C23_clang_no_stack_protector = 2,
+    CXX11_gnu_no_stack_protector = 3,
+    C23_gnu_no_stack_protector = 4,
+    Declspec_safebuffers = 5,
   SpellingNotCalculated = 15
 
   };
@@ -7077,7 +7686,7 @@ public:
   enum Spelling {
     GNU_no_thread_safety_analysis = 0,
     CXX11_clang_no_thread_safety_analysis = 1,
-    C2x_clang_no_thread_safety_analysis = 2,
+    C23_clang_no_thread_safety_analysis = 2,
   SpellingNotCalculated = 15
 
   };
@@ -7106,7 +7715,7 @@ public:
   enum Spelling {
     GNU_nothrow = 0,
     CXX11_gnu_nothrow = 1,
-    C2x_gnu_nothrow = 2,
+    C23_gnu_nothrow = 2,
     Declspec_nothrow = 3,
   SpellingNotCalculated = 15
 
@@ -7133,11 +7742,18 @@ public:
 
 class NoUniqueAddressAttr : public InheritableAttr {
 public:
+  enum Spelling {
+    CXX11_no_unique_address = 0,
+    CXX11_msvc_no_unique_address = 1,
+  SpellingNotCalculated = 15
+
+  };
+
   // Factory methods
   static NoUniqueAddressAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
   static NoUniqueAddressAttr *Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
-  static NoUniqueAddressAttr *CreateImplicit(ASTContext &Ctx, SourceRange Range = {});
-  static NoUniqueAddressAttr *Create(ASTContext &Ctx, SourceRange Range = {});
+  static NoUniqueAddressAttr *CreateImplicit(ASTContext &Ctx, SourceRange Range = {}, Spelling S = CXX11_no_unique_address);
+  static NoUniqueAddressAttr *Create(ASTContext &Ctx, SourceRange Range = {}, Spelling S = CXX11_no_unique_address);
 
   // Constructors
   NoUniqueAddressAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
@@ -7157,7 +7773,7 @@ public:
   enum Spelling {
     GNU_nouwtable = 0,
     CXX11_clang_nouwtable = 1,
-    C2x_clang_nouwtable = 2,
+    C23_clang_nouwtable = 2,
   SpellingNotCalculated = 15
 
   };
@@ -7189,7 +7805,7 @@ public:
   enum Spelling {
     GNU_nonnull = 0,
     CXX11_gnu_nonnull = 1,
-    C2x_gnu_nonnull = 2,
+    C23_gnu_nonnull = 2,
   SpellingNotCalculated = 15
 
   };
@@ -7236,7 +7852,7 @@ public:
   enum Spelling {
     GNU_not_tail_called = 0,
     CXX11_clang_not_tail_called = 1,
-    C2x_clang_not_tail_called = 2,
+    C23_clang_not_tail_called = 2,
   SpellingNotCalculated = 15
 
   };
@@ -7275,7 +7891,7 @@ public:
     OMPUserDefinedMemAlloc
   };
 private:
-  AllocatorTypeTy allocatorType;
+  OMPAllocateDeclAttr::AllocatorTypeTy allocatorType;
 
 Expr * allocator;
 
@@ -7283,14 +7899,14 @@ Expr * alignment;
 
 public:
   // Factory methods
-  static OMPAllocateDeclAttr *CreateImplicit(ASTContext &Ctx, AllocatorTypeTy AllocatorType, Expr * Allocator, Expr * Alignment, const AttributeCommonInfo &CommonInfo);
-  static OMPAllocateDeclAttr *Create(ASTContext &Ctx, AllocatorTypeTy AllocatorType, Expr * Allocator, Expr * Alignment, const AttributeCommonInfo &CommonInfo);
-  static OMPAllocateDeclAttr *CreateImplicit(ASTContext &Ctx, AllocatorTypeTy AllocatorType, Expr * Allocator, Expr * Alignment, SourceRange Range = {});
-  static OMPAllocateDeclAttr *Create(ASTContext &Ctx, AllocatorTypeTy AllocatorType, Expr * Allocator, Expr * Alignment, SourceRange Range = {});
+  static OMPAllocateDeclAttr *CreateImplicit(ASTContext &Ctx, OMPAllocateDeclAttr::AllocatorTypeTy AllocatorType, Expr * Allocator, Expr * Alignment, const AttributeCommonInfo &CommonInfo);
+  static OMPAllocateDeclAttr *Create(ASTContext &Ctx, OMPAllocateDeclAttr::AllocatorTypeTy AllocatorType, Expr * Allocator, Expr * Alignment, const AttributeCommonInfo &CommonInfo);
+  static OMPAllocateDeclAttr *CreateImplicit(ASTContext &Ctx, OMPAllocateDeclAttr::AllocatorTypeTy AllocatorType, Expr * Allocator, Expr * Alignment, SourceRange Range = {});
+  static OMPAllocateDeclAttr *Create(ASTContext &Ctx, OMPAllocateDeclAttr::AllocatorTypeTy AllocatorType, Expr * Allocator, Expr * Alignment, SourceRange Range = {});
 
   // Constructors
   OMPAllocateDeclAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , AllocatorTypeTy AllocatorType
+              , OMPAllocateDeclAttr::AllocatorTypeTy AllocatorType
               , Expr * Allocator
               , Expr * Alignment
              );
@@ -7299,12 +7915,12 @@ public:
   void printPretty(raw_ostream &OS,
                    const PrintingPolicy &Policy) const;
   const char *getSpelling() const;
-  AllocatorTypeTy getAllocatorType() const {
+  OMPAllocateDeclAttr::AllocatorTypeTy getAllocatorType() const {
     return allocatorType;
   }
 
-  static bool ConvertStrToAllocatorTypeTy(StringRef Val, AllocatorTypeTy &Out);
-  static const char *ConvertAllocatorTypeTyToStr(AllocatorTypeTy Val);
+  static bool ConvertStrToAllocatorTypeTy(StringRef Val, OMPAllocateDeclAttr::AllocatorTypeTy &Out);
+  static const char *ConvertAllocatorTypeTyToStr(OMPAllocateDeclAttr::AllocatorTypeTy Val);
   Expr * getAllocator() const {
     return allocator;
   }
@@ -7379,7 +7995,7 @@ public:
     BS_Notinbranch
   };
 private:
-  BranchStateTy branchState;
+  OMPDeclareSimdDeclAttr::BranchStateTy branchState;
 
 Expr * simdlen;
 
@@ -7403,14 +8019,14 @@ Expr * simdlen;
 
 public:
   // Factory methods
-  static OMPDeclareSimdDeclAttr *CreateImplicit(ASTContext &Ctx, BranchStateTy BranchState, Expr * Simdlen, Expr * *Uniforms, unsigned UniformsSize, Expr * *Aligneds, unsigned AlignedsSize, Expr * *Alignments, unsigned AlignmentsSize, Expr * *Linears, unsigned LinearsSize, unsigned *Modifiers, unsigned ModifiersSize, Expr * *Steps, unsigned StepsSize, const AttributeCommonInfo &CommonInfo);
-  static OMPDeclareSimdDeclAttr *Create(ASTContext &Ctx, BranchStateTy BranchState, Expr * Simdlen, Expr * *Uniforms, unsigned UniformsSize, Expr * *Aligneds, unsigned AlignedsSize, Expr * *Alignments, unsigned AlignmentsSize, Expr * *Linears, unsigned LinearsSize, unsigned *Modifiers, unsigned ModifiersSize, Expr * *Steps, unsigned StepsSize, const AttributeCommonInfo &CommonInfo);
-  static OMPDeclareSimdDeclAttr *CreateImplicit(ASTContext &Ctx, BranchStateTy BranchState, Expr * Simdlen, Expr * *Uniforms, unsigned UniformsSize, Expr * *Aligneds, unsigned AlignedsSize, Expr * *Alignments, unsigned AlignmentsSize, Expr * *Linears, unsigned LinearsSize, unsigned *Modifiers, unsigned ModifiersSize, Expr * *Steps, unsigned StepsSize, SourceRange Range = {});
-  static OMPDeclareSimdDeclAttr *Create(ASTContext &Ctx, BranchStateTy BranchState, Expr * Simdlen, Expr * *Uniforms, unsigned UniformsSize, Expr * *Aligneds, unsigned AlignedsSize, Expr * *Alignments, unsigned AlignmentsSize, Expr * *Linears, unsigned LinearsSize, unsigned *Modifiers, unsigned ModifiersSize, Expr * *Steps, unsigned StepsSize, SourceRange Range = {});
+  static OMPDeclareSimdDeclAttr *CreateImplicit(ASTContext &Ctx, OMPDeclareSimdDeclAttr::BranchStateTy BranchState, Expr * Simdlen, Expr * *Uniforms, unsigned UniformsSize, Expr * *Aligneds, unsigned AlignedsSize, Expr * *Alignments, unsigned AlignmentsSize, Expr * *Linears, unsigned LinearsSize, unsigned *Modifiers, unsigned ModifiersSize, Expr * *Steps, unsigned StepsSize, const AttributeCommonInfo &CommonInfo);
+  static OMPDeclareSimdDeclAttr *Create(ASTContext &Ctx, OMPDeclareSimdDeclAttr::BranchStateTy BranchState, Expr * Simdlen, Expr * *Uniforms, unsigned UniformsSize, Expr * *Aligneds, unsigned AlignedsSize, Expr * *Alignments, unsigned AlignmentsSize, Expr * *Linears, unsigned LinearsSize, unsigned *Modifiers, unsigned ModifiersSize, Expr * *Steps, unsigned StepsSize, const AttributeCommonInfo &CommonInfo);
+  static OMPDeclareSimdDeclAttr *CreateImplicit(ASTContext &Ctx, OMPDeclareSimdDeclAttr::BranchStateTy BranchState, Expr * Simdlen, Expr * *Uniforms, unsigned UniformsSize, Expr * *Aligneds, unsigned AlignedsSize, Expr * *Alignments, unsigned AlignmentsSize, Expr * *Linears, unsigned LinearsSize, unsigned *Modifiers, unsigned ModifiersSize, Expr * *Steps, unsigned StepsSize, SourceRange Range = {});
+  static OMPDeclareSimdDeclAttr *Create(ASTContext &Ctx, OMPDeclareSimdDeclAttr::BranchStateTy BranchState, Expr * Simdlen, Expr * *Uniforms, unsigned UniformsSize, Expr * *Aligneds, unsigned AlignedsSize, Expr * *Alignments, unsigned AlignmentsSize, Expr * *Linears, unsigned LinearsSize, unsigned *Modifiers, unsigned ModifiersSize, Expr * *Steps, unsigned StepsSize, SourceRange Range = {});
 
   // Constructors
   OMPDeclareSimdDeclAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , BranchStateTy BranchState
+              , OMPDeclareSimdDeclAttr::BranchStateTy BranchState
               , Expr * Simdlen
               , Expr * *Uniforms, unsigned UniformsSize
               , Expr * *Aligneds, unsigned AlignedsSize
@@ -7420,7 +8036,7 @@ public:
               , Expr * *Steps, unsigned StepsSize
              );
   OMPDeclareSimdDeclAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , BranchStateTy BranchState
+              , OMPDeclareSimdDeclAttr::BranchStateTy BranchState
               , Expr * Simdlen
              );
 
@@ -7428,12 +8044,12 @@ public:
   void printPretty(raw_ostream &OS,
                    const PrintingPolicy &Policy) const;
   const char *getSpelling() const;
-  BranchStateTy getBranchState() const {
+  OMPDeclareSimdDeclAttr::BranchStateTy getBranchState() const {
     return branchState;
   }
 
-  static bool ConvertStrToBranchStateTy(StringRef Val, BranchStateTy &Out);
-  static const char *ConvertBranchStateTyToStr(BranchStateTy Val);
+  static bool ConvertStrToBranchStateTy(StringRef Val, OMPDeclareSimdDeclAttr::BranchStateTy &Out);
+  static const char *ConvertBranchStateTyToStr(OMPDeclareSimdDeclAttr::BranchStateTy Val);
   Expr * getSimdlen() const {
     return simdlen;
   }
@@ -7496,7 +8112,7 @@ public:
     MT_Link
   };
 private:
-  MapTypeTy mapType;
+  OMPDeclareTargetDeclAttr::MapTypeTy mapType;
 
 public:
   enum DevTypeTy {
@@ -7505,7 +8121,7 @@ public:
     DT_Any
   };
 private:
-  DevTypeTy devType;
+  OMPDeclareTargetDeclAttr::DevTypeTy devType;
 
 Expr * indirectExpr;
 
@@ -7515,15 +8131,15 @@ unsigned level;
 
 public:
   // Factory methods
-  static OMPDeclareTargetDeclAttr *CreateImplicit(ASTContext &Ctx, MapTypeTy MapType, DevTypeTy DevType, Expr * IndirectExpr, bool Indirect, unsigned Level, const AttributeCommonInfo &CommonInfo);
-  static OMPDeclareTargetDeclAttr *Create(ASTContext &Ctx, MapTypeTy MapType, DevTypeTy DevType, Expr * IndirectExpr, bool Indirect, unsigned Level, const AttributeCommonInfo &CommonInfo);
-  static OMPDeclareTargetDeclAttr *CreateImplicit(ASTContext &Ctx, MapTypeTy MapType, DevTypeTy DevType, Expr * IndirectExpr, bool Indirect, unsigned Level, SourceRange Range = {});
-  static OMPDeclareTargetDeclAttr *Create(ASTContext &Ctx, MapTypeTy MapType, DevTypeTy DevType, Expr * IndirectExpr, bool Indirect, unsigned Level, SourceRange Range = {});
+  static OMPDeclareTargetDeclAttr *CreateImplicit(ASTContext &Ctx, OMPDeclareTargetDeclAttr::MapTypeTy MapType, OMPDeclareTargetDeclAttr::DevTypeTy DevType, Expr * IndirectExpr, bool Indirect, unsigned Level, const AttributeCommonInfo &CommonInfo);
+  static OMPDeclareTargetDeclAttr *Create(ASTContext &Ctx, OMPDeclareTargetDeclAttr::MapTypeTy MapType, OMPDeclareTargetDeclAttr::DevTypeTy DevType, Expr * IndirectExpr, bool Indirect, unsigned Level, const AttributeCommonInfo &CommonInfo);
+  static OMPDeclareTargetDeclAttr *CreateImplicit(ASTContext &Ctx, OMPDeclareTargetDeclAttr::MapTypeTy MapType, OMPDeclareTargetDeclAttr::DevTypeTy DevType, Expr * IndirectExpr, bool Indirect, unsigned Level, SourceRange Range = {});
+  static OMPDeclareTargetDeclAttr *Create(ASTContext &Ctx, OMPDeclareTargetDeclAttr::MapTypeTy MapType, OMPDeclareTargetDeclAttr::DevTypeTy DevType, Expr * IndirectExpr, bool Indirect, unsigned Level, SourceRange Range = {});
 
   // Constructors
   OMPDeclareTargetDeclAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , MapTypeTy MapType
-              , DevTypeTy DevType
+              , OMPDeclareTargetDeclAttr::MapTypeTy MapType
+              , OMPDeclareTargetDeclAttr::DevTypeTy DevType
               , Expr * IndirectExpr
               , bool Indirect
               , unsigned Level
@@ -7533,18 +8149,18 @@ public:
   void printPretty(raw_ostream &OS,
                    const PrintingPolicy &Policy) const;
   const char *getSpelling() const;
-  MapTypeTy getMapType() const {
+  OMPDeclareTargetDeclAttr::MapTypeTy getMapType() const {
     return mapType;
   }
 
-  static bool ConvertStrToMapTypeTy(StringRef Val, MapTypeTy &Out);
-  static const char *ConvertMapTypeTyToStr(MapTypeTy Val);
-  DevTypeTy getDevType() const {
+  static bool ConvertStrToMapTypeTy(StringRef Val, OMPDeclareTargetDeclAttr::MapTypeTy &Out);
+  static const char *ConvertMapTypeTyToStr(OMPDeclareTargetDeclAttr::MapTypeTy Val);
+  OMPDeclareTargetDeclAttr::DevTypeTy getDevType() const {
     return devType;
   }
 
-  static bool ConvertStrToDevTypeTy(StringRef Val, DevTypeTy &Out);
-  static const char *ConvertDevTypeTyToStr(DevTypeTy Val);
+  static bool ConvertStrToDevTypeTy(StringRef Val, OMPDeclareTargetDeclAttr::DevTypeTy &Out);
+  static const char *ConvertDevTypeTyToStr(OMPDeclareTargetDeclAttr::DevTypeTy Val);
   Expr * getIndirectExpr() const {
     return indirectExpr;
   }
@@ -7707,7 +8323,7 @@ public:
   enum Spelling {
     GNU_os_consumed = 0,
     CXX11_clang_os_consumed = 1,
-    C2x_clang_os_consumed = 2,
+    C23_clang_os_consumed = 2,
   SpellingNotCalculated = 15
 
   };
@@ -7736,7 +8352,7 @@ public:
   enum Spelling {
     GNU_os_consumes_this = 0,
     CXX11_clang_os_consumes_this = 1,
-    C2x_clang_os_consumes_this = 2,
+    C23_clang_os_consumes_this = 2,
   SpellingNotCalculated = 15
 
   };
@@ -7765,7 +8381,7 @@ public:
   enum Spelling {
     GNU_os_returns_not_retained = 0,
     CXX11_clang_os_returns_not_retained = 1,
-    C2x_clang_os_returns_not_retained = 2,
+    C23_clang_os_returns_not_retained = 2,
   SpellingNotCalculated = 15
 
   };
@@ -7794,7 +8410,7 @@ public:
   enum Spelling {
     GNU_os_returns_retained = 0,
     CXX11_clang_os_returns_retained = 1,
-    C2x_clang_os_returns_retained = 2,
+    C23_clang_os_returns_retained = 2,
   SpellingNotCalculated = 15
 
   };
@@ -7823,7 +8439,7 @@ public:
   enum Spelling {
     GNU_os_returns_retained_on_non_zero = 0,
     CXX11_clang_os_returns_retained_on_non_zero = 1,
-    C2x_clang_os_returns_retained_on_non_zero = 2,
+    C23_clang_os_returns_retained_on_non_zero = 2,
   SpellingNotCalculated = 15
 
   };
@@ -7852,7 +8468,7 @@ public:
   enum Spelling {
     GNU_os_returns_retained_on_zero = 0,
     CXX11_clang_os_returns_retained_on_zero = 1,
-    C2x_clang_os_returns_retained_on_zero = 2,
+    C23_clang_os_returns_retained_on_zero = 2,
   SpellingNotCalculated = 15
 
   };
@@ -7881,7 +8497,7 @@ public:
   enum Spelling {
     GNU_objc_boxable = 0,
     CXX11_clang_objc_boxable = 1,
-    C2x_clang_objc_boxable = 2,
+    C23_clang_objc_boxable = 2,
   SpellingNotCalculated = 15
 
   };
@@ -7912,7 +8528,7 @@ public:
   enum Spelling {
     GNU_objc_bridge = 0,
     CXX11_clang_objc_bridge = 1,
-    C2x_clang_objc_bridge = 2,
+    C23_clang_objc_bridge = 2,
   SpellingNotCalculated = 15
 
   };
@@ -7948,7 +8564,7 @@ public:
   enum Spelling {
     GNU_objc_bridge_mutable = 0,
     CXX11_clang_objc_bridge_mutable = 1,
-    C2x_clang_objc_bridge_mutable = 2,
+    C23_clang_objc_bridge_mutable = 2,
   SpellingNotCalculated = 15
 
   };
@@ -7988,7 +8604,7 @@ public:
   enum Spelling {
     GNU_objc_bridge_related = 0,
     CXX11_clang_objc_bridge_related = 1,
-    C2x_clang_objc_bridge_related = 2,
+    C23_clang_objc_bridge_related = 2,
   SpellingNotCalculated = 15
 
   };
@@ -8032,7 +8648,7 @@ public:
   enum Spelling {
     GNU_objc_class_stub = 0,
     CXX11_clang_objc_class_stub = 1,
-    C2x_clang_objc_class_stub = 2,
+    C23_clang_objc_class_stub = 2,
   SpellingNotCalculated = 15
 
   };
@@ -8061,7 +8677,7 @@ public:
   enum Spelling {
     GNU_objc_designated_initializer = 0,
     CXX11_clang_objc_designated_initializer = 1,
-    C2x_clang_objc_designated_initializer = 2,
+    C23_clang_objc_designated_initializer = 2,
   SpellingNotCalculated = 15
 
   };
@@ -8090,7 +8706,7 @@ public:
   enum Spelling {
     GNU_objc_direct = 0,
     CXX11_clang_objc_direct = 1,
-    C2x_clang_objc_direct = 2,
+    C23_clang_objc_direct = 2,
   SpellingNotCalculated = 15
 
   };
@@ -8119,7 +8735,7 @@ public:
   enum Spelling {
     GNU_objc_direct_members = 0,
     CXX11_clang_objc_direct_members = 1,
-    C2x_clang_objc_direct_members = 2,
+    C23_clang_objc_direct_members = 2,
   SpellingNotCalculated = 15
 
   };
@@ -8148,7 +8764,7 @@ public:
   enum Spelling {
     GNU_objc_exception = 0,
     CXX11_clang_objc_exception = 1,
-    C2x_clang_objc_exception = 2,
+    C23_clang_objc_exception = 2,
   SpellingNotCalculated = 15
 
   };
@@ -8177,7 +8793,7 @@ public:
   enum Spelling {
     GNU_objc_protocol_requires_explicit_implementation = 0,
     CXX11_clang_objc_protocol_requires_explicit_implementation = 1,
-    C2x_clang_objc_protocol_requires_explicit_implementation = 2,
+    C23_clang_objc_protocol_requires_explicit_implementation = 2,
   SpellingNotCalculated = 15
 
   };
@@ -8206,7 +8822,7 @@ public:
   enum Spelling {
     GNU_objc_externally_retained = 0,
     CXX11_clang_objc_externally_retained = 1,
-    C2x_clang_objc_externally_retained = 2,
+    C23_clang_objc_externally_retained = 2,
   SpellingNotCalculated = 15
 
   };
@@ -8237,7 +8853,7 @@ public:
   enum Spelling {
     GNU_objc_gc = 0,
     CXX11_clang_objc_gc = 1,
-    C2x_clang_objc_gc = 2,
+    C23_clang_objc_gc = 2,
   SpellingNotCalculated = 15
 
   };
@@ -8271,7 +8887,7 @@ public:
   enum Spelling {
     GNU_objc_independent_class = 0,
     CXX11_clang_objc_independent_class = 1,
-    C2x_clang_objc_independent_class = 2,
+    C23_clang_objc_independent_class = 2,
   SpellingNotCalculated = 15
 
   };
@@ -8348,38 +8964,38 @@ public:
     OMF_new
   };
 private:
-  FamilyKind family;
+  ObjCMethodFamilyAttr::FamilyKind family;
 
 public:
   enum Spelling {
     GNU_objc_method_family = 0,
     CXX11_clang_objc_method_family = 1,
-    C2x_clang_objc_method_family = 2,
+    C23_clang_objc_method_family = 2,
   SpellingNotCalculated = 15
 
   };
 
   // Factory methods
-  static ObjCMethodFamilyAttr *CreateImplicit(ASTContext &Ctx, FamilyKind Family, const AttributeCommonInfo &CommonInfo);
-  static ObjCMethodFamilyAttr *Create(ASTContext &Ctx, FamilyKind Family, const AttributeCommonInfo &CommonInfo);
-  static ObjCMethodFamilyAttr *CreateImplicit(ASTContext &Ctx, FamilyKind Family, SourceRange Range = {}, Spelling S = GNU_objc_method_family);
-  static ObjCMethodFamilyAttr *Create(ASTContext &Ctx, FamilyKind Family, SourceRange Range = {}, Spelling S = GNU_objc_method_family);
+  static ObjCMethodFamilyAttr *CreateImplicit(ASTContext &Ctx, ObjCMethodFamilyAttr::FamilyKind Family, const AttributeCommonInfo &CommonInfo);
+  static ObjCMethodFamilyAttr *Create(ASTContext &Ctx, ObjCMethodFamilyAttr::FamilyKind Family, const AttributeCommonInfo &CommonInfo);
+  static ObjCMethodFamilyAttr *CreateImplicit(ASTContext &Ctx, ObjCMethodFamilyAttr::FamilyKind Family, SourceRange Range = {}, Spelling S = GNU_objc_method_family);
+  static ObjCMethodFamilyAttr *Create(ASTContext &Ctx, ObjCMethodFamilyAttr::FamilyKind Family, SourceRange Range = {}, Spelling S = GNU_objc_method_family);
 
   // Constructors
   ObjCMethodFamilyAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , FamilyKind Family
+              , ObjCMethodFamilyAttr::FamilyKind Family
              );
 
   ObjCMethodFamilyAttr *clone(ASTContext &C) const;
   void printPretty(raw_ostream &OS,
                    const PrintingPolicy &Policy) const;
   const char *getSpelling() const;
-  FamilyKind getFamily() const {
+  ObjCMethodFamilyAttr::FamilyKind getFamily() const {
     return family;
   }
 
-  static bool ConvertStrToFamilyKind(StringRef Val, FamilyKind &Out);
-  static const char *ConvertFamilyKindToStr(FamilyKind Val);
+  static bool ConvertStrToFamilyKind(StringRef Val, ObjCMethodFamilyAttr::FamilyKind &Out);
+  static const char *ConvertFamilyKindToStr(ObjCMethodFamilyAttr::FamilyKind Val);
 
 
   static bool classof(const Attr *A) { return A->getKind() == attr::ObjCMethodFamily; }
@@ -8390,7 +9006,7 @@ public:
   enum Spelling {
     GNU_NSObject = 0,
     CXX11_clang_NSObject = 1,
-    C2x_clang_NSObject = 2,
+    C23_clang_NSObject = 2,
   SpellingNotCalculated = 15
 
   };
@@ -8419,7 +9035,7 @@ public:
   enum Spelling {
     GNU_objc_nonlazy_class = 0,
     CXX11_clang_objc_nonlazy_class = 1,
-    C2x_clang_objc_nonlazy_class = 2,
+    C23_clang_objc_nonlazy_class = 2,
   SpellingNotCalculated = 15
 
   };
@@ -8448,7 +9064,7 @@ public:
   enum Spelling {
     GNU_objc_non_runtime_protocol = 0,
     CXX11_clang_objc_non_runtime_protocol = 1,
-    C2x_clang_objc_non_runtime_protocol = 2,
+    C23_clang_objc_non_runtime_protocol = 2,
   SpellingNotCalculated = 15
 
   };
@@ -8479,7 +9095,7 @@ public:
   enum Spelling {
     GNU_objc_ownership = 0,
     CXX11_clang_objc_ownership = 1,
-    C2x_clang_objc_ownership = 2,
+    C23_clang_objc_ownership = 2,
   SpellingNotCalculated = 15
 
   };
@@ -8513,7 +9129,7 @@ public:
   enum Spelling {
     GNU_objc_precise_lifetime = 0,
     CXX11_clang_objc_precise_lifetime = 1,
-    C2x_clang_objc_precise_lifetime = 2,
+    C23_clang_objc_precise_lifetime = 2,
   SpellingNotCalculated = 15
 
   };
@@ -8542,7 +9158,7 @@ public:
   enum Spelling {
     GNU_objc_requires_property_definitions = 0,
     CXX11_clang_objc_requires_property_definitions = 1,
-    C2x_clang_objc_requires_property_definitions = 2,
+    C23_clang_objc_requires_property_definitions = 2,
   SpellingNotCalculated = 15
 
   };
@@ -8571,7 +9187,7 @@ public:
   enum Spelling {
     GNU_objc_requires_super = 0,
     CXX11_clang_objc_requires_super = 1,
-    C2x_clang_objc_requires_super = 2,
+    C23_clang_objc_requires_super = 2,
   SpellingNotCalculated = 15
 
   };
@@ -8600,7 +9216,7 @@ public:
   enum Spelling {
     GNU_objc_returns_inner_pointer = 0,
     CXX11_clang_objc_returns_inner_pointer = 1,
-    C2x_clang_objc_returns_inner_pointer = 2,
+    C23_clang_objc_returns_inner_pointer = 2,
   SpellingNotCalculated = 15
 
   };
@@ -8629,7 +9245,7 @@ public:
   enum Spelling {
     GNU_objc_root_class = 0,
     CXX11_clang_objc_root_class = 1,
-    C2x_clang_objc_root_class = 2,
+    C23_clang_objc_root_class = 2,
   SpellingNotCalculated = 15
 
   };
@@ -8661,7 +9277,7 @@ public:
   enum Spelling {
     GNU_objc_runtime_name = 0,
     CXX11_clang_objc_runtime_name = 1,
-    C2x_clang_objc_runtime_name = 2,
+    C23_clang_objc_runtime_name = 2,
   SpellingNotCalculated = 15
 
   };
@@ -8704,7 +9320,7 @@ public:
   enum Spelling {
     GNU_objc_runtime_visible = 0,
     CXX11_clang_objc_runtime_visible = 1,
-    C2x_clang_objc_runtime_visible = 2,
+    C23_clang_objc_runtime_visible = 2,
   SpellingNotCalculated = 15
 
   };
@@ -8733,7 +9349,7 @@ public:
   enum Spelling {
     GNU_objc_subclassing_restricted = 0,
     CXX11_clang_objc_subclassing_restricted = 1,
-    C2x_clang_objc_subclassing_restricted = 2,
+    C23_clang_objc_subclassing_restricted = 2,
   SpellingNotCalculated = 15
 
   };
@@ -8799,7 +9415,7 @@ public:
     Keyword_constant = 0,
     GNU_opencl_constant = 2,
     CXX11_clang_opencl_constant = 3,
-    C2x_clang_opencl_constant = 4,
+    C23_clang_opencl_constant = 4,
   SpellingNotCalculated = 15
 
   };
@@ -8830,7 +9446,7 @@ public:
     Keyword_generic = 0,
     GNU_opencl_generic = 2,
     CXX11_clang_opencl_generic = 3,
-    C2x_clang_opencl_generic = 4,
+    C23_clang_opencl_generic = 4,
   SpellingNotCalculated = 15
 
   };
@@ -8861,7 +9477,7 @@ public:
     Keyword_global = 0,
     GNU_opencl_global = 2,
     CXX11_clang_opencl_global = 3,
-    C2x_clang_opencl_global = 4,
+    C23_clang_opencl_global = 4,
   SpellingNotCalculated = 15
 
   };
@@ -8891,7 +9507,7 @@ public:
   enum Spelling {
     GNU_opencl_global_device = 0,
     CXX11_clang_opencl_global_device = 1,
-    C2x_clang_opencl_global_device = 2,
+    C23_clang_opencl_global_device = 2,
   SpellingNotCalculated = 15
 
   };
@@ -8920,7 +9536,7 @@ public:
   enum Spelling {
     GNU_opencl_global_host = 0,
     CXX11_clang_opencl_global_host = 1,
-    C2x_clang_opencl_global_host = 2,
+    C23_clang_opencl_global_host = 2,
   SpellingNotCalculated = 15
 
   };
@@ -9005,7 +9621,7 @@ public:
     Keyword_local = 0,
     GNU_opencl_local = 2,
     CXX11_clang_opencl_local = 3,
-    C2x_clang_opencl_local = 4,
+    C23_clang_opencl_local = 4,
   SpellingNotCalculated = 15
 
   };
@@ -9036,7 +9652,7 @@ public:
     Keyword_private = 0,
     GNU_opencl_private = 2,
     CXX11_clang_opencl_private = 3,
-    C2x_clang_opencl_private = 4,
+    C23_clang_opencl_private = 4,
   SpellingNotCalculated = 15
 
   };
@@ -9096,7 +9712,7 @@ public:
   enum Spelling {
     GNU_optnone = 0,
     CXX11_clang_optnone = 1,
-    C2x_clang_optnone = 2,
+    C23_clang_optnone = 2,
   SpellingNotCalculated = 15
 
   };
@@ -9125,7 +9741,7 @@ public:
   enum Spelling {
     GNU_overloadable = 0,
     CXX11_clang_overloadable = 1,
-    C2x_clang_overloadable = 2,
+    C23_clang_overloadable = 2,
   SpellingNotCalculated = 15
 
   };
@@ -9212,13 +9828,13 @@ public:
   enum Spelling {
     GNU_ownership_holds = 0,
     CXX11_clang_ownership_holds = 1,
-    C2x_clang_ownership_holds = 2,
+    C23_clang_ownership_holds = 2,
     GNU_ownership_returns = 3,
     CXX11_clang_ownership_returns = 4,
-    C2x_clang_ownership_returns = 5,
+    C23_clang_ownership_returns = 5,
     GNU_ownership_takes = 6,
     CXX11_clang_ownership_takes = 7,
-    C2x_clang_ownership_takes = 8,
+    C23_clang_ownership_takes = 8,
   SpellingNotCalculated = 15
 
   };
@@ -9280,7 +9896,7 @@ public:
   enum Spelling {
     GNU_packed = 0,
     CXX11_gnu_packed = 1,
-    C2x_gnu_packed = 2,
+    C23_gnu_packed = 2,
   SpellingNotCalculated = 15
 
   };
@@ -9312,7 +9928,7 @@ public:
     Unconsumed
   };
 private:
-  ConsumedState paramState;
+  ParamTypestateAttr::ConsumedState paramState;
 
 public:
   enum Spelling {
@@ -9323,26 +9939,26 @@ public:
   };
 
   // Factory methods
-  static ParamTypestateAttr *CreateImplicit(ASTContext &Ctx, ConsumedState ParamState, const AttributeCommonInfo &CommonInfo);
-  static ParamTypestateAttr *Create(ASTContext &Ctx, ConsumedState ParamState, const AttributeCommonInfo &CommonInfo);
-  static ParamTypestateAttr *CreateImplicit(ASTContext &Ctx, ConsumedState ParamState, SourceRange Range = {}, Spelling S = GNU_param_typestate);
-  static ParamTypestateAttr *Create(ASTContext &Ctx, ConsumedState ParamState, SourceRange Range = {}, Spelling S = GNU_param_typestate);
+  static ParamTypestateAttr *CreateImplicit(ASTContext &Ctx, ParamTypestateAttr::ConsumedState ParamState, const AttributeCommonInfo &CommonInfo);
+  static ParamTypestateAttr *Create(ASTContext &Ctx, ParamTypestateAttr::ConsumedState ParamState, const AttributeCommonInfo &CommonInfo);
+  static ParamTypestateAttr *CreateImplicit(ASTContext &Ctx, ParamTypestateAttr::ConsumedState ParamState, SourceRange Range = {}, Spelling S = GNU_param_typestate);
+  static ParamTypestateAttr *Create(ASTContext &Ctx, ParamTypestateAttr::ConsumedState ParamState, SourceRange Range = {}, Spelling S = GNU_param_typestate);
 
   // Constructors
   ParamTypestateAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , ConsumedState ParamState
+              , ParamTypestateAttr::ConsumedState ParamState
              );
 
   ParamTypestateAttr *clone(ASTContext &C) const;
   void printPretty(raw_ostream &OS,
                    const PrintingPolicy &Policy) const;
   const char *getSpelling() const;
-  ConsumedState getParamState() const {
+  ParamTypestateAttr::ConsumedState getParamState() const {
     return paramState;
   }
 
-  static bool ConvertStrToConsumedState(StringRef Val, ConsumedState &Out);
-  static const char *ConvertConsumedStateToStr(ConsumedState Val);
+  static bool ConvertStrToConsumedState(StringRef Val, ParamTypestateAttr::ConsumedState &Out);
+  static const char *ConvertConsumedStateToStr(ParamTypestateAttr::ConsumedState Val);
 
 
   static bool classof(const Attr *A) { return A->getKind() == attr::ParamTypestate; }
@@ -9353,7 +9969,7 @@ public:
   enum Spelling {
     GNU_pascal = 0,
     CXX11_clang_pascal = 1,
-    C2x_clang_pascal = 2,
+    C23_clang_pascal = 2,
     Keyword_pascal = 3,
   SpellingNotCalculated = 15
 
@@ -9385,10 +10001,10 @@ public:
   enum Spelling {
     GNU_pass_object_size = 0,
     CXX11_clang_pass_object_size = 1,
-    C2x_clang_pass_object_size = 2,
+    C23_clang_pass_object_size = 2,
     GNU_pass_dynamic_object_size = 3,
     CXX11_clang_pass_dynamic_object_size = 4,
-    C2x_clang_pass_dynamic_object_size = 5,
+    C23_clang_pass_dynamic_object_size = 5,
   SpellingNotCalculated = 15
 
   };
@@ -9430,7 +10046,7 @@ public:
   enum Spelling {
     GNU_patchable_function_entry = 0,
     CXX11_gnu_patchable_function_entry = 1,
-    C2x_gnu_patchable_function_entry = 2,
+    C23_gnu_patchable_function_entry = 2,
   SpellingNotCalculated = 15
 
   };
@@ -9476,38 +10092,38 @@ public:
     AAPCS_VFP
   };
 private:
-  PCSType pCS;
+  PcsAttr::PCSType pCS;
 
 public:
   enum Spelling {
     GNU_pcs = 0,
     CXX11_gnu_pcs = 1,
-    C2x_gnu_pcs = 2,
+    C23_gnu_pcs = 2,
   SpellingNotCalculated = 15
 
   };
 
   // Factory methods
-  static PcsAttr *CreateImplicit(ASTContext &Ctx, PCSType PCS, const AttributeCommonInfo &CommonInfo);
-  static PcsAttr *Create(ASTContext &Ctx, PCSType PCS, const AttributeCommonInfo &CommonInfo);
-  static PcsAttr *CreateImplicit(ASTContext &Ctx, PCSType PCS, SourceRange Range = {}, Spelling S = GNU_pcs);
-  static PcsAttr *Create(ASTContext &Ctx, PCSType PCS, SourceRange Range = {}, Spelling S = GNU_pcs);
+  static PcsAttr *CreateImplicit(ASTContext &Ctx, PcsAttr::PCSType PCS, const AttributeCommonInfo &CommonInfo);
+  static PcsAttr *Create(ASTContext &Ctx, PcsAttr::PCSType PCS, const AttributeCommonInfo &CommonInfo);
+  static PcsAttr *CreateImplicit(ASTContext &Ctx, PcsAttr::PCSType PCS, SourceRange Range = {}, Spelling S = GNU_pcs);
+  static PcsAttr *Create(ASTContext &Ctx, PcsAttr::PCSType PCS, SourceRange Range = {}, Spelling S = GNU_pcs);
 
   // Constructors
   PcsAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , PCSType PCS
+              , PcsAttr::PCSType PCS
              );
 
   PcsAttr *clone(ASTContext &C) const;
   void printPretty(raw_ostream &OS,
                    const PrintingPolicy &Policy) const;
   const char *getSpelling() const;
-  PCSType getPCS() const {
+  PcsAttr::PCSType getPCS() const {
     return pCS;
   }
 
-  static bool ConvertStrToPCSType(StringRef Val, PCSType &Out);
-  static const char *ConvertPCSTypeToStr(PCSType Val);
+  static bool ConvertStrToPCSType(StringRef Val, PcsAttr::PCSType &Out);
+  static const char *ConvertPCSTypeToStr(PcsAttr::PCSType Val);
 
 
   static bool classof(const Attr *A) { return A->getKind() == attr::Pcs; }
@@ -9772,12 +10388,52 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::PreferredName; }
 };
 
+class PreferredTypeAttr : public InheritableAttr {
+TypeSourceInfo * type;
+
+public:
+  enum Spelling {
+    GNU_preferred_type = 0,
+    CXX11_clang_preferred_type = 1,
+    C23_clang_preferred_type = 2,
+  SpellingNotCalculated = 15
+
+  };
+
+  // Factory methods
+  static PreferredTypeAttr *CreateImplicit(ASTContext &Ctx, TypeSourceInfo * Type, const AttributeCommonInfo &CommonInfo);
+  static PreferredTypeAttr *Create(ASTContext &Ctx, TypeSourceInfo * Type, const AttributeCommonInfo &CommonInfo);
+  static PreferredTypeAttr *CreateImplicit(ASTContext &Ctx, TypeSourceInfo * Type, SourceRange Range = {}, Spelling S = GNU_preferred_type);
+  static PreferredTypeAttr *Create(ASTContext &Ctx, TypeSourceInfo * Type, SourceRange Range = {}, Spelling S = GNU_preferred_type);
+
+  // Constructors
+  PreferredTypeAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , TypeSourceInfo * Type
+             );
+  PreferredTypeAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             );
+
+  PreferredTypeAttr *clone(ASTContext &C) const;
+  void printPretty(raw_ostream &OS,
+                   const PrintingPolicy &Policy) const;
+  const char *getSpelling() const;
+  QualType getType() const {
+    return type->getType();
+  }  TypeSourceInfo * getTypeLoc() const {
+    return type;
+  }
+
+
+
+  static bool classof(const Attr *A) { return A->getKind() == attr::PreferredType; }
+};
+
 class PreserveAllAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_preserve_all = 0,
     CXX11_clang_preserve_all = 1,
-    C2x_clang_preserve_all = 2,
+    C23_clang_preserve_all = 2,
   SpellingNotCalculated = 15
 
   };
@@ -9806,7 +10462,7 @@ public:
   enum Spelling {
     GNU_preserve_most = 0,
     CXX11_clang_preserve_most = 1,
-    C2x_clang_preserve_most = 2,
+    C23_clang_preserve_most = 2,
   SpellingNotCalculated = 15
 
   };
@@ -9933,7 +10589,7 @@ public:
   enum Spelling {
     GNU_pure = 0,
     CXX11_gnu_pure = 1,
-    C2x_gnu_pure = 2,
+    C23_gnu_pure = 2,
   SpellingNotCalculated = 15
 
   };
@@ -9964,26 +10620,26 @@ public:
     machine
   };
 private:
-  InterruptType interrupt;
+  RISCVInterruptAttr::InterruptType interrupt;
 
 public:
   enum Spelling {
     GNU_interrupt = 0,
     CXX11_gnu_interrupt = 1,
-    C2x_gnu_interrupt = 2,
+    C23_gnu_interrupt = 2,
   SpellingNotCalculated = 15
 
   };
 
   // Factory methods
-  static RISCVInterruptAttr *CreateImplicit(ASTContext &Ctx, InterruptType Interrupt, const AttributeCommonInfo &CommonInfo);
-  static RISCVInterruptAttr *Create(ASTContext &Ctx, InterruptType Interrupt, const AttributeCommonInfo &CommonInfo);
-  static RISCVInterruptAttr *CreateImplicit(ASTContext &Ctx, InterruptType Interrupt, SourceRange Range = {}, Spelling S = GNU_interrupt);
-  static RISCVInterruptAttr *Create(ASTContext &Ctx, InterruptType Interrupt, SourceRange Range = {}, Spelling S = GNU_interrupt);
+  static RISCVInterruptAttr *CreateImplicit(ASTContext &Ctx, RISCVInterruptAttr::InterruptType Interrupt, const AttributeCommonInfo &CommonInfo);
+  static RISCVInterruptAttr *Create(ASTContext &Ctx, RISCVInterruptAttr::InterruptType Interrupt, const AttributeCommonInfo &CommonInfo);
+  static RISCVInterruptAttr *CreateImplicit(ASTContext &Ctx, RISCVInterruptAttr::InterruptType Interrupt, SourceRange Range = {}, Spelling S = GNU_interrupt);
+  static RISCVInterruptAttr *Create(ASTContext &Ctx, RISCVInterruptAttr::InterruptType Interrupt, SourceRange Range = {}, Spelling S = GNU_interrupt);
 
   // Constructors
   RISCVInterruptAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , InterruptType Interrupt
+              , RISCVInterruptAttr::InterruptType Interrupt
              );
   RISCVInterruptAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
              );
@@ -9992,12 +10648,12 @@ public:
   void printPretty(raw_ostream &OS,
                    const PrintingPolicy &Policy) const;
   const char *getSpelling() const;
-  InterruptType getInterrupt() const {
+  RISCVInterruptAttr::InterruptType getInterrupt() const {
     return interrupt;
   }
 
-  static bool ConvertStrToInterruptType(StringRef Val, InterruptType &Out);
-  static const char *ConvertInterruptTypeToStr(InterruptType Val);
+  static bool ConvertStrToInterruptType(StringRef Val, RISCVInterruptAttr::InterruptType &Out);
+  static const char *ConvertInterruptTypeToStr(RISCVInterruptAttr::InterruptType Val);
 
 
   static bool classof(const Attr *A) { return A->getKind() == attr::RISCVInterrupt; }
@@ -10008,7 +10664,7 @@ public:
   enum Spelling {
     GNU_randomize_layout = 0,
     CXX11_gnu_randomize_layout = 1,
-    C2x_gnu_randomize_layout = 2,
+    C23_gnu_randomize_layout = 2,
   SpellingNotCalculated = 15
 
   };
@@ -10037,7 +10693,7 @@ public:
   enum Spelling {
     GNU_enforce_read_only_placement = 0,
     CXX11_clang_enforce_read_only_placement = 1,
-    C2x_clang_enforce_read_only_placement = 2,
+    C23_clang_enforce_read_only_placement = 2,
   SpellingNotCalculated = 15
 
   };
@@ -10066,7 +10722,7 @@ public:
   enum Spelling {
     GNU_regcall = 0,
     CXX11_gnu_regcall = 1,
-    C2x_gnu_regcall = 2,
+    C23_gnu_regcall = 2,
     Keyword_regcall = 3,
   SpellingNotCalculated = 15
 
@@ -10181,7 +10837,7 @@ public:
   enum Spelling {
     GNU_release_handle = 0,
     CXX11_clang_release_handle = 1,
-    C2x_clang_release_handle = 2,
+    C23_clang_release_handle = 2,
   SpellingNotCalculated = 15
 
   };
@@ -10340,7 +10996,7 @@ public:
     Declspec_restrict = 0,
     GNU_malloc = 1,
     CXX11_gnu_malloc = 2,
-    C2x_gnu_malloc = 3,
+    C23_gnu_malloc = 3,
   SpellingNotCalculated = 15
 
   };
@@ -10370,7 +11026,7 @@ public:
   enum Spelling {
     GNU_retain = 0,
     CXX11_gnu_retain = 1,
-    C2x_gnu_retain = 2,
+    C23_gnu_retain = 2,
   SpellingNotCalculated = 15
 
   };
@@ -10402,7 +11058,7 @@ public:
     Unconsumed
   };
 private:
-  ConsumedState state;
+  ReturnTypestateAttr::ConsumedState state;
 
 public:
   enum Spelling {
@@ -10413,26 +11069,26 @@ public:
   };
 
   // Factory methods
-  static ReturnTypestateAttr *CreateImplicit(ASTContext &Ctx, ConsumedState State, const AttributeCommonInfo &CommonInfo);
-  static ReturnTypestateAttr *Create(ASTContext &Ctx, ConsumedState State, const AttributeCommonInfo &CommonInfo);
-  static ReturnTypestateAttr *CreateImplicit(ASTContext &Ctx, ConsumedState State, SourceRange Range = {}, Spelling S = GNU_return_typestate);
-  static ReturnTypestateAttr *Create(ASTContext &Ctx, ConsumedState State, SourceRange Range = {}, Spelling S = GNU_return_typestate);
+  static ReturnTypestateAttr *CreateImplicit(ASTContext &Ctx, ReturnTypestateAttr::ConsumedState State, const AttributeCommonInfo &CommonInfo);
+  static ReturnTypestateAttr *Create(ASTContext &Ctx, ReturnTypestateAttr::ConsumedState State, const AttributeCommonInfo &CommonInfo);
+  static ReturnTypestateAttr *CreateImplicit(ASTContext &Ctx, ReturnTypestateAttr::ConsumedState State, SourceRange Range = {}, Spelling S = GNU_return_typestate);
+  static ReturnTypestateAttr *Create(ASTContext &Ctx, ReturnTypestateAttr::ConsumedState State, SourceRange Range = {}, Spelling S = GNU_return_typestate);
 
   // Constructors
   ReturnTypestateAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , ConsumedState State
+              , ReturnTypestateAttr::ConsumedState State
              );
 
   ReturnTypestateAttr *clone(ASTContext &C) const;
   void printPretty(raw_ostream &OS,
                    const PrintingPolicy &Policy) const;
   const char *getSpelling() const;
-  ConsumedState getState() const {
+  ReturnTypestateAttr::ConsumedState getState() const {
     return state;
   }
 
-  static bool ConvertStrToConsumedState(StringRef Val, ConsumedState &Out);
-  static const char *ConvertConsumedStateToStr(ConsumedState Val);
+  static bool ConvertStrToConsumedState(StringRef Val, ReturnTypestateAttr::ConsumedState &Out);
+  static const char *ConvertConsumedStateToStr(ReturnTypestateAttr::ConsumedState Val);
 
 
   static bool classof(const Attr *A) { return A->getKind() == attr::ReturnTypestate; }
@@ -10443,7 +11099,7 @@ public:
   enum Spelling {
     GNU_returns_nonnull = 0,
     CXX11_gnu_returns_nonnull = 1,
-    C2x_gnu_returns_nonnull = 2,
+    C23_gnu_returns_nonnull = 2,
   SpellingNotCalculated = 15
 
   };
@@ -10472,7 +11128,7 @@ public:
   enum Spelling {
     GNU_returns_twice = 0,
     CXX11_gnu_returns_twice = 1,
-    C2x_gnu_returns_twice = 2,
+    C23_gnu_returns_twice = 2,
   SpellingNotCalculated = 15
 
   };
@@ -10522,7 +11178,7 @@ public:
   enum Spelling {
     GNU_sycl_kernel = 0,
     CXX11_clang_sycl_kernel = 1,
-    C2x_clang_sycl_kernel = 2,
+    C23_clang_sycl_kernel = 2,
   SpellingNotCalculated = 15
 
   };
@@ -10551,7 +11207,7 @@ public:
   enum Spelling {
     GNU_sycl_special_class = 0,
     CXX11_clang_sycl_special_class = 1,
-    C2x_clang_sycl_special_class = 2,
+    C23_clang_sycl_special_class = 2,
   SpellingNotCalculated = 15
 
   };
@@ -10611,7 +11267,7 @@ public:
   enum Spelling {
     GNU_section = 0,
     CXX11_gnu_section = 1,
-    C2x_gnu_section = 2,
+    C23_gnu_section = 2,
     Declspec_allocate = 3,
   SpellingNotCalculated = 15
 
@@ -10657,7 +11313,7 @@ public:
     Declspec_selectany = 0,
     GNU_selectany = 1,
     CXX11_gnu_selectany = 2,
-    C2x_gnu_selectany = 3,
+    C23_gnu_selectany = 3,
   SpellingNotCalculated = 15
 
   };
@@ -10690,7 +11346,7 @@ public:
   enum Spelling {
     GNU_sentinel = 0,
     CXX11_gnu_sentinel = 1,
-    C2x_gnu_sentinel = 2,
+    C23_gnu_sentinel = 2,
   SpellingNotCalculated = 15
 
   };
@@ -10738,7 +11394,7 @@ public:
     Unconsumed
   };
 private:
-  ConsumedState newState;
+  SetTypestateAttr::ConsumedState newState;
 
 public:
   enum Spelling {
@@ -10749,26 +11405,26 @@ public:
   };
 
   // Factory methods
-  static SetTypestateAttr *CreateImplicit(ASTContext &Ctx, ConsumedState NewState, const AttributeCommonInfo &CommonInfo);
-  static SetTypestateAttr *Create(ASTContext &Ctx, ConsumedState NewState, const AttributeCommonInfo &CommonInfo);
-  static SetTypestateAttr *CreateImplicit(ASTContext &Ctx, ConsumedState NewState, SourceRange Range = {}, Spelling S = GNU_set_typestate);
-  static SetTypestateAttr *Create(ASTContext &Ctx, ConsumedState NewState, SourceRange Range = {}, Spelling S = GNU_set_typestate);
+  static SetTypestateAttr *CreateImplicit(ASTContext &Ctx, SetTypestateAttr::ConsumedState NewState, const AttributeCommonInfo &CommonInfo);
+  static SetTypestateAttr *Create(ASTContext &Ctx, SetTypestateAttr::ConsumedState NewState, const AttributeCommonInfo &CommonInfo);
+  static SetTypestateAttr *CreateImplicit(ASTContext &Ctx, SetTypestateAttr::ConsumedState NewState, SourceRange Range = {}, Spelling S = GNU_set_typestate);
+  static SetTypestateAttr *Create(ASTContext &Ctx, SetTypestateAttr::ConsumedState NewState, SourceRange Range = {}, Spelling S = GNU_set_typestate);
 
   // Constructors
   SetTypestateAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , ConsumedState NewState
+              , SetTypestateAttr::ConsumedState NewState
              );
 
   SetTypestateAttr *clone(ASTContext &C) const;
   void printPretty(raw_ostream &OS,
                    const PrintingPolicy &Policy) const;
   const char *getSpelling() const;
-  ConsumedState getNewState() const {
+  SetTypestateAttr::ConsumedState getNewState() const {
     return newState;
   }
 
-  static bool ConvertStrToConsumedState(StringRef Val, ConsumedState &Out);
-  static const char *ConvertConsumedStateToStr(ConsumedState Val);
+  static bool ConvertStrToConsumedState(StringRef Val, SetTypestateAttr::ConsumedState &Out);
+  static const char *ConvertConsumedStateToStr(SetTypestateAttr::ConsumedState Val);
 
 
   static bool classof(const Attr *A) { return A->getKind() == attr::SetTypestate; }
@@ -10821,7 +11477,7 @@ public:
   enum Spelling {
     GNU_speculative_load_hardening = 0,
     CXX11_clang_speculative_load_hardening = 1,
-    C2x_clang_speculative_load_hardening = 2,
+    C23_clang_speculative_load_hardening = 2,
   SpellingNotCalculated = 15
 
   };
@@ -10878,7 +11534,7 @@ public:
   enum Spelling {
     GNU_stdcall = 0,
     CXX11_gnu_stdcall = 1,
-    C2x_gnu_stdcall = 2,
+    C23_gnu_stdcall = 2,
     Keyword_stdcall = 3,
   SpellingNotCalculated = 15
 
@@ -10945,16 +11601,25 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::StrictGuardStackCheck; }
 };
 
-class SuppressAttr : public StmtAttr {
+class SuppressAttr : public DeclOrStmtAttr {
   unsigned diagnosticIdentifiers_Size;
   StringRef *diagnosticIdentifiers_;
 
 public:
+  enum Spelling {
+    CXX11_gsl_suppress = 0,
+    GNU_suppress = 1,
+    CXX11_clang_suppress = 2,
+    C23_clang_suppress = 3,
+  SpellingNotCalculated = 15
+
+  };
+
   // Factory methods
   static SuppressAttr *CreateImplicit(ASTContext &Ctx, StringRef *DiagnosticIdentifiers, unsigned DiagnosticIdentifiersSize, const AttributeCommonInfo &CommonInfo);
   static SuppressAttr *Create(ASTContext &Ctx, StringRef *DiagnosticIdentifiers, unsigned DiagnosticIdentifiersSize, const AttributeCommonInfo &CommonInfo);
-  static SuppressAttr *CreateImplicit(ASTContext &Ctx, StringRef *DiagnosticIdentifiers, unsigned DiagnosticIdentifiersSize, SourceRange Range = {});
-  static SuppressAttr *Create(ASTContext &Ctx, StringRef *DiagnosticIdentifiers, unsigned DiagnosticIdentifiersSize, SourceRange Range = {});
+  static SuppressAttr *CreateImplicit(ASTContext &Ctx, StringRef *DiagnosticIdentifiers, unsigned DiagnosticIdentifiersSize, SourceRange Range = {}, Spelling S = CXX11_gsl_suppress);
+  static SuppressAttr *Create(ASTContext &Ctx, StringRef *DiagnosticIdentifiers, unsigned DiagnosticIdentifiersSize, SourceRange Range = {}, Spelling S = CXX11_gsl_suppress);
 
   // Constructors
   SuppressAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
@@ -10967,6 +11632,7 @@ public:
   void printPretty(raw_ostream &OS,
                    const PrintingPolicy &Policy) const;
   const char *getSpelling() const;
+  bool isGSL() const { return getAttributeSpellingListIndex() == 0; }
   typedef StringRef* diagnosticIdentifiers_iterator;
   diagnosticIdentifiers_iterator diagnosticIdentifiers_begin() const { return diagnosticIdentifiers_; }
   diagnosticIdentifiers_iterator diagnosticIdentifiers_end() const { return diagnosticIdentifiers_ + diagnosticIdentifiers_Size; }
@@ -10987,7 +11653,7 @@ public:
     NotSwiftPrivate
   };
 private:
-  Kind kind;
+  SwiftAsyncAttr::Kind kind;
 
 ParamIdx completionHandlerIndex;
 
@@ -10995,36 +11661,36 @@ public:
   enum Spelling {
     GNU_swift_async = 0,
     CXX11_clang_swift_async = 1,
-    C2x_clang_swift_async = 2,
+    C23_clang_swift_async = 2,
   SpellingNotCalculated = 15
 
   };
 
   // Factory methods
-  static SwiftAsyncAttr *CreateImplicit(ASTContext &Ctx, Kind Kind, ParamIdx CompletionHandlerIndex, const AttributeCommonInfo &CommonInfo);
-  static SwiftAsyncAttr *Create(ASTContext &Ctx, Kind Kind, ParamIdx CompletionHandlerIndex, const AttributeCommonInfo &CommonInfo);
-  static SwiftAsyncAttr *CreateImplicit(ASTContext &Ctx, Kind Kind, ParamIdx CompletionHandlerIndex, SourceRange Range = {}, Spelling S = GNU_swift_async);
-  static SwiftAsyncAttr *Create(ASTContext &Ctx, Kind Kind, ParamIdx CompletionHandlerIndex, SourceRange Range = {}, Spelling S = GNU_swift_async);
+  static SwiftAsyncAttr *CreateImplicit(ASTContext &Ctx, SwiftAsyncAttr::Kind Kind, ParamIdx CompletionHandlerIndex, const AttributeCommonInfo &CommonInfo);
+  static SwiftAsyncAttr *Create(ASTContext &Ctx, SwiftAsyncAttr::Kind Kind, ParamIdx CompletionHandlerIndex, const AttributeCommonInfo &CommonInfo);
+  static SwiftAsyncAttr *CreateImplicit(ASTContext &Ctx, SwiftAsyncAttr::Kind Kind, ParamIdx CompletionHandlerIndex, SourceRange Range = {}, Spelling S = GNU_swift_async);
+  static SwiftAsyncAttr *Create(ASTContext &Ctx, SwiftAsyncAttr::Kind Kind, ParamIdx CompletionHandlerIndex, SourceRange Range = {}, Spelling S = GNU_swift_async);
 
   // Constructors
   SwiftAsyncAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , Kind Kind
+              , SwiftAsyncAttr::Kind Kind
               , ParamIdx CompletionHandlerIndex
              );
   SwiftAsyncAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , Kind Kind
+              , SwiftAsyncAttr::Kind Kind
              );
 
   SwiftAsyncAttr *clone(ASTContext &C) const;
   void printPretty(raw_ostream &OS,
                    const PrintingPolicy &Policy) const;
   const char *getSpelling() const;
-  Kind getKind() const {
+  SwiftAsyncAttr::Kind getKind() const {
     return kind;
   }
 
-  static bool ConvertStrToKind(StringRef Val, Kind &Out);
-  static const char *ConvertKindToStr(Kind Val);
+  static bool ConvertStrToKind(StringRef Val, SwiftAsyncAttr::Kind &Out);
+  static const char *ConvertKindToStr(SwiftAsyncAttr::Kind Val);
   ParamIdx getCompletionHandlerIndex() const {
     return completionHandlerIndex;
   }
@@ -11039,7 +11705,7 @@ public:
   enum Spelling {
     GNU_swiftasynccall = 0,
     CXX11_clang_swiftasynccall = 1,
-    C2x_clang_swiftasynccall = 2,
+    C23_clang_swiftasynccall = 2,
   SpellingNotCalculated = 15
 
   };
@@ -11068,7 +11734,7 @@ public:
   enum Spelling {
     GNU_swift_async_context = 0,
     CXX11_clang_swift_async_context = 1,
-    C2x_clang_swift_async_context = 2,
+    C23_clang_swift_async_context = 2,
   SpellingNotCalculated = 15
 
   };
@@ -11101,7 +11767,7 @@ public:
     NonZeroArgument
   };
 private:
-  ConventionKind convention;
+  SwiftAsyncErrorAttr::ConventionKind convention;
 
 unsigned handlerParamIdx;
 
@@ -11109,36 +11775,36 @@ public:
   enum Spelling {
     GNU_swift_async_error = 0,
     CXX11_clang_swift_async_error = 1,
-    C2x_clang_swift_async_error = 2,
+    C23_clang_swift_async_error = 2,
   SpellingNotCalculated = 15
 
   };
 
   // Factory methods
-  static SwiftAsyncErrorAttr *CreateImplicit(ASTContext &Ctx, ConventionKind Convention, unsigned HandlerParamIdx, const AttributeCommonInfo &CommonInfo);
-  static SwiftAsyncErrorAttr *Create(ASTContext &Ctx, ConventionKind Convention, unsigned HandlerParamIdx, const AttributeCommonInfo &CommonInfo);
-  static SwiftAsyncErrorAttr *CreateImplicit(ASTContext &Ctx, ConventionKind Convention, unsigned HandlerParamIdx, SourceRange Range = {}, Spelling S = GNU_swift_async_error);
-  static SwiftAsyncErrorAttr *Create(ASTContext &Ctx, ConventionKind Convention, unsigned HandlerParamIdx, SourceRange Range = {}, Spelling S = GNU_swift_async_error);
+  static SwiftAsyncErrorAttr *CreateImplicit(ASTContext &Ctx, SwiftAsyncErrorAttr::ConventionKind Convention, unsigned HandlerParamIdx, const AttributeCommonInfo &CommonInfo);
+  static SwiftAsyncErrorAttr *Create(ASTContext &Ctx, SwiftAsyncErrorAttr::ConventionKind Convention, unsigned HandlerParamIdx, const AttributeCommonInfo &CommonInfo);
+  static SwiftAsyncErrorAttr *CreateImplicit(ASTContext &Ctx, SwiftAsyncErrorAttr::ConventionKind Convention, unsigned HandlerParamIdx, SourceRange Range = {}, Spelling S = GNU_swift_async_error);
+  static SwiftAsyncErrorAttr *Create(ASTContext &Ctx, SwiftAsyncErrorAttr::ConventionKind Convention, unsigned HandlerParamIdx, SourceRange Range = {}, Spelling S = GNU_swift_async_error);
 
   // Constructors
   SwiftAsyncErrorAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , ConventionKind Convention
+              , SwiftAsyncErrorAttr::ConventionKind Convention
               , unsigned HandlerParamIdx
              );
   SwiftAsyncErrorAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , ConventionKind Convention
+              , SwiftAsyncErrorAttr::ConventionKind Convention
              );
 
   SwiftAsyncErrorAttr *clone(ASTContext &C) const;
   void printPretty(raw_ostream &OS,
                    const PrintingPolicy &Policy) const;
   const char *getSpelling() const;
-  ConventionKind getConvention() const {
+  SwiftAsyncErrorAttr::ConventionKind getConvention() const {
     return convention;
   }
 
-  static bool ConvertStrToConventionKind(StringRef Val, ConventionKind &Out);
-  static const char *ConvertConventionKindToStr(ConventionKind Val);
+  static bool ConvertStrToConventionKind(StringRef Val, SwiftAsyncErrorAttr::ConventionKind &Out);
+  static const char *ConvertConventionKindToStr(SwiftAsyncErrorAttr::ConventionKind Val);
   unsigned getHandlerParamIdx() const {
     return handlerParamIdx;
   }
@@ -11288,7 +11954,7 @@ public:
   enum Spelling {
     GNU_swiftcall = 0,
     CXX11_clang_swiftcall = 1,
-    C2x_clang_swiftcall = 2,
+    C23_clang_swiftcall = 2,
   SpellingNotCalculated = 15
 
   };
@@ -11317,7 +11983,7 @@ public:
   enum Spelling {
     GNU_swift_context = 0,
     CXX11_clang_swift_context = 1,
-    C2x_clang_swift_context = 2,
+    C23_clang_swift_context = 2,
   SpellingNotCalculated = 15
 
   };
@@ -11351,30 +12017,30 @@ public:
     NonZeroResult
   };
 private:
-  ConventionKind convention;
+  SwiftErrorAttr::ConventionKind convention;
 
 public:
   // Factory methods
-  static SwiftErrorAttr *CreateImplicit(ASTContext &Ctx, ConventionKind Convention, const AttributeCommonInfo &CommonInfo);
-  static SwiftErrorAttr *Create(ASTContext &Ctx, ConventionKind Convention, const AttributeCommonInfo &CommonInfo);
-  static SwiftErrorAttr *CreateImplicit(ASTContext &Ctx, ConventionKind Convention, SourceRange Range = {});
-  static SwiftErrorAttr *Create(ASTContext &Ctx, ConventionKind Convention, SourceRange Range = {});
+  static SwiftErrorAttr *CreateImplicit(ASTContext &Ctx, SwiftErrorAttr::ConventionKind Convention, const AttributeCommonInfo &CommonInfo);
+  static SwiftErrorAttr *Create(ASTContext &Ctx, SwiftErrorAttr::ConventionKind Convention, const AttributeCommonInfo &CommonInfo);
+  static SwiftErrorAttr *CreateImplicit(ASTContext &Ctx, SwiftErrorAttr::ConventionKind Convention, SourceRange Range = {});
+  static SwiftErrorAttr *Create(ASTContext &Ctx, SwiftErrorAttr::ConventionKind Convention, SourceRange Range = {});
 
   // Constructors
   SwiftErrorAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , ConventionKind Convention
+              , SwiftErrorAttr::ConventionKind Convention
              );
 
   SwiftErrorAttr *clone(ASTContext &C) const;
   void printPretty(raw_ostream &OS,
                    const PrintingPolicy &Policy) const;
   const char *getSpelling() const;
-  ConventionKind getConvention() const {
+  SwiftErrorAttr::ConventionKind getConvention() const {
     return convention;
   }
 
-  static bool ConvertStrToConventionKind(StringRef Val, ConventionKind &Out);
-  static const char *ConvertConventionKindToStr(ConventionKind Val);
+  static bool ConvertStrToConventionKind(StringRef Val, SwiftErrorAttr::ConventionKind &Out);
+  static const char *ConvertConventionKindToStr(SwiftErrorAttr::ConventionKind Val);
 
 
   static bool classof(const Attr *A) { return A->getKind() == attr::SwiftError; }
@@ -11385,7 +12051,7 @@ public:
   enum Spelling {
     GNU_swift_error_result = 0,
     CXX11_clang_swift_error_result = 1,
-    C2x_clang_swift_error_result = 2,
+    C23_clang_swift_error_result = 2,
   SpellingNotCalculated = 15
 
   };
@@ -11409,12 +12075,54 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::SwiftErrorResult; }
 };
 
+class SwiftImportAsNonGenericAttr : public InheritableAttr {
+public:
+  // Factory methods
+  static SwiftImportAsNonGenericAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static SwiftImportAsNonGenericAttr *Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static SwiftImportAsNonGenericAttr *CreateImplicit(ASTContext &Ctx, SourceRange Range = {});
+  static SwiftImportAsNonGenericAttr *Create(ASTContext &Ctx, SourceRange Range = {});
+
+  // Constructors
+  SwiftImportAsNonGenericAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             );
+
+  SwiftImportAsNonGenericAttr *clone(ASTContext &C) const;
+  void printPretty(raw_ostream &OS,
+                   const PrintingPolicy &Policy) const;
+  const char *getSpelling() const;
+
+
+  static bool classof(const Attr *A) { return A->getKind() == attr::SwiftImportAsNonGeneric; }
+};
+
+class SwiftImportPropertyAsAccessorsAttr : public InheritableAttr {
+public:
+  // Factory methods
+  static SwiftImportPropertyAsAccessorsAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static SwiftImportPropertyAsAccessorsAttr *Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static SwiftImportPropertyAsAccessorsAttr *CreateImplicit(ASTContext &Ctx, SourceRange Range = {});
+  static SwiftImportPropertyAsAccessorsAttr *Create(ASTContext &Ctx, SourceRange Range = {});
+
+  // Constructors
+  SwiftImportPropertyAsAccessorsAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             );
+
+  SwiftImportPropertyAsAccessorsAttr *clone(ASTContext &C) const;
+  void printPretty(raw_ostream &OS,
+                   const PrintingPolicy &Policy) const;
+  const char *getSpelling() const;
+
+
+  static bool classof(const Attr *A) { return A->getKind() == attr::SwiftImportPropertyAsAccessors; }
+};
+
 class SwiftIndirectResultAttr : public ParameterABIAttr {
 public:
   enum Spelling {
     GNU_swift_indirect_result = 0,
     CXX11_clang_swift_indirect_result = 1,
-    C2x_clang_swift_indirect_result = 2,
+    C23_clang_swift_indirect_result = 2,
   SpellingNotCalculated = 15
 
   };
@@ -11483,7 +12191,7 @@ public:
     NK_Enum
   };
 private:
-  NewtypeKind newtypeKind;
+  SwiftNewTypeAttr::NewtypeKind newtypeKind;
 
 public:
   enum Spelling {
@@ -11494,14 +12202,14 @@ public:
   };
 
   // Factory methods
-  static SwiftNewTypeAttr *CreateImplicit(ASTContext &Ctx, NewtypeKind NewtypeKind, const AttributeCommonInfo &CommonInfo);
-  static SwiftNewTypeAttr *Create(ASTContext &Ctx, NewtypeKind NewtypeKind, const AttributeCommonInfo &CommonInfo);
-  static SwiftNewTypeAttr *CreateImplicit(ASTContext &Ctx, NewtypeKind NewtypeKind, SourceRange Range = {}, Spelling S = GNU_swift_newtype);
-  static SwiftNewTypeAttr *Create(ASTContext &Ctx, NewtypeKind NewtypeKind, SourceRange Range = {}, Spelling S = GNU_swift_newtype);
+  static SwiftNewTypeAttr *CreateImplicit(ASTContext &Ctx, SwiftNewTypeAttr::NewtypeKind NewtypeKind, const AttributeCommonInfo &CommonInfo);
+  static SwiftNewTypeAttr *Create(ASTContext &Ctx, SwiftNewTypeAttr::NewtypeKind NewtypeKind, const AttributeCommonInfo &CommonInfo);
+  static SwiftNewTypeAttr *CreateImplicit(ASTContext &Ctx, SwiftNewTypeAttr::NewtypeKind NewtypeKind, SourceRange Range = {}, Spelling S = GNU_swift_newtype);
+  static SwiftNewTypeAttr *Create(ASTContext &Ctx, SwiftNewTypeAttr::NewtypeKind NewtypeKind, SourceRange Range = {}, Spelling S = GNU_swift_newtype);
 
   // Constructors
   SwiftNewTypeAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , NewtypeKind NewtypeKind
+              , SwiftNewTypeAttr::NewtypeKind NewtypeKind
              );
 
   SwiftNewTypeAttr *clone(ASTContext &C) const;
@@ -11509,12 +12217,12 @@ public:
                    const PrintingPolicy &Policy) const;
   const char *getSpelling() const;
   Spelling getSemanticSpelling() const;
-  NewtypeKind getNewtypeKind() const {
+  SwiftNewTypeAttr::NewtypeKind getNewtypeKind() const {
     return newtypeKind;
   }
 
-  static bool ConvertStrToNewtypeKind(StringRef Val, NewtypeKind &Out);
-  static const char *ConvertNewtypeKindToStr(NewtypeKind Val);
+  static bool ConvertStrToNewtypeKind(StringRef Val, SwiftNewTypeAttr::NewtypeKind &Out);
+  static const char *ConvertNewtypeKindToStr(SwiftNewTypeAttr::NewtypeKind Val);
 
 
   static bool classof(const Attr *A) { return A->getKind() == attr::SwiftNewType; }
@@ -11562,12 +12270,108 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::SwiftPrivate; }
 };
 
+class SwiftVersionedAdditionAttr : public Attr {
+VersionTuple version;
+
+
+Attr * additionalAttr;
+
+bool isReplacedByActive;
+
+public:
+  // Factory methods
+  static SwiftVersionedAdditionAttr *CreateImplicit(ASTContext &Ctx, VersionTuple Version, Attr * AdditionalAttr, bool IsReplacedByActive, const AttributeCommonInfo &CommonInfo);
+  static SwiftVersionedAdditionAttr *Create(ASTContext &Ctx, VersionTuple Version, Attr * AdditionalAttr, bool IsReplacedByActive, const AttributeCommonInfo &CommonInfo);
+  static SwiftVersionedAdditionAttr *CreateImplicit(ASTContext &Ctx, VersionTuple Version, Attr * AdditionalAttr, bool IsReplacedByActive, SourceRange Range = {});
+  static SwiftVersionedAdditionAttr *Create(ASTContext &Ctx, VersionTuple Version, Attr * AdditionalAttr, bool IsReplacedByActive, SourceRange Range = {});
+
+  // Constructors
+  SwiftVersionedAdditionAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , VersionTuple Version
+              , Attr * AdditionalAttr
+              , bool IsReplacedByActive
+             );
+
+  SwiftVersionedAdditionAttr *clone(ASTContext &C) const;
+  void printPretty(raw_ostream &OS,
+                   const PrintingPolicy &Policy) const;
+  const char *getSpelling() const;
+  VersionTuple getVersion() const {
+    return version;
+  }
+  void setVersion(ASTContext &C, VersionTuple V) {
+    version = V;
+  }
+
+  Attr * getAdditionalAttr() const {
+    return additionalAttr;
+  }
+
+  bool getIsReplacedByActive() const {
+    return isReplacedByActive;
+  }
+
+
+
+  static bool classof(const Attr *A) { return A->getKind() == attr::SwiftVersionedAddition; }
+};
+
+class SwiftVersionedRemovalAttr : public Attr {
+VersionTuple version;
+
+
+unsigned rawKind;
+
+bool isReplacedByActive;
+
+public:
+  // Factory methods
+  static SwiftVersionedRemovalAttr *CreateImplicit(ASTContext &Ctx, VersionTuple Version, unsigned RawKind, bool IsReplacedByActive, const AttributeCommonInfo &CommonInfo);
+  static SwiftVersionedRemovalAttr *Create(ASTContext &Ctx, VersionTuple Version, unsigned RawKind, bool IsReplacedByActive, const AttributeCommonInfo &CommonInfo);
+  static SwiftVersionedRemovalAttr *CreateImplicit(ASTContext &Ctx, VersionTuple Version, unsigned RawKind, bool IsReplacedByActive, SourceRange Range = {});
+  static SwiftVersionedRemovalAttr *Create(ASTContext &Ctx, VersionTuple Version, unsigned RawKind, bool IsReplacedByActive, SourceRange Range = {});
+
+  // Constructors
+  SwiftVersionedRemovalAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , VersionTuple Version
+              , unsigned RawKind
+              , bool IsReplacedByActive
+             );
+
+  SwiftVersionedRemovalAttr *clone(ASTContext &C) const;
+  void printPretty(raw_ostream &OS,
+                   const PrintingPolicy &Policy) const;
+  const char *getSpelling() const;
+  VersionTuple getVersion() const {
+    return version;
+  }
+  void setVersion(ASTContext &C, VersionTuple V) {
+    version = V;
+  }
+
+  unsigned getRawKind() const {
+    return rawKind;
+  }
+
+  bool getIsReplacedByActive() const {
+    return isReplacedByActive;
+  }
+
+
+    attr::Kind getAttrKindToRemove() const {
+      return static_cast<attr::Kind>(getRawKind());
+    }
+  
+
+  static bool classof(const Attr *A) { return A->getKind() == attr::SwiftVersionedRemoval; }
+};
+
 class SysVABIAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_sysv_abi = 0,
     CXX11_gnu_sysv_abi = 1,
-    C2x_gnu_sysv_abi = 2,
+    C23_gnu_sysv_abi = 2,
   SpellingNotCalculated = 15
 
   };
@@ -11599,7 +12403,7 @@ public:
   enum Spelling {
     GNU_tls_model = 0,
     CXX11_gnu_tls_model = 1,
-    C2x_gnu_tls_model = 2,
+    C23_gnu_tls_model = 2,
   SpellingNotCalculated = 15
 
   };
@@ -11645,7 +12449,7 @@ public:
   enum Spelling {
     GNU_target = 0,
     CXX11_gnu_target = 1,
-    C2x_gnu_target = 2,
+    C23_gnu_target = 2,
   SpellingNotCalculated = 15
 
   };
@@ -11688,7 +12492,7 @@ public:
 
       for (auto &Feature : AttrFeatures) {
         Feature = Feature.trim();
-        if (Feature.startswith("arch="))
+        if (Feature.starts_with("arch="))
           return Feature.drop_front(sizeof("arch=") - 1);
       }
       return "";
@@ -11706,8 +12510,8 @@ public:
       for (auto &Feature : AttrFeatures) {
         Feature = Feature.trim();
 
-        if (!Feature.startswith("no-") && !Feature.startswith("arch=") &&
-            !Feature.startswith("fpmath=") && !Feature.startswith("tune="))
+        if (!Feature.starts_with("no-") && !Feature.starts_with("arch=") &&
+            !Feature.starts_with("fpmath=") && !Feature.starts_with("tune="))
           Out.push_back(Feature);
       }
     }
@@ -11726,7 +12530,7 @@ public:
   enum Spelling {
     GNU_target_clones = 0,
     CXX11_gnu_target_clones = 1,
-    C2x_gnu_target_clones = 2,
+    C23_gnu_target_clones = 2,
   SpellingNotCalculated = 15
 
   };
@@ -11798,7 +12602,7 @@ public:
   enum Spelling {
     GNU_target_version = 0,
     CXX11_gnu_target_version = 1,
-    C2x_gnu_target_version = 2,
+    C23_gnu_target_version = 2,
   SpellingNotCalculated = 15
 
   };
@@ -11860,7 +12664,7 @@ public:
     Unconsumed
   };
 private:
-  ConsumedState testState;
+  TestTypestateAttr::ConsumedState testState;
 
 public:
   enum Spelling {
@@ -11871,26 +12675,26 @@ public:
   };
 
   // Factory methods
-  static TestTypestateAttr *CreateImplicit(ASTContext &Ctx, ConsumedState TestState, const AttributeCommonInfo &CommonInfo);
-  static TestTypestateAttr *Create(ASTContext &Ctx, ConsumedState TestState, const AttributeCommonInfo &CommonInfo);
-  static TestTypestateAttr *CreateImplicit(ASTContext &Ctx, ConsumedState TestState, SourceRange Range = {}, Spelling S = GNU_test_typestate);
-  static TestTypestateAttr *Create(ASTContext &Ctx, ConsumedState TestState, SourceRange Range = {}, Spelling S = GNU_test_typestate);
+  static TestTypestateAttr *CreateImplicit(ASTContext &Ctx, TestTypestateAttr::ConsumedState TestState, const AttributeCommonInfo &CommonInfo);
+  static TestTypestateAttr *Create(ASTContext &Ctx, TestTypestateAttr::ConsumedState TestState, const AttributeCommonInfo &CommonInfo);
+  static TestTypestateAttr *CreateImplicit(ASTContext &Ctx, TestTypestateAttr::ConsumedState TestState, SourceRange Range = {}, Spelling S = GNU_test_typestate);
+  static TestTypestateAttr *Create(ASTContext &Ctx, TestTypestateAttr::ConsumedState TestState, SourceRange Range = {}, Spelling S = GNU_test_typestate);
 
   // Constructors
   TestTypestateAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , ConsumedState TestState
+              , TestTypestateAttr::ConsumedState TestState
              );
 
   TestTypestateAttr *clone(ASTContext &C) const;
   void printPretty(raw_ostream &OS,
                    const PrintingPolicy &Policy) const;
   const char *getSpelling() const;
-  ConsumedState getTestState() const {
+  TestTypestateAttr::ConsumedState getTestState() const {
     return testState;
   }
 
-  static bool ConvertStrToConsumedState(StringRef Val, ConsumedState &Out);
-  static const char *ConvertConsumedStateToStr(ConsumedState Val);
+  static bool ConvertStrToConsumedState(StringRef Val, TestTypestateAttr::ConsumedState &Out);
+  static const char *ConvertConsumedStateToStr(TestTypestateAttr::ConsumedState Val);
 
 
   static bool classof(const Attr *A) { return A->getKind() == attr::TestTypestate; }
@@ -11901,7 +12705,7 @@ public:
   enum Spelling {
     GNU_thiscall = 0,
     CXX11_gnu_thiscall = 1,
-    C2x_gnu_thiscall = 2,
+    C23_gnu_thiscall = 2,
     Keyword_thiscall = 3,
   SpellingNotCalculated = 15
 
@@ -11952,7 +12756,7 @@ public:
   enum Spelling {
     GNU_transparent_union = 0,
     CXX11_gnu_transparent_union = 1,
-    C2x_gnu_transparent_union = 2,
+    C23_gnu_transparent_union = 2,
   SpellingNotCalculated = 15
 
   };
@@ -12155,7 +12959,7 @@ public:
   enum Spelling {
     GNU_type_tag_for_datatype = 0,
     CXX11_clang_type_tag_for_datatype = 1,
-    C2x_clang_type_tag_for_datatype = 2,
+    C23_clang_type_tag_for_datatype = 2,
   SpellingNotCalculated = 15
 
   };
@@ -12209,38 +13013,38 @@ public:
     Protected
   };
 private:
-  VisibilityType visibility;
+  TypeVisibilityAttr::VisibilityType visibility;
 
 public:
   enum Spelling {
     GNU_type_visibility = 0,
     CXX11_clang_type_visibility = 1,
-    C2x_clang_type_visibility = 2,
+    C23_clang_type_visibility = 2,
   SpellingNotCalculated = 15
 
   };
 
   // Factory methods
-  static TypeVisibilityAttr *CreateImplicit(ASTContext &Ctx, VisibilityType Visibility, const AttributeCommonInfo &CommonInfo);
-  static TypeVisibilityAttr *Create(ASTContext &Ctx, VisibilityType Visibility, const AttributeCommonInfo &CommonInfo);
-  static TypeVisibilityAttr *CreateImplicit(ASTContext &Ctx, VisibilityType Visibility, SourceRange Range = {}, Spelling S = GNU_type_visibility);
-  static TypeVisibilityAttr *Create(ASTContext &Ctx, VisibilityType Visibility, SourceRange Range = {}, Spelling S = GNU_type_visibility);
+  static TypeVisibilityAttr *CreateImplicit(ASTContext &Ctx, TypeVisibilityAttr::VisibilityType Visibility, const AttributeCommonInfo &CommonInfo);
+  static TypeVisibilityAttr *Create(ASTContext &Ctx, TypeVisibilityAttr::VisibilityType Visibility, const AttributeCommonInfo &CommonInfo);
+  static TypeVisibilityAttr *CreateImplicit(ASTContext &Ctx, TypeVisibilityAttr::VisibilityType Visibility, SourceRange Range = {}, Spelling S = GNU_type_visibility);
+  static TypeVisibilityAttr *Create(ASTContext &Ctx, TypeVisibilityAttr::VisibilityType Visibility, SourceRange Range = {}, Spelling S = GNU_type_visibility);
 
   // Constructors
   TypeVisibilityAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , VisibilityType Visibility
+              , TypeVisibilityAttr::VisibilityType Visibility
              );
 
   TypeVisibilityAttr *clone(ASTContext &C) const;
   void printPretty(raw_ostream &OS,
                    const PrintingPolicy &Policy) const;
   const char *getSpelling() const;
-  VisibilityType getVisibility() const {
+  TypeVisibilityAttr::VisibilityType getVisibility() const {
     return visibility;
   }
 
-  static bool ConvertStrToVisibilityType(StringRef Val, VisibilityType &Out);
-  static const char *ConvertVisibilityTypeToStr(VisibilityType Val);
+  static bool ConvertStrToVisibilityType(StringRef Val, TypeVisibilityAttr::VisibilityType &Out);
+  static const char *ConvertVisibilityTypeToStr(TypeVisibilityAttr::VisibilityType Val);
 
 
   static bool classof(const Attr *A) { return A->getKind() == attr::TypeVisibility; }
@@ -12281,22 +13085,22 @@ public:
     IR_ARCFieldWithOwnership
   };
 private:
-  ImplicitReason implicitReason;
+  UnavailableAttr::ImplicitReason implicitReason;
 
 public:
   enum Spelling {
     GNU_unavailable = 0,
     CXX11_clang_unavailable = 1,
-    C2x_clang_unavailable = 2,
+    C23_clang_unavailable = 2,
   SpellingNotCalculated = 15
 
   };
 
   // Factory methods
-  static UnavailableAttr *CreateImplicit(ASTContext &Ctx, llvm::StringRef Message, ImplicitReason ImplicitReason, const AttributeCommonInfo &CommonInfo);
-  static UnavailableAttr *Create(ASTContext &Ctx, llvm::StringRef Message, ImplicitReason ImplicitReason, const AttributeCommonInfo &CommonInfo);
-  static UnavailableAttr *CreateImplicit(ASTContext &Ctx, llvm::StringRef Message, ImplicitReason ImplicitReason, SourceRange Range = {}, Spelling S = GNU_unavailable);
-  static UnavailableAttr *Create(ASTContext &Ctx, llvm::StringRef Message, ImplicitReason ImplicitReason, SourceRange Range = {}, Spelling S = GNU_unavailable);
+  static UnavailableAttr *CreateImplicit(ASTContext &Ctx, llvm::StringRef Message, UnavailableAttr::ImplicitReason ImplicitReason, const AttributeCommonInfo &CommonInfo);
+  static UnavailableAttr *Create(ASTContext &Ctx, llvm::StringRef Message, UnavailableAttr::ImplicitReason ImplicitReason, const AttributeCommonInfo &CommonInfo);
+  static UnavailableAttr *CreateImplicit(ASTContext &Ctx, llvm::StringRef Message, UnavailableAttr::ImplicitReason ImplicitReason, SourceRange Range = {}, Spelling S = GNU_unavailable);
+  static UnavailableAttr *Create(ASTContext &Ctx, llvm::StringRef Message, UnavailableAttr::ImplicitReason ImplicitReason, SourceRange Range = {}, Spelling S = GNU_unavailable);
   static UnavailableAttr *CreateImplicit(ASTContext &Ctx, llvm::StringRef Message, const AttributeCommonInfo &CommonInfo);
   static UnavailableAttr *Create(ASTContext &Ctx, llvm::StringRef Message, const AttributeCommonInfo &CommonInfo);
   static UnavailableAttr *CreateImplicit(ASTContext &Ctx, llvm::StringRef Message, SourceRange Range = {}, Spelling S = GNU_unavailable);
@@ -12305,7 +13109,7 @@ public:
   // Constructors
   UnavailableAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
               , llvm::StringRef Message
-              , ImplicitReason ImplicitReason
+              , UnavailableAttr::ImplicitReason ImplicitReason
              );
   UnavailableAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
               , llvm::StringRef Message
@@ -12330,7 +13134,7 @@ public:
       std::memcpy(this->message, S.data(), messageLength);
   }
 
-  ImplicitReason getImplicitReason() const {
+  UnavailableAttr::ImplicitReason getImplicitReason() const {
     return implicitReason;
   }
 
@@ -12371,7 +13175,7 @@ class UnlikelyAttr : public StmtAttr {
 public:
   enum Spelling {
     CXX11_unlikely = 0,
-    C2x_clang_unlikely = 1,
+    C23_clang_unlikely = 1,
   SpellingNotCalculated = 15
 
   };
@@ -12400,7 +13204,7 @@ public:
   enum Spelling {
     GNU_unsafe_buffer_usage = 0,
     CXX11_clang_unsafe_buffer_usage = 1,
-    C2x_clang_unsafe_buffer_usage = 2,
+    C23_clang_unsafe_buffer_usage = 2,
   SpellingNotCalculated = 15
 
   };
@@ -12430,8 +13234,8 @@ public:
     CXX11_maybe_unused = 0,
     GNU_unused = 1,
     CXX11_gnu_unused = 2,
-    C2x_gnu_unused = 3,
-    C2x_maybe_unused = 4,
+    C23_gnu_unused = 3,
+    C23_maybe_unused = 4,
   SpellingNotCalculated = 15
 
   };
@@ -12464,7 +13268,7 @@ public:
   enum Spelling {
     GNU_use_handle = 0,
     CXX11_clang_use_handle = 1,
-    C2x_clang_use_handle = 2,
+    C23_clang_use_handle = 2,
   SpellingNotCalculated = 15
 
   };
@@ -12507,7 +13311,7 @@ public:
   enum Spelling {
     GNU_used = 0,
     CXX11_gnu_used = 1,
-    C2x_gnu_used = 2,
+    C23_gnu_used = 2,
   SpellingNotCalculated = 15
 
   };
@@ -12681,7 +13485,7 @@ public:
   enum Spelling {
     GNU_vectorcall = 0,
     CXX11_clang_vectorcall = 1,
-    C2x_clang_vectorcall = 2,
+    C23_clang_vectorcall = 2,
     Keyword_vectorcall = 3,
   SpellingNotCalculated = 15
 
@@ -12714,38 +13518,38 @@ public:
     Protected
   };
 private:
-  VisibilityType visibility;
+  VisibilityAttr::VisibilityType visibility;
 
 public:
   enum Spelling {
     GNU_visibility = 0,
     CXX11_gnu_visibility = 1,
-    C2x_gnu_visibility = 2,
+    C23_gnu_visibility = 2,
   SpellingNotCalculated = 15
 
   };
 
   // Factory methods
-  static VisibilityAttr *CreateImplicit(ASTContext &Ctx, VisibilityType Visibility, const AttributeCommonInfo &CommonInfo);
-  static VisibilityAttr *Create(ASTContext &Ctx, VisibilityType Visibility, const AttributeCommonInfo &CommonInfo);
-  static VisibilityAttr *CreateImplicit(ASTContext &Ctx, VisibilityType Visibility, SourceRange Range = {}, Spelling S = GNU_visibility);
-  static VisibilityAttr *Create(ASTContext &Ctx, VisibilityType Visibility, SourceRange Range = {}, Spelling S = GNU_visibility);
+  static VisibilityAttr *CreateImplicit(ASTContext &Ctx, VisibilityAttr::VisibilityType Visibility, const AttributeCommonInfo &CommonInfo);
+  static VisibilityAttr *Create(ASTContext &Ctx, VisibilityAttr::VisibilityType Visibility, const AttributeCommonInfo &CommonInfo);
+  static VisibilityAttr *CreateImplicit(ASTContext &Ctx, VisibilityAttr::VisibilityType Visibility, SourceRange Range = {}, Spelling S = GNU_visibility);
+  static VisibilityAttr *Create(ASTContext &Ctx, VisibilityAttr::VisibilityType Visibility, SourceRange Range = {}, Spelling S = GNU_visibility);
 
   // Constructors
   VisibilityAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , VisibilityType Visibility
+              , VisibilityAttr::VisibilityType Visibility
              );
 
   VisibilityAttr *clone(ASTContext &C) const;
   void printPretty(raw_ostream &OS,
                    const PrintingPolicy &Policy) const;
   const char *getSpelling() const;
-  VisibilityType getVisibility() const {
+  VisibilityAttr::VisibilityType getVisibility() const {
     return visibility;
   }
 
-  static bool ConvertStrToVisibilityType(StringRef Val, VisibilityType &Out);
-  static const char *ConvertVisibilityTypeToStr(VisibilityType Val);
+  static bool ConvertStrToVisibilityType(StringRef Val, VisibilityAttr::VisibilityType &Out);
+  static const char *ConvertVisibilityTypeToStr(VisibilityAttr::VisibilityType Val);
 
 
   static bool classof(const Attr *A) { return A->getKind() == attr::Visibility; }
@@ -12756,7 +13560,7 @@ public:
   enum Spelling {
     GNU_warn_unused = 0,
     CXX11_gnu_warn_unused = 1,
-    C2x_gnu_warn_unused = 2,
+    C23_gnu_warn_unused = 2,
   SpellingNotCalculated = 15
 
   };
@@ -12787,11 +13591,11 @@ char *message;
 public:
   enum Spelling {
     CXX11_nodiscard = 0,
-    C2x_nodiscard = 1,
+    C23_nodiscard = 1,
     CXX11_clang_warn_unused_result = 2,
     GNU_warn_unused_result = 3,
     CXX11_gnu_warn_unused_result = 4,
-    C2x_gnu_warn_unused_result = 5,
+    C23_gnu_warn_unused_result = 5,
   SpellingNotCalculated = 15
 
   };
@@ -12843,7 +13647,7 @@ public:
   enum Spelling {
     GNU_weak = 0,
     CXX11_gnu_weak = 1,
-    C2x_gnu_weak = 2,
+    C23_gnu_weak = 2,
   SpellingNotCalculated = 15
 
   };
@@ -12872,7 +13676,7 @@ public:
   enum Spelling {
     GNU_weak_import = 0,
     CXX11_clang_weak_import = 1,
-    C2x_clang_weak_import = 2,
+    C23_clang_weak_import = 2,
   SpellingNotCalculated = 15
 
   };
@@ -12904,7 +13708,7 @@ public:
   enum Spelling {
     GNU_weakref = 0,
     CXX11_gnu_weakref = 1,
-    C2x_gnu_weakref = 2,
+    C23_gnu_weakref = 2,
   SpellingNotCalculated = 15
 
   };
@@ -12952,7 +13756,7 @@ public:
   enum Spelling {
     GNU_export_name = 0,
     CXX11_clang_export_name = 1,
-    C2x_clang_export_name = 2,
+    C23_clang_export_name = 2,
   SpellingNotCalculated = 15
 
   };
@@ -13019,7 +13823,7 @@ public:
   enum Spelling {
     GNU_import_module = 0,
     CXX11_clang_import_module = 1,
-    C2x_clang_import_module = 2,
+    C23_clang_import_module = 2,
   SpellingNotCalculated = 15
 
   };
@@ -13065,7 +13869,7 @@ public:
   enum Spelling {
     GNU_import_name = 0,
     CXX11_clang_import_name = 1,
-    C2x_clang_import_name = 2,
+    C23_clang_import_name = 2,
   SpellingNotCalculated = 15
 
   };
@@ -13150,7 +13954,7 @@ public:
   enum Spelling {
     GNU_force_align_arg_pointer = 0,
     CXX11_gnu_force_align_arg_pointer = 1,
-    C2x_gnu_force_align_arg_pointer = 2,
+    C23_gnu_force_align_arg_pointer = 2,
   SpellingNotCalculated = 15
 
   };
@@ -13179,10 +13983,10 @@ public:
   enum Spelling {
     GNU_xray_always_instrument = 0,
     CXX11_clang_xray_always_instrument = 1,
-    C2x_clang_xray_always_instrument = 2,
+    C23_clang_xray_always_instrument = 2,
     GNU_xray_never_instrument = 3,
     CXX11_clang_xray_never_instrument = 4,
-    C2x_clang_xray_never_instrument = 5,
+    C23_clang_xray_never_instrument = 5,
   SpellingNotCalculated = 15
 
   };
@@ -13220,7 +14024,7 @@ public:
   enum Spelling {
     GNU_xray_log_args = 0,
     CXX11_clang_xray_log_args = 1,
-    C2x_clang_xray_log_args = 2,
+    C23_clang_xray_log_args = 2,
   SpellingNotCalculated = 15
 
   };
@@ -13263,38 +14067,38 @@ public:
     All
   };
 private:
-  ZeroCallUsedRegsKind zeroCallUsedRegs;
+  ZeroCallUsedRegsAttr::ZeroCallUsedRegsKind zeroCallUsedRegs;
 
 public:
   enum Spelling {
     GNU_zero_call_used_regs = 0,
     CXX11_gnu_zero_call_used_regs = 1,
-    C2x_gnu_zero_call_used_regs = 2,
+    C23_gnu_zero_call_used_regs = 2,
   SpellingNotCalculated = 15
 
   };
 
   // Factory methods
-  static ZeroCallUsedRegsAttr *CreateImplicit(ASTContext &Ctx, ZeroCallUsedRegsKind ZeroCallUsedRegs, const AttributeCommonInfo &CommonInfo);
-  static ZeroCallUsedRegsAttr *Create(ASTContext &Ctx, ZeroCallUsedRegsKind ZeroCallUsedRegs, const AttributeCommonInfo &CommonInfo);
-  static ZeroCallUsedRegsAttr *CreateImplicit(ASTContext &Ctx, ZeroCallUsedRegsKind ZeroCallUsedRegs, SourceRange Range = {}, Spelling S = GNU_zero_call_used_regs);
-  static ZeroCallUsedRegsAttr *Create(ASTContext &Ctx, ZeroCallUsedRegsKind ZeroCallUsedRegs, SourceRange Range = {}, Spelling S = GNU_zero_call_used_regs);
+  static ZeroCallUsedRegsAttr *CreateImplicit(ASTContext &Ctx, ZeroCallUsedRegsAttr::ZeroCallUsedRegsKind ZeroCallUsedRegs, const AttributeCommonInfo &CommonInfo);
+  static ZeroCallUsedRegsAttr *Create(ASTContext &Ctx, ZeroCallUsedRegsAttr::ZeroCallUsedRegsKind ZeroCallUsedRegs, const AttributeCommonInfo &CommonInfo);
+  static ZeroCallUsedRegsAttr *CreateImplicit(ASTContext &Ctx, ZeroCallUsedRegsAttr::ZeroCallUsedRegsKind ZeroCallUsedRegs, SourceRange Range = {}, Spelling S = GNU_zero_call_used_regs);
+  static ZeroCallUsedRegsAttr *Create(ASTContext &Ctx, ZeroCallUsedRegsAttr::ZeroCallUsedRegsKind ZeroCallUsedRegs, SourceRange Range = {}, Spelling S = GNU_zero_call_used_regs);
 
   // Constructors
   ZeroCallUsedRegsAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , ZeroCallUsedRegsKind ZeroCallUsedRegs
+              , ZeroCallUsedRegsAttr::ZeroCallUsedRegsKind ZeroCallUsedRegs
              );
 
   ZeroCallUsedRegsAttr *clone(ASTContext &C) const;
   void printPretty(raw_ostream &OS,
                    const PrintingPolicy &Policy) const;
   const char *getSpelling() const;
-  ZeroCallUsedRegsKind getZeroCallUsedRegs() const {
+  ZeroCallUsedRegsAttr::ZeroCallUsedRegsKind getZeroCallUsedRegs() const {
     return zeroCallUsedRegs;
   }
 
-  static bool ConvertStrToZeroCallUsedRegsKind(StringRef Val, ZeroCallUsedRegsKind &Out);
-  static const char *ConvertZeroCallUsedRegsKindToStr(ZeroCallUsedRegsKind Val);
+  static bool ConvertStrToZeroCallUsedRegsKind(StringRef Val, ZeroCallUsedRegsAttr::ZeroCallUsedRegsKind &Out);
+  static const char *ConvertZeroCallUsedRegsKindToStr(ZeroCallUsedRegsAttr::ZeroCallUsedRegsKind Val);
 
 
   static bool classof(const Attr *A) { return A->getKind() == attr::ZeroCallUsedRegs; }

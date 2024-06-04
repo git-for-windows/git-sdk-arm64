@@ -3,6 +3,7 @@
 |* List of all attribute subject matching rules that Clang recognizes         *|
 |*                                                                            *|
 |* Automatically generated file, do not edit!                                 *|
+|* From: Attr.td                                                              *|
 |*                                                                            *|
 \*===----------------------------------------------------------------------===*/
 

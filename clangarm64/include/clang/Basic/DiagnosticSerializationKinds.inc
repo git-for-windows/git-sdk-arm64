@@ -3,9 +3,10 @@ __SERIALIZATIONSTART = DIAG_START_SERIALIZATION,
 #undef SERIALIZATIONSTART
 #endif
 
-DIAG(err_ast_file_invalid, CLASS_ERROR, (unsigned)diag::Severity::Fatal, "file '%1' is not a valid precompiled %select{PCH|module|AST}0 file", 0, SFINAE_SubstitutionFailure, false, true, true, false, 13)
+DIAG(err_ast_file_invalid, CLASS_ERROR, (unsigned)diag::Severity::Fatal, "file '%1' is not a valid precompiled %select{PCH|module|AST}0 file: %2", 0, SFINAE_SubstitutionFailure, false, true, true, false, 13)
 DIAG(err_ast_file_not_found, CLASS_ERROR, (unsigned)diag::Severity::Fatal, "%select{PCH|module|AST}0 file '%1' not found%select{|: %3}2", 0, SFINAE_SubstitutionFailure, false, true, true, false, 13)
 DIAG(err_ast_file_out_of_date, CLASS_ERROR, (unsigned)diag::Severity::Fatal, "%select{PCH|module|AST}0 file '%1' is out of date and needs to be rebuilt%select{|: %3}2", 0, SFINAE_SubstitutionFailure, false, true, true, false, 13)
+DIAG(err_failed_to_find_module_file, CLASS_ERROR, (unsigned)diag::Severity::Error, "failed to find module file for module '%0'", 0, SFINAE_SubstitutionFailure, false, true, true, false, 13)
 DIAG(err_fe_ast_file_modified, CLASS_ERROR, (unsigned)diag::Severity::Fatal, "file '%0' has been modified since the %select{precompiled header|module file|AST file}1 '%2' was built: %select{size|mtime|content}3 changed%select{| (was %5, now %6)}4", 0, SFINAE_SubstitutionFailure, false, true, true, false, 13)
 DIAG(err_fe_not_a_pch_file, CLASS_ERROR, (unsigned)diag::Severity::Error, "input is not a PCH file: '%0'", 0, SFINAE_SubstitutionFailure, false, true, true, false, 13)
 DIAG(err_fe_pch_file_overridden, CLASS_ERROR, (unsigned)diag::Severity::Error, "file '%0' from the precompiled header has been overridden", 0, SFINAE_SubstitutionFailure, false, true, true, false, 13)
@@ -45,9 +46,7 @@ DIAG(note_module_odr_violation_no_possible_decls, CLASS_NOTE, (unsigned)diag::Se
 DIAG(note_module_odr_violation_possible_decl, CLASS_NOTE, (unsigned)diag::Severity::Fatal, "declaration of %0 does not match", 0, SFINAE_Suppress, false, false, true, false, 13)
 DIAG(note_pch_rebuild_required, CLASS_NOTE, (unsigned)diag::Severity::Fatal, "please rebuild precompiled header '%0'", 0, SFINAE_Suppress, false, false, true, false, 13)
 DIAG(note_pch_required_by, CLASS_NOTE, (unsigned)diag::Severity::Fatal, "'%0' required by '%1'", 0, SFINAE_Suppress, false, false, true, false, 13)
-DIAG(remark_module_import, CLASS_REMARK, (unsigned)diag::Severity::Ignored, "importing module '%0'%select{| into '%3'}2 from '%1'", 550, SFINAE_Suppress, false, true, true, false, 13)
-DIAG(warn_duplicate_module_file_extension, CLASS_WARNING, (unsigned)diag::Severity::Warning, "duplicate module file extension block name '%0'", 549, SFINAE_Suppress, false, false, true, false, 13)
-DIAG(warn_eagerly_load_for_standard_cplusplus_modules, CLASS_WARNING, (unsigned)diag::Severity::Warning, "the form '-fmodule-file=<BMI-path>' is deprecated for standard C++ named modules;consider to use '-fmodule-file=<module-name>=<BMI-path>' instead", 271, SFINAE_Suppress, false, false, true, false, 13)
-DIAG(warn_module_system_bit_conflict, CLASS_WARNING, (unsigned)diag::Severity::Warning, "module file '%0' was validated as a system module and is now being imported as a non-system module; any difference in diagnostic options will be ignored", 547, SFINAE_Suppress, false, false, true, false, 13)
-DIAG(warn_module_uses_date_time, CLASS_WARNING, (unsigned)diag::Severity::Warning, "%select{precompiled header|module}0 uses __DATE__ or __TIME__", 672, SFINAE_Suppress, false, false, true, false, 21)
-DIAG(warn_reading_std_cxx_module_by_implicit_paths, CLASS_WARNING, (unsigned)diag::Severity::Warning, "it is deprecated to read module '%0' implicitly; it is going to be removed in clang 18; consider to specify the dependencies explicitly", 726, SFINAE_Suppress, false, false, true, false, 13)
+DIAG(remark_module_import, CLASS_REMARK, (unsigned)diag::Severity::Ignored, "importing module '%0'%select{| into '%3'}2 from '%1'", 569, SFINAE_Suppress, false, true, true, false, 13)
+DIAG(warn_duplicate_module_file_extension, CLASS_WARNING, (unsigned)diag::Severity::Warning, "duplicate module file extension block name '%0'", 568, SFINAE_Suppress, false, false, true, false, 13)
+DIAG(warn_module_system_bit_conflict, CLASS_WARNING, (unsigned)diag::Severity::Warning, "module file '%0' was validated as a system module and is now being imported as a non-system module; any difference in diagnostic options will be ignored", 566, SFINAE_Suppress, false, false, true, false, 13)
+DIAG(warn_module_uses_date_time, CLASS_WARNING, (unsigned)diag::Severity::Warning, "%select{precompiled header|module}0 uses __DATE__ or __TIME__", 698, SFINAE_Suppress, false, false, true, false, 21)

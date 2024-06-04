@@ -3,6 +3,7 @@
 |* Attribute serialization code                                               *|
 |*                                                                            *|
 |* Automatically generated file, do not edit!                                 *|
+|* From: Attr.td                                                              *|
 |*                                                                            *|
 \*===----------------------------------------------------------------------===*/
 
@@ -67,7 +68,7 @@
     Record.push_back(SA->isInherited());
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
-Record.push_back(SA->getInterrupt());
+Record.push_back(static_cast<uint64_t>(SA->getInterrupt()));
     break;
   }
   case attr::AVRInterrupt: {
@@ -290,12 +291,70 @@ Record.push_back(SA->getInterrupt());
     Record.AddIdentifierRef(SA->getBuiltinName());
     break;
   }
+  case attr::ArmIn: {
+    const auto *SA = cast<ArmInAttr>(A);
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    Record.push_back(SA->inArgs_size());
+    for (auto &Val : SA->inArgs())
+      Record.AddString(Val);
+    break;
+  }
+  case attr::ArmInOut: {
+    const auto *SA = cast<ArmInOutAttr>(A);
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    Record.push_back(SA->inOutArgs_size());
+    for (auto &Val : SA->inOutArgs())
+      Record.AddString(Val);
+    break;
+  }
+  case attr::ArmLocallyStreaming: {
+    const auto *SA = cast<ArmLocallyStreamingAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    break;
+  }
   case attr::ArmMveStrictPolymorphism: {
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
     break;
   }
+  case attr::ArmNew: {
+    const auto *SA = cast<ArmNewAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    Record.push_back(SA->newArgs_size());
+    for (auto &Val : SA->newArgs())
+      Record.AddString(Val);
+    break;
+  }
+  case attr::ArmOut: {
+    const auto *SA = cast<ArmOutAttr>(A);
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    Record.push_back(SA->outArgs_size());
+    for (auto &Val : SA->outArgs())
+      Record.AddString(Val);
+    break;
+  }
+  case attr::ArmPreserves: {
+    const auto *SA = cast<ArmPreservesAttr>(A);
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    Record.push_back(SA->preserveArgs_size());
+    for (auto &Val : SA->preserveArgs())
+      Record.AddString(Val);
+    break;
+  }
   case attr::ArmStreaming: {
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    break;
+  }
+  case attr::ArmStreamingCompatible: {
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
     break;
@@ -393,6 +452,13 @@ Record.push_back(SA->getInterrupt());
     Record.push_back(A->isPackExpansion());
     break;
   }
+  case attr::BPFPreserveStaticOffset: {
+    const auto *SA = cast<BPFPreserveStaticOffsetAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    break;
+  }
   case attr::BTFDeclTag: {
     const auto *SA = cast<BTFDeclTagAttr>(A);
     Record.push_back(SA->isInherited());
@@ -413,7 +479,7 @@ Record.push_back(SA->getInterrupt());
     Record.push_back(SA->isInherited());
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
-Record.push_back(SA->getType());
+Record.push_back(static_cast<uint64_t>(SA->getType()));
     break;
   }
   case attr::Builtin: {
@@ -464,7 +530,7 @@ Record.push_back(SA->getType());
     Record.push_back(SA->isInherited());
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
-Record.push_back(SA->getGuard());
+Record.push_back(static_cast<uint64_t>(SA->getGuard()));
     break;
   }
   case attr::CFICanonicalJumpTable: {
@@ -571,6 +637,7 @@ Record.push_back(SA->getGuard());
     Record.push_back(A->isPackExpansion());
     Record.AddStmt(SA->getMaxThreads());
     Record.AddStmt(SA->getMinBlocks());
+    Record.AddStmt(SA->getMaxBlocks());
     break;
   }
   case attr::CUDAShared: {
@@ -654,6 +721,21 @@ Record.push_back(SA->getGuard());
     Record.push_back(A->isPackExpansion());
     break;
   }
+  case attr::CodeAlign: {
+    const auto *SA = cast<CodeAlignAttr>(A);
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    Record.AddStmt(SA->getAlignment());
+    break;
+  }
+  case attr::CodeModel: {
+    const auto *SA = cast<CodeModelAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+Record.push_back(static_cast<uint64_t>(SA->getModel()));
+    break;
+  }
   case attr::CodeSeg: {
     const auto *SA = cast<CodeSegAttr>(A);
     Record.push_back(SA->isInherited());
@@ -703,7 +785,7 @@ Record.push_back(SA->getGuard());
     Record.push_back(SA->isInherited());
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
-Record.push_back(SA->getDefaultState());
+Record.push_back(static_cast<uint64_t>(SA->getDefaultState()));
     break;
   }
   case attr::ConsumableAutoCast: {
@@ -725,6 +807,49 @@ Record.push_back(SA->getDefaultState());
     Record.push_back(SA->isInherited());
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
+    break;
+  }
+  case attr::CoroDisableLifetimeBound: {
+    const auto *SA = cast<CoroDisableLifetimeBoundAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    break;
+  }
+  case attr::CoroLifetimeBound: {
+    const auto *SA = cast<CoroLifetimeBoundAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    break;
+  }
+  case attr::CoroOnlyDestroyWhenComplete: {
+    const auto *SA = cast<CoroOnlyDestroyWhenCompleteAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    break;
+  }
+  case attr::CoroReturnType: {
+    const auto *SA = cast<CoroReturnTypeAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    break;
+  }
+  case attr::CoroWrapper: {
+    const auto *SA = cast<CoroWrapperAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    break;
+  }
+  case attr::CountedBy: {
+    const auto *SA = cast<CountedByAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    Record.AddIdentifierRef(SA->getCountedByField());
     break;
   }
   case attr::DLLExport: {
@@ -790,7 +915,7 @@ Record.push_back(SA->getDefaultState());
     Record.push_back(A->isPackExpansion());
     Record.AddStmt(SA->getCond());
     Record.AddString(SA->getMessage());
-Record.push_back(SA->getDiagnosticType());
+Record.push_back(static_cast<uint64_t>(SA->getDiagnosticType()));
     Record.push_back(SA->getArgDependent());
     Record.AddDeclRef(SA->getParent());
     break;
@@ -846,7 +971,7 @@ Record.push_back(SA->getDiagnosticType());
     Record.push_back(SA->isInherited());
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
-Record.push_back(SA->getExtensibility());
+Record.push_back(static_cast<uint64_t>(SA->getExtensibility()));
     break;
   }
   case attr::Error: {
@@ -942,7 +1067,7 @@ Record.push_back(SA->getExtensibility());
     Record.push_back(SA->isInherited());
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
-Record.push_back(SA->getThunkType());
+Record.push_back(static_cast<uint64_t>(SA->getThunkType()));
     break;
   }
   case attr::GNUInline: {
@@ -989,13 +1114,21 @@ Record.push_back(SA->getThunkType());
     Record.push_back(SA->getZ());
     break;
   }
+  case attr::HLSLParamModifier: {
+    const auto *SA = cast<HLSLParamModifierAttr>(A);
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    Record.push_back(SA->getMergedSpelling());
+    break;
+  }
   case attr::HLSLResource: {
     const auto *SA = cast<HLSLResourceAttr>(A);
     Record.push_back(SA->isInherited());
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
-Record.push_back(SA->getResourceType());
-Record.push_back(SA->getResourceShape());
+Record.push_back(static_cast<uint64_t>(SA->getResourceClass()));
+Record.push_back(static_cast<uint64_t>(SA->getResourceKind()));
+    Record.push_back(SA->getIsROV());
     break;
   }
   case attr::HLSLResourceBinding: {
@@ -1026,7 +1159,7 @@ Record.push_back(SA->getResourceShape());
     Record.push_back(SA->isInherited());
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
-Record.push_back(SA->getType());
+Record.push_back(static_cast<uint64_t>(SA->getType()));
     break;
   }
   case attr::Hot: {
@@ -1155,8 +1288,8 @@ Record.push_back(SA->getType());
     const auto *SA = cast<LoopHintAttr>(A);
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
-Record.push_back(SA->getOption());
-Record.push_back(SA->getState());
+Record.push_back(static_cast<uint64_t>(SA->getOption()));
+Record.push_back(static_cast<uint64_t>(SA->getState()));
     Record.AddStmt(SA->getValue());
     break;
   }
@@ -1166,6 +1299,13 @@ Record.push_back(SA->getState());
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
     Record.push_back(SA->getNumber());
+    break;
+  }
+  case attr::M68kRTD: {
+    const auto *SA = cast<M68kRTDAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
     break;
   }
   case attr::MIGServerRoutine: {
@@ -1184,6 +1324,13 @@ Record.push_back(SA->getState());
   }
   case attr::MSAllocator: {
     const auto *SA = cast<MSAllocatorAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    break;
+  }
+  case attr::MSConstexpr: {
+    const auto *SA = cast<MSConstexprAttr>(A);
     Record.push_back(SA->isInherited());
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
@@ -1283,7 +1430,7 @@ Record.push_back(SA->getState());
     Record.push_back(SA->isInherited());
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
-Record.push_back(SA->getInterrupt());
+Record.push_back(static_cast<uint64_t>(SA->getInterrupt()));
     break;
   }
   case attr::MipsLongCall: {
@@ -1331,7 +1478,7 @@ Record.push_back(SA->getInterrupt());
     Record.push_back(SA->isInherited());
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
-    Record.AddDeclRef(SA->getErrorDomain());
+    Record.AddIdentifierRef(SA->getErrorDomain());
     break;
   }
   case attr::NSReturnsAutoreleased: {
@@ -1560,7 +1707,7 @@ Record.push_back(SA->getInterrupt());
     Record.push_back(SA->isInherited());
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
-Record.push_back(SA->getAllocatorType());
+Record.push_back(static_cast<uint64_t>(SA->getAllocatorType()));
     Record.AddStmt(SA->getAllocator());
     Record.AddStmt(SA->getAlignment());
     break;
@@ -1583,7 +1730,7 @@ Record.push_back(SA->getAllocatorType());
     const auto *SA = cast<OMPDeclareSimdDeclAttr>(A);
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
-Record.push_back(SA->getBranchState());
+Record.push_back(static_cast<uint64_t>(SA->getBranchState()));
     Record.AddStmt(SA->getSimdlen());
     Record.push_back(SA->uniforms_size());
     for (auto &Val : SA->uniforms())
@@ -1610,8 +1757,8 @@ Record.push_back(SA->getBranchState());
     Record.push_back(SA->isInherited());
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
-Record.push_back(SA->getMapType());
-Record.push_back(SA->getDevType());
+Record.push_back(static_cast<uint64_t>(SA->getMapType()));
+Record.push_back(static_cast<uint64_t>(SA->getDevType()));
     Record.AddStmt(SA->getIndirectExpr());
     Record.push_back(SA->getIndirect());
     Record.push_back(SA->getLevel());
@@ -1794,7 +1941,7 @@ Record.push_back(SA->getDevType());
     Record.push_back(SA->isInherited());
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
-Record.push_back(SA->getFamily());
+Record.push_back(static_cast<uint64_t>(SA->getFamily()));
     break;
   }
   case attr::ObjCNSObject: {
@@ -1988,7 +2135,7 @@ Record.push_back(SA->getFamily());
     Record.push_back(SA->isInherited());
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
-Record.push_back(SA->getParamState());
+Record.push_back(static_cast<uint64_t>(SA->getParamState()));
     break;
   }
   case attr::Pascal: {
@@ -2020,7 +2167,7 @@ Record.push_back(SA->getParamState());
     Record.push_back(SA->isInherited());
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
-Record.push_back(SA->getPCS());
+Record.push_back(static_cast<uint64_t>(SA->getPCS()));
     break;
   }
   case attr::Pointer: {
@@ -2079,6 +2226,14 @@ Record.push_back(SA->getPCS());
     Record.AddTypeSourceInfo(SA->getTypedefTypeLoc());
     break;
   }
+  case attr::PreferredType: {
+    const auto *SA = cast<PreferredTypeAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    Record.AddTypeSourceInfo(SA->getTypeLoc());
+    break;
+  }
   case attr::PreserveAll: {
     const auto *SA = cast<PreserveAllAttr>(A);
     Record.push_back(SA->isInherited());
@@ -2130,7 +2285,7 @@ Record.push_back(SA->getPCS());
     Record.push_back(SA->isInherited());
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
-Record.push_back(SA->getInterrupt());
+Record.push_back(static_cast<uint64_t>(SA->getInterrupt()));
     break;
   }
   case attr::RandomizeLayout: {
@@ -2223,7 +2378,7 @@ Record.push_back(SA->getInterrupt());
     Record.push_back(SA->isInherited());
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
-Record.push_back(SA->getState());
+Record.push_back(static_cast<uint64_t>(SA->getState()));
     break;
   }
   case attr::ReturnsNonNull: {
@@ -2295,7 +2450,7 @@ Record.push_back(SA->getState());
     Record.push_back(SA->isInherited());
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
-Record.push_back(SA->getNewState());
+Record.push_back(static_cast<uint64_t>(SA->getNewState()));
     break;
   }
   case attr::SharedTrylockFunction: {
@@ -2346,6 +2501,7 @@ Record.push_back(SA->getNewState());
   }
   case attr::Suppress: {
     const auto *SA = cast<SuppressAttr>(A);
+    Record.push_back(SA->isInherited());
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
     Record.push_back(SA->diagnosticIdentifiers_size());
@@ -2358,7 +2514,7 @@ Record.push_back(SA->getNewState());
     Record.push_back(SA->isInherited());
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
-Record.push_back(SA->getKind());
+Record.push_back(static_cast<uint64_t>(SA->getKind()));
     Record.push_back(SA->getCompletionHandlerIndex().serialize());
     break;
   }
@@ -2381,7 +2537,7 @@ Record.push_back(SA->getKind());
     Record.push_back(SA->isInherited());
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
-Record.push_back(SA->getConvention());
+Record.push_back(static_cast<uint64_t>(SA->getConvention()));
     Record.push_back(SA->getHandlerParamIdx());
     break;
   }
@@ -2435,11 +2591,25 @@ Record.push_back(SA->getConvention());
     Record.push_back(SA->isInherited());
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
-Record.push_back(SA->getConvention());
+Record.push_back(static_cast<uint64_t>(SA->getConvention()));
     break;
   }
   case attr::SwiftErrorResult: {
     const auto *SA = cast<SwiftErrorResultAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    break;
+  }
+  case attr::SwiftImportAsNonGeneric: {
+    const auto *SA = cast<SwiftImportAsNonGenericAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    break;
+  }
+  case attr::SwiftImportPropertyAsAccessors: {
+    const auto *SA = cast<SwiftImportPropertyAsAccessorsAttr>(A);
     Record.push_back(SA->isInherited());
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
@@ -2465,7 +2635,7 @@ Record.push_back(SA->getConvention());
     Record.push_back(SA->isInherited());
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
-Record.push_back(SA->getNewtypeKind());
+Record.push_back(static_cast<uint64_t>(SA->getNewtypeKind()));
     break;
   }
   case attr::SwiftObjCMembers: {
@@ -2478,6 +2648,23 @@ Record.push_back(SA->getNewtypeKind());
     Record.push_back(SA->isInherited());
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
+    break;
+  }
+  case attr::SwiftVersionedAddition: {
+    const auto *SA = cast<SwiftVersionedAdditionAttr>(A);
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    Record.AddVersionTuple(SA->getVersion());
+    AddAttr(SA->getAdditionalAttr());    Record.push_back(SA->getIsReplacedByActive());
+    break;
+  }
+  case attr::SwiftVersionedRemoval: {
+    const auto *SA = cast<SwiftVersionedRemovalAttr>(A);
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    Record.AddVersionTuple(SA->getVersion());
+    Record.push_back(SA->getRawKind());
+    Record.push_back(SA->getIsReplacedByActive());
     break;
   }
   case attr::SysVABI: {
@@ -2526,7 +2713,7 @@ Record.push_back(SA->getNewtypeKind());
     Record.push_back(SA->isInherited());
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
-Record.push_back(SA->getTestState());
+Record.push_back(static_cast<uint64_t>(SA->getTestState()));
     break;
   }
   case attr::ThisCall: {
@@ -2602,7 +2789,7 @@ Record.push_back(SA->getTestState());
     Record.push_back(SA->isInherited());
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
-Record.push_back(SA->getVisibility());
+Record.push_back(static_cast<uint64_t>(SA->getVisibility()));
     break;
   }
   case attr::UPtr: {
@@ -2616,7 +2803,7 @@ Record.push_back(SA->getVisibility());
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
     Record.AddString(SA->getMessage());
-Record.push_back(SA->getImplicitReason());
+Record.push_back(static_cast<uint64_t>(SA->getImplicitReason()));
     break;
   }
   case attr::Uninitialized: {
@@ -2703,7 +2890,7 @@ Record.push_back(SA->getImplicitReason());
     Record.push_back(SA->isInherited());
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
-Record.push_back(SA->getVisibility());
+Record.push_back(static_cast<uint64_t>(SA->getVisibility()));
     break;
   }
   case attr::WarnUnused: {
@@ -2809,7 +2996,7 @@ Record.push_back(SA->getVisibility());
     Record.push_back(SA->isInherited());
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
-Record.push_back(SA->getZeroCallUsedRegs());
+Record.push_back(static_cast<uint64_t>(SA->getZeroCallUsedRegs()));
     break;
   }
   }

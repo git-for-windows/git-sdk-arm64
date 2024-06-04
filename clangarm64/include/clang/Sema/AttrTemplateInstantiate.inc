@@ -3,6 +3,7 @@
 |* Template instantiation code for attributes                                 *|
 |*                                                                            *|
 |* Automatically generated file, do not edit!                                 *|
+|* From: Attr.td                                                              *|
 |*                                                                            *|
 \*===----------------------------------------------------------------------===*/
 
@@ -187,12 +188,40 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
       const auto *A = cast<ArmBuiltinAliasAttr>(At);
       return A->clone(C);
     }
+    case attr::ArmIn: {
+      const auto *A = cast<ArmInAttr>(At);
+      return A->clone(C);
+    }
+    case attr::ArmInOut: {
+      const auto *A = cast<ArmInOutAttr>(At);
+      return A->clone(C);
+    }
+    case attr::ArmLocallyStreaming: {
+      const auto *A = cast<ArmLocallyStreamingAttr>(At);
+      return A->clone(C);
+    }
     case attr::ArmMveStrictPolymorphism: {
       const auto *A = cast<ArmMveStrictPolymorphismAttr>(At);
       return A->clone(C);
     }
+    case attr::ArmNew: {
+      const auto *A = cast<ArmNewAttr>(At);
+      return A->clone(C);
+    }
+    case attr::ArmOut: {
+      const auto *A = cast<ArmOutAttr>(At);
+      return A->clone(C);
+    }
+    case attr::ArmPreserves: {
+      const auto *A = cast<ArmPreservesAttr>(At);
+      return A->clone(C);
+    }
     case attr::ArmStreaming: {
       const auto *A = cast<ArmStreamingAttr>(At);
+      return A->clone(C);
+    }
+    case attr::ArmStreamingCompatible: {
+      const auto *A = cast<ArmStreamingCompatibleAttr>(At);
       return A->clone(C);
     }
     case attr::Artificial: {
@@ -272,6 +301,10 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
     }
     case attr::BPFPreserveAccessIndex: {
       const auto *A = cast<BPFPreserveAccessIndexAttr>(At);
+      return A->clone(C);
+    }
+    case attr::BPFPreserveStaticOffset: {
+      const auto *A = cast<BPFPreserveStaticOffsetAttr>(At);
       return A->clone(C);
     }
     case attr::BTFDeclTag: {
@@ -414,6 +447,14 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
       const auto *A = cast<CmseNSEntryAttr>(At);
       return A->clone(C);
     }
+    case attr::CodeAlign: {
+      const auto *A = cast<CodeAlignAttr>(At);
+      return A->clone(C);
+    }
+    case attr::CodeModel: {
+      const auto *A = cast<CodeModelAttr>(At);
+      return A->clone(C);
+    }
     case attr::CodeSeg: {
       const auto *A = cast<CodeSegAttr>(At);
       return A->clone(C);
@@ -452,6 +493,30 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
     }
     case attr::Convergent: {
       const auto *A = cast<ConvergentAttr>(At);
+      return A->clone(C);
+    }
+    case attr::CoroDisableLifetimeBound: {
+      const auto *A = cast<CoroDisableLifetimeBoundAttr>(At);
+      return A->clone(C);
+    }
+    case attr::CoroLifetimeBound: {
+      const auto *A = cast<CoroLifetimeBoundAttr>(At);
+      return A->clone(C);
+    }
+    case attr::CoroOnlyDestroyWhenComplete: {
+      const auto *A = cast<CoroOnlyDestroyWhenCompleteAttr>(At);
+      return A->clone(C);
+    }
+    case attr::CoroReturnType: {
+      const auto *A = cast<CoroReturnTypeAttr>(At);
+      return A->clone(C);
+    }
+    case attr::CoroWrapper: {
+      const auto *A = cast<CoroWrapperAttr>(At);
+      return A->clone(C);
+    }
+    case attr::CountedBy: {
+      const auto *A = cast<CountedByAttr>(At);
       return A->clone(C);
     }
     case attr::DLLExport: {
@@ -631,6 +696,10 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
       const auto *A = cast<HLSLNumThreadsAttr>(At);
       return A->clone(C);
     }
+    case attr::HLSLParamModifier: {
+      const auto *A = cast<HLSLParamModifierAttr>(At);
+      return A->clone(C);
+    }
     case attr::HLSLResource: {
       const auto *A = cast<HLSLResourceAttr>(At);
       return A->clone(C);
@@ -748,6 +817,10 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
       const auto *A = cast<M68kInterruptAttr>(At);
       return A->clone(C);
     }
+    case attr::M68kRTD: {
+      const auto *A = cast<M68kRTDAttr>(At);
+      return A->clone(C);
+    }
     case attr::MIGServerRoutine: {
       const auto *A = cast<MIGServerRoutineAttr>(At);
       return A->clone(C);
@@ -758,6 +831,10 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
     }
     case attr::MSAllocator: {
       const auto *A = cast<MSAllocatorAttr>(At);
+      return A->clone(C);
+    }
+    case attr::MSConstexpr: {
+      const auto *A = cast<MSConstexprAttr>(At);
       return A->clone(C);
     }
     case attr::MSInheritance: {
@@ -1252,6 +1329,10 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
         return nullptr;
       return new (C) PreferredNameAttr(C, *A, tempInstTypedefType);
     }
+    case attr::PreferredType: {
+      const auto *A = cast<PreferredTypeAttr>(At);
+      return A->clone(C);
+    }
     case attr::PreserveAll: {
       const auto *A = cast<PreserveAllAttr>(At);
       return A->clone(C);
@@ -1503,6 +1584,14 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
       const auto *A = cast<SwiftErrorResultAttr>(At);
       return A->clone(C);
     }
+    case attr::SwiftImportAsNonGeneric: {
+      const auto *A = cast<SwiftImportAsNonGenericAttr>(At);
+      return A->clone(C);
+    }
+    case attr::SwiftImportPropertyAsAccessors: {
+      const auto *A = cast<SwiftImportPropertyAsAccessorsAttr>(At);
+      return A->clone(C);
+    }
     case attr::SwiftIndirectResult: {
       const auto *A = cast<SwiftIndirectResultAttr>(At);
       return A->clone(C);
@@ -1521,6 +1610,14 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
     }
     case attr::SwiftPrivate: {
       const auto *A = cast<SwiftPrivateAttr>(At);
+      return A->clone(C);
+    }
+    case attr::SwiftVersionedAddition: {
+      const auto *A = cast<SwiftVersionedAdditionAttr>(At);
+      return A->clone(C);
+    }
+    case attr::SwiftVersionedRemoval: {
+      const auto *A = cast<SwiftVersionedRemovalAttr>(At);
       return A->clone(C);
     }
     case attr::SysVABI: {
@@ -1834,10 +1931,31 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
     case attr::ArmBuiltinAlias: {
       return nullptr;
     }
+    case attr::ArmIn: {
+      return nullptr;
+    }
+    case attr::ArmInOut: {
+      return nullptr;
+    }
+    case attr::ArmLocallyStreaming: {
+      return nullptr;
+    }
     case attr::ArmMveStrictPolymorphism: {
       return nullptr;
     }
+    case attr::ArmNew: {
+      return nullptr;
+    }
+    case attr::ArmOut: {
+      return nullptr;
+    }
+    case attr::ArmPreserves: {
+      return nullptr;
+    }
     case attr::ArmStreaming: {
+      return nullptr;
+    }
+    case attr::ArmStreamingCompatible: {
       return nullptr;
     }
     case attr::Artificial: {
@@ -1868,6 +1986,9 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
       return nullptr;
     }
     case attr::BPFPreserveAccessIndex: {
+      return nullptr;
+    }
+    case attr::BPFPreserveStaticOffset: {
       return nullptr;
     }
     case attr::BTFDeclTag: {
@@ -1977,6 +2098,12 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
     case attr::CmseNSEntry: {
       return nullptr;
     }
+    case attr::CodeAlign: {
+      return nullptr;
+    }
+    case attr::CodeModel: {
+      return nullptr;
+    }
     case attr::CodeSeg: {
       return nullptr;
     }
@@ -2005,6 +2132,24 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
       return nullptr;
     }
     case attr::Convergent: {
+      return nullptr;
+    }
+    case attr::CoroDisableLifetimeBound: {
+      return nullptr;
+    }
+    case attr::CoroLifetimeBound: {
+      return nullptr;
+    }
+    case attr::CoroOnlyDestroyWhenComplete: {
+      return nullptr;
+    }
+    case attr::CoroReturnType: {
+      return nullptr;
+    }
+    case attr::CoroWrapper: {
+      return nullptr;
+    }
+    case attr::CountedBy: {
       return nullptr;
     }
     case attr::DLLExport: {
@@ -2108,6 +2253,9 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
     case attr::HLSLNumThreads: {
       return nullptr;
     }
+    case attr::HLSLParamModifier: {
+      return nullptr;
+    }
     case attr::HLSLResource: {
       return nullptr;
     }
@@ -2180,6 +2328,9 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
     case attr::M68kInterrupt: {
       return nullptr;
     }
+    case attr::M68kRTD: {
+      return nullptr;
+    }
     case attr::MIGServerRoutine: {
       return nullptr;
     }
@@ -2187,6 +2338,9 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
       return nullptr;
     }
     case attr::MSAllocator: {
+      return nullptr;
+    }
+    case attr::MSConstexpr: {
       return nullptr;
     }
     case attr::MSInheritance: {
@@ -2560,6 +2714,9 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
         return nullptr;
       return new (C) PreferredNameAttr(C, *A, tempInstTypedefType);
     }
+    case attr::PreferredType: {
+      return nullptr;
+    }
     case attr::PreserveAll: {
       return nullptr;
     }
@@ -2707,6 +2864,12 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
     case attr::SwiftErrorResult: {
       return nullptr;
     }
+    case attr::SwiftImportAsNonGeneric: {
+      return nullptr;
+    }
+    case attr::SwiftImportPropertyAsAccessors: {
+      return nullptr;
+    }
     case attr::SwiftIndirectResult: {
       return nullptr;
     }
@@ -2720,6 +2883,12 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
       return nullptr;
     }
     case attr::SwiftPrivate: {
+      return nullptr;
+    }
+    case attr::SwiftVersionedAddition: {
+      return nullptr;
+    }
+    case attr::SwiftVersionedRemoval: {
       return nullptr;
     }
     case attr::SysVABI: {

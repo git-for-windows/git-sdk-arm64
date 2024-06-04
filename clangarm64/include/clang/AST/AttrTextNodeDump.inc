@@ -3,6 +3,7 @@
 |* Attribute text node dumper                                                 *|
 |*                                                                            *|
 |* Automatically generated file, do not edit!                                 *|
+|* From: Attr.td                                                              *|
 |*                                                                            *|
 \*===----------------------------------------------------------------------===*/
 
@@ -17,22 +18,22 @@
   void VisitARMInterruptAttr(const ARMInterruptAttr *A) {
     const auto *SA = cast<ARMInterruptAttr>(A); (void)SA;
     switch(SA->getInterrupt()) {
-    case ARMInterruptAttr::IRQ:
+    case ARMInterruptAttr::InterruptType::IRQ:
       OS << " IRQ";
       break;
-    case ARMInterruptAttr::FIQ:
+    case ARMInterruptAttr::InterruptType::FIQ:
       OS << " FIQ";
       break;
-    case ARMInterruptAttr::SWI:
+    case ARMInterruptAttr::InterruptType::SWI:
       OS << " SWI";
       break;
-    case ARMInterruptAttr::ABORT:
+    case ARMInterruptAttr::InterruptType::ABORT:
       OS << " ABORT";
       break;
-    case ARMInterruptAttr::UNDEF:
+    case ARMInterruptAttr::InterruptType::UNDEF:
       OS << " UNDEF";
       break;
-    case ARMInterruptAttr::Generic:
+    case ARMInterruptAttr::InterruptType::Generic:
       OS << " Generic";
       break;
     }
@@ -99,6 +100,31 @@
     if (SA->getBuiltinName())
       OS << " " << SA->getBuiltinName()->getName();
   }
+  void VisitArmInAttr(const ArmInAttr *A) {
+    const auto *SA = cast<ArmInAttr>(A); (void)SA;
+    for (const auto &Val : SA->inArgs())
+      OS << " " << Val;
+  }
+  void VisitArmInOutAttr(const ArmInOutAttr *A) {
+    const auto *SA = cast<ArmInOutAttr>(A); (void)SA;
+    for (const auto &Val : SA->inOutArgs())
+      OS << " " << Val;
+  }
+  void VisitArmNewAttr(const ArmNewAttr *A) {
+    const auto *SA = cast<ArmNewAttr>(A); (void)SA;
+    for (const auto &Val : SA->newArgs())
+      OS << " " << Val;
+  }
+  void VisitArmOutAttr(const ArmOutAttr *A) {
+    const auto *SA = cast<ArmOutAttr>(A); (void)SA;
+    for (const auto &Val : SA->outArgs())
+      OS << " " << Val;
+  }
+  void VisitArmPreservesAttr(const ArmPreservesAttr *A) {
+    const auto *SA = cast<ArmPreservesAttr>(A); (void)SA;
+    for (const auto &Val : SA->preserveArgs())
+      OS << " " << Val;
+  }
   void VisitAsmLabelAttr(const AsmLabelAttr *A) {
     const auto *SA = cast<AsmLabelAttr>(A); (void)SA;
     OS << " \"" << SA->getLabel() << "\"";
@@ -136,7 +162,7 @@
   void VisitBlocksAttr(const BlocksAttr *A) {
     const auto *SA = cast<BlocksAttr>(A); (void)SA;
     switch(SA->getType()) {
-    case BlocksAttr::ByRef:
+    case BlocksAttr::BlockType::ByRef:
       OS << " ByRef";
       break;
     }
@@ -154,7 +180,7 @@
   void VisitCFGuardAttr(const CFGuardAttr *A) {
     const auto *SA = cast<CFGuardAttr>(A); (void)SA;
     switch(SA->getGuard()) {
-    case CFGuardAttr::nocf:
+    case CFGuardAttr::GuardArg::nocf:
       OS << " nocf";
       break;
     }
@@ -176,13 +202,13 @@
     const auto *SA = cast<CallableWhenAttr>(A); (void)SA;
     for (CallableWhenAttr::callableStates_iterator I = SA->callableStates_begin(), E = SA->callableStates_end(); I != E; ++I) {
       switch(*I) {
-    case CallableWhenAttr::Unknown:
+    case CallableWhenAttr::ConsumedState::Unknown:
       OS << " Unknown";
       break;
-    case CallableWhenAttr::Consumed:
+    case CallableWhenAttr::ConsumedState::Consumed:
       OS << " Consumed";
       break;
-    case CallableWhenAttr::Unconsumed:
+    case CallableWhenAttr::ConsumedState::Unconsumed:
       OS << " Unconsumed";
       break;
       }
@@ -203,6 +229,22 @@
     OS << " ";
     dumpBareDeclRef(SA->getFunctionDecl());
   }
+  void VisitCodeModelAttr(const CodeModelAttr *A) {
+    const auto *SA = cast<CodeModelAttr>(A); (void)SA;
+    switch(SA->getModel()) {
+    case llvm::CodeModel::Model::Small:
+      OS << " Small";
+      break;
+    case llvm::CodeModel::Model::Medium:
+      OS << " Medium";
+      break;
+    case llvm::CodeModel::Model::Large:
+      OS << " Large";
+      break;
+    default:
+      llvm_unreachable("Invalid attribute value");
+    }
+  }
   void VisitCodeSegAttr(const CodeSegAttr *A) {
     const auto *SA = cast<CodeSegAttr>(A); (void)SA;
     OS << " \"" << SA->getName() << "\"";
@@ -217,16 +259,21 @@
   void VisitConsumableAttr(const ConsumableAttr *A) {
     const auto *SA = cast<ConsumableAttr>(A); (void)SA;
     switch(SA->getDefaultState()) {
-    case ConsumableAttr::Unknown:
+    case ConsumableAttr::ConsumedState::Unknown:
       OS << " Unknown";
       break;
-    case ConsumableAttr::Consumed:
+    case ConsumableAttr::ConsumedState::Consumed:
       OS << " Consumed";
       break;
-    case ConsumableAttr::Unconsumed:
+    case ConsumableAttr::ConsumedState::Unconsumed:
       OS << " Unconsumed";
       break;
     }
+  }
+  void VisitCountedByAttr(const CountedByAttr *A) {
+    const auto *SA = cast<CountedByAttr>(A); (void)SA;
+    if (SA->getCountedByField())
+      OS << " " << SA->getCountedByField()->getName();
   }
   void VisitDeprecatedAttr(const DeprecatedAttr *A) {
     const auto *SA = cast<DeprecatedAttr>(A); (void)SA;
@@ -248,10 +295,10 @@
     const auto *SA = cast<DiagnoseIfAttr>(A); (void)SA;
     OS << " \"" << SA->getMessage() << "\"";
     switch(SA->getDiagnosticType()) {
-    case DiagnoseIfAttr::DT_Error:
+    case DiagnoseIfAttr::DiagnosticType::DT_Error:
       OS << " DT_Error";
       break;
-    case DiagnoseIfAttr::DT_Warning:
+    case DiagnoseIfAttr::DiagnosticType::DT_Warning:
       OS << " DT_Warning";
       break;
     }
@@ -274,10 +321,10 @@
   void VisitEnumExtensibilityAttr(const EnumExtensibilityAttr *A) {
     const auto *SA = cast<EnumExtensibilityAttr>(A); (void)SA;
     switch(SA->getExtensibility()) {
-    case EnumExtensibilityAttr::Closed:
+    case EnumExtensibilityAttr::Kind::Closed:
       OS << " Closed";
       break;
-    case EnumExtensibilityAttr::Open:
+    case EnumExtensibilityAttr::Kind::Open:
       OS << " Open";
       break;
     }
@@ -311,10 +358,10 @@
   void VisitFunctionReturnThunksAttr(const FunctionReturnThunksAttr *A) {
     const auto *SA = cast<FunctionReturnThunksAttr>(A); (void)SA;
     switch(SA->getThunkType()) {
-    case FunctionReturnThunksAttr::Keep:
+    case FunctionReturnThunksAttr::Kind::Keep:
       OS << " Keep";
       break;
-    case FunctionReturnThunksAttr::Extern:
+    case FunctionReturnThunksAttr::Kind::Extern:
       OS << " Extern";
       break;
     }
@@ -325,78 +372,88 @@
     OS << " " << SA->getY();
     OS << " " << SA->getZ();
   }
+  void VisitHLSLParamModifierAttr(const HLSLParamModifierAttr *A) {
+    const auto *SA = cast<HLSLParamModifierAttr>(A); (void)SA;
+    OS << " " << A->getSpelling();
+    if (SA->getMergedSpelling()) OS << " MergedSpelling";
+  }
   void VisitHLSLResourceAttr(const HLSLResourceAttr *A) {
     const auto *SA = cast<HLSLResourceAttr>(A); (void)SA;
-    switch(SA->getResourceType()) {
-    case HLSLResourceAttr::SRV:
+    switch(SA->getResourceClass()) {
+    case llvm::hlsl::ResourceClass::SRV:
       OS << " SRV";
       break;
-    case HLSLResourceAttr::UAV:
+    case llvm::hlsl::ResourceClass::UAV:
       OS << " UAV";
       break;
-    case HLSLResourceAttr::CBuffer:
+    case llvm::hlsl::ResourceClass::CBuffer:
       OS << " CBuffer";
       break;
-    case HLSLResourceAttr::Sampler:
+    case llvm::hlsl::ResourceClass::Sampler:
       OS << " Sampler";
       break;
+    default:
+      llvm_unreachable("Invalid attribute value");
     }
-    switch(SA->getResourceShape()) {
-    case HLSLResourceAttr::Texture1D:
+    switch(SA->getResourceKind()) {
+    case llvm::hlsl::ResourceKind::Texture1D:
       OS << " Texture1D";
       break;
-    case HLSLResourceAttr::Texture2D:
+    case llvm::hlsl::ResourceKind::Texture2D:
       OS << " Texture2D";
       break;
-    case HLSLResourceAttr::Texture2DMS:
+    case llvm::hlsl::ResourceKind::Texture2DMS:
       OS << " Texture2DMS";
       break;
-    case HLSLResourceAttr::Texture3D:
+    case llvm::hlsl::ResourceKind::Texture3D:
       OS << " Texture3D";
       break;
-    case HLSLResourceAttr::TextureCube:
+    case llvm::hlsl::ResourceKind::TextureCube:
       OS << " TextureCube";
       break;
-    case HLSLResourceAttr::Texture1DArray:
+    case llvm::hlsl::ResourceKind::Texture1DArray:
       OS << " Texture1DArray";
       break;
-    case HLSLResourceAttr::Texture2DArray:
+    case llvm::hlsl::ResourceKind::Texture2DArray:
       OS << " Texture2DArray";
       break;
-    case HLSLResourceAttr::Texture2DMSArray:
+    case llvm::hlsl::ResourceKind::Texture2DMSArray:
       OS << " Texture2DMSArray";
       break;
-    case HLSLResourceAttr::TextureCubeArray:
+    case llvm::hlsl::ResourceKind::TextureCubeArray:
       OS << " TextureCubeArray";
       break;
-    case HLSLResourceAttr::TypedBuffer:
+    case llvm::hlsl::ResourceKind::TypedBuffer:
       OS << " TypedBuffer";
       break;
-    case HLSLResourceAttr::RawBuffer:
+    case llvm::hlsl::ResourceKind::RawBuffer:
       OS << " RawBuffer";
       break;
-    case HLSLResourceAttr::StructuredBuffer:
+    case llvm::hlsl::ResourceKind::StructuredBuffer:
       OS << " StructuredBuffer";
       break;
-    case HLSLResourceAttr::CBufferKind:
-      OS << " CBufferKind";
+    case llvm::hlsl::ResourceKind::CBuffer:
+      OS << " CBuffer";
       break;
-    case HLSLResourceAttr::SamplerKind:
-      OS << " SamplerKind";
+    case llvm::hlsl::ResourceKind::Sampler:
+      OS << " Sampler";
       break;
-    case HLSLResourceAttr::TBuffer:
+    case llvm::hlsl::ResourceKind::TBuffer:
       OS << " TBuffer";
       break;
-    case HLSLResourceAttr::RTAccelerationStructure:
+    case llvm::hlsl::ResourceKind::RTAccelerationStructure:
       OS << " RTAccelerationStructure";
       break;
-    case HLSLResourceAttr::FeedbackTexture2D:
+    case llvm::hlsl::ResourceKind::FeedbackTexture2D:
       OS << " FeedbackTexture2D";
       break;
-    case HLSLResourceAttr::FeedbackTexture2DArray:
+    case llvm::hlsl::ResourceKind::FeedbackTexture2DArray:
       OS << " FeedbackTexture2DArray";
       break;
+    default:
+      llvm_unreachable("Invalid attribute value");
     }
+    if (SA->getIsROV()) OS << " IsROV";
   }
   void VisitHLSLResourceBindingAttr(const HLSLResourceBindingAttr *A) {
     const auto *SA = cast<HLSLResourceBindingAttr>(A); (void)SA;
@@ -406,49 +463,46 @@
   void VisitHLSLShaderAttr(const HLSLShaderAttr *A) {
     const auto *SA = cast<HLSLShaderAttr>(A); (void)SA;
     switch(SA->getType()) {
-    case HLSLShaderAttr::Pixel:
+    case HLSLShaderAttr::ShaderType::Pixel:
       OS << " Pixel";
       break;
-    case HLSLShaderAttr::Vertex:
+    case HLSLShaderAttr::ShaderType::Vertex:
       OS << " Vertex";
       break;
-    case HLSLShaderAttr::Geometry:
+    case HLSLShaderAttr::ShaderType::Geometry:
       OS << " Geometry";
       break;
-    case HLSLShaderAttr::Hull:
+    case HLSLShaderAttr::ShaderType::Hull:
       OS << " Hull";
       break;
-    case HLSLShaderAttr::Domain:
+    case HLSLShaderAttr::ShaderType::Domain:
       OS << " Domain";
       break;
-    case HLSLShaderAttr::Compute:
+    case HLSLShaderAttr::ShaderType::Compute:
       OS << " Compute";
       break;
-    case HLSLShaderAttr::Library:
-      OS << " Library";
-      break;
-    case HLSLShaderAttr::RayGeneration:
+    case HLSLShaderAttr::ShaderType::RayGeneration:
       OS << " RayGeneration";
       break;
-    case HLSLShaderAttr::Intersection:
+    case HLSLShaderAttr::ShaderType::Intersection:
       OS << " Intersection";
       break;
-    case HLSLShaderAttr::AnyHit:
+    case HLSLShaderAttr::ShaderType::AnyHit:
       OS << " AnyHit";
       break;
-    case HLSLShaderAttr::ClosestHit:
+    case HLSLShaderAttr::ShaderType::ClosestHit:
       OS << " ClosestHit";
       break;
-    case HLSLShaderAttr::Miss:
+    case HLSLShaderAttr::ShaderType::Miss:
       OS << " Miss";
       break;
-    case HLSLShaderAttr::Callable:
+    case HLSLShaderAttr::ShaderType::Callable:
       OS << " Callable";
       break;
-    case HLSLShaderAttr::Mesh:
+    case HLSLShaderAttr::ShaderType::Mesh:
       OS << " Mesh";
       break;
-    case HLSLShaderAttr::Amplification:
+    case HLSLShaderAttr::ShaderType::Amplification:
       OS << " Amplification";
       break;
     }
@@ -477,63 +531,63 @@
     const auto *SA = cast<LoopHintAttr>(A); (void)SA;
     OS << " " << A->getSpelling();
     switch(SA->getOption()) {
-    case LoopHintAttr::Vectorize:
+    case LoopHintAttr::OptionType::Vectorize:
       OS << " Vectorize";
       break;
-    case LoopHintAttr::VectorizeWidth:
+    case LoopHintAttr::OptionType::VectorizeWidth:
       OS << " VectorizeWidth";
       break;
-    case LoopHintAttr::Interleave:
+    case LoopHintAttr::OptionType::Interleave:
       OS << " Interleave";
       break;
-    case LoopHintAttr::InterleaveCount:
+    case LoopHintAttr::OptionType::InterleaveCount:
       OS << " InterleaveCount";
       break;
-    case LoopHintAttr::Unroll:
+    case LoopHintAttr::OptionType::Unroll:
       OS << " Unroll";
       break;
-    case LoopHintAttr::UnrollCount:
+    case LoopHintAttr::OptionType::UnrollCount:
       OS << " UnrollCount";
       break;
-    case LoopHintAttr::UnrollAndJam:
+    case LoopHintAttr::OptionType::UnrollAndJam:
       OS << " UnrollAndJam";
       break;
-    case LoopHintAttr::UnrollAndJamCount:
+    case LoopHintAttr::OptionType::UnrollAndJamCount:
       OS << " UnrollAndJamCount";
       break;
-    case LoopHintAttr::PipelineDisabled:
+    case LoopHintAttr::OptionType::PipelineDisabled:
       OS << " PipelineDisabled";
       break;
-    case LoopHintAttr::PipelineInitiationInterval:
+    case LoopHintAttr::OptionType::PipelineInitiationInterval:
       OS << " PipelineInitiationInterval";
       break;
-    case LoopHintAttr::Distribute:
+    case LoopHintAttr::OptionType::Distribute:
       OS << " Distribute";
       break;
-    case LoopHintAttr::VectorizePredicate:
+    case LoopHintAttr::OptionType::VectorizePredicate:
       OS << " VectorizePredicate";
       break;
     }
     switch(SA->getState()) {
-    case LoopHintAttr::Enable:
+    case LoopHintAttr::LoopHintState::Enable:
       OS << " Enable";
       break;
-    case LoopHintAttr::Disable:
+    case LoopHintAttr::LoopHintState::Disable:
       OS << " Disable";
       break;
-    case LoopHintAttr::Numeric:
+    case LoopHintAttr::LoopHintState::Numeric:
       OS << " Numeric";
       break;
-    case LoopHintAttr::FixedWidth:
+    case LoopHintAttr::LoopHintState::FixedWidth:
       OS << " FixedWidth";
       break;
-    case LoopHintAttr::ScalableWidth:
+    case LoopHintAttr::LoopHintState::ScalableWidth:
       OS << " ScalableWidth";
       break;
-    case LoopHintAttr::AssumeSafety:
+    case LoopHintAttr::LoopHintState::AssumeSafety:
       OS << " AssumeSafety";
       break;
-    case LoopHintAttr::Full:
+    case LoopHintAttr::LoopHintState::Full:
       OS << " Full";
       break;
     }
@@ -566,31 +620,31 @@
   void VisitMipsInterruptAttr(const MipsInterruptAttr *A) {
     const auto *SA = cast<MipsInterruptAttr>(A); (void)SA;
     switch(SA->getInterrupt()) {
-    case MipsInterruptAttr::sw0:
+    case MipsInterruptAttr::InterruptType::sw0:
       OS << " sw0";
       break;
-    case MipsInterruptAttr::sw1:
+    case MipsInterruptAttr::InterruptType::sw1:
       OS << " sw1";
       break;
-    case MipsInterruptAttr::hw0:
+    case MipsInterruptAttr::InterruptType::hw0:
       OS << " hw0";
       break;
-    case MipsInterruptAttr::hw1:
+    case MipsInterruptAttr::InterruptType::hw1:
       OS << " hw1";
       break;
-    case MipsInterruptAttr::hw2:
+    case MipsInterruptAttr::InterruptType::hw2:
       OS << " hw2";
       break;
-    case MipsInterruptAttr::hw3:
+    case MipsInterruptAttr::InterruptType::hw3:
       OS << " hw3";
       break;
-    case MipsInterruptAttr::hw4:
+    case MipsInterruptAttr::InterruptType::hw4:
       OS << " hw4";
       break;
-    case MipsInterruptAttr::hw5:
+    case MipsInterruptAttr::InterruptType::hw5:
       OS << " hw5";
       break;
-    case MipsInterruptAttr::eic:
+    case MipsInterruptAttr::InterruptType::eic:
       OS << " eic";
       break;
     }
@@ -608,8 +662,8 @@
   }
   void VisitNSErrorDomainAttr(const NSErrorDomainAttr *A) {
     const auto *SA = cast<NSErrorDomainAttr>(A); (void)SA;
-    OS << " ";
-    dumpBareDeclRef(SA->getErrorDomain());
+    if (SA->getErrorDomain())
+      OS << " " << SA->getErrorDomain()->getName();
   }
   void VisitNoBuiltinAttr(const NoBuiltinAttr *A) {
     const auto *SA = cast<NoBuiltinAttr>(A); (void)SA;
@@ -632,34 +686,34 @@
   void VisitOMPAllocateDeclAttr(const OMPAllocateDeclAttr *A) {
     const auto *SA = cast<OMPAllocateDeclAttr>(A); (void)SA;
     switch(SA->getAllocatorType()) {
-    case OMPAllocateDeclAttr::OMPNullMemAlloc:
+    case OMPAllocateDeclAttr::AllocatorTypeTy::OMPNullMemAlloc:
       OS << " OMPNullMemAlloc";
       break;
-    case OMPAllocateDeclAttr::OMPDefaultMemAlloc:
+    case OMPAllocateDeclAttr::AllocatorTypeTy::OMPDefaultMemAlloc:
       OS << " OMPDefaultMemAlloc";
       break;
-    case OMPAllocateDeclAttr::OMPLargeCapMemAlloc:
+    case OMPAllocateDeclAttr::AllocatorTypeTy::OMPLargeCapMemAlloc:
       OS << " OMPLargeCapMemAlloc";
       break;
-    case OMPAllocateDeclAttr::OMPConstMemAlloc:
+    case OMPAllocateDeclAttr::AllocatorTypeTy::OMPConstMemAlloc:
       OS << " OMPConstMemAlloc";
       break;
-    case OMPAllocateDeclAttr::OMPHighBWMemAlloc:
+    case OMPAllocateDeclAttr::AllocatorTypeTy::OMPHighBWMemAlloc:
       OS << " OMPHighBWMemAlloc";
       break;
-    case OMPAllocateDeclAttr::OMPLowLatMemAlloc:
+    case OMPAllocateDeclAttr::AllocatorTypeTy::OMPLowLatMemAlloc:
       OS << " OMPLowLatMemAlloc";
       break;
-    case OMPAllocateDeclAttr::OMPCGroupMemAlloc:
+    case OMPAllocateDeclAttr::AllocatorTypeTy::OMPCGroupMemAlloc:
       OS << " OMPCGroupMemAlloc";
       break;
-    case OMPAllocateDeclAttr::OMPPTeamMemAlloc:
+    case OMPAllocateDeclAttr::AllocatorTypeTy::OMPPTeamMemAlloc:
       OS << " OMPPTeamMemAlloc";
       break;
-    case OMPAllocateDeclAttr::OMPThreadMemAlloc:
+    case OMPAllocateDeclAttr::AllocatorTypeTy::OMPThreadMemAlloc:
       OS << " OMPThreadMemAlloc";
       break;
-    case OMPAllocateDeclAttr::OMPUserDefinedMemAlloc:
+    case OMPAllocateDeclAttr::AllocatorTypeTy::OMPUserDefinedMemAlloc:
       OS << " OMPUserDefinedMemAlloc";
       break;
     }
@@ -671,13 +725,13 @@
   void VisitOMPDeclareSimdDeclAttr(const OMPDeclareSimdDeclAttr *A) {
     const auto *SA = cast<OMPDeclareSimdDeclAttr>(A); (void)SA;
     switch(SA->getBranchState()) {
-    case OMPDeclareSimdDeclAttr::BS_Undefined:
+    case OMPDeclareSimdDeclAttr::BranchStateTy::BS_Undefined:
       OS << " BS_Undefined";
       break;
-    case OMPDeclareSimdDeclAttr::BS_Inbranch:
+    case OMPDeclareSimdDeclAttr::BranchStateTy::BS_Inbranch:
       OS << " BS_Inbranch";
       break;
-    case OMPDeclareSimdDeclAttr::BS_Notinbranch:
+    case OMPDeclareSimdDeclAttr::BranchStateTy::BS_Notinbranch:
       OS << " BS_Notinbranch";
       break;
     }
@@ -687,24 +741,24 @@
   void VisitOMPDeclareTargetDeclAttr(const OMPDeclareTargetDeclAttr *A) {
     const auto *SA = cast<OMPDeclareTargetDeclAttr>(A); (void)SA;
     switch(SA->getMapType()) {
-    case OMPDeclareTargetDeclAttr::MT_To:
+    case OMPDeclareTargetDeclAttr::MapTypeTy::MT_To:
       OS << " MT_To";
       break;
-    case OMPDeclareTargetDeclAttr::MT_Enter:
+    case OMPDeclareTargetDeclAttr::MapTypeTy::MT_Enter:
       OS << " MT_Enter";
       break;
-    case OMPDeclareTargetDeclAttr::MT_Link:
+    case OMPDeclareTargetDeclAttr::MapTypeTy::MT_Link:
       OS << " MT_Link";
       break;
     }
     switch(SA->getDevType()) {
-    case OMPDeclareTargetDeclAttr::DT_Host:
+    case OMPDeclareTargetDeclAttr::DevTypeTy::DT_Host:
       OS << " DT_Host";
       break;
-    case OMPDeclareTargetDeclAttr::DT_NoHost:
+    case OMPDeclareTargetDeclAttr::DevTypeTy::DT_NoHost:
       OS << " DT_NoHost";
       break;
-    case OMPDeclareTargetDeclAttr::DT_Any:
+    case OMPDeclareTargetDeclAttr::DevTypeTy::DT_Any:
       OS << " DT_Any";
       break;
     }
@@ -750,22 +804,22 @@
   void VisitObjCMethodFamilyAttr(const ObjCMethodFamilyAttr *A) {
     const auto *SA = cast<ObjCMethodFamilyAttr>(A); (void)SA;
     switch(SA->getFamily()) {
-    case ObjCMethodFamilyAttr::OMF_None:
+    case ObjCMethodFamilyAttr::FamilyKind::OMF_None:
       OS << " OMF_None";
       break;
-    case ObjCMethodFamilyAttr::OMF_alloc:
+    case ObjCMethodFamilyAttr::FamilyKind::OMF_alloc:
       OS << " OMF_alloc";
       break;
-    case ObjCMethodFamilyAttr::OMF_copy:
+    case ObjCMethodFamilyAttr::FamilyKind::OMF_copy:
       OS << " OMF_copy";
       break;
-    case ObjCMethodFamilyAttr::OMF_init:
+    case ObjCMethodFamilyAttr::FamilyKind::OMF_init:
       OS << " OMF_init";
       break;
-    case ObjCMethodFamilyAttr::OMF_mutableCopy:
+    case ObjCMethodFamilyAttr::FamilyKind::OMF_mutableCopy:
       OS << " OMF_mutableCopy";
       break;
-    case ObjCMethodFamilyAttr::OMF_new:
+    case ObjCMethodFamilyAttr::FamilyKind::OMF_new:
       OS << " OMF_new";
       break;
     }
@@ -820,13 +874,13 @@
   void VisitParamTypestateAttr(const ParamTypestateAttr *A) {
     const auto *SA = cast<ParamTypestateAttr>(A); (void)SA;
     switch(SA->getParamState()) {
-    case ParamTypestateAttr::Unknown:
+    case ParamTypestateAttr::ConsumedState::Unknown:
       OS << " Unknown";
       break;
-    case ParamTypestateAttr::Consumed:
+    case ParamTypestateAttr::ConsumedState::Consumed:
       OS << " Consumed";
       break;
-    case ParamTypestateAttr::Unconsumed:
+    case ParamTypestateAttr::ConsumedState::Unconsumed:
       OS << " Unconsumed";
       break;
     }
@@ -844,10 +898,10 @@
   void VisitPcsAttr(const PcsAttr *A) {
     const auto *SA = cast<PcsAttr>(A); (void)SA;
     switch(SA->getPCS()) {
-    case PcsAttr::AAPCS:
+    case PcsAttr::PCSType::AAPCS:
       OS << " AAPCS";
       break;
-    case PcsAttr::AAPCS_VFP:
+    case PcsAttr::PCSType::AAPCS_VFP:
       OS << " AAPCS_VFP";
       break;
     }
@@ -880,13 +934,17 @@
     const auto *SA = cast<PreferredNameAttr>(A); (void)SA;
     OS << " " << SA->getTypedefType().getAsString();
   }
+  void VisitPreferredTypeAttr(const PreferredTypeAttr *A) {
+    const auto *SA = cast<PreferredTypeAttr>(A); (void)SA;
+    if (SA->getTypeLoc())    OS << " " << SA->getType().getAsString();
+  }
   void VisitRISCVInterruptAttr(const RISCVInterruptAttr *A) {
     const auto *SA = cast<RISCVInterruptAttr>(A); (void)SA;
     switch(SA->getInterrupt()) {
-    case RISCVInterruptAttr::supervisor:
+    case RISCVInterruptAttr::InterruptType::supervisor:
       OS << " supervisor";
       break;
-    case RISCVInterruptAttr::machine:
+    case RISCVInterruptAttr::InterruptType::machine:
       OS << " machine";
       break;
     }
@@ -915,13 +973,13 @@
   void VisitReturnTypestateAttr(const ReturnTypestateAttr *A) {
     const auto *SA = cast<ReturnTypestateAttr>(A); (void)SA;
     switch(SA->getState()) {
-    case ReturnTypestateAttr::Unknown:
+    case ReturnTypestateAttr::ConsumedState::Unknown:
       OS << " Unknown";
       break;
-    case ReturnTypestateAttr::Consumed:
+    case ReturnTypestateAttr::ConsumedState::Consumed:
       OS << " Consumed";
       break;
-    case ReturnTypestateAttr::Unconsumed:
+    case ReturnTypestateAttr::ConsumedState::Unconsumed:
       OS << " Unconsumed";
       break;
     }
@@ -939,13 +997,13 @@
   void VisitSetTypestateAttr(const SetTypestateAttr *A) {
     const auto *SA = cast<SetTypestateAttr>(A); (void)SA;
     switch(SA->getNewState()) {
-    case SetTypestateAttr::Unknown:
+    case SetTypestateAttr::ConsumedState::Unknown:
       OS << " Unknown";
       break;
-    case SetTypestateAttr::Consumed:
+    case SetTypestateAttr::ConsumedState::Consumed:
       OS << " Consumed";
       break;
-    case SetTypestateAttr::Unconsumed:
+    case SetTypestateAttr::ConsumedState::Unconsumed:
       OS << " Unconsumed";
       break;
     }
@@ -958,13 +1016,13 @@
   void VisitSwiftAsyncAttr(const SwiftAsyncAttr *A) {
     const auto *SA = cast<SwiftAsyncAttr>(A); (void)SA;
     switch(SA->getKind()) {
-    case SwiftAsyncAttr::None:
+    case SwiftAsyncAttr::Kind::None:
       OS << " None";
       break;
-    case SwiftAsyncAttr::SwiftPrivate:
+    case SwiftAsyncAttr::Kind::SwiftPrivate:
       OS << " SwiftPrivate";
       break;
-    case SwiftAsyncAttr::NotSwiftPrivate:
+    case SwiftAsyncAttr::Kind::NotSwiftPrivate:
       OS << " NotSwiftPrivate";
       break;
     }
@@ -974,16 +1032,16 @@
   void VisitSwiftAsyncErrorAttr(const SwiftAsyncErrorAttr *A) {
     const auto *SA = cast<SwiftAsyncErrorAttr>(A); (void)SA;
     switch(SA->getConvention()) {
-    case SwiftAsyncErrorAttr::None:
+    case SwiftAsyncErrorAttr::ConventionKind::None:
       OS << " None";
       break;
-    case SwiftAsyncErrorAttr::NonNullError:
+    case SwiftAsyncErrorAttr::ConventionKind::NonNullError:
       OS << " NonNullError";
       break;
-    case SwiftAsyncErrorAttr::ZeroArgument:
+    case SwiftAsyncErrorAttr::ConventionKind::ZeroArgument:
       OS << " ZeroArgument";
       break;
-    case SwiftAsyncErrorAttr::NonZeroArgument:
+    case SwiftAsyncErrorAttr::ConventionKind::NonZeroArgument:
       OS << " NonZeroArgument";
       break;
     }
@@ -1004,19 +1062,19 @@
   void VisitSwiftErrorAttr(const SwiftErrorAttr *A) {
     const auto *SA = cast<SwiftErrorAttr>(A); (void)SA;
     switch(SA->getConvention()) {
-    case SwiftErrorAttr::None:
+    case SwiftErrorAttr::ConventionKind::None:
       OS << " None";
       break;
-    case SwiftErrorAttr::NonNullError:
+    case SwiftErrorAttr::ConventionKind::NonNullError:
       OS << " NonNullError";
       break;
-    case SwiftErrorAttr::NullResult:
+    case SwiftErrorAttr::ConventionKind::NullResult:
       OS << " NullResult";
       break;
-    case SwiftErrorAttr::ZeroResult:
+    case SwiftErrorAttr::ConventionKind::ZeroResult:
       OS << " ZeroResult";
       break;
-    case SwiftErrorAttr::NonZeroResult:
+    case SwiftErrorAttr::ConventionKind::NonZeroResult:
       OS << " NonZeroResult";
       break;
     }
@@ -1029,13 +1087,24 @@
     const auto *SA = cast<SwiftNewTypeAttr>(A); (void)SA;
     OS << " " << A->getSpelling();
     switch(SA->getNewtypeKind()) {
-    case SwiftNewTypeAttr::NK_Struct:
+    case SwiftNewTypeAttr::NewtypeKind::NK_Struct:
       OS << " NK_Struct";
       break;
-    case SwiftNewTypeAttr::NK_Enum:
+    case SwiftNewTypeAttr::NewtypeKind::NK_Enum:
       OS << " NK_Enum";
       break;
     }
+  }
+  void VisitSwiftVersionedAdditionAttr(const SwiftVersionedAdditionAttr *A) {
+    const auto *SA = cast<SwiftVersionedAdditionAttr>(A); (void)SA;
+    OS << " " << SA->getVersion();
+    if (SA->getIsReplacedByActive()) OS << " IsReplacedByActive";
+  }
+  void VisitSwiftVersionedRemovalAttr(const SwiftVersionedRemovalAttr *A) {
+    const auto *SA = cast<SwiftVersionedRemovalAttr>(A); (void)SA;
+    OS << " " << SA->getVersion();
+    OS << " " << SA->getRawKind();
+    if (SA->getIsReplacedByActive()) OS << " IsReplacedByActive";
   }
   void VisitTLSModelAttr(const TLSModelAttr *A) {
     const auto *SA = cast<TLSModelAttr>(A); (void)SA;
@@ -1057,10 +1126,10 @@
   void VisitTestTypestateAttr(const TestTypestateAttr *A) {
     const auto *SA = cast<TestTypestateAttr>(A); (void)SA;
     switch(SA->getTestState()) {
-    case TestTypestateAttr::Consumed:
+    case TestTypestateAttr::ConsumedState::Consumed:
       OS << " Consumed";
       break;
-    case TestTypestateAttr::Unconsumed:
+    case TestTypestateAttr::ConsumedState::Unconsumed:
       OS << " Unconsumed";
       break;
     }
@@ -1080,13 +1149,13 @@
   void VisitTypeVisibilityAttr(const TypeVisibilityAttr *A) {
     const auto *SA = cast<TypeVisibilityAttr>(A); (void)SA;
     switch(SA->getVisibility()) {
-    case TypeVisibilityAttr::Default:
+    case TypeVisibilityAttr::VisibilityType::Default:
       OS << " Default";
       break;
-    case TypeVisibilityAttr::Hidden:
+    case TypeVisibilityAttr::VisibilityType::Hidden:
       OS << " Hidden";
       break;
-    case TypeVisibilityAttr::Protected:
+    case TypeVisibilityAttr::VisibilityType::Protected:
       OS << " Protected";
       break;
     }
@@ -1095,22 +1164,22 @@
     const auto *SA = cast<UnavailableAttr>(A); (void)SA;
     OS << " \"" << SA->getMessage() << "\"";
     switch(SA->getImplicitReason()) {
-    case UnavailableAttr::IR_None:
+    case UnavailableAttr::ImplicitReason::IR_None:
       OS << " IR_None";
       break;
-    case UnavailableAttr::IR_ARCForbiddenType:
+    case UnavailableAttr::ImplicitReason::IR_ARCForbiddenType:
       OS << " IR_ARCForbiddenType";
       break;
-    case UnavailableAttr::IR_ForbiddenWeak:
+    case UnavailableAttr::ImplicitReason::IR_ForbiddenWeak:
       OS << " IR_ForbiddenWeak";
       break;
-    case UnavailableAttr::IR_ARCForbiddenConversion:
+    case UnavailableAttr::ImplicitReason::IR_ARCForbiddenConversion:
       OS << " IR_ARCForbiddenConversion";
       break;
-    case UnavailableAttr::IR_ARCInitReturnsUnrelated:
+    case UnavailableAttr::ImplicitReason::IR_ARCInitReturnsUnrelated:
       OS << " IR_ARCInitReturnsUnrelated";
       break;
-    case UnavailableAttr::IR_ARCFieldWithOwnership:
+    case UnavailableAttr::ImplicitReason::IR_ARCFieldWithOwnership:
       OS << " IR_ARCFieldWithOwnership";
       break;
     }
@@ -1135,13 +1204,13 @@
   void VisitVisibilityAttr(const VisibilityAttr *A) {
     const auto *SA = cast<VisibilityAttr>(A); (void)SA;
     switch(SA->getVisibility()) {
-    case VisibilityAttr::Default:
+    case VisibilityAttr::VisibilityType::Default:
       OS << " Default";
       break;
-    case VisibilityAttr::Hidden:
+    case VisibilityAttr::VisibilityType::Hidden:
       OS << " Hidden";
       break;
-    case VisibilityAttr::Protected:
+    case VisibilityAttr::VisibilityType::Protected:
       OS << " Protected";
       break;
     }
@@ -1183,31 +1252,31 @@
   void VisitZeroCallUsedRegsAttr(const ZeroCallUsedRegsAttr *A) {
     const auto *SA = cast<ZeroCallUsedRegsAttr>(A); (void)SA;
     switch(SA->getZeroCallUsedRegs()) {
-    case ZeroCallUsedRegsAttr::Skip:
+    case ZeroCallUsedRegsAttr::ZeroCallUsedRegsKind::Skip:
       OS << " Skip";
       break;
-    case ZeroCallUsedRegsAttr::UsedGPRArg:
+    case ZeroCallUsedRegsAttr::ZeroCallUsedRegsKind::UsedGPRArg:
       OS << " UsedGPRArg";
       break;
-    case ZeroCallUsedRegsAttr::UsedGPR:
+    case ZeroCallUsedRegsAttr::ZeroCallUsedRegsKind::UsedGPR:
       OS << " UsedGPR";
       break;
-    case ZeroCallUsedRegsAttr::UsedArg:
+    case ZeroCallUsedRegsAttr::ZeroCallUsedRegsKind::UsedArg:
       OS << " UsedArg";
       break;
-    case ZeroCallUsedRegsAttr::Used:
+    case ZeroCallUsedRegsAttr::ZeroCallUsedRegsKind::Used:
       OS << " Used";
       break;
-    case ZeroCallUsedRegsAttr::AllGPRArg:
+    case ZeroCallUsedRegsAttr::ZeroCallUsedRegsKind::AllGPRArg:
       OS << " AllGPRArg";
       break;
-    case ZeroCallUsedRegsAttr::AllGPR:
+    case ZeroCallUsedRegsAttr::ZeroCallUsedRegsKind::AllGPR:
       OS << " AllGPR";
       break;
-    case ZeroCallUsedRegsAttr::AllArg:
+    case ZeroCallUsedRegsAttr::ZeroCallUsedRegsKind::AllArg:
       OS << " AllArg";
       break;
-    case ZeroCallUsedRegsAttr::All:
+    case ZeroCallUsedRegsAttr::ZeroCallUsedRegsKind::All:
       OS << " All";
       break;
     }

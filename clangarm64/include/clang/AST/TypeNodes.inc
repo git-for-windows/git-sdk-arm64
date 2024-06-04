@@ -3,6 +3,7 @@
 |* An x-macro database of Clang type nodes                                    *|
 |*                                                                            *|
 |* Automatically generated file, do not edit!                                 *|
+|* From: TypeNodes.td                                                         *|
 |*                                                                            *|
 \*===----------------------------------------------------------------------===*/
 

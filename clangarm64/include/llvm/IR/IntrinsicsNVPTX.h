@@ -13,7 +13,7 @@ namespace llvm {
 namespace Intrinsic {
 enum NVVMIntrinsics : unsigned {
 // Enum values for intrinsics
-    nvvm_abs_bf16 = 5899,                             // llvm.nvvm.abs.bf16
+    nvvm_abs_bf16 = 7535,                             // llvm.nvvm.abs.bf16
     nvvm_abs_bf16x2,                           // llvm.nvvm.abs.bf16x2
     nvvm_add_rm_d,                             // llvm.nvvm.add.rm.d
     nvvm_add_rm_f,                             // llvm.nvvm.add.rm.f
@@ -55,8 +55,11 @@ enum NVVMIntrinsics : unsigned {
     nvvm_bar_warp_sync,                        // llvm.nvvm.bar.warp.sync
     nvvm_barrier,                              // llvm.nvvm.barrier
     nvvm_barrier_cluster_arrive,               // llvm.nvvm.barrier.cluster.arrive
+    nvvm_barrier_cluster_arrive_aligned,       // llvm.nvvm.barrier.cluster.arrive.aligned
     nvvm_barrier_cluster_arrive_relaxed,       // llvm.nvvm.barrier.cluster.arrive.relaxed
+    nvvm_barrier_cluster_arrive_relaxed_aligned,  // llvm.nvvm.barrier.cluster.arrive.relaxed.aligned
     nvvm_barrier_cluster_wait,                 // llvm.nvvm.barrier.cluster.wait
+    nvvm_barrier_cluster_wait_aligned,         // llvm.nvvm.barrier.cluster.wait.aligned
     nvvm_barrier_n,                            // llvm.nvvm.barrier.n
     nvvm_barrier_sync,                         // llvm.nvvm.barrier.sync
     nvvm_barrier_sync_cnt,                     // llvm.nvvm.barrier.sync.cnt
@@ -77,6 +80,9 @@ enum NVVMIntrinsics : unsigned {
     nvvm_compiler_warn,                        // llvm.nvvm.compiler.warn
     nvvm_cos_approx_f,                         // llvm.nvvm.cos.approx.f
     nvvm_cos_approx_ftz_f,                     // llvm.nvvm.cos.approx.ftz.f
+    nvvm_cp_async_bulk_commit_group,           // llvm.nvvm.cp.async.bulk.commit.group
+    nvvm_cp_async_bulk_wait_group,             // llvm.nvvm.cp.async.bulk.wait.group
+    nvvm_cp_async_bulk_wait_group_read,        // llvm.nvvm.cp.async.bulk.wait.group.read
     nvvm_cp_async_ca_shared_global_16,         // llvm.nvvm.cp.async.ca.shared.global.16
     nvvm_cp_async_ca_shared_global_16_s,       // llvm.nvvm.cp.async.ca.shared.global.16.s
     nvvm_cp_async_ca_shared_global_4,          // llvm.nvvm.cp.async.ca.shared.global.4
@@ -476,8 +482,10 @@ enum NVVMIntrinsics : unsigned {
     nvvm_mul24_ui,                             // llvm.nvvm.mul24.ui
     nvvm_mulhi_i,                              // llvm.nvvm.mulhi.i
     nvvm_mulhi_ll,                             // llvm.nvvm.mulhi.ll
+    nvvm_mulhi_s,                              // llvm.nvvm.mulhi.s
     nvvm_mulhi_ui,                             // llvm.nvvm.mulhi.ui
     nvvm_mulhi_ull,                            // llvm.nvvm.mulhi.ull
+    nvvm_mulhi_us,                             // llvm.nvvm.mulhi.us
     nvvm_neg_bf16,                             // llvm.nvvm.neg.bf16
     nvvm_neg_bf16x2,                           // llvm.nvvm.neg.bf16x2
     nvvm_prmt,                                 // llvm.nvvm.prmt
@@ -607,10 +615,16 @@ enum NVVMIntrinsics : unsigned {
     nvvm_rsqrt_approx_f,                       // llvm.nvvm.rsqrt.approx.f
     nvvm_rsqrt_approx_ftz_f,                   // llvm.nvvm.rsqrt.approx.ftz.f
     nvvm_sad_i,                                // llvm.nvvm.sad.i
+    nvvm_sad_ll,                               // llvm.nvvm.sad.ll
+    nvvm_sad_s,                                // llvm.nvvm.sad.s
     nvvm_sad_ui,                               // llvm.nvvm.sad.ui
+    nvvm_sad_ull,                              // llvm.nvvm.sad.ull
+    nvvm_sad_us,                               // llvm.nvvm.sad.us
     nvvm_saturate_d,                           // llvm.nvvm.saturate.d
     nvvm_saturate_f,                           // llvm.nvvm.saturate.f
     nvvm_saturate_ftz_f,                       // llvm.nvvm.saturate.ftz.f
+    nvvm_setmaxnreg_dec_sync_aligned_u32,      // llvm.nvvm.setmaxnreg.dec.sync.aligned.u32
+    nvvm_setmaxnreg_inc_sync_aligned_u32,      // llvm.nvvm.setmaxnreg.inc.sync.aligned.u32
     nvvm_shfl_bfly_f32,                        // llvm.nvvm.shfl.bfly.f32
     nvvm_shfl_bfly_f32p,                       // llvm.nvvm.shfl.bfly.f32p
     nvvm_shfl_bfly_i32,                        // llvm.nvvm.shfl.bfly.i32
@@ -1174,12 +1188,18 @@ enum NVVMIntrinsics : unsigned {
     nvvm_tex_unified_3d_v4s32_s32,             // llvm.nvvm.tex.unified.3d.v4s32.s32
     nvvm_tex_unified_3d_v4u32_f32,             // llvm.nvvm.tex.unified.3d.v4u32.f32
     nvvm_tex_unified_3d_v4u32_s32,             // llvm.nvvm.tex.unified.3d.v4u32.s32
+    nvvm_tex_unified_cube_array_grad_v4f32_f32,  // llvm.nvvm.tex.unified.cube.array.grad.v4f32.f32
+    nvvm_tex_unified_cube_array_grad_v4s32_f32,  // llvm.nvvm.tex.unified.cube.array.grad.v4s32.f32
+    nvvm_tex_unified_cube_array_grad_v4u32_f32,  // llvm.nvvm.tex.unified.cube.array.grad.v4u32.f32
     nvvm_tex_unified_cube_array_level_v4f32_f32,  // llvm.nvvm.tex.unified.cube.array.level.v4f32.f32
     nvvm_tex_unified_cube_array_level_v4s32_f32,  // llvm.nvvm.tex.unified.cube.array.level.v4s32.f32
     nvvm_tex_unified_cube_array_level_v4u32_f32,  // llvm.nvvm.tex.unified.cube.array.level.v4u32.f32
     nvvm_tex_unified_cube_array_v4f32_f32,     // llvm.nvvm.tex.unified.cube.array.v4f32.f32
     nvvm_tex_unified_cube_array_v4s32_f32,     // llvm.nvvm.tex.unified.cube.array.v4s32.f32
     nvvm_tex_unified_cube_array_v4u32_f32,     // llvm.nvvm.tex.unified.cube.array.v4u32.f32
+    nvvm_tex_unified_cube_grad_v4f32_f32,      // llvm.nvvm.tex.unified.cube.grad.v4f32.f32
+    nvvm_tex_unified_cube_grad_v4s32_f32,      // llvm.nvvm.tex.unified.cube.grad.v4s32.f32
+    nvvm_tex_unified_cube_grad_v4u32_f32,      // llvm.nvvm.tex.unified.cube.grad.v4u32.f32
     nvvm_tex_unified_cube_level_v4f32_f32,     // llvm.nvvm.tex.unified.cube.level.v4f32.f32
     nvvm_tex_unified_cube_level_v4s32_f32,     // llvm.nvvm.tex.unified.cube.level.v4s32.f32
     nvvm_tex_unified_cube_level_v4u32_f32,     // llvm.nvvm.tex.unified.cube.level.v4u32.f32

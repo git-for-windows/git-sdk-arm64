@@ -57,6 +57,12 @@
 /* Define if we have sys/resource.h (rlimits) */
 /* #undef CLANG_HAVE_RLIMITS */
 
+/* Define if we have dlfcn.h */
+/* #undef CLANG_HAVE_DLFCN_H */
+
+/* Define if dladdr() is available on this platform. */
+/* #undef CLANG_HAVE_DLADDR */
+
 /* Linker version detected at compile time. */
 /* #undef HOST_LINK_VERSION */
 

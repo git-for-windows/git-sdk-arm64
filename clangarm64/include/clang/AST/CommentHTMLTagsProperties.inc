@@ -3,6 +3,7 @@
 |* HTML tag properties                                                        *|
 |*                                                                            *|
 |* Automatically generated file, do not edit!                                 *|
+|* From: CommentHTMLTags.td                                                   *|
 |*                                                                            *|
 \*===----------------------------------------------------------------------===*/
 

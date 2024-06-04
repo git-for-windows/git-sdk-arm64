@@ -3,6 +3,7 @@
 |* Attribute classes' member function definitions                             *|
 |*                                                                            *|
 |* Automatically generated file, do not edit!                                 *|
+|* From: Attr.td                                                              *|
 |*                                                                            *|
 \*===----------------------------------------------------------------------===*/
 
@@ -38,8 +39,8 @@ AArch64SVEPcsAttr *AArch64SVEPcsAttr::CreateImplicit(ASTContext &Ctx, SourceRang
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_aarch64_sve_pcs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_aarch64_sve_pcs:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_aarch64_sve_pcs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_aarch64_sve_pcs:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_aarch64_sve_pcs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_aarch64_sve_pcs:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_aarch64_sve_pcs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -55,8 +56,8 @@ AArch64SVEPcsAttr *AArch64SVEPcsAttr::Create(ASTContext &Ctx, SourceRange Range,
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_aarch64_sve_pcs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_aarch64_sve_pcs:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_aarch64_sve_pcs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_aarch64_sve_pcs:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_aarch64_sve_pcs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_aarch64_sve_pcs:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_aarch64_sve_pcs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -143,8 +144,8 @@ AArch64VectorPcsAttr *AArch64VectorPcsAttr::CreateImplicit(ASTContext &Ctx, Sour
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_aarch64_vector_pcs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_aarch64_vector_pcs:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_aarch64_vector_pcs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_aarch64_vector_pcs:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_aarch64_vector_pcs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_aarch64_vector_pcs:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_aarch64_vector_pcs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -160,8 +161,8 @@ AArch64VectorPcsAttr *AArch64VectorPcsAttr::Create(ASTContext &Ctx, SourceRange 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_aarch64_vector_pcs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_aarch64_vector_pcs:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_aarch64_vector_pcs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_aarch64_vector_pcs:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_aarch64_vector_pcs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_aarch64_vector_pcs:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_aarch64_vector_pcs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -370,8 +371,8 @@ AMDGPUKernelCallAttr *AMDGPUKernelCallAttr::CreateImplicit(ASTContext &Ctx, Sour
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_amdgpu_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_amdgpu_kernel:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_amdgpu_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_amdgpu_kernel:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_amdgpu_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_amdgpu_kernel:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_amdgpu_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -387,8 +388,8 @@ AMDGPUKernelCallAttr *AMDGPUKernelCallAttr::Create(ASTContext &Ctx, SourceRange 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_amdgpu_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_amdgpu_kernel:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_amdgpu_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_amdgpu_kernel:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_amdgpu_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_amdgpu_kernel:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_amdgpu_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -750,14 +751,18 @@ void AMDGPUWavesPerEUAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Po
     break;
   case 0 : {
     OS << " __attribute__((amdgpu_waves_per_eu";
+    if (!getMax())
+      ++TrailingOmittedArgs;
     DelimitAttributeArgument(OS, IsFirstArgument);
     OS << "";
     getMin()->printPretty(OS, nullptr, Policy);
     OS << "";
+    if (!(!getMax())) {
     DelimitAttributeArgument(OS, IsFirstArgument);
     OS << "";
     getMax()->printPretty(OS, nullptr, Policy);
     OS << "";
+    }
     if (!IsFirstArgument)
       OS << ")";
     OS << "))";
@@ -765,14 +770,18 @@ void AMDGPUWavesPerEUAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Po
   }
   case 1 : {
     OS << " [[clang::amdgpu_waves_per_eu";
+    if (!getMax())
+      ++TrailingOmittedArgs;
     DelimitAttributeArgument(OS, IsFirstArgument);
     OS << "";
     getMin()->printPretty(OS, nullptr, Policy);
     OS << "";
+    if (!(!getMax())) {
     DelimitAttributeArgument(OS, IsFirstArgument);
     OS << "";
     getMax()->printPretty(OS, nullptr, Policy);
     OS << "";
+    }
     if (!IsFirstArgument)
       OS << ")";
     OS << "]]";
@@ -796,7 +805,7 @@ const char *AMDGPUWavesPerEUAttr::getSpelling() const {
 
 // ARMInterruptAttr implementation
 
-ARMInterruptAttr *ARMInterruptAttr::CreateImplicit(ASTContext &Ctx, InterruptType Interrupt, const AttributeCommonInfo &CommonInfo) {
+ARMInterruptAttr *ARMInterruptAttr::CreateImplicit(ASTContext &Ctx, ARMInterruptAttr::InterruptType Interrupt, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) ARMInterruptAttr(Ctx, CommonInfo, Interrupt);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -804,22 +813,22 @@ ARMInterruptAttr *ARMInterruptAttr::CreateImplicit(ASTContext &Ctx, InterruptTyp
   return A;
 }
 
-ARMInterruptAttr *ARMInterruptAttr::Create(ASTContext &Ctx, InterruptType Interrupt, const AttributeCommonInfo &CommonInfo) {
+ARMInterruptAttr *ARMInterruptAttr::Create(ASTContext &Ctx, ARMInterruptAttr::InterruptType Interrupt, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) ARMInterruptAttr(Ctx, CommonInfo, Interrupt);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-ARMInterruptAttr *ARMInterruptAttr::CreateImplicit(ASTContext &Ctx, InterruptType Interrupt, SourceRange Range, Spelling S) {
+ARMInterruptAttr *ARMInterruptAttr::CreateImplicit(ASTContext &Ctx, ARMInterruptAttr::InterruptType Interrupt, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_interrupt:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_interrupt:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_interrupt:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_interrupt:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -828,15 +837,15 @@ ARMInterruptAttr *ARMInterruptAttr::CreateImplicit(ASTContext &Ctx, InterruptTyp
   return CreateImplicit(Ctx, Interrupt, I);
 }
 
-ARMInterruptAttr *ARMInterruptAttr::Create(ASTContext &Ctx, InterruptType Interrupt, SourceRange Range, Spelling S) {
+ARMInterruptAttr *ARMInterruptAttr::Create(ASTContext &Ctx, ARMInterruptAttr::InterruptType Interrupt, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_interrupt:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_interrupt:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_interrupt:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_interrupt:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -846,7 +855,7 @@ ARMInterruptAttr *ARMInterruptAttr::Create(ASTContext &Ctx, InterruptType Interr
 }
 
 ARMInterruptAttr::ARMInterruptAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , InterruptType Interrupt
+              , ARMInterruptAttr::InterruptType Interrupt
              )
   : InheritableAttr(Ctx, CommonInfo, attr::ARMInterrupt, false, false)
               , interrupt(Interrupt)
@@ -856,21 +865,21 @@ ARMInterruptAttr::ARMInterruptAttr(ASTContext &Ctx, const AttributeCommonInfo &C
 ARMInterruptAttr::ARMInterruptAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
              )
   : InheritableAttr(Ctx, CommonInfo, attr::ARMInterrupt, false, false)
-              , interrupt(InterruptType(0))
+              , interrupt(ARMInterruptAttr::InterruptType(0))
   {
 }
 
 
 
-bool ARMInterruptAttr::ConvertStrToInterruptType(StringRef Val, InterruptType &Out) {
-  std::optional<InterruptType> R = llvm::StringSwitch<std::optional<InterruptType>>(Val)
-    .Case("IRQ", ARMInterruptAttr::IRQ)
-    .Case("FIQ", ARMInterruptAttr::FIQ)
-    .Case("SWI", ARMInterruptAttr::SWI)
-    .Case("ABORT", ARMInterruptAttr::ABORT)
-    .Case("UNDEF", ARMInterruptAttr::UNDEF)
-    .Case("", ARMInterruptAttr::Generic)
-    .Default(std::optional<InterruptType>());
+bool ARMInterruptAttr::ConvertStrToInterruptType(StringRef Val, ARMInterruptAttr::InterruptType &Out) {
+  std::optional<ARMInterruptAttr::InterruptType> R = llvm::StringSwitch<std::optional<ARMInterruptAttr::InterruptType>>(Val)
+    .Case("IRQ", ARMInterruptAttr::InterruptType::IRQ)
+    .Case("FIQ", ARMInterruptAttr::InterruptType::FIQ)
+    .Case("SWI", ARMInterruptAttr::InterruptType::SWI)
+    .Case("ABORT", ARMInterruptAttr::InterruptType::ABORT)
+    .Case("UNDEF", ARMInterruptAttr::InterruptType::UNDEF)
+    .Case("", ARMInterruptAttr::InterruptType::Generic)
+    .Default(std::optional<ARMInterruptAttr::InterruptType>());
   if (R) {
     Out = *R;
       return true;
@@ -878,14 +887,14 @@ bool ARMInterruptAttr::ConvertStrToInterruptType(StringRef Val, InterruptType &O
   return false;
 }
 
-const char *ARMInterruptAttr::ConvertInterruptTypeToStr(InterruptType Val) {
+const char *ARMInterruptAttr::ConvertInterruptTypeToStr(ARMInterruptAttr::InterruptType Val) {
   switch(Val) {
-  case ARMInterruptAttr::IRQ: return "IRQ";
-  case ARMInterruptAttr::FIQ: return "FIQ";
-  case ARMInterruptAttr::SWI: return "SWI";
-  case ARMInterruptAttr::ABORT: return "ABORT";
-  case ARMInterruptAttr::UNDEF: return "UNDEF";
-  case ARMInterruptAttr::Generic: return "";
+  case ARMInterruptAttr::InterruptType::IRQ: return "IRQ";
+  case ARMInterruptAttr::InterruptType::FIQ: return "FIQ";
+  case ARMInterruptAttr::InterruptType::SWI: return "SWI";
+  case ARMInterruptAttr::InterruptType::ABORT: return "ABORT";
+  case ARMInterruptAttr::InterruptType::UNDEF: return "UNDEF";
+  case ARMInterruptAttr::InterruptType::Generic: return "";
   }
   llvm_unreachable("No enumerator with that value");
 }
@@ -973,8 +982,8 @@ AVRInterruptAttr *AVRInterruptAttr::CreateImplicit(ASTContext &Ctx, SourceRange 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_interrupt:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_interrupt:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_interrupt:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -990,8 +999,8 @@ AVRInterruptAttr *AVRInterruptAttr::Create(ASTContext &Ctx, SourceRange Range, S
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_interrupt:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_interrupt:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_interrupt:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -1078,8 +1087,8 @@ AVRSignalAttr *AVRSignalAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range,
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_signal, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_signal:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_signal, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_signal:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_signal, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_signal:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_signal, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -1095,8 +1104,8 @@ AVRSignalAttr *AVRSignalAttr::Create(ASTContext &Ctx, SourceRange Range, Spellin
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_signal, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_signal:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_signal, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_signal:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_signal, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_signal:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_signal, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -1520,8 +1529,8 @@ AcquireHandleAttr *AcquireHandleAttr::CreateImplicit(ASTContext &Ctx, llvm::Stri
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_acquire_handle, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_acquire_handle:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_acquire_handle, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_acquire_handle:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_acquire_handle, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_acquire_handle:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_acquire_handle, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -1537,8 +1546,8 @@ AcquireHandleAttr *AcquireHandleAttr::Create(ASTContext &Ctx, llvm::StringRef Ha
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_acquire_handle, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_acquire_handle:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_acquire_handle, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_acquire_handle:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_acquire_handle, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_acquire_handle:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_acquire_handle, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -1817,8 +1826,8 @@ AddressSpaceAttr *AddressSpaceAttr::CreateImplicit(ASTContext &Ctx, int AddressS
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_address_space, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_address_space:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_address_space, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_address_space:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_address_space, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_address_space:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_address_space, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -1834,8 +1843,8 @@ AddressSpaceAttr *AddressSpaceAttr::Create(ASTContext &Ctx, int AddressSpace, So
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_address_space, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_address_space:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_address_space, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_address_space:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_address_space, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_address_space:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_address_space, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -1938,8 +1947,8 @@ AliasAttr *AliasAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Aliasee, S
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_alias:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_alias:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_alias:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -1955,8 +1964,8 @@ AliasAttr *AliasAttr::Create(ASTContext &Ctx, llvm::StringRef Aliasee, SourceRan
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_alias:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_alias:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_alias:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -2234,8 +2243,8 @@ AlignedAttr *AlignedAttr::CreateImplicit(ASTContext &Ctx, bool IsAlignmentExpr, 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_aligned, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_aligned:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_aligned, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_aligned:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_aligned, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_aligned:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_aligned, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case Declspec_align:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_align, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case Keyword_alignas:
@@ -2257,8 +2266,8 @@ AlignedAttr *AlignedAttr::Create(ASTContext &Ctx, bool IsAlignmentExpr, void *Al
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_aligned, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_aligned:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_aligned, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_aligned:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_aligned, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_aligned:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_aligned, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case Declspec_align:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_align, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case Keyword_alignas:
@@ -2297,7 +2306,7 @@ AlignedAttr::Spelling AlignedAttr::getSemanticSpelling() const {
     default: llvm_unreachable("Unknown spelling list index");
     case 0: return GNU_aligned;
     case 1: return CXX11_gnu_aligned;
-    case 2: return C2x_gnu_aligned;
+    case 2: return C23_gnu_aligned;
     case 3: return Declspec_align;
     case 4: return Keyword_alignas;
     case 5: return Keyword_Alignas;
@@ -2475,8 +2484,8 @@ AllocAlignAttr *AllocAlignAttr::CreateImplicit(ASTContext &Ctx, ParamIdx ParamIn
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_alloc_align, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_alloc_align:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_alloc_align, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_alloc_align:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_alloc_align, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_alloc_align:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_alloc_align, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -2492,8 +2501,8 @@ AllocAlignAttr *AllocAlignAttr::Create(ASTContext &Ctx, ParamIdx ParamIndex, Sou
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_alloc_align, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_alloc_align:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_alloc_align, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_alloc_align:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_alloc_align, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_alloc_align:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_alloc_align, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -2596,8 +2605,8 @@ AllocSizeAttr *AllocSizeAttr::CreateImplicit(ASTContext &Ctx, ParamIdx ElemSizeP
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_alloc_size, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_alloc_size:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_alloc_size, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_alloc_size:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_alloc_size, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_alloc_size:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_alloc_size, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -2613,8 +2622,8 @@ AllocSizeAttr *AllocSizeAttr::Create(ASTContext &Ctx, ParamIdx ElemSizeParam, Pa
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_alloc_size, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_alloc_size:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_alloc_size, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_alloc_size:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_alloc_size, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_alloc_size:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_alloc_size, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -2840,12 +2849,12 @@ AlwaysInlineAttr *AlwaysInlineAttr::CreateImplicit(ASTContext &Ctx, SourceRange 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_always_inline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_always_inline:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_always_inline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_always_inline:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_always_inline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_always_inline:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_always_inline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_always_inline:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_always_inline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_always_inline:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_always_inline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_always_inline:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_always_inline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case Keyword_forceinline:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_forceinline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
@@ -2863,12 +2872,12 @@ AlwaysInlineAttr *AlwaysInlineAttr::Create(ASTContext &Ctx, SourceRange Range, S
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_always_inline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_always_inline:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_always_inline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_always_inline:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_always_inline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_always_inline:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_always_inline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_always_inline:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_always_inline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_always_inline:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_always_inline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_always_inline:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_always_inline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case Keyword_forceinline:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_forceinline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
@@ -2890,9 +2899,9 @@ AlwaysInlineAttr::Spelling AlwaysInlineAttr::getSemanticSpelling() const {
     default: llvm_unreachable("Unknown spelling list index");
     case 0: return GNU_always_inline;
     case 1: return CXX11_gnu_always_inline;
-    case 2: return C2x_gnu_always_inline;
+    case 2: return C23_gnu_always_inline;
     case 3: return CXX11_clang_always_inline;
-    case 4: return C2x_clang_always_inline;
+    case 4: return C23_clang_always_inline;
     case 5: return Keyword_forceinline;
   }
 }
@@ -3056,8 +3065,8 @@ AnnotateAttr *AnnotateAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Anno
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_annotate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_annotate:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_annotate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_annotate:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_annotate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_annotate:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_annotate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -3073,8 +3082,8 @@ AnnotateAttr *AnnotateAttr::Create(ASTContext &Ctx, llvm::StringRef Annotation, 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_annotate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_annotate:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_annotate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_annotate:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_annotate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_annotate:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_annotate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -3107,8 +3116,8 @@ AnnotateAttr *AnnotateAttr::CreateImplicitWithDelayedArgs(ASTContext &Ctx, Expr 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_annotate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_annotate:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_annotate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_annotate:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_annotate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_annotate:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_annotate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -3124,8 +3133,8 @@ AnnotateAttr *AnnotateAttr::CreateWithDelayedArgs(ASTContext &Ctx, Expr * *Delay
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_annotate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_annotate:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_annotate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_annotate:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_annotate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_annotate:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_annotate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -3274,8 +3283,8 @@ AnnotateTypeAttr *AnnotateTypeAttr::CreateImplicit(ASTContext &Ctx, llvm::String
     switch (S) {
     case CXX11_clang_annotate_type:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_annotate_type, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_annotate_type:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_annotate_type, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_annotate_type:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_annotate_type, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -3289,8 +3298,8 @@ AnnotateTypeAttr *AnnotateTypeAttr::Create(ASTContext &Ctx, llvm::StringRef Anno
     switch (S) {
     case CXX11_clang_annotate_type:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_annotate_type, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_annotate_type:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_annotate_type, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_annotate_type:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_annotate_type, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -3321,8 +3330,8 @@ AnnotateTypeAttr *AnnotateTypeAttr::CreateImplicitWithDelayedArgs(ASTContext &Ct
     switch (S) {
     case CXX11_clang_annotate_type:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_annotate_type, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_annotate_type:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_annotate_type, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_annotate_type:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_annotate_type, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -3336,8 +3345,8 @@ AnnotateTypeAttr *AnnotateTypeAttr::CreateWithDelayedArgs(ASTContext &Ctx, Expr 
     switch (S) {
     case CXX11_clang_annotate_type:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_annotate_type, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_annotate_type:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_annotate_type, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_annotate_type:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_annotate_type, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -3471,8 +3480,8 @@ AnyX86InterruptAttr *AnyX86InterruptAttr::CreateImplicit(ASTContext &Ctx, Source
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_interrupt:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_interrupt:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_interrupt:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -3488,8 +3497,8 @@ AnyX86InterruptAttr *AnyX86InterruptAttr::Create(ASTContext &Ctx, SourceRange Ra
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_interrupt:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_interrupt:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_interrupt:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -3576,8 +3585,8 @@ AnyX86NoCallerSavedRegistersAttr *AnyX86NoCallerSavedRegistersAttr::CreateImplic
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_no_caller_saved_registers, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_no_caller_saved_registers:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_no_caller_saved_registers, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_no_caller_saved_registers:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_no_caller_saved_registers, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_no_caller_saved_registers:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_no_caller_saved_registers, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -3593,8 +3602,8 @@ AnyX86NoCallerSavedRegistersAttr *AnyX86NoCallerSavedRegistersAttr::Create(ASTCo
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_no_caller_saved_registers, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_no_caller_saved_registers:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_no_caller_saved_registers, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_no_caller_saved_registers:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_no_caller_saved_registers, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_no_caller_saved_registers:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_no_caller_saved_registers, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -3681,8 +3690,8 @@ AnyX86NoCfCheckAttr *AnyX86NoCfCheckAttr::CreateImplicit(ASTContext &Ctx, Source
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_nocf_check, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_nocf_check:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_nocf_check, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_nocf_check:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_nocf_check, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_nocf_check:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_nocf_check, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -3698,8 +3707,8 @@ AnyX86NoCfCheckAttr *AnyX86NoCfCheckAttr::Create(ASTContext &Ctx, SourceRange Ra
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_nocf_check, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_nocf_check:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_nocf_check, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_nocf_check:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_nocf_check, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_nocf_check:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_nocf_check, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -3786,8 +3795,8 @@ ArcWeakrefUnavailableAttr *ArcWeakrefUnavailableAttr::CreateImplicit(ASTContext 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_arc_weak_reference_unavailable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_arc_weak_reference_unavailable:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_arc_weak_reference_unavailable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_arc_weak_reference_unavailable:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_arc_weak_reference_unavailable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_arc_weak_reference_unavailable:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_arc_weak_reference_unavailable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -3803,8 +3812,8 @@ ArcWeakrefUnavailableAttr *ArcWeakrefUnavailableAttr::Create(ASTContext &Ctx, So
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_arc_weak_reference_unavailable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_arc_weak_reference_unavailable:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_arc_weak_reference_unavailable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_arc_weak_reference_unavailable:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_arc_weak_reference_unavailable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_arc_weak_reference_unavailable:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_arc_weak_reference_unavailable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -3889,14 +3898,14 @@ ArgumentWithTypeTagAttr *ArgumentWithTypeTagAttr::CreateImplicit(ASTContext &Ctx
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_argument_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_argument_with_type_tag:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_argument_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_argument_with_type_tag:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_argument_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_argument_with_type_tag:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_argument_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case GNU_pointer_with_type_tag:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_pointer_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_pointer_with_type_tag:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_pointer_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_pointer_with_type_tag:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_pointer_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_pointer_with_type_tag:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_pointer_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -3912,14 +3921,14 @@ ArgumentWithTypeTagAttr *ArgumentWithTypeTagAttr::Create(ASTContext &Ctx, Identi
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_argument_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_argument_with_type_tag:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_argument_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_argument_with_type_tag:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_argument_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_argument_with_type_tag:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_argument_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case GNU_pointer_with_type_tag:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_pointer_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_pointer_with_type_tag:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_pointer_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_pointer_with_type_tag:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_pointer_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_pointer_with_type_tag:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_pointer_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -3948,14 +3957,14 @@ ArgumentWithTypeTagAttr *ArgumentWithTypeTagAttr::CreateImplicit(ASTContext &Ctx
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_argument_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_argument_with_type_tag:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_argument_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_argument_with_type_tag:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_argument_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_argument_with_type_tag:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_argument_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case GNU_pointer_with_type_tag:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_pointer_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_pointer_with_type_tag:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_pointer_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_pointer_with_type_tag:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_pointer_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_pointer_with_type_tag:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_pointer_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -3971,14 +3980,14 @@ ArgumentWithTypeTagAttr *ArgumentWithTypeTagAttr::Create(ASTContext &Ctx, Identi
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_argument_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_argument_with_type_tag:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_argument_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_argument_with_type_tag:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_argument_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_argument_with_type_tag:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_argument_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case GNU_pointer_with_type_tag:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_pointer_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_pointer_with_type_tag:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_pointer_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_pointer_with_type_tag:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_pointer_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_pointer_with_type_tag:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_pointer_with_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -4019,10 +4028,10 @@ ArgumentWithTypeTagAttr::Spelling ArgumentWithTypeTagAttr::getSemanticSpelling()
     default: llvm_unreachable("Unknown spelling list index");
     case 0: return GNU_argument_with_type_tag;
     case 1: return CXX11_clang_argument_with_type_tag;
-    case 2: return C2x_clang_argument_with_type_tag;
+    case 2: return C23_clang_argument_with_type_tag;
     case 3: return GNU_pointer_with_type_tag;
     case 4: return CXX11_clang_pointer_with_type_tag;
-    case 5: return C2x_clang_pointer_with_type_tag;
+    case 5: return C23_clang_pointer_with_type_tag;
   }
 }
 
@@ -4174,8 +4183,8 @@ ArmBuiltinAliasAttr *ArmBuiltinAliasAttr::CreateImplicit(ASTContext &Ctx, Identi
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_clang_arm_builtin_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_clang_arm_builtin_alias:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_clang_arm_builtin_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_clang_arm_builtin_alias:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_clang_arm_builtin_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_clang_arm_builtin_alias:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_clang_arm_builtin_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -4191,8 +4200,8 @@ ArmBuiltinAliasAttr *ArmBuiltinAliasAttr::Create(ASTContext &Ctx, IdentifierInfo
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_clang_arm_builtin_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_clang_arm_builtin_alias:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_clang_arm_builtin_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_clang_arm_builtin_alias:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_clang_arm_builtin_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_clang_arm_builtin_alias:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_clang_arm_builtin_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -4271,6 +4280,263 @@ const char *ArmBuiltinAliasAttr::getSpelling() const {
 }
 
 
+// ArmInAttr implementation
+
+ArmInAttr *ArmInAttr::CreateImplicit(ASTContext &Ctx, StringRef *InArgs, unsigned InArgsSize, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) ArmInAttr(Ctx, CommonInfo, InArgs, InArgsSize);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+ArmInAttr *ArmInAttr::Create(ASTContext &Ctx, StringRef *InArgs, unsigned InArgsSize, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) ArmInAttr(Ctx, CommonInfo, InArgs, InArgsSize);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+ArmInAttr *ArmInAttr::CreateImplicit(ASTContext &Ctx, StringRef *InArgs, unsigned InArgsSize, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, true /*IsRegularKeywordAttribute*/});
+  return CreateImplicit(Ctx, InArgs, InArgsSize, I);
+}
+
+ArmInAttr *ArmInAttr::Create(ASTContext &Ctx, StringRef *InArgs, unsigned InArgsSize, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, true /*IsRegularKeywordAttribute*/});
+  return Create(Ctx, InArgs, InArgsSize, I);
+}
+
+ArmInAttr::ArmInAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , StringRef *InArgs, unsigned InArgsSize
+             )
+  : TypeAttr(Ctx, CommonInfo, attr::ArmIn, false)
+              , inArgs_Size(InArgsSize), inArgs_(new (Ctx, 16) StringRef[inArgs_Size])
+  {
+  for (size_t I = 0, E = inArgs_Size; I != E;
+       ++I) {
+    StringRef Ref = InArgs[I];
+    if (!Ref.empty()) {
+      char *Mem = new (Ctx, 1) char[Ref.size()];
+      std::memcpy(Mem, Ref.data(), Ref.size());
+      inArgs_[I] = StringRef(Mem, Ref.size());
+    }
+  }
+}
+
+ArmInAttr::ArmInAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             )
+  : TypeAttr(Ctx, CommonInfo, attr::ArmIn, false)
+              , inArgs_Size(0), inArgs_(nullptr)
+  {
+}
+
+
+
+ArmInAttr *ArmInAttr::clone(ASTContext &C) const {
+  auto *A = new (C) ArmInAttr(C, *this, inArgs_, inArgs_Size);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void ArmInAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+  bool IsFirstArgument = true; (void)IsFirstArgument;
+  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    break;
+  case 0 : {
+    OS << " __arm_in";
+    OS << "";
+  for (const auto &Val : inArgs()) {
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "\"" << Val << "\"";
+  }
+  OS << "";
+    if (!IsFirstArgument)
+      OS << ")";
+    OS << "";
+    break;
+  }
+}
+}
+
+const char *ArmInAttr::getSpelling() const {
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    return "(No spelling)";
+  case 0:
+    return "__arm_in";
+  }
+}
+
+
+// ArmInOutAttr implementation
+
+ArmInOutAttr *ArmInOutAttr::CreateImplicit(ASTContext &Ctx, StringRef *InOutArgs, unsigned InOutArgsSize, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) ArmInOutAttr(Ctx, CommonInfo, InOutArgs, InOutArgsSize);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+ArmInOutAttr *ArmInOutAttr::Create(ASTContext &Ctx, StringRef *InOutArgs, unsigned InOutArgsSize, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) ArmInOutAttr(Ctx, CommonInfo, InOutArgs, InOutArgsSize);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+ArmInOutAttr *ArmInOutAttr::CreateImplicit(ASTContext &Ctx, StringRef *InOutArgs, unsigned InOutArgsSize, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, true /*IsRegularKeywordAttribute*/});
+  return CreateImplicit(Ctx, InOutArgs, InOutArgsSize, I);
+}
+
+ArmInOutAttr *ArmInOutAttr::Create(ASTContext &Ctx, StringRef *InOutArgs, unsigned InOutArgsSize, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, true /*IsRegularKeywordAttribute*/});
+  return Create(Ctx, InOutArgs, InOutArgsSize, I);
+}
+
+ArmInOutAttr::ArmInOutAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , StringRef *InOutArgs, unsigned InOutArgsSize
+             )
+  : TypeAttr(Ctx, CommonInfo, attr::ArmInOut, false)
+              , inOutArgs_Size(InOutArgsSize), inOutArgs_(new (Ctx, 16) StringRef[inOutArgs_Size])
+  {
+  for (size_t I = 0, E = inOutArgs_Size; I != E;
+       ++I) {
+    StringRef Ref = InOutArgs[I];
+    if (!Ref.empty()) {
+      char *Mem = new (Ctx, 1) char[Ref.size()];
+      std::memcpy(Mem, Ref.data(), Ref.size());
+      inOutArgs_[I] = StringRef(Mem, Ref.size());
+    }
+  }
+}
+
+ArmInOutAttr::ArmInOutAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             )
+  : TypeAttr(Ctx, CommonInfo, attr::ArmInOut, false)
+              , inOutArgs_Size(0), inOutArgs_(nullptr)
+  {
+}
+
+
+
+ArmInOutAttr *ArmInOutAttr::clone(ASTContext &C) const {
+  auto *A = new (C) ArmInOutAttr(C, *this, inOutArgs_, inOutArgs_Size);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void ArmInOutAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+  bool IsFirstArgument = true; (void)IsFirstArgument;
+  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    break;
+  case 0 : {
+    OS << " __arm_inout";
+    OS << "";
+  for (const auto &Val : inOutArgs()) {
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "\"" << Val << "\"";
+  }
+  OS << "";
+    if (!IsFirstArgument)
+      OS << ")";
+    OS << "";
+    break;
+  }
+}
+}
+
+const char *ArmInOutAttr::getSpelling() const {
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    return "(No spelling)";
+  case 0:
+    return "__arm_inout";
+  }
+}
+
+
+// ArmLocallyStreamingAttr implementation
+
+ArmLocallyStreamingAttr *ArmLocallyStreamingAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) ArmLocallyStreamingAttr(Ctx, CommonInfo);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+ArmLocallyStreamingAttr *ArmLocallyStreamingAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) ArmLocallyStreamingAttr(Ctx, CommonInfo);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+ArmLocallyStreamingAttr *ArmLocallyStreamingAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, true /*IsRegularKeywordAttribute*/});
+  return CreateImplicit(Ctx, I);
+}
+
+ArmLocallyStreamingAttr *ArmLocallyStreamingAttr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, true /*IsRegularKeywordAttribute*/});
+  return Create(Ctx, I);
+}
+
+ArmLocallyStreamingAttr::ArmLocallyStreamingAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             )
+  : InheritableAttr(Ctx, CommonInfo, attr::ArmLocallyStreaming, false, false)
+  {
+}
+
+ArmLocallyStreamingAttr *ArmLocallyStreamingAttr::clone(ASTContext &C) const {
+  auto *A = new (C) ArmLocallyStreamingAttr(C, *this);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void ArmLocallyStreamingAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+  bool IsFirstArgument = true; (void)IsFirstArgument;
+  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    break;
+  case 0 : {
+    OS << " __arm_locally_streaming";
+    OS << "";
+    break;
+  }
+}
+}
+
+const char *ArmLocallyStreamingAttr::getSpelling() const {
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    return "(No spelling)";
+  case 0:
+    return "__arm_locally_streaming";
+  }
+}
+
+
 // ArmMveStrictPolymorphismAttr implementation
 
 ArmMveStrictPolymorphismAttr *ArmMveStrictPolymorphismAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
@@ -4295,8 +4561,8 @@ ArmMveStrictPolymorphismAttr *ArmMveStrictPolymorphismAttr::CreateImplicit(ASTCo
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_clang_arm_mve_strict_polymorphism, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_clang_arm_mve_strict_polymorphism:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_clang_arm_mve_strict_polymorphism, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_clang_arm_mve_strict_polymorphism:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_clang_arm_mve_strict_polymorphism, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_clang_arm_mve_strict_polymorphism:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_clang_arm_mve_strict_polymorphism, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -4312,8 +4578,8 @@ ArmMveStrictPolymorphismAttr *ArmMveStrictPolymorphismAttr::Create(ASTContext &C
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_clang_arm_mve_strict_polymorphism, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_clang_arm_mve_strict_polymorphism:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_clang_arm_mve_strict_polymorphism, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_clang_arm_mve_strict_polymorphism:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_clang_arm_mve_strict_polymorphism, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_clang_arm_mve_strict_polymorphism:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_clang_arm_mve_strict_polymorphism, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -4372,6 +4638,291 @@ const char *ArmMveStrictPolymorphismAttr::getSpelling() const {
     return "__clang_arm_mve_strict_polymorphism";
   case 2:
     return "__clang_arm_mve_strict_polymorphism";
+  }
+}
+
+
+// ArmNewAttr implementation
+
+ArmNewAttr *ArmNewAttr::CreateImplicit(ASTContext &Ctx, StringRef *NewArgs, unsigned NewArgsSize, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) ArmNewAttr(Ctx, CommonInfo, NewArgs, NewArgsSize);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+ArmNewAttr *ArmNewAttr::Create(ASTContext &Ctx, StringRef *NewArgs, unsigned NewArgsSize, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) ArmNewAttr(Ctx, CommonInfo, NewArgs, NewArgsSize);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+ArmNewAttr *ArmNewAttr::CreateImplicit(ASTContext &Ctx, StringRef *NewArgs, unsigned NewArgsSize, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, true /*IsRegularKeywordAttribute*/});
+  return CreateImplicit(Ctx, NewArgs, NewArgsSize, I);
+}
+
+ArmNewAttr *ArmNewAttr::Create(ASTContext &Ctx, StringRef *NewArgs, unsigned NewArgsSize, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, true /*IsRegularKeywordAttribute*/});
+  return Create(Ctx, NewArgs, NewArgsSize, I);
+}
+
+ArmNewAttr::ArmNewAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , StringRef *NewArgs, unsigned NewArgsSize
+             )
+  : InheritableAttr(Ctx, CommonInfo, attr::ArmNew, false, false)
+              , newArgs_Size(NewArgsSize), newArgs_(new (Ctx, 16) StringRef[newArgs_Size])
+  {
+  for (size_t I = 0, E = newArgs_Size; I != E;
+       ++I) {
+    StringRef Ref = NewArgs[I];
+    if (!Ref.empty()) {
+      char *Mem = new (Ctx, 1) char[Ref.size()];
+      std::memcpy(Mem, Ref.data(), Ref.size());
+      newArgs_[I] = StringRef(Mem, Ref.size());
+    }
+  }
+}
+
+ArmNewAttr::ArmNewAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             )
+  : InheritableAttr(Ctx, CommonInfo, attr::ArmNew, false, false)
+              , newArgs_Size(0), newArgs_(nullptr)
+  {
+}
+
+
+
+ArmNewAttr *ArmNewAttr::clone(ASTContext &C) const {
+  auto *A = new (C) ArmNewAttr(C, *this, newArgs_, newArgs_Size);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void ArmNewAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+  bool IsFirstArgument = true; (void)IsFirstArgument;
+  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    break;
+  case 0 : {
+    OS << " __arm_new";
+    OS << "";
+  for (const auto &Val : newArgs()) {
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "\"" << Val << "\"";
+  }
+  OS << "";
+    if (!IsFirstArgument)
+      OS << ")";
+    OS << "";
+    break;
+  }
+}
+}
+
+const char *ArmNewAttr::getSpelling() const {
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    return "(No spelling)";
+  case 0:
+    return "__arm_new";
+  }
+}
+
+
+// ArmOutAttr implementation
+
+ArmOutAttr *ArmOutAttr::CreateImplicit(ASTContext &Ctx, StringRef *OutArgs, unsigned OutArgsSize, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) ArmOutAttr(Ctx, CommonInfo, OutArgs, OutArgsSize);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+ArmOutAttr *ArmOutAttr::Create(ASTContext &Ctx, StringRef *OutArgs, unsigned OutArgsSize, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) ArmOutAttr(Ctx, CommonInfo, OutArgs, OutArgsSize);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+ArmOutAttr *ArmOutAttr::CreateImplicit(ASTContext &Ctx, StringRef *OutArgs, unsigned OutArgsSize, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, true /*IsRegularKeywordAttribute*/});
+  return CreateImplicit(Ctx, OutArgs, OutArgsSize, I);
+}
+
+ArmOutAttr *ArmOutAttr::Create(ASTContext &Ctx, StringRef *OutArgs, unsigned OutArgsSize, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, true /*IsRegularKeywordAttribute*/});
+  return Create(Ctx, OutArgs, OutArgsSize, I);
+}
+
+ArmOutAttr::ArmOutAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , StringRef *OutArgs, unsigned OutArgsSize
+             )
+  : TypeAttr(Ctx, CommonInfo, attr::ArmOut, false)
+              , outArgs_Size(OutArgsSize), outArgs_(new (Ctx, 16) StringRef[outArgs_Size])
+  {
+  for (size_t I = 0, E = outArgs_Size; I != E;
+       ++I) {
+    StringRef Ref = OutArgs[I];
+    if (!Ref.empty()) {
+      char *Mem = new (Ctx, 1) char[Ref.size()];
+      std::memcpy(Mem, Ref.data(), Ref.size());
+      outArgs_[I] = StringRef(Mem, Ref.size());
+    }
+  }
+}
+
+ArmOutAttr::ArmOutAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             )
+  : TypeAttr(Ctx, CommonInfo, attr::ArmOut, false)
+              , outArgs_Size(0), outArgs_(nullptr)
+  {
+}
+
+
+
+ArmOutAttr *ArmOutAttr::clone(ASTContext &C) const {
+  auto *A = new (C) ArmOutAttr(C, *this, outArgs_, outArgs_Size);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void ArmOutAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+  bool IsFirstArgument = true; (void)IsFirstArgument;
+  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    break;
+  case 0 : {
+    OS << " __arm_out";
+    OS << "";
+  for (const auto &Val : outArgs()) {
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "\"" << Val << "\"";
+  }
+  OS << "";
+    if (!IsFirstArgument)
+      OS << ")";
+    OS << "";
+    break;
+  }
+}
+}
+
+const char *ArmOutAttr::getSpelling() const {
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    return "(No spelling)";
+  case 0:
+    return "__arm_out";
+  }
+}
+
+
+// ArmPreservesAttr implementation
+
+ArmPreservesAttr *ArmPreservesAttr::CreateImplicit(ASTContext &Ctx, StringRef *PreserveArgs, unsigned PreserveArgsSize, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) ArmPreservesAttr(Ctx, CommonInfo, PreserveArgs, PreserveArgsSize);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+ArmPreservesAttr *ArmPreservesAttr::Create(ASTContext &Ctx, StringRef *PreserveArgs, unsigned PreserveArgsSize, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) ArmPreservesAttr(Ctx, CommonInfo, PreserveArgs, PreserveArgsSize);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+ArmPreservesAttr *ArmPreservesAttr::CreateImplicit(ASTContext &Ctx, StringRef *PreserveArgs, unsigned PreserveArgsSize, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, true /*IsRegularKeywordAttribute*/});
+  return CreateImplicit(Ctx, PreserveArgs, PreserveArgsSize, I);
+}
+
+ArmPreservesAttr *ArmPreservesAttr::Create(ASTContext &Ctx, StringRef *PreserveArgs, unsigned PreserveArgsSize, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, true /*IsRegularKeywordAttribute*/});
+  return Create(Ctx, PreserveArgs, PreserveArgsSize, I);
+}
+
+ArmPreservesAttr::ArmPreservesAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , StringRef *PreserveArgs, unsigned PreserveArgsSize
+             )
+  : TypeAttr(Ctx, CommonInfo, attr::ArmPreserves, false)
+              , preserveArgs_Size(PreserveArgsSize), preserveArgs_(new (Ctx, 16) StringRef[preserveArgs_Size])
+  {
+  for (size_t I = 0, E = preserveArgs_Size; I != E;
+       ++I) {
+    StringRef Ref = PreserveArgs[I];
+    if (!Ref.empty()) {
+      char *Mem = new (Ctx, 1) char[Ref.size()];
+      std::memcpy(Mem, Ref.data(), Ref.size());
+      preserveArgs_[I] = StringRef(Mem, Ref.size());
+    }
+  }
+}
+
+ArmPreservesAttr::ArmPreservesAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             )
+  : TypeAttr(Ctx, CommonInfo, attr::ArmPreserves, false)
+              , preserveArgs_Size(0), preserveArgs_(nullptr)
+  {
+}
+
+
+
+ArmPreservesAttr *ArmPreservesAttr::clone(ASTContext &C) const {
+  auto *A = new (C) ArmPreservesAttr(C, *this, preserveArgs_, preserveArgs_Size);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void ArmPreservesAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+  bool IsFirstArgument = true; (void)IsFirstArgument;
+  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    break;
+  case 0 : {
+    OS << " __arm_preserves";
+    OS << "";
+  for (const auto &Val : preserveArgs()) {
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "\"" << Val << "\"";
+  }
+  OS << "";
+    if (!IsFirstArgument)
+      OS << ")";
+    OS << "";
+    break;
+  }
+}
+}
+
+const char *ArmPreservesAttr::getSpelling() const {
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    return "(No spelling)";
+  case 0:
+    return "__arm_preserves";
   }
 }
 
@@ -4443,6 +4994,73 @@ const char *ArmStreamingAttr::getSpelling() const {
 }
 
 
+// ArmStreamingCompatibleAttr implementation
+
+ArmStreamingCompatibleAttr *ArmStreamingCompatibleAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) ArmStreamingCompatibleAttr(Ctx, CommonInfo);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+ArmStreamingCompatibleAttr *ArmStreamingCompatibleAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) ArmStreamingCompatibleAttr(Ctx, CommonInfo);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+ArmStreamingCompatibleAttr *ArmStreamingCompatibleAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, true /*IsRegularKeywordAttribute*/});
+  return CreateImplicit(Ctx, I);
+}
+
+ArmStreamingCompatibleAttr *ArmStreamingCompatibleAttr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, true /*IsRegularKeywordAttribute*/});
+  return Create(Ctx, I);
+}
+
+ArmStreamingCompatibleAttr::ArmStreamingCompatibleAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             )
+  : TypeAttr(Ctx, CommonInfo, attr::ArmStreamingCompatible, false)
+  {
+}
+
+ArmStreamingCompatibleAttr *ArmStreamingCompatibleAttr::clone(ASTContext &C) const {
+  auto *A = new (C) ArmStreamingCompatibleAttr(C, *this);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void ArmStreamingCompatibleAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+  bool IsFirstArgument = true; (void)IsFirstArgument;
+  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    break;
+  case 0 : {
+    OS << " __arm_streaming_compatible";
+    OS << "";
+    break;
+  }
+}
+}
+
+const char *ArmStreamingCompatibleAttr::getSpelling() const {
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    return "(No spelling)";
+  case 0:
+    return "__arm_streaming_compatible";
+  }
+}
+
+
 // ArtificialAttr implementation
 
 ArtificialAttr *ArtificialAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
@@ -4467,8 +5085,8 @@ ArtificialAttr *ArtificialAttr::CreateImplicit(ASTContext &Ctx, SourceRange Rang
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_artificial, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_artificial:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_artificial, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_artificial:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_artificial, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_artificial:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_artificial, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -4484,8 +5102,8 @@ ArtificialAttr *ArtificialAttr::Create(ASTContext &Ctx, SourceRange Range, Spell
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_artificial, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_artificial:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_artificial, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_artificial:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_artificial, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_artificial:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_artificial, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -5073,8 +5691,8 @@ AssumeAlignedAttr *AssumeAlignedAttr::CreateImplicit(ASTContext &Ctx, Expr * Ali
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_assume_aligned, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_assume_aligned:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_assume_aligned, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_assume_aligned:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_assume_aligned, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_assume_aligned:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_assume_aligned, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -5090,8 +5708,8 @@ AssumeAlignedAttr *AssumeAlignedAttr::Create(ASTContext &Ctx, Expr * Alignment, 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_assume_aligned, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_assume_aligned:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_assume_aligned, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_assume_aligned:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_assume_aligned, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_assume_aligned:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_assume_aligned, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -5140,14 +5758,18 @@ void AssumeAlignedAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Polic
     break;
   case 0 : {
     OS << " __attribute__((assume_aligned";
+    if (!getOffset())
+      ++TrailingOmittedArgs;
     DelimitAttributeArgument(OS, IsFirstArgument);
     OS << "";
     getAlignment()->printPretty(OS, nullptr, Policy);
     OS << "";
+    if (!(!getOffset())) {
     DelimitAttributeArgument(OS, IsFirstArgument);
     OS << "";
     getOffset()->printPretty(OS, nullptr, Policy);
     OS << "";
+    }
     if (!IsFirstArgument)
       OS << ")";
     OS << "))";
@@ -5155,14 +5777,18 @@ void AssumeAlignedAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Polic
   }
   case 1 : {
     OS << " [[gnu::assume_aligned";
+    if (!getOffset())
+      ++TrailingOmittedArgs;
     DelimitAttributeArgument(OS, IsFirstArgument);
     OS << "";
     getAlignment()->printPretty(OS, nullptr, Policy);
     OS << "";
+    if (!(!getOffset())) {
     DelimitAttributeArgument(OS, IsFirstArgument);
     OS << "";
     getOffset()->printPretty(OS, nullptr, Policy);
     OS << "";
+    }
     if (!IsFirstArgument)
       OS << ")";
     OS << "]]";
@@ -5170,14 +5796,18 @@ void AssumeAlignedAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Polic
   }
   case 2 : {
     OS << " [[gnu::assume_aligned";
+    if (!getOffset())
+      ++TrailingOmittedArgs;
     DelimitAttributeArgument(OS, IsFirstArgument);
     OS << "";
     getAlignment()->printPretty(OS, nullptr, Policy);
     OS << "";
+    if (!(!getOffset())) {
     DelimitAttributeArgument(OS, IsFirstArgument);
     OS << "";
     getOffset()->printPretty(OS, nullptr, Policy);
     OS << "";
+    }
     if (!IsFirstArgument)
       OS << ")";
     OS << "]]";
@@ -5225,8 +5855,8 @@ AssumptionAttr *AssumptionAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_assume, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_assume:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_assume, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_assume:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_assume, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_assume:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_assume, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -5242,8 +5872,8 @@ AssumptionAttr *AssumptionAttr::Create(ASTContext &Ctx, llvm::StringRef Assumpti
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_assume, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_assume:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_assume, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_assume:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_assume, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_assume:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_assume, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -5348,8 +5978,8 @@ AvailabilityAttr *AvailabilityAttr::CreateImplicit(ASTContext &Ctx, IdentifierIn
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_availability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_availability:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_availability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_availability:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_availability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_availability:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_availability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -5365,8 +5995,8 @@ AvailabilityAttr *AvailabilityAttr::Create(ASTContext &Ctx, IdentifierInfo * Pla
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_availability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_availability:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_availability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_availability:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_availability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_availability:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_availability, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -5540,8 +6170,8 @@ AvailableOnlyInDefaultEvalMethodAttr *AvailableOnlyInDefaultEvalMethodAttr::Crea
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_available_only_in_default_eval_method, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_available_only_in_default_eval_method:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_available_only_in_default_eval_method, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_available_only_in_default_eval_method:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_available_only_in_default_eval_method, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_available_only_in_default_eval_method:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_available_only_in_default_eval_method, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -5557,8 +6187,8 @@ AvailableOnlyInDefaultEvalMethodAttr *AvailableOnlyInDefaultEvalMethodAttr::Crea
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_available_only_in_default_eval_method, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_available_only_in_default_eval_method:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_available_only_in_default_eval_method, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_available_only_in_default_eval_method:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_available_only_in_default_eval_method, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_available_only_in_default_eval_method:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_available_only_in_default_eval_method, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -5645,8 +6275,8 @@ BPFPreserveAccessIndexAttr *BPFPreserveAccessIndexAttr::CreateImplicit(ASTContex
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_preserve_access_index, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_preserve_access_index:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_preserve_access_index, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_preserve_access_index:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_preserve_access_index, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_preserve_access_index:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_preserve_access_index, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -5662,8 +6292,8 @@ BPFPreserveAccessIndexAttr *BPFPreserveAccessIndexAttr::Create(ASTContext &Ctx, 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_preserve_access_index, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_preserve_access_index:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_preserve_access_index, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_preserve_access_index:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_preserve_access_index, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_preserve_access_index:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_preserve_access_index, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -5726,6 +6356,111 @@ const char *BPFPreserveAccessIndexAttr::getSpelling() const {
 }
 
 
+// BPFPreserveStaticOffsetAttr implementation
+
+BPFPreserveStaticOffsetAttr *BPFPreserveStaticOffsetAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) BPFPreserveStaticOffsetAttr(Ctx, CommonInfo);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+BPFPreserveStaticOffsetAttr *BPFPreserveStaticOffsetAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) BPFPreserveStaticOffsetAttr(Ctx, CommonInfo);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+BPFPreserveStaticOffsetAttr *BPFPreserveStaticOffsetAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
+    switch (S) {
+    case GNU_preserve_static_offset:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_preserve_static_offset, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case CXX11_clang_preserve_static_offset:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_preserve_static_offset, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_preserve_static_offset:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_preserve_static_offset, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    default:
+      llvm_unreachable("Unknown attribute spelling!");
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    }
+  }());
+  return CreateImplicit(Ctx, I);
+}
+
+BPFPreserveStaticOffsetAttr *BPFPreserveStaticOffsetAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
+    switch (S) {
+    case GNU_preserve_static_offset:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_preserve_static_offset, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case CXX11_clang_preserve_static_offset:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_preserve_static_offset, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_preserve_static_offset:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_preserve_static_offset, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    default:
+      llvm_unreachable("Unknown attribute spelling!");
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    }
+  }());
+  return Create(Ctx, I);
+}
+
+BPFPreserveStaticOffsetAttr::BPFPreserveStaticOffsetAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             )
+  : InheritableAttr(Ctx, CommonInfo, attr::BPFPreserveStaticOffset, false, false)
+  {
+}
+
+BPFPreserveStaticOffsetAttr *BPFPreserveStaticOffsetAttr::clone(ASTContext &C) const {
+  auto *A = new (C) BPFPreserveStaticOffsetAttr(C, *this);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void BPFPreserveStaticOffsetAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+  bool IsFirstArgument = true; (void)IsFirstArgument;
+  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    break;
+  case 0 : {
+    OS << " __attribute__((preserve_static_offset";
+    OS << "))";
+    break;
+  }
+  case 1 : {
+    OS << " [[clang::preserve_static_offset";
+    OS << "]]";
+    break;
+  }
+  case 2 : {
+    OS << " [[clang::preserve_static_offset";
+    OS << "]]";
+    break;
+  }
+}
+}
+
+const char *BPFPreserveStaticOffsetAttr::getSpelling() const {
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    return "(No spelling)";
+  case 0:
+    return "preserve_static_offset";
+  case 1:
+    return "preserve_static_offset";
+  case 2:
+    return "preserve_static_offset";
+  }
+}
+
+
 // BTFDeclTagAttr implementation
 
 BTFDeclTagAttr *BTFDeclTagAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef BTFDeclTag, const AttributeCommonInfo &CommonInfo) {
@@ -5750,8 +6485,8 @@ BTFDeclTagAttr *BTFDeclTagAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_btf_decl_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_btf_decl_tag:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_btf_decl_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_btf_decl_tag:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_btf_decl_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_btf_decl_tag:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_btf_decl_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -5767,8 +6502,8 @@ BTFDeclTagAttr *BTFDeclTagAttr::Create(ASTContext &Ctx, llvm::StringRef BTFDeclT
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_btf_decl_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_btf_decl_tag:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_btf_decl_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_btf_decl_tag:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_btf_decl_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_btf_decl_tag:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_btf_decl_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -5873,8 +6608,8 @@ BTFTypeTagAttr *BTFTypeTagAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_btf_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_btf_type_tag:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_btf_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_btf_type_tag:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_btf_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_btf_type_tag:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_btf_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -5890,8 +6625,8 @@ BTFTypeTagAttr *BTFTypeTagAttr::Create(ASTContext &Ctx, llvm::StringRef BTFTypeT
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_btf_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_btf_type_tag:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_btf_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_btf_type_tag:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_btf_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_btf_type_tag:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_btf_type_tag, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -5974,7 +6709,7 @@ const char *BTFTypeTagAttr::getSpelling() const {
 
 // BlocksAttr implementation
 
-BlocksAttr *BlocksAttr::CreateImplicit(ASTContext &Ctx, BlockType Type, const AttributeCommonInfo &CommonInfo) {
+BlocksAttr *BlocksAttr::CreateImplicit(ASTContext &Ctx, BlocksAttr::BlockType Type, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) BlocksAttr(Ctx, CommonInfo, Type);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -5982,22 +6717,22 @@ BlocksAttr *BlocksAttr::CreateImplicit(ASTContext &Ctx, BlockType Type, const At
   return A;
 }
 
-BlocksAttr *BlocksAttr::Create(ASTContext &Ctx, BlockType Type, const AttributeCommonInfo &CommonInfo) {
+BlocksAttr *BlocksAttr::Create(ASTContext &Ctx, BlocksAttr::BlockType Type, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) BlocksAttr(Ctx, CommonInfo, Type);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-BlocksAttr *BlocksAttr::CreateImplicit(ASTContext &Ctx, BlockType Type, SourceRange Range, Spelling S) {
+BlocksAttr *BlocksAttr::CreateImplicit(ASTContext &Ctx, BlocksAttr::BlockType Type, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_blocks:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_blocks, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_blocks:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_blocks, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_blocks:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_blocks, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_blocks:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_blocks, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -6006,15 +6741,15 @@ BlocksAttr *BlocksAttr::CreateImplicit(ASTContext &Ctx, BlockType Type, SourceRa
   return CreateImplicit(Ctx, Type, I);
 }
 
-BlocksAttr *BlocksAttr::Create(ASTContext &Ctx, BlockType Type, SourceRange Range, Spelling S) {
+BlocksAttr *BlocksAttr::Create(ASTContext &Ctx, BlocksAttr::BlockType Type, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_blocks:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_blocks, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_blocks:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_blocks, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_blocks:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_blocks, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_blocks:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_blocks, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -6024,7 +6759,7 @@ BlocksAttr *BlocksAttr::Create(ASTContext &Ctx, BlockType Type, SourceRange Rang
 }
 
 BlocksAttr::BlocksAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , BlockType Type
+              , BlocksAttr::BlockType Type
              )
   : InheritableAttr(Ctx, CommonInfo, attr::Blocks, false, false)
               , type(Type)
@@ -6033,10 +6768,10 @@ BlocksAttr::BlocksAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
 
 
 
-bool BlocksAttr::ConvertStrToBlockType(StringRef Val, BlockType &Out) {
-  std::optional<BlockType> R = llvm::StringSwitch<std::optional<BlockType>>(Val)
-    .Case("byref", BlocksAttr::ByRef)
-    .Default(std::optional<BlockType>());
+bool BlocksAttr::ConvertStrToBlockType(StringRef Val, BlocksAttr::BlockType &Out) {
+  std::optional<BlocksAttr::BlockType> R = llvm::StringSwitch<std::optional<BlocksAttr::BlockType>>(Val)
+    .Case("byref", BlocksAttr::BlockType::ByRef)
+    .Default(std::optional<BlocksAttr::BlockType>());
   if (R) {
     Out = *R;
       return true;
@@ -6044,9 +6779,9 @@ bool BlocksAttr::ConvertStrToBlockType(StringRef Val, BlockType &Out) {
   return false;
 }
 
-const char *BlocksAttr::ConvertBlockTypeToStr(BlockType Val) {
+const char *BlocksAttr::ConvertBlockTypeToStr(BlocksAttr::BlockType Val) {
   switch(Val) {
-  case BlocksAttr::ByRef: return "byref";
+  case BlocksAttr::BlockType::ByRef: return "byref";
   }
   llvm_unreachable("No enumerator with that value");
 }
@@ -6183,8 +6918,8 @@ BuiltinAliasAttr *BuiltinAliasAttr::CreateImplicit(ASTContext &Ctx, IdentifierIn
     switch (S) {
     case CXX11_clang_builtin_alias:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_builtin_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_builtin_alias:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_builtin_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_builtin_alias:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_builtin_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case GNU_clang_builtin_alias:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_clang_builtin_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
@@ -6200,8 +6935,8 @@ BuiltinAliasAttr *BuiltinAliasAttr::Create(ASTContext &Ctx, IdentifierInfo * Bui
     switch (S) {
     case CXX11_clang_builtin_alias:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_builtin_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_builtin_alias:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_builtin_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_builtin_alias:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_builtin_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case GNU_clang_builtin_alias:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_clang_builtin_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
@@ -6224,7 +6959,7 @@ BuiltinAliasAttr::Spelling BuiltinAliasAttr::getSemanticSpelling() const {
   switch (getAttributeSpellingListIndex()) {
     default: llvm_unreachable("Unknown spelling list index");
     case 0: return CXX11_clang_builtin_alias;
-    case 1: return C2x_clang_builtin_alias;
+    case 1: return C23_clang_builtin_alias;
     case 2: return GNU_clang_builtin_alias;
   }
 }
@@ -6381,8 +7116,8 @@ CDeclAttr *CDeclAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spellin
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_cdecl, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_cdecl:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_cdecl, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_cdecl:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_cdecl, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_cdecl:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_cdecl, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case Keyword_cdecl:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_cdecl, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
@@ -6400,8 +7135,8 @@ CDeclAttr *CDeclAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_cdecl, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_cdecl:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_cdecl, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_cdecl:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_cdecl, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_cdecl:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_cdecl, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case Keyword_cdecl:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_cdecl, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
@@ -6504,8 +7239,8 @@ CFAuditedTransferAttr *CFAuditedTransferAttr::CreateImplicit(ASTContext &Ctx, So
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_cf_audited_transfer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_cf_audited_transfer:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_cf_audited_transfer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_cf_audited_transfer:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_cf_audited_transfer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_cf_audited_transfer:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_cf_audited_transfer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -6521,8 +7256,8 @@ CFAuditedTransferAttr *CFAuditedTransferAttr::Create(ASTContext &Ctx, SourceRang
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_cf_audited_transfer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_cf_audited_transfer:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_cf_audited_transfer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_cf_audited_transfer:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_cf_audited_transfer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_cf_audited_transfer:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_cf_audited_transfer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -6609,8 +7344,8 @@ CFConsumedAttr *CFConsumedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Rang
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_cf_consumed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_cf_consumed:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_cf_consumed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_cf_consumed:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_cf_consumed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_cf_consumed:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_cf_consumed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -6626,8 +7361,8 @@ CFConsumedAttr *CFConsumedAttr::Create(ASTContext &Ctx, SourceRange Range, Spell
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_cf_consumed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_cf_consumed:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_cf_consumed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_cf_consumed:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_cf_consumed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_cf_consumed:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_cf_consumed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -6692,7 +7427,7 @@ const char *CFConsumedAttr::getSpelling() const {
 
 // CFGuardAttr implementation
 
-CFGuardAttr *CFGuardAttr::CreateImplicit(ASTContext &Ctx, GuardArg Guard, const AttributeCommonInfo &CommonInfo) {
+CFGuardAttr *CFGuardAttr::CreateImplicit(ASTContext &Ctx, CFGuardAttr::GuardArg Guard, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) CFGuardAttr(Ctx, CommonInfo, Guard);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -6700,14 +7435,14 @@ CFGuardAttr *CFGuardAttr::CreateImplicit(ASTContext &Ctx, GuardArg Guard, const 
   return A;
 }
 
-CFGuardAttr *CFGuardAttr::Create(ASTContext &Ctx, GuardArg Guard, const AttributeCommonInfo &CommonInfo) {
+CFGuardAttr *CFGuardAttr::Create(ASTContext &Ctx, CFGuardAttr::GuardArg Guard, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) CFGuardAttr(Ctx, CommonInfo, Guard);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-CFGuardAttr *CFGuardAttr::CreateImplicit(ASTContext &Ctx, GuardArg Guard, SourceRange Range, Spelling S) {
+CFGuardAttr *CFGuardAttr::CreateImplicit(ASTContext &Ctx, CFGuardAttr::GuardArg Guard, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case Declspec_guard:
@@ -6716,8 +7451,8 @@ CFGuardAttr *CFGuardAttr::CreateImplicit(ASTContext &Ctx, GuardArg Guard, Source
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_guard, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_guard:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_guard, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_guard:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_guard, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_guard:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_guard, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -6726,7 +7461,7 @@ CFGuardAttr *CFGuardAttr::CreateImplicit(ASTContext &Ctx, GuardArg Guard, Source
   return CreateImplicit(Ctx, Guard, I);
 }
 
-CFGuardAttr *CFGuardAttr::Create(ASTContext &Ctx, GuardArg Guard, SourceRange Range, Spelling S) {
+CFGuardAttr *CFGuardAttr::Create(ASTContext &Ctx, CFGuardAttr::GuardArg Guard, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case Declspec_guard:
@@ -6735,8 +7470,8 @@ CFGuardAttr *CFGuardAttr::Create(ASTContext &Ctx, GuardArg Guard, SourceRange Ra
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_guard, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_guard:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_guard, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_guard:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_guard, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_guard:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_guard, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -6746,7 +7481,7 @@ CFGuardAttr *CFGuardAttr::Create(ASTContext &Ctx, GuardArg Guard, SourceRange Ra
 }
 
 CFGuardAttr::CFGuardAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , GuardArg Guard
+              , CFGuardAttr::GuardArg Guard
              )
   : InheritableAttr(Ctx, CommonInfo, attr::CFGuard, false, false)
               , guard(Guard)
@@ -6755,10 +7490,10 @@ CFGuardAttr::CFGuardAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
 
 
 
-bool CFGuardAttr::ConvertStrToGuardArg(StringRef Val, GuardArg &Out) {
-  std::optional<GuardArg> R = llvm::StringSwitch<std::optional<GuardArg>>(Val)
-    .Case("nocf", CFGuardAttr::nocf)
-    .Default(std::optional<GuardArg>());
+bool CFGuardAttr::ConvertStrToGuardArg(StringRef Val, CFGuardAttr::GuardArg &Out) {
+  std::optional<CFGuardAttr::GuardArg> R = llvm::StringSwitch<std::optional<CFGuardAttr::GuardArg>>(Val)
+    .Case("nocf", CFGuardAttr::GuardArg::nocf)
+    .Default(std::optional<CFGuardAttr::GuardArg>());
   if (R) {
     Out = *R;
       return true;
@@ -6766,9 +7501,9 @@ bool CFGuardAttr::ConvertStrToGuardArg(StringRef Val, GuardArg &Out) {
   return false;
 }
 
-const char *CFGuardAttr::ConvertGuardArgToStr(GuardArg Val) {
+const char *CFGuardAttr::ConvertGuardArgToStr(CFGuardAttr::GuardArg Val) {
   switch(Val) {
-  case CFGuardAttr::nocf: return "nocf";
+  case CFGuardAttr::GuardArg::nocf: return "nocf";
   }
   llvm_unreachable("No enumerator with that value");
 }
@@ -6867,8 +7602,8 @@ CFICanonicalJumpTableAttr *CFICanonicalJumpTableAttr::CreateImplicit(ASTContext 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_cfi_canonical_jump_table, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_cfi_canonical_jump_table:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_cfi_canonical_jump_table, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_cfi_canonical_jump_table:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_cfi_canonical_jump_table, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_cfi_canonical_jump_table:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_cfi_canonical_jump_table, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -6884,8 +7619,8 @@ CFICanonicalJumpTableAttr *CFICanonicalJumpTableAttr::Create(ASTContext &Ctx, So
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_cfi_canonical_jump_table, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_cfi_canonical_jump_table:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_cfi_canonical_jump_table, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_cfi_canonical_jump_table:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_cfi_canonical_jump_table, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_cfi_canonical_jump_table:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_cfi_canonical_jump_table, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -6972,8 +7707,8 @@ CFReturnsNotRetainedAttr *CFReturnsNotRetainedAttr::CreateImplicit(ASTContext &C
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_cf_returns_not_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_cf_returns_not_retained:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_cf_returns_not_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_cf_returns_not_retained:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_cf_returns_not_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_cf_returns_not_retained:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_cf_returns_not_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -6989,8 +7724,8 @@ CFReturnsNotRetainedAttr *CFReturnsNotRetainedAttr::Create(ASTContext &Ctx, Sour
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_cf_returns_not_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_cf_returns_not_retained:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_cf_returns_not_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_cf_returns_not_retained:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_cf_returns_not_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_cf_returns_not_retained:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_cf_returns_not_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -7077,8 +7812,8 @@ CFReturnsRetainedAttr *CFReturnsRetainedAttr::CreateImplicit(ASTContext &Ctx, So
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_cf_returns_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_cf_returns_retained:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_cf_returns_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_cf_returns_retained:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_cf_returns_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_cf_returns_retained:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_cf_returns_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -7094,8 +7829,8 @@ CFReturnsRetainedAttr *CFReturnsRetainedAttr::Create(ASTContext &Ctx, SourceRang
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_cf_returns_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_cf_returns_retained:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_cf_returns_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_cf_returns_retained:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_cf_returns_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_cf_returns_retained:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_cf_returns_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -7182,8 +7917,8 @@ CFUnknownTransferAttr *CFUnknownTransferAttr::CreateImplicit(ASTContext &Ctx, So
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_cf_unknown_transfer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_cf_unknown_transfer:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_cf_unknown_transfer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_cf_unknown_transfer:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_cf_unknown_transfer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_cf_unknown_transfer:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_cf_unknown_transfer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -7199,8 +7934,8 @@ CFUnknownTransferAttr *CFUnknownTransferAttr::Create(ASTContext &Ctx, SourceRang
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_cf_unknown_transfer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_cf_unknown_transfer:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_cf_unknown_transfer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_cf_unknown_transfer:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_cf_unknown_transfer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_cf_unknown_transfer:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_cf_unknown_transfer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -7287,8 +8022,8 @@ CPUDispatchAttr *CPUDispatchAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_cpu_dispatch, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_cpu_dispatch:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_cpu_dispatch, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_cpu_dispatch:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_cpu_dispatch, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_cpu_dispatch:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_cpu_dispatch, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case Declspec_cpu_dispatch:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_cpu_dispatch, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
@@ -7306,8 +8041,8 @@ CPUDispatchAttr *CPUDispatchAttr::Create(ASTContext &Ctx, IdentifierInfo * *Cpus
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_cpu_dispatch, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_cpu_dispatch:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_cpu_dispatch, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_cpu_dispatch:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_cpu_dispatch, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_cpu_dispatch:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_cpu_dispatch, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case Declspec_cpu_dispatch:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_cpu_dispatch, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
@@ -7447,8 +8182,8 @@ CPUSpecificAttr *CPUSpecificAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_cpu_specific, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_cpu_specific:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_cpu_specific, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_cpu_specific:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_cpu_specific, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_cpu_specific:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_cpu_specific, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case Declspec_cpu_specific:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_cpu_specific, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
@@ -7466,8 +8201,8 @@ CPUSpecificAttr *CPUSpecificAttr::Create(ASTContext &Ctx, IdentifierInfo * *Cpus
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_cpu_specific, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_cpu_specific:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_cpu_specific, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_cpu_specific:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_cpu_specific, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_cpu_specific:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_cpu_specific, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case Declspec_cpu_specific:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_cpu_specific, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
@@ -8198,22 +8933,22 @@ const char *CUDAInvalidTargetAttr::getSpelling() const {
 
 // CUDALaunchBoundsAttr implementation
 
-CUDALaunchBoundsAttr *CUDALaunchBoundsAttr::CreateImplicit(ASTContext &Ctx, Expr * MaxThreads, Expr * MinBlocks, const AttributeCommonInfo &CommonInfo) {
-  auto *A = new (Ctx) CUDALaunchBoundsAttr(Ctx, CommonInfo, MaxThreads, MinBlocks);
+CUDALaunchBoundsAttr *CUDALaunchBoundsAttr::CreateImplicit(ASTContext &Ctx, Expr * MaxThreads, Expr * MinBlocks, Expr * MaxBlocks, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) CUDALaunchBoundsAttr(Ctx, CommonInfo, MaxThreads, MinBlocks, MaxBlocks);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-CUDALaunchBoundsAttr *CUDALaunchBoundsAttr::Create(ASTContext &Ctx, Expr * MaxThreads, Expr * MinBlocks, const AttributeCommonInfo &CommonInfo) {
-  auto *A = new (Ctx) CUDALaunchBoundsAttr(Ctx, CommonInfo, MaxThreads, MinBlocks);
+CUDALaunchBoundsAttr *CUDALaunchBoundsAttr::Create(ASTContext &Ctx, Expr * MaxThreads, Expr * MinBlocks, Expr * MaxBlocks, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) CUDALaunchBoundsAttr(Ctx, CommonInfo, MaxThreads, MinBlocks, MaxBlocks);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-CUDALaunchBoundsAttr *CUDALaunchBoundsAttr::CreateImplicit(ASTContext &Ctx, Expr * MaxThreads, Expr * MinBlocks, SourceRange Range, Spelling S) {
+CUDALaunchBoundsAttr *CUDALaunchBoundsAttr::CreateImplicit(ASTContext &Ctx, Expr * MaxThreads, Expr * MinBlocks, Expr * MaxBlocks, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_launch_bounds:
@@ -8225,10 +8960,10 @@ CUDALaunchBoundsAttr *CUDALaunchBoundsAttr::CreateImplicit(ASTContext &Ctx, Expr
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     }
   }());
-  return CreateImplicit(Ctx, MaxThreads, MinBlocks, I);
+  return CreateImplicit(Ctx, MaxThreads, MinBlocks, MaxBlocks, I);
 }
 
-CUDALaunchBoundsAttr *CUDALaunchBoundsAttr::Create(ASTContext &Ctx, Expr * MaxThreads, Expr * MinBlocks, SourceRange Range, Spelling S) {
+CUDALaunchBoundsAttr *CUDALaunchBoundsAttr::Create(ASTContext &Ctx, Expr * MaxThreads, Expr * MinBlocks, Expr * MaxBlocks, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_launch_bounds:
@@ -8240,16 +8975,18 @@ CUDALaunchBoundsAttr *CUDALaunchBoundsAttr::Create(ASTContext &Ctx, Expr * MaxTh
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     }
   }());
-  return Create(Ctx, MaxThreads, MinBlocks, I);
+  return Create(Ctx, MaxThreads, MinBlocks, MaxBlocks, I);
 }
 
 CUDALaunchBoundsAttr::CUDALaunchBoundsAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
               , Expr * MaxThreads
               , Expr * MinBlocks
+              , Expr * MaxBlocks
              )
   : InheritableAttr(Ctx, CommonInfo, attr::CUDALaunchBounds, false, false)
               , maxThreads(MaxThreads)
               , minBlocks(MinBlocks)
+              , maxBlocks(MaxBlocks)
   {
 }
 
@@ -8259,6 +8996,7 @@ CUDALaunchBoundsAttr::CUDALaunchBoundsAttr(ASTContext &Ctx, const AttributeCommo
   : InheritableAttr(Ctx, CommonInfo, attr::CUDALaunchBounds, false, false)
               , maxThreads(MaxThreads)
               , minBlocks()
+              , maxBlocks()
   {
 }
 
@@ -8266,8 +9004,10 @@ CUDALaunchBoundsAttr::CUDALaunchBoundsAttr(ASTContext &Ctx, const AttributeCommo
 
 
 
+
+
 CUDALaunchBoundsAttr *CUDALaunchBoundsAttr::clone(ASTContext &C) const {
-  auto *A = new (C) CUDALaunchBoundsAttr(C, *this, maxThreads, minBlocks);
+  auto *A = new (C) CUDALaunchBoundsAttr(C, *this, maxThreads, minBlocks, maxBlocks);
   A->Inherited = Inherited;
   A->IsPackExpansion = IsPackExpansion;
   A->setImplicit(Implicit);
@@ -8283,14 +9023,26 @@ void CUDALaunchBoundsAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Po
     break;
   case 0 : {
     OS << " __attribute__((launch_bounds";
+    if (!getMaxBlocks())
+      ++TrailingOmittedArgs;
+    if (!getMinBlocks())
+      ++TrailingOmittedArgs;
     DelimitAttributeArgument(OS, IsFirstArgument);
     OS << "";
     getMaxThreads()->printPretty(OS, nullptr, Policy);
     OS << "";
+    if (!(!getMinBlocks())) {
     DelimitAttributeArgument(OS, IsFirstArgument);
     OS << "";
     getMinBlocks()->printPretty(OS, nullptr, Policy);
     OS << "";
+    }
+    if (!(!getMaxBlocks())) {
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "";
+    getMaxBlocks()->printPretty(OS, nullptr, Policy);
+    OS << "";
+    }
     if (!IsFirstArgument)
       OS << ")";
     OS << "))";
@@ -8298,14 +9050,26 @@ void CUDALaunchBoundsAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Po
   }
   case 1 : {
     OS << " __declspec(__launch_bounds__";
+    if (!getMaxBlocks())
+      ++TrailingOmittedArgs;
+    if (!getMinBlocks())
+      ++TrailingOmittedArgs;
     DelimitAttributeArgument(OS, IsFirstArgument);
     OS << "";
     getMaxThreads()->printPretty(OS, nullptr, Policy);
     OS << "";
+    if (!(!getMinBlocks())) {
     DelimitAttributeArgument(OS, IsFirstArgument);
     OS << "";
     getMinBlocks()->printPretty(OS, nullptr, Policy);
     OS << "";
+    }
+    if (!(!getMaxBlocks())) {
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "";
+    getMaxBlocks()->printPretty(OS, nullptr, Policy);
+    OS << "";
+    }
     if (!IsFirstArgument)
       OS << ")";
     OS << ")";
@@ -8441,10 +9205,10 @@ CXX11NoReturnAttr *CXX11NoReturnAttr::CreateImplicit(ASTContext &Ctx, SourceRang
     switch (S) {
     case CXX11_noreturn:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_noreturn, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_noreturn:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_noreturn, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_Noreturn:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_Noreturn, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_noreturn:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_noreturn, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_Noreturn:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_Noreturn, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -8458,10 +9222,10 @@ CXX11NoReturnAttr *CXX11NoReturnAttr::Create(ASTContext &Ctx, SourceRange Range,
     switch (S) {
     case CXX11_noreturn:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_noreturn, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_noreturn:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_noreturn, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_Noreturn:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_Noreturn, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_noreturn:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_noreturn, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_Noreturn:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_Noreturn, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -8480,8 +9244,8 @@ CXX11NoReturnAttr::Spelling CXX11NoReturnAttr::getSemanticSpelling() const {
   switch (getAttributeSpellingListIndex()) {
     default: llvm_unreachable("Unknown spelling list index");
     case 0: return CXX11_noreturn;
-    case 1: return C2x_noreturn;
-    case 2: return C2x_Noreturn;
+    case 1: return C23_noreturn;
+    case 2: return C23_Noreturn;
   }
 }
 CXX11NoReturnAttr *CXX11NoReturnAttr::clone(ASTContext &C) const {
@@ -8597,12 +9361,12 @@ CallableWhenAttr::CallableWhenAttr(ASTContext &Ctx, const AttributeCommonInfo &C
 
 
 
-bool CallableWhenAttr::ConvertStrToConsumedState(StringRef Val, ConsumedState &Out) {
-  std::optional<ConsumedState> R = llvm::StringSwitch<std::optional<ConsumedState>>(Val)
-    .Case("unknown", CallableWhenAttr::Unknown)
-    .Case("consumed", CallableWhenAttr::Consumed)
-    .Case("unconsumed", CallableWhenAttr::Unconsumed)
-    .Default(std::optional<ConsumedState>());
+bool CallableWhenAttr::ConvertStrToConsumedState(StringRef Val, CallableWhenAttr::ConsumedState &Out) {
+  std::optional<CallableWhenAttr::ConsumedState> R = llvm::StringSwitch<std::optional<CallableWhenAttr::ConsumedState>>(Val)
+    .Case("unknown", CallableWhenAttr::ConsumedState::Unknown)
+    .Case("consumed", CallableWhenAttr::ConsumedState::Consumed)
+    .Case("unconsumed", CallableWhenAttr::ConsumedState::Unconsumed)
+    .Default(std::optional<CallableWhenAttr::ConsumedState>());
   if (R) {
     Out = *R;
       return true;
@@ -8610,11 +9374,11 @@ bool CallableWhenAttr::ConvertStrToConsumedState(StringRef Val, ConsumedState &O
   return false;
 }
 
-const char *CallableWhenAttr::ConvertConsumedStateToStr(ConsumedState Val) {
+const char *CallableWhenAttr::ConvertConsumedStateToStr(CallableWhenAttr::ConsumedState Val) {
   switch(Val) {
-  case CallableWhenAttr::Unknown: return "unknown";
-  case CallableWhenAttr::Consumed: return "consumed";
-  case CallableWhenAttr::Unconsumed: return "unconsumed";
+  case CallableWhenAttr::ConsumedState::Unknown: return "unknown";
+  case CallableWhenAttr::ConsumedState::Consumed: return "consumed";
+  case CallableWhenAttr::ConsumedState::Unconsumed: return "unconsumed";
   }
   llvm_unreachable("No enumerator with that value");
 }
@@ -8699,8 +9463,8 @@ CallbackAttr *CallbackAttr::CreateImplicit(ASTContext &Ctx, int *Encoding, unsig
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_callback, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_callback:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_callback, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_callback:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_callback, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_callback:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_callback, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -8716,8 +9480,8 @@ CallbackAttr *CallbackAttr::Create(ASTContext &Ctx, int *Encoding, unsigned Enco
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_callback, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_callback:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_callback, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_callback:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_callback, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_callback:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_callback, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -8840,8 +9604,8 @@ CalledOnceAttr *CalledOnceAttr::CreateImplicit(ASTContext &Ctx, SourceRange Rang
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_called_once, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_called_once:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_called_once, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_called_once:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_called_once, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_called_once:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_called_once, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -8857,8 +9621,8 @@ CalledOnceAttr *CalledOnceAttr::Create(ASTContext &Ctx, SourceRange Range, Spell
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_called_once, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_called_once:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_called_once, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_called_once:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_called_once, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_called_once:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_called_once, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -9233,8 +9997,8 @@ CleanupAttr *CleanupAttr::CreateImplicit(ASTContext &Ctx, FunctionDecl * Functio
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_cleanup, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_cleanup:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_cleanup, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_cleanup:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_cleanup, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_cleanup:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_cleanup, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -9250,8 +10014,8 @@ CleanupAttr *CleanupAttr::Create(ASTContext &Ctx, FunctionDecl * FunctionDecl, S
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_cleanup, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_cleanup:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_cleanup, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_cleanup:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_cleanup, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_cleanup:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_cleanup, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -9464,6 +10228,276 @@ const char *CmseNSEntryAttr::getSpelling() const {
 }
 
 
+// CodeAlignAttr implementation
+
+CodeAlignAttr *CodeAlignAttr::CreateImplicit(ASTContext &Ctx, Expr * Alignment, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) CodeAlignAttr(Ctx, CommonInfo, Alignment);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+CodeAlignAttr *CodeAlignAttr::Create(ASTContext &Ctx, Expr * Alignment, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) CodeAlignAttr(Ctx, CommonInfo, Alignment);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+CodeAlignAttr *CodeAlignAttr::CreateImplicit(ASTContext &Ctx, Expr * Alignment, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
+    switch (S) {
+    case GNU_code_align:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_code_align, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case CXX11_clang_code_align:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_code_align, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_code_align:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_code_align, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    default:
+      llvm_unreachable("Unknown attribute spelling!");
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    }
+  }());
+  return CreateImplicit(Ctx, Alignment, I);
+}
+
+CodeAlignAttr *CodeAlignAttr::Create(ASTContext &Ctx, Expr * Alignment, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
+    switch (S) {
+    case GNU_code_align:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_code_align, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case CXX11_clang_code_align:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_code_align, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_code_align:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_code_align, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    default:
+      llvm_unreachable("Unknown attribute spelling!");
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    }
+  }());
+  return Create(Ctx, Alignment, I);
+}
+
+CodeAlignAttr::CodeAlignAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , Expr * Alignment
+             )
+  : StmtAttr(Ctx, CommonInfo, attr::CodeAlign, false)
+              , alignment(Alignment)
+  {
+}
+
+
+
+CodeAlignAttr *CodeAlignAttr::clone(ASTContext &C) const {
+  auto *A = new (C) CodeAlignAttr(C, *this, alignment);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void CodeAlignAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+  bool IsFirstArgument = true; (void)IsFirstArgument;
+  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    break;
+  case 0 : {
+    OS << " __attribute__((code_align";
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "";
+    getAlignment()->printPretty(OS, nullptr, Policy);
+    OS << "";
+    if (!IsFirstArgument)
+      OS << ")";
+    OS << "))";
+    break;
+  }
+  case 1 : {
+    OS << " [[clang::code_align";
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "";
+    getAlignment()->printPretty(OS, nullptr, Policy);
+    OS << "";
+    if (!IsFirstArgument)
+      OS << ")";
+    OS << "]]";
+    break;
+  }
+  case 2 : {
+    OS << " [[clang::code_align";
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "";
+    getAlignment()->printPretty(OS, nullptr, Policy);
+    OS << "";
+    if (!IsFirstArgument)
+      OS << ")";
+    OS << "]]";
+    break;
+  }
+}
+}
+
+const char *CodeAlignAttr::getSpelling() const {
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    return "(No spelling)";
+  case 0:
+    return "code_align";
+  case 1:
+    return "code_align";
+  case 2:
+    return "code_align";
+  }
+}
+
+
+// CodeModelAttr implementation
+
+CodeModelAttr *CodeModelAttr::CreateImplicit(ASTContext &Ctx, llvm::CodeModel::Model Model, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) CodeModelAttr(Ctx, CommonInfo, Model);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+CodeModelAttr *CodeModelAttr::Create(ASTContext &Ctx, llvm::CodeModel::Model Model, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) CodeModelAttr(Ctx, CommonInfo, Model);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+CodeModelAttr *CodeModelAttr::CreateImplicit(ASTContext &Ctx, llvm::CodeModel::Model Model, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
+    switch (S) {
+    case GNU_model:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_model, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case CXX11_gnu_model:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_model, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_model:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_model, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    default:
+      llvm_unreachable("Unknown attribute spelling!");
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    }
+  }());
+  return CreateImplicit(Ctx, Model, I);
+}
+
+CodeModelAttr *CodeModelAttr::Create(ASTContext &Ctx, llvm::CodeModel::Model Model, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
+    switch (S) {
+    case GNU_model:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_model, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case CXX11_gnu_model:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_model, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_model:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_model, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    default:
+      llvm_unreachable("Unknown attribute spelling!");
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    }
+  }());
+  return Create(Ctx, Model, I);
+}
+
+CodeModelAttr::CodeModelAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , llvm::CodeModel::Model Model
+             )
+  : InheritableAttr(Ctx, CommonInfo, attr::CodeModel, false, false)
+              , model(Model)
+  {
+}
+
+
+
+bool CodeModelAttr::ConvertStrToModel(StringRef Val, llvm::CodeModel::Model &Out) {
+  std::optional<llvm::CodeModel::Model> R = llvm::StringSwitch<std::optional<llvm::CodeModel::Model>>(Val)
+    .Case("normal", llvm::CodeModel::Model::Small)
+    .Case("medium", llvm::CodeModel::Model::Medium)
+    .Case("extreme", llvm::CodeModel::Model::Large)
+    .Default(std::optional<llvm::CodeModel::Model>());
+  if (R) {
+    Out = *R;
+      return true;
+    }
+  return false;
+}
+
+const char *CodeModelAttr::ConvertModelToStr(llvm::CodeModel::Model Val) {
+  switch(Val) {
+  case llvm::CodeModel::Model::Small: return "normal";
+  case llvm::CodeModel::Model::Medium: return "medium";
+  case llvm::CodeModel::Model::Large: return "extreme";
+  default: llvm_unreachable("Invalid attribute value");
+  }
+  llvm_unreachable("No enumerator with that value");
+}
+CodeModelAttr *CodeModelAttr::clone(ASTContext &C) const {
+  auto *A = new (C) CodeModelAttr(C, *this, model);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void CodeModelAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+  bool IsFirstArgument = true; (void)IsFirstArgument;
+  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    break;
+  case 0 : {
+    OS << " __attribute__((model";
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "\"" << CodeModelAttr::ConvertModelToStr(getModel()) << "\"";
+    if (!IsFirstArgument)
+      OS << ")";
+    OS << "))";
+    break;
+  }
+  case 1 : {
+    OS << " [[gnu::model";
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "\"" << CodeModelAttr::ConvertModelToStr(getModel()) << "\"";
+    if (!IsFirstArgument)
+      OS << ")";
+    OS << "]]";
+    break;
+  }
+  case 2 : {
+    OS << " [[gnu::model";
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "\"" << CodeModelAttr::ConvertModelToStr(getModel()) << "\"";
+    if (!IsFirstArgument)
+      OS << ")";
+    OS << "]]";
+    break;
+  }
+}
+}
+
+const char *CodeModelAttr::getSpelling() const {
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    return "(No spelling)";
+  case 0:
+    return "model";
+  case 1:
+    return "model";
+  case 2:
+    return "model";
+  }
+}
+
+
 // CodeSegAttr implementation
 
 CodeSegAttr *CodeSegAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Name, const AttributeCommonInfo &CommonInfo) {
@@ -9565,8 +10599,8 @@ ColdAttr *ColdAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_cold, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_cold:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_cold, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_cold:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_cold, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_cold:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_cold, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -9582,8 +10616,8 @@ ColdAttr *ColdAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_cold, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_cold:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_cold, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_cold:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_cold, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_cold:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_cold, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -9670,8 +10704,8 @@ CommonAttr *CommonAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spell
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_common, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_common:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_common, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_common:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_common, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_common:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_common, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -9687,8 +10721,8 @@ CommonAttr *CommonAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_common, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_common:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_common, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_common:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_common, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_common:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_common, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -9775,8 +10809,8 @@ ConstAttr *ConstAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spellin
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_const, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_const:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_const, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_const:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_const, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_const:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_const, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -9792,8 +10826,8 @@ ConstAttr *ConstAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_const, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_const:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_const, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_const:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_const, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_const:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_const, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -10012,8 +11046,8 @@ ConstructorAttr *ConstructorAttr::CreateImplicit(ASTContext &Ctx, int Priority, 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_constructor, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_constructor:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_constructor, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_constructor:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_constructor, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_constructor:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_constructor, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -10029,8 +11063,8 @@ ConstructorAttr *ConstructorAttr::Create(ASTContext &Ctx, int Priority, SourceRa
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_constructor, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_constructor:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_constructor, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_constructor:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_constructor, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_constructor:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_constructor, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -10118,7 +11152,7 @@ const char *ConstructorAttr::getSpelling() const {
 
 // ConsumableAttr implementation
 
-ConsumableAttr *ConsumableAttr::CreateImplicit(ASTContext &Ctx, ConsumedState DefaultState, const AttributeCommonInfo &CommonInfo) {
+ConsumableAttr *ConsumableAttr::CreateImplicit(ASTContext &Ctx, ConsumableAttr::ConsumedState DefaultState, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) ConsumableAttr(Ctx, CommonInfo, DefaultState);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -10126,14 +11160,14 @@ ConsumableAttr *ConsumableAttr::CreateImplicit(ASTContext &Ctx, ConsumedState De
   return A;
 }
 
-ConsumableAttr *ConsumableAttr::Create(ASTContext &Ctx, ConsumedState DefaultState, const AttributeCommonInfo &CommonInfo) {
+ConsumableAttr *ConsumableAttr::Create(ASTContext &Ctx, ConsumableAttr::ConsumedState DefaultState, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) ConsumableAttr(Ctx, CommonInfo, DefaultState);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-ConsumableAttr *ConsumableAttr::CreateImplicit(ASTContext &Ctx, ConsumedState DefaultState, SourceRange Range, Spelling S) {
+ConsumableAttr *ConsumableAttr::CreateImplicit(ASTContext &Ctx, ConsumableAttr::ConsumedState DefaultState, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_consumable:
@@ -10148,7 +11182,7 @@ ConsumableAttr *ConsumableAttr::CreateImplicit(ASTContext &Ctx, ConsumedState De
   return CreateImplicit(Ctx, DefaultState, I);
 }
 
-ConsumableAttr *ConsumableAttr::Create(ASTContext &Ctx, ConsumedState DefaultState, SourceRange Range, Spelling S) {
+ConsumableAttr *ConsumableAttr::Create(ASTContext &Ctx, ConsumableAttr::ConsumedState DefaultState, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_consumable:
@@ -10164,7 +11198,7 @@ ConsumableAttr *ConsumableAttr::Create(ASTContext &Ctx, ConsumedState DefaultSta
 }
 
 ConsumableAttr::ConsumableAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , ConsumedState DefaultState
+              , ConsumableAttr::ConsumedState DefaultState
              )
   : InheritableAttr(Ctx, CommonInfo, attr::Consumable, false, false)
               , defaultState(DefaultState)
@@ -10173,12 +11207,12 @@ ConsumableAttr::ConsumableAttr(ASTContext &Ctx, const AttributeCommonInfo &Commo
 
 
 
-bool ConsumableAttr::ConvertStrToConsumedState(StringRef Val, ConsumedState &Out) {
-  std::optional<ConsumedState> R = llvm::StringSwitch<std::optional<ConsumedState>>(Val)
-    .Case("unknown", ConsumableAttr::Unknown)
-    .Case("consumed", ConsumableAttr::Consumed)
-    .Case("unconsumed", ConsumableAttr::Unconsumed)
-    .Default(std::optional<ConsumedState>());
+bool ConsumableAttr::ConvertStrToConsumedState(StringRef Val, ConsumableAttr::ConsumedState &Out) {
+  std::optional<ConsumableAttr::ConsumedState> R = llvm::StringSwitch<std::optional<ConsumableAttr::ConsumedState>>(Val)
+    .Case("unknown", ConsumableAttr::ConsumedState::Unknown)
+    .Case("consumed", ConsumableAttr::ConsumedState::Consumed)
+    .Case("unconsumed", ConsumableAttr::ConsumedState::Unconsumed)
+    .Default(std::optional<ConsumableAttr::ConsumedState>());
   if (R) {
     Out = *R;
       return true;
@@ -10186,11 +11220,11 @@ bool ConsumableAttr::ConvertStrToConsumedState(StringRef Val, ConsumedState &Out
   return false;
 }
 
-const char *ConsumableAttr::ConvertConsumedStateToStr(ConsumedState Val) {
+const char *ConsumableAttr::ConvertConsumedStateToStr(ConsumableAttr::ConsumedState Val) {
   switch(Val) {
-  case ConsumableAttr::Unknown: return "unknown";
-  case ConsumableAttr::Consumed: return "consumed";
-  case ConsumableAttr::Unconsumed: return "unconsumed";
+  case ConsumableAttr::ConsumedState::Unknown: return "unknown";
+  case ConsumableAttr::ConsumedState::Consumed: return "consumed";
+  case ConsumableAttr::ConsumedState::Unconsumed: return "unconsumed";
   }
   llvm_unreachable("No enumerator with that value");
 }
@@ -10455,8 +11489,8 @@ ConvergentAttr *ConvergentAttr::CreateImplicit(ASTContext &Ctx, SourceRange Rang
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_convergent, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_convergent:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_convergent, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_convergent:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_convergent, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_convergent:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_convergent, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -10472,8 +11506,8 @@ ConvergentAttr *ConvergentAttr::Create(ASTContext &Ctx, SourceRange Range, Spell
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_convergent, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_convergent:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_convergent, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_convergent:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_convergent, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_convergent:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_convergent, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -10536,6 +11570,652 @@ const char *ConvergentAttr::getSpelling() const {
 }
 
 
+// CoroDisableLifetimeBoundAttr implementation
+
+CoroDisableLifetimeBoundAttr *CoroDisableLifetimeBoundAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) CoroDisableLifetimeBoundAttr(Ctx, CommonInfo);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+CoroDisableLifetimeBoundAttr *CoroDisableLifetimeBoundAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) CoroDisableLifetimeBoundAttr(Ctx, CommonInfo);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+CoroDisableLifetimeBoundAttr *CoroDisableLifetimeBoundAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
+    switch (S) {
+    case GNU_coro_disable_lifetimebound:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_coro_disable_lifetimebound, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case CXX11_clang_coro_disable_lifetimebound:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_coro_disable_lifetimebound, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_coro_disable_lifetimebound:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_coro_disable_lifetimebound, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    default:
+      llvm_unreachable("Unknown attribute spelling!");
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    }
+  }());
+  return CreateImplicit(Ctx, I);
+}
+
+CoroDisableLifetimeBoundAttr *CoroDisableLifetimeBoundAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
+    switch (S) {
+    case GNU_coro_disable_lifetimebound:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_coro_disable_lifetimebound, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case CXX11_clang_coro_disable_lifetimebound:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_coro_disable_lifetimebound, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_coro_disable_lifetimebound:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_coro_disable_lifetimebound, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    default:
+      llvm_unreachable("Unknown attribute spelling!");
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    }
+  }());
+  return Create(Ctx, I);
+}
+
+CoroDisableLifetimeBoundAttr::CoroDisableLifetimeBoundAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             )
+  : InheritableAttr(Ctx, CommonInfo, attr::CoroDisableLifetimeBound, false, false)
+  {
+}
+
+CoroDisableLifetimeBoundAttr *CoroDisableLifetimeBoundAttr::clone(ASTContext &C) const {
+  auto *A = new (C) CoroDisableLifetimeBoundAttr(C, *this);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void CoroDisableLifetimeBoundAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+  bool IsFirstArgument = true; (void)IsFirstArgument;
+  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    break;
+  case 0 : {
+    OS << " __attribute__((coro_disable_lifetimebound";
+    OS << "))";
+    break;
+  }
+  case 1 : {
+    OS << " [[clang::coro_disable_lifetimebound";
+    OS << "]]";
+    break;
+  }
+  case 2 : {
+    OS << " [[clang::coro_disable_lifetimebound";
+    OS << "]]";
+    break;
+  }
+}
+}
+
+const char *CoroDisableLifetimeBoundAttr::getSpelling() const {
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    return "(No spelling)";
+  case 0:
+    return "coro_disable_lifetimebound";
+  case 1:
+    return "coro_disable_lifetimebound";
+  case 2:
+    return "coro_disable_lifetimebound";
+  }
+}
+
+
+// CoroLifetimeBoundAttr implementation
+
+CoroLifetimeBoundAttr *CoroLifetimeBoundAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) CoroLifetimeBoundAttr(Ctx, CommonInfo);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+CoroLifetimeBoundAttr *CoroLifetimeBoundAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) CoroLifetimeBoundAttr(Ctx, CommonInfo);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+CoroLifetimeBoundAttr *CoroLifetimeBoundAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
+    switch (S) {
+    case GNU_coro_lifetimebound:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_coro_lifetimebound, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case CXX11_clang_coro_lifetimebound:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_coro_lifetimebound, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_coro_lifetimebound:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_coro_lifetimebound, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    default:
+      llvm_unreachable("Unknown attribute spelling!");
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    }
+  }());
+  return CreateImplicit(Ctx, I);
+}
+
+CoroLifetimeBoundAttr *CoroLifetimeBoundAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
+    switch (S) {
+    case GNU_coro_lifetimebound:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_coro_lifetimebound, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case CXX11_clang_coro_lifetimebound:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_coro_lifetimebound, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_coro_lifetimebound:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_coro_lifetimebound, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    default:
+      llvm_unreachable("Unknown attribute spelling!");
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    }
+  }());
+  return Create(Ctx, I);
+}
+
+CoroLifetimeBoundAttr::CoroLifetimeBoundAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             )
+  : InheritableAttr(Ctx, CommonInfo, attr::CoroLifetimeBound, false, false)
+  {
+}
+
+CoroLifetimeBoundAttr *CoroLifetimeBoundAttr::clone(ASTContext &C) const {
+  auto *A = new (C) CoroLifetimeBoundAttr(C, *this);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void CoroLifetimeBoundAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+  bool IsFirstArgument = true; (void)IsFirstArgument;
+  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    break;
+  case 0 : {
+    OS << " __attribute__((coro_lifetimebound";
+    OS << "))";
+    break;
+  }
+  case 1 : {
+    OS << " [[clang::coro_lifetimebound";
+    OS << "]]";
+    break;
+  }
+  case 2 : {
+    OS << " [[clang::coro_lifetimebound";
+    OS << "]]";
+    break;
+  }
+}
+}
+
+const char *CoroLifetimeBoundAttr::getSpelling() const {
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    return "(No spelling)";
+  case 0:
+    return "coro_lifetimebound";
+  case 1:
+    return "coro_lifetimebound";
+  case 2:
+    return "coro_lifetimebound";
+  }
+}
+
+
+// CoroOnlyDestroyWhenCompleteAttr implementation
+
+CoroOnlyDestroyWhenCompleteAttr *CoroOnlyDestroyWhenCompleteAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) CoroOnlyDestroyWhenCompleteAttr(Ctx, CommonInfo);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+CoroOnlyDestroyWhenCompleteAttr *CoroOnlyDestroyWhenCompleteAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) CoroOnlyDestroyWhenCompleteAttr(Ctx, CommonInfo);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+CoroOnlyDestroyWhenCompleteAttr *CoroOnlyDestroyWhenCompleteAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
+    switch (S) {
+    case GNU_coro_only_destroy_when_complete:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_coro_only_destroy_when_complete, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case CXX11_clang_coro_only_destroy_when_complete:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_coro_only_destroy_when_complete, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_coro_only_destroy_when_complete:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_coro_only_destroy_when_complete, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    default:
+      llvm_unreachable("Unknown attribute spelling!");
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    }
+  }());
+  return CreateImplicit(Ctx, I);
+}
+
+CoroOnlyDestroyWhenCompleteAttr *CoroOnlyDestroyWhenCompleteAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
+    switch (S) {
+    case GNU_coro_only_destroy_when_complete:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_coro_only_destroy_when_complete, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case CXX11_clang_coro_only_destroy_when_complete:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_coro_only_destroy_when_complete, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_coro_only_destroy_when_complete:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_coro_only_destroy_when_complete, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    default:
+      llvm_unreachable("Unknown attribute spelling!");
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    }
+  }());
+  return Create(Ctx, I);
+}
+
+CoroOnlyDestroyWhenCompleteAttr::CoroOnlyDestroyWhenCompleteAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             )
+  : InheritableAttr(Ctx, CommonInfo, attr::CoroOnlyDestroyWhenComplete, false, false)
+  {
+}
+
+CoroOnlyDestroyWhenCompleteAttr *CoroOnlyDestroyWhenCompleteAttr::clone(ASTContext &C) const {
+  auto *A = new (C) CoroOnlyDestroyWhenCompleteAttr(C, *this);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void CoroOnlyDestroyWhenCompleteAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+  bool IsFirstArgument = true; (void)IsFirstArgument;
+  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    break;
+  case 0 : {
+    OS << " __attribute__((coro_only_destroy_when_complete";
+    OS << "))";
+    break;
+  }
+  case 1 : {
+    OS << " [[clang::coro_only_destroy_when_complete";
+    OS << "]]";
+    break;
+  }
+  case 2 : {
+    OS << " [[clang::coro_only_destroy_when_complete";
+    OS << "]]";
+    break;
+  }
+}
+}
+
+const char *CoroOnlyDestroyWhenCompleteAttr::getSpelling() const {
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    return "(No spelling)";
+  case 0:
+    return "coro_only_destroy_when_complete";
+  case 1:
+    return "coro_only_destroy_when_complete";
+  case 2:
+    return "coro_only_destroy_when_complete";
+  }
+}
+
+
+// CoroReturnTypeAttr implementation
+
+CoroReturnTypeAttr *CoroReturnTypeAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) CoroReturnTypeAttr(Ctx, CommonInfo);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+CoroReturnTypeAttr *CoroReturnTypeAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) CoroReturnTypeAttr(Ctx, CommonInfo);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+CoroReturnTypeAttr *CoroReturnTypeAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
+    switch (S) {
+    case GNU_coro_return_type:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_coro_return_type, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case CXX11_clang_coro_return_type:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_coro_return_type, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_coro_return_type:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_coro_return_type, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    default:
+      llvm_unreachable("Unknown attribute spelling!");
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    }
+  }());
+  return CreateImplicit(Ctx, I);
+}
+
+CoroReturnTypeAttr *CoroReturnTypeAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
+    switch (S) {
+    case GNU_coro_return_type:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_coro_return_type, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case CXX11_clang_coro_return_type:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_coro_return_type, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_coro_return_type:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_coro_return_type, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    default:
+      llvm_unreachable("Unknown attribute spelling!");
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    }
+  }());
+  return Create(Ctx, I);
+}
+
+CoroReturnTypeAttr::CoroReturnTypeAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             )
+  : InheritableAttr(Ctx, CommonInfo, attr::CoroReturnType, false, false)
+  {
+}
+
+CoroReturnTypeAttr *CoroReturnTypeAttr::clone(ASTContext &C) const {
+  auto *A = new (C) CoroReturnTypeAttr(C, *this);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void CoroReturnTypeAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+  bool IsFirstArgument = true; (void)IsFirstArgument;
+  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    break;
+  case 0 : {
+    OS << " __attribute__((coro_return_type";
+    OS << "))";
+    break;
+  }
+  case 1 : {
+    OS << " [[clang::coro_return_type";
+    OS << "]]";
+    break;
+  }
+  case 2 : {
+    OS << " [[clang::coro_return_type";
+    OS << "]]";
+    break;
+  }
+}
+}
+
+const char *CoroReturnTypeAttr::getSpelling() const {
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    return "(No spelling)";
+  case 0:
+    return "coro_return_type";
+  case 1:
+    return "coro_return_type";
+  case 2:
+    return "coro_return_type";
+  }
+}
+
+
+// CoroWrapperAttr implementation
+
+CoroWrapperAttr *CoroWrapperAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) CoroWrapperAttr(Ctx, CommonInfo);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+CoroWrapperAttr *CoroWrapperAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) CoroWrapperAttr(Ctx, CommonInfo);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+CoroWrapperAttr *CoroWrapperAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
+    switch (S) {
+    case GNU_coro_wrapper:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_coro_wrapper, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case CXX11_clang_coro_wrapper:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_coro_wrapper, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_coro_wrapper:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_coro_wrapper, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    default:
+      llvm_unreachable("Unknown attribute spelling!");
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    }
+  }());
+  return CreateImplicit(Ctx, I);
+}
+
+CoroWrapperAttr *CoroWrapperAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
+    switch (S) {
+    case GNU_coro_wrapper:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_coro_wrapper, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case CXX11_clang_coro_wrapper:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_coro_wrapper, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_coro_wrapper:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_coro_wrapper, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    default:
+      llvm_unreachable("Unknown attribute spelling!");
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    }
+  }());
+  return Create(Ctx, I);
+}
+
+CoroWrapperAttr::CoroWrapperAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             )
+  : InheritableAttr(Ctx, CommonInfo, attr::CoroWrapper, false, false)
+  {
+}
+
+CoroWrapperAttr *CoroWrapperAttr::clone(ASTContext &C) const {
+  auto *A = new (C) CoroWrapperAttr(C, *this);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void CoroWrapperAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+  bool IsFirstArgument = true; (void)IsFirstArgument;
+  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    break;
+  case 0 : {
+    OS << " __attribute__((coro_wrapper";
+    OS << "))";
+    break;
+  }
+  case 1 : {
+    OS << " [[clang::coro_wrapper";
+    OS << "]]";
+    break;
+  }
+  case 2 : {
+    OS << " [[clang::coro_wrapper";
+    OS << "]]";
+    break;
+  }
+}
+}
+
+const char *CoroWrapperAttr::getSpelling() const {
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    return "(No spelling)";
+  case 0:
+    return "coro_wrapper";
+  case 1:
+    return "coro_wrapper";
+  case 2:
+    return "coro_wrapper";
+  }
+}
+
+
+// CountedByAttr implementation
+
+CountedByAttr *CountedByAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * CountedByField, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) CountedByAttr(Ctx, CommonInfo, CountedByField);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+CountedByAttr *CountedByAttr::Create(ASTContext &Ctx, IdentifierInfo * CountedByField, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) CountedByAttr(Ctx, CommonInfo, CountedByField);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+CountedByAttr *CountedByAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * CountedByField, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
+    switch (S) {
+    case GNU_counted_by:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_counted_by, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case CXX11_clang_counted_by:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_counted_by, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_counted_by:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_counted_by, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    default:
+      llvm_unreachable("Unknown attribute spelling!");
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    }
+  }());
+  return CreateImplicit(Ctx, CountedByField, I);
+}
+
+CountedByAttr *CountedByAttr::Create(ASTContext &Ctx, IdentifierInfo * CountedByField, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
+    switch (S) {
+    case GNU_counted_by:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_counted_by, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case CXX11_clang_counted_by:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_counted_by, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_counted_by:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_counted_by, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    default:
+      llvm_unreachable("Unknown attribute spelling!");
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    }
+  }());
+  return Create(Ctx, CountedByField, I);
+}
+
+CountedByAttr::CountedByAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , IdentifierInfo * CountedByField
+             )
+  : InheritableAttr(Ctx, CommonInfo, attr::CountedBy, false, false)
+              , countedByField(CountedByField)
+  {
+}
+
+
+
+CountedByAttr *CountedByAttr::clone(ASTContext &C) const {
+  auto *A = new (C) CountedByAttr(C, *this, countedByField);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void CountedByAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+  bool IsFirstArgument = true; (void)IsFirstArgument;
+  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    break;
+  case 0 : {
+    OS << " __attribute__((counted_by";
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "" << (getCountedByField() ? getCountedByField()->getName() : "") << "";
+    if (!IsFirstArgument)
+      OS << ")";
+    OS << "))";
+    break;
+  }
+  case 1 : {
+    OS << " [[clang::counted_by";
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "" << (getCountedByField() ? getCountedByField()->getName() : "") << "";
+    if (!IsFirstArgument)
+      OS << ")";
+    OS << "]]";
+    break;
+  }
+  case 2 : {
+    OS << " [[clang::counted_by";
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "" << (getCountedByField() ? getCountedByField()->getName() : "") << "";
+    if (!IsFirstArgument)
+      OS << ")";
+    OS << "]]";
+    break;
+  }
+}
+}
+
+const char *CountedByAttr::getSpelling() const {
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    return "(No spelling)";
+  case 0:
+    return "counted_by";
+  case 1:
+    return "counted_by";
+  case 2:
+    return "counted_by";
+  }
+}
+
+
 // DLLExportAttr implementation
 
 DLLExportAttr *DLLExportAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
@@ -10562,8 +12242,8 @@ DLLExportAttr *DLLExportAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range,
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_dllexport, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_dllexport:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_dllexport, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_dllexport:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_dllexport, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_dllexport:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_dllexport, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -10581,8 +12261,8 @@ DLLExportAttr *DLLExportAttr::Create(ASTContext &Ctx, SourceRange Range, Spellin
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_dllexport, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_dllexport:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_dllexport, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_dllexport:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_dllexport, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_dllexport:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_dllexport, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -10727,8 +12407,8 @@ DLLImportAttr *DLLImportAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range,
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_dllimport, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_dllimport:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_dllimport, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_dllimport:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_dllimport, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_dllimport:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_dllimport, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -10746,8 +12426,8 @@ DLLImportAttr *DLLImportAttr::Create(ASTContext &Ctx, SourceRange Range, Spellin
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_dllimport, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_dllimport:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_dllimport, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_dllimport:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_dllimport, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_dllimport:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_dllimport, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -10890,14 +12570,14 @@ DeprecatedAttr *DeprecatedAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_deprecated, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_deprecated:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_deprecated, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_deprecated:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_deprecated, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_deprecated:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_deprecated, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case Declspec_deprecated:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_deprecated, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_deprecated:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_deprecated, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_deprecated:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_deprecated, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_deprecated:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_deprecated, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -10913,14 +12593,14 @@ DeprecatedAttr *DeprecatedAttr::Create(ASTContext &Ctx, llvm::StringRef Message,
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_deprecated, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_deprecated:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_deprecated, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_deprecated:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_deprecated, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_deprecated:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_deprecated, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case Declspec_deprecated:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_deprecated, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_deprecated:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_deprecated, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_deprecated:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_deprecated, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_deprecated:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_deprecated, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -11061,8 +12741,8 @@ DestructorAttr *DestructorAttr::CreateImplicit(ASTContext &Ctx, int Priority, So
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_destructor, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_destructor:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_destructor, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_destructor:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_destructor, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_destructor:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_destructor, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -11078,8 +12758,8 @@ DestructorAttr *DestructorAttr::Create(ASTContext &Ctx, int Priority, SourceRang
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_destructor, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_destructor:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_destructor, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_destructor:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_destructor, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_destructor:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_destructor, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -11189,8 +12869,8 @@ DiagnoseAsBuiltinAttr *DiagnoseAsBuiltinAttr::CreateImplicit(ASTContext &Ctx, Fu
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_diagnose_as_builtin, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_diagnose_as_builtin:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_diagnose_as_builtin, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_diagnose_as_builtin:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_diagnose_as_builtin, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_diagnose_as_builtin:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_diagnose_as_builtin, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -11206,8 +12886,8 @@ DiagnoseAsBuiltinAttr *DiagnoseAsBuiltinAttr::Create(ASTContext &Ctx, FunctionDe
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_diagnose_as_builtin, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_diagnose_as_builtin:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_diagnose_as_builtin, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_diagnose_as_builtin:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_diagnose_as_builtin, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_diagnose_as_builtin:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_diagnose_as_builtin, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -11320,7 +13000,7 @@ const char *DiagnoseAsBuiltinAttr::getSpelling() const {
 
 // DiagnoseIfAttr implementation
 
-DiagnoseIfAttr *DiagnoseIfAttr::CreateImplicit(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnosticType DiagnosticType, bool ArgDependent, NamedDecl * Parent, const AttributeCommonInfo &CommonInfo) {
+DiagnoseIfAttr *DiagnoseIfAttr::CreateImplicit(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnoseIfAttr::DiagnosticType DiagnosticType, bool ArgDependent, NamedDecl * Parent, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) DiagnoseIfAttr(Ctx, CommonInfo, Cond, Message, DiagnosticType, ArgDependent, Parent);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -11328,24 +13008,24 @@ DiagnoseIfAttr *DiagnoseIfAttr::CreateImplicit(ASTContext &Ctx, Expr * Cond, llv
   return A;
 }
 
-DiagnoseIfAttr *DiagnoseIfAttr::Create(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnosticType DiagnosticType, bool ArgDependent, NamedDecl * Parent, const AttributeCommonInfo &CommonInfo) {
+DiagnoseIfAttr *DiagnoseIfAttr::Create(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnoseIfAttr::DiagnosticType DiagnosticType, bool ArgDependent, NamedDecl * Parent, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) DiagnoseIfAttr(Ctx, CommonInfo, Cond, Message, DiagnosticType, ArgDependent, Parent);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-DiagnoseIfAttr *DiagnoseIfAttr::CreateImplicit(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnosticType DiagnosticType, bool ArgDependent, NamedDecl * Parent, SourceRange Range) {
+DiagnoseIfAttr *DiagnoseIfAttr::CreateImplicit(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnoseIfAttr::DiagnosticType DiagnosticType, bool ArgDependent, NamedDecl * Parent, SourceRange Range) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, Cond, Message, DiagnosticType, ArgDependent, Parent, I);
 }
 
-DiagnoseIfAttr *DiagnoseIfAttr::Create(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnosticType DiagnosticType, bool ArgDependent, NamedDecl * Parent, SourceRange Range) {
+DiagnoseIfAttr *DiagnoseIfAttr::Create(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnoseIfAttr::DiagnosticType DiagnosticType, bool ArgDependent, NamedDecl * Parent, SourceRange Range) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, Cond, Message, DiagnosticType, ArgDependent, Parent, I);
 }
 
-DiagnoseIfAttr *DiagnoseIfAttr::CreateImplicit(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnosticType DiagnosticType, const AttributeCommonInfo &CommonInfo) {
+DiagnoseIfAttr *DiagnoseIfAttr::CreateImplicit(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnoseIfAttr::DiagnosticType DiagnosticType, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) DiagnoseIfAttr(Ctx, CommonInfo, Cond, Message, DiagnosticType);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -11353,19 +13033,19 @@ DiagnoseIfAttr *DiagnoseIfAttr::CreateImplicit(ASTContext &Ctx, Expr * Cond, llv
   return A;
 }
 
-DiagnoseIfAttr *DiagnoseIfAttr::Create(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnosticType DiagnosticType, const AttributeCommonInfo &CommonInfo) {
+DiagnoseIfAttr *DiagnoseIfAttr::Create(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnoseIfAttr::DiagnosticType DiagnosticType, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) DiagnoseIfAttr(Ctx, CommonInfo, Cond, Message, DiagnosticType);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-DiagnoseIfAttr *DiagnoseIfAttr::CreateImplicit(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnosticType DiagnosticType, SourceRange Range) {
+DiagnoseIfAttr *DiagnoseIfAttr::CreateImplicit(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnoseIfAttr::DiagnosticType DiagnosticType, SourceRange Range) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, Cond, Message, DiagnosticType, I);
 }
 
-DiagnoseIfAttr *DiagnoseIfAttr::Create(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnosticType DiagnosticType, SourceRange Range) {
+DiagnoseIfAttr *DiagnoseIfAttr::Create(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnoseIfAttr::DiagnosticType DiagnosticType, SourceRange Range) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, Cond, Message, DiagnosticType, I);
 }
@@ -11373,7 +13053,7 @@ DiagnoseIfAttr *DiagnoseIfAttr::Create(ASTContext &Ctx, Expr * Cond, llvm::Strin
 DiagnoseIfAttr::DiagnoseIfAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
               , Expr * Cond
               , llvm::StringRef Message
-              , DiagnosticType DiagnosticType
+              , DiagnoseIfAttr::DiagnosticType DiagnosticType
               , bool ArgDependent
               , NamedDecl * Parent
              )
@@ -11391,7 +13071,7 @@ DiagnoseIfAttr::DiagnoseIfAttr(ASTContext &Ctx, const AttributeCommonInfo &Commo
 DiagnoseIfAttr::DiagnoseIfAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
               , Expr * Cond
               , llvm::StringRef Message
-              , DiagnosticType DiagnosticType
+              , DiagnoseIfAttr::DiagnosticType DiagnosticType
              )
   : InheritableAttr(Ctx, CommonInfo, attr::DiagnoseIf, true, true)
               , cond(Cond)
@@ -11410,11 +13090,11 @@ DiagnoseIfAttr::DiagnoseIfAttr(ASTContext &Ctx, const AttributeCommonInfo &Commo
 
 
 
-bool DiagnoseIfAttr::ConvertStrToDiagnosticType(StringRef Val, DiagnosticType &Out) {
-  std::optional<DiagnosticType> R = llvm::StringSwitch<std::optional<DiagnosticType>>(Val)
-    .Case("error", DiagnoseIfAttr::DT_Error)
-    .Case("warning", DiagnoseIfAttr::DT_Warning)
-    .Default(std::optional<DiagnosticType>());
+bool DiagnoseIfAttr::ConvertStrToDiagnosticType(StringRef Val, DiagnoseIfAttr::DiagnosticType &Out) {
+  std::optional<DiagnoseIfAttr::DiagnosticType> R = llvm::StringSwitch<std::optional<DiagnoseIfAttr::DiagnosticType>>(Val)
+    .Case("error", DiagnoseIfAttr::DiagnosticType::DT_Error)
+    .Case("warning", DiagnoseIfAttr::DiagnosticType::DT_Warning)
+    .Default(std::optional<DiagnoseIfAttr::DiagnosticType>());
   if (R) {
     Out = *R;
       return true;
@@ -11422,10 +13102,10 @@ bool DiagnoseIfAttr::ConvertStrToDiagnosticType(StringRef Val, DiagnosticType &O
   return false;
 }
 
-const char *DiagnoseIfAttr::ConvertDiagnosticTypeToStr(DiagnosticType Val) {
+const char *DiagnoseIfAttr::ConvertDiagnosticTypeToStr(DiagnoseIfAttr::DiagnosticType Val) {
   switch(Val) {
-  case DiagnoseIfAttr::DT_Error: return "error";
-  case DiagnoseIfAttr::DT_Warning: return "warning";
+  case DiagnoseIfAttr::DiagnosticType::DT_Error: return "error";
+  case DiagnoseIfAttr::DiagnosticType::DT_Warning: return "warning";
   }
   llvm_unreachable("No enumerator with that value");
 }
@@ -11501,8 +13181,8 @@ DisableSanitizerInstrumentationAttr *DisableSanitizerInstrumentationAttr::Create
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_disable_sanitizer_instrumentation, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_disable_sanitizer_instrumentation:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_disable_sanitizer_instrumentation, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_disable_sanitizer_instrumentation:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_disable_sanitizer_instrumentation, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_disable_sanitizer_instrumentation:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_disable_sanitizer_instrumentation, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -11518,8 +13198,8 @@ DisableSanitizerInstrumentationAttr *DisableSanitizerInstrumentationAttr::Create
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_disable_sanitizer_instrumentation, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_disable_sanitizer_instrumentation:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_disable_sanitizer_instrumentation, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_disable_sanitizer_instrumentation:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_disable_sanitizer_instrumentation, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_disable_sanitizer_instrumentation:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_disable_sanitizer_instrumentation, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -11606,8 +13286,8 @@ DisableTailCallsAttr *DisableTailCallsAttr::CreateImplicit(ASTContext &Ctx, Sour
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_disable_tail_calls, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_disable_tail_calls:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_disable_tail_calls, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_disable_tail_calls:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_disable_tail_calls, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_disable_tail_calls:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_disable_tail_calls, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -11623,8 +13303,8 @@ DisableTailCallsAttr *DisableTailCallsAttr::Create(ASTContext &Ctx, SourceRange 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_disable_tail_calls, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_disable_tail_calls:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_disable_tail_calls, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_disable_tail_calls:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_disable_tail_calls, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_disable_tail_calls:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_disable_tail_calls, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -11863,8 +13543,8 @@ EnforceTCBAttr *EnforceTCBAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_enforce_tcb, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_enforce_tcb:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_enforce_tcb, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_enforce_tcb:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_enforce_tcb, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_enforce_tcb:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_enforce_tcb, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -11880,8 +13560,8 @@ EnforceTCBAttr *EnforceTCBAttr::Create(ASTContext &Ctx, llvm::StringRef TCBName,
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_enforce_tcb, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_enforce_tcb:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_enforce_tcb, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_enforce_tcb:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_enforce_tcb, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_enforce_tcb:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_enforce_tcb, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -11986,8 +13666,8 @@ EnforceTCBLeafAttr *EnforceTCBLeafAttr::CreateImplicit(ASTContext &Ctx, llvm::St
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_enforce_tcb_leaf, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_enforce_tcb_leaf:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_enforce_tcb_leaf, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_enforce_tcb_leaf:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_enforce_tcb_leaf, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_enforce_tcb_leaf:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_enforce_tcb_leaf, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -12003,8 +13683,8 @@ EnforceTCBLeafAttr *EnforceTCBLeafAttr::Create(ASTContext &Ctx, llvm::StringRef 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_enforce_tcb_leaf, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_enforce_tcb_leaf:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_enforce_tcb_leaf, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_enforce_tcb_leaf:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_enforce_tcb_leaf, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_enforce_tcb_leaf:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_enforce_tcb_leaf, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -12087,7 +13767,7 @@ const char *EnforceTCBLeafAttr::getSpelling() const {
 
 // EnumExtensibilityAttr implementation
 
-EnumExtensibilityAttr *EnumExtensibilityAttr::CreateImplicit(ASTContext &Ctx, Kind Extensibility, const AttributeCommonInfo &CommonInfo) {
+EnumExtensibilityAttr *EnumExtensibilityAttr::CreateImplicit(ASTContext &Ctx, EnumExtensibilityAttr::Kind Extensibility, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) EnumExtensibilityAttr(Ctx, CommonInfo, Extensibility);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -12095,22 +13775,22 @@ EnumExtensibilityAttr *EnumExtensibilityAttr::CreateImplicit(ASTContext &Ctx, Ki
   return A;
 }
 
-EnumExtensibilityAttr *EnumExtensibilityAttr::Create(ASTContext &Ctx, Kind Extensibility, const AttributeCommonInfo &CommonInfo) {
+EnumExtensibilityAttr *EnumExtensibilityAttr::Create(ASTContext &Ctx, EnumExtensibilityAttr::Kind Extensibility, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) EnumExtensibilityAttr(Ctx, CommonInfo, Extensibility);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-EnumExtensibilityAttr *EnumExtensibilityAttr::CreateImplicit(ASTContext &Ctx, Kind Extensibility, SourceRange Range, Spelling S) {
+EnumExtensibilityAttr *EnumExtensibilityAttr::CreateImplicit(ASTContext &Ctx, EnumExtensibilityAttr::Kind Extensibility, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_enum_extensibility:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_enum_extensibility, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_enum_extensibility:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_enum_extensibility, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_enum_extensibility:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_enum_extensibility, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_enum_extensibility:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_enum_extensibility, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -12119,15 +13799,15 @@ EnumExtensibilityAttr *EnumExtensibilityAttr::CreateImplicit(ASTContext &Ctx, Ki
   return CreateImplicit(Ctx, Extensibility, I);
 }
 
-EnumExtensibilityAttr *EnumExtensibilityAttr::Create(ASTContext &Ctx, Kind Extensibility, SourceRange Range, Spelling S) {
+EnumExtensibilityAttr *EnumExtensibilityAttr::Create(ASTContext &Ctx, EnumExtensibilityAttr::Kind Extensibility, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_enum_extensibility:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_enum_extensibility, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_enum_extensibility:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_enum_extensibility, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_enum_extensibility:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_enum_extensibility, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_enum_extensibility:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_enum_extensibility, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -12137,7 +13817,7 @@ EnumExtensibilityAttr *EnumExtensibilityAttr::Create(ASTContext &Ctx, Kind Exten
 }
 
 EnumExtensibilityAttr::EnumExtensibilityAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , Kind Extensibility
+              , EnumExtensibilityAttr::Kind Extensibility
              )
   : InheritableAttr(Ctx, CommonInfo, attr::EnumExtensibility, false, false)
               , extensibility(Extensibility)
@@ -12146,11 +13826,11 @@ EnumExtensibilityAttr::EnumExtensibilityAttr(ASTContext &Ctx, const AttributeCom
 
 
 
-bool EnumExtensibilityAttr::ConvertStrToKind(StringRef Val, Kind &Out) {
-  std::optional<Kind> R = llvm::StringSwitch<std::optional<Kind>>(Val)
-    .Case("closed", EnumExtensibilityAttr::Closed)
-    .Case("open", EnumExtensibilityAttr::Open)
-    .Default(std::optional<Kind>());
+bool EnumExtensibilityAttr::ConvertStrToKind(StringRef Val, EnumExtensibilityAttr::Kind &Out) {
+  std::optional<EnumExtensibilityAttr::Kind> R = llvm::StringSwitch<std::optional<EnumExtensibilityAttr::Kind>>(Val)
+    .Case("closed", EnumExtensibilityAttr::Kind::Closed)
+    .Case("open", EnumExtensibilityAttr::Kind::Open)
+    .Default(std::optional<EnumExtensibilityAttr::Kind>());
   if (R) {
     Out = *R;
       return true;
@@ -12158,10 +13838,10 @@ bool EnumExtensibilityAttr::ConvertStrToKind(StringRef Val, Kind &Out) {
   return false;
 }
 
-const char *EnumExtensibilityAttr::ConvertKindToStr(Kind Val) {
+const char *EnumExtensibilityAttr::ConvertKindToStr(EnumExtensibilityAttr::Kind Val) {
   switch(Val) {
-  case EnumExtensibilityAttr::Closed: return "closed";
-  case EnumExtensibilityAttr::Open: return "open";
+  case EnumExtensibilityAttr::Kind::Closed: return "closed";
+  case EnumExtensibilityAttr::Kind::Open: return "open";
   }
   llvm_unreachable("No enumerator with that value");
 }
@@ -12247,14 +13927,14 @@ ErrorAttr *ErrorAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef UserDiagno
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_error, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_error:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_error, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_error:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_error, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_error:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_error, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case GNU_warning:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_warning, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_warning:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_warning, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_warning:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_warning, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_warning:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_warning, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -12270,14 +13950,14 @@ ErrorAttr *ErrorAttr::Create(ASTContext &Ctx, llvm::StringRef UserDiagnostic, So
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_error, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_error:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_error, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_error:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_error, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_error:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_error, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case GNU_warning:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_warning, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_warning:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_warning, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_warning:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_warning, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_warning:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_warning, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -12301,10 +13981,10 @@ ErrorAttr::Spelling ErrorAttr::getSemanticSpelling() const {
     default: llvm_unreachable("Unknown spelling list index");
     case 0: return GNU_error;
     case 1: return CXX11_gnu_error;
-    case 2: return C2x_gnu_error;
+    case 2: return C23_gnu_error;
     case 3: return GNU_warning;
     case 4: return CXX11_gnu_warning;
-    case 5: return C2x_gnu_warning;
+    case 5: return C23_gnu_warning;
   }
 }
 
@@ -12426,8 +14106,8 @@ ExcludeFromExplicitInstantiationAttr *ExcludeFromExplicitInstantiationAttr::Crea
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_exclude_from_explicit_instantiation, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_exclude_from_explicit_instantiation:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_exclude_from_explicit_instantiation, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_exclude_from_explicit_instantiation:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_exclude_from_explicit_instantiation, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_exclude_from_explicit_instantiation:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_exclude_from_explicit_instantiation, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -12443,8 +14123,8 @@ ExcludeFromExplicitInstantiationAttr *ExcludeFromExplicitInstantiationAttr::Crea
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_exclude_from_explicit_instantiation, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_exclude_from_explicit_instantiation:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_exclude_from_explicit_instantiation, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_exclude_from_explicit_instantiation:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_exclude_from_explicit_instantiation, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_exclude_from_explicit_instantiation:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_exclude_from_explicit_instantiation, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -12628,8 +14308,8 @@ ExternalSourceSymbolAttr *ExternalSourceSymbolAttr::CreateImplicit(ASTContext &C
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_external_source_symbol, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_external_source_symbol:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_external_source_symbol, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_external_source_symbol:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_external_source_symbol, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_external_source_symbol:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_external_source_symbol, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -12645,8 +14325,8 @@ ExternalSourceSymbolAttr *ExternalSourceSymbolAttr::Create(ASTContext &Ctx, llvm
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_external_source_symbol, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_external_source_symbol:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_external_source_symbol, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_external_source_symbol:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_external_source_symbol, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_external_source_symbol:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_external_source_symbol, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -12793,16 +14473,16 @@ FallThroughAttr *FallThroughAttr::CreateImplicit(ASTContext &Ctx, SourceRange Ra
     switch (S) {
     case CXX11_fallthrough:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_fallthrough, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_fallthrough:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_fallthrough, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_fallthrough:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_fallthrough, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_fallthrough:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_fallthrough, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case GNU_fallthrough:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_fallthrough, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_fallthrough:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_fallthrough, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_fallthrough:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_fallthrough, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_fallthrough:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_fallthrough, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -12816,16 +14496,16 @@ FallThroughAttr *FallThroughAttr::Create(ASTContext &Ctx, SourceRange Range, Spe
     switch (S) {
     case CXX11_fallthrough:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_fallthrough, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_fallthrough:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_fallthrough, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_fallthrough:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_fallthrough, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_fallthrough:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_fallthrough, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case GNU_fallthrough:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_fallthrough, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_fallthrough:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_fallthrough, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_fallthrough:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_fallthrough, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_fallthrough:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_fallthrough, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -12933,8 +14613,8 @@ FastCallAttr *FastCallAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, S
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_fastcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_fastcall:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_fastcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_fastcall:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_fastcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_fastcall:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_fastcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case Keyword_fastcall:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_fastcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
@@ -12952,8 +14632,8 @@ FastCallAttr *FastCallAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_fastcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_fastcall:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_fastcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_fastcall:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_fastcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_fastcall:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_fastcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case Keyword_fastcall:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_fastcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
@@ -13155,8 +14835,8 @@ FlagEnumAttr *FlagEnumAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, S
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_flag_enum, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_flag_enum:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_flag_enum, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_flag_enum:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_flag_enum, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_flag_enum:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_flag_enum, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -13172,8 +14852,8 @@ FlagEnumAttr *FlagEnumAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_flag_enum, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_flag_enum:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_flag_enum, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_flag_enum:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_flag_enum, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_flag_enum:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_flag_enum, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -13260,8 +14940,8 @@ FlattenAttr *FlattenAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spe
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_flatten, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_flatten:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_flatten, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_flatten:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_flatten, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_flatten:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_flatten, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -13277,8 +14957,8 @@ FlattenAttr *FlattenAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S)
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_flatten, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_flatten:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_flatten, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_flatten:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_flatten, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_flatten:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_flatten, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -13365,8 +15045,8 @@ FormatAttr *FormatAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * Type, i
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_format, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_format:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_format, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_format:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_format, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_format:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_format, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -13382,8 +15062,8 @@ FormatAttr *FormatAttr::Create(ASTContext &Ctx, IdentifierInfo * Type, int Forma
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_format, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_format:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_format, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_format:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_format, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_format:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_format, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -13506,8 +15186,8 @@ FormatArgAttr *FormatArgAttr::CreateImplicit(ASTContext &Ctx, ParamIdx FormatIdx
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_format_arg, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_format_arg:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_format_arg, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_format_arg:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_format_arg, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_format_arg:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_format_arg, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -13523,8 +15203,8 @@ FormatArgAttr *FormatArgAttr::Create(ASTContext &Ctx, ParamIdx FormatIdx, Source
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_format_arg, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_format_arg:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_format_arg, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_format_arg:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_format_arg, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_format_arg:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_format_arg, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -13605,7 +15285,7 @@ const char *FormatArgAttr::getSpelling() const {
 
 // FunctionReturnThunksAttr implementation
 
-FunctionReturnThunksAttr *FunctionReturnThunksAttr::CreateImplicit(ASTContext &Ctx, Kind ThunkType, const AttributeCommonInfo &CommonInfo) {
+FunctionReturnThunksAttr *FunctionReturnThunksAttr::CreateImplicit(ASTContext &Ctx, FunctionReturnThunksAttr::Kind ThunkType, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) FunctionReturnThunksAttr(Ctx, CommonInfo, ThunkType);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -13613,22 +15293,22 @@ FunctionReturnThunksAttr *FunctionReturnThunksAttr::CreateImplicit(ASTContext &C
   return A;
 }
 
-FunctionReturnThunksAttr *FunctionReturnThunksAttr::Create(ASTContext &Ctx, Kind ThunkType, const AttributeCommonInfo &CommonInfo) {
+FunctionReturnThunksAttr *FunctionReturnThunksAttr::Create(ASTContext &Ctx, FunctionReturnThunksAttr::Kind ThunkType, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) FunctionReturnThunksAttr(Ctx, CommonInfo, ThunkType);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-FunctionReturnThunksAttr *FunctionReturnThunksAttr::CreateImplicit(ASTContext &Ctx, Kind ThunkType, SourceRange Range, Spelling S) {
+FunctionReturnThunksAttr *FunctionReturnThunksAttr::CreateImplicit(ASTContext &Ctx, FunctionReturnThunksAttr::Kind ThunkType, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_function_return:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_function_return, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_function_return:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_function_return, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_function_return:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_function_return, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_function_return:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_function_return, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -13637,15 +15317,15 @@ FunctionReturnThunksAttr *FunctionReturnThunksAttr::CreateImplicit(ASTContext &C
   return CreateImplicit(Ctx, ThunkType, I);
 }
 
-FunctionReturnThunksAttr *FunctionReturnThunksAttr::Create(ASTContext &Ctx, Kind ThunkType, SourceRange Range, Spelling S) {
+FunctionReturnThunksAttr *FunctionReturnThunksAttr::Create(ASTContext &Ctx, FunctionReturnThunksAttr::Kind ThunkType, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_function_return:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_function_return, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_function_return:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_function_return, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_function_return:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_function_return, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_function_return:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_function_return, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -13655,7 +15335,7 @@ FunctionReturnThunksAttr *FunctionReturnThunksAttr::Create(ASTContext &Ctx, Kind
 }
 
 FunctionReturnThunksAttr::FunctionReturnThunksAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , Kind ThunkType
+              , FunctionReturnThunksAttr::Kind ThunkType
              )
   : InheritableAttr(Ctx, CommonInfo, attr::FunctionReturnThunks, false, false)
               , thunkType(ThunkType)
@@ -13664,11 +15344,11 @@ FunctionReturnThunksAttr::FunctionReturnThunksAttr(ASTContext &Ctx, const Attrib
 
 
 
-bool FunctionReturnThunksAttr::ConvertStrToKind(StringRef Val, Kind &Out) {
-  std::optional<Kind> R = llvm::StringSwitch<std::optional<Kind>>(Val)
-    .Case("keep", FunctionReturnThunksAttr::Keep)
-    .Case("thunk-extern", FunctionReturnThunksAttr::Extern)
-    .Default(std::optional<Kind>());
+bool FunctionReturnThunksAttr::ConvertStrToKind(StringRef Val, FunctionReturnThunksAttr::Kind &Out) {
+  std::optional<FunctionReturnThunksAttr::Kind> R = llvm::StringSwitch<std::optional<FunctionReturnThunksAttr::Kind>>(Val)
+    .Case("keep", FunctionReturnThunksAttr::Kind::Keep)
+    .Case("thunk-extern", FunctionReturnThunksAttr::Kind::Extern)
+    .Default(std::optional<FunctionReturnThunksAttr::Kind>());
   if (R) {
     Out = *R;
       return true;
@@ -13676,10 +15356,10 @@ bool FunctionReturnThunksAttr::ConvertStrToKind(StringRef Val, Kind &Out) {
   return false;
 }
 
-const char *FunctionReturnThunksAttr::ConvertKindToStr(Kind Val) {
+const char *FunctionReturnThunksAttr::ConvertKindToStr(FunctionReturnThunksAttr::Kind Val) {
   switch(Val) {
-  case FunctionReturnThunksAttr::Keep: return "keep";
-  case FunctionReturnThunksAttr::Extern: return "thunk-extern";
+  case FunctionReturnThunksAttr::Kind::Keep: return "keep";
+  case FunctionReturnThunksAttr::Kind::Extern: return "thunk-extern";
   }
   llvm_unreachable("No enumerator with that value");
 }
@@ -13767,8 +15447,8 @@ GNUInlineAttr *GNUInlineAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range,
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_gnu_inline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_gnu_inline:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_gnu_inline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_gnu_inline:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_gnu_inline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_gnu_inline:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_gnu_inline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -13784,8 +15464,8 @@ GNUInlineAttr *GNUInlineAttr::Create(ASTContext &Ctx, SourceRange Range, Spellin
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_gnu_inline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_gnu_inline:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_gnu_inline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_gnu_inline:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_gnu_inline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_gnu_inline:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_gnu_inline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -14267,52 +15947,234 @@ const char *HLSLNumThreadsAttr::getSpelling() const {
 }
 
 
-// HLSLResourceAttr implementation
+// HLSLParamModifierAttr implementation
 
-HLSLResourceAttr *HLSLResourceAttr::CreateImplicit(ASTContext &Ctx, ResourceClass ResourceType, ResourceKind ResourceShape, const AttributeCommonInfo &CommonInfo) {
-  auto *A = new (Ctx) HLSLResourceAttr(Ctx, CommonInfo, ResourceType, ResourceShape);
+HLSLParamModifierAttr *HLSLParamModifierAttr::CreateImplicit(ASTContext &Ctx, bool MergedSpelling, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) HLSLParamModifierAttr(Ctx, CommonInfo, MergedSpelling);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-HLSLResourceAttr *HLSLResourceAttr::Create(ASTContext &Ctx, ResourceClass ResourceType, ResourceKind ResourceShape, const AttributeCommonInfo &CommonInfo) {
-  auto *A = new (Ctx) HLSLResourceAttr(Ctx, CommonInfo, ResourceType, ResourceShape);
+HLSLParamModifierAttr *HLSLParamModifierAttr::Create(ASTContext &Ctx, bool MergedSpelling, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) HLSLParamModifierAttr(Ctx, CommonInfo, MergedSpelling);
+  return A;
+}
+
+HLSLParamModifierAttr *HLSLParamModifierAttr::CreateImplicit(ASTContext &Ctx, bool MergedSpelling, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
+    switch (S) {
+    case Keyword_in:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_in, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case Keyword_inout:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_inout, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case Keyword_out:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_out, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    default:
+      llvm_unreachable("Unknown attribute spelling!");
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    }
+  }());
+  return CreateImplicit(Ctx, MergedSpelling, I);
+}
+
+HLSLParamModifierAttr *HLSLParamModifierAttr::Create(ASTContext &Ctx, bool MergedSpelling, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
+    switch (S) {
+    case Keyword_in:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_in, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case Keyword_inout:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_inout, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case Keyword_out:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_out, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    default:
+      llvm_unreachable("Unknown attribute spelling!");
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    }
+  }());
+  return Create(Ctx, MergedSpelling, I);
+}
+
+HLSLParamModifierAttr *HLSLParamModifierAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) HLSLParamModifierAttr(Ctx, CommonInfo);
+  A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-HLSLResourceAttr *HLSLResourceAttr::CreateImplicit(ASTContext &Ctx, ResourceClass ResourceType, ResourceKind ResourceShape, SourceRange Range) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
-  return CreateImplicit(Ctx, ResourceType, ResourceShape, I);
+HLSLParamModifierAttr *HLSLParamModifierAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) HLSLParamModifierAttr(Ctx, CommonInfo);
+  return A;
 }
 
-HLSLResourceAttr *HLSLResourceAttr::Create(ASTContext &Ctx, ResourceClass ResourceType, ResourceKind ResourceShape, SourceRange Range) {
+HLSLParamModifierAttr *HLSLParamModifierAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
+    switch (S) {
+    case Keyword_in:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_in, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case Keyword_inout:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_inout, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case Keyword_out:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_out, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    default:
+      llvm_unreachable("Unknown attribute spelling!");
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    }
+  }());
+  return CreateImplicit(Ctx, I);
+}
+
+HLSLParamModifierAttr *HLSLParamModifierAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
+    switch (S) {
+    case Keyword_in:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_in, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case Keyword_inout:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_inout, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case Keyword_out:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_out, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    default:
+      llvm_unreachable("Unknown attribute spelling!");
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    }
+  }());
+  return Create(Ctx, I);
+}
+
+HLSLParamModifierAttr::HLSLParamModifierAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , bool MergedSpelling
+             )
+  : TypeAttr(Ctx, CommonInfo, attr::HLSLParamModifier, false)
+              , mergedSpelling(MergedSpelling)
+  {
+}
+
+HLSLParamModifierAttr::HLSLParamModifierAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             )
+  : TypeAttr(Ctx, CommonInfo, attr::HLSLParamModifier, false)
+              , mergedSpelling()
+  {
+}
+
+HLSLParamModifierAttr::Spelling HLSLParamModifierAttr::getSemanticSpelling() const {
+  switch (getAttributeSpellingListIndex()) {
+    default: llvm_unreachable("Unknown spelling list index");
+    case 0: return Keyword_in;
+    case 1: return Keyword_inout;
+    case 2: return Keyword_out;
+  }
+}
+
+
+HLSLParamModifierAttr *HLSLParamModifierAttr::clone(ASTContext &C) const {
+  auto *A = new (C) HLSLParamModifierAttr(C, *this, mergedSpelling);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void HLSLParamModifierAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+  bool IsFirstArgument = true; (void)IsFirstArgument;
+  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    break;
+  case 0 : {
+    OS << " in";
+    OS << "";
+    break;
+  }
+  case 1 : {
+    OS << " inout";
+    OS << "";
+    break;
+  }
+  case 2 : {
+    OS << " out";
+    OS << "";
+    break;
+  }
+}
+}
+
+const char *HLSLParamModifierAttr::getSpelling() const {
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    return "(No spelling)";
+  case 0:
+    return "in";
+  case 1:
+    return "inout";
+  case 2:
+    return "out";
+  }
+}
+
+
+// HLSLResourceAttr implementation
+
+HLSLResourceAttr *HLSLResourceAttr::CreateImplicit(ASTContext &Ctx, llvm::hlsl::ResourceClass ResourceClass, llvm::hlsl::ResourceKind ResourceKind, bool IsROV, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) HLSLResourceAttr(Ctx, CommonInfo, ResourceClass, ResourceKind, IsROV);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+HLSLResourceAttr *HLSLResourceAttr::Create(ASTContext &Ctx, llvm::hlsl::ResourceClass ResourceClass, llvm::hlsl::ResourceKind ResourceKind, bool IsROV, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) HLSLResourceAttr(Ctx, CommonInfo, ResourceClass, ResourceKind, IsROV);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+HLSLResourceAttr *HLSLResourceAttr::CreateImplicit(ASTContext &Ctx, llvm::hlsl::ResourceClass ResourceClass, llvm::hlsl::ResourceKind ResourceKind, bool IsROV, SourceRange Range) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
-  return Create(Ctx, ResourceType, ResourceShape, I);
+  return CreateImplicit(Ctx, ResourceClass, ResourceKind, IsROV, I);
+}
+
+HLSLResourceAttr *HLSLResourceAttr::Create(ASTContext &Ctx, llvm::hlsl::ResourceClass ResourceClass, llvm::hlsl::ResourceKind ResourceKind, bool IsROV, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
+  return Create(Ctx, ResourceClass, ResourceKind, IsROV, I);
 }
 
 HLSLResourceAttr::HLSLResourceAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , ResourceClass ResourceType
-              , ResourceKind ResourceShape
+              , llvm::hlsl::ResourceClass ResourceClass
+              , llvm::hlsl::ResourceKind ResourceKind
+              , bool IsROV
              )
   : InheritableAttr(Ctx, CommonInfo, attr::HLSLResource, false, false)
-              , resourceType(ResourceType)
-              , resourceShape(ResourceShape)
+              , resourceClass(ResourceClass)
+              , resourceKind(ResourceKind)
+              , isROV(IsROV)
+  {
+}
+
+HLSLResourceAttr::HLSLResourceAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , llvm::hlsl::ResourceClass ResourceClass
+              , llvm::hlsl::ResourceKind ResourceKind
+             )
+  : InheritableAttr(Ctx, CommonInfo, attr::HLSLResource, false, false)
+              , resourceClass(ResourceClass)
+              , resourceKind(ResourceKind)
+              , isROV()
   {
 }
 
 
 
-bool HLSLResourceAttr::ConvertStrToResourceClass(StringRef Val, ResourceClass &Out) {
-  std::optional<ResourceClass> R = llvm::StringSwitch<std::optional<ResourceClass>>(Val)
-    .Case("SRV", HLSLResourceAttr::SRV)
-    .Case("UAV", HLSLResourceAttr::UAV)
-    .Case("CBuffer", HLSLResourceAttr::CBuffer)
-    .Case("Sampler", HLSLResourceAttr::Sampler)
-    .Default(std::optional<ResourceClass>());
+bool HLSLResourceAttr::ConvertStrToResourceClass(StringRef Val, llvm::hlsl::ResourceClass &Out) {
+  std::optional<llvm::hlsl::ResourceClass> R = llvm::StringSwitch<std::optional<llvm::hlsl::ResourceClass>>(Val)
+    .Case("SRV", llvm::hlsl::ResourceClass::SRV)
+    .Case("UAV", llvm::hlsl::ResourceClass::UAV)
+    .Case("CBuffer", llvm::hlsl::ResourceClass::CBuffer)
+    .Case("Sampler", llvm::hlsl::ResourceClass::Sampler)
+    .Default(std::optional<llvm::hlsl::ResourceClass>());
   if (R) {
     Out = *R;
       return true;
@@ -14320,38 +16182,39 @@ bool HLSLResourceAttr::ConvertStrToResourceClass(StringRef Val, ResourceClass &O
   return false;
 }
 
-const char *HLSLResourceAttr::ConvertResourceClassToStr(ResourceClass Val) {
+const char *HLSLResourceAttr::ConvertResourceClassToStr(llvm::hlsl::ResourceClass Val) {
   switch(Val) {
-  case HLSLResourceAttr::SRV: return "SRV";
-  case HLSLResourceAttr::UAV: return "UAV";
-  case HLSLResourceAttr::CBuffer: return "CBuffer";
-  case HLSLResourceAttr::Sampler: return "Sampler";
+  case llvm::hlsl::ResourceClass::SRV: return "SRV";
+  case llvm::hlsl::ResourceClass::UAV: return "UAV";
+  case llvm::hlsl::ResourceClass::CBuffer: return "CBuffer";
+  case llvm::hlsl::ResourceClass::Sampler: return "Sampler";
+  default: llvm_unreachable("Invalid attribute value");
   }
   llvm_unreachable("No enumerator with that value");
 }
 
 
-bool HLSLResourceAttr::ConvertStrToResourceKind(StringRef Val, ResourceKind &Out) {
-  std::optional<ResourceKind> R = llvm::StringSwitch<std::optional<ResourceKind>>(Val)
-    .Case("Texture1D", HLSLResourceAttr::Texture1D)
-    .Case("Texture2D", HLSLResourceAttr::Texture2D)
-    .Case("Texture2DMS", HLSLResourceAttr::Texture2DMS)
-    .Case("Texture3D", HLSLResourceAttr::Texture3D)
-    .Case("TextureCube", HLSLResourceAttr::TextureCube)
-    .Case("Texture1DArray", HLSLResourceAttr::Texture1DArray)
-    .Case("Texture2DArray", HLSLResourceAttr::Texture2DArray)
-    .Case("Texture2DMSArray", HLSLResourceAttr::Texture2DMSArray)
-    .Case("TextureCubeArray", HLSLResourceAttr::TextureCubeArray)
-    .Case("TypedBuffer", HLSLResourceAttr::TypedBuffer)
-    .Case("RawBuffer", HLSLResourceAttr::RawBuffer)
-    .Case("StructuredBuffer", HLSLResourceAttr::StructuredBuffer)
-    .Case("CBufferKind", HLSLResourceAttr::CBufferKind)
-    .Case("SamplerKind", HLSLResourceAttr::SamplerKind)
-    .Case("TBuffer", HLSLResourceAttr::TBuffer)
-    .Case("RTAccelerationStructure", HLSLResourceAttr::RTAccelerationStructure)
-    .Case("FeedbackTexture2D", HLSLResourceAttr::FeedbackTexture2D)
-    .Case("FeedbackTexture2DArray", HLSLResourceAttr::FeedbackTexture2DArray)
-    .Default(std::optional<ResourceKind>());
+bool HLSLResourceAttr::ConvertStrToResourceKind(StringRef Val, llvm::hlsl::ResourceKind &Out) {
+  std::optional<llvm::hlsl::ResourceKind> R = llvm::StringSwitch<std::optional<llvm::hlsl::ResourceKind>>(Val)
+    .Case("Texture1D", llvm::hlsl::ResourceKind::Texture1D)
+    .Case("Texture2D", llvm::hlsl::ResourceKind::Texture2D)
+    .Case("Texture2DMS", llvm::hlsl::ResourceKind::Texture2DMS)
+    .Case("Texture3D", llvm::hlsl::ResourceKind::Texture3D)
+    .Case("TextureCube", llvm::hlsl::ResourceKind::TextureCube)
+    .Case("Texture1DArray", llvm::hlsl::ResourceKind::Texture1DArray)
+    .Case("Texture2DArray", llvm::hlsl::ResourceKind::Texture2DArray)
+    .Case("Texture2DMSArray", llvm::hlsl::ResourceKind::Texture2DMSArray)
+    .Case("TextureCubeArray", llvm::hlsl::ResourceKind::TextureCubeArray)
+    .Case("TypedBuffer", llvm::hlsl::ResourceKind::TypedBuffer)
+    .Case("RawBuffer", llvm::hlsl::ResourceKind::RawBuffer)
+    .Case("StructuredBuffer", llvm::hlsl::ResourceKind::StructuredBuffer)
+    .Case("CBuffer", llvm::hlsl::ResourceKind::CBuffer)
+    .Case("Sampler", llvm::hlsl::ResourceKind::Sampler)
+    .Case("TBuffer", llvm::hlsl::ResourceKind::TBuffer)
+    .Case("RTAccelerationStructure", llvm::hlsl::ResourceKind::RTAccelerationStructure)
+    .Case("FeedbackTexture2D", llvm::hlsl::ResourceKind::FeedbackTexture2D)
+    .Case("FeedbackTexture2DArray", llvm::hlsl::ResourceKind::FeedbackTexture2DArray)
+    .Default(std::optional<llvm::hlsl::ResourceKind>());
   if (R) {
     Out = *R;
       return true;
@@ -14359,31 +16222,34 @@ bool HLSLResourceAttr::ConvertStrToResourceKind(StringRef Val, ResourceKind &Out
   return false;
 }
 
-const char *HLSLResourceAttr::ConvertResourceKindToStr(ResourceKind Val) {
+const char *HLSLResourceAttr::ConvertResourceKindToStr(llvm::hlsl::ResourceKind Val) {
   switch(Val) {
-  case HLSLResourceAttr::Texture1D: return "Texture1D";
-  case HLSLResourceAttr::Texture2D: return "Texture2D";
-  case HLSLResourceAttr::Texture2DMS: return "Texture2DMS";
-  case HLSLResourceAttr::Texture3D: return "Texture3D";
-  case HLSLResourceAttr::TextureCube: return "TextureCube";
-  case HLSLResourceAttr::Texture1DArray: return "Texture1DArray";
-  case HLSLResourceAttr::Texture2DArray: return "Texture2DArray";
-  case HLSLResourceAttr::Texture2DMSArray: return "Texture2DMSArray";
-  case HLSLResourceAttr::TextureCubeArray: return "TextureCubeArray";
-  case HLSLResourceAttr::TypedBuffer: return "TypedBuffer";
-  case HLSLResourceAttr::RawBuffer: return "RawBuffer";
-  case HLSLResourceAttr::StructuredBuffer: return "StructuredBuffer";
-  case HLSLResourceAttr::CBufferKind: return "CBufferKind";
-  case HLSLResourceAttr::SamplerKind: return "SamplerKind";
-  case HLSLResourceAttr::TBuffer: return "TBuffer";
-  case HLSLResourceAttr::RTAccelerationStructure: return "RTAccelerationStructure";
-  case HLSLResourceAttr::FeedbackTexture2D: return "FeedbackTexture2D";
-  case HLSLResourceAttr::FeedbackTexture2DArray: return "FeedbackTexture2DArray";
+  case llvm::hlsl::ResourceKind::Texture1D: return "Texture1D";
+  case llvm::hlsl::ResourceKind::Texture2D: return "Texture2D";
+  case llvm::hlsl::ResourceKind::Texture2DMS: return "Texture2DMS";
+  case llvm::hlsl::ResourceKind::Texture3D: return "Texture3D";
+  case llvm::hlsl::ResourceKind::TextureCube: return "TextureCube";
+  case llvm::hlsl::ResourceKind::Texture1DArray: return "Texture1DArray";
+  case llvm::hlsl::ResourceKind::Texture2DArray: return "Texture2DArray";
+  case llvm::hlsl::ResourceKind::Texture2DMSArray: return "Texture2DMSArray";
+  case llvm::hlsl::ResourceKind::TextureCubeArray: return "TextureCubeArray";
+  case llvm::hlsl::ResourceKind::TypedBuffer: return "TypedBuffer";
+  case llvm::hlsl::ResourceKind::RawBuffer: return "RawBuffer";
+  case llvm::hlsl::ResourceKind::StructuredBuffer: return "StructuredBuffer";
+  case llvm::hlsl::ResourceKind::CBuffer: return "CBuffer";
+  case llvm::hlsl::ResourceKind::Sampler: return "Sampler";
+  case llvm::hlsl::ResourceKind::TBuffer: return "TBuffer";
+  case llvm::hlsl::ResourceKind::RTAccelerationStructure: return "RTAccelerationStructure";
+  case llvm::hlsl::ResourceKind::FeedbackTexture2D: return "FeedbackTexture2D";
+  case llvm::hlsl::ResourceKind::FeedbackTexture2DArray: return "FeedbackTexture2DArray";
+  default: llvm_unreachable("Invalid attribute value");
   }
   llvm_unreachable("No enumerator with that value");
 }
+
+
 HLSLResourceAttr *HLSLResourceAttr::clone(ASTContext &C) const {
-  auto *A = new (C) HLSLResourceAttr(C, *this, resourceType, resourceShape);
+  auto *A = new (C) HLSLResourceAttr(C, *this, resourceClass, resourceKind, isROV);
   A->Inherited = Inherited;
   A->IsPackExpansion = IsPackExpansion;
   A->setImplicit(Implicit);
@@ -14630,7 +16496,7 @@ const char *HLSLSV_GroupIndexAttr::getSpelling() const {
 
 // HLSLShaderAttr implementation
 
-HLSLShaderAttr *HLSLShaderAttr::CreateImplicit(ASTContext &Ctx, ShaderType Type, const AttributeCommonInfo &CommonInfo) {
+HLSLShaderAttr *HLSLShaderAttr::CreateImplicit(ASTContext &Ctx, HLSLShaderAttr::ShaderType Type, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) HLSLShaderAttr(Ctx, CommonInfo, Type);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -14638,25 +16504,25 @@ HLSLShaderAttr *HLSLShaderAttr::CreateImplicit(ASTContext &Ctx, ShaderType Type,
   return A;
 }
 
-HLSLShaderAttr *HLSLShaderAttr::Create(ASTContext &Ctx, ShaderType Type, const AttributeCommonInfo &CommonInfo) {
+HLSLShaderAttr *HLSLShaderAttr::Create(ASTContext &Ctx, HLSLShaderAttr::ShaderType Type, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) HLSLShaderAttr(Ctx, CommonInfo, Type);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-HLSLShaderAttr *HLSLShaderAttr::CreateImplicit(ASTContext &Ctx, ShaderType Type, SourceRange Range) {
+HLSLShaderAttr *HLSLShaderAttr::CreateImplicit(ASTContext &Ctx, HLSLShaderAttr::ShaderType Type, SourceRange Range) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Microsoft, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, Type, I);
 }
 
-HLSLShaderAttr *HLSLShaderAttr::Create(ASTContext &Ctx, ShaderType Type, SourceRange Range) {
+HLSLShaderAttr *HLSLShaderAttr::Create(ASTContext &Ctx, HLSLShaderAttr::ShaderType Type, SourceRange Range) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Microsoft, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, Type, I);
 }
 
 HLSLShaderAttr::HLSLShaderAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , ShaderType Type
+              , HLSLShaderAttr::ShaderType Type
              )
   : InheritableAttr(Ctx, CommonInfo, attr::HLSLShader, false, false)
               , type(Type)
@@ -14665,24 +16531,23 @@ HLSLShaderAttr::HLSLShaderAttr(ASTContext &Ctx, const AttributeCommonInfo &Commo
 
 
 
-bool HLSLShaderAttr::ConvertStrToShaderType(StringRef Val, ShaderType &Out) {
-  std::optional<ShaderType> R = llvm::StringSwitch<std::optional<ShaderType>>(Val)
-    .Case("pixel", HLSLShaderAttr::Pixel)
-    .Case("vertex", HLSLShaderAttr::Vertex)
-    .Case("geometry", HLSLShaderAttr::Geometry)
-    .Case("hull", HLSLShaderAttr::Hull)
-    .Case("domain", HLSLShaderAttr::Domain)
-    .Case("compute", HLSLShaderAttr::Compute)
-    .Case("library", HLSLShaderAttr::Library)
-    .Case("raygeneration", HLSLShaderAttr::RayGeneration)
-    .Case("intersection", HLSLShaderAttr::Intersection)
-    .Case("anyHit", HLSLShaderAttr::AnyHit)
-    .Case("closestHit", HLSLShaderAttr::ClosestHit)
-    .Case("miss", HLSLShaderAttr::Miss)
-    .Case("callable", HLSLShaderAttr::Callable)
-    .Case("mesh", HLSLShaderAttr::Mesh)
-    .Case("amplification", HLSLShaderAttr::Amplification)
-    .Default(std::optional<ShaderType>());
+bool HLSLShaderAttr::ConvertStrToShaderType(StringRef Val, HLSLShaderAttr::ShaderType &Out) {
+  std::optional<HLSLShaderAttr::ShaderType> R = llvm::StringSwitch<std::optional<HLSLShaderAttr::ShaderType>>(Val)
+    .Case("pixel", HLSLShaderAttr::ShaderType::Pixel)
+    .Case("vertex", HLSLShaderAttr::ShaderType::Vertex)
+    .Case("geometry", HLSLShaderAttr::ShaderType::Geometry)
+    .Case("hull", HLSLShaderAttr::ShaderType::Hull)
+    .Case("domain", HLSLShaderAttr::ShaderType::Domain)
+    .Case("compute", HLSLShaderAttr::ShaderType::Compute)
+    .Case("raygeneration", HLSLShaderAttr::ShaderType::RayGeneration)
+    .Case("intersection", HLSLShaderAttr::ShaderType::Intersection)
+    .Case("anyhit", HLSLShaderAttr::ShaderType::AnyHit)
+    .Case("closesthit", HLSLShaderAttr::ShaderType::ClosestHit)
+    .Case("miss", HLSLShaderAttr::ShaderType::Miss)
+    .Case("callable", HLSLShaderAttr::ShaderType::Callable)
+    .Case("mesh", HLSLShaderAttr::ShaderType::Mesh)
+    .Case("amplification", HLSLShaderAttr::ShaderType::Amplification)
+    .Default(std::optional<HLSLShaderAttr::ShaderType>());
   if (R) {
     Out = *R;
       return true;
@@ -14690,23 +16555,22 @@ bool HLSLShaderAttr::ConvertStrToShaderType(StringRef Val, ShaderType &Out) {
   return false;
 }
 
-const char *HLSLShaderAttr::ConvertShaderTypeToStr(ShaderType Val) {
+const char *HLSLShaderAttr::ConvertShaderTypeToStr(HLSLShaderAttr::ShaderType Val) {
   switch(Val) {
-  case HLSLShaderAttr::Pixel: return "pixel";
-  case HLSLShaderAttr::Vertex: return "vertex";
-  case HLSLShaderAttr::Geometry: return "geometry";
-  case HLSLShaderAttr::Hull: return "hull";
-  case HLSLShaderAttr::Domain: return "domain";
-  case HLSLShaderAttr::Compute: return "compute";
-  case HLSLShaderAttr::Library: return "library";
-  case HLSLShaderAttr::RayGeneration: return "raygeneration";
-  case HLSLShaderAttr::Intersection: return "intersection";
-  case HLSLShaderAttr::AnyHit: return "anyHit";
-  case HLSLShaderAttr::ClosestHit: return "closestHit";
-  case HLSLShaderAttr::Miss: return "miss";
-  case HLSLShaderAttr::Callable: return "callable";
-  case HLSLShaderAttr::Mesh: return "mesh";
-  case HLSLShaderAttr::Amplification: return "amplification";
+  case HLSLShaderAttr::ShaderType::Pixel: return "pixel";
+  case HLSLShaderAttr::ShaderType::Vertex: return "vertex";
+  case HLSLShaderAttr::ShaderType::Geometry: return "geometry";
+  case HLSLShaderAttr::ShaderType::Hull: return "hull";
+  case HLSLShaderAttr::ShaderType::Domain: return "domain";
+  case HLSLShaderAttr::ShaderType::Compute: return "compute";
+  case HLSLShaderAttr::ShaderType::RayGeneration: return "raygeneration";
+  case HLSLShaderAttr::ShaderType::Intersection: return "intersection";
+  case HLSLShaderAttr::ShaderType::AnyHit: return "anyhit";
+  case HLSLShaderAttr::ShaderType::ClosestHit: return "closesthit";
+  case HLSLShaderAttr::ShaderType::Miss: return "miss";
+  case HLSLShaderAttr::ShaderType::Callable: return "callable";
+  case HLSLShaderAttr::ShaderType::Mesh: return "mesh";
+  case HLSLShaderAttr::ShaderType::Amplification: return "amplification";
   }
   llvm_unreachable("No enumerator with that value");
 }
@@ -14772,8 +16636,8 @@ HotAttr *HotAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S)
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_hot, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_hot:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_hot, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_hot:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_hot, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_hot:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_hot, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -14789,8 +16653,8 @@ HotAttr *HotAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_hot, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_hot:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_hot, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_hot:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_hot, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_hot:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_hot, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -14877,8 +16741,8 @@ IBActionAttr *IBActionAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, S
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_ibaction, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_ibaction:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_ibaction, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_ibaction:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_ibaction, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_ibaction:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_ibaction, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -14894,8 +16758,8 @@ IBActionAttr *IBActionAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_ibaction, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_ibaction:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_ibaction, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_ibaction:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_ibaction, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_ibaction:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_ibaction, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -14982,8 +16846,8 @@ IBOutletAttr *IBOutletAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, S
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_iboutlet, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_iboutlet:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_iboutlet, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_iboutlet:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_iboutlet, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_iboutlet:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_iboutlet, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -14999,8 +16863,8 @@ IBOutletAttr *IBOutletAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_iboutlet, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_iboutlet:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_iboutlet, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_iboutlet:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_iboutlet, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_iboutlet:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_iboutlet, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -15087,8 +16951,8 @@ IBOutletCollectionAttr *IBOutletCollectionAttr::CreateImplicit(ASTContext &Ctx, 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_iboutletcollection, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_iboutletcollection:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_iboutletcollection, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_iboutletcollection:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_iboutletcollection, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_iboutletcollection:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_iboutletcollection, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -15104,8 +16968,8 @@ IBOutletCollectionAttr *IBOutletCollectionAttr::Create(ASTContext &Ctx, TypeSour
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_iboutletcollection, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_iboutletcollection:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_iboutletcollection, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_iboutletcollection:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_iboutletcollection, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_iboutletcollection:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_iboutletcollection, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -15227,8 +17091,8 @@ IFuncAttr *IFuncAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Resolver, 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_ifunc, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_ifunc:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_ifunc, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_ifunc:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_ifunc, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_ifunc:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_ifunc, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -15244,8 +17108,8 @@ IFuncAttr *IFuncAttr::Create(ASTContext &Ctx, llvm::StringRef Resolver, SourceRa
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_ifunc, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_ifunc:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_ifunc, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_ifunc:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_ifunc, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_ifunc:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_ifunc, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -15623,8 +17487,8 @@ InternalLinkageAttr *InternalLinkageAttr::CreateImplicit(ASTContext &Ctx, Source
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_internal_linkage, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_internal_linkage:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_internal_linkage, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_internal_linkage:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_internal_linkage, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_internal_linkage:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_internal_linkage, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -15640,8 +17504,8 @@ InternalLinkageAttr *InternalLinkageAttr::Create(ASTContext &Ctx, SourceRange Ra
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_internal_linkage, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_internal_linkage:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_internal_linkage, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_internal_linkage:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_internal_linkage, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_internal_linkage:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_internal_linkage, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -15728,8 +17592,8 @@ LTOVisibilityPublicAttr *LTOVisibilityPublicAttr::CreateImplicit(ASTContext &Ctx
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_lto_visibility_public, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_lto_visibility_public:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_lto_visibility_public, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_lto_visibility_public:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_lto_visibility_public, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_lto_visibility_public:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_lto_visibility_public, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -15745,8 +17609,8 @@ LTOVisibilityPublicAttr *LTOVisibilityPublicAttr::Create(ASTContext &Ctx, Source
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_lto_visibility_public, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_lto_visibility_public:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_lto_visibility_public, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_lto_visibility_public:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_lto_visibility_public, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_lto_visibility_public:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_lto_visibility_public, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -15908,8 +17772,8 @@ LeafAttr *LeafAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_leaf, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_leaf:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_leaf, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_leaf:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_leaf, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_leaf:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_leaf, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -15925,8 +17789,8 @@ LeafAttr *LeafAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_leaf, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_leaf:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_leaf, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_leaf:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_leaf, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_leaf:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_leaf, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -16105,8 +17969,8 @@ LikelyAttr *LikelyAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spell
     switch (S) {
     case CXX11_likely:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_likely, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_likely:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_likely, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_likely:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_likely, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -16120,8 +17984,8 @@ LikelyAttr *LikelyAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
     switch (S) {
     case CXX11_likely:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_likely, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_likely:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_likely, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_likely:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_likely, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -16201,8 +18065,8 @@ LoaderUninitializedAttr *LoaderUninitializedAttr::CreateImplicit(ASTContext &Ctx
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_loader_uninitialized, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_loader_uninitialized:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_loader_uninitialized, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_loader_uninitialized:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_loader_uninitialized, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_loader_uninitialized:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_loader_uninitialized, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -16218,8 +18082,8 @@ LoaderUninitializedAttr *LoaderUninitializedAttr::Create(ASTContext &Ctx, Source
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_loader_uninitialized, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_loader_uninitialized:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_loader_uninitialized, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_loader_uninitialized:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_loader_uninitialized, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_loader_uninitialized:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_loader_uninitialized, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -16448,7 +18312,7 @@ const char *LocksExcludedAttr::getSpelling() const {
 
 // LoopHintAttr implementation
 
-LoopHintAttr *LoopHintAttr::CreateImplicit(ASTContext &Ctx, OptionType Option, LoopHintState State, Expr * Value, const AttributeCommonInfo &CommonInfo) {
+LoopHintAttr *LoopHintAttr::CreateImplicit(ASTContext &Ctx, LoopHintAttr::OptionType Option, LoopHintAttr::LoopHintState State, Expr * Value, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) LoopHintAttr(Ctx, CommonInfo, Option, State, Value);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -16456,12 +18320,12 @@ LoopHintAttr *LoopHintAttr::CreateImplicit(ASTContext &Ctx, OptionType Option, L
   return A;
 }
 
-LoopHintAttr *LoopHintAttr::Create(ASTContext &Ctx, OptionType Option, LoopHintState State, Expr * Value, const AttributeCommonInfo &CommonInfo) {
+LoopHintAttr *LoopHintAttr::Create(ASTContext &Ctx, LoopHintAttr::OptionType Option, LoopHintAttr::LoopHintState State, Expr * Value, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) LoopHintAttr(Ctx, CommonInfo, Option, State, Value);
   return A;
 }
 
-LoopHintAttr *LoopHintAttr::CreateImplicit(ASTContext &Ctx, OptionType Option, LoopHintState State, Expr * Value, SourceRange Range, Spelling S) {
+LoopHintAttr *LoopHintAttr::CreateImplicit(ASTContext &Ctx, LoopHintAttr::OptionType Option, LoopHintAttr::LoopHintState State, Expr * Value, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case Pragma_clang_loop:
@@ -16482,7 +18346,7 @@ LoopHintAttr *LoopHintAttr::CreateImplicit(ASTContext &Ctx, OptionType Option, L
   return CreateImplicit(Ctx, Option, State, Value, I);
 }
 
-LoopHintAttr *LoopHintAttr::Create(ASTContext &Ctx, OptionType Option, LoopHintState State, Expr * Value, SourceRange Range, Spelling S) {
+LoopHintAttr *LoopHintAttr::Create(ASTContext &Ctx, LoopHintAttr::OptionType Option, LoopHintAttr::LoopHintState State, Expr * Value, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case Pragma_clang_loop:
@@ -16504,8 +18368,8 @@ LoopHintAttr *LoopHintAttr::Create(ASTContext &Ctx, OptionType Option, LoopHintS
 }
 
 LoopHintAttr::LoopHintAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , OptionType Option
-              , LoopHintState State
+              , LoopHintAttr::OptionType Option
+              , LoopHintAttr::LoopHintState State
               , Expr * Value
              )
   : Attr(Ctx, CommonInfo, attr::LoopHint, false)
@@ -16527,21 +18391,21 @@ LoopHintAttr::Spelling LoopHintAttr::getSemanticSpelling() const {
 }
 
 
-bool LoopHintAttr::ConvertStrToOptionType(StringRef Val, OptionType &Out) {
-  std::optional<OptionType> R = llvm::StringSwitch<std::optional<OptionType>>(Val)
-    .Case("vectorize", LoopHintAttr::Vectorize)
-    .Case("vectorize_width", LoopHintAttr::VectorizeWidth)
-    .Case("interleave", LoopHintAttr::Interleave)
-    .Case("interleave_count", LoopHintAttr::InterleaveCount)
-    .Case("unroll", LoopHintAttr::Unroll)
-    .Case("unroll_count", LoopHintAttr::UnrollCount)
-    .Case("unroll_and_jam", LoopHintAttr::UnrollAndJam)
-    .Case("unroll_and_jam_count", LoopHintAttr::UnrollAndJamCount)
-    .Case("pipeline", LoopHintAttr::PipelineDisabled)
-    .Case("pipeline_initiation_interval", LoopHintAttr::PipelineInitiationInterval)
-    .Case("distribute", LoopHintAttr::Distribute)
-    .Case("vectorize_predicate", LoopHintAttr::VectorizePredicate)
-    .Default(std::optional<OptionType>());
+bool LoopHintAttr::ConvertStrToOptionType(StringRef Val, LoopHintAttr::OptionType &Out) {
+  std::optional<LoopHintAttr::OptionType> R = llvm::StringSwitch<std::optional<LoopHintAttr::OptionType>>(Val)
+    .Case("vectorize", LoopHintAttr::OptionType::Vectorize)
+    .Case("vectorize_width", LoopHintAttr::OptionType::VectorizeWidth)
+    .Case("interleave", LoopHintAttr::OptionType::Interleave)
+    .Case("interleave_count", LoopHintAttr::OptionType::InterleaveCount)
+    .Case("unroll", LoopHintAttr::OptionType::Unroll)
+    .Case("unroll_count", LoopHintAttr::OptionType::UnrollCount)
+    .Case("unroll_and_jam", LoopHintAttr::OptionType::UnrollAndJam)
+    .Case("unroll_and_jam_count", LoopHintAttr::OptionType::UnrollAndJamCount)
+    .Case("pipeline", LoopHintAttr::OptionType::PipelineDisabled)
+    .Case("pipeline_initiation_interval", LoopHintAttr::OptionType::PipelineInitiationInterval)
+    .Case("distribute", LoopHintAttr::OptionType::Distribute)
+    .Case("vectorize_predicate", LoopHintAttr::OptionType::VectorizePredicate)
+    .Default(std::optional<LoopHintAttr::OptionType>());
   if (R) {
     Out = *R;
       return true;
@@ -16549,35 +18413,35 @@ bool LoopHintAttr::ConvertStrToOptionType(StringRef Val, OptionType &Out) {
   return false;
 }
 
-const char *LoopHintAttr::ConvertOptionTypeToStr(OptionType Val) {
+const char *LoopHintAttr::ConvertOptionTypeToStr(LoopHintAttr::OptionType Val) {
   switch(Val) {
-  case LoopHintAttr::Vectorize: return "vectorize";
-  case LoopHintAttr::VectorizeWidth: return "vectorize_width";
-  case LoopHintAttr::Interleave: return "interleave";
-  case LoopHintAttr::InterleaveCount: return "interleave_count";
-  case LoopHintAttr::Unroll: return "unroll";
-  case LoopHintAttr::UnrollCount: return "unroll_count";
-  case LoopHintAttr::UnrollAndJam: return "unroll_and_jam";
-  case LoopHintAttr::UnrollAndJamCount: return "unroll_and_jam_count";
-  case LoopHintAttr::PipelineDisabled: return "pipeline";
-  case LoopHintAttr::PipelineInitiationInterval: return "pipeline_initiation_interval";
-  case LoopHintAttr::Distribute: return "distribute";
-  case LoopHintAttr::VectorizePredicate: return "vectorize_predicate";
+  case LoopHintAttr::OptionType::Vectorize: return "vectorize";
+  case LoopHintAttr::OptionType::VectorizeWidth: return "vectorize_width";
+  case LoopHintAttr::OptionType::Interleave: return "interleave";
+  case LoopHintAttr::OptionType::InterleaveCount: return "interleave_count";
+  case LoopHintAttr::OptionType::Unroll: return "unroll";
+  case LoopHintAttr::OptionType::UnrollCount: return "unroll_count";
+  case LoopHintAttr::OptionType::UnrollAndJam: return "unroll_and_jam";
+  case LoopHintAttr::OptionType::UnrollAndJamCount: return "unroll_and_jam_count";
+  case LoopHintAttr::OptionType::PipelineDisabled: return "pipeline";
+  case LoopHintAttr::OptionType::PipelineInitiationInterval: return "pipeline_initiation_interval";
+  case LoopHintAttr::OptionType::Distribute: return "distribute";
+  case LoopHintAttr::OptionType::VectorizePredicate: return "vectorize_predicate";
   }
   llvm_unreachable("No enumerator with that value");
 }
 
 
-bool LoopHintAttr::ConvertStrToLoopHintState(StringRef Val, LoopHintState &Out) {
-  std::optional<LoopHintState> R = llvm::StringSwitch<std::optional<LoopHintState>>(Val)
-    .Case("enable", LoopHintAttr::Enable)
-    .Case("disable", LoopHintAttr::Disable)
-    .Case("numeric", LoopHintAttr::Numeric)
-    .Case("fixed_width", LoopHintAttr::FixedWidth)
-    .Case("scalable_width", LoopHintAttr::ScalableWidth)
-    .Case("assume_safety", LoopHintAttr::AssumeSafety)
-    .Case("full", LoopHintAttr::Full)
-    .Default(std::optional<LoopHintState>());
+bool LoopHintAttr::ConvertStrToLoopHintState(StringRef Val, LoopHintAttr::LoopHintState &Out) {
+  std::optional<LoopHintAttr::LoopHintState> R = llvm::StringSwitch<std::optional<LoopHintAttr::LoopHintState>>(Val)
+    .Case("enable", LoopHintAttr::LoopHintState::Enable)
+    .Case("disable", LoopHintAttr::LoopHintState::Disable)
+    .Case("numeric", LoopHintAttr::LoopHintState::Numeric)
+    .Case("fixed_width", LoopHintAttr::LoopHintState::FixedWidth)
+    .Case("scalable_width", LoopHintAttr::LoopHintState::ScalableWidth)
+    .Case("assume_safety", LoopHintAttr::LoopHintState::AssumeSafety)
+    .Case("full", LoopHintAttr::LoopHintState::Full)
+    .Default(std::optional<LoopHintAttr::LoopHintState>());
   if (R) {
     Out = *R;
       return true;
@@ -16585,15 +18449,15 @@ bool LoopHintAttr::ConvertStrToLoopHintState(StringRef Val, LoopHintState &Out) 
   return false;
 }
 
-const char *LoopHintAttr::ConvertLoopHintStateToStr(LoopHintState Val) {
+const char *LoopHintAttr::ConvertLoopHintStateToStr(LoopHintAttr::LoopHintState Val) {
   switch(Val) {
-  case LoopHintAttr::Enable: return "enable";
-  case LoopHintAttr::Disable: return "disable";
-  case LoopHintAttr::Numeric: return "numeric";
-  case LoopHintAttr::FixedWidth: return "fixed_width";
-  case LoopHintAttr::ScalableWidth: return "scalable_width";
-  case LoopHintAttr::AssumeSafety: return "assume_safety";
-  case LoopHintAttr::Full: return "full";
+  case LoopHintAttr::LoopHintState::Enable: return "enable";
+  case LoopHintAttr::LoopHintState::Disable: return "disable";
+  case LoopHintAttr::LoopHintState::Numeric: return "numeric";
+  case LoopHintAttr::LoopHintState::FixedWidth: return "fixed_width";
+  case LoopHintAttr::LoopHintState::ScalableWidth: return "scalable_width";
+  case LoopHintAttr::LoopHintState::AssumeSafety: return "assume_safety";
+  case LoopHintAttr::LoopHintState::Full: return "full";
   }
   llvm_unreachable("No enumerator with that value");
 }
@@ -16736,6 +18600,111 @@ const char *M68kInterruptAttr::getSpelling() const {
 }
 
 
+// M68kRTDAttr implementation
+
+M68kRTDAttr *M68kRTDAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) M68kRTDAttr(Ctx, CommonInfo);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+M68kRTDAttr *M68kRTDAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) M68kRTDAttr(Ctx, CommonInfo);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+M68kRTDAttr *M68kRTDAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
+    switch (S) {
+    case GNU_m68k_rtd:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_m68k_rtd, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case CXX11_clang_m68k_rtd:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_m68k_rtd, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_m68k_rtd:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_m68k_rtd, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    default:
+      llvm_unreachable("Unknown attribute spelling!");
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    }
+  }());
+  return CreateImplicit(Ctx, I);
+}
+
+M68kRTDAttr *M68kRTDAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
+    switch (S) {
+    case GNU_m68k_rtd:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_m68k_rtd, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case CXX11_clang_m68k_rtd:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_m68k_rtd, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_m68k_rtd:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_m68k_rtd, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    default:
+      llvm_unreachable("Unknown attribute spelling!");
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    }
+  }());
+  return Create(Ctx, I);
+}
+
+M68kRTDAttr::M68kRTDAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             )
+  : InheritableAttr(Ctx, CommonInfo, attr::M68kRTD, false, false)
+  {
+}
+
+M68kRTDAttr *M68kRTDAttr::clone(ASTContext &C) const {
+  auto *A = new (C) M68kRTDAttr(C, *this);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void M68kRTDAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+  bool IsFirstArgument = true; (void)IsFirstArgument;
+  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    break;
+  case 0 : {
+    OS << " __attribute__((m68k_rtd";
+    OS << "))";
+    break;
+  }
+  case 1 : {
+    OS << " [[clang::m68k_rtd";
+    OS << "]]";
+    break;
+  }
+  case 2 : {
+    OS << " [[clang::m68k_rtd";
+    OS << "]]";
+    break;
+  }
+}
+}
+
+const char *M68kRTDAttr::getSpelling() const {
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    return "(No spelling)";
+  case 0:
+    return "m68k_rtd";
+  case 1:
+    return "m68k_rtd";
+  case 2:
+    return "m68k_rtd";
+  }
+}
+
+
 // MIGServerRoutineAttr implementation
 
 MIGServerRoutineAttr *MIGServerRoutineAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
@@ -16760,8 +18729,8 @@ MIGServerRoutineAttr *MIGServerRoutineAttr::CreateImplicit(ASTContext &Ctx, Sour
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_mig_server_routine, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_mig_server_routine:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_mig_server_routine, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_mig_server_routine:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_mig_server_routine, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_mig_server_routine:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_mig_server_routine, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -16777,8 +18746,8 @@ MIGServerRoutineAttr *MIGServerRoutineAttr::Create(ASTContext &Ctx, SourceRange 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_mig_server_routine, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_mig_server_routine:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_mig_server_routine, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_mig_server_routine:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_mig_server_routine, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_mig_server_routine:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_mig_server_routine, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -16865,8 +18834,8 @@ MSABIAttr *MSABIAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spellin
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_ms_abi, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_ms_abi:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_ms_abi, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_ms_abi:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_ms_abi, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_ms_abi:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_ms_abi, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -16882,8 +18851,8 @@ MSABIAttr *MSABIAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_ms_abi, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_ms_abi:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_ms_abi, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_ms_abi:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_ms_abi, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_ms_abi:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_ms_abi, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -17009,6 +18978,73 @@ const char *MSAllocatorAttr::getSpelling() const {
     return "(No spelling)";
   case 0:
     return "allocator";
+  }
+}
+
+
+// MSConstexprAttr implementation
+
+MSConstexprAttr *MSConstexprAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) MSConstexprAttr(Ctx, CommonInfo);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+MSConstexprAttr *MSConstexprAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) MSConstexprAttr(Ctx, CommonInfo);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+MSConstexprAttr *MSConstexprAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
+  return CreateImplicit(Ctx, I);
+}
+
+MSConstexprAttr *MSConstexprAttr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
+  return Create(Ctx, I);
+}
+
+MSConstexprAttr::MSConstexprAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             )
+  : InheritableAttr(Ctx, CommonInfo, attr::MSConstexpr, false, false)
+  {
+}
+
+MSConstexprAttr *MSConstexprAttr::clone(ASTContext &C) const {
+  auto *A = new (C) MSConstexprAttr(C, *this);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void MSConstexprAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+  bool IsFirstArgument = true; (void)IsFirstArgument;
+  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    break;
+  case 0 : {
+    OS << " [[msvc::constexpr";
+    OS << "]]";
+    break;
+  }
+}
+}
+
+const char *MSConstexprAttr::getSpelling() const {
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    return "(No spelling)";
+  case 0:
+    return "constexpr";
   }
 }
 
@@ -17289,8 +19325,8 @@ MSP430InterruptAttr *MSP430InterruptAttr::CreateImplicit(ASTContext &Ctx, unsign
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_interrupt:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_interrupt:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_interrupt:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -17306,8 +19342,8 @@ MSP430InterruptAttr *MSP430InterruptAttr::Create(ASTContext &Ctx, unsigned Numbe
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_interrupt:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_interrupt:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_interrupt:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -17410,8 +19446,8 @@ MSStructAttr *MSStructAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, S
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_ms_struct, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_ms_struct:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_ms_struct, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_ms_struct:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_ms_struct, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_ms_struct:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_ms_struct, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -17427,8 +19463,8 @@ MSStructAttr *MSStructAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_ms_struct, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_ms_struct:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_ms_struct, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_ms_struct:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_ms_struct, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_ms_struct:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_ms_struct, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -17621,8 +19657,8 @@ MayAliasAttr *MayAliasAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, S
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_may_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_may_alias:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_may_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_may_alias:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_may_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_may_alias:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_may_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -17638,8 +19674,8 @@ MayAliasAttr *MayAliasAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_may_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_may_alias:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_may_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_may_alias:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_may_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_may_alias:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_may_alias, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -17726,8 +19762,8 @@ MaybeUndefAttr *MaybeUndefAttr::CreateImplicit(ASTContext &Ctx, SourceRange Rang
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_maybe_undef, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_maybe_undef:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_maybe_undef, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_maybe_undef:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_maybe_undef, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_maybe_undef:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_maybe_undef, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -17743,8 +19779,8 @@ MaybeUndefAttr *MaybeUndefAttr::Create(ASTContext &Ctx, SourceRange Range, Spell
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_maybe_undef, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_maybe_undef:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_maybe_undef, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_maybe_undef:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_maybe_undef, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_maybe_undef:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_maybe_undef, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -17831,8 +19867,8 @@ MicroMipsAttr *MicroMipsAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range,
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_micromips, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_micromips:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_micromips, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_micromips:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_micromips, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_micromips:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_micromips, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -17848,8 +19884,8 @@ MicroMipsAttr *MicroMipsAttr::Create(ASTContext &Ctx, SourceRange Range, Spellin
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_micromips, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_micromips:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_micromips, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_micromips:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_micromips, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_micromips:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_micromips, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -17936,8 +19972,8 @@ MinSizeAttr *MinSizeAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spe
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_minsize, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_minsize:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_minsize, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_minsize:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_minsize, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_minsize:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_minsize, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -17953,8 +19989,8 @@ MinSizeAttr *MinSizeAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S)
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_minsize, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_minsize:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_minsize, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_minsize:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_minsize, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_minsize:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_minsize, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -18041,8 +20077,8 @@ MinVectorWidthAttr *MinVectorWidthAttr::CreateImplicit(ASTContext &Ctx, unsigned
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_min_vector_width, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_min_vector_width:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_min_vector_width, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_min_vector_width:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_min_vector_width, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_min_vector_width:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_min_vector_width, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -18058,8 +20094,8 @@ MinVectorWidthAttr *MinVectorWidthAttr::Create(ASTContext &Ctx, unsigned VectorW
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_min_vector_width, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_min_vector_width:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_min_vector_width, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_min_vector_width:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_min_vector_width, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_min_vector_width:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_min_vector_width, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -18162,8 +20198,8 @@ Mips16Attr *Mips16Attr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spell
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_mips16, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_mips16:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_mips16, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_mips16:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_mips16, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_mips16:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_mips16, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -18179,8 +20215,8 @@ Mips16Attr *Mips16Attr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_mips16, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_mips16:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_mips16, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_mips16:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_mips16, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_mips16:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_mips16, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -18245,7 +20281,7 @@ const char *Mips16Attr::getSpelling() const {
 
 // MipsInterruptAttr implementation
 
-MipsInterruptAttr *MipsInterruptAttr::CreateImplicit(ASTContext &Ctx, InterruptType Interrupt, const AttributeCommonInfo &CommonInfo) {
+MipsInterruptAttr *MipsInterruptAttr::CreateImplicit(ASTContext &Ctx, MipsInterruptAttr::InterruptType Interrupt, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) MipsInterruptAttr(Ctx, CommonInfo, Interrupt);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -18253,22 +20289,22 @@ MipsInterruptAttr *MipsInterruptAttr::CreateImplicit(ASTContext &Ctx, InterruptT
   return A;
 }
 
-MipsInterruptAttr *MipsInterruptAttr::Create(ASTContext &Ctx, InterruptType Interrupt, const AttributeCommonInfo &CommonInfo) {
+MipsInterruptAttr *MipsInterruptAttr::Create(ASTContext &Ctx, MipsInterruptAttr::InterruptType Interrupt, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) MipsInterruptAttr(Ctx, CommonInfo, Interrupt);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-MipsInterruptAttr *MipsInterruptAttr::CreateImplicit(ASTContext &Ctx, InterruptType Interrupt, SourceRange Range, Spelling S) {
+MipsInterruptAttr *MipsInterruptAttr::CreateImplicit(ASTContext &Ctx, MipsInterruptAttr::InterruptType Interrupt, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_interrupt:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_interrupt:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_interrupt:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_interrupt:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -18277,15 +20313,15 @@ MipsInterruptAttr *MipsInterruptAttr::CreateImplicit(ASTContext &Ctx, InterruptT
   return CreateImplicit(Ctx, Interrupt, I);
 }
 
-MipsInterruptAttr *MipsInterruptAttr::Create(ASTContext &Ctx, InterruptType Interrupt, SourceRange Range, Spelling S) {
+MipsInterruptAttr *MipsInterruptAttr::Create(ASTContext &Ctx, MipsInterruptAttr::InterruptType Interrupt, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_interrupt:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_interrupt:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_interrupt:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_interrupt:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -18295,7 +20331,7 @@ MipsInterruptAttr *MipsInterruptAttr::Create(ASTContext &Ctx, InterruptType Inte
 }
 
 MipsInterruptAttr::MipsInterruptAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , InterruptType Interrupt
+              , MipsInterruptAttr::InterruptType Interrupt
              )
   : InheritableAttr(Ctx, CommonInfo, attr::MipsInterrupt, false, false)
               , interrupt(Interrupt)
@@ -18304,19 +20340,19 @@ MipsInterruptAttr::MipsInterruptAttr(ASTContext &Ctx, const AttributeCommonInfo 
 
 
 
-bool MipsInterruptAttr::ConvertStrToInterruptType(StringRef Val, InterruptType &Out) {
-  std::optional<InterruptType> R = llvm::StringSwitch<std::optional<InterruptType>>(Val)
-    .Case("vector=sw0", MipsInterruptAttr::sw0)
-    .Case("vector=sw1", MipsInterruptAttr::sw1)
-    .Case("vector=hw0", MipsInterruptAttr::hw0)
-    .Case("vector=hw1", MipsInterruptAttr::hw1)
-    .Case("vector=hw2", MipsInterruptAttr::hw2)
-    .Case("vector=hw3", MipsInterruptAttr::hw3)
-    .Case("vector=hw4", MipsInterruptAttr::hw4)
-    .Case("vector=hw5", MipsInterruptAttr::hw5)
-    .Case("eic", MipsInterruptAttr::eic)
-    .Case("", MipsInterruptAttr::eic)
-    .Default(std::optional<InterruptType>());
+bool MipsInterruptAttr::ConvertStrToInterruptType(StringRef Val, MipsInterruptAttr::InterruptType &Out) {
+  std::optional<MipsInterruptAttr::InterruptType> R = llvm::StringSwitch<std::optional<MipsInterruptAttr::InterruptType>>(Val)
+    .Case("vector=sw0", MipsInterruptAttr::InterruptType::sw0)
+    .Case("vector=sw1", MipsInterruptAttr::InterruptType::sw1)
+    .Case("vector=hw0", MipsInterruptAttr::InterruptType::hw0)
+    .Case("vector=hw1", MipsInterruptAttr::InterruptType::hw1)
+    .Case("vector=hw2", MipsInterruptAttr::InterruptType::hw2)
+    .Case("vector=hw3", MipsInterruptAttr::InterruptType::hw3)
+    .Case("vector=hw4", MipsInterruptAttr::InterruptType::hw4)
+    .Case("vector=hw5", MipsInterruptAttr::InterruptType::hw5)
+    .Case("eic", MipsInterruptAttr::InterruptType::eic)
+    .Case("", MipsInterruptAttr::InterruptType::eic)
+    .Default(std::optional<MipsInterruptAttr::InterruptType>());
   if (R) {
     Out = *R;
       return true;
@@ -18324,17 +20360,17 @@ bool MipsInterruptAttr::ConvertStrToInterruptType(StringRef Val, InterruptType &
   return false;
 }
 
-const char *MipsInterruptAttr::ConvertInterruptTypeToStr(InterruptType Val) {
+const char *MipsInterruptAttr::ConvertInterruptTypeToStr(MipsInterruptAttr::InterruptType Val) {
   switch(Val) {
-  case MipsInterruptAttr::sw0: return "vector=sw0";
-  case MipsInterruptAttr::sw1: return "vector=sw1";
-  case MipsInterruptAttr::hw0: return "vector=hw0";
-  case MipsInterruptAttr::hw1: return "vector=hw1";
-  case MipsInterruptAttr::hw2: return "vector=hw2";
-  case MipsInterruptAttr::hw3: return "vector=hw3";
-  case MipsInterruptAttr::hw4: return "vector=hw4";
-  case MipsInterruptAttr::hw5: return "vector=hw5";
-  case MipsInterruptAttr::eic: return "eic";
+  case MipsInterruptAttr::InterruptType::sw0: return "vector=sw0";
+  case MipsInterruptAttr::InterruptType::sw1: return "vector=sw1";
+  case MipsInterruptAttr::InterruptType::hw0: return "vector=hw0";
+  case MipsInterruptAttr::InterruptType::hw1: return "vector=hw1";
+  case MipsInterruptAttr::InterruptType::hw2: return "vector=hw2";
+  case MipsInterruptAttr::InterruptType::hw3: return "vector=hw3";
+  case MipsInterruptAttr::InterruptType::hw4: return "vector=hw4";
+  case MipsInterruptAttr::InterruptType::hw5: return "vector=hw5";
+  case MipsInterruptAttr::InterruptType::eic: return "eic";
   }
   llvm_unreachable("No enumerator with that value");
 }
@@ -18420,14 +20456,14 @@ MipsLongCallAttr *MipsLongCallAttr::CreateImplicit(ASTContext &Ctx, SourceRange 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_long_call, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_long_call:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_long_call, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_long_call:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_long_call, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_long_call:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_long_call, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case GNU_far:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_far, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_far:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_far, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_far:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_far, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_far:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_far, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -18443,14 +20479,14 @@ MipsLongCallAttr *MipsLongCallAttr::Create(ASTContext &Ctx, SourceRange Range, S
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_long_call, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_long_call:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_long_call, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_long_call:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_long_call, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_long_call:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_long_call, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case GNU_far:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_far, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_far:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_far, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_far:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_far, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_far:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_far, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -18470,10 +20506,10 @@ MipsLongCallAttr::Spelling MipsLongCallAttr::getSemanticSpelling() const {
     default: llvm_unreachable("Unknown spelling list index");
     case 0: return GNU_long_call;
     case 1: return CXX11_gnu_long_call;
-    case 2: return C2x_gnu_long_call;
+    case 2: return C23_gnu_long_call;
     case 3: return GNU_far;
     case 4: return CXX11_gnu_far;
-    case 5: return C2x_gnu_far;
+    case 5: return C23_gnu_far;
   }
 }
 MipsLongCallAttr *MipsLongCallAttr::clone(ASTContext &C) const {
@@ -18567,14 +20603,14 @@ MipsShortCallAttr *MipsShortCallAttr::CreateImplicit(ASTContext &Ctx, SourceRang
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_short_call, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_short_call:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_short_call, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_short_call:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_short_call, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_short_call:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_short_call, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case GNU_near:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_near, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_near:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_near, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_near:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_near, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_near:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_near, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -18590,14 +20626,14 @@ MipsShortCallAttr *MipsShortCallAttr::Create(ASTContext &Ctx, SourceRange Range,
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_short_call, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_short_call:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_short_call, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_short_call:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_short_call, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_short_call:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_short_call, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case GNU_near:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_near, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_near:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_near, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_near:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_near, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_near:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_near, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -18617,10 +20653,10 @@ MipsShortCallAttr::Spelling MipsShortCallAttr::getSemanticSpelling() const {
     default: llvm_unreachable("Unknown spelling list index");
     case 0: return GNU_short_call;
     case 1: return CXX11_gnu_short_call;
-    case 2: return C2x_gnu_short_call;
+    case 2: return C23_gnu_short_call;
     case 3: return GNU_near;
     case 4: return CXX11_gnu_near;
-    case 5: return C2x_gnu_near;
+    case 5: return C23_gnu_near;
   }
 }
 MipsShortCallAttr *MipsShortCallAttr::clone(ASTContext &C) const {
@@ -18716,8 +20752,8 @@ ModeAttr *ModeAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * Mode, Sourc
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_mode, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_mode:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_mode, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_mode:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_mode, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_mode:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_mode, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -18733,8 +20769,8 @@ ModeAttr *ModeAttr::Create(ASTContext &Ctx, IdentifierInfo * Mode, SourceRange R
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_mode, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_mode:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_mode, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_mode:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_mode, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_mode:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_mode, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -18837,8 +20873,8 @@ MustTailAttr *MustTailAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, S
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_musttail, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_musttail:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_musttail, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_musttail:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_musttail, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_musttail:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_musttail, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -18854,8 +20890,8 @@ MustTailAttr *MustTailAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_musttail, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_musttail:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_musttail, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_musttail:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_musttail, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_musttail:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_musttail, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -18942,8 +20978,8 @@ NSConsumedAttr *NSConsumedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Rang
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_ns_consumed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_ns_consumed:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_ns_consumed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_ns_consumed:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_ns_consumed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_ns_consumed:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_ns_consumed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -18959,8 +20995,8 @@ NSConsumedAttr *NSConsumedAttr::Create(ASTContext &Ctx, SourceRange Range, Spell
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_ns_consumed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_ns_consumed:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_ns_consumed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_ns_consumed:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_ns_consumed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_ns_consumed:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_ns_consumed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -19047,8 +21083,8 @@ NSConsumesSelfAttr *NSConsumesSelfAttr::CreateImplicit(ASTContext &Ctx, SourceRa
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_ns_consumes_self, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_ns_consumes_self:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_ns_consumes_self, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_ns_consumes_self:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_ns_consumes_self, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_ns_consumes_self:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_ns_consumes_self, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -19064,8 +21100,8 @@ NSConsumesSelfAttr *NSConsumesSelfAttr::Create(ASTContext &Ctx, SourceRange Rang
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_ns_consumes_self, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_ns_consumes_self:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_ns_consumes_self, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_ns_consumes_self:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_ns_consumes_self, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_ns_consumes_self:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_ns_consumes_self, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -19130,7 +21166,7 @@ const char *NSConsumesSelfAttr::getSpelling() const {
 
 // NSErrorDomainAttr implementation
 
-NSErrorDomainAttr *NSErrorDomainAttr::CreateImplicit(ASTContext &Ctx, VarDecl * ErrorDomain, const AttributeCommonInfo &CommonInfo) {
+NSErrorDomainAttr *NSErrorDomainAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * ErrorDomain, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) NSErrorDomainAttr(Ctx, CommonInfo, ErrorDomain);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -19138,25 +21174,25 @@ NSErrorDomainAttr *NSErrorDomainAttr::CreateImplicit(ASTContext &Ctx, VarDecl * 
   return A;
 }
 
-NSErrorDomainAttr *NSErrorDomainAttr::Create(ASTContext &Ctx, VarDecl * ErrorDomain, const AttributeCommonInfo &CommonInfo) {
+NSErrorDomainAttr *NSErrorDomainAttr::Create(ASTContext &Ctx, IdentifierInfo * ErrorDomain, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) NSErrorDomainAttr(Ctx, CommonInfo, ErrorDomain);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-NSErrorDomainAttr *NSErrorDomainAttr::CreateImplicit(ASTContext &Ctx, VarDecl * ErrorDomain, SourceRange Range) {
+NSErrorDomainAttr *NSErrorDomainAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * ErrorDomain, SourceRange Range) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, ErrorDomain, I);
 }
 
-NSErrorDomainAttr *NSErrorDomainAttr::Create(ASTContext &Ctx, VarDecl * ErrorDomain, SourceRange Range) {
+NSErrorDomainAttr *NSErrorDomainAttr::Create(ASTContext &Ctx, IdentifierInfo * ErrorDomain, SourceRange Range) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, ErrorDomain, I);
 }
 
 NSErrorDomainAttr::NSErrorDomainAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , VarDecl * ErrorDomain
+              , IdentifierInfo * ErrorDomain
              )
   : InheritableAttr(Ctx, CommonInfo, attr::NSErrorDomain, false, false)
               , errorDomain(ErrorDomain)
@@ -19183,7 +21219,7 @@ void NSErrorDomainAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Polic
   case 0 : {
     OS << " __attribute__((ns_error_domain";
     DelimitAttributeArgument(OS, IsFirstArgument);
-    OS << "" << getErrorDomain()->getName() << "";
+    OS << "" << (getErrorDomain() ? getErrorDomain()->getName() : "") << "";
     if (!IsFirstArgument)
       OS << ")";
     OS << "))";
@@ -19227,8 +21263,8 @@ NSReturnsAutoreleasedAttr *NSReturnsAutoreleasedAttr::CreateImplicit(ASTContext 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_ns_returns_autoreleased, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_ns_returns_autoreleased:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_ns_returns_autoreleased, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_ns_returns_autoreleased:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_ns_returns_autoreleased, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_ns_returns_autoreleased:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_ns_returns_autoreleased, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -19244,8 +21280,8 @@ NSReturnsAutoreleasedAttr *NSReturnsAutoreleasedAttr::Create(ASTContext &Ctx, So
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_ns_returns_autoreleased, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_ns_returns_autoreleased:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_ns_returns_autoreleased, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_ns_returns_autoreleased:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_ns_returns_autoreleased, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_ns_returns_autoreleased:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_ns_returns_autoreleased, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -19332,8 +21368,8 @@ NSReturnsNotRetainedAttr *NSReturnsNotRetainedAttr::CreateImplicit(ASTContext &C
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_ns_returns_not_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_ns_returns_not_retained:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_ns_returns_not_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_ns_returns_not_retained:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_ns_returns_not_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_ns_returns_not_retained:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_ns_returns_not_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -19349,8 +21385,8 @@ NSReturnsNotRetainedAttr *NSReturnsNotRetainedAttr::Create(ASTContext &Ctx, Sour
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_ns_returns_not_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_ns_returns_not_retained:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_ns_returns_not_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_ns_returns_not_retained:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_ns_returns_not_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_ns_returns_not_retained:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_ns_returns_not_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -19437,8 +21473,8 @@ NSReturnsRetainedAttr *NSReturnsRetainedAttr::CreateImplicit(ASTContext &Ctx, So
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_ns_returns_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_ns_returns_retained:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_ns_returns_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_ns_returns_retained:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_ns_returns_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_ns_returns_retained:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_ns_returns_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -19454,8 +21490,8 @@ NSReturnsRetainedAttr *NSReturnsRetainedAttr::Create(ASTContext &Ctx, SourceRang
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_ns_returns_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_ns_returns_retained:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_ns_returns_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_ns_returns_retained:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_ns_returns_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_ns_returns_retained:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_ns_returns_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -19542,8 +21578,8 @@ NVPTXKernelAttr *NVPTXKernelAttr::CreateImplicit(ASTContext &Ctx, SourceRange Ra
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_nvptx_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_nvptx_kernel:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_nvptx_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_nvptx_kernel:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_nvptx_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_nvptx_kernel:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_nvptx_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -19559,8 +21595,8 @@ NVPTXKernelAttr *NVPTXKernelAttr::Create(ASTContext &Ctx, SourceRange Range, Spe
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_nvptx_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_nvptx_kernel:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_nvptx_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_nvptx_kernel:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_nvptx_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_nvptx_kernel:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_nvptx_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -19647,8 +21683,8 @@ NakedAttr *NakedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spellin
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_naked, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_naked:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_naked, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_naked:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_naked, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_naked:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_naked, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case Declspec_naked:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_naked, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
@@ -19666,8 +21702,8 @@ NakedAttr *NakedAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_naked, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_naked:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_naked, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_naked:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_naked, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_naked:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_naked, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case Declspec_naked:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_naked, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
@@ -19830,8 +21866,8 @@ NoBuiltinAttr *NoBuiltinAttr::CreateImplicit(ASTContext &Ctx, StringRef *Builtin
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_no_builtin, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_no_builtin:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_no_builtin, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_no_builtin:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_no_builtin, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_no_builtin:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_no_builtin, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -19847,8 +21883,8 @@ NoBuiltinAttr *NoBuiltinAttr::Create(ASTContext &Ctx, StringRef *BuiltinNames, u
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_no_builtin, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_no_builtin:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_no_builtin, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_no_builtin:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_no_builtin, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_no_builtin:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_no_builtin, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -19979,8 +22015,8 @@ NoCommonAttr *NoCommonAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, S
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_nocommon, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_nocommon:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_nocommon, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_nocommon:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_nocommon, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_nocommon:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_nocommon, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -19996,8 +22032,8 @@ NoCommonAttr *NoCommonAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_nocommon, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_nocommon:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_nocommon, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_nocommon:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_nocommon, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_nocommon:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_nocommon, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -20084,8 +22120,8 @@ NoDebugAttr *NoDebugAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spe
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_nodebug, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_nodebug:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_nodebug, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_nodebug:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_nodebug, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_nodebug:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_nodebug, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -20101,8 +22137,8 @@ NoDebugAttr *NoDebugAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S)
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_nodebug, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_nodebug:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_nodebug, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_nodebug:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_nodebug, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_nodebug:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_nodebug, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -20189,8 +22225,8 @@ NoDerefAttr *NoDerefAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spe
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_noderef, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_noderef:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_noderef, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_noderef:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_noderef, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_noderef:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_noderef, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -20206,8 +22242,8 @@ NoDerefAttr *NoDerefAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S)
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_noderef, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_noderef:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_noderef, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_noderef:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_noderef, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_noderef:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_noderef, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -20388,8 +22424,8 @@ NoDuplicateAttr *NoDuplicateAttr::CreateImplicit(ASTContext &Ctx, SourceRange Ra
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_noduplicate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_noduplicate:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_noduplicate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_noduplicate:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_noduplicate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_noduplicate:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_noduplicate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -20405,8 +22441,8 @@ NoDuplicateAttr *NoDuplicateAttr::Create(ASTContext &Ctx, SourceRange Range, Spe
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_noduplicate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_noduplicate:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_noduplicate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_noduplicate:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_noduplicate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_noduplicate:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_noduplicate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -20493,8 +22529,8 @@ NoEscapeAttr *NoEscapeAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, S
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_noescape, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_noescape:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_noescape, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_noescape:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_noescape, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_noescape:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_noescape, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -20510,8 +22546,8 @@ NoEscapeAttr *NoEscapeAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_noescape, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_noescape:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_noescape, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_noescape:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_noescape, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_noescape:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_noescape, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -20600,12 +22636,12 @@ NoInlineAttr *NoInlineAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, S
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_noinline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_noinline:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_noinline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_noinline:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_noinline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_noinline:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_noinline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_noinline:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_noinline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_noinline:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_noinline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_noinline:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_noinline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case Declspec_noinline:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_noinline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
@@ -20625,12 +22661,12 @@ NoInlineAttr *NoInlineAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_noinline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_noinline:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_noinline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_noinline:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_noinline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_noinline:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_noinline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_noinline:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_noinline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_noinline:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_noinline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_noinline:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_noinline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case Declspec_noinline:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_noinline, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
@@ -20747,8 +22783,8 @@ NoInstrumentFunctionAttr *NoInstrumentFunctionAttr::CreateImplicit(ASTContext &C
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_no_instrument_function, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_no_instrument_function:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_no_instrument_function, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_no_instrument_function:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_no_instrument_function, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_no_instrument_function:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_no_instrument_function, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -20764,8 +22800,8 @@ NoInstrumentFunctionAttr *NoInstrumentFunctionAttr::Create(ASTContext &Ctx, Sour
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_no_instrument_function, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_no_instrument_function:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_no_instrument_function, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_no_instrument_function:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_no_instrument_function, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_no_instrument_function:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_no_instrument_function, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -20852,8 +22888,8 @@ NoMergeAttr *NoMergeAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spe
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_nomerge, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_nomerge:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_nomerge, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_nomerge:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_nomerge, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_nomerge:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_nomerge, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -20869,8 +22905,8 @@ NoMergeAttr *NoMergeAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S)
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_nomerge, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_nomerge:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_nomerge, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_nomerge:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_nomerge, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_nomerge:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_nomerge, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -20957,8 +22993,8 @@ NoMicroMipsAttr *NoMicroMipsAttr::CreateImplicit(ASTContext &Ctx, SourceRange Ra
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_nomicromips, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_nomicromips:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_nomicromips, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_nomicromips:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_nomicromips, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_nomicromips:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_nomicromips, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -20974,8 +23010,8 @@ NoMicroMipsAttr *NoMicroMipsAttr::Create(ASTContext &Ctx, SourceRange Range, Spe
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_nomicromips, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_nomicromips:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_nomicromips, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_nomicromips:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_nomicromips, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_nomicromips:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_nomicromips, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -21062,8 +23098,8 @@ NoMips16Attr *NoMips16Attr::CreateImplicit(ASTContext &Ctx, SourceRange Range, S
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_nomips16, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_nomips16:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_nomips16, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_nomips16:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_nomips16, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_nomips16:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_nomips16, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -21079,8 +23115,8 @@ NoMips16Attr *NoMips16Attr::Create(ASTContext &Ctx, SourceRange Range, Spelling 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_nomips16, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_nomips16:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_nomips16, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_nomips16:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_nomips16, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_nomips16:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_nomips16, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -21167,8 +23203,8 @@ NoProfileFunctionAttr *NoProfileFunctionAttr::CreateImplicit(ASTContext &Ctx, So
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_no_profile_instrument_function, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_no_profile_instrument_function:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_no_profile_instrument_function, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_no_profile_instrument_function:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_no_profile_instrument_function, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_no_profile_instrument_function:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_no_profile_instrument_function, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -21184,8 +23220,8 @@ NoProfileFunctionAttr *NoProfileFunctionAttr::Create(ASTContext &Ctx, SourceRang
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_no_profile_instrument_function, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_no_profile_instrument_function:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_no_profile_instrument_function, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_no_profile_instrument_function:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_no_profile_instrument_function, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_no_profile_instrument_function:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_no_profile_instrument_function, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -21272,8 +23308,8 @@ NoRandomizeLayoutAttr *NoRandomizeLayoutAttr::CreateImplicit(ASTContext &Ctx, So
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_no_randomize_layout, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_no_randomize_layout:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_no_randomize_layout, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_no_randomize_layout:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_no_randomize_layout, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_no_randomize_layout:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_no_randomize_layout, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -21289,8 +23325,8 @@ NoRandomizeLayoutAttr *NoRandomizeLayoutAttr::Create(ASTContext &Ctx, SourceRang
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_no_randomize_layout, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_no_randomize_layout:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_no_randomize_layout, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_no_randomize_layout:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_no_randomize_layout, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_no_randomize_layout:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_no_randomize_layout, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -21377,8 +23413,8 @@ NoReturnAttr *NoReturnAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, S
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_noreturn, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_noreturn:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_noreturn, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_noreturn:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_noreturn, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_noreturn:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_noreturn, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case Declspec_noreturn:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_noreturn, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
@@ -21396,8 +23432,8 @@ NoReturnAttr *NoReturnAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_noreturn, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_noreturn:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_noreturn, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_noreturn:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_noreturn, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_noreturn:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_noreturn, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case Declspec_noreturn:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_noreturn, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
@@ -21493,8 +23529,8 @@ NoSanitizeAttr *NoSanitizeAttr::CreateImplicit(ASTContext &Ctx, StringRef *Sanit
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_no_sanitize, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_no_sanitize:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_no_sanitize, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_no_sanitize:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_no_sanitize, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_no_sanitize:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_no_sanitize, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -21510,8 +23546,8 @@ NoSanitizeAttr *NoSanitizeAttr::Create(ASTContext &Ctx, StringRef *Sanitizers, u
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_no_sanitize, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_no_sanitize:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_no_sanitize, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_no_sanitize:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_no_sanitize, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_no_sanitize:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_no_sanitize, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -21642,8 +23678,8 @@ NoSpeculativeLoadHardeningAttr *NoSpeculativeLoadHardeningAttr::CreateImplicit(A
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_no_speculative_load_hardening, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_no_speculative_load_hardening:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_no_speculative_load_hardening, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_no_speculative_load_hardening:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_no_speculative_load_hardening, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_no_speculative_load_hardening:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_no_speculative_load_hardening, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -21659,8 +23695,8 @@ NoSpeculativeLoadHardeningAttr *NoSpeculativeLoadHardeningAttr::Create(ASTContex
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_no_speculative_load_hardening, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_no_speculative_load_hardening:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_no_speculative_load_hardening, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_no_speculative_load_hardening:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_no_speculative_load_hardening, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_no_speculative_load_hardening:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_no_speculative_load_hardening, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -21747,8 +23783,8 @@ NoSplitStackAttr *NoSplitStackAttr::CreateImplicit(ASTContext &Ctx, SourceRange 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_no_split_stack, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_no_split_stack:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_no_split_stack, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_no_split_stack:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_no_split_stack, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_no_split_stack:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_no_split_stack, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -21764,8 +23800,8 @@ NoSplitStackAttr *NoSplitStackAttr::Create(ASTContext &Ctx, SourceRange Range, S
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_no_split_stack, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_no_split_stack:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_no_split_stack, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_no_split_stack:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_no_split_stack, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_no_split_stack:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_no_split_stack, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -21850,8 +23886,12 @@ NoStackProtectorAttr *NoStackProtectorAttr::CreateImplicit(ASTContext &Ctx, Sour
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_no_stack_protector, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_no_stack_protector:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_no_stack_protector, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_no_stack_protector:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_no_stack_protector, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_no_stack_protector:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_no_stack_protector, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case CXX11_gnu_no_stack_protector:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_no_stack_protector, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_no_stack_protector:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_no_stack_protector, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case Declspec_safebuffers:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_safebuffers, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
@@ -21869,8 +23909,12 @@ NoStackProtectorAttr *NoStackProtectorAttr::Create(ASTContext &Ctx, SourceRange 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_no_stack_protector, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_no_stack_protector:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_no_stack_protector, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_no_stack_protector:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_no_stack_protector, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_no_stack_protector:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_no_stack_protector, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case CXX11_gnu_no_stack_protector:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_no_stack_protector, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_no_stack_protector:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_no_stack_protector, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case Declspec_safebuffers:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_safebuffers, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
@@ -21892,8 +23936,10 @@ NoStackProtectorAttr::Spelling NoStackProtectorAttr::getSemanticSpelling() const
     default: llvm_unreachable("Unknown spelling list index");
     case 0: return GNU_no_stack_protector;
     case 1: return CXX11_clang_no_stack_protector;
-    case 2: return C2x_clang_no_stack_protector;
-    case 3: return Declspec_safebuffers;
+    case 2: return C23_clang_no_stack_protector;
+    case 3: return CXX11_gnu_no_stack_protector;
+    case 4: return C23_gnu_no_stack_protector;
+    case 5: return Declspec_safebuffers;
   }
 }
 NoStackProtectorAttr *NoStackProtectorAttr::clone(ASTContext &C) const {
@@ -21927,6 +23973,16 @@ void NoStackProtectorAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Po
     break;
   }
   case 3 : {
+    OS << " [[gnu::no_stack_protector";
+    OS << "]]";
+    break;
+  }
+  case 4 : {
+    OS << " [[gnu::no_stack_protector";
+    OS << "]]";
+    break;
+  }
+  case 5 : {
     OS << " __declspec(safebuffers";
     OS << ")";
     break;
@@ -21946,6 +24002,10 @@ const char *NoStackProtectorAttr::getSpelling() const {
   case 2:
     return "no_stack_protector";
   case 3:
+    return "no_stack_protector";
+  case 4:
+    return "no_stack_protector";
+  case 5:
     return "safebuffers";
   }
 }
@@ -21975,8 +24035,8 @@ NoThreadSafetyAnalysisAttr *NoThreadSafetyAnalysisAttr::CreateImplicit(ASTContex
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_no_thread_safety_analysis, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_no_thread_safety_analysis:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_no_thread_safety_analysis, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_no_thread_safety_analysis:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_no_thread_safety_analysis, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_no_thread_safety_analysis:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_no_thread_safety_analysis, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -21992,8 +24052,8 @@ NoThreadSafetyAnalysisAttr *NoThreadSafetyAnalysisAttr::Create(ASTContext &Ctx, 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_no_thread_safety_analysis, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_no_thread_safety_analysis:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_no_thread_safety_analysis, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_no_thread_safety_analysis:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_no_thread_safety_analysis, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_no_thread_safety_analysis:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_no_thread_safety_analysis, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -22080,8 +24140,8 @@ NoThrowAttr *NoThrowAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spe
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_nothrow, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_nothrow:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_nothrow, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_nothrow:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_nothrow, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_nothrow:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_nothrow, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case Declspec_nothrow:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_nothrow, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
@@ -22099,8 +24159,8 @@ NoThrowAttr *NoThrowAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S)
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_nothrow, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_nothrow:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_nothrow, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_nothrow:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_nothrow, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_nothrow:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_nothrow, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case Declspec_nothrow:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_nothrow, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
@@ -22189,13 +24249,33 @@ NoUniqueAddressAttr *NoUniqueAddressAttr::Create(ASTContext &Ctx, const Attribut
   return A;
 }
 
-NoUniqueAddressAttr *NoUniqueAddressAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
+NoUniqueAddressAttr *NoUniqueAddressAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
+    switch (S) {
+    case CXX11_no_unique_address:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_no_unique_address, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case CXX11_msvc_no_unique_address:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_msvc_no_unique_address, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    default:
+      llvm_unreachable("Unknown attribute spelling!");
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    }
+  }());
   return CreateImplicit(Ctx, I);
 }
 
-NoUniqueAddressAttr *NoUniqueAddressAttr::Create(ASTContext &Ctx, SourceRange Range) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
+NoUniqueAddressAttr *NoUniqueAddressAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
+    switch (S) {
+    case CXX11_no_unique_address:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_no_unique_address, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case CXX11_msvc_no_unique_address:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_msvc_no_unique_address, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    default:
+      llvm_unreachable("Unknown attribute spelling!");
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    }
+  }());
   return Create(Ctx, I);
 }
 
@@ -22225,6 +24305,11 @@ void NoUniqueAddressAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Pol
     OS << "]]";
     break;
   }
+  case 1 : {
+    OS << " [[msvc::no_unique_address";
+    OS << "]]";
+    break;
+  }
 }
 }
 
@@ -22234,6 +24319,8 @@ const char *NoUniqueAddressAttr::getSpelling() const {
     llvm_unreachable("Unknown attribute spelling!");
     return "(No spelling)";
   case 0:
+    return "no_unique_address";
+  case 1:
     return "no_unique_address";
   }
 }
@@ -22263,8 +24350,8 @@ NoUwtableAttr *NoUwtableAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range,
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_nouwtable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_nouwtable:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_nouwtable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_nouwtable:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_nouwtable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_nouwtable:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_nouwtable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -22280,8 +24367,8 @@ NoUwtableAttr *NoUwtableAttr::Create(ASTContext &Ctx, SourceRange Range, Spellin
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_nouwtable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_nouwtable:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_nouwtable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_nouwtable:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_nouwtable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_nouwtable:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_nouwtable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -22368,8 +24455,8 @@ NonNullAttr *NonNullAttr::CreateImplicit(ASTContext &Ctx, ParamIdx *Args, unsign
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_nonnull, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_nonnull:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_nonnull, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_nonnull:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_nonnull, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_nonnull:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_nonnull, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -22385,8 +24472,8 @@ NonNullAttr *NonNullAttr::Create(ASTContext &Ctx, ParamIdx *Args, unsigned ArgsS
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_nonnull, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_nonnull:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_nonnull, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_nonnull:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_nonnull, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_nonnull:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_nonnull, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -22509,8 +24596,8 @@ NotTailCalledAttr *NotTailCalledAttr::CreateImplicit(ASTContext &Ctx, SourceRang
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_not_tail_called, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_not_tail_called:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_not_tail_called, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_not_tail_called:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_not_tail_called, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_not_tail_called:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_not_tail_called, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -22526,8 +24613,8 @@ NotTailCalledAttr *NotTailCalledAttr::Create(ASTContext &Ctx, SourceRange Range,
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_not_tail_called, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_not_tail_called:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_not_tail_called, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_not_tail_called:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_not_tail_called, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_not_tail_called:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_not_tail_called, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -22592,7 +24679,7 @@ const char *NotTailCalledAttr::getSpelling() const {
 
 // OMPAllocateDeclAttr implementation
 
-OMPAllocateDeclAttr *OMPAllocateDeclAttr::CreateImplicit(ASTContext &Ctx, AllocatorTypeTy AllocatorType, Expr * Allocator, Expr * Alignment, const AttributeCommonInfo &CommonInfo) {
+OMPAllocateDeclAttr *OMPAllocateDeclAttr::CreateImplicit(ASTContext &Ctx, OMPAllocateDeclAttr::AllocatorTypeTy AllocatorType, Expr * Allocator, Expr * Alignment, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) OMPAllocateDeclAttr(Ctx, CommonInfo, AllocatorType, Allocator, Alignment);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -22600,25 +24687,25 @@ OMPAllocateDeclAttr *OMPAllocateDeclAttr::CreateImplicit(ASTContext &Ctx, Alloca
   return A;
 }
 
-OMPAllocateDeclAttr *OMPAllocateDeclAttr::Create(ASTContext &Ctx, AllocatorTypeTy AllocatorType, Expr * Allocator, Expr * Alignment, const AttributeCommonInfo &CommonInfo) {
+OMPAllocateDeclAttr *OMPAllocateDeclAttr::Create(ASTContext &Ctx, OMPAllocateDeclAttr::AllocatorTypeTy AllocatorType, Expr * Allocator, Expr * Alignment, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) OMPAllocateDeclAttr(Ctx, CommonInfo, AllocatorType, Allocator, Alignment);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-OMPAllocateDeclAttr *OMPAllocateDeclAttr::CreateImplicit(ASTContext &Ctx, AllocatorTypeTy AllocatorType, Expr * Allocator, Expr * Alignment, SourceRange Range) {
+OMPAllocateDeclAttr *OMPAllocateDeclAttr::CreateImplicit(ASTContext &Ctx, OMPAllocateDeclAttr::AllocatorTypeTy AllocatorType, Expr * Allocator, Expr * Alignment, SourceRange Range) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
   return CreateImplicit(Ctx, AllocatorType, Allocator, Alignment, I);
 }
 
-OMPAllocateDeclAttr *OMPAllocateDeclAttr::Create(ASTContext &Ctx, AllocatorTypeTy AllocatorType, Expr * Allocator, Expr * Alignment, SourceRange Range) {
+OMPAllocateDeclAttr *OMPAllocateDeclAttr::Create(ASTContext &Ctx, OMPAllocateDeclAttr::AllocatorTypeTy AllocatorType, Expr * Allocator, Expr * Alignment, SourceRange Range) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
   return Create(Ctx, AllocatorType, Allocator, Alignment, I);
 }
 
 OMPAllocateDeclAttr::OMPAllocateDeclAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , AllocatorTypeTy AllocatorType
+              , OMPAllocateDeclAttr::AllocatorTypeTy AllocatorType
               , Expr * Allocator
               , Expr * Alignment
              )
@@ -22631,19 +24718,19 @@ OMPAllocateDeclAttr::OMPAllocateDeclAttr(ASTContext &Ctx, const AttributeCommonI
 
 
 
-bool OMPAllocateDeclAttr::ConvertStrToAllocatorTypeTy(StringRef Val, AllocatorTypeTy &Out) {
-  std::optional<AllocatorTypeTy> R = llvm::StringSwitch<std::optional<AllocatorTypeTy>>(Val)
-    .Case("omp_null_allocator", OMPAllocateDeclAttr::OMPNullMemAlloc)
-    .Case("omp_default_mem_alloc", OMPAllocateDeclAttr::OMPDefaultMemAlloc)
-    .Case("omp_large_cap_mem_alloc", OMPAllocateDeclAttr::OMPLargeCapMemAlloc)
-    .Case("omp_const_mem_alloc", OMPAllocateDeclAttr::OMPConstMemAlloc)
-    .Case("omp_high_bw_mem_alloc", OMPAllocateDeclAttr::OMPHighBWMemAlloc)
-    .Case("omp_low_lat_mem_alloc", OMPAllocateDeclAttr::OMPLowLatMemAlloc)
-    .Case("omp_cgroup_mem_alloc", OMPAllocateDeclAttr::OMPCGroupMemAlloc)
-    .Case("omp_pteam_mem_alloc", OMPAllocateDeclAttr::OMPPTeamMemAlloc)
-    .Case("omp_thread_mem_alloc", OMPAllocateDeclAttr::OMPThreadMemAlloc)
-    .Case("", OMPAllocateDeclAttr::OMPUserDefinedMemAlloc)
-    .Default(std::optional<AllocatorTypeTy>());
+bool OMPAllocateDeclAttr::ConvertStrToAllocatorTypeTy(StringRef Val, OMPAllocateDeclAttr::AllocatorTypeTy &Out) {
+  std::optional<OMPAllocateDeclAttr::AllocatorTypeTy> R = llvm::StringSwitch<std::optional<OMPAllocateDeclAttr::AllocatorTypeTy>>(Val)
+    .Case("omp_null_allocator", OMPAllocateDeclAttr::AllocatorTypeTy::OMPNullMemAlloc)
+    .Case("omp_default_mem_alloc", OMPAllocateDeclAttr::AllocatorTypeTy::OMPDefaultMemAlloc)
+    .Case("omp_large_cap_mem_alloc", OMPAllocateDeclAttr::AllocatorTypeTy::OMPLargeCapMemAlloc)
+    .Case("omp_const_mem_alloc", OMPAllocateDeclAttr::AllocatorTypeTy::OMPConstMemAlloc)
+    .Case("omp_high_bw_mem_alloc", OMPAllocateDeclAttr::AllocatorTypeTy::OMPHighBWMemAlloc)
+    .Case("omp_low_lat_mem_alloc", OMPAllocateDeclAttr::AllocatorTypeTy::OMPLowLatMemAlloc)
+    .Case("omp_cgroup_mem_alloc", OMPAllocateDeclAttr::AllocatorTypeTy::OMPCGroupMemAlloc)
+    .Case("omp_pteam_mem_alloc", OMPAllocateDeclAttr::AllocatorTypeTy::OMPPTeamMemAlloc)
+    .Case("omp_thread_mem_alloc", OMPAllocateDeclAttr::AllocatorTypeTy::OMPThreadMemAlloc)
+    .Case("", OMPAllocateDeclAttr::AllocatorTypeTy::OMPUserDefinedMemAlloc)
+    .Default(std::optional<OMPAllocateDeclAttr::AllocatorTypeTy>());
   if (R) {
     Out = *R;
       return true;
@@ -22651,18 +24738,18 @@ bool OMPAllocateDeclAttr::ConvertStrToAllocatorTypeTy(StringRef Val, AllocatorTy
   return false;
 }
 
-const char *OMPAllocateDeclAttr::ConvertAllocatorTypeTyToStr(AllocatorTypeTy Val) {
+const char *OMPAllocateDeclAttr::ConvertAllocatorTypeTyToStr(OMPAllocateDeclAttr::AllocatorTypeTy Val) {
   switch(Val) {
-  case OMPAllocateDeclAttr::OMPNullMemAlloc: return "omp_null_allocator";
-  case OMPAllocateDeclAttr::OMPDefaultMemAlloc: return "omp_default_mem_alloc";
-  case OMPAllocateDeclAttr::OMPLargeCapMemAlloc: return "omp_large_cap_mem_alloc";
-  case OMPAllocateDeclAttr::OMPConstMemAlloc: return "omp_const_mem_alloc";
-  case OMPAllocateDeclAttr::OMPHighBWMemAlloc: return "omp_high_bw_mem_alloc";
-  case OMPAllocateDeclAttr::OMPLowLatMemAlloc: return "omp_low_lat_mem_alloc";
-  case OMPAllocateDeclAttr::OMPCGroupMemAlloc: return "omp_cgroup_mem_alloc";
-  case OMPAllocateDeclAttr::OMPPTeamMemAlloc: return "omp_pteam_mem_alloc";
-  case OMPAllocateDeclAttr::OMPThreadMemAlloc: return "omp_thread_mem_alloc";
-  case OMPAllocateDeclAttr::OMPUserDefinedMemAlloc: return "";
+  case OMPAllocateDeclAttr::AllocatorTypeTy::OMPNullMemAlloc: return "omp_null_allocator";
+  case OMPAllocateDeclAttr::AllocatorTypeTy::OMPDefaultMemAlloc: return "omp_default_mem_alloc";
+  case OMPAllocateDeclAttr::AllocatorTypeTy::OMPLargeCapMemAlloc: return "omp_large_cap_mem_alloc";
+  case OMPAllocateDeclAttr::AllocatorTypeTy::OMPConstMemAlloc: return "omp_const_mem_alloc";
+  case OMPAllocateDeclAttr::AllocatorTypeTy::OMPHighBWMemAlloc: return "omp_high_bw_mem_alloc";
+  case OMPAllocateDeclAttr::AllocatorTypeTy::OMPLowLatMemAlloc: return "omp_low_lat_mem_alloc";
+  case OMPAllocateDeclAttr::AllocatorTypeTy::OMPCGroupMemAlloc: return "omp_cgroup_mem_alloc";
+  case OMPAllocateDeclAttr::AllocatorTypeTy::OMPPTeamMemAlloc: return "omp_pteam_mem_alloc";
+  case OMPAllocateDeclAttr::AllocatorTypeTy::OMPThreadMemAlloc: return "omp_thread_mem_alloc";
+  case OMPAllocateDeclAttr::AllocatorTypeTy::OMPUserDefinedMemAlloc: return "";
   }
   llvm_unreachable("No enumerator with that value");
 }
@@ -22790,7 +24877,7 @@ const char *OMPCaptureNoInitAttr::getSpelling() const {
 
 // OMPDeclareSimdDeclAttr implementation
 
-OMPDeclareSimdDeclAttr *OMPDeclareSimdDeclAttr::CreateImplicit(ASTContext &Ctx, BranchStateTy BranchState, Expr * Simdlen, Expr * *Uniforms, unsigned UniformsSize, Expr * *Aligneds, unsigned AlignedsSize, Expr * *Alignments, unsigned AlignmentsSize, Expr * *Linears, unsigned LinearsSize, unsigned *Modifiers, unsigned ModifiersSize, Expr * *Steps, unsigned StepsSize, const AttributeCommonInfo &CommonInfo) {
+OMPDeclareSimdDeclAttr *OMPDeclareSimdDeclAttr::CreateImplicit(ASTContext &Ctx, OMPDeclareSimdDeclAttr::BranchStateTy BranchState, Expr * Simdlen, Expr * *Uniforms, unsigned UniformsSize, Expr * *Aligneds, unsigned AlignedsSize, Expr * *Alignments, unsigned AlignmentsSize, Expr * *Linears, unsigned LinearsSize, unsigned *Modifiers, unsigned ModifiersSize, Expr * *Steps, unsigned StepsSize, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) OMPDeclareSimdDeclAttr(Ctx, CommonInfo, BranchState, Simdlen, Uniforms, UniformsSize, Aligneds, AlignedsSize, Alignments, AlignmentsSize, Linears, LinearsSize, Modifiers, ModifiersSize, Steps, StepsSize);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -22798,25 +24885,25 @@ OMPDeclareSimdDeclAttr *OMPDeclareSimdDeclAttr::CreateImplicit(ASTContext &Ctx, 
   return A;
 }
 
-OMPDeclareSimdDeclAttr *OMPDeclareSimdDeclAttr::Create(ASTContext &Ctx, BranchStateTy BranchState, Expr * Simdlen, Expr * *Uniforms, unsigned UniformsSize, Expr * *Aligneds, unsigned AlignedsSize, Expr * *Alignments, unsigned AlignmentsSize, Expr * *Linears, unsigned LinearsSize, unsigned *Modifiers, unsigned ModifiersSize, Expr * *Steps, unsigned StepsSize, const AttributeCommonInfo &CommonInfo) {
+OMPDeclareSimdDeclAttr *OMPDeclareSimdDeclAttr::Create(ASTContext &Ctx, OMPDeclareSimdDeclAttr::BranchStateTy BranchState, Expr * Simdlen, Expr * *Uniforms, unsigned UniformsSize, Expr * *Aligneds, unsigned AlignedsSize, Expr * *Alignments, unsigned AlignmentsSize, Expr * *Linears, unsigned LinearsSize, unsigned *Modifiers, unsigned ModifiersSize, Expr * *Steps, unsigned StepsSize, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) OMPDeclareSimdDeclAttr(Ctx, CommonInfo, BranchState, Simdlen, Uniforms, UniformsSize, Aligneds, AlignedsSize, Alignments, AlignmentsSize, Linears, LinearsSize, Modifiers, ModifiersSize, Steps, StepsSize);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-OMPDeclareSimdDeclAttr *OMPDeclareSimdDeclAttr::CreateImplicit(ASTContext &Ctx, BranchStateTy BranchState, Expr * Simdlen, Expr * *Uniforms, unsigned UniformsSize, Expr * *Aligneds, unsigned AlignedsSize, Expr * *Alignments, unsigned AlignmentsSize, Expr * *Linears, unsigned LinearsSize, unsigned *Modifiers, unsigned ModifiersSize, Expr * *Steps, unsigned StepsSize, SourceRange Range) {
+OMPDeclareSimdDeclAttr *OMPDeclareSimdDeclAttr::CreateImplicit(ASTContext &Ctx, OMPDeclareSimdDeclAttr::BranchStateTy BranchState, Expr * Simdlen, Expr * *Uniforms, unsigned UniformsSize, Expr * *Aligneds, unsigned AlignedsSize, Expr * *Alignments, unsigned AlignmentsSize, Expr * *Linears, unsigned LinearsSize, unsigned *Modifiers, unsigned ModifiersSize, Expr * *Steps, unsigned StepsSize, SourceRange Range) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Pragma, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, BranchState, Simdlen, Uniforms, UniformsSize, Aligneds, AlignedsSize, Alignments, AlignmentsSize, Linears, LinearsSize, Modifiers, ModifiersSize, Steps, StepsSize, I);
 }
 
-OMPDeclareSimdDeclAttr *OMPDeclareSimdDeclAttr::Create(ASTContext &Ctx, BranchStateTy BranchState, Expr * Simdlen, Expr * *Uniforms, unsigned UniformsSize, Expr * *Aligneds, unsigned AlignedsSize, Expr * *Alignments, unsigned AlignmentsSize, Expr * *Linears, unsigned LinearsSize, unsigned *Modifiers, unsigned ModifiersSize, Expr * *Steps, unsigned StepsSize, SourceRange Range) {
+OMPDeclareSimdDeclAttr *OMPDeclareSimdDeclAttr::Create(ASTContext &Ctx, OMPDeclareSimdDeclAttr::BranchStateTy BranchState, Expr * Simdlen, Expr * *Uniforms, unsigned UniformsSize, Expr * *Aligneds, unsigned AlignedsSize, Expr * *Alignments, unsigned AlignmentsSize, Expr * *Linears, unsigned LinearsSize, unsigned *Modifiers, unsigned ModifiersSize, Expr * *Steps, unsigned StepsSize, SourceRange Range) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Pragma, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, BranchState, Simdlen, Uniforms, UniformsSize, Aligneds, AlignedsSize, Alignments, AlignmentsSize, Linears, LinearsSize, Modifiers, ModifiersSize, Steps, StepsSize, I);
 }
 
 OMPDeclareSimdDeclAttr::OMPDeclareSimdDeclAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , BranchStateTy BranchState
+              , OMPDeclareSimdDeclAttr::BranchStateTy BranchState
               , Expr * Simdlen
               , Expr * *Uniforms, unsigned UniformsSize
               , Expr * *Aligneds, unsigned AlignedsSize
@@ -22844,7 +24931,7 @@ OMPDeclareSimdDeclAttr::OMPDeclareSimdDeclAttr(ASTContext &Ctx, const AttributeC
 }
 
 OMPDeclareSimdDeclAttr::OMPDeclareSimdDeclAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , BranchStateTy BranchState
+              , OMPDeclareSimdDeclAttr::BranchStateTy BranchState
               , Expr * Simdlen
              )
   : Attr(Ctx, CommonInfo, attr::OMPDeclareSimdDecl, false)
@@ -22861,12 +24948,12 @@ OMPDeclareSimdDeclAttr::OMPDeclareSimdDeclAttr(ASTContext &Ctx, const AttributeC
 
 
 
-bool OMPDeclareSimdDeclAttr::ConvertStrToBranchStateTy(StringRef Val, BranchStateTy &Out) {
-  std::optional<BranchStateTy> R = llvm::StringSwitch<std::optional<BranchStateTy>>(Val)
-    .Case("", OMPDeclareSimdDeclAttr::BS_Undefined)
-    .Case("inbranch", OMPDeclareSimdDeclAttr::BS_Inbranch)
-    .Case("notinbranch", OMPDeclareSimdDeclAttr::BS_Notinbranch)
-    .Default(std::optional<BranchStateTy>());
+bool OMPDeclareSimdDeclAttr::ConvertStrToBranchStateTy(StringRef Val, OMPDeclareSimdDeclAttr::BranchStateTy &Out) {
+  std::optional<OMPDeclareSimdDeclAttr::BranchStateTy> R = llvm::StringSwitch<std::optional<OMPDeclareSimdDeclAttr::BranchStateTy>>(Val)
+    .Case("", OMPDeclareSimdDeclAttr::BranchStateTy::BS_Undefined)
+    .Case("inbranch", OMPDeclareSimdDeclAttr::BranchStateTy::BS_Inbranch)
+    .Case("notinbranch", OMPDeclareSimdDeclAttr::BranchStateTy::BS_Notinbranch)
+    .Default(std::optional<OMPDeclareSimdDeclAttr::BranchStateTy>());
   if (R) {
     Out = *R;
       return true;
@@ -22874,11 +24961,11 @@ bool OMPDeclareSimdDeclAttr::ConvertStrToBranchStateTy(StringRef Val, BranchStat
   return false;
 }
 
-const char *OMPDeclareSimdDeclAttr::ConvertBranchStateTyToStr(BranchStateTy Val) {
+const char *OMPDeclareSimdDeclAttr::ConvertBranchStateTyToStr(OMPDeclareSimdDeclAttr::BranchStateTy Val) {
   switch(Val) {
-  case OMPDeclareSimdDeclAttr::BS_Undefined: return "";
-  case OMPDeclareSimdDeclAttr::BS_Inbranch: return "inbranch";
-  case OMPDeclareSimdDeclAttr::BS_Notinbranch: return "notinbranch";
+  case OMPDeclareSimdDeclAttr::BranchStateTy::BS_Undefined: return "";
+  case OMPDeclareSimdDeclAttr::BranchStateTy::BS_Inbranch: return "inbranch";
+  case OMPDeclareSimdDeclAttr::BranchStateTy::BS_Notinbranch: return "notinbranch";
   }
   llvm_unreachable("No enumerator with that value");
 }
@@ -22932,7 +25019,7 @@ const char *OMPDeclareSimdDeclAttr::getSpelling() const {
 
 // OMPDeclareTargetDeclAttr implementation
 
-OMPDeclareTargetDeclAttr *OMPDeclareTargetDeclAttr::CreateImplicit(ASTContext &Ctx, MapTypeTy MapType, DevTypeTy DevType, Expr * IndirectExpr, bool Indirect, unsigned Level, const AttributeCommonInfo &CommonInfo) {
+OMPDeclareTargetDeclAttr *OMPDeclareTargetDeclAttr::CreateImplicit(ASTContext &Ctx, OMPDeclareTargetDeclAttr::MapTypeTy MapType, OMPDeclareTargetDeclAttr::DevTypeTy DevType, Expr * IndirectExpr, bool Indirect, unsigned Level, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) OMPDeclareTargetDeclAttr(Ctx, CommonInfo, MapType, DevType, IndirectExpr, Indirect, Level);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -22940,26 +25027,26 @@ OMPDeclareTargetDeclAttr *OMPDeclareTargetDeclAttr::CreateImplicit(ASTContext &C
   return A;
 }
 
-OMPDeclareTargetDeclAttr *OMPDeclareTargetDeclAttr::Create(ASTContext &Ctx, MapTypeTy MapType, DevTypeTy DevType, Expr * IndirectExpr, bool Indirect, unsigned Level, const AttributeCommonInfo &CommonInfo) {
+OMPDeclareTargetDeclAttr *OMPDeclareTargetDeclAttr::Create(ASTContext &Ctx, OMPDeclareTargetDeclAttr::MapTypeTy MapType, OMPDeclareTargetDeclAttr::DevTypeTy DevType, Expr * IndirectExpr, bool Indirect, unsigned Level, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) OMPDeclareTargetDeclAttr(Ctx, CommonInfo, MapType, DevType, IndirectExpr, Indirect, Level);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-OMPDeclareTargetDeclAttr *OMPDeclareTargetDeclAttr::CreateImplicit(ASTContext &Ctx, MapTypeTy MapType, DevTypeTy DevType, Expr * IndirectExpr, bool Indirect, unsigned Level, SourceRange Range) {
+OMPDeclareTargetDeclAttr *OMPDeclareTargetDeclAttr::CreateImplicit(ASTContext &Ctx, OMPDeclareTargetDeclAttr::MapTypeTy MapType, OMPDeclareTargetDeclAttr::DevTypeTy DevType, Expr * IndirectExpr, bool Indirect, unsigned Level, SourceRange Range) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Pragma, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, MapType, DevType, IndirectExpr, Indirect, Level, I);
 }
 
-OMPDeclareTargetDeclAttr *OMPDeclareTargetDeclAttr::Create(ASTContext &Ctx, MapTypeTy MapType, DevTypeTy DevType, Expr * IndirectExpr, bool Indirect, unsigned Level, SourceRange Range) {
+OMPDeclareTargetDeclAttr *OMPDeclareTargetDeclAttr::Create(ASTContext &Ctx, OMPDeclareTargetDeclAttr::MapTypeTy MapType, OMPDeclareTargetDeclAttr::DevTypeTy DevType, Expr * IndirectExpr, bool Indirect, unsigned Level, SourceRange Range) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Pragma, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, MapType, DevType, IndirectExpr, Indirect, Level, I);
 }
 
 OMPDeclareTargetDeclAttr::OMPDeclareTargetDeclAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , MapTypeTy MapType
-              , DevTypeTy DevType
+              , OMPDeclareTargetDeclAttr::MapTypeTy MapType
+              , OMPDeclareTargetDeclAttr::DevTypeTy DevType
               , Expr * IndirectExpr
               , bool Indirect
               , unsigned Level
@@ -22975,12 +25062,12 @@ OMPDeclareTargetDeclAttr::OMPDeclareTargetDeclAttr(ASTContext &Ctx, const Attrib
 
 
 
-bool OMPDeclareTargetDeclAttr::ConvertStrToMapTypeTy(StringRef Val, MapTypeTy &Out) {
-  std::optional<MapTypeTy> R = llvm::StringSwitch<std::optional<MapTypeTy>>(Val)
-    .Case("to", OMPDeclareTargetDeclAttr::MT_To)
-    .Case("enter", OMPDeclareTargetDeclAttr::MT_Enter)
-    .Case("link", OMPDeclareTargetDeclAttr::MT_Link)
-    .Default(std::optional<MapTypeTy>());
+bool OMPDeclareTargetDeclAttr::ConvertStrToMapTypeTy(StringRef Val, OMPDeclareTargetDeclAttr::MapTypeTy &Out) {
+  std::optional<OMPDeclareTargetDeclAttr::MapTypeTy> R = llvm::StringSwitch<std::optional<OMPDeclareTargetDeclAttr::MapTypeTy>>(Val)
+    .Case("to", OMPDeclareTargetDeclAttr::MapTypeTy::MT_To)
+    .Case("enter", OMPDeclareTargetDeclAttr::MapTypeTy::MT_Enter)
+    .Case("link", OMPDeclareTargetDeclAttr::MapTypeTy::MT_Link)
+    .Default(std::optional<OMPDeclareTargetDeclAttr::MapTypeTy>());
   if (R) {
     Out = *R;
       return true;
@@ -22988,22 +25075,22 @@ bool OMPDeclareTargetDeclAttr::ConvertStrToMapTypeTy(StringRef Val, MapTypeTy &O
   return false;
 }
 
-const char *OMPDeclareTargetDeclAttr::ConvertMapTypeTyToStr(MapTypeTy Val) {
+const char *OMPDeclareTargetDeclAttr::ConvertMapTypeTyToStr(OMPDeclareTargetDeclAttr::MapTypeTy Val) {
   switch(Val) {
-  case OMPDeclareTargetDeclAttr::MT_To: return "to";
-  case OMPDeclareTargetDeclAttr::MT_Enter: return "enter";
-  case OMPDeclareTargetDeclAttr::MT_Link: return "link";
+  case OMPDeclareTargetDeclAttr::MapTypeTy::MT_To: return "to";
+  case OMPDeclareTargetDeclAttr::MapTypeTy::MT_Enter: return "enter";
+  case OMPDeclareTargetDeclAttr::MapTypeTy::MT_Link: return "link";
   }
   llvm_unreachable("No enumerator with that value");
 }
 
 
-bool OMPDeclareTargetDeclAttr::ConvertStrToDevTypeTy(StringRef Val, DevTypeTy &Out) {
-  std::optional<DevTypeTy> R = llvm::StringSwitch<std::optional<DevTypeTy>>(Val)
-    .Case("host", OMPDeclareTargetDeclAttr::DT_Host)
-    .Case("nohost", OMPDeclareTargetDeclAttr::DT_NoHost)
-    .Case("any", OMPDeclareTargetDeclAttr::DT_Any)
-    .Default(std::optional<DevTypeTy>());
+bool OMPDeclareTargetDeclAttr::ConvertStrToDevTypeTy(StringRef Val, OMPDeclareTargetDeclAttr::DevTypeTy &Out) {
+  std::optional<OMPDeclareTargetDeclAttr::DevTypeTy> R = llvm::StringSwitch<std::optional<OMPDeclareTargetDeclAttr::DevTypeTy>>(Val)
+    .Case("host", OMPDeclareTargetDeclAttr::DevTypeTy::DT_Host)
+    .Case("nohost", OMPDeclareTargetDeclAttr::DevTypeTy::DT_NoHost)
+    .Case("any", OMPDeclareTargetDeclAttr::DevTypeTy::DT_Any)
+    .Default(std::optional<OMPDeclareTargetDeclAttr::DevTypeTy>());
   if (R) {
     Out = *R;
       return true;
@@ -23011,11 +25098,11 @@ bool OMPDeclareTargetDeclAttr::ConvertStrToDevTypeTy(StringRef Val, DevTypeTy &O
   return false;
 }
 
-const char *OMPDeclareTargetDeclAttr::ConvertDevTypeTyToStr(DevTypeTy Val) {
+const char *OMPDeclareTargetDeclAttr::ConvertDevTypeTyToStr(OMPDeclareTargetDeclAttr::DevTypeTy Val) {
   switch(Val) {
-  case OMPDeclareTargetDeclAttr::DT_Host: return "host";
-  case OMPDeclareTargetDeclAttr::DT_NoHost: return "nohost";
-  case OMPDeclareTargetDeclAttr::DT_Any: return "any";
+  case OMPDeclareTargetDeclAttr::DevTypeTy::DT_Host: return "host";
+  case OMPDeclareTargetDeclAttr::DevTypeTy::DT_NoHost: return "nohost";
+  case OMPDeclareTargetDeclAttr::DevTypeTy::DT_Any: return "any";
   }
   llvm_unreachable("No enumerator with that value");
 }
@@ -23290,8 +25377,8 @@ OSConsumedAttr *OSConsumedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Rang
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_os_consumed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_os_consumed:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_os_consumed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_os_consumed:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_os_consumed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_os_consumed:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_os_consumed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -23307,8 +25394,8 @@ OSConsumedAttr *OSConsumedAttr::Create(ASTContext &Ctx, SourceRange Range, Spell
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_os_consumed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_os_consumed:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_os_consumed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_os_consumed:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_os_consumed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_os_consumed:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_os_consumed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -23395,8 +25482,8 @@ OSConsumesThisAttr *OSConsumesThisAttr::CreateImplicit(ASTContext &Ctx, SourceRa
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_os_consumes_this, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_os_consumes_this:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_os_consumes_this, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_os_consumes_this:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_os_consumes_this, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_os_consumes_this:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_os_consumes_this, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -23412,8 +25499,8 @@ OSConsumesThisAttr *OSConsumesThisAttr::Create(ASTContext &Ctx, SourceRange Rang
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_os_consumes_this, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_os_consumes_this:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_os_consumes_this, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_os_consumes_this:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_os_consumes_this, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_os_consumes_this:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_os_consumes_this, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -23500,8 +25587,8 @@ OSReturnsNotRetainedAttr *OSReturnsNotRetainedAttr::CreateImplicit(ASTContext &C
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_os_returns_not_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_os_returns_not_retained:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_os_returns_not_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_os_returns_not_retained:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_os_returns_not_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_os_returns_not_retained:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_os_returns_not_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -23517,8 +25604,8 @@ OSReturnsNotRetainedAttr *OSReturnsNotRetainedAttr::Create(ASTContext &Ctx, Sour
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_os_returns_not_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_os_returns_not_retained:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_os_returns_not_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_os_returns_not_retained:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_os_returns_not_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_os_returns_not_retained:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_os_returns_not_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -23605,8 +25692,8 @@ OSReturnsRetainedAttr *OSReturnsRetainedAttr::CreateImplicit(ASTContext &Ctx, So
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_os_returns_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_os_returns_retained:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_os_returns_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_os_returns_retained:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_os_returns_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_os_returns_retained:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_os_returns_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -23622,8 +25709,8 @@ OSReturnsRetainedAttr *OSReturnsRetainedAttr::Create(ASTContext &Ctx, SourceRang
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_os_returns_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_os_returns_retained:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_os_returns_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_os_returns_retained:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_os_returns_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_os_returns_retained:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_os_returns_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -23710,8 +25797,8 @@ OSReturnsRetainedOnNonZeroAttr *OSReturnsRetainedOnNonZeroAttr::CreateImplicit(A
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_os_returns_retained_on_non_zero, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_os_returns_retained_on_non_zero:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_os_returns_retained_on_non_zero, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_os_returns_retained_on_non_zero:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_os_returns_retained_on_non_zero, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_os_returns_retained_on_non_zero:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_os_returns_retained_on_non_zero, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -23727,8 +25814,8 @@ OSReturnsRetainedOnNonZeroAttr *OSReturnsRetainedOnNonZeroAttr::Create(ASTContex
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_os_returns_retained_on_non_zero, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_os_returns_retained_on_non_zero:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_os_returns_retained_on_non_zero, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_os_returns_retained_on_non_zero:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_os_returns_retained_on_non_zero, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_os_returns_retained_on_non_zero:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_os_returns_retained_on_non_zero, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -23815,8 +25902,8 @@ OSReturnsRetainedOnZeroAttr *OSReturnsRetainedOnZeroAttr::CreateImplicit(ASTCont
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_os_returns_retained_on_zero, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_os_returns_retained_on_zero:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_os_returns_retained_on_zero, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_os_returns_retained_on_zero:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_os_returns_retained_on_zero, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_os_returns_retained_on_zero:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_os_returns_retained_on_zero, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -23832,8 +25919,8 @@ OSReturnsRetainedOnZeroAttr *OSReturnsRetainedOnZeroAttr::Create(ASTContext &Ctx
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_os_returns_retained_on_zero, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_os_returns_retained_on_zero:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_os_returns_retained_on_zero, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_os_returns_retained_on_zero:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_os_returns_retained_on_zero, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_os_returns_retained_on_zero:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_os_returns_retained_on_zero, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -23920,8 +26007,8 @@ ObjCBoxableAttr *ObjCBoxableAttr::CreateImplicit(ASTContext &Ctx, SourceRange Ra
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_boxable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_boxable:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_boxable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_boxable:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_boxable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_boxable:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_boxable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -23937,8 +26024,8 @@ ObjCBoxableAttr *ObjCBoxableAttr::Create(ASTContext &Ctx, SourceRange Range, Spe
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_boxable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_boxable:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_boxable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_boxable:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_boxable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_boxable:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_boxable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -24025,8 +26112,8 @@ ObjCBridgeAttr *ObjCBridgeAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo *
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_bridge, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_bridge:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_bridge, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_bridge:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_bridge, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_bridge:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_bridge, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -24042,8 +26129,8 @@ ObjCBridgeAttr *ObjCBridgeAttr::Create(ASTContext &Ctx, IdentifierInfo * Bridged
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_bridge, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_bridge:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_bridge, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_bridge:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_bridge, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_bridge:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_bridge, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -24146,8 +26233,8 @@ ObjCBridgeMutableAttr *ObjCBridgeMutableAttr::CreateImplicit(ASTContext &Ctx, Id
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_bridge_mutable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_bridge_mutable:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_bridge_mutable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_bridge_mutable:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_bridge_mutable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_bridge_mutable:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_bridge_mutable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -24163,8 +26250,8 @@ ObjCBridgeMutableAttr *ObjCBridgeMutableAttr::Create(ASTContext &Ctx, Identifier
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_bridge_mutable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_bridge_mutable:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_bridge_mutable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_bridge_mutable:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_bridge_mutable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_bridge_mutable:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_bridge_mutable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -24267,8 +26354,8 @@ ObjCBridgeRelatedAttr *ObjCBridgeRelatedAttr::CreateImplicit(ASTContext &Ctx, Id
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_bridge_related, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_bridge_related:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_bridge_related, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_bridge_related:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_bridge_related, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_bridge_related:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_bridge_related, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -24284,8 +26371,8 @@ ObjCBridgeRelatedAttr *ObjCBridgeRelatedAttr::Create(ASTContext &Ctx, Identifier
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_bridge_related, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_bridge_related:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_bridge_related, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_bridge_related:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_bridge_related, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_bridge_related:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_bridge_related, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -24408,8 +26495,8 @@ ObjCClassStubAttr *ObjCClassStubAttr::CreateImplicit(ASTContext &Ctx, SourceRang
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_class_stub, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_class_stub:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_class_stub, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_class_stub:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_class_stub, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_class_stub:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_class_stub, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -24425,8 +26512,8 @@ ObjCClassStubAttr *ObjCClassStubAttr::Create(ASTContext &Ctx, SourceRange Range,
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_class_stub, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_class_stub:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_class_stub, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_class_stub:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_class_stub, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_class_stub:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_class_stub, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -24513,8 +26600,8 @@ ObjCDesignatedInitializerAttr *ObjCDesignatedInitializerAttr::CreateImplicit(AST
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_designated_initializer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_designated_initializer:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_designated_initializer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_designated_initializer:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_designated_initializer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_designated_initializer:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_designated_initializer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -24530,8 +26617,8 @@ ObjCDesignatedInitializerAttr *ObjCDesignatedInitializerAttr::Create(ASTContext 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_designated_initializer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_designated_initializer:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_designated_initializer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_designated_initializer:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_designated_initializer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_designated_initializer:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_designated_initializer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -24618,8 +26705,8 @@ ObjCDirectAttr *ObjCDirectAttr::CreateImplicit(ASTContext &Ctx, SourceRange Rang
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_direct, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_direct:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_direct, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_direct:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_direct, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_direct:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_direct, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -24635,8 +26722,8 @@ ObjCDirectAttr *ObjCDirectAttr::Create(ASTContext &Ctx, SourceRange Range, Spell
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_direct, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_direct:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_direct, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_direct:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_direct, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_direct:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_direct, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -24723,8 +26810,8 @@ ObjCDirectMembersAttr *ObjCDirectMembersAttr::CreateImplicit(ASTContext &Ctx, So
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_direct_members, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_direct_members:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_direct_members, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_direct_members:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_direct_members, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_direct_members:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_direct_members, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -24740,8 +26827,8 @@ ObjCDirectMembersAttr *ObjCDirectMembersAttr::Create(ASTContext &Ctx, SourceRang
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_direct_members, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_direct_members:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_direct_members, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_direct_members:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_direct_members, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_direct_members:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_direct_members, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -24828,8 +26915,8 @@ ObjCExceptionAttr *ObjCExceptionAttr::CreateImplicit(ASTContext &Ctx, SourceRang
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_exception, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_exception:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_exception, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_exception:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_exception, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_exception:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_exception, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -24845,8 +26932,8 @@ ObjCExceptionAttr *ObjCExceptionAttr::Create(ASTContext &Ctx, SourceRange Range,
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_exception, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_exception:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_exception, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_exception:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_exception, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_exception:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_exception, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -24933,8 +27020,8 @@ ObjCExplicitProtocolImplAttr *ObjCExplicitProtocolImplAttr::CreateImplicit(ASTCo
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_protocol_requires_explicit_implementation, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_protocol_requires_explicit_implementation:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_protocol_requires_explicit_implementation, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_protocol_requires_explicit_implementation:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_protocol_requires_explicit_implementation, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_protocol_requires_explicit_implementation:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_protocol_requires_explicit_implementation, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -24950,8 +27037,8 @@ ObjCExplicitProtocolImplAttr *ObjCExplicitProtocolImplAttr::Create(ASTContext &C
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_protocol_requires_explicit_implementation, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_protocol_requires_explicit_implementation:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_protocol_requires_explicit_implementation, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_protocol_requires_explicit_implementation:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_protocol_requires_explicit_implementation, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_protocol_requires_explicit_implementation:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_protocol_requires_explicit_implementation, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -25038,8 +27125,8 @@ ObjCExternallyRetainedAttr *ObjCExternallyRetainedAttr::CreateImplicit(ASTContex
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_externally_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_externally_retained:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_externally_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_externally_retained:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_externally_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_externally_retained:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_externally_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -25055,8 +27142,8 @@ ObjCExternallyRetainedAttr *ObjCExternallyRetainedAttr::Create(ASTContext &Ctx, 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_externally_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_externally_retained:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_externally_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_externally_retained:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_externally_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_externally_retained:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_externally_retained, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -25143,8 +27230,8 @@ ObjCGCAttr *ObjCGCAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * Kind, S
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_gc, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_gc:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_gc, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_gc:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_gc, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_gc:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_gc, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -25160,8 +27247,8 @@ ObjCGCAttr *ObjCGCAttr::Create(ASTContext &Ctx, IdentifierInfo * Kind, SourceRan
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_gc, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_gc:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_gc, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_gc:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_gc, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_gc:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_gc, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -25264,8 +27351,8 @@ ObjCIndependentClassAttr *ObjCIndependentClassAttr::CreateImplicit(ASTContext &C
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_independent_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_independent_class:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_independent_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_independent_class:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_independent_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_independent_class:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_independent_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -25281,8 +27368,8 @@ ObjCIndependentClassAttr *ObjCIndependentClassAttr::Create(ASTContext &Ctx, Sour
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_independent_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_independent_class:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_independent_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_independent_class:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_independent_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_independent_class:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_independent_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -25481,7 +27568,7 @@ const char *ObjCKindOfAttr::getSpelling() const {
 
 // ObjCMethodFamilyAttr implementation
 
-ObjCMethodFamilyAttr *ObjCMethodFamilyAttr::CreateImplicit(ASTContext &Ctx, FamilyKind Family, const AttributeCommonInfo &CommonInfo) {
+ObjCMethodFamilyAttr *ObjCMethodFamilyAttr::CreateImplicit(ASTContext &Ctx, ObjCMethodFamilyAttr::FamilyKind Family, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) ObjCMethodFamilyAttr(Ctx, CommonInfo, Family);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -25489,22 +27576,22 @@ ObjCMethodFamilyAttr *ObjCMethodFamilyAttr::CreateImplicit(ASTContext &Ctx, Fami
   return A;
 }
 
-ObjCMethodFamilyAttr *ObjCMethodFamilyAttr::Create(ASTContext &Ctx, FamilyKind Family, const AttributeCommonInfo &CommonInfo) {
+ObjCMethodFamilyAttr *ObjCMethodFamilyAttr::Create(ASTContext &Ctx, ObjCMethodFamilyAttr::FamilyKind Family, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) ObjCMethodFamilyAttr(Ctx, CommonInfo, Family);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-ObjCMethodFamilyAttr *ObjCMethodFamilyAttr::CreateImplicit(ASTContext &Ctx, FamilyKind Family, SourceRange Range, Spelling S) {
+ObjCMethodFamilyAttr *ObjCMethodFamilyAttr::CreateImplicit(ASTContext &Ctx, ObjCMethodFamilyAttr::FamilyKind Family, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_objc_method_family:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_method_family, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_method_family:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_method_family, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_method_family:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_method_family, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_method_family:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_method_family, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -25513,15 +27600,15 @@ ObjCMethodFamilyAttr *ObjCMethodFamilyAttr::CreateImplicit(ASTContext &Ctx, Fami
   return CreateImplicit(Ctx, Family, I);
 }
 
-ObjCMethodFamilyAttr *ObjCMethodFamilyAttr::Create(ASTContext &Ctx, FamilyKind Family, SourceRange Range, Spelling S) {
+ObjCMethodFamilyAttr *ObjCMethodFamilyAttr::Create(ASTContext &Ctx, ObjCMethodFamilyAttr::FamilyKind Family, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_objc_method_family:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_method_family, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_method_family:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_method_family, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_method_family:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_method_family, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_method_family:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_method_family, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -25531,7 +27618,7 @@ ObjCMethodFamilyAttr *ObjCMethodFamilyAttr::Create(ASTContext &Ctx, FamilyKind F
 }
 
 ObjCMethodFamilyAttr::ObjCMethodFamilyAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , FamilyKind Family
+              , ObjCMethodFamilyAttr::FamilyKind Family
              )
   : InheritableAttr(Ctx, CommonInfo, attr::ObjCMethodFamily, false, false)
               , family(Family)
@@ -25540,15 +27627,15 @@ ObjCMethodFamilyAttr::ObjCMethodFamilyAttr(ASTContext &Ctx, const AttributeCommo
 
 
 
-bool ObjCMethodFamilyAttr::ConvertStrToFamilyKind(StringRef Val, FamilyKind &Out) {
-  std::optional<FamilyKind> R = llvm::StringSwitch<std::optional<FamilyKind>>(Val)
-    .Case("none", ObjCMethodFamilyAttr::OMF_None)
-    .Case("alloc", ObjCMethodFamilyAttr::OMF_alloc)
-    .Case("copy", ObjCMethodFamilyAttr::OMF_copy)
-    .Case("init", ObjCMethodFamilyAttr::OMF_init)
-    .Case("mutableCopy", ObjCMethodFamilyAttr::OMF_mutableCopy)
-    .Case("new", ObjCMethodFamilyAttr::OMF_new)
-    .Default(std::optional<FamilyKind>());
+bool ObjCMethodFamilyAttr::ConvertStrToFamilyKind(StringRef Val, ObjCMethodFamilyAttr::FamilyKind &Out) {
+  std::optional<ObjCMethodFamilyAttr::FamilyKind> R = llvm::StringSwitch<std::optional<ObjCMethodFamilyAttr::FamilyKind>>(Val)
+    .Case("none", ObjCMethodFamilyAttr::FamilyKind::OMF_None)
+    .Case("alloc", ObjCMethodFamilyAttr::FamilyKind::OMF_alloc)
+    .Case("copy", ObjCMethodFamilyAttr::FamilyKind::OMF_copy)
+    .Case("init", ObjCMethodFamilyAttr::FamilyKind::OMF_init)
+    .Case("mutableCopy", ObjCMethodFamilyAttr::FamilyKind::OMF_mutableCopy)
+    .Case("new", ObjCMethodFamilyAttr::FamilyKind::OMF_new)
+    .Default(std::optional<ObjCMethodFamilyAttr::FamilyKind>());
   if (R) {
     Out = *R;
       return true;
@@ -25556,14 +27643,14 @@ bool ObjCMethodFamilyAttr::ConvertStrToFamilyKind(StringRef Val, FamilyKind &Out
   return false;
 }
 
-const char *ObjCMethodFamilyAttr::ConvertFamilyKindToStr(FamilyKind Val) {
+const char *ObjCMethodFamilyAttr::ConvertFamilyKindToStr(ObjCMethodFamilyAttr::FamilyKind Val) {
   switch(Val) {
-  case ObjCMethodFamilyAttr::OMF_None: return "none";
-  case ObjCMethodFamilyAttr::OMF_alloc: return "alloc";
-  case ObjCMethodFamilyAttr::OMF_copy: return "copy";
-  case ObjCMethodFamilyAttr::OMF_init: return "init";
-  case ObjCMethodFamilyAttr::OMF_mutableCopy: return "mutableCopy";
-  case ObjCMethodFamilyAttr::OMF_new: return "new";
+  case ObjCMethodFamilyAttr::FamilyKind::OMF_None: return "none";
+  case ObjCMethodFamilyAttr::FamilyKind::OMF_alloc: return "alloc";
+  case ObjCMethodFamilyAttr::FamilyKind::OMF_copy: return "copy";
+  case ObjCMethodFamilyAttr::FamilyKind::OMF_init: return "init";
+  case ObjCMethodFamilyAttr::FamilyKind::OMF_mutableCopy: return "mutableCopy";
+  case ObjCMethodFamilyAttr::FamilyKind::OMF_new: return "new";
   }
   llvm_unreachable("No enumerator with that value");
 }
@@ -25651,8 +27738,8 @@ ObjCNSObjectAttr *ObjCNSObjectAttr::CreateImplicit(ASTContext &Ctx, SourceRange 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_NSObject, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_NSObject:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_NSObject, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_NSObject:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_NSObject, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_NSObject:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_NSObject, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -25668,8 +27755,8 @@ ObjCNSObjectAttr *ObjCNSObjectAttr::Create(ASTContext &Ctx, SourceRange Range, S
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_NSObject, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_NSObject:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_NSObject, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_NSObject:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_NSObject, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_NSObject:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_NSObject, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -25756,8 +27843,8 @@ ObjCNonLazyClassAttr *ObjCNonLazyClassAttr::CreateImplicit(ASTContext &Ctx, Sour
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_nonlazy_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_nonlazy_class:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_nonlazy_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_nonlazy_class:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_nonlazy_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_nonlazy_class:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_nonlazy_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -25773,8 +27860,8 @@ ObjCNonLazyClassAttr *ObjCNonLazyClassAttr::Create(ASTContext &Ctx, SourceRange 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_nonlazy_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_nonlazy_class:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_nonlazy_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_nonlazy_class:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_nonlazy_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_nonlazy_class:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_nonlazy_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -25861,8 +27948,8 @@ ObjCNonRuntimeProtocolAttr *ObjCNonRuntimeProtocolAttr::CreateImplicit(ASTContex
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_non_runtime_protocol, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_non_runtime_protocol:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_non_runtime_protocol, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_non_runtime_protocol:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_non_runtime_protocol, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_non_runtime_protocol:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_non_runtime_protocol, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -25878,8 +27965,8 @@ ObjCNonRuntimeProtocolAttr *ObjCNonRuntimeProtocolAttr::Create(ASTContext &Ctx, 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_non_runtime_protocol, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_non_runtime_protocol:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_non_runtime_protocol, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_non_runtime_protocol:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_non_runtime_protocol, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_non_runtime_protocol:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_non_runtime_protocol, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -25966,8 +28053,8 @@ ObjCOwnershipAttr *ObjCOwnershipAttr::CreateImplicit(ASTContext &Ctx, Identifier
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_ownership, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_ownership:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_ownership, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_ownership:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_ownership, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_ownership:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_ownership, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -25983,8 +28070,8 @@ ObjCOwnershipAttr *ObjCOwnershipAttr::Create(ASTContext &Ctx, IdentifierInfo * K
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_ownership, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_ownership:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_ownership, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_ownership:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_ownership, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_ownership:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_ownership, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -26087,8 +28174,8 @@ ObjCPreciseLifetimeAttr *ObjCPreciseLifetimeAttr::CreateImplicit(ASTContext &Ctx
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_precise_lifetime, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_precise_lifetime:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_precise_lifetime, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_precise_lifetime:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_precise_lifetime, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_precise_lifetime:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_precise_lifetime, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -26104,8 +28191,8 @@ ObjCPreciseLifetimeAttr *ObjCPreciseLifetimeAttr::Create(ASTContext &Ctx, Source
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_precise_lifetime, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_precise_lifetime:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_precise_lifetime, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_precise_lifetime:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_precise_lifetime, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_precise_lifetime:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_precise_lifetime, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -26192,8 +28279,8 @@ ObjCRequiresPropertyDefsAttr *ObjCRequiresPropertyDefsAttr::CreateImplicit(ASTCo
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_requires_property_definitions, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_requires_property_definitions:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_requires_property_definitions, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_requires_property_definitions:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_requires_property_definitions, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_requires_property_definitions:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_requires_property_definitions, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -26209,8 +28296,8 @@ ObjCRequiresPropertyDefsAttr *ObjCRequiresPropertyDefsAttr::Create(ASTContext &C
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_requires_property_definitions, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_requires_property_definitions:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_requires_property_definitions, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_requires_property_definitions:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_requires_property_definitions, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_requires_property_definitions:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_requires_property_definitions, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -26297,8 +28384,8 @@ ObjCRequiresSuperAttr *ObjCRequiresSuperAttr::CreateImplicit(ASTContext &Ctx, So
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_requires_super, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_requires_super:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_requires_super, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_requires_super:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_requires_super, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_requires_super:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_requires_super, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -26314,8 +28401,8 @@ ObjCRequiresSuperAttr *ObjCRequiresSuperAttr::Create(ASTContext &Ctx, SourceRang
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_requires_super, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_requires_super:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_requires_super, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_requires_super:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_requires_super, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_requires_super:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_requires_super, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -26402,8 +28489,8 @@ ObjCReturnsInnerPointerAttr *ObjCReturnsInnerPointerAttr::CreateImplicit(ASTCont
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_returns_inner_pointer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_returns_inner_pointer:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_returns_inner_pointer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_returns_inner_pointer:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_returns_inner_pointer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_returns_inner_pointer:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_returns_inner_pointer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -26419,8 +28506,8 @@ ObjCReturnsInnerPointerAttr *ObjCReturnsInnerPointerAttr::Create(ASTContext &Ctx
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_returns_inner_pointer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_returns_inner_pointer:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_returns_inner_pointer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_returns_inner_pointer:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_returns_inner_pointer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_returns_inner_pointer:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_returns_inner_pointer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -26507,8 +28594,8 @@ ObjCRootClassAttr *ObjCRootClassAttr::CreateImplicit(ASTContext &Ctx, SourceRang
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_root_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_root_class:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_root_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_root_class:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_root_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_root_class:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_root_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -26524,8 +28611,8 @@ ObjCRootClassAttr *ObjCRootClassAttr::Create(ASTContext &Ctx, SourceRange Range,
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_root_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_root_class:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_root_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_root_class:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_root_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_root_class:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_root_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -26612,8 +28699,8 @@ ObjCRuntimeNameAttr *ObjCRuntimeNameAttr::CreateImplicit(ASTContext &Ctx, llvm::
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_runtime_name, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_runtime_name:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_runtime_name, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_runtime_name:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_runtime_name, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_runtime_name:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_runtime_name, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -26629,8 +28716,8 @@ ObjCRuntimeNameAttr *ObjCRuntimeNameAttr::Create(ASTContext &Ctx, llvm::StringRe
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_runtime_name, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_runtime_name:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_runtime_name, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_runtime_name:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_runtime_name, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_runtime_name:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_runtime_name, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -26735,8 +28822,8 @@ ObjCRuntimeVisibleAttr *ObjCRuntimeVisibleAttr::CreateImplicit(ASTContext &Ctx, 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_runtime_visible, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_runtime_visible:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_runtime_visible, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_runtime_visible:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_runtime_visible, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_runtime_visible:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_runtime_visible, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -26752,8 +28839,8 @@ ObjCRuntimeVisibleAttr *ObjCRuntimeVisibleAttr::Create(ASTContext &Ctx, SourceRa
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_runtime_visible, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_runtime_visible:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_runtime_visible, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_runtime_visible:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_runtime_visible, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_runtime_visible:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_runtime_visible, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -26840,8 +28927,8 @@ ObjCSubclassingRestrictedAttr *ObjCSubclassingRestrictedAttr::CreateImplicit(AST
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_subclassing_restricted, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_subclassing_restricted:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_subclassing_restricted, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_subclassing_restricted:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_subclassing_restricted, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_subclassing_restricted:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_subclassing_restricted, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -26857,8 +28944,8 @@ ObjCSubclassingRestrictedAttr *ObjCSubclassingRestrictedAttr::Create(ASTContext 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_objc_subclassing_restricted, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_objc_subclassing_restricted:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_objc_subclassing_restricted, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_objc_subclassing_restricted:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_objc_subclassing_restricted, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_objc_subclassing_restricted:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_objc_subclassing_restricted, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -27080,8 +29167,8 @@ OpenCLConstantAddressSpaceAttr *OpenCLConstantAddressSpaceAttr::CreateImplicit(A
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_opencl_constant, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_opencl_constant:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_opencl_constant, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_opencl_constant:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_opencl_constant, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_opencl_constant:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_opencl_constant, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -27099,8 +29186,8 @@ OpenCLConstantAddressSpaceAttr *OpenCLConstantAddressSpaceAttr::Create(ASTContex
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_opencl_constant, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_opencl_constant:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_opencl_constant, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_opencl_constant:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_opencl_constant, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_opencl_constant:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_opencl_constant, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -27122,7 +29209,7 @@ OpenCLConstantAddressSpaceAttr::Spelling OpenCLConstantAddressSpaceAttr::getSema
     case 1: return Keyword_constant;
     case 2: return GNU_opencl_constant;
     case 3: return CXX11_clang_opencl_constant;
-    case 4: return C2x_clang_opencl_constant;
+    case 4: return C23_clang_opencl_constant;
   }
 }
 OpenCLConstantAddressSpaceAttr *OpenCLConstantAddressSpaceAttr::clone(ASTContext &C) const {
@@ -27211,8 +29298,8 @@ OpenCLGenericAddressSpaceAttr *OpenCLGenericAddressSpaceAttr::CreateImplicit(AST
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_opencl_generic, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_opencl_generic:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_opencl_generic, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_opencl_generic:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_opencl_generic, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_opencl_generic:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_opencl_generic, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -27230,8 +29317,8 @@ OpenCLGenericAddressSpaceAttr *OpenCLGenericAddressSpaceAttr::Create(ASTContext 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_opencl_generic, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_opencl_generic:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_opencl_generic, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_opencl_generic:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_opencl_generic, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_opencl_generic:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_opencl_generic, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -27253,7 +29340,7 @@ OpenCLGenericAddressSpaceAttr::Spelling OpenCLGenericAddressSpaceAttr::getSemant
     case 1: return Keyword_generic;
     case 2: return GNU_opencl_generic;
     case 3: return CXX11_clang_opencl_generic;
-    case 4: return C2x_clang_opencl_generic;
+    case 4: return C23_clang_opencl_generic;
   }
 }
 OpenCLGenericAddressSpaceAttr *OpenCLGenericAddressSpaceAttr::clone(ASTContext &C) const {
@@ -27342,8 +29429,8 @@ OpenCLGlobalAddressSpaceAttr *OpenCLGlobalAddressSpaceAttr::CreateImplicit(ASTCo
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_opencl_global, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_opencl_global:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_opencl_global, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_opencl_global:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_opencl_global, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_opencl_global:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_opencl_global, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -27361,8 +29448,8 @@ OpenCLGlobalAddressSpaceAttr *OpenCLGlobalAddressSpaceAttr::Create(ASTContext &C
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_opencl_global, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_opencl_global:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_opencl_global, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_opencl_global:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_opencl_global, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_opencl_global:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_opencl_global, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -27384,7 +29471,7 @@ OpenCLGlobalAddressSpaceAttr::Spelling OpenCLGlobalAddressSpaceAttr::getSemantic
     case 1: return Keyword_global;
     case 2: return GNU_opencl_global;
     case 3: return CXX11_clang_opencl_global;
-    case 4: return C2x_clang_opencl_global;
+    case 4: return C23_clang_opencl_global;
   }
 }
 OpenCLGlobalAddressSpaceAttr *OpenCLGlobalAddressSpaceAttr::clone(ASTContext &C) const {
@@ -27473,8 +29560,8 @@ OpenCLGlobalDeviceAddressSpaceAttr *OpenCLGlobalDeviceAddressSpaceAttr::CreateIm
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_opencl_global_device, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_opencl_global_device:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_opencl_global_device, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_opencl_global_device:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_opencl_global_device, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_opencl_global_device:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_opencl_global_device, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -27490,8 +29577,8 @@ OpenCLGlobalDeviceAddressSpaceAttr *OpenCLGlobalDeviceAddressSpaceAttr::Create(A
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_opencl_global_device, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_opencl_global_device:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_opencl_global_device, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_opencl_global_device:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_opencl_global_device, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_opencl_global_device:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_opencl_global_device, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -27578,8 +29665,8 @@ OpenCLGlobalHostAddressSpaceAttr *OpenCLGlobalHostAddressSpaceAttr::CreateImplic
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_opencl_global_host, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_opencl_global_host:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_opencl_global_host, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_opencl_global_host:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_opencl_global_host, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_opencl_global_host:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_opencl_global_host, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -27595,8 +29682,8 @@ OpenCLGlobalHostAddressSpaceAttr *OpenCLGlobalHostAddressSpaceAttr::Create(ASTCo
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_opencl_global_host, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_opencl_global_host:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_opencl_global_host, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_opencl_global_host:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_opencl_global_host, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_opencl_global_host:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_opencl_global_host, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -27848,8 +29935,8 @@ OpenCLLocalAddressSpaceAttr *OpenCLLocalAddressSpaceAttr::CreateImplicit(ASTCont
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_opencl_local, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_opencl_local:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_opencl_local, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_opencl_local:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_opencl_local, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_opencl_local:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_opencl_local, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -27867,8 +29954,8 @@ OpenCLLocalAddressSpaceAttr *OpenCLLocalAddressSpaceAttr::Create(ASTContext &Ctx
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_opencl_local, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_opencl_local:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_opencl_local, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_opencl_local:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_opencl_local, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_opencl_local:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_opencl_local, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -27890,7 +29977,7 @@ OpenCLLocalAddressSpaceAttr::Spelling OpenCLLocalAddressSpaceAttr::getSemanticSp
     case 1: return Keyword_local;
     case 2: return GNU_opencl_local;
     case 3: return CXX11_clang_opencl_local;
-    case 4: return C2x_clang_opencl_local;
+    case 4: return C23_clang_opencl_local;
   }
 }
 OpenCLLocalAddressSpaceAttr *OpenCLLocalAddressSpaceAttr::clone(ASTContext &C) const {
@@ -27979,8 +30066,8 @@ OpenCLPrivateAddressSpaceAttr *OpenCLPrivateAddressSpaceAttr::CreateImplicit(AST
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_opencl_private, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_opencl_private:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_opencl_private, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_opencl_private:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_opencl_private, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_opencl_private:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_opencl_private, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -27998,8 +30085,8 @@ OpenCLPrivateAddressSpaceAttr *OpenCLPrivateAddressSpaceAttr::Create(ASTContext 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_opencl_private, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_opencl_private:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_opencl_private, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_opencl_private:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_opencl_private, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_opencl_private:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_opencl_private, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -28021,7 +30108,7 @@ OpenCLPrivateAddressSpaceAttr::Spelling OpenCLPrivateAddressSpaceAttr::getSemant
     case 1: return Keyword_private;
     case 2: return GNU_opencl_private;
     case 3: return CXX11_clang_opencl_private;
-    case 4: return C2x_clang_opencl_private;
+    case 4: return C23_clang_opencl_private;
   }
 }
 OpenCLPrivateAddressSpaceAttr *OpenCLPrivateAddressSpaceAttr::clone(ASTContext &C) const {
@@ -28192,8 +30279,8 @@ OptimizeNoneAttr *OptimizeNoneAttr::CreateImplicit(ASTContext &Ctx, SourceRange 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_optnone, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_optnone:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_optnone, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_optnone:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_optnone, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_optnone:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_optnone, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -28209,8 +30296,8 @@ OptimizeNoneAttr *OptimizeNoneAttr::Create(ASTContext &Ctx, SourceRange Range, S
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_optnone, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_optnone:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_optnone, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_optnone:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_optnone, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_optnone:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_optnone, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -28297,8 +30384,8 @@ OverloadableAttr *OverloadableAttr::CreateImplicit(ASTContext &Ctx, SourceRange 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_overloadable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_overloadable:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_overloadable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_overloadable:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_overloadable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_overloadable:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_overloadable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -28314,8 +30401,8 @@ OverloadableAttr *OverloadableAttr::Create(ASTContext &Ctx, SourceRange Range, S
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_overloadable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_overloadable:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_overloadable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_overloadable:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_overloadable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_overloadable:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_overloadable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -28553,20 +30640,20 @@ OwnershipAttr *OwnershipAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * M
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_ownership_holds, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_ownership_holds:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_ownership_holds, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_ownership_holds:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_ownership_holds, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_ownership_holds:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_ownership_holds, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case GNU_ownership_returns:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_ownership_returns, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_ownership_returns:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_ownership_returns, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_ownership_returns:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_ownership_returns, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_ownership_returns:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_ownership_returns, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case GNU_ownership_takes:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_ownership_takes, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_ownership_takes:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_ownership_takes, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_ownership_takes:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_ownership_takes, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_ownership_takes:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_ownership_takes, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -28582,20 +30669,20 @@ OwnershipAttr *OwnershipAttr::Create(ASTContext &Ctx, IdentifierInfo * Module, P
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_ownership_holds, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_ownership_holds:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_ownership_holds, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_ownership_holds:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_ownership_holds, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_ownership_holds:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_ownership_holds, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case GNU_ownership_returns:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_ownership_returns, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_ownership_returns:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_ownership_returns, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_ownership_returns:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_ownership_returns, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_ownership_returns:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_ownership_returns, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case GNU_ownership_takes:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_ownership_takes, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_ownership_takes:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_ownership_takes, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_ownership_takes:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_ownership_takes, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_ownership_takes:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_ownership_takes, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -28629,13 +30716,13 @@ OwnershipAttr::Spelling OwnershipAttr::getSemanticSpelling() const {
     default: llvm_unreachable("Unknown spelling list index");
     case 0: return GNU_ownership_holds;
     case 1: return CXX11_clang_ownership_holds;
-    case 2: return C2x_clang_ownership_holds;
+    case 2: return C23_clang_ownership_holds;
     case 3: return GNU_ownership_returns;
     case 4: return CXX11_clang_ownership_returns;
-    case 5: return C2x_clang_ownership_returns;
+    case 5: return C23_clang_ownership_returns;
     case 6: return GNU_ownership_takes;
     case 7: return CXX11_clang_ownership_takes;
-    case 8: return C2x_clang_ownership_takes;
+    case 8: return C23_clang_ownership_takes;
   }
 }
 
@@ -28846,8 +30933,8 @@ PackedAttr *PackedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spell
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_packed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_packed:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_packed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_packed:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_packed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_packed:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_packed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -28863,8 +30950,8 @@ PackedAttr *PackedAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_packed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_packed:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_packed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_packed:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_packed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_packed:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_packed, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -28929,7 +31016,7 @@ const char *PackedAttr::getSpelling() const {
 
 // ParamTypestateAttr implementation
 
-ParamTypestateAttr *ParamTypestateAttr::CreateImplicit(ASTContext &Ctx, ConsumedState ParamState, const AttributeCommonInfo &CommonInfo) {
+ParamTypestateAttr *ParamTypestateAttr::CreateImplicit(ASTContext &Ctx, ParamTypestateAttr::ConsumedState ParamState, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) ParamTypestateAttr(Ctx, CommonInfo, ParamState);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -28937,14 +31024,14 @@ ParamTypestateAttr *ParamTypestateAttr::CreateImplicit(ASTContext &Ctx, Consumed
   return A;
 }
 
-ParamTypestateAttr *ParamTypestateAttr::Create(ASTContext &Ctx, ConsumedState ParamState, const AttributeCommonInfo &CommonInfo) {
+ParamTypestateAttr *ParamTypestateAttr::Create(ASTContext &Ctx, ParamTypestateAttr::ConsumedState ParamState, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) ParamTypestateAttr(Ctx, CommonInfo, ParamState);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-ParamTypestateAttr *ParamTypestateAttr::CreateImplicit(ASTContext &Ctx, ConsumedState ParamState, SourceRange Range, Spelling S) {
+ParamTypestateAttr *ParamTypestateAttr::CreateImplicit(ASTContext &Ctx, ParamTypestateAttr::ConsumedState ParamState, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_param_typestate:
@@ -28959,7 +31046,7 @@ ParamTypestateAttr *ParamTypestateAttr::CreateImplicit(ASTContext &Ctx, Consumed
   return CreateImplicit(Ctx, ParamState, I);
 }
 
-ParamTypestateAttr *ParamTypestateAttr::Create(ASTContext &Ctx, ConsumedState ParamState, SourceRange Range, Spelling S) {
+ParamTypestateAttr *ParamTypestateAttr::Create(ASTContext &Ctx, ParamTypestateAttr::ConsumedState ParamState, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_param_typestate:
@@ -28975,7 +31062,7 @@ ParamTypestateAttr *ParamTypestateAttr::Create(ASTContext &Ctx, ConsumedState Pa
 }
 
 ParamTypestateAttr::ParamTypestateAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , ConsumedState ParamState
+              , ParamTypestateAttr::ConsumedState ParamState
              )
   : InheritableAttr(Ctx, CommonInfo, attr::ParamTypestate, false, false)
               , paramState(ParamState)
@@ -28984,12 +31071,12 @@ ParamTypestateAttr::ParamTypestateAttr(ASTContext &Ctx, const AttributeCommonInf
 
 
 
-bool ParamTypestateAttr::ConvertStrToConsumedState(StringRef Val, ConsumedState &Out) {
-  std::optional<ConsumedState> R = llvm::StringSwitch<std::optional<ConsumedState>>(Val)
-    .Case("unknown", ParamTypestateAttr::Unknown)
-    .Case("consumed", ParamTypestateAttr::Consumed)
-    .Case("unconsumed", ParamTypestateAttr::Unconsumed)
-    .Default(std::optional<ConsumedState>());
+bool ParamTypestateAttr::ConvertStrToConsumedState(StringRef Val, ParamTypestateAttr::ConsumedState &Out) {
+  std::optional<ParamTypestateAttr::ConsumedState> R = llvm::StringSwitch<std::optional<ParamTypestateAttr::ConsumedState>>(Val)
+    .Case("unknown", ParamTypestateAttr::ConsumedState::Unknown)
+    .Case("consumed", ParamTypestateAttr::ConsumedState::Consumed)
+    .Case("unconsumed", ParamTypestateAttr::ConsumedState::Unconsumed)
+    .Default(std::optional<ParamTypestateAttr::ConsumedState>());
   if (R) {
     Out = *R;
       return true;
@@ -28997,11 +31084,11 @@ bool ParamTypestateAttr::ConvertStrToConsumedState(StringRef Val, ConsumedState 
   return false;
 }
 
-const char *ParamTypestateAttr::ConvertConsumedStateToStr(ConsumedState Val) {
+const char *ParamTypestateAttr::ConvertConsumedStateToStr(ParamTypestateAttr::ConsumedState Val) {
   switch(Val) {
-  case ParamTypestateAttr::Unknown: return "unknown";
-  case ParamTypestateAttr::Consumed: return "consumed";
-  case ParamTypestateAttr::Unconsumed: return "unconsumed";
+  case ParamTypestateAttr::ConsumedState::Unknown: return "unknown";
+  case ParamTypestateAttr::ConsumedState::Consumed: return "consumed";
+  case ParamTypestateAttr::ConsumedState::Unconsumed: return "unconsumed";
   }
   llvm_unreachable("No enumerator with that value");
 }
@@ -29078,8 +31165,8 @@ PascalAttr *PascalAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spell
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_pascal, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_pascal:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_pascal, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_pascal:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_pascal, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_pascal:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_pascal, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case Keyword_pascal:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_pascal, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
@@ -29097,8 +31184,8 @@ PascalAttr *PascalAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_pascal, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_pascal:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_pascal, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_pascal:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_pascal, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_pascal:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_pascal, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case Keyword_pascal:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_pascal, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
@@ -29199,14 +31286,14 @@ PassObjectSizeAttr *PassObjectSizeAttr::CreateImplicit(ASTContext &Ctx, int Type
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_pass_object_size, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_pass_object_size:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_pass_object_size, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_pass_object_size:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_pass_object_size, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_pass_object_size:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_pass_object_size, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case GNU_pass_dynamic_object_size:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_pass_dynamic_object_size, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_pass_dynamic_object_size:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_pass_dynamic_object_size, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_pass_dynamic_object_size:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_pass_dynamic_object_size, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_pass_dynamic_object_size:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_pass_dynamic_object_size, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -29222,14 +31309,14 @@ PassObjectSizeAttr *PassObjectSizeAttr::Create(ASTContext &Ctx, int Type, Source
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_pass_object_size, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_pass_object_size:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_pass_object_size, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_pass_object_size:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_pass_object_size, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_pass_object_size:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_pass_object_size, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case GNU_pass_dynamic_object_size:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_pass_dynamic_object_size, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_pass_dynamic_object_size:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_pass_dynamic_object_size, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_pass_dynamic_object_size:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_pass_dynamic_object_size, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_pass_dynamic_object_size:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_pass_dynamic_object_size, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -29251,10 +31338,10 @@ PassObjectSizeAttr::Spelling PassObjectSizeAttr::getSemanticSpelling() const {
     default: llvm_unreachable("Unknown spelling list index");
     case 0: return GNU_pass_object_size;
     case 1: return CXX11_clang_pass_object_size;
-    case 2: return C2x_clang_pass_object_size;
+    case 2: return C23_clang_pass_object_size;
     case 3: return GNU_pass_dynamic_object_size;
     case 4: return CXX11_clang_pass_dynamic_object_size;
-    case 5: return C2x_clang_pass_dynamic_object_size;
+    case 5: return C23_clang_pass_dynamic_object_size;
   }
 }
 
@@ -29376,8 +31463,8 @@ PatchableFunctionEntryAttr *PatchableFunctionEntryAttr::CreateImplicit(ASTContex
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_patchable_function_entry, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_patchable_function_entry:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_patchable_function_entry, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_patchable_function_entry:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_patchable_function_entry, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_patchable_function_entry:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_patchable_function_entry, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -29393,8 +31480,8 @@ PatchableFunctionEntryAttr *PatchableFunctionEntryAttr::Create(ASTContext &Ctx, 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_patchable_function_entry, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_patchable_function_entry:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_patchable_function_entry, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_patchable_function_entry:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_patchable_function_entry, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_patchable_function_entry:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_patchable_function_entry, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -29494,7 +31581,7 @@ const char *PatchableFunctionEntryAttr::getSpelling() const {
 
 // PcsAttr implementation
 
-PcsAttr *PcsAttr::CreateImplicit(ASTContext &Ctx, PCSType PCS, const AttributeCommonInfo &CommonInfo) {
+PcsAttr *PcsAttr::CreateImplicit(ASTContext &Ctx, PcsAttr::PCSType PCS, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) PcsAttr(Ctx, CommonInfo, PCS);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -29502,22 +31589,22 @@ PcsAttr *PcsAttr::CreateImplicit(ASTContext &Ctx, PCSType PCS, const AttributeCo
   return A;
 }
 
-PcsAttr *PcsAttr::Create(ASTContext &Ctx, PCSType PCS, const AttributeCommonInfo &CommonInfo) {
+PcsAttr *PcsAttr::Create(ASTContext &Ctx, PcsAttr::PCSType PCS, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) PcsAttr(Ctx, CommonInfo, PCS);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-PcsAttr *PcsAttr::CreateImplicit(ASTContext &Ctx, PCSType PCS, SourceRange Range, Spelling S) {
+PcsAttr *PcsAttr::CreateImplicit(ASTContext &Ctx, PcsAttr::PCSType PCS, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_pcs:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_pcs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_pcs:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_pcs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_pcs:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_pcs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_pcs:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_pcs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -29526,15 +31613,15 @@ PcsAttr *PcsAttr::CreateImplicit(ASTContext &Ctx, PCSType PCS, SourceRange Range
   return CreateImplicit(Ctx, PCS, I);
 }
 
-PcsAttr *PcsAttr::Create(ASTContext &Ctx, PCSType PCS, SourceRange Range, Spelling S) {
+PcsAttr *PcsAttr::Create(ASTContext &Ctx, PcsAttr::PCSType PCS, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_pcs:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_pcs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_pcs:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_pcs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_pcs:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_pcs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_pcs:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_pcs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -29544,7 +31631,7 @@ PcsAttr *PcsAttr::Create(ASTContext &Ctx, PCSType PCS, SourceRange Range, Spelli
 }
 
 PcsAttr::PcsAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , PCSType PCS
+              , PcsAttr::PCSType PCS
              )
   : InheritableAttr(Ctx, CommonInfo, attr::Pcs, false, false)
               , pCS(PCS)
@@ -29553,11 +31640,11 @@ PcsAttr::PcsAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
 
 
 
-bool PcsAttr::ConvertStrToPCSType(StringRef Val, PCSType &Out) {
-  std::optional<PCSType> R = llvm::StringSwitch<std::optional<PCSType>>(Val)
-    .Case("aapcs", PcsAttr::AAPCS)
-    .Case("aapcs-vfp", PcsAttr::AAPCS_VFP)
-    .Default(std::optional<PCSType>());
+bool PcsAttr::ConvertStrToPCSType(StringRef Val, PcsAttr::PCSType &Out) {
+  std::optional<PcsAttr::PCSType> R = llvm::StringSwitch<std::optional<PcsAttr::PCSType>>(Val)
+    .Case("aapcs", PcsAttr::PCSType::AAPCS)
+    .Case("aapcs-vfp", PcsAttr::PCSType::AAPCS_VFP)
+    .Default(std::optional<PcsAttr::PCSType>());
   if (R) {
     Out = *R;
       return true;
@@ -29565,10 +31652,10 @@ bool PcsAttr::ConvertStrToPCSType(StringRef Val, PCSType &Out) {
   return false;
 }
 
-const char *PcsAttr::ConvertPCSTypeToStr(PCSType Val) {
+const char *PcsAttr::ConvertPCSTypeToStr(PcsAttr::PCSType Val) {
   switch(Val) {
-  case PcsAttr::AAPCS: return "aapcs";
-  case PcsAttr::AAPCS_VFP: return "aapcs-vfp";
+  case PcsAttr::PCSType::AAPCS: return "aapcs";
+  case PcsAttr::PCSType::AAPCS_VFP: return "aapcs-vfp";
   }
   llvm_unreachable("No enumerator with that value");
 }
@@ -30099,6 +32186,146 @@ const char *PreferredNameAttr::getSpelling() const {
 }
 
 
+// PreferredTypeAttr implementation
+
+PreferredTypeAttr *PreferredTypeAttr::CreateImplicit(ASTContext &Ctx, TypeSourceInfo * Type, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) PreferredTypeAttr(Ctx, CommonInfo, Type);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+PreferredTypeAttr *PreferredTypeAttr::Create(ASTContext &Ctx, TypeSourceInfo * Type, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) PreferredTypeAttr(Ctx, CommonInfo, Type);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+PreferredTypeAttr *PreferredTypeAttr::CreateImplicit(ASTContext &Ctx, TypeSourceInfo * Type, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
+    switch (S) {
+    case GNU_preferred_type:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_preferred_type, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case CXX11_clang_preferred_type:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_preferred_type, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_preferred_type:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_preferred_type, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    default:
+      llvm_unreachable("Unknown attribute spelling!");
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    }
+  }());
+  return CreateImplicit(Ctx, Type, I);
+}
+
+PreferredTypeAttr *PreferredTypeAttr::Create(ASTContext &Ctx, TypeSourceInfo * Type, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
+    switch (S) {
+    case GNU_preferred_type:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_preferred_type, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case CXX11_clang_preferred_type:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_preferred_type, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_preferred_type:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_preferred_type, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    default:
+      llvm_unreachable("Unknown attribute spelling!");
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    }
+  }());
+  return Create(Ctx, Type, I);
+}
+
+PreferredTypeAttr::PreferredTypeAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , TypeSourceInfo * Type
+             )
+  : InheritableAttr(Ctx, CommonInfo, attr::PreferredType, false, false)
+              , type(Type)
+  {
+}
+
+PreferredTypeAttr::PreferredTypeAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             )
+  : InheritableAttr(Ctx, CommonInfo, attr::PreferredType, false, false)
+              , type()
+  {
+}
+
+
+
+PreferredTypeAttr *PreferredTypeAttr::clone(ASTContext &C) const {
+  auto *A = new (C) PreferredTypeAttr(C, *this, type);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void PreferredTypeAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+  bool IsFirstArgument = true; (void)IsFirstArgument;
+  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    break;
+  case 0 : {
+    OS << " __attribute__((preferred_type";
+    if (!getTypeLoc())
+      ++TrailingOmittedArgs;
+    if (!(!getTypeLoc())) {
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "" << getType().getAsString() << "";
+    }
+    if (!IsFirstArgument)
+      OS << ")";
+    OS << "))";
+    break;
+  }
+  case 1 : {
+    OS << " [[clang::preferred_type";
+    if (!getTypeLoc())
+      ++TrailingOmittedArgs;
+    if (!(!getTypeLoc())) {
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "" << getType().getAsString() << "";
+    }
+    if (!IsFirstArgument)
+      OS << ")";
+    OS << "]]";
+    break;
+  }
+  case 2 : {
+    OS << " [[clang::preferred_type";
+    if (!getTypeLoc())
+      ++TrailingOmittedArgs;
+    if (!(!getTypeLoc())) {
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "" << getType().getAsString() << "";
+    }
+    if (!IsFirstArgument)
+      OS << ")";
+    OS << "]]";
+    break;
+  }
+}
+}
+
+const char *PreferredTypeAttr::getSpelling() const {
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    return "(No spelling)";
+  case 0:
+    return "preferred_type";
+  case 1:
+    return "preferred_type";
+  case 2:
+    return "preferred_type";
+  }
+}
+
+
 // PreserveAllAttr implementation
 
 PreserveAllAttr *PreserveAllAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
@@ -30123,8 +32350,8 @@ PreserveAllAttr *PreserveAllAttr::CreateImplicit(ASTContext &Ctx, SourceRange Ra
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_preserve_all, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_preserve_all:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_preserve_all, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_preserve_all:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_preserve_all, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_preserve_all:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_preserve_all, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -30140,8 +32367,8 @@ PreserveAllAttr *PreserveAllAttr::Create(ASTContext &Ctx, SourceRange Range, Spe
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_preserve_all, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_preserve_all:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_preserve_all, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_preserve_all:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_preserve_all, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_preserve_all:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_preserve_all, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -30228,8 +32455,8 @@ PreserveMostAttr *PreserveMostAttr::CreateImplicit(ASTContext &Ctx, SourceRange 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_preserve_most, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_preserve_most:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_preserve_most, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_preserve_most:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_preserve_most, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_preserve_most:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_preserve_most, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -30245,8 +32472,8 @@ PreserveMostAttr *PreserveMostAttr::Create(ASTContext &Ctx, SourceRange Range, S
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_preserve_most, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_preserve_most:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_preserve_most, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_preserve_most:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_preserve_most, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_preserve_most:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_preserve_most, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -30638,8 +32865,8 @@ PureAttr *PureAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_pure, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_pure:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_pure, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_pure:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_pure, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_pure:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_pure, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -30655,8 +32882,8 @@ PureAttr *PureAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_pure, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_pure:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_pure, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_pure:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_pure, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_pure:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_pure, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -30721,7 +32948,7 @@ const char *PureAttr::getSpelling() const {
 
 // RISCVInterruptAttr implementation
 
-RISCVInterruptAttr *RISCVInterruptAttr::CreateImplicit(ASTContext &Ctx, InterruptType Interrupt, const AttributeCommonInfo &CommonInfo) {
+RISCVInterruptAttr *RISCVInterruptAttr::CreateImplicit(ASTContext &Ctx, RISCVInterruptAttr::InterruptType Interrupt, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) RISCVInterruptAttr(Ctx, CommonInfo, Interrupt);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -30729,22 +32956,22 @@ RISCVInterruptAttr *RISCVInterruptAttr::CreateImplicit(ASTContext &Ctx, Interrup
   return A;
 }
 
-RISCVInterruptAttr *RISCVInterruptAttr::Create(ASTContext &Ctx, InterruptType Interrupt, const AttributeCommonInfo &CommonInfo) {
+RISCVInterruptAttr *RISCVInterruptAttr::Create(ASTContext &Ctx, RISCVInterruptAttr::InterruptType Interrupt, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) RISCVInterruptAttr(Ctx, CommonInfo, Interrupt);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-RISCVInterruptAttr *RISCVInterruptAttr::CreateImplicit(ASTContext &Ctx, InterruptType Interrupt, SourceRange Range, Spelling S) {
+RISCVInterruptAttr *RISCVInterruptAttr::CreateImplicit(ASTContext &Ctx, RISCVInterruptAttr::InterruptType Interrupt, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_interrupt:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_interrupt:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_interrupt:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_interrupt:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -30753,15 +32980,15 @@ RISCVInterruptAttr *RISCVInterruptAttr::CreateImplicit(ASTContext &Ctx, Interrup
   return CreateImplicit(Ctx, Interrupt, I);
 }
 
-RISCVInterruptAttr *RISCVInterruptAttr::Create(ASTContext &Ctx, InterruptType Interrupt, SourceRange Range, Spelling S) {
+RISCVInterruptAttr *RISCVInterruptAttr::Create(ASTContext &Ctx, RISCVInterruptAttr::InterruptType Interrupt, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_interrupt:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_interrupt:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_interrupt:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_interrupt:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_interrupt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -30771,7 +32998,7 @@ RISCVInterruptAttr *RISCVInterruptAttr::Create(ASTContext &Ctx, InterruptType In
 }
 
 RISCVInterruptAttr::RISCVInterruptAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , InterruptType Interrupt
+              , RISCVInterruptAttr::InterruptType Interrupt
              )
   : InheritableAttr(Ctx, CommonInfo, attr::RISCVInterrupt, false, false)
               , interrupt(Interrupt)
@@ -30781,17 +33008,17 @@ RISCVInterruptAttr::RISCVInterruptAttr(ASTContext &Ctx, const AttributeCommonInf
 RISCVInterruptAttr::RISCVInterruptAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
              )
   : InheritableAttr(Ctx, CommonInfo, attr::RISCVInterrupt, false, false)
-              , interrupt(InterruptType(0))
+              , interrupt(RISCVInterruptAttr::InterruptType(0))
   {
 }
 
 
 
-bool RISCVInterruptAttr::ConvertStrToInterruptType(StringRef Val, InterruptType &Out) {
-  std::optional<InterruptType> R = llvm::StringSwitch<std::optional<InterruptType>>(Val)
-    .Case("supervisor", RISCVInterruptAttr::supervisor)
-    .Case("machine", RISCVInterruptAttr::machine)
-    .Default(std::optional<InterruptType>());
+bool RISCVInterruptAttr::ConvertStrToInterruptType(StringRef Val, RISCVInterruptAttr::InterruptType &Out) {
+  std::optional<RISCVInterruptAttr::InterruptType> R = llvm::StringSwitch<std::optional<RISCVInterruptAttr::InterruptType>>(Val)
+    .Case("supervisor", RISCVInterruptAttr::InterruptType::supervisor)
+    .Case("machine", RISCVInterruptAttr::InterruptType::machine)
+    .Default(std::optional<RISCVInterruptAttr::InterruptType>());
   if (R) {
     Out = *R;
       return true;
@@ -30799,10 +33026,10 @@ bool RISCVInterruptAttr::ConvertStrToInterruptType(StringRef Val, InterruptType 
   return false;
 }
 
-const char *RISCVInterruptAttr::ConvertInterruptTypeToStr(InterruptType Val) {
+const char *RISCVInterruptAttr::ConvertInterruptTypeToStr(RISCVInterruptAttr::InterruptType Val) {
   switch(Val) {
-  case RISCVInterruptAttr::supervisor: return "supervisor";
-  case RISCVInterruptAttr::machine: return "machine";
+  case RISCVInterruptAttr::InterruptType::supervisor: return "supervisor";
+  case RISCVInterruptAttr::InterruptType::machine: return "machine";
   }
   llvm_unreachable("No enumerator with that value");
 }
@@ -30890,8 +33117,8 @@ RandomizeLayoutAttr *RandomizeLayoutAttr::CreateImplicit(ASTContext &Ctx, Source
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_randomize_layout, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_randomize_layout:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_randomize_layout, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_randomize_layout:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_randomize_layout, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_randomize_layout:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_randomize_layout, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -30907,8 +33134,8 @@ RandomizeLayoutAttr *RandomizeLayoutAttr::Create(ASTContext &Ctx, SourceRange Ra
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_randomize_layout, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_randomize_layout:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_randomize_layout, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_randomize_layout:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_randomize_layout, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_randomize_layout:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_randomize_layout, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -30995,8 +33222,8 @@ ReadOnlyPlacementAttr *ReadOnlyPlacementAttr::CreateImplicit(ASTContext &Ctx, So
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_enforce_read_only_placement, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_enforce_read_only_placement:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_enforce_read_only_placement, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_enforce_read_only_placement:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_enforce_read_only_placement, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_enforce_read_only_placement:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_enforce_read_only_placement, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -31012,8 +33239,8 @@ ReadOnlyPlacementAttr *ReadOnlyPlacementAttr::Create(ASTContext &Ctx, SourceRang
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_enforce_read_only_placement, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_enforce_read_only_placement:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_enforce_read_only_placement, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_enforce_read_only_placement:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_enforce_read_only_placement, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_enforce_read_only_placement:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_enforce_read_only_placement, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -31100,8 +33327,8 @@ RegCallAttr *RegCallAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spe
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_regcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_regcall:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_regcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_regcall:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_regcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_regcall:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_regcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case Keyword_regcall:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_regcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
@@ -31119,8 +33346,8 @@ RegCallAttr *RegCallAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S)
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_regcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_regcall:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_regcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_regcall:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_regcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_regcall:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_regcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case Keyword_regcall:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_regcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
@@ -31557,8 +33784,8 @@ ReleaseHandleAttr *ReleaseHandleAttr::CreateImplicit(ASTContext &Ctx, llvm::Stri
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_release_handle, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_release_handle:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_release_handle, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_release_handle:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_release_handle, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_release_handle:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_release_handle, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -31574,8 +33801,8 @@ ReleaseHandleAttr *ReleaseHandleAttr::Create(ASTContext &Ctx, llvm::StringRef Ha
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_release_handle, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_release_handle:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_release_handle, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_release_handle:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_release_handle, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_release_handle:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_release_handle, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -32081,8 +34308,8 @@ RestrictAttr *RestrictAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, S
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_malloc, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_malloc:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_malloc, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_malloc:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_malloc, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_malloc:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_malloc, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -32100,8 +34327,8 @@ RestrictAttr *RestrictAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_malloc, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_malloc:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_malloc, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_malloc:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_malloc, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_malloc:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_malloc, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -32122,7 +34349,7 @@ RestrictAttr::Spelling RestrictAttr::getSemanticSpelling() const {
     case 0: return Declspec_restrict;
     case 1: return GNU_malloc;
     case 2: return CXX11_gnu_malloc;
-    case 3: return C2x_gnu_malloc;
+    case 3: return C23_gnu_malloc;
   }
 }
 RestrictAttr *RestrictAttr::clone(ASTContext &C) const {
@@ -32204,8 +34431,8 @@ RetainAttr *RetainAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spell
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_retain, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_retain:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_retain, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_retain:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_retain, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_retain:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_retain, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -32221,8 +34448,8 @@ RetainAttr *RetainAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_retain, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_retain:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_retain, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_retain:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_retain, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_retain:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_retain, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -32287,7 +34514,7 @@ const char *RetainAttr::getSpelling() const {
 
 // ReturnTypestateAttr implementation
 
-ReturnTypestateAttr *ReturnTypestateAttr::CreateImplicit(ASTContext &Ctx, ConsumedState State, const AttributeCommonInfo &CommonInfo) {
+ReturnTypestateAttr *ReturnTypestateAttr::CreateImplicit(ASTContext &Ctx, ReturnTypestateAttr::ConsumedState State, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) ReturnTypestateAttr(Ctx, CommonInfo, State);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -32295,14 +34522,14 @@ ReturnTypestateAttr *ReturnTypestateAttr::CreateImplicit(ASTContext &Ctx, Consum
   return A;
 }
 
-ReturnTypestateAttr *ReturnTypestateAttr::Create(ASTContext &Ctx, ConsumedState State, const AttributeCommonInfo &CommonInfo) {
+ReturnTypestateAttr *ReturnTypestateAttr::Create(ASTContext &Ctx, ReturnTypestateAttr::ConsumedState State, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) ReturnTypestateAttr(Ctx, CommonInfo, State);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-ReturnTypestateAttr *ReturnTypestateAttr::CreateImplicit(ASTContext &Ctx, ConsumedState State, SourceRange Range, Spelling S) {
+ReturnTypestateAttr *ReturnTypestateAttr::CreateImplicit(ASTContext &Ctx, ReturnTypestateAttr::ConsumedState State, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_return_typestate:
@@ -32317,7 +34544,7 @@ ReturnTypestateAttr *ReturnTypestateAttr::CreateImplicit(ASTContext &Ctx, Consum
   return CreateImplicit(Ctx, State, I);
 }
 
-ReturnTypestateAttr *ReturnTypestateAttr::Create(ASTContext &Ctx, ConsumedState State, SourceRange Range, Spelling S) {
+ReturnTypestateAttr *ReturnTypestateAttr::Create(ASTContext &Ctx, ReturnTypestateAttr::ConsumedState State, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_return_typestate:
@@ -32333,7 +34560,7 @@ ReturnTypestateAttr *ReturnTypestateAttr::Create(ASTContext &Ctx, ConsumedState 
 }
 
 ReturnTypestateAttr::ReturnTypestateAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , ConsumedState State
+              , ReturnTypestateAttr::ConsumedState State
              )
   : InheritableAttr(Ctx, CommonInfo, attr::ReturnTypestate, false, false)
               , state(State)
@@ -32342,12 +34569,12 @@ ReturnTypestateAttr::ReturnTypestateAttr(ASTContext &Ctx, const AttributeCommonI
 
 
 
-bool ReturnTypestateAttr::ConvertStrToConsumedState(StringRef Val, ConsumedState &Out) {
-  std::optional<ConsumedState> R = llvm::StringSwitch<std::optional<ConsumedState>>(Val)
-    .Case("unknown", ReturnTypestateAttr::Unknown)
-    .Case("consumed", ReturnTypestateAttr::Consumed)
-    .Case("unconsumed", ReturnTypestateAttr::Unconsumed)
-    .Default(std::optional<ConsumedState>());
+bool ReturnTypestateAttr::ConvertStrToConsumedState(StringRef Val, ReturnTypestateAttr::ConsumedState &Out) {
+  std::optional<ReturnTypestateAttr::ConsumedState> R = llvm::StringSwitch<std::optional<ReturnTypestateAttr::ConsumedState>>(Val)
+    .Case("unknown", ReturnTypestateAttr::ConsumedState::Unknown)
+    .Case("consumed", ReturnTypestateAttr::ConsumedState::Consumed)
+    .Case("unconsumed", ReturnTypestateAttr::ConsumedState::Unconsumed)
+    .Default(std::optional<ReturnTypestateAttr::ConsumedState>());
   if (R) {
     Out = *R;
       return true;
@@ -32355,11 +34582,11 @@ bool ReturnTypestateAttr::ConvertStrToConsumedState(StringRef Val, ConsumedState
   return false;
 }
 
-const char *ReturnTypestateAttr::ConvertConsumedStateToStr(ConsumedState Val) {
+const char *ReturnTypestateAttr::ConvertConsumedStateToStr(ReturnTypestateAttr::ConsumedState Val) {
   switch(Val) {
-  case ReturnTypestateAttr::Unknown: return "unknown";
-  case ReturnTypestateAttr::Consumed: return "consumed";
-  case ReturnTypestateAttr::Unconsumed: return "unconsumed";
+  case ReturnTypestateAttr::ConsumedState::Unknown: return "unknown";
+  case ReturnTypestateAttr::ConsumedState::Consumed: return "consumed";
+  case ReturnTypestateAttr::ConsumedState::Unconsumed: return "unconsumed";
   }
   llvm_unreachable("No enumerator with that value");
 }
@@ -32436,8 +34663,8 @@ ReturnsNonNullAttr *ReturnsNonNullAttr::CreateImplicit(ASTContext &Ctx, SourceRa
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_returns_nonnull, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_returns_nonnull:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_returns_nonnull, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_returns_nonnull:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_returns_nonnull, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_returns_nonnull:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_returns_nonnull, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -32453,8 +34680,8 @@ ReturnsNonNullAttr *ReturnsNonNullAttr::Create(ASTContext &Ctx, SourceRange Rang
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_returns_nonnull, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_returns_nonnull:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_returns_nonnull, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_returns_nonnull:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_returns_nonnull, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_returns_nonnull:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_returns_nonnull, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -32541,8 +34768,8 @@ ReturnsTwiceAttr *ReturnsTwiceAttr::CreateImplicit(ASTContext &Ctx, SourceRange 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_returns_twice, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_returns_twice:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_returns_twice, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_returns_twice:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_returns_twice, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_returns_twice:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_returns_twice, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -32558,8 +34785,8 @@ ReturnsTwiceAttr *ReturnsTwiceAttr::Create(ASTContext &Ctx, SourceRange Range, S
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_returns_twice, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_returns_twice:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_returns_twice, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_returns_twice:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_returns_twice, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_returns_twice:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_returns_twice, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -32713,8 +34940,8 @@ SYCLKernelAttr *SYCLKernelAttr::CreateImplicit(ASTContext &Ctx, SourceRange Rang
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_sycl_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_sycl_kernel:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_sycl_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_sycl_kernel:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_sycl_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_sycl_kernel:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_sycl_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -32730,8 +34957,8 @@ SYCLKernelAttr *SYCLKernelAttr::Create(ASTContext &Ctx, SourceRange Range, Spell
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_sycl_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_sycl_kernel:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_sycl_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_sycl_kernel:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_sycl_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_sycl_kernel:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_sycl_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -32818,8 +35045,8 @@ SYCLSpecialClassAttr *SYCLSpecialClassAttr::CreateImplicit(ASTContext &Ctx, Sour
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_sycl_special_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_sycl_special_class:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_sycl_special_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_sycl_special_class:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_sycl_special_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_sycl_special_class:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_sycl_special_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -32835,8 +35062,8 @@ SYCLSpecialClassAttr *SYCLSpecialClassAttr::Create(ASTContext &Ctx, SourceRange 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_sycl_special_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_sycl_special_class:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_sycl_special_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_sycl_special_class:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_sycl_special_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_sycl_special_class:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_sycl_special_class, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -33015,8 +35242,8 @@ SectionAttr *SectionAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Name, 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_section, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_section:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_section, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_section:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_section, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_section:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_section, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case Declspec_allocate:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_allocate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
@@ -33034,8 +35261,8 @@ SectionAttr *SectionAttr::Create(ASTContext &Ctx, llvm::StringRef Name, SourceRa
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_section, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_section:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_section, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_section:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_section, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_section:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_section, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case Declspec_allocate:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, Declspec_allocate, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
@@ -33061,7 +35288,7 @@ SectionAttr::Spelling SectionAttr::getSemanticSpelling() const {
     default: llvm_unreachable("Unknown spelling list index");
     case 0: return GNU_section;
     case 1: return CXX11_gnu_section;
-    case 2: return C2x_gnu_section;
+    case 2: return C23_gnu_section;
     case 3: return Declspec_allocate;
   }
 }
@@ -33164,8 +35391,8 @@ SelectAnyAttr *SelectAnyAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range,
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_selectany, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_selectany:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_selectany, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_selectany:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_selectany, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_selectany:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_selectany, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -33183,8 +35410,8 @@ SelectAnyAttr *SelectAnyAttr::Create(ASTContext &Ctx, SourceRange Range, Spellin
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_selectany, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_selectany:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_selectany, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_selectany:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_selectany, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_selectany:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_selectany, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Declspec, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -33278,8 +35505,8 @@ SentinelAttr *SentinelAttr::CreateImplicit(ASTContext &Ctx, int Sentinel, int Nu
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_sentinel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_sentinel:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_sentinel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_sentinel:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_sentinel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_sentinel:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_sentinel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -33295,8 +35522,8 @@ SentinelAttr *SentinelAttr::Create(ASTContext &Ctx, int Sentinel, int NullPos, S
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_sentinel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_sentinel:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_sentinel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_sentinel:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_sentinel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_sentinel:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_sentinel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -33395,7 +35622,7 @@ const char *SentinelAttr::getSpelling() const {
 
 // SetTypestateAttr implementation
 
-SetTypestateAttr *SetTypestateAttr::CreateImplicit(ASTContext &Ctx, ConsumedState NewState, const AttributeCommonInfo &CommonInfo) {
+SetTypestateAttr *SetTypestateAttr::CreateImplicit(ASTContext &Ctx, SetTypestateAttr::ConsumedState NewState, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) SetTypestateAttr(Ctx, CommonInfo, NewState);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -33403,14 +35630,14 @@ SetTypestateAttr *SetTypestateAttr::CreateImplicit(ASTContext &Ctx, ConsumedStat
   return A;
 }
 
-SetTypestateAttr *SetTypestateAttr::Create(ASTContext &Ctx, ConsumedState NewState, const AttributeCommonInfo &CommonInfo) {
+SetTypestateAttr *SetTypestateAttr::Create(ASTContext &Ctx, SetTypestateAttr::ConsumedState NewState, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) SetTypestateAttr(Ctx, CommonInfo, NewState);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-SetTypestateAttr *SetTypestateAttr::CreateImplicit(ASTContext &Ctx, ConsumedState NewState, SourceRange Range, Spelling S) {
+SetTypestateAttr *SetTypestateAttr::CreateImplicit(ASTContext &Ctx, SetTypestateAttr::ConsumedState NewState, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_set_typestate:
@@ -33425,7 +35652,7 @@ SetTypestateAttr *SetTypestateAttr::CreateImplicit(ASTContext &Ctx, ConsumedStat
   return CreateImplicit(Ctx, NewState, I);
 }
 
-SetTypestateAttr *SetTypestateAttr::Create(ASTContext &Ctx, ConsumedState NewState, SourceRange Range, Spelling S) {
+SetTypestateAttr *SetTypestateAttr::Create(ASTContext &Ctx, SetTypestateAttr::ConsumedState NewState, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_set_typestate:
@@ -33441,7 +35668,7 @@ SetTypestateAttr *SetTypestateAttr::Create(ASTContext &Ctx, ConsumedState NewSta
 }
 
 SetTypestateAttr::SetTypestateAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , ConsumedState NewState
+              , SetTypestateAttr::ConsumedState NewState
              )
   : InheritableAttr(Ctx, CommonInfo, attr::SetTypestate, false, false)
               , newState(NewState)
@@ -33450,12 +35677,12 @@ SetTypestateAttr::SetTypestateAttr(ASTContext &Ctx, const AttributeCommonInfo &C
 
 
 
-bool SetTypestateAttr::ConvertStrToConsumedState(StringRef Val, ConsumedState &Out) {
-  std::optional<ConsumedState> R = llvm::StringSwitch<std::optional<ConsumedState>>(Val)
-    .Case("unknown", SetTypestateAttr::Unknown)
-    .Case("consumed", SetTypestateAttr::Consumed)
-    .Case("unconsumed", SetTypestateAttr::Unconsumed)
-    .Default(std::optional<ConsumedState>());
+bool SetTypestateAttr::ConvertStrToConsumedState(StringRef Val, SetTypestateAttr::ConsumedState &Out) {
+  std::optional<SetTypestateAttr::ConsumedState> R = llvm::StringSwitch<std::optional<SetTypestateAttr::ConsumedState>>(Val)
+    .Case("unknown", SetTypestateAttr::ConsumedState::Unknown)
+    .Case("consumed", SetTypestateAttr::ConsumedState::Consumed)
+    .Case("unconsumed", SetTypestateAttr::ConsumedState::Unconsumed)
+    .Default(std::optional<SetTypestateAttr::ConsumedState>());
   if (R) {
     Out = *R;
       return true;
@@ -33463,11 +35690,11 @@ bool SetTypestateAttr::ConvertStrToConsumedState(StringRef Val, ConsumedState &O
   return false;
 }
 
-const char *SetTypestateAttr::ConvertConsumedStateToStr(ConsumedState Val) {
+const char *SetTypestateAttr::ConvertConsumedStateToStr(SetTypestateAttr::ConsumedState Val) {
   switch(Val) {
-  case SetTypestateAttr::Unknown: return "unknown";
-  case SetTypestateAttr::Consumed: return "consumed";
-  case SetTypestateAttr::Unconsumed: return "unconsumed";
+  case SetTypestateAttr::ConsumedState::Unknown: return "unknown";
+  case SetTypestateAttr::ConsumedState::Consumed: return "consumed";
+  case SetTypestateAttr::ConsumedState::Unconsumed: return "unconsumed";
   }
   llvm_unreachable("No enumerator with that value");
 }
@@ -33641,8 +35868,8 @@ SpeculativeLoadHardeningAttr *SpeculativeLoadHardeningAttr::CreateImplicit(ASTCo
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_speculative_load_hardening, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_speculative_load_hardening:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_speculative_load_hardening, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_speculative_load_hardening:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_speculative_load_hardening, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_speculative_load_hardening:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_speculative_load_hardening, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -33658,8 +35885,8 @@ SpeculativeLoadHardeningAttr *SpeculativeLoadHardeningAttr::Create(ASTContext &C
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_speculative_load_hardening, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_speculative_load_hardening:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_speculative_load_hardening, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_speculative_load_hardening:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_speculative_load_hardening, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_speculative_load_hardening:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_speculative_load_hardening, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -33840,8 +36067,8 @@ StdCallAttr *StdCallAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spe
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_stdcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_stdcall:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_stdcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_stdcall:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_stdcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_stdcall:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_stdcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case Keyword_stdcall:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_stdcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
@@ -33859,8 +36086,8 @@ StdCallAttr *StdCallAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S)
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_stdcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_stdcall:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_stdcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_stdcall:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_stdcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_stdcall:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_stdcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case Keyword_stdcall:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_stdcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
@@ -34072,20 +36299,48 @@ SuppressAttr *SuppressAttr::Create(ASTContext &Ctx, StringRef *DiagnosticIdentif
   return A;
 }
 
-SuppressAttr *SuppressAttr::CreateImplicit(ASTContext &Ctx, StringRef *DiagnosticIdentifiers, unsigned DiagnosticIdentifiersSize, SourceRange Range) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
+SuppressAttr *SuppressAttr::CreateImplicit(ASTContext &Ctx, StringRef *DiagnosticIdentifiers, unsigned DiagnosticIdentifiersSize, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
+    switch (S) {
+    case CXX11_gsl_suppress:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gsl_suppress, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case GNU_suppress:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_suppress, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case CXX11_clang_suppress:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_suppress, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_suppress:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_suppress, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    default:
+      llvm_unreachable("Unknown attribute spelling!");
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    }
+  }());
   return CreateImplicit(Ctx, DiagnosticIdentifiers, DiagnosticIdentifiersSize, I);
 }
 
-SuppressAttr *SuppressAttr::Create(ASTContext &Ctx, StringRef *DiagnosticIdentifiers, unsigned DiagnosticIdentifiersSize, SourceRange Range) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
+SuppressAttr *SuppressAttr::Create(ASTContext &Ctx, StringRef *DiagnosticIdentifiers, unsigned DiagnosticIdentifiersSize, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
+    switch (S) {
+    case CXX11_gsl_suppress:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gsl_suppress, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case GNU_suppress:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_suppress, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case CXX11_clang_suppress:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_suppress, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_suppress:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_suppress, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    default:
+      llvm_unreachable("Unknown attribute spelling!");
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    }
+  }());
   return Create(Ctx, DiagnosticIdentifiers, DiagnosticIdentifiersSize, I);
 }
 
 SuppressAttr::SuppressAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
               , StringRef *DiagnosticIdentifiers, unsigned DiagnosticIdentifiersSize
              )
-  : StmtAttr(Ctx, CommonInfo, attr::Suppress, false)
+  : DeclOrStmtAttr(Ctx, CommonInfo, attr::Suppress, false, false)
               , diagnosticIdentifiers_Size(DiagnosticIdentifiersSize), diagnosticIdentifiers_(new (Ctx, 16) StringRef[diagnosticIdentifiers_Size])
   {
   for (size_t I = 0, E = diagnosticIdentifiers_Size; I != E;
@@ -34101,7 +36356,7 @@ SuppressAttr::SuppressAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInf
 
 SuppressAttr::SuppressAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
              )
-  : StmtAttr(Ctx, CommonInfo, attr::Suppress, false)
+  : DeclOrStmtAttr(Ctx, CommonInfo, attr::Suppress, false, false)
               , diagnosticIdentifiers_Size(0), diagnosticIdentifiers_(nullptr)
   {
 }
@@ -34136,6 +36391,45 @@ void SuppressAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) co
     OS << "]]";
     break;
   }
+  case 1 : {
+    OS << " __attribute__((suppress";
+    OS << "";
+  for (const auto &Val : diagnosticIdentifiers()) {
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "\"" << Val << "\"";
+  }
+  OS << "";
+    if (!IsFirstArgument)
+      OS << ")";
+    OS << "))";
+    break;
+  }
+  case 2 : {
+    OS << " [[clang::suppress";
+    OS << "";
+  for (const auto &Val : diagnosticIdentifiers()) {
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "\"" << Val << "\"";
+  }
+  OS << "";
+    if (!IsFirstArgument)
+      OS << ")";
+    OS << "]]";
+    break;
+  }
+  case 3 : {
+    OS << " [[clang::suppress";
+    OS << "";
+  for (const auto &Val : diagnosticIdentifiers()) {
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "\"" << Val << "\"";
+  }
+  OS << "";
+    if (!IsFirstArgument)
+      OS << ")";
+    OS << "]]";
+    break;
+  }
 }
 }
 
@@ -34146,13 +36440,19 @@ const char *SuppressAttr::getSpelling() const {
     return "(No spelling)";
   case 0:
     return "suppress";
+  case 1:
+    return "suppress";
+  case 2:
+    return "suppress";
+  case 3:
+    return "suppress";
   }
 }
 
 
 // SwiftAsyncAttr implementation
 
-SwiftAsyncAttr *SwiftAsyncAttr::CreateImplicit(ASTContext &Ctx, Kind Kind, ParamIdx CompletionHandlerIndex, const AttributeCommonInfo &CommonInfo) {
+SwiftAsyncAttr *SwiftAsyncAttr::CreateImplicit(ASTContext &Ctx, SwiftAsyncAttr::Kind Kind, ParamIdx CompletionHandlerIndex, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) SwiftAsyncAttr(Ctx, CommonInfo, Kind, CompletionHandlerIndex);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -34160,22 +36460,22 @@ SwiftAsyncAttr *SwiftAsyncAttr::CreateImplicit(ASTContext &Ctx, Kind Kind, Param
   return A;
 }
 
-SwiftAsyncAttr *SwiftAsyncAttr::Create(ASTContext &Ctx, Kind Kind, ParamIdx CompletionHandlerIndex, const AttributeCommonInfo &CommonInfo) {
+SwiftAsyncAttr *SwiftAsyncAttr::Create(ASTContext &Ctx, SwiftAsyncAttr::Kind Kind, ParamIdx CompletionHandlerIndex, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) SwiftAsyncAttr(Ctx, CommonInfo, Kind, CompletionHandlerIndex);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-SwiftAsyncAttr *SwiftAsyncAttr::CreateImplicit(ASTContext &Ctx, Kind Kind, ParamIdx CompletionHandlerIndex, SourceRange Range, Spelling S) {
+SwiftAsyncAttr *SwiftAsyncAttr::CreateImplicit(ASTContext &Ctx, SwiftAsyncAttr::Kind Kind, ParamIdx CompletionHandlerIndex, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_swift_async:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_swift_async, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_swift_async:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_swift_async, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_swift_async:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_swift_async, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_swift_async:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_swift_async, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -34184,15 +36484,15 @@ SwiftAsyncAttr *SwiftAsyncAttr::CreateImplicit(ASTContext &Ctx, Kind Kind, Param
   return CreateImplicit(Ctx, Kind, CompletionHandlerIndex, I);
 }
 
-SwiftAsyncAttr *SwiftAsyncAttr::Create(ASTContext &Ctx, Kind Kind, ParamIdx CompletionHandlerIndex, SourceRange Range, Spelling S) {
+SwiftAsyncAttr *SwiftAsyncAttr::Create(ASTContext &Ctx, SwiftAsyncAttr::Kind Kind, ParamIdx CompletionHandlerIndex, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_swift_async:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_swift_async, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_swift_async:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_swift_async, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_swift_async:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_swift_async, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_swift_async:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_swift_async, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -34202,7 +36502,7 @@ SwiftAsyncAttr *SwiftAsyncAttr::Create(ASTContext &Ctx, Kind Kind, ParamIdx Comp
 }
 
 SwiftAsyncAttr::SwiftAsyncAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , Kind Kind
+              , SwiftAsyncAttr::Kind Kind
               , ParamIdx CompletionHandlerIndex
              )
   : InheritableAttr(Ctx, CommonInfo, attr::SwiftAsync, false, false)
@@ -34212,7 +36512,7 @@ SwiftAsyncAttr::SwiftAsyncAttr(ASTContext &Ctx, const AttributeCommonInfo &Commo
 }
 
 SwiftAsyncAttr::SwiftAsyncAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , Kind Kind
+              , SwiftAsyncAttr::Kind Kind
              )
   : InheritableAttr(Ctx, CommonInfo, attr::SwiftAsync, false, false)
               , kind(Kind)
@@ -34222,12 +36522,12 @@ SwiftAsyncAttr::SwiftAsyncAttr(ASTContext &Ctx, const AttributeCommonInfo &Commo
 
 
 
-bool SwiftAsyncAttr::ConvertStrToKind(StringRef Val, Kind &Out) {
-  std::optional<Kind> R = llvm::StringSwitch<std::optional<Kind>>(Val)
-    .Case("none", SwiftAsyncAttr::None)
-    .Case("swift_private", SwiftAsyncAttr::SwiftPrivate)
-    .Case("not_swift_private", SwiftAsyncAttr::NotSwiftPrivate)
-    .Default(std::optional<Kind>());
+bool SwiftAsyncAttr::ConvertStrToKind(StringRef Val, SwiftAsyncAttr::Kind &Out) {
+  std::optional<SwiftAsyncAttr::Kind> R = llvm::StringSwitch<std::optional<SwiftAsyncAttr::Kind>>(Val)
+    .Case("none", SwiftAsyncAttr::Kind::None)
+    .Case("swift_private", SwiftAsyncAttr::Kind::SwiftPrivate)
+    .Case("not_swift_private", SwiftAsyncAttr::Kind::NotSwiftPrivate)
+    .Default(std::optional<SwiftAsyncAttr::Kind>());
   if (R) {
     Out = *R;
       return true;
@@ -34235,11 +36535,11 @@ bool SwiftAsyncAttr::ConvertStrToKind(StringRef Val, Kind &Out) {
   return false;
 }
 
-const char *SwiftAsyncAttr::ConvertKindToStr(Kind Val) {
+const char *SwiftAsyncAttr::ConvertKindToStr(SwiftAsyncAttr::Kind Val) {
   switch(Val) {
-  case SwiftAsyncAttr::None: return "none";
-  case SwiftAsyncAttr::SwiftPrivate: return "swift_private";
-  case SwiftAsyncAttr::NotSwiftPrivate: return "not_swift_private";
+  case SwiftAsyncAttr::Kind::None: return "none";
+  case SwiftAsyncAttr::Kind::SwiftPrivate: return "swift_private";
+  case SwiftAsyncAttr::Kind::NotSwiftPrivate: return "not_swift_private";
   }
   llvm_unreachable("No enumerator with that value");
 }
@@ -34347,8 +36647,8 @@ SwiftAsyncCallAttr *SwiftAsyncCallAttr::CreateImplicit(ASTContext &Ctx, SourceRa
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_swiftasynccall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_swiftasynccall:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_swiftasynccall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_swiftasynccall:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_swiftasynccall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_swiftasynccall:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_swiftasynccall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -34364,8 +36664,8 @@ SwiftAsyncCallAttr *SwiftAsyncCallAttr::Create(ASTContext &Ctx, SourceRange Rang
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_swiftasynccall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_swiftasynccall:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_swiftasynccall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_swiftasynccall:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_swiftasynccall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_swiftasynccall:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_swiftasynccall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -34452,8 +36752,8 @@ SwiftAsyncContextAttr *SwiftAsyncContextAttr::CreateImplicit(ASTContext &Ctx, So
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_swift_async_context, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_swift_async_context:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_swift_async_context, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_swift_async_context:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_swift_async_context, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_swift_async_context:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_swift_async_context, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -34469,8 +36769,8 @@ SwiftAsyncContextAttr *SwiftAsyncContextAttr::Create(ASTContext &Ctx, SourceRang
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_swift_async_context, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_swift_async_context:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_swift_async_context, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_swift_async_context:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_swift_async_context, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_swift_async_context:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_swift_async_context, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -34535,7 +36835,7 @@ const char *SwiftAsyncContextAttr::getSpelling() const {
 
 // SwiftAsyncErrorAttr implementation
 
-SwiftAsyncErrorAttr *SwiftAsyncErrorAttr::CreateImplicit(ASTContext &Ctx, ConventionKind Convention, unsigned HandlerParamIdx, const AttributeCommonInfo &CommonInfo) {
+SwiftAsyncErrorAttr *SwiftAsyncErrorAttr::CreateImplicit(ASTContext &Ctx, SwiftAsyncErrorAttr::ConventionKind Convention, unsigned HandlerParamIdx, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) SwiftAsyncErrorAttr(Ctx, CommonInfo, Convention, HandlerParamIdx);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -34543,22 +36843,22 @@ SwiftAsyncErrorAttr *SwiftAsyncErrorAttr::CreateImplicit(ASTContext &Ctx, Conven
   return A;
 }
 
-SwiftAsyncErrorAttr *SwiftAsyncErrorAttr::Create(ASTContext &Ctx, ConventionKind Convention, unsigned HandlerParamIdx, const AttributeCommonInfo &CommonInfo) {
+SwiftAsyncErrorAttr *SwiftAsyncErrorAttr::Create(ASTContext &Ctx, SwiftAsyncErrorAttr::ConventionKind Convention, unsigned HandlerParamIdx, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) SwiftAsyncErrorAttr(Ctx, CommonInfo, Convention, HandlerParamIdx);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-SwiftAsyncErrorAttr *SwiftAsyncErrorAttr::CreateImplicit(ASTContext &Ctx, ConventionKind Convention, unsigned HandlerParamIdx, SourceRange Range, Spelling S) {
+SwiftAsyncErrorAttr *SwiftAsyncErrorAttr::CreateImplicit(ASTContext &Ctx, SwiftAsyncErrorAttr::ConventionKind Convention, unsigned HandlerParamIdx, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_swift_async_error:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_swift_async_error, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_swift_async_error:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_swift_async_error, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_swift_async_error:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_swift_async_error, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_swift_async_error:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_swift_async_error, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -34567,15 +36867,15 @@ SwiftAsyncErrorAttr *SwiftAsyncErrorAttr::CreateImplicit(ASTContext &Ctx, Conven
   return CreateImplicit(Ctx, Convention, HandlerParamIdx, I);
 }
 
-SwiftAsyncErrorAttr *SwiftAsyncErrorAttr::Create(ASTContext &Ctx, ConventionKind Convention, unsigned HandlerParamIdx, SourceRange Range, Spelling S) {
+SwiftAsyncErrorAttr *SwiftAsyncErrorAttr::Create(ASTContext &Ctx, SwiftAsyncErrorAttr::ConventionKind Convention, unsigned HandlerParamIdx, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_swift_async_error:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_swift_async_error, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_swift_async_error:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_swift_async_error, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_swift_async_error:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_swift_async_error, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_swift_async_error:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_swift_async_error, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -34585,7 +36885,7 @@ SwiftAsyncErrorAttr *SwiftAsyncErrorAttr::Create(ASTContext &Ctx, ConventionKind
 }
 
 SwiftAsyncErrorAttr::SwiftAsyncErrorAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , ConventionKind Convention
+              , SwiftAsyncErrorAttr::ConventionKind Convention
               , unsigned HandlerParamIdx
              )
   : InheritableAttr(Ctx, CommonInfo, attr::SwiftAsyncError, false, false)
@@ -34595,7 +36895,7 @@ SwiftAsyncErrorAttr::SwiftAsyncErrorAttr(ASTContext &Ctx, const AttributeCommonI
 }
 
 SwiftAsyncErrorAttr::SwiftAsyncErrorAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , ConventionKind Convention
+              , SwiftAsyncErrorAttr::ConventionKind Convention
              )
   : InheritableAttr(Ctx, CommonInfo, attr::SwiftAsyncError, false, false)
               , convention(Convention)
@@ -34605,13 +36905,13 @@ SwiftAsyncErrorAttr::SwiftAsyncErrorAttr(ASTContext &Ctx, const AttributeCommonI
 
 
 
-bool SwiftAsyncErrorAttr::ConvertStrToConventionKind(StringRef Val, ConventionKind &Out) {
-  std::optional<ConventionKind> R = llvm::StringSwitch<std::optional<ConventionKind>>(Val)
-    .Case("none", SwiftAsyncErrorAttr::None)
-    .Case("nonnull_error", SwiftAsyncErrorAttr::NonNullError)
-    .Case("zero_argument", SwiftAsyncErrorAttr::ZeroArgument)
-    .Case("nonzero_argument", SwiftAsyncErrorAttr::NonZeroArgument)
-    .Default(std::optional<ConventionKind>());
+bool SwiftAsyncErrorAttr::ConvertStrToConventionKind(StringRef Val, SwiftAsyncErrorAttr::ConventionKind &Out) {
+  std::optional<SwiftAsyncErrorAttr::ConventionKind> R = llvm::StringSwitch<std::optional<SwiftAsyncErrorAttr::ConventionKind>>(Val)
+    .Case("none", SwiftAsyncErrorAttr::ConventionKind::None)
+    .Case("nonnull_error", SwiftAsyncErrorAttr::ConventionKind::NonNullError)
+    .Case("zero_argument", SwiftAsyncErrorAttr::ConventionKind::ZeroArgument)
+    .Case("nonzero_argument", SwiftAsyncErrorAttr::ConventionKind::NonZeroArgument)
+    .Default(std::optional<SwiftAsyncErrorAttr::ConventionKind>());
   if (R) {
     Out = *R;
       return true;
@@ -34619,12 +36919,12 @@ bool SwiftAsyncErrorAttr::ConvertStrToConventionKind(StringRef Val, ConventionKi
   return false;
 }
 
-const char *SwiftAsyncErrorAttr::ConvertConventionKindToStr(ConventionKind Val) {
+const char *SwiftAsyncErrorAttr::ConvertConventionKindToStr(SwiftAsyncErrorAttr::ConventionKind Val) {
   switch(Val) {
-  case SwiftAsyncErrorAttr::None: return "none";
-  case SwiftAsyncErrorAttr::NonNullError: return "nonnull_error";
-  case SwiftAsyncErrorAttr::ZeroArgument: return "zero_argument";
-  case SwiftAsyncErrorAttr::NonZeroArgument: return "nonzero_argument";
+  case SwiftAsyncErrorAttr::ConventionKind::None: return "none";
+  case SwiftAsyncErrorAttr::ConventionKind::NonNullError: return "nonnull_error";
+  case SwiftAsyncErrorAttr::ConventionKind::ZeroArgument: return "zero_argument";
+  case SwiftAsyncErrorAttr::ConventionKind::NonZeroArgument: return "nonzero_argument";
   }
   llvm_unreachable("No enumerator with that value");
 }
@@ -35018,8 +37318,8 @@ SwiftCallAttr *SwiftCallAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range,
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_swiftcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_swiftcall:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_swiftcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_swiftcall:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_swiftcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_swiftcall:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_swiftcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -35035,8 +37335,8 @@ SwiftCallAttr *SwiftCallAttr::Create(ASTContext &Ctx, SourceRange Range, Spellin
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_swiftcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_swiftcall:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_swiftcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_swiftcall:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_swiftcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_swiftcall:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_swiftcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -35123,8 +37423,8 @@ SwiftContextAttr *SwiftContextAttr::CreateImplicit(ASTContext &Ctx, SourceRange 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_swift_context, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_swift_context:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_swift_context, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_swift_context:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_swift_context, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_swift_context:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_swift_context, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -35140,8 +37440,8 @@ SwiftContextAttr *SwiftContextAttr::Create(ASTContext &Ctx, SourceRange Range, S
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_swift_context, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_swift_context:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_swift_context, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_swift_context:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_swift_context, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_swift_context:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_swift_context, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -35206,7 +37506,7 @@ const char *SwiftContextAttr::getSpelling() const {
 
 // SwiftErrorAttr implementation
 
-SwiftErrorAttr *SwiftErrorAttr::CreateImplicit(ASTContext &Ctx, ConventionKind Convention, const AttributeCommonInfo &CommonInfo) {
+SwiftErrorAttr *SwiftErrorAttr::CreateImplicit(ASTContext &Ctx, SwiftErrorAttr::ConventionKind Convention, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) SwiftErrorAttr(Ctx, CommonInfo, Convention);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -35214,25 +37514,25 @@ SwiftErrorAttr *SwiftErrorAttr::CreateImplicit(ASTContext &Ctx, ConventionKind C
   return A;
 }
 
-SwiftErrorAttr *SwiftErrorAttr::Create(ASTContext &Ctx, ConventionKind Convention, const AttributeCommonInfo &CommonInfo) {
+SwiftErrorAttr *SwiftErrorAttr::Create(ASTContext &Ctx, SwiftErrorAttr::ConventionKind Convention, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) SwiftErrorAttr(Ctx, CommonInfo, Convention);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-SwiftErrorAttr *SwiftErrorAttr::CreateImplicit(ASTContext &Ctx, ConventionKind Convention, SourceRange Range) {
+SwiftErrorAttr *SwiftErrorAttr::CreateImplicit(ASTContext &Ctx, SwiftErrorAttr::ConventionKind Convention, SourceRange Range) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, Convention, I);
 }
 
-SwiftErrorAttr *SwiftErrorAttr::Create(ASTContext &Ctx, ConventionKind Convention, SourceRange Range) {
+SwiftErrorAttr *SwiftErrorAttr::Create(ASTContext &Ctx, SwiftErrorAttr::ConventionKind Convention, SourceRange Range) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, Convention, I);
 }
 
 SwiftErrorAttr::SwiftErrorAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , ConventionKind Convention
+              , SwiftErrorAttr::ConventionKind Convention
              )
   : InheritableAttr(Ctx, CommonInfo, attr::SwiftError, false, false)
               , convention(Convention)
@@ -35241,14 +37541,14 @@ SwiftErrorAttr::SwiftErrorAttr(ASTContext &Ctx, const AttributeCommonInfo &Commo
 
 
 
-bool SwiftErrorAttr::ConvertStrToConventionKind(StringRef Val, ConventionKind &Out) {
-  std::optional<ConventionKind> R = llvm::StringSwitch<std::optional<ConventionKind>>(Val)
-    .Case("none", SwiftErrorAttr::None)
-    .Case("nonnull_error", SwiftErrorAttr::NonNullError)
-    .Case("null_result", SwiftErrorAttr::NullResult)
-    .Case("zero_result", SwiftErrorAttr::ZeroResult)
-    .Case("nonzero_result", SwiftErrorAttr::NonZeroResult)
-    .Default(std::optional<ConventionKind>());
+bool SwiftErrorAttr::ConvertStrToConventionKind(StringRef Val, SwiftErrorAttr::ConventionKind &Out) {
+  std::optional<SwiftErrorAttr::ConventionKind> R = llvm::StringSwitch<std::optional<SwiftErrorAttr::ConventionKind>>(Val)
+    .Case("none", SwiftErrorAttr::ConventionKind::None)
+    .Case("nonnull_error", SwiftErrorAttr::ConventionKind::NonNullError)
+    .Case("null_result", SwiftErrorAttr::ConventionKind::NullResult)
+    .Case("zero_result", SwiftErrorAttr::ConventionKind::ZeroResult)
+    .Case("nonzero_result", SwiftErrorAttr::ConventionKind::NonZeroResult)
+    .Default(std::optional<SwiftErrorAttr::ConventionKind>());
   if (R) {
     Out = *R;
       return true;
@@ -35256,13 +37556,13 @@ bool SwiftErrorAttr::ConvertStrToConventionKind(StringRef Val, ConventionKind &O
   return false;
 }
 
-const char *SwiftErrorAttr::ConvertConventionKindToStr(ConventionKind Val) {
+const char *SwiftErrorAttr::ConvertConventionKindToStr(SwiftErrorAttr::ConventionKind Val) {
   switch(Val) {
-  case SwiftErrorAttr::None: return "none";
-  case SwiftErrorAttr::NonNullError: return "nonnull_error";
-  case SwiftErrorAttr::NullResult: return "null_result";
-  case SwiftErrorAttr::ZeroResult: return "zero_result";
-  case SwiftErrorAttr::NonZeroResult: return "nonzero_result";
+  case SwiftErrorAttr::ConventionKind::None: return "none";
+  case SwiftErrorAttr::ConventionKind::NonNullError: return "nonnull_error";
+  case SwiftErrorAttr::ConventionKind::NullResult: return "null_result";
+  case SwiftErrorAttr::ConventionKind::ZeroResult: return "zero_result";
+  case SwiftErrorAttr::ConventionKind::NonZeroResult: return "nonzero_result";
   }
   llvm_unreachable("No enumerator with that value");
 }
@@ -35328,8 +37628,8 @@ SwiftErrorResultAttr *SwiftErrorResultAttr::CreateImplicit(ASTContext &Ctx, Sour
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_swift_error_result, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_swift_error_result:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_swift_error_result, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_swift_error_result:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_swift_error_result, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_swift_error_result:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_swift_error_result, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -35345,8 +37645,8 @@ SwiftErrorResultAttr *SwiftErrorResultAttr::Create(ASTContext &Ctx, SourceRange 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_swift_error_result, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_swift_error_result:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_swift_error_result, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_swift_error_result:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_swift_error_result, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_swift_error_result:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_swift_error_result, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -35409,6 +37709,104 @@ const char *SwiftErrorResultAttr::getSpelling() const {
 }
 
 
+// SwiftImportAsNonGenericAttr implementation
+
+SwiftImportAsNonGenericAttr *SwiftImportAsNonGenericAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) SwiftImportAsNonGenericAttr(Ctx, CommonInfo);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+SwiftImportAsNonGenericAttr *SwiftImportAsNonGenericAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) SwiftImportAsNonGenericAttr(Ctx, CommonInfo);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+SwiftImportAsNonGenericAttr *SwiftImportAsNonGenericAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
+  return CreateImplicit(Ctx, I);
+}
+
+SwiftImportAsNonGenericAttr *SwiftImportAsNonGenericAttr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
+  return Create(Ctx, I);
+}
+
+SwiftImportAsNonGenericAttr::SwiftImportAsNonGenericAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             )
+  : InheritableAttr(Ctx, CommonInfo, attr::SwiftImportAsNonGeneric, false, false)
+  {
+}
+
+SwiftImportAsNonGenericAttr *SwiftImportAsNonGenericAttr::clone(ASTContext &C) const {
+  auto *A = new (C) SwiftImportAsNonGenericAttr(C, *this);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void SwiftImportAsNonGenericAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+}
+
+const char *SwiftImportAsNonGenericAttr::getSpelling() const {
+  return "(No spelling)";
+}
+
+
+// SwiftImportPropertyAsAccessorsAttr implementation
+
+SwiftImportPropertyAsAccessorsAttr *SwiftImportPropertyAsAccessorsAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) SwiftImportPropertyAsAccessorsAttr(Ctx, CommonInfo);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+SwiftImportPropertyAsAccessorsAttr *SwiftImportPropertyAsAccessorsAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) SwiftImportPropertyAsAccessorsAttr(Ctx, CommonInfo);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+SwiftImportPropertyAsAccessorsAttr *SwiftImportPropertyAsAccessorsAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
+  return CreateImplicit(Ctx, I);
+}
+
+SwiftImportPropertyAsAccessorsAttr *SwiftImportPropertyAsAccessorsAttr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
+  return Create(Ctx, I);
+}
+
+SwiftImportPropertyAsAccessorsAttr::SwiftImportPropertyAsAccessorsAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             )
+  : InheritableAttr(Ctx, CommonInfo, attr::SwiftImportPropertyAsAccessors, false, false)
+  {
+}
+
+SwiftImportPropertyAsAccessorsAttr *SwiftImportPropertyAsAccessorsAttr::clone(ASTContext &C) const {
+  auto *A = new (C) SwiftImportPropertyAsAccessorsAttr(C, *this);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void SwiftImportPropertyAsAccessorsAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+}
+
+const char *SwiftImportPropertyAsAccessorsAttr::getSpelling() const {
+  return "(No spelling)";
+}
+
+
 // SwiftIndirectResultAttr implementation
 
 SwiftIndirectResultAttr *SwiftIndirectResultAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
@@ -35433,8 +37831,8 @@ SwiftIndirectResultAttr *SwiftIndirectResultAttr::CreateImplicit(ASTContext &Ctx
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_swift_indirect_result, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_swift_indirect_result:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_swift_indirect_result, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_swift_indirect_result:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_swift_indirect_result, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_swift_indirect_result:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_swift_indirect_result, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -35450,8 +37848,8 @@ SwiftIndirectResultAttr *SwiftIndirectResultAttr::Create(ASTContext &Ctx, Source
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_swift_indirect_result, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_swift_indirect_result:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_swift_indirect_result, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_swift_indirect_result:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_swift_indirect_result, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_swift_indirect_result:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_swift_indirect_result, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -35593,7 +37991,7 @@ const char *SwiftNameAttr::getSpelling() const {
 
 // SwiftNewTypeAttr implementation
 
-SwiftNewTypeAttr *SwiftNewTypeAttr::CreateImplicit(ASTContext &Ctx, NewtypeKind NewtypeKind, const AttributeCommonInfo &CommonInfo) {
+SwiftNewTypeAttr *SwiftNewTypeAttr::CreateImplicit(ASTContext &Ctx, SwiftNewTypeAttr::NewtypeKind NewtypeKind, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) SwiftNewTypeAttr(Ctx, CommonInfo, NewtypeKind);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -35601,12 +37999,12 @@ SwiftNewTypeAttr *SwiftNewTypeAttr::CreateImplicit(ASTContext &Ctx, NewtypeKind 
   return A;
 }
 
-SwiftNewTypeAttr *SwiftNewTypeAttr::Create(ASTContext &Ctx, NewtypeKind NewtypeKind, const AttributeCommonInfo &CommonInfo) {
+SwiftNewTypeAttr *SwiftNewTypeAttr::Create(ASTContext &Ctx, SwiftNewTypeAttr::NewtypeKind NewtypeKind, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) SwiftNewTypeAttr(Ctx, CommonInfo, NewtypeKind);
   return A;
 }
 
-SwiftNewTypeAttr *SwiftNewTypeAttr::CreateImplicit(ASTContext &Ctx, NewtypeKind NewtypeKind, SourceRange Range, Spelling S) {
+SwiftNewTypeAttr *SwiftNewTypeAttr::CreateImplicit(ASTContext &Ctx, SwiftNewTypeAttr::NewtypeKind NewtypeKind, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_swift_newtype:
@@ -35621,7 +38019,7 @@ SwiftNewTypeAttr *SwiftNewTypeAttr::CreateImplicit(ASTContext &Ctx, NewtypeKind 
   return CreateImplicit(Ctx, NewtypeKind, I);
 }
 
-SwiftNewTypeAttr *SwiftNewTypeAttr::Create(ASTContext &Ctx, NewtypeKind NewtypeKind, SourceRange Range, Spelling S) {
+SwiftNewTypeAttr *SwiftNewTypeAttr::Create(ASTContext &Ctx, SwiftNewTypeAttr::NewtypeKind NewtypeKind, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_swift_newtype:
@@ -35637,7 +38035,7 @@ SwiftNewTypeAttr *SwiftNewTypeAttr::Create(ASTContext &Ctx, NewtypeKind NewtypeK
 }
 
 SwiftNewTypeAttr::SwiftNewTypeAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , NewtypeKind NewtypeKind
+              , SwiftNewTypeAttr::NewtypeKind NewtypeKind
              )
   : InheritableAttr(Ctx, CommonInfo, attr::SwiftNewType, false, false)
               , newtypeKind(NewtypeKind)
@@ -35653,11 +38051,11 @@ SwiftNewTypeAttr::Spelling SwiftNewTypeAttr::getSemanticSpelling() const {
 }
 
 
-bool SwiftNewTypeAttr::ConvertStrToNewtypeKind(StringRef Val, NewtypeKind &Out) {
-  std::optional<NewtypeKind> R = llvm::StringSwitch<std::optional<NewtypeKind>>(Val)
-    .Case("struct", SwiftNewTypeAttr::NK_Struct)
-    .Case("enum", SwiftNewTypeAttr::NK_Enum)
-    .Default(std::optional<NewtypeKind>());
+bool SwiftNewTypeAttr::ConvertStrToNewtypeKind(StringRef Val, SwiftNewTypeAttr::NewtypeKind &Out) {
+  std::optional<SwiftNewTypeAttr::NewtypeKind> R = llvm::StringSwitch<std::optional<SwiftNewTypeAttr::NewtypeKind>>(Val)
+    .Case("struct", SwiftNewTypeAttr::NewtypeKind::NK_Struct)
+    .Case("enum", SwiftNewTypeAttr::NewtypeKind::NK_Enum)
+    .Default(std::optional<SwiftNewTypeAttr::NewtypeKind>());
   if (R) {
     Out = *R;
       return true;
@@ -35665,10 +38063,10 @@ bool SwiftNewTypeAttr::ConvertStrToNewtypeKind(StringRef Val, NewtypeKind &Out) 
   return false;
 }
 
-const char *SwiftNewTypeAttr::ConvertNewtypeKindToStr(NewtypeKind Val) {
+const char *SwiftNewTypeAttr::ConvertNewtypeKindToStr(SwiftNewTypeAttr::NewtypeKind Val) {
   switch(Val) {
-  case SwiftNewTypeAttr::NK_Struct: return "struct";
-  case SwiftNewTypeAttr::NK_Enum: return "enum";
+  case SwiftNewTypeAttr::NewtypeKind::NK_Struct: return "struct";
+  case SwiftNewTypeAttr::NewtypeKind::NK_Enum: return "enum";
   }
   llvm_unreachable("No enumerator with that value");
 }
@@ -35855,6 +38253,128 @@ const char *SwiftPrivateAttr::getSpelling() const {
 }
 
 
+// SwiftVersionedAdditionAttr implementation
+
+SwiftVersionedAdditionAttr *SwiftVersionedAdditionAttr::CreateImplicit(ASTContext &Ctx, VersionTuple Version, Attr * AdditionalAttr, bool IsReplacedByActive, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) SwiftVersionedAdditionAttr(Ctx, CommonInfo, Version, AdditionalAttr, IsReplacedByActive);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+SwiftVersionedAdditionAttr *SwiftVersionedAdditionAttr::Create(ASTContext &Ctx, VersionTuple Version, Attr * AdditionalAttr, bool IsReplacedByActive, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) SwiftVersionedAdditionAttr(Ctx, CommonInfo, Version, AdditionalAttr, IsReplacedByActive);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+SwiftVersionedAdditionAttr *SwiftVersionedAdditionAttr::CreateImplicit(ASTContext &Ctx, VersionTuple Version, Attr * AdditionalAttr, bool IsReplacedByActive, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
+  return CreateImplicit(Ctx, Version, AdditionalAttr, IsReplacedByActive, I);
+}
+
+SwiftVersionedAdditionAttr *SwiftVersionedAdditionAttr::Create(ASTContext &Ctx, VersionTuple Version, Attr * AdditionalAttr, bool IsReplacedByActive, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
+  return Create(Ctx, Version, AdditionalAttr, IsReplacedByActive, I);
+}
+
+SwiftVersionedAdditionAttr::SwiftVersionedAdditionAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , VersionTuple Version
+              , Attr * AdditionalAttr
+              , bool IsReplacedByActive
+             )
+  : Attr(Ctx, CommonInfo, attr::SwiftVersionedAddition, false)
+              , version(Version)
+              , additionalAttr(AdditionalAttr)
+              , isReplacedByActive(IsReplacedByActive)
+  {
+}
+
+
+
+
+
+
+
+SwiftVersionedAdditionAttr *SwiftVersionedAdditionAttr::clone(ASTContext &C) const {
+  auto *A = new (C) SwiftVersionedAdditionAttr(C, *this, getVersion(), additionalAttr, isReplacedByActive);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void SwiftVersionedAdditionAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+}
+
+const char *SwiftVersionedAdditionAttr::getSpelling() const {
+  return "(No spelling)";
+}
+
+
+// SwiftVersionedRemovalAttr implementation
+
+SwiftVersionedRemovalAttr *SwiftVersionedRemovalAttr::CreateImplicit(ASTContext &Ctx, VersionTuple Version, unsigned RawKind, bool IsReplacedByActive, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) SwiftVersionedRemovalAttr(Ctx, CommonInfo, Version, RawKind, IsReplacedByActive);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+SwiftVersionedRemovalAttr *SwiftVersionedRemovalAttr::Create(ASTContext &Ctx, VersionTuple Version, unsigned RawKind, bool IsReplacedByActive, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) SwiftVersionedRemovalAttr(Ctx, CommonInfo, Version, RawKind, IsReplacedByActive);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+SwiftVersionedRemovalAttr *SwiftVersionedRemovalAttr::CreateImplicit(ASTContext &Ctx, VersionTuple Version, unsigned RawKind, bool IsReplacedByActive, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
+  return CreateImplicit(Ctx, Version, RawKind, IsReplacedByActive, I);
+}
+
+SwiftVersionedRemovalAttr *SwiftVersionedRemovalAttr::Create(ASTContext &Ctx, VersionTuple Version, unsigned RawKind, bool IsReplacedByActive, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
+  return Create(Ctx, Version, RawKind, IsReplacedByActive, I);
+}
+
+SwiftVersionedRemovalAttr::SwiftVersionedRemovalAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , VersionTuple Version
+              , unsigned RawKind
+              , bool IsReplacedByActive
+             )
+  : Attr(Ctx, CommonInfo, attr::SwiftVersionedRemoval, false)
+              , version(Version)
+              , rawKind(RawKind)
+              , isReplacedByActive(IsReplacedByActive)
+  {
+}
+
+
+
+
+
+
+
+SwiftVersionedRemovalAttr *SwiftVersionedRemovalAttr::clone(ASTContext &C) const {
+  auto *A = new (C) SwiftVersionedRemovalAttr(C, *this, getVersion(), rawKind, isReplacedByActive);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void SwiftVersionedRemovalAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+}
+
+const char *SwiftVersionedRemovalAttr::getSpelling() const {
+  return "(No spelling)";
+}
+
+
 // SysVABIAttr implementation
 
 SysVABIAttr *SysVABIAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
@@ -35879,8 +38399,8 @@ SysVABIAttr *SysVABIAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spe
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_sysv_abi, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_sysv_abi:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_sysv_abi, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_sysv_abi:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_sysv_abi, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_sysv_abi:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_sysv_abi, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -35896,8 +38416,8 @@ SysVABIAttr *SysVABIAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S)
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_sysv_abi, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_sysv_abi:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_sysv_abi, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_sysv_abi:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_sysv_abi, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_sysv_abi:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_sysv_abi, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -35984,8 +38504,8 @@ TLSModelAttr *TLSModelAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Mode
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_tls_model, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_tls_model:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_tls_model, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_tls_model:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_tls_model, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_tls_model:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_tls_model, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -36001,8 +38521,8 @@ TLSModelAttr *TLSModelAttr::Create(ASTContext &Ctx, llvm::StringRef Model, Sourc
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_tls_model, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_tls_model:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_tls_model, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_tls_model:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_tls_model, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_tls_model:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_tls_model, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -36107,8 +38627,8 @@ TargetAttr *TargetAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Features
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_target, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_target:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_target, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_target:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_target, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_target:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_target, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -36124,8 +38644,8 @@ TargetAttr *TargetAttr::Create(ASTContext &Ctx, llvm::StringRef FeaturesStr, Sou
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_target, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_target:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_target, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_target:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_target, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_target:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_target, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -36230,8 +38750,8 @@ TargetClonesAttr *TargetClonesAttr::CreateImplicit(ASTContext &Ctx, StringRef *F
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_target_clones, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_target_clones:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_target_clones, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_target_clones:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_target_clones, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_target_clones:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_target_clones, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -36247,8 +38767,8 @@ TargetClonesAttr *TargetClonesAttr::Create(ASTContext &Ctx, StringRef *FeaturesS
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_target_clones, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_target_clones:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_target_clones, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_target_clones:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_target_clones, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_target_clones:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_target_clones, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -36379,8 +38899,8 @@ TargetVersionAttr *TargetVersionAttr::CreateImplicit(ASTContext &Ctx, llvm::Stri
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_target_version, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_target_version:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_target_version, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_target_version:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_target_version, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_target_version:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_target_version, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -36396,8 +38916,8 @@ TargetVersionAttr *TargetVersionAttr::Create(ASTContext &Ctx, llvm::StringRef Na
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_target_version, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_target_version:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_target_version, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_target_version:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_target_version, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_target_version:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_target_version, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -36480,7 +39000,7 @@ const char *TargetVersionAttr::getSpelling() const {
 
 // TestTypestateAttr implementation
 
-TestTypestateAttr *TestTypestateAttr::CreateImplicit(ASTContext &Ctx, ConsumedState TestState, const AttributeCommonInfo &CommonInfo) {
+TestTypestateAttr *TestTypestateAttr::CreateImplicit(ASTContext &Ctx, TestTypestateAttr::ConsumedState TestState, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) TestTypestateAttr(Ctx, CommonInfo, TestState);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -36488,14 +39008,14 @@ TestTypestateAttr *TestTypestateAttr::CreateImplicit(ASTContext &Ctx, ConsumedSt
   return A;
 }
 
-TestTypestateAttr *TestTypestateAttr::Create(ASTContext &Ctx, ConsumedState TestState, const AttributeCommonInfo &CommonInfo) {
+TestTypestateAttr *TestTypestateAttr::Create(ASTContext &Ctx, TestTypestateAttr::ConsumedState TestState, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) TestTypestateAttr(Ctx, CommonInfo, TestState);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-TestTypestateAttr *TestTypestateAttr::CreateImplicit(ASTContext &Ctx, ConsumedState TestState, SourceRange Range, Spelling S) {
+TestTypestateAttr *TestTypestateAttr::CreateImplicit(ASTContext &Ctx, TestTypestateAttr::ConsumedState TestState, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_test_typestate:
@@ -36510,7 +39030,7 @@ TestTypestateAttr *TestTypestateAttr::CreateImplicit(ASTContext &Ctx, ConsumedSt
   return CreateImplicit(Ctx, TestState, I);
 }
 
-TestTypestateAttr *TestTypestateAttr::Create(ASTContext &Ctx, ConsumedState TestState, SourceRange Range, Spelling S) {
+TestTypestateAttr *TestTypestateAttr::Create(ASTContext &Ctx, TestTypestateAttr::ConsumedState TestState, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_test_typestate:
@@ -36526,7 +39046,7 @@ TestTypestateAttr *TestTypestateAttr::Create(ASTContext &Ctx, ConsumedState Test
 }
 
 TestTypestateAttr::TestTypestateAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , ConsumedState TestState
+              , TestTypestateAttr::ConsumedState TestState
              )
   : InheritableAttr(Ctx, CommonInfo, attr::TestTypestate, false, false)
               , testState(TestState)
@@ -36535,11 +39055,11 @@ TestTypestateAttr::TestTypestateAttr(ASTContext &Ctx, const AttributeCommonInfo 
 
 
 
-bool TestTypestateAttr::ConvertStrToConsumedState(StringRef Val, ConsumedState &Out) {
-  std::optional<ConsumedState> R = llvm::StringSwitch<std::optional<ConsumedState>>(Val)
-    .Case("consumed", TestTypestateAttr::Consumed)
-    .Case("unconsumed", TestTypestateAttr::Unconsumed)
-    .Default(std::optional<ConsumedState>());
+bool TestTypestateAttr::ConvertStrToConsumedState(StringRef Val, TestTypestateAttr::ConsumedState &Out) {
+  std::optional<TestTypestateAttr::ConsumedState> R = llvm::StringSwitch<std::optional<TestTypestateAttr::ConsumedState>>(Val)
+    .Case("consumed", TestTypestateAttr::ConsumedState::Consumed)
+    .Case("unconsumed", TestTypestateAttr::ConsumedState::Unconsumed)
+    .Default(std::optional<TestTypestateAttr::ConsumedState>());
   if (R) {
     Out = *R;
       return true;
@@ -36547,10 +39067,10 @@ bool TestTypestateAttr::ConvertStrToConsumedState(StringRef Val, ConsumedState &
   return false;
 }
 
-const char *TestTypestateAttr::ConvertConsumedStateToStr(ConsumedState Val) {
+const char *TestTypestateAttr::ConvertConsumedStateToStr(TestTypestateAttr::ConsumedState Val) {
   switch(Val) {
-  case TestTypestateAttr::Consumed: return "consumed";
-  case TestTypestateAttr::Unconsumed: return "unconsumed";
+  case TestTypestateAttr::ConsumedState::Consumed: return "consumed";
+  case TestTypestateAttr::ConsumedState::Unconsumed: return "unconsumed";
   }
   llvm_unreachable("No enumerator with that value");
 }
@@ -36627,8 +39147,8 @@ ThisCallAttr *ThisCallAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, S
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_thiscall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_thiscall:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_thiscall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_thiscall:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_thiscall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_thiscall:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_thiscall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case Keyword_thiscall:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_thiscall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
@@ -36646,8 +39166,8 @@ ThisCallAttr *ThisCallAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_thiscall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_thiscall:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_thiscall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_thiscall:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_thiscall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_thiscall:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_thiscall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case Keyword_thiscall:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_thiscall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
@@ -36817,8 +39337,8 @@ TransparentUnionAttr *TransparentUnionAttr::CreateImplicit(ASTContext &Ctx, Sour
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_transparent_union, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_transparent_union:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_transparent_union, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_transparent_union:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_transparent_union, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_transparent_union:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_transparent_union, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -36834,8 +39354,8 @@ TransparentUnionAttr *TransparentUnionAttr::Create(ASTContext &Ctx, SourceRange 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_transparent_union, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_transparent_union:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_transparent_union, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_transparent_union:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_transparent_union, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_transparent_union:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_transparent_union, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -37473,8 +39993,8 @@ TypeTagForDatatypeAttr *TypeTagForDatatypeAttr::CreateImplicit(ASTContext &Ctx, 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_type_tag_for_datatype, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_type_tag_for_datatype:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_type_tag_for_datatype, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_type_tag_for_datatype:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_type_tag_for_datatype, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_type_tag_for_datatype:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_type_tag_for_datatype, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -37490,8 +40010,8 @@ TypeTagForDatatypeAttr *TypeTagForDatatypeAttr::Create(ASTContext &Ctx, Identifi
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_type_tag_for_datatype, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_type_tag_for_datatype:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_type_tag_for_datatype, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_type_tag_for_datatype:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_type_tag_for_datatype, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_type_tag_for_datatype:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_type_tag_for_datatype, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -37602,7 +40122,7 @@ const char *TypeTagForDatatypeAttr::getSpelling() const {
 
 // TypeVisibilityAttr implementation
 
-TypeVisibilityAttr *TypeVisibilityAttr::CreateImplicit(ASTContext &Ctx, VisibilityType Visibility, const AttributeCommonInfo &CommonInfo) {
+TypeVisibilityAttr *TypeVisibilityAttr::CreateImplicit(ASTContext &Ctx, TypeVisibilityAttr::VisibilityType Visibility, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) TypeVisibilityAttr(Ctx, CommonInfo, Visibility);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -37610,22 +40130,22 @@ TypeVisibilityAttr *TypeVisibilityAttr::CreateImplicit(ASTContext &Ctx, Visibili
   return A;
 }
 
-TypeVisibilityAttr *TypeVisibilityAttr::Create(ASTContext &Ctx, VisibilityType Visibility, const AttributeCommonInfo &CommonInfo) {
+TypeVisibilityAttr *TypeVisibilityAttr::Create(ASTContext &Ctx, TypeVisibilityAttr::VisibilityType Visibility, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) TypeVisibilityAttr(Ctx, CommonInfo, Visibility);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-TypeVisibilityAttr *TypeVisibilityAttr::CreateImplicit(ASTContext &Ctx, VisibilityType Visibility, SourceRange Range, Spelling S) {
+TypeVisibilityAttr *TypeVisibilityAttr::CreateImplicit(ASTContext &Ctx, TypeVisibilityAttr::VisibilityType Visibility, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_type_visibility:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_type_visibility, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_type_visibility:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_type_visibility, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_type_visibility:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_type_visibility, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_type_visibility:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_type_visibility, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -37634,15 +40154,15 @@ TypeVisibilityAttr *TypeVisibilityAttr::CreateImplicit(ASTContext &Ctx, Visibili
   return CreateImplicit(Ctx, Visibility, I);
 }
 
-TypeVisibilityAttr *TypeVisibilityAttr::Create(ASTContext &Ctx, VisibilityType Visibility, SourceRange Range, Spelling S) {
+TypeVisibilityAttr *TypeVisibilityAttr::Create(ASTContext &Ctx, TypeVisibilityAttr::VisibilityType Visibility, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_type_visibility:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_type_visibility, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_type_visibility:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_type_visibility, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_type_visibility:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_type_visibility, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_type_visibility:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_type_visibility, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -37652,7 +40172,7 @@ TypeVisibilityAttr *TypeVisibilityAttr::Create(ASTContext &Ctx, VisibilityType V
 }
 
 TypeVisibilityAttr::TypeVisibilityAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , VisibilityType Visibility
+              , TypeVisibilityAttr::VisibilityType Visibility
              )
   : InheritableAttr(Ctx, CommonInfo, attr::TypeVisibility, false, false)
               , visibility(Visibility)
@@ -37661,13 +40181,13 @@ TypeVisibilityAttr::TypeVisibilityAttr(ASTContext &Ctx, const AttributeCommonInf
 
 
 
-bool TypeVisibilityAttr::ConvertStrToVisibilityType(StringRef Val, VisibilityType &Out) {
-  std::optional<VisibilityType> R = llvm::StringSwitch<std::optional<VisibilityType>>(Val)
-    .Case("default", TypeVisibilityAttr::Default)
-    .Case("hidden", TypeVisibilityAttr::Hidden)
-    .Case("internal", TypeVisibilityAttr::Hidden)
-    .Case("protected", TypeVisibilityAttr::Protected)
-    .Default(std::optional<VisibilityType>());
+bool TypeVisibilityAttr::ConvertStrToVisibilityType(StringRef Val, TypeVisibilityAttr::VisibilityType &Out) {
+  std::optional<TypeVisibilityAttr::VisibilityType> R = llvm::StringSwitch<std::optional<TypeVisibilityAttr::VisibilityType>>(Val)
+    .Case("default", TypeVisibilityAttr::VisibilityType::Default)
+    .Case("hidden", TypeVisibilityAttr::VisibilityType::Hidden)
+    .Case("internal", TypeVisibilityAttr::VisibilityType::Hidden)
+    .Case("protected", TypeVisibilityAttr::VisibilityType::Protected)
+    .Default(std::optional<TypeVisibilityAttr::VisibilityType>());
   if (R) {
     Out = *R;
       return true;
@@ -37675,11 +40195,11 @@ bool TypeVisibilityAttr::ConvertStrToVisibilityType(StringRef Val, VisibilityTyp
   return false;
 }
 
-const char *TypeVisibilityAttr::ConvertVisibilityTypeToStr(VisibilityType Val) {
+const char *TypeVisibilityAttr::ConvertVisibilityTypeToStr(TypeVisibilityAttr::VisibilityType Val) {
   switch(Val) {
-  case TypeVisibilityAttr::Default: return "default";
-  case TypeVisibilityAttr::Hidden: return "hidden";
-  case TypeVisibilityAttr::Protected: return "protected";
+  case TypeVisibilityAttr::VisibilityType::Default: return "default";
+  case TypeVisibilityAttr::VisibilityType::Hidden: return "hidden";
+  case TypeVisibilityAttr::VisibilityType::Protected: return "protected";
   }
   llvm_unreachable("No enumerator with that value");
 }
@@ -37812,7 +40332,7 @@ const char *UPtrAttr::getSpelling() const {
 
 // UnavailableAttr implementation
 
-UnavailableAttr *UnavailableAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Message, ImplicitReason ImplicitReason, const AttributeCommonInfo &CommonInfo) {
+UnavailableAttr *UnavailableAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Message, UnavailableAttr::ImplicitReason ImplicitReason, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) UnavailableAttr(Ctx, CommonInfo, Message, ImplicitReason);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -37820,22 +40340,22 @@ UnavailableAttr *UnavailableAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRe
   return A;
 }
 
-UnavailableAttr *UnavailableAttr::Create(ASTContext &Ctx, llvm::StringRef Message, ImplicitReason ImplicitReason, const AttributeCommonInfo &CommonInfo) {
+UnavailableAttr *UnavailableAttr::Create(ASTContext &Ctx, llvm::StringRef Message, UnavailableAttr::ImplicitReason ImplicitReason, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) UnavailableAttr(Ctx, CommonInfo, Message, ImplicitReason);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-UnavailableAttr *UnavailableAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Message, ImplicitReason ImplicitReason, SourceRange Range, Spelling S) {
+UnavailableAttr *UnavailableAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Message, UnavailableAttr::ImplicitReason ImplicitReason, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_unavailable:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_unavailable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_unavailable:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_unavailable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_unavailable:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_unavailable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_unavailable:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_unavailable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -37844,15 +40364,15 @@ UnavailableAttr *UnavailableAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRe
   return CreateImplicit(Ctx, Message, ImplicitReason, I);
 }
 
-UnavailableAttr *UnavailableAttr::Create(ASTContext &Ctx, llvm::StringRef Message, ImplicitReason ImplicitReason, SourceRange Range, Spelling S) {
+UnavailableAttr *UnavailableAttr::Create(ASTContext &Ctx, llvm::StringRef Message, UnavailableAttr::ImplicitReason ImplicitReason, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_unavailable:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_unavailable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_unavailable:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_unavailable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_unavailable:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_unavailable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_unavailable:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_unavailable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -37883,8 +40403,8 @@ UnavailableAttr *UnavailableAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRe
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_unavailable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_unavailable:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_unavailable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_unavailable:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_unavailable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_unavailable:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_unavailable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -37900,8 +40420,8 @@ UnavailableAttr *UnavailableAttr::Create(ASTContext &Ctx, llvm::StringRef Messag
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_unavailable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_unavailable:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_unavailable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_unavailable:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_unavailable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_unavailable:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_unavailable, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -37912,7 +40432,7 @@ UnavailableAttr *UnavailableAttr::Create(ASTContext &Ctx, llvm::StringRef Messag
 
 UnavailableAttr::UnavailableAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
               , llvm::StringRef Message
-              , ImplicitReason ImplicitReason
+              , UnavailableAttr::ImplicitReason ImplicitReason
              )
   : InheritableAttr(Ctx, CommonInfo, attr::Unavailable, false, false)
               , messageLength(Message.size()),message(new (Ctx, 1) char[messageLength])
@@ -37927,7 +40447,7 @@ UnavailableAttr::UnavailableAttr(ASTContext &Ctx, const AttributeCommonInfo &Com
              )
   : InheritableAttr(Ctx, CommonInfo, attr::Unavailable, false, false)
               , messageLength(Message.size()),message(new (Ctx, 1) char[messageLength])
-              , implicitReason(ImplicitReason(0))
+              , implicitReason(UnavailableAttr::ImplicitReason(0))
   {
     if (!Message.empty())
       std::memcpy(message, Message.data(), messageLength);
@@ -37937,7 +40457,7 @@ UnavailableAttr::UnavailableAttr(ASTContext &Ctx, const AttributeCommonInfo &Com
              )
   : InheritableAttr(Ctx, CommonInfo, attr::Unavailable, false, false)
               , messageLength(0),message(nullptr)
-              , implicitReason(ImplicitReason(0))
+              , implicitReason(UnavailableAttr::ImplicitReason(0))
   {
 }
 
@@ -38121,8 +40641,8 @@ UnlikelyAttr *UnlikelyAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, S
     switch (S) {
     case CXX11_unlikely:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_unlikely, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_unlikely:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_unlikely, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_unlikely:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_unlikely, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -38136,8 +40656,8 @@ UnlikelyAttr *UnlikelyAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling 
     switch (S) {
     case CXX11_unlikely:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_unlikely, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_unlikely:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_unlikely, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_unlikely:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_unlikely, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -38217,8 +40737,8 @@ UnsafeBufferUsageAttr *UnsafeBufferUsageAttr::CreateImplicit(ASTContext &Ctx, So
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_unsafe_buffer_usage, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_unsafe_buffer_usage:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_unsafe_buffer_usage, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_unsafe_buffer_usage:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_unsafe_buffer_usage, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_unsafe_buffer_usage:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_unsafe_buffer_usage, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -38234,8 +40754,8 @@ UnsafeBufferUsageAttr *UnsafeBufferUsageAttr::Create(ASTContext &Ctx, SourceRang
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_unsafe_buffer_usage, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_unsafe_buffer_usage:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_unsafe_buffer_usage, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_unsafe_buffer_usage:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_unsafe_buffer_usage, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_unsafe_buffer_usage:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_unsafe_buffer_usage, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -38322,10 +40842,10 @@ UnusedAttr *UnusedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spell
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_unused, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_unused:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_unused, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_unused:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_unused, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_maybe_unused:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_maybe_unused, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_unused:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_unused, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_maybe_unused:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_maybe_unused, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -38343,10 +40863,10 @@ UnusedAttr *UnusedAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_unused, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_unused:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_unused, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_unused:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_unused, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_maybe_unused:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_maybe_unused, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_unused:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_unused, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_maybe_unused:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_maybe_unused, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -38367,8 +40887,8 @@ UnusedAttr::Spelling UnusedAttr::getSemanticSpelling() const {
     case 0: return CXX11_maybe_unused;
     case 1: return GNU_unused;
     case 2: return CXX11_gnu_unused;
-    case 3: return C2x_gnu_unused;
-    case 4: return C2x_maybe_unused;
+    case 3: return C23_gnu_unused;
+    case 4: return C23_maybe_unused;
   }
 }
 UnusedAttr *UnusedAttr::clone(ASTContext &C) const {
@@ -38457,8 +40977,8 @@ UseHandleAttr *UseHandleAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Ha
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_use_handle, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_use_handle:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_use_handle, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_use_handle:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_use_handle, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_use_handle:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_use_handle, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -38474,8 +40994,8 @@ UseHandleAttr *UseHandleAttr::Create(ASTContext &Ctx, llvm::StringRef HandleType
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_use_handle, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_use_handle:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_use_handle, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_use_handle:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_use_handle, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_use_handle:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_use_handle, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -38580,8 +41100,8 @@ UsedAttr *UsedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_used, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_used:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_used, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_used:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_used, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_used:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_used, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -38597,8 +41117,8 @@ UsedAttr *UsedAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_used, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_used:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_used, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_used:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_used, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_used:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_used, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -39116,8 +41636,8 @@ VectorCallAttr *VectorCallAttr::CreateImplicit(ASTContext &Ctx, SourceRange Rang
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_vectorcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_vectorcall:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_vectorcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_vectorcall:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_vectorcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_vectorcall:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_vectorcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case Keyword_vectorcall:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_vectorcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
@@ -39135,8 +41655,8 @@ VectorCallAttr *VectorCallAttr::Create(ASTContext &Ctx, SourceRange Range, Spell
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_vectorcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_vectorcall:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_vectorcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_vectorcall:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_vectorcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_vectorcall:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_vectorcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case Keyword_vectorcall:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_vectorcall, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
@@ -39217,7 +41737,7 @@ const char *VectorCallAttr::getSpelling() const {
 
 // VisibilityAttr implementation
 
-VisibilityAttr *VisibilityAttr::CreateImplicit(ASTContext &Ctx, VisibilityType Visibility, const AttributeCommonInfo &CommonInfo) {
+VisibilityAttr *VisibilityAttr::CreateImplicit(ASTContext &Ctx, VisibilityAttr::VisibilityType Visibility, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) VisibilityAttr(Ctx, CommonInfo, Visibility);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -39225,22 +41745,22 @@ VisibilityAttr *VisibilityAttr::CreateImplicit(ASTContext &Ctx, VisibilityType V
   return A;
 }
 
-VisibilityAttr *VisibilityAttr::Create(ASTContext &Ctx, VisibilityType Visibility, const AttributeCommonInfo &CommonInfo) {
+VisibilityAttr *VisibilityAttr::Create(ASTContext &Ctx, VisibilityAttr::VisibilityType Visibility, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) VisibilityAttr(Ctx, CommonInfo, Visibility);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-VisibilityAttr *VisibilityAttr::CreateImplicit(ASTContext &Ctx, VisibilityType Visibility, SourceRange Range, Spelling S) {
+VisibilityAttr *VisibilityAttr::CreateImplicit(ASTContext &Ctx, VisibilityAttr::VisibilityType Visibility, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_visibility:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_visibility, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_visibility:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_visibility, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_visibility:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_visibility, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_visibility:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_visibility, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -39249,15 +41769,15 @@ VisibilityAttr *VisibilityAttr::CreateImplicit(ASTContext &Ctx, VisibilityType V
   return CreateImplicit(Ctx, Visibility, I);
 }
 
-VisibilityAttr *VisibilityAttr::Create(ASTContext &Ctx, VisibilityType Visibility, SourceRange Range, Spelling S) {
+VisibilityAttr *VisibilityAttr::Create(ASTContext &Ctx, VisibilityAttr::VisibilityType Visibility, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_visibility:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_visibility, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_visibility:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_visibility, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_visibility:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_visibility, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_visibility:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_visibility, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -39267,7 +41787,7 @@ VisibilityAttr *VisibilityAttr::Create(ASTContext &Ctx, VisibilityType Visibilit
 }
 
 VisibilityAttr::VisibilityAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , VisibilityType Visibility
+              , VisibilityAttr::VisibilityType Visibility
              )
   : InheritableAttr(Ctx, CommonInfo, attr::Visibility, false, false)
               , visibility(Visibility)
@@ -39276,13 +41796,13 @@ VisibilityAttr::VisibilityAttr(ASTContext &Ctx, const AttributeCommonInfo &Commo
 
 
 
-bool VisibilityAttr::ConvertStrToVisibilityType(StringRef Val, VisibilityType &Out) {
-  std::optional<VisibilityType> R = llvm::StringSwitch<std::optional<VisibilityType>>(Val)
-    .Case("default", VisibilityAttr::Default)
-    .Case("hidden", VisibilityAttr::Hidden)
-    .Case("internal", VisibilityAttr::Hidden)
-    .Case("protected", VisibilityAttr::Protected)
-    .Default(std::optional<VisibilityType>());
+bool VisibilityAttr::ConvertStrToVisibilityType(StringRef Val, VisibilityAttr::VisibilityType &Out) {
+  std::optional<VisibilityAttr::VisibilityType> R = llvm::StringSwitch<std::optional<VisibilityAttr::VisibilityType>>(Val)
+    .Case("default", VisibilityAttr::VisibilityType::Default)
+    .Case("hidden", VisibilityAttr::VisibilityType::Hidden)
+    .Case("internal", VisibilityAttr::VisibilityType::Hidden)
+    .Case("protected", VisibilityAttr::VisibilityType::Protected)
+    .Default(std::optional<VisibilityAttr::VisibilityType>());
   if (R) {
     Out = *R;
       return true;
@@ -39290,11 +41810,11 @@ bool VisibilityAttr::ConvertStrToVisibilityType(StringRef Val, VisibilityType &O
   return false;
 }
 
-const char *VisibilityAttr::ConvertVisibilityTypeToStr(VisibilityType Val) {
+const char *VisibilityAttr::ConvertVisibilityTypeToStr(VisibilityAttr::VisibilityType Val) {
   switch(Val) {
-  case VisibilityAttr::Default: return "default";
-  case VisibilityAttr::Hidden: return "hidden";
-  case VisibilityAttr::Protected: return "protected";
+  case VisibilityAttr::VisibilityType::Default: return "default";
+  case VisibilityAttr::VisibilityType::Hidden: return "hidden";
+  case VisibilityAttr::VisibilityType::Protected: return "protected";
   }
   llvm_unreachable("No enumerator with that value");
 }
@@ -39382,8 +41902,8 @@ WarnUnusedAttr *WarnUnusedAttr::CreateImplicit(ASTContext &Ctx, SourceRange Rang
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_warn_unused, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_warn_unused:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_warn_unused, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_warn_unused:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_warn_unused, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_warn_unused:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_warn_unused, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -39399,8 +41919,8 @@ WarnUnusedAttr *WarnUnusedAttr::Create(ASTContext &Ctx, SourceRange Range, Spell
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_warn_unused, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_warn_unused:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_warn_unused, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_warn_unused:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_warn_unused, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_warn_unused:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_warn_unused, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -39483,16 +42003,16 @@ WarnUnusedResultAttr *WarnUnusedResultAttr::CreateImplicit(ASTContext &Ctx, llvm
     switch (S) {
     case CXX11_nodiscard:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_nodiscard, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_nodiscard:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_nodiscard, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_nodiscard:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_nodiscard, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_warn_unused_result:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_warn_unused_result, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case GNU_warn_unused_result:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_warn_unused_result, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_warn_unused_result:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_warn_unused_result, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_warn_unused_result:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_warn_unused_result, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_warn_unused_result:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_warn_unused_result, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -39506,16 +42026,16 @@ WarnUnusedResultAttr *WarnUnusedResultAttr::Create(ASTContext &Ctx, llvm::String
     switch (S) {
     case CXX11_nodiscard:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_nodiscard, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_nodiscard:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_nodiscard, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_nodiscard:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_nodiscard, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_warn_unused_result:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_warn_unused_result, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case GNU_warn_unused_result:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_warn_unused_result, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_warn_unused_result:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_warn_unused_result, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_warn_unused_result:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_warn_unused_result, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_warn_unused_result:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_warn_unused_result, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -39545,11 +42065,11 @@ WarnUnusedResultAttr::Spelling WarnUnusedResultAttr::getSemanticSpelling() const
   switch (getAttributeSpellingListIndex()) {
     default: llvm_unreachable("Unknown spelling list index");
     case 0: return CXX11_nodiscard;
-    case 1: return C2x_nodiscard;
+    case 1: return C23_nodiscard;
     case 2: return CXX11_clang_warn_unused_result;
     case 3: return GNU_warn_unused_result;
     case 4: return CXX11_gnu_warn_unused_result;
-    case 5: return C2x_gnu_warn_unused_result;
+    case 5: return C23_gnu_warn_unused_result;
   }
 }
 
@@ -39671,8 +42191,8 @@ WeakAttr *WeakAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_weak, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_weak:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_weak, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_weak:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_weak, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_weak:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_weak, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -39688,8 +42208,8 @@ WeakAttr *WeakAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_weak, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_weak:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_weak, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_weak:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_weak, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_weak:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_weak, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -39776,8 +42296,8 @@ WeakImportAttr *WeakImportAttr::CreateImplicit(ASTContext &Ctx, SourceRange Rang
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_weak_import, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_weak_import:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_weak_import, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_weak_import:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_weak_import, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_weak_import:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_weak_import, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -39793,8 +42313,8 @@ WeakImportAttr *WeakImportAttr::Create(ASTContext &Ctx, SourceRange Range, Spell
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_weak_import, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_weak_import:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_weak_import, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_weak_import:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_weak_import, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_weak_import:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_weak_import, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -39881,8 +42401,8 @@ WeakRefAttr *WeakRefAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Aliase
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_weakref, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_weakref:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_weakref, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_weakref:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_weakref, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_weakref:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_weakref, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -39898,8 +42418,8 @@ WeakRefAttr *WeakRefAttr::Create(ASTContext &Ctx, llvm::StringRef Aliasee, Sourc
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_weakref, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_weakref:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_weakref, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_weakref:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_weakref, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_weakref:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_weakref, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -40011,8 +42531,8 @@ WebAssemblyExportNameAttr *WebAssemblyExportNameAttr::CreateImplicit(ASTContext 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_export_name, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_export_name:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_export_name, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_export_name:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_export_name, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_export_name:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_export_name, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -40028,8 +42548,8 @@ WebAssemblyExportNameAttr *WebAssemblyExportNameAttr::Create(ASTContext &Ctx, ll
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_export_name, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_export_name:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_export_name, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_export_name:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_export_name, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_export_name:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_export_name, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -40201,8 +42721,8 @@ WebAssemblyImportModuleAttr *WebAssemblyImportModuleAttr::CreateImplicit(ASTCont
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_import_module, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_import_module:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_import_module, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_import_module:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_import_module, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_import_module:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_import_module, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -40218,8 +42738,8 @@ WebAssemblyImportModuleAttr *WebAssemblyImportModuleAttr::Create(ASTContext &Ctx
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_import_module, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_import_module:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_import_module, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_import_module:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_import_module, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_import_module:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_import_module, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -40324,8 +42844,8 @@ WebAssemblyImportNameAttr *WebAssemblyImportNameAttr::CreateImplicit(ASTContext 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_import_name, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_import_name:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_import_name, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_import_name:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_import_name, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_import_name:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_import_name, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -40341,8 +42861,8 @@ WebAssemblyImportNameAttr *WebAssemblyImportNameAttr::Create(ASTContext &Ctx, ll
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_import_name, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_import_name:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_import_name, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_import_name:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_import_name, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_import_name:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_import_name, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -40534,8 +43054,8 @@ X86ForceAlignArgPointerAttr *X86ForceAlignArgPointerAttr::CreateImplicit(ASTCont
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_force_align_arg_pointer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_force_align_arg_pointer:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_force_align_arg_pointer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_force_align_arg_pointer:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_force_align_arg_pointer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_force_align_arg_pointer:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_force_align_arg_pointer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -40551,8 +43071,8 @@ X86ForceAlignArgPointerAttr *X86ForceAlignArgPointerAttr::Create(ASTContext &Ctx
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_force_align_arg_pointer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_force_align_arg_pointer:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_force_align_arg_pointer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_force_align_arg_pointer:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_force_align_arg_pointer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_force_align_arg_pointer:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_force_align_arg_pointer, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -40637,14 +43157,14 @@ XRayInstrumentAttr *XRayInstrumentAttr::CreateImplicit(ASTContext &Ctx, SourceRa
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_xray_always_instrument, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_xray_always_instrument:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_xray_always_instrument, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_xray_always_instrument:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_xray_always_instrument, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_xray_always_instrument:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_xray_always_instrument, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case GNU_xray_never_instrument:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_xray_never_instrument, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_xray_never_instrument:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_xray_never_instrument, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_xray_never_instrument:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_xray_never_instrument, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_xray_never_instrument:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_xray_never_instrument, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -40660,14 +43180,14 @@ XRayInstrumentAttr *XRayInstrumentAttr::Create(ASTContext &Ctx, SourceRange Rang
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_xray_always_instrument, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_xray_always_instrument:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_xray_always_instrument, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_xray_always_instrument:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_xray_always_instrument, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_xray_always_instrument:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_xray_always_instrument, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case GNU_xray_never_instrument:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_xray_never_instrument, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_xray_never_instrument:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_xray_never_instrument, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_xray_never_instrument:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_xray_never_instrument, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_xray_never_instrument:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_xray_never_instrument, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -40687,10 +43207,10 @@ XRayInstrumentAttr::Spelling XRayInstrumentAttr::getSemanticSpelling() const {
     default: llvm_unreachable("Unknown spelling list index");
     case 0: return GNU_xray_always_instrument;
     case 1: return CXX11_clang_xray_always_instrument;
-    case 2: return C2x_clang_xray_always_instrument;
+    case 2: return C23_clang_xray_always_instrument;
     case 3: return GNU_xray_never_instrument;
     case 4: return CXX11_clang_xray_never_instrument;
-    case 5: return C2x_clang_xray_never_instrument;
+    case 5: return C23_clang_xray_never_instrument;
   }
 }
 XRayInstrumentAttr *XRayInstrumentAttr::clone(ASTContext &C) const {
@@ -40786,8 +43306,8 @@ XRayLogArgsAttr *XRayLogArgsAttr::CreateImplicit(ASTContext &Ctx, unsigned Argum
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_xray_log_args, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_xray_log_args:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_xray_log_args, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_xray_log_args:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_xray_log_args, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_xray_log_args:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_xray_log_args, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -40803,8 +43323,8 @@ XRayLogArgsAttr *XRayLogArgsAttr::Create(ASTContext &Ctx, unsigned ArgumentCount
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_xray_log_args, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_xray_log_args:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_xray_log_args, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_clang_xray_log_args:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_clang_xray_log_args, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_xray_log_args:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_xray_log_args, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -40885,7 +43405,7 @@ const char *XRayLogArgsAttr::getSpelling() const {
 
 // ZeroCallUsedRegsAttr implementation
 
-ZeroCallUsedRegsAttr *ZeroCallUsedRegsAttr::CreateImplicit(ASTContext &Ctx, ZeroCallUsedRegsKind ZeroCallUsedRegs, const AttributeCommonInfo &CommonInfo) {
+ZeroCallUsedRegsAttr *ZeroCallUsedRegsAttr::CreateImplicit(ASTContext &Ctx, ZeroCallUsedRegsAttr::ZeroCallUsedRegsKind ZeroCallUsedRegs, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) ZeroCallUsedRegsAttr(Ctx, CommonInfo, ZeroCallUsedRegs);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -40893,22 +43413,22 @@ ZeroCallUsedRegsAttr *ZeroCallUsedRegsAttr::CreateImplicit(ASTContext &Ctx, Zero
   return A;
 }
 
-ZeroCallUsedRegsAttr *ZeroCallUsedRegsAttr::Create(ASTContext &Ctx, ZeroCallUsedRegsKind ZeroCallUsedRegs, const AttributeCommonInfo &CommonInfo) {
+ZeroCallUsedRegsAttr *ZeroCallUsedRegsAttr::Create(ASTContext &Ctx, ZeroCallUsedRegsAttr::ZeroCallUsedRegsKind ZeroCallUsedRegs, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) ZeroCallUsedRegsAttr(Ctx, CommonInfo, ZeroCallUsedRegs);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-ZeroCallUsedRegsAttr *ZeroCallUsedRegsAttr::CreateImplicit(ASTContext &Ctx, ZeroCallUsedRegsKind ZeroCallUsedRegs, SourceRange Range, Spelling S) {
+ZeroCallUsedRegsAttr *ZeroCallUsedRegsAttr::CreateImplicit(ASTContext &Ctx, ZeroCallUsedRegsAttr::ZeroCallUsedRegsKind ZeroCallUsedRegs, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_zero_call_used_regs:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_zero_call_used_regs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_zero_call_used_regs:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_zero_call_used_regs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_zero_call_used_regs:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_zero_call_used_regs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_zero_call_used_regs:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_zero_call_used_regs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -40917,15 +43437,15 @@ ZeroCallUsedRegsAttr *ZeroCallUsedRegsAttr::CreateImplicit(ASTContext &Ctx, Zero
   return CreateImplicit(Ctx, ZeroCallUsedRegs, I);
 }
 
-ZeroCallUsedRegsAttr *ZeroCallUsedRegsAttr::Create(ASTContext &Ctx, ZeroCallUsedRegsKind ZeroCallUsedRegs, SourceRange Range, Spelling S) {
+ZeroCallUsedRegsAttr *ZeroCallUsedRegsAttr::Create(ASTContext &Ctx, ZeroCallUsedRegsAttr::ZeroCallUsedRegsKind ZeroCallUsedRegs, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_zero_call_used_regs:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_zero_call_used_regs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_gnu_zero_call_used_regs:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_zero_call_used_regs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C2x_gnu_zero_call_used_regs:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C2x, C2x_gnu_zero_call_used_regs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_zero_call_used_regs:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_zero_call_used_regs, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     default:
       llvm_unreachable("Unknown attribute spelling!");
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
@@ -40935,7 +43455,7 @@ ZeroCallUsedRegsAttr *ZeroCallUsedRegsAttr::Create(ASTContext &Ctx, ZeroCallUsed
 }
 
 ZeroCallUsedRegsAttr::ZeroCallUsedRegsAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , ZeroCallUsedRegsKind ZeroCallUsedRegs
+              , ZeroCallUsedRegsAttr::ZeroCallUsedRegsKind ZeroCallUsedRegs
              )
   : InheritableAttr(Ctx, CommonInfo, attr::ZeroCallUsedRegs, false, false)
               , zeroCallUsedRegs(ZeroCallUsedRegs)
@@ -40944,18 +43464,18 @@ ZeroCallUsedRegsAttr::ZeroCallUsedRegsAttr(ASTContext &Ctx, const AttributeCommo
 
 
 
-bool ZeroCallUsedRegsAttr::ConvertStrToZeroCallUsedRegsKind(StringRef Val, ZeroCallUsedRegsKind &Out) {
-  std::optional<ZeroCallUsedRegsKind> R = llvm::StringSwitch<std::optional<ZeroCallUsedRegsKind>>(Val)
-    .Case("skip", ZeroCallUsedRegsAttr::Skip)
-    .Case("used-gpr-arg", ZeroCallUsedRegsAttr::UsedGPRArg)
-    .Case("used-gpr", ZeroCallUsedRegsAttr::UsedGPR)
-    .Case("used-arg", ZeroCallUsedRegsAttr::UsedArg)
-    .Case("used", ZeroCallUsedRegsAttr::Used)
-    .Case("all-gpr-arg", ZeroCallUsedRegsAttr::AllGPRArg)
-    .Case("all-gpr", ZeroCallUsedRegsAttr::AllGPR)
-    .Case("all-arg", ZeroCallUsedRegsAttr::AllArg)
-    .Case("all", ZeroCallUsedRegsAttr::All)
-    .Default(std::optional<ZeroCallUsedRegsKind>());
+bool ZeroCallUsedRegsAttr::ConvertStrToZeroCallUsedRegsKind(StringRef Val, ZeroCallUsedRegsAttr::ZeroCallUsedRegsKind &Out) {
+  std::optional<ZeroCallUsedRegsAttr::ZeroCallUsedRegsKind> R = llvm::StringSwitch<std::optional<ZeroCallUsedRegsAttr::ZeroCallUsedRegsKind>>(Val)
+    .Case("skip", ZeroCallUsedRegsAttr::ZeroCallUsedRegsKind::Skip)
+    .Case("used-gpr-arg", ZeroCallUsedRegsAttr::ZeroCallUsedRegsKind::UsedGPRArg)
+    .Case("used-gpr", ZeroCallUsedRegsAttr::ZeroCallUsedRegsKind::UsedGPR)
+    .Case("used-arg", ZeroCallUsedRegsAttr::ZeroCallUsedRegsKind::UsedArg)
+    .Case("used", ZeroCallUsedRegsAttr::ZeroCallUsedRegsKind::Used)
+    .Case("all-gpr-arg", ZeroCallUsedRegsAttr::ZeroCallUsedRegsKind::AllGPRArg)
+    .Case("all-gpr", ZeroCallUsedRegsAttr::ZeroCallUsedRegsKind::AllGPR)
+    .Case("all-arg", ZeroCallUsedRegsAttr::ZeroCallUsedRegsKind::AllArg)
+    .Case("all", ZeroCallUsedRegsAttr::ZeroCallUsedRegsKind::All)
+    .Default(std::optional<ZeroCallUsedRegsAttr::ZeroCallUsedRegsKind>());
   if (R) {
     Out = *R;
       return true;
@@ -40963,17 +43483,17 @@ bool ZeroCallUsedRegsAttr::ConvertStrToZeroCallUsedRegsKind(StringRef Val, ZeroC
   return false;
 }
 
-const char *ZeroCallUsedRegsAttr::ConvertZeroCallUsedRegsKindToStr(ZeroCallUsedRegsKind Val) {
+const char *ZeroCallUsedRegsAttr::ConvertZeroCallUsedRegsKindToStr(ZeroCallUsedRegsAttr::ZeroCallUsedRegsKind Val) {
   switch(Val) {
-  case ZeroCallUsedRegsAttr::Skip: return "skip";
-  case ZeroCallUsedRegsAttr::UsedGPRArg: return "used-gpr-arg";
-  case ZeroCallUsedRegsAttr::UsedGPR: return "used-gpr";
-  case ZeroCallUsedRegsAttr::UsedArg: return "used-arg";
-  case ZeroCallUsedRegsAttr::Used: return "used";
-  case ZeroCallUsedRegsAttr::AllGPRArg: return "all-gpr-arg";
-  case ZeroCallUsedRegsAttr::AllGPR: return "all-gpr";
-  case ZeroCallUsedRegsAttr::AllArg: return "all-arg";
-  case ZeroCallUsedRegsAttr::All: return "all";
+  case ZeroCallUsedRegsAttr::ZeroCallUsedRegsKind::Skip: return "skip";
+  case ZeroCallUsedRegsAttr::ZeroCallUsedRegsKind::UsedGPRArg: return "used-gpr-arg";
+  case ZeroCallUsedRegsAttr::ZeroCallUsedRegsKind::UsedGPR: return "used-gpr";
+  case ZeroCallUsedRegsAttr::ZeroCallUsedRegsKind::UsedArg: return "used-arg";
+  case ZeroCallUsedRegsAttr::ZeroCallUsedRegsKind::Used: return "used";
+  case ZeroCallUsedRegsAttr::ZeroCallUsedRegsKind::AllGPRArg: return "all-gpr-arg";
+  case ZeroCallUsedRegsAttr::ZeroCallUsedRegsKind::AllGPR: return "all-gpr";
+  case ZeroCallUsedRegsAttr::ZeroCallUsedRegsKind::AllArg: return "all-arg";
+  case ZeroCallUsedRegsAttr::ZeroCallUsedRegsKind::All: return "all";
   }
   llvm_unreachable("No enumerator with that value");
 }
@@ -41106,10 +43626,24 @@ const char *Attr::getSpelling() const {
     return cast<ArgumentWithTypeTagAttr>(this)->getSpelling();
   case attr::ArmBuiltinAlias:
     return cast<ArmBuiltinAliasAttr>(this)->getSpelling();
+  case attr::ArmIn:
+    return cast<ArmInAttr>(this)->getSpelling();
+  case attr::ArmInOut:
+    return cast<ArmInOutAttr>(this)->getSpelling();
+  case attr::ArmLocallyStreaming:
+    return cast<ArmLocallyStreamingAttr>(this)->getSpelling();
   case attr::ArmMveStrictPolymorphism:
     return cast<ArmMveStrictPolymorphismAttr>(this)->getSpelling();
+  case attr::ArmNew:
+    return cast<ArmNewAttr>(this)->getSpelling();
+  case attr::ArmOut:
+    return cast<ArmOutAttr>(this)->getSpelling();
+  case attr::ArmPreserves:
+    return cast<ArmPreservesAttr>(this)->getSpelling();
   case attr::ArmStreaming:
     return cast<ArmStreamingAttr>(this)->getSpelling();
+  case attr::ArmStreamingCompatible:
+    return cast<ArmStreamingCompatibleAttr>(this)->getSpelling();
   case attr::Artificial:
     return cast<ArtificialAttr>(this)->getSpelling();
   case attr::AsmLabel:
@@ -41130,6 +43664,8 @@ const char *Attr::getSpelling() const {
     return cast<AvailableOnlyInDefaultEvalMethodAttr>(this)->getSpelling();
   case attr::BPFPreserveAccessIndex:
     return cast<BPFPreserveAccessIndexAttr>(this)->getSpelling();
+  case attr::BPFPreserveStaticOffset:
+    return cast<BPFPreserveStaticOffsetAttr>(this)->getSpelling();
   case attr::BTFDeclTag:
     return cast<BTFDeclTagAttr>(this)->getSpelling();
   case attr::BTFTypeTag:
@@ -41200,6 +43736,10 @@ const char *Attr::getSpelling() const {
     return cast<CmseNSCallAttr>(this)->getSpelling();
   case attr::CmseNSEntry:
     return cast<CmseNSEntryAttr>(this)->getSpelling();
+  case attr::CodeAlign:
+    return cast<CodeAlignAttr>(this)->getSpelling();
+  case attr::CodeModel:
+    return cast<CodeModelAttr>(this)->getSpelling();
   case attr::CodeSeg:
     return cast<CodeSegAttr>(this)->getSpelling();
   case attr::Cold:
@@ -41220,6 +43760,18 @@ const char *Attr::getSpelling() const {
     return cast<ConsumableSetOnReadAttr>(this)->getSpelling();
   case attr::Convergent:
     return cast<ConvergentAttr>(this)->getSpelling();
+  case attr::CoroDisableLifetimeBound:
+    return cast<CoroDisableLifetimeBoundAttr>(this)->getSpelling();
+  case attr::CoroLifetimeBound:
+    return cast<CoroLifetimeBoundAttr>(this)->getSpelling();
+  case attr::CoroOnlyDestroyWhenComplete:
+    return cast<CoroOnlyDestroyWhenCompleteAttr>(this)->getSpelling();
+  case attr::CoroReturnType:
+    return cast<CoroReturnTypeAttr>(this)->getSpelling();
+  case attr::CoroWrapper:
+    return cast<CoroWrapperAttr>(this)->getSpelling();
+  case attr::CountedBy:
+    return cast<CountedByAttr>(this)->getSpelling();
   case attr::DLLExport:
     return cast<DLLExportAttr>(this)->getSpelling();
   case attr::DLLExportStaticLocal:
@@ -41286,6 +43838,8 @@ const char *Attr::getSpelling() const {
     return cast<HLSLGroupSharedAddressSpaceAttr>(this)->getSpelling();
   case attr::HLSLNumThreads:
     return cast<HLSLNumThreadsAttr>(this)->getSpelling();
+  case attr::HLSLParamModifier:
+    return cast<HLSLParamModifierAttr>(this)->getSpelling();
   case attr::HLSLResource:
     return cast<HLSLResourceAttr>(this)->getSpelling();
   case attr::HLSLResourceBinding:
@@ -41334,12 +43888,16 @@ const char *Attr::getSpelling() const {
     return cast<LoopHintAttr>(this)->getSpelling();
   case attr::M68kInterrupt:
     return cast<M68kInterruptAttr>(this)->getSpelling();
+  case attr::M68kRTD:
+    return cast<M68kRTDAttr>(this)->getSpelling();
   case attr::MIGServerRoutine:
     return cast<MIGServerRoutineAttr>(this)->getSpelling();
   case attr::MSABI:
     return cast<MSABIAttr>(this)->getSpelling();
   case attr::MSAllocator:
     return cast<MSAllocatorAttr>(this)->getSpelling();
+  case attr::MSConstexpr:
+    return cast<MSConstexprAttr>(this)->getSpelling();
   case attr::MSInheritance:
     return cast<MSInheritanceAttr>(this)->getSpelling();
   case attr::MSNoVTable:
@@ -41584,6 +44142,8 @@ const char *Attr::getSpelling() const {
     return cast<PragmaClangTextSectionAttr>(this)->getSpelling();
   case attr::PreferredName:
     return cast<PreferredNameAttr>(this)->getSpelling();
+  case attr::PreferredType:
+    return cast<PreferredTypeAttr>(this)->getSpelling();
   case attr::PreserveAll:
     return cast<PreserveAllAttr>(this)->getSpelling();
   case attr::PreserveMost:
@@ -41682,6 +44242,10 @@ const char *Attr::getSpelling() const {
     return cast<SwiftErrorAttr>(this)->getSpelling();
   case attr::SwiftErrorResult:
     return cast<SwiftErrorResultAttr>(this)->getSpelling();
+  case attr::SwiftImportAsNonGeneric:
+    return cast<SwiftImportAsNonGenericAttr>(this)->getSpelling();
+  case attr::SwiftImportPropertyAsAccessors:
+    return cast<SwiftImportPropertyAsAccessorsAttr>(this)->getSpelling();
   case attr::SwiftIndirectResult:
     return cast<SwiftIndirectResultAttr>(this)->getSpelling();
   case attr::SwiftName:
@@ -41692,6 +44256,10 @@ const char *Attr::getSpelling() const {
     return cast<SwiftObjCMembersAttr>(this)->getSpelling();
   case attr::SwiftPrivate:
     return cast<SwiftPrivateAttr>(this)->getSpelling();
+  case attr::SwiftVersionedAddition:
+    return cast<SwiftVersionedAdditionAttr>(this)->getSpelling();
+  case attr::SwiftVersionedRemoval:
+    return cast<SwiftVersionedRemovalAttr>(this)->getSpelling();
   case attr::SysVABI:
     return cast<SysVABIAttr>(this)->getSpelling();
   case attr::TLSModel:
@@ -41856,10 +44424,24 @@ Attr *Attr::clone(ASTContext &C) const {
     return cast<ArgumentWithTypeTagAttr>(this)->clone(C);
   case attr::ArmBuiltinAlias:
     return cast<ArmBuiltinAliasAttr>(this)->clone(C);
+  case attr::ArmIn:
+    return cast<ArmInAttr>(this)->clone(C);
+  case attr::ArmInOut:
+    return cast<ArmInOutAttr>(this)->clone(C);
+  case attr::ArmLocallyStreaming:
+    return cast<ArmLocallyStreamingAttr>(this)->clone(C);
   case attr::ArmMveStrictPolymorphism:
     return cast<ArmMveStrictPolymorphismAttr>(this)->clone(C);
+  case attr::ArmNew:
+    return cast<ArmNewAttr>(this)->clone(C);
+  case attr::ArmOut:
+    return cast<ArmOutAttr>(this)->clone(C);
+  case attr::ArmPreserves:
+    return cast<ArmPreservesAttr>(this)->clone(C);
   case attr::ArmStreaming:
     return cast<ArmStreamingAttr>(this)->clone(C);
+  case attr::ArmStreamingCompatible:
+    return cast<ArmStreamingCompatibleAttr>(this)->clone(C);
   case attr::Artificial:
     return cast<ArtificialAttr>(this)->clone(C);
   case attr::AsmLabel:
@@ -41880,6 +44462,8 @@ Attr *Attr::clone(ASTContext &C) const {
     return cast<AvailableOnlyInDefaultEvalMethodAttr>(this)->clone(C);
   case attr::BPFPreserveAccessIndex:
     return cast<BPFPreserveAccessIndexAttr>(this)->clone(C);
+  case attr::BPFPreserveStaticOffset:
+    return cast<BPFPreserveStaticOffsetAttr>(this)->clone(C);
   case attr::BTFDeclTag:
     return cast<BTFDeclTagAttr>(this)->clone(C);
   case attr::BTFTypeTag:
@@ -41950,6 +44534,10 @@ Attr *Attr::clone(ASTContext &C) const {
     return cast<CmseNSCallAttr>(this)->clone(C);
   case attr::CmseNSEntry:
     return cast<CmseNSEntryAttr>(this)->clone(C);
+  case attr::CodeAlign:
+    return cast<CodeAlignAttr>(this)->clone(C);
+  case attr::CodeModel:
+    return cast<CodeModelAttr>(this)->clone(C);
   case attr::CodeSeg:
     return cast<CodeSegAttr>(this)->clone(C);
   case attr::Cold:
@@ -41970,6 +44558,18 @@ Attr *Attr::clone(ASTContext &C) const {
     return cast<ConsumableSetOnReadAttr>(this)->clone(C);
   case attr::Convergent:
     return cast<ConvergentAttr>(this)->clone(C);
+  case attr::CoroDisableLifetimeBound:
+    return cast<CoroDisableLifetimeBoundAttr>(this)->clone(C);
+  case attr::CoroLifetimeBound:
+    return cast<CoroLifetimeBoundAttr>(this)->clone(C);
+  case attr::CoroOnlyDestroyWhenComplete:
+    return cast<CoroOnlyDestroyWhenCompleteAttr>(this)->clone(C);
+  case attr::CoroReturnType:
+    return cast<CoroReturnTypeAttr>(this)->clone(C);
+  case attr::CoroWrapper:
+    return cast<CoroWrapperAttr>(this)->clone(C);
+  case attr::CountedBy:
+    return cast<CountedByAttr>(this)->clone(C);
   case attr::DLLExport:
     return cast<DLLExportAttr>(this)->clone(C);
   case attr::DLLExportStaticLocal:
@@ -42036,6 +44636,8 @@ Attr *Attr::clone(ASTContext &C) const {
     return cast<HLSLGroupSharedAddressSpaceAttr>(this)->clone(C);
   case attr::HLSLNumThreads:
     return cast<HLSLNumThreadsAttr>(this)->clone(C);
+  case attr::HLSLParamModifier:
+    return cast<HLSLParamModifierAttr>(this)->clone(C);
   case attr::HLSLResource:
     return cast<HLSLResourceAttr>(this)->clone(C);
   case attr::HLSLResourceBinding:
@@ -42084,12 +44686,16 @@ Attr *Attr::clone(ASTContext &C) const {
     return cast<LoopHintAttr>(this)->clone(C);
   case attr::M68kInterrupt:
     return cast<M68kInterruptAttr>(this)->clone(C);
+  case attr::M68kRTD:
+    return cast<M68kRTDAttr>(this)->clone(C);
   case attr::MIGServerRoutine:
     return cast<MIGServerRoutineAttr>(this)->clone(C);
   case attr::MSABI:
     return cast<MSABIAttr>(this)->clone(C);
   case attr::MSAllocator:
     return cast<MSAllocatorAttr>(this)->clone(C);
+  case attr::MSConstexpr:
+    return cast<MSConstexprAttr>(this)->clone(C);
   case attr::MSInheritance:
     return cast<MSInheritanceAttr>(this)->clone(C);
   case attr::MSNoVTable:
@@ -42334,6 +44940,8 @@ Attr *Attr::clone(ASTContext &C) const {
     return cast<PragmaClangTextSectionAttr>(this)->clone(C);
   case attr::PreferredName:
     return cast<PreferredNameAttr>(this)->clone(C);
+  case attr::PreferredType:
+    return cast<PreferredTypeAttr>(this)->clone(C);
   case attr::PreserveAll:
     return cast<PreserveAllAttr>(this)->clone(C);
   case attr::PreserveMost:
@@ -42432,6 +45040,10 @@ Attr *Attr::clone(ASTContext &C) const {
     return cast<SwiftErrorAttr>(this)->clone(C);
   case attr::SwiftErrorResult:
     return cast<SwiftErrorResultAttr>(this)->clone(C);
+  case attr::SwiftImportAsNonGeneric:
+    return cast<SwiftImportAsNonGenericAttr>(this)->clone(C);
+  case attr::SwiftImportPropertyAsAccessors:
+    return cast<SwiftImportPropertyAsAccessorsAttr>(this)->clone(C);
   case attr::SwiftIndirectResult:
     return cast<SwiftIndirectResultAttr>(this)->clone(C);
   case attr::SwiftName:
@@ -42442,6 +45054,10 @@ Attr *Attr::clone(ASTContext &C) const {
     return cast<SwiftObjCMembersAttr>(this)->clone(C);
   case attr::SwiftPrivate:
     return cast<SwiftPrivateAttr>(this)->clone(C);
+  case attr::SwiftVersionedAddition:
+    return cast<SwiftVersionedAdditionAttr>(this)->clone(C);
+  case attr::SwiftVersionedRemoval:
+    return cast<SwiftVersionedRemovalAttr>(this)->clone(C);
   case attr::SysVABI:
     return cast<SysVABIAttr>(this)->clone(C);
   case attr::TLSModel:
@@ -42606,10 +45222,24 @@ void Attr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
     return cast<ArgumentWithTypeTagAttr>(this)->printPretty(OS, Policy);
   case attr::ArmBuiltinAlias:
     return cast<ArmBuiltinAliasAttr>(this)->printPretty(OS, Policy);
+  case attr::ArmIn:
+    return cast<ArmInAttr>(this)->printPretty(OS, Policy);
+  case attr::ArmInOut:
+    return cast<ArmInOutAttr>(this)->printPretty(OS, Policy);
+  case attr::ArmLocallyStreaming:
+    return cast<ArmLocallyStreamingAttr>(this)->printPretty(OS, Policy);
   case attr::ArmMveStrictPolymorphism:
     return cast<ArmMveStrictPolymorphismAttr>(this)->printPretty(OS, Policy);
+  case attr::ArmNew:
+    return cast<ArmNewAttr>(this)->printPretty(OS, Policy);
+  case attr::ArmOut:
+    return cast<ArmOutAttr>(this)->printPretty(OS, Policy);
+  case attr::ArmPreserves:
+    return cast<ArmPreservesAttr>(this)->printPretty(OS, Policy);
   case attr::ArmStreaming:
     return cast<ArmStreamingAttr>(this)->printPretty(OS, Policy);
+  case attr::ArmStreamingCompatible:
+    return cast<ArmStreamingCompatibleAttr>(this)->printPretty(OS, Policy);
   case attr::Artificial:
     return cast<ArtificialAttr>(this)->printPretty(OS, Policy);
   case attr::AsmLabel:
@@ -42630,6 +45260,8 @@ void Attr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
     return cast<AvailableOnlyInDefaultEvalMethodAttr>(this)->printPretty(OS, Policy);
   case attr::BPFPreserveAccessIndex:
     return cast<BPFPreserveAccessIndexAttr>(this)->printPretty(OS, Policy);
+  case attr::BPFPreserveStaticOffset:
+    return cast<BPFPreserveStaticOffsetAttr>(this)->printPretty(OS, Policy);
   case attr::BTFDeclTag:
     return cast<BTFDeclTagAttr>(this)->printPretty(OS, Policy);
   case attr::BTFTypeTag:
@@ -42700,6 +45332,10 @@ void Attr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
     return cast<CmseNSCallAttr>(this)->printPretty(OS, Policy);
   case attr::CmseNSEntry:
     return cast<CmseNSEntryAttr>(this)->printPretty(OS, Policy);
+  case attr::CodeAlign:
+    return cast<CodeAlignAttr>(this)->printPretty(OS, Policy);
+  case attr::CodeModel:
+    return cast<CodeModelAttr>(this)->printPretty(OS, Policy);
   case attr::CodeSeg:
     return cast<CodeSegAttr>(this)->printPretty(OS, Policy);
   case attr::Cold:
@@ -42720,6 +45356,18 @@ void Attr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
     return cast<ConsumableSetOnReadAttr>(this)->printPretty(OS, Policy);
   case attr::Convergent:
     return cast<ConvergentAttr>(this)->printPretty(OS, Policy);
+  case attr::CoroDisableLifetimeBound:
+    return cast<CoroDisableLifetimeBoundAttr>(this)->printPretty(OS, Policy);
+  case attr::CoroLifetimeBound:
+    return cast<CoroLifetimeBoundAttr>(this)->printPretty(OS, Policy);
+  case attr::CoroOnlyDestroyWhenComplete:
+    return cast<CoroOnlyDestroyWhenCompleteAttr>(this)->printPretty(OS, Policy);
+  case attr::CoroReturnType:
+    return cast<CoroReturnTypeAttr>(this)->printPretty(OS, Policy);
+  case attr::CoroWrapper:
+    return cast<CoroWrapperAttr>(this)->printPretty(OS, Policy);
+  case attr::CountedBy:
+    return cast<CountedByAttr>(this)->printPretty(OS, Policy);
   case attr::DLLExport:
     return cast<DLLExportAttr>(this)->printPretty(OS, Policy);
   case attr::DLLExportStaticLocal:
@@ -42786,6 +45434,8 @@ void Attr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
     return cast<HLSLGroupSharedAddressSpaceAttr>(this)->printPretty(OS, Policy);
   case attr::HLSLNumThreads:
     return cast<HLSLNumThreadsAttr>(this)->printPretty(OS, Policy);
+  case attr::HLSLParamModifier:
+    return cast<HLSLParamModifierAttr>(this)->printPretty(OS, Policy);
   case attr::HLSLResource:
     return cast<HLSLResourceAttr>(this)->printPretty(OS, Policy);
   case attr::HLSLResourceBinding:
@@ -42834,12 +45484,16 @@ void Attr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
     return cast<LoopHintAttr>(this)->printPretty(OS, Policy);
   case attr::M68kInterrupt:
     return cast<M68kInterruptAttr>(this)->printPretty(OS, Policy);
+  case attr::M68kRTD:
+    return cast<M68kRTDAttr>(this)->printPretty(OS, Policy);
   case attr::MIGServerRoutine:
     return cast<MIGServerRoutineAttr>(this)->printPretty(OS, Policy);
   case attr::MSABI:
     return cast<MSABIAttr>(this)->printPretty(OS, Policy);
   case attr::MSAllocator:
     return cast<MSAllocatorAttr>(this)->printPretty(OS, Policy);
+  case attr::MSConstexpr:
+    return cast<MSConstexprAttr>(this)->printPretty(OS, Policy);
   case attr::MSInheritance:
     return cast<MSInheritanceAttr>(this)->printPretty(OS, Policy);
   case attr::MSNoVTable:
@@ -43084,6 +45738,8 @@ void Attr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
     return cast<PragmaClangTextSectionAttr>(this)->printPretty(OS, Policy);
   case attr::PreferredName:
     return cast<PreferredNameAttr>(this)->printPretty(OS, Policy);
+  case attr::PreferredType:
+    return cast<PreferredTypeAttr>(this)->printPretty(OS, Policy);
   case attr::PreserveAll:
     return cast<PreserveAllAttr>(this)->printPretty(OS, Policy);
   case attr::PreserveMost:
@@ -43182,6 +45838,10 @@ void Attr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
     return cast<SwiftErrorAttr>(this)->printPretty(OS, Policy);
   case attr::SwiftErrorResult:
     return cast<SwiftErrorResultAttr>(this)->printPretty(OS, Policy);
+  case attr::SwiftImportAsNonGeneric:
+    return cast<SwiftImportAsNonGenericAttr>(this)->printPretty(OS, Policy);
+  case attr::SwiftImportPropertyAsAccessors:
+    return cast<SwiftImportPropertyAsAccessorsAttr>(this)->printPretty(OS, Policy);
   case attr::SwiftIndirectResult:
     return cast<SwiftIndirectResultAttr>(this)->printPretty(OS, Policy);
   case attr::SwiftName:
@@ -43192,6 +45852,10 @@ void Attr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
     return cast<SwiftObjCMembersAttr>(this)->printPretty(OS, Policy);
   case attr::SwiftPrivate:
     return cast<SwiftPrivateAttr>(this)->printPretty(OS, Policy);
+  case attr::SwiftVersionedAddition:
+    return cast<SwiftVersionedAdditionAttr>(this)->printPretty(OS, Policy);
+  case attr::SwiftVersionedRemoval:
+    return cast<SwiftVersionedRemovalAttr>(this)->printPretty(OS, Policy);
   case attr::SysVABI:
     return cast<SysVABIAttr>(this)->printPretty(OS, Policy);
   case attr::TLSModel:

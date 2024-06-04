@@ -244,6 +244,16 @@ set_target_properties(LLVMDWARFLinker PROPERTIES
 list(APPEND _cmake_import_check_targets LLVMDWARFLinker )
 list(APPEND _cmake_import_check_files_for_LLVMDWARFLinker "${_IMPORT_PREFIX}/lib/libLLVMDWARFLinker.a" )
 
+# Import target "LLVMDWARFLinkerClassic" for configuration "MinSizeRel"
+set_property(TARGET LLVMDWARFLinkerClassic APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
+set_target_properties(LLVMDWARFLinkerClassic PROPERTIES
+  IMPORTED_LINK_INTERFACE_LANGUAGES_MINSIZEREL "CXX"
+  IMPORTED_LOCATION_MINSIZEREL "${_IMPORT_PREFIX}/lib/libLLVMDWARFLinkerClassic.a"
+  )
+
+list(APPEND _cmake_import_check_targets LLVMDWARFLinkerClassic )
+list(APPEND _cmake_import_check_files_for_LLVMDWARFLinkerClassic "${_IMPORT_PREFIX}/lib/libLLVMDWARFLinkerClassic.a" )
+
 # Import target "LLVMDWARFLinkerParallel" for configuration "MinSizeRel"
 set_property(TARGET LLVMDWARFLinkerParallel APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
 set_target_properties(LLVMDWARFLinkerParallel PROPERTIES
@@ -263,6 +273,16 @@ set_target_properties(LLVMExtensions PROPERTIES
 
 list(APPEND _cmake_import_check_targets LLVMExtensions )
 list(APPEND _cmake_import_check_files_for_LLVMExtensions "${_IMPORT_PREFIX}/lib/libLLVMExtensions.a" )
+
+# Import target "LLVMFrontendDriver" for configuration "MinSizeRel"
+set_property(TARGET LLVMFrontendDriver APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
+set_target_properties(LLVMFrontendDriver PROPERTIES
+  IMPORTED_LINK_INTERFACE_LANGUAGES_MINSIZEREL "CXX"
+  IMPORTED_LOCATION_MINSIZEREL "${_IMPORT_PREFIX}/lib/libLLVMFrontendDriver.a"
+  )
+
+list(APPEND _cmake_import_check_targets LLVMFrontendDriver )
+list(APPEND _cmake_import_check_files_for_LLVMFrontendDriver "${_IMPORT_PREFIX}/lib/libLLVMFrontendDriver.a" )
 
 # Import target "LLVMFrontendHLSL" for configuration "MinSizeRel"
 set_property(TARGET LLVMFrontendHLSL APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
@@ -293,6 +313,16 @@ set_target_properties(LLVMFrontendOpenMP PROPERTIES
 
 list(APPEND _cmake_import_check_targets LLVMFrontendOpenMP )
 list(APPEND _cmake_import_check_files_for_LLVMFrontendOpenMP "${_IMPORT_PREFIX}/lib/libLLVMFrontendOpenMP.a" )
+
+# Import target "LLVMFrontendOffloading" for configuration "MinSizeRel"
+set_property(TARGET LLVMFrontendOffloading APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
+set_target_properties(LLVMFrontendOffloading PROPERTIES
+  IMPORTED_LINK_INTERFACE_LANGUAGES_MINSIZEREL "CXX"
+  IMPORTED_LOCATION_MINSIZEREL "${_IMPORT_PREFIX}/lib/libLLVMFrontendOffloading.a"
+  )
+
+list(APPEND _cmake_import_check_targets LLVMFrontendOffloading )
+list(APPEND _cmake_import_check_files_for_LLVMFrontendOffloading "${_IMPORT_PREFIX}/lib/libLLVMFrontendOffloading.a" )
 
 # Import target "LLVMTransformUtils" for configuration "MinSizeRel"
 set_property(TARGET LLVMTransformUtils APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
@@ -393,6 +423,16 @@ set_target_properties(LLVMCFGuard PROPERTIES
 
 list(APPEND _cmake_import_check_targets LLVMCFGuard )
 list(APPEND _cmake_import_check_files_for_LLVMCFGuard "${_IMPORT_PREFIX}/lib/libLLVMCFGuard.a" )
+
+# Import target "LLVMHipStdPar" for configuration "MinSizeRel"
+set_property(TARGET LLVMHipStdPar APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
+set_target_properties(LLVMHipStdPar PROPERTIES
+  IMPORTED_LINK_INTERFACE_LANGUAGES_MINSIZEREL "CXX"
+  IMPORTED_LOCATION_MINSIZEREL "${_IMPORT_PREFIX}/lib/libLLVMHipStdPar.a"
+  )
+
+list(APPEND _cmake_import_check_targets LLVMHipStdPar )
+list(APPEND _cmake_import_check_files_for_LLVMHipStdPar "${_IMPORT_PREFIX}/lib/libLLVMHipStdPar.a" )
 
 # Import target "LLVMLinker" for configuration "MinSizeRel"
 set_property(TARGET LLVMLinker APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
@@ -664,6 +704,16 @@ set_target_properties(LLVMOrcJIT PROPERTIES
 list(APPEND _cmake_import_check_targets LLVMOrcJIT )
 list(APPEND _cmake_import_check_files_for_LLVMOrcJIT "${_IMPORT_PREFIX}/lib/libLLVMOrcJIT.a" )
 
+# Import target "LLVMOrcDebugging" for configuration "MinSizeRel"
+set_property(TARGET LLVMOrcDebugging APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
+set_target_properties(LLVMOrcDebugging PROPERTIES
+  IMPORTED_LINK_INTERFACE_LANGUAGES_MINSIZEREL "CXX"
+  IMPORTED_LOCATION_MINSIZEREL "${_IMPORT_PREFIX}/lib/libLLVMOrcDebugging.a"
+  )
+
+list(APPEND _cmake_import_check_targets LLVMOrcDebugging )
+list(APPEND _cmake_import_check_files_for_LLVMOrcDebugging "${_IMPORT_PREFIX}/lib/libLLVMOrcDebugging.a" )
+
 # Import target "LLVMOrcShared" for configuration "MinSizeRel"
 set_property(TARGET LLVMOrcShared APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
 set_target_properties(LLVMOrcShared PROPERTIES
@@ -833,6 +883,16 @@ set_target_properties(LLVMTextAPI PROPERTIES
 
 list(APPEND _cmake_import_check_targets LLVMTextAPI )
 list(APPEND _cmake_import_check_files_for_LLVMTextAPI "${_IMPORT_PREFIX}/lib/libLLVMTextAPI.a" )
+
+# Import target "LLVMTextAPIBinaryReader" for configuration "MinSizeRel"
+set_property(TARGET LLVMTextAPIBinaryReader APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
+set_target_properties(LLVMTextAPIBinaryReader PROPERTIES
+  IMPORTED_LINK_INTERFACE_LANGUAGES_MINSIZEREL "CXX"
+  IMPORTED_LOCATION_MINSIZEREL "${_IMPORT_PREFIX}/lib/libLLVMTextAPIBinaryReader.a"
+  )
+
+list(APPEND _cmake_import_check_targets LLVMTextAPIBinaryReader )
+list(APPEND _cmake_import_check_files_for_LLVMTextAPIBinaryReader "${_IMPORT_PREFIX}/lib/libLLVMTextAPIBinaryReader.a" )
 
 # Import target "LLVMDlltoolDriver" for configuration "MinSizeRel"
 set_property(TARGET LLVMDlltoolDriver APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
@@ -1448,6 +1508,15 @@ set_target_properties(llvm-readobj PROPERTIES
 list(APPEND _cmake_import_check_targets llvm-readobj )
 list(APPEND _cmake_import_check_files_for_llvm-readobj "${_IMPORT_PREFIX}/bin/llvm-readobj.exe" )
 
+# Import target "llvm-readtapi" for configuration "MinSizeRel"
+set_property(TARGET llvm-readtapi APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
+set_target_properties(llvm-readtapi PROPERTIES
+  IMPORTED_LOCATION_MINSIZEREL "${_IMPORT_PREFIX}/bin/llvm-readtapi.exe"
+  )
+
+list(APPEND _cmake_import_check_targets llvm-readtapi )
+list(APPEND _cmake_import_check_files_for_llvm-readtapi "${_IMPORT_PREFIX}/bin/llvm-readtapi.exe" )
+
 # Import target "llvm-reduce" for configuration "MinSizeRel"
 set_property(TARGET llvm-reduce APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
 set_target_properties(llvm-reduce PROPERTIES
@@ -1456,15 +1525,6 @@ set_target_properties(llvm-reduce PROPERTIES
 
 list(APPEND _cmake_import_check_targets llvm-reduce )
 list(APPEND _cmake_import_check_files_for_llvm-reduce "${_IMPORT_PREFIX}/bin/llvm-reduce.exe" )
-
-# Import target "llvm-remark-size-diff" for configuration "MinSizeRel"
-set_property(TARGET llvm-remark-size-diff APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
-set_target_properties(llvm-remark-size-diff PROPERTIES
-  IMPORTED_LOCATION_MINSIZEREL "${_IMPORT_PREFIX}/bin/llvm-remark-size-diff.exe"
-  )
-
-list(APPEND _cmake_import_check_targets llvm-remark-size-diff )
-list(APPEND _cmake_import_check_files_for_llvm-remark-size-diff "${_IMPORT_PREFIX}/bin/llvm-remark-size-diff.exe" )
 
 # Import target "llvm-remarkutil" for configuration "MinSizeRel"
 set_property(TARGET llvm-remarkutil APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
@@ -1487,12 +1547,12 @@ list(APPEND _cmake_import_check_files_for_llvm-rtdyld "${_IMPORT_PREFIX}/bin/llv
 # Import target "LLVM" for configuration "MinSizeRel"
 set_property(TARGET LLVM APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
 set_target_properties(LLVM PROPERTIES
-  IMPORTED_IMPLIB_MINSIZEREL "${_IMPORT_PREFIX}/lib/libLLVM-17.dll.a"
-  IMPORTED_LOCATION_MINSIZEREL "${_IMPORT_PREFIX}/bin/libLLVM-17.dll"
+  IMPORTED_IMPLIB_MINSIZEREL "${_IMPORT_PREFIX}/lib/libLLVM-18.dll.a"
+  IMPORTED_LOCATION_MINSIZEREL "${_IMPORT_PREFIX}/bin/libLLVM-18.dll"
   )
 
 list(APPEND _cmake_import_check_targets LLVM )
-list(APPEND _cmake_import_check_files_for_LLVM "${_IMPORT_PREFIX}/lib/libLLVM-17.dll.a" "${_IMPORT_PREFIX}/bin/libLLVM-17.dll" )
+list(APPEND _cmake_import_check_files_for_LLVM "${_IMPORT_PREFIX}/lib/libLLVM-18.dll.a" "${_IMPORT_PREFIX}/bin/libLLVM-18.dll" )
 
 # Import target "llvm-sim" for configuration "MinSizeRel"
 set_property(TARGET llvm-sim APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
@@ -1547,15 +1607,6 @@ set_target_properties(llvm-symbolizer PROPERTIES
 
 list(APPEND _cmake_import_check_targets llvm-symbolizer )
 list(APPEND _cmake_import_check_files_for_llvm-symbolizer "${_IMPORT_PREFIX}/bin/llvm-symbolizer.exe" )
-
-# Import target "llvm-tapi-diff" for configuration "MinSizeRel"
-set_property(TARGET llvm-tapi-diff APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
-set_target_properties(llvm-tapi-diff PROPERTIES
-  IMPORTED_LOCATION_MINSIZEREL "${_IMPORT_PREFIX}/bin/llvm-tapi-diff.exe"
-  )
-
-list(APPEND _cmake_import_check_targets llvm-tapi-diff )
-list(APPEND _cmake_import_check_files_for_llvm-tapi-diff "${_IMPORT_PREFIX}/bin/llvm-tapi-diff.exe" )
 
 # Import target "llvm-tli-checker" for configuration "MinSizeRel"
 set_property(TARGET llvm-tli-checker APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)

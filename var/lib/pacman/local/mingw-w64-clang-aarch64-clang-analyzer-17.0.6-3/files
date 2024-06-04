@@ -1,7 +1,0 @@
-%FILES%
-clangarm64/
-clangarm64/share/
-clangarm64/share/licenses/
-clangarm64/share/licenses/clang-analyzer/
-clangarm64/share/licenses/clang-analyzer/LICENSE
-

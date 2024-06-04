@@ -3,6 +3,7 @@
 |* HTML named character reference to UTF-8 translation                        *|
 |*                                                                            *|
 |* Automatically generated file, do not edit!                                 *|
+|* From: CommentHTMLNamedCharacterReferences.td                               *|
 |*                                                                            *|
 \*===----------------------------------------------------------------------===*/
 
