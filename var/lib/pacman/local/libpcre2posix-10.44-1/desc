@@ -2,7 +2,7 @@
 libpcre2posix
 
 %VERSION%
-10.43-1
+10.44-1
 
 %BASE%
 pcre2
@@ -17,10 +17,10 @@ https://www.pcre.org/
 x86_64
 
 %BUILDDATE%
-1708881887
+1717799151
 
 %INSTALLDATE%
-1708917355
+1717816147
 
 %PACKAGER%
 Johannes Schindelin <johannes.schindelin@gmx.de>
@@ -38,8 +38,12 @@ libraries
 BSD
 
 %VALIDATION%
+sha256
 pgp
 
 %DEPENDS%
-libpcre2_8=10.43
+libpcre2_8=10.44
+
+%XDATA%
+pkgtype=split
 

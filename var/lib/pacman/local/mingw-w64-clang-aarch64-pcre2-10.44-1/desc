@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-pcre2
 
 %VERSION%
-10.43-1
+10.44-1
 
 %BASE%
 mingw-w64-pcre2
@@ -17,29 +17,33 @@ https://pcre.org/
 any
 
 %BUILDDATE%
-1708763059
+1717789075
 
 %INSTALLDATE%
-1708830891
+1717816148
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/d4515ba2/8029306273)
+Johannes Schindelin <johannes.schindelin@gmx.de>
 
 %SIZE%
-4851767
+6750121
 
 %REASON%
 1
 
 %LICENSE%
-spdx:BSD-3-Clause
+BSD
 
 %VALIDATION%
 sha256
 pgp
 
 %DEPENDS%
+mingw-w64-clang-aarch64-gcc-libs
 mingw-w64-clang-aarch64-bzip2
 mingw-w64-clang-aarch64-wineditline
 mingw-w64-clang-aarch64-zlib
+
+%XDATA%
+pkgtype=pkg
 

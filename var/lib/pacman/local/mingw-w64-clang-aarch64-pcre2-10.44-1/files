@@ -90,6 +90,7 @@ clangarm64/share/doc/pcre2/html/pcre2_set_glob_escape.html
 clangarm64/share/doc/pcre2/html/pcre2_set_glob_separator.html
 clangarm64/share/doc/pcre2/html/pcre2_set_heap_limit.html
 clangarm64/share/doc/pcre2/html/pcre2_set_match_limit.html
+clangarm64/share/doc/pcre2/html/pcre2_set_max_pattern_compiled_length.html
 clangarm64/share/doc/pcre2/html/pcre2_set_max_pattern_length.html
 clangarm64/share/doc/pcre2/html/pcre2_set_max_varlookbehind.html
 clangarm64/share/doc/pcre2/html/pcre2_set_newline.html
@@ -202,6 +203,7 @@ clangarm64/share/man/man3/pcre2_set_glob_escape.3.gz
 clangarm64/share/man/man3/pcre2_set_glob_separator.3.gz
 clangarm64/share/man/man3/pcre2_set_heap_limit.3.gz
 clangarm64/share/man/man3/pcre2_set_match_limit.3.gz
+clangarm64/share/man/man3/pcre2_set_max_pattern_compiled_length.3.gz
 clangarm64/share/man/man3/pcre2_set_max_pattern_length.3.gz
 clangarm64/share/man/man3/pcre2_set_max_varlookbehind.3.gz
 clangarm64/share/man/man3/pcre2_set_newline.3.gz
