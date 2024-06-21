@@ -99,14 +99,21 @@ if (Test-Path var/lib/pacman/local/mingw-w64-*-asciidoctor-extensions-[0-9]* -Pa
       # Uninstall mingw-w64-asciidoctor-extensions
       test ! -d /var/lib/pacman/local/mingw-w64-$carch-asciidoctor-extensions-[0-9]* || {
         pacman -R --noconfirm mingw-w64-$carch-asciidoctor-extensions &&
-        # Uninstall the `asciidoctor` gem and install `mingw-w64-asciidoctor` instead
+        # Uninstall the `asciidoctor` gem
         gem uninstall asciidoctor
       } || exit 1
-
-      pacman -S --noconfirm mingw-w64-$carch-asciidoctor || exit 1
     done
 '@
-	if (!$?) { die "Could not re-install asciidoctor" }
+	if (!$?) { die "Could not remove asciidoctor-extensions" }
+}
+
+# asciidoctor is needed to build mingw-w64-git. Let's install it if it's not present.
+if (!(Test-Path var/lib/pacman/local/mingw-w64-*-asciidoctor-[0-9]* -PathType Container)) {
+  bash -lc @'
+    set -x
+    pacman -S --noconfirm mingw-w64-clang-aarch64-asciidoctor || exit 1
+'@
+	if (!$?) { die "Could not install asciidoctor" }
 }
 
 # Pacman sometimes writes `.pacnew` files; We want to rename them and let
