@@ -1,0 +1,12 @@
+%FILES%
+clangarm64/
+clangarm64/bin/
+clangarm64/bin/libyaml-0-2.dll
+clangarm64/include/
+clangarm64/include/yaml.h
+clangarm64/lib/
+clangarm64/lib/libyaml.a
+clangarm64/lib/libyaml.dll.a
+clangarm64/lib/pkgconfig/
+clangarm64/lib/pkgconfig/yaml-0.1.pc
+
