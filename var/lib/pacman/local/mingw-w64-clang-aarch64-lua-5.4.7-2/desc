@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-lua
 
 %VERSION%
-5.4.7-1
+5.4.7-2
 
 %BASE%
 mingw-w64-lua
@@ -17,16 +17,16 @@ https://www.lua.org/
 any
 
 %BUILDDATE%
-1719414757
+1719566650
 
 %INSTALLDATE%
-1719457940
+1719630733
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/00495cb2/9682233127)
+CI (msys2-arm/msys2-autobuild/00495cb2/9710374950)
 
 %SIZE%
-1447701
+1447675
 
 %REASON%
 1
