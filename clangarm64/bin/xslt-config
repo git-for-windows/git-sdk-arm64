@@ -60,7 +60,7 @@ while test $# -gt 0; do
 	;;
 
     --version)
-	echo 1.1.41
+	echo 1.1.42
 	exit 0
 	;;
 
