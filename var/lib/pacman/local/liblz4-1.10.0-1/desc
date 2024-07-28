@@ -2,7 +2,7 @@
 liblz4
 
 %VERSION%
-1.9.4-1
+1.10.0-1
 
 %BASE%
 lz4
@@ -17,16 +17,16 @@ https://lz4.github.io/lz4/
 x86_64
 
 %BUILDDATE%
-1660930668
+1721687013
 
 %INSTALLDATE%
-1661054213
+1722136354
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/9374b1d9/2891125160)
+CI (msys2/msys2-autobuild/00495cb2/10049207573)
 
 %SIZE%
-137516
+149330
 
 %REASON%
 1
@@ -39,4 +39,7 @@ pgp
 
 %DEPENDS%
 gcc-libs
+
+%XDATA%
+pkgtype=split
 
