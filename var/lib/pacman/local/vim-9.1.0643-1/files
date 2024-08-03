@@ -272,6 +272,7 @@ usr/share/vim/vim91/autoload/syntaxcomplete.vim
 usr/share/vim/vim91/autoload/tar.vim
 usr/share/vim/vim91/autoload/tohtml.vim
 usr/share/vim/vim91/autoload/typeset.vim
+usr/share/vim/vim91/autoload/typst.vim
 usr/share/vim/vim91/autoload/vimball.vim
 usr/share/vim/vim91/autoload/xml/
 usr/share/vim/vim91/autoload/xml/html32.vim
@@ -429,6 +430,7 @@ usr/share/vim/vim91/compiler/tidy.vim
 usr/share/vim/vim91/compiler/ts-node.vim
 usr/share/vim/vim91/compiler/tsc.vim
 usr/share/vim/vim91/compiler/typedoc.vim
+usr/share/vim/vim91/compiler/typst.vim
 usr/share/vim/vim91/compiler/vimdoc.vim
 usr/share/vim/vim91/compiler/xbuild.vim
 usr/share/vim/vim91/compiler/xmllint.vim
@@ -612,6 +614,7 @@ usr/share/vim/vim91/ftplugin/abaqus.vim
 usr/share/vim/vim91/ftplugin/ada.vim
 usr/share/vim/vim91/ftplugin/alsaconf.vim
 usr/share/vim/vim91/ftplugin/ant.vim
+usr/share/vim/vim91/ftplugin/antlr4.vim
 usr/share/vim/vim91/ftplugin/apache.vim
 usr/share/vim/vim91/ftplugin/arch.vim
 usr/share/vim/vim91/ftplugin/arduino.vim
@@ -620,17 +623,21 @@ usr/share/vim/vim91/ftplugin/asciidoc.vim
 usr/share/vim/vim91/ftplugin/asm.vim
 usr/share/vim/vim91/ftplugin/aspvbs.vim
 usr/share/vim/vim91/ftplugin/astro.vim
+usr/share/vim/vim91/ftplugin/asy.vim
+usr/share/vim/vim91/ftplugin/autohotkey.vim
 usr/share/vim/vim91/ftplugin/automake.vim
 usr/share/vim/vim91/ftplugin/awk.vim
 usr/share/vim/vim91/ftplugin/bash.vim
 usr/share/vim/vim91/ftplugin/basic.vim
 usr/share/vim/vim91/ftplugin/bdf.vim
+usr/share/vim/vim91/ftplugin/bindzone.vim
 usr/share/vim/vim91/ftplugin/bitbake.vim
 usr/share/vim/vim91/ftplugin/bp.vim
 usr/share/vim/vim91/ftplugin/bst.vim
 usr/share/vim/vim91/ftplugin/btm.vim
 usr/share/vim/vim91/ftplugin/bzl.vim
 usr/share/vim/vim91/ftplugin/c.vim
+usr/share/vim/vim91/ftplugin/cabal.vim
 usr/share/vim/vim91/ftplugin/calendar.vim
 usr/share/vim/vim91/ftplugin/cdrdaoconf.vim
 usr/share/vim/vim91/ftplugin/cedar.vim
@@ -642,6 +649,7 @@ usr/share/vim/vim91/ftplugin/chatito.vim
 usr/share/vim/vim91/ftplugin/chicken.vim
 usr/share/vim/vim91/ftplugin/clojure.vim
 usr/share/vim/vim91/ftplugin/cmake.vim
+usr/share/vim/vim91/ftplugin/cmakecache.vim
 usr/share/vim/vim91/ftplugin/cobol.vim
 usr/share/vim/vim91/ftplugin/conf.vim
 usr/share/vim/vim91/ftplugin/config.vim
@@ -657,6 +665,7 @@ usr/share/vim/vim91/ftplugin/csh.vim
 usr/share/vim/vim91/ftplugin/css.vim
 usr/share/vim/vim91/ftplugin/csv.vim
 usr/share/vim/vim91/ftplugin/cucumber.vim
+usr/share/vim/vim91/ftplugin/cuda.vim
 usr/share/vim/vim91/ftplugin/cvsrc.vim
 usr/share/vim/vim91/ftplugin/dart.vim
 usr/share/vim/vim91/ftplugin/deb822sources.vim
@@ -677,6 +686,7 @@ usr/share/vim/vim91/ftplugin/dtd.vim
 usr/share/vim/vim91/ftplugin/dtrace.vim
 usr/share/vim/vim91/ftplugin/dts.vim
 usr/share/vim/vim91/ftplugin/dune.vim
+usr/share/vim/vim91/ftplugin/editorconfig.vim
 usr/share/vim/vim91/ftplugin/eiffel.vim
 usr/share/vim/vim91/ftplugin/elinks.vim
 usr/share/vim/vim91/ftplugin/elixir.vim
@@ -724,10 +734,12 @@ usr/share/vim/vim91/ftplugin/haskell.vim
 usr/share/vim/vim91/ftplugin/heex.vim
 usr/share/vim/vim91/ftplugin/help.vim
 usr/share/vim/vim91/ftplugin/hgcommit.vim
+usr/share/vim/vim91/ftplugin/hlsplaylist.vim
 usr/share/vim/vim91/ftplugin/hog.vim
 usr/share/vim/vim91/ftplugin/hostconf.vim
 usr/share/vim/vim91/ftplugin/hostsaccess.vim
 usr/share/vim/vim91/ftplugin/html.vim
+usr/share/vim/vim91/ftplugin/htmlangular.vim
 usr/share/vim/vim91/ftplugin/htmldjango.vim
 usr/share/vim/vim91/ftplugin/hurl.vim
 usr/share/vim/vim91/ftplugin/hyprlang.vim
@@ -738,6 +750,7 @@ usr/share/vim/vim91/ftplugin/initex.vim
 usr/share/vim/vim91/ftplugin/ishd.vim
 usr/share/vim/vim91/ftplugin/j.vim
 usr/share/vim/vim91/ftplugin/java.vim
+usr/share/vim/vim91/ftplugin/javacc.vim
 usr/share/vim/vim91/ftplugin/javascript.vim
 usr/share/vim/vim91/ftplugin/javascriptreact.vim
 usr/share/vim/vim91/ftplugin/jj.vim
@@ -751,11 +764,14 @@ usr/share/vim/vim91/ftplugin/jsp.vim
 usr/share/vim/vim91/ftplugin/julia.vim
 usr/share/vim/vim91/ftplugin/kconfig.vim
 usr/share/vim/vim91/ftplugin/kdl.vim
+usr/share/vim/vim91/ftplugin/kivy.vim
 usr/share/vim/vim91/ftplugin/kotlin.vim
 usr/share/vim/vim91/ftplugin/kwt.vim
 usr/share/vim/vim91/ftplugin/lc.vim
 usr/share/vim/vim91/ftplugin/ld.vim
+usr/share/vim/vim91/ftplugin/ldapconf.vim
 usr/share/vim/vim91/ftplugin/less.vim
+usr/share/vim/vim91/ftplugin/lex.vim
 usr/share/vim/vim91/ftplugin/lftp.vim
 usr/share/vim/vim91/ftplugin/libao.vim
 usr/share/vim/vim91/ftplugin/limits.vim
@@ -783,6 +799,7 @@ usr/share/vim/vim91/ftplugin/manconf.vim
 usr/share/vim/vim91/ftplugin/markdown.vim
 usr/share/vim/vim91/ftplugin/masm.vim
 usr/share/vim/vim91/ftplugin/matlab.vim
+usr/share/vim/vim91/ftplugin/mediawiki.vim
 usr/share/vim/vim91/ftplugin/mermaid.vim
 usr/share/vim/vim91/ftplugin/meson.vim
 usr/share/vim/vim91/ftplugin/mf.vim
@@ -790,11 +807,13 @@ usr/share/vim/vim91/ftplugin/mma.vim
 usr/share/vim/vim91/ftplugin/modconf.vim
 usr/share/vim/vim91/ftplugin/modula2.vim
 usr/share/vim/vim91/ftplugin/modula3.vim
+usr/share/vim/vim91/ftplugin/mojo.vim
 usr/share/vim/vim91/ftplugin/mp.vim
 usr/share/vim/vim91/ftplugin/mplayerconf.vim
 usr/share/vim/vim91/ftplugin/mrxvtrc.vim
 usr/share/vim/vim91/ftplugin/msmessages.vim
 usr/share/vim/vim91/ftplugin/muttrc.vim
+usr/share/vim/vim91/ftplugin/mysql.vim
 usr/share/vim/vim91/ftplugin/nanorc.vim
 usr/share/vim/vim91/ftplugin/neomuttrc.vim
 usr/share/vim/vim91/ftplugin/netrc.vim
@@ -804,6 +823,7 @@ usr/share/vim/vim91/ftplugin/nix.vim
 usr/share/vim/vim91/ftplugin/nroff.vim
 usr/share/vim/vim91/ftplugin/nsis.vim
 usr/share/vim/vim91/ftplugin/objc.vim
+usr/share/vim/vim91/ftplugin/objcpp.vim
 usr/share/vim/vim91/ftplugin/objdump.vim
 usr/share/vim/vim91/ftplugin/obse.vim
 usr/share/vim/vim91/ftplugin/ocaml.vim
@@ -886,6 +906,7 @@ usr/share/vim/vim91/ftplugin/solidity.vim
 usr/share/vim/vim91/ftplugin/solution.vim
 usr/share/vim/vim91/ftplugin/spec.vim
 usr/share/vim/vim91/ftplugin/sql.vim
+usr/share/vim/vim91/ftplugin/squirrel.vim
 usr/share/vim/vim91/ftplugin/ssa.vim
 usr/share/vim/vim91/ftplugin/sshconfig.vim
 usr/share/vim/vim91/ftplugin/sshdconfig.vim
@@ -907,6 +928,8 @@ usr/share/vim/vim91/ftplugin/terminfo.vim
 usr/share/vim/vim91/ftplugin/terraform.vim
 usr/share/vim/vim91/ftplugin/tex.vim
 usr/share/vim/vim91/ftplugin/text.vim
+usr/share/vim/vim91/ftplugin/tf.vim
+usr/share/vim/vim91/ftplugin/thrift.vim
 usr/share/vim/vim91/ftplugin/tidy.vim
 usr/share/vim/vim91/ftplugin/tmux.vim
 usr/share/vim/vim91/ftplugin/toml.vim
@@ -944,6 +967,7 @@ usr/share/vim/vim91/ftplugin/xmodmap.vim
 usr/share/vim/vim91/ftplugin/xs.vim
 usr/share/vim/vim91/ftplugin/xsd.vim
 usr/share/vim/vim91/ftplugin/xslt.vim
+usr/share/vim/vim91/ftplugin/yacc.vim
 usr/share/vim/vim91/ftplugin/yaml.vim
 usr/share/vim/vim91/ftplugin/zathurarc.vim
 usr/share/vim/vim91/ftplugin/zig.vim
@@ -1011,6 +1035,7 @@ usr/share/vim/vim91/indent/freebasic.vim
 usr/share/vim/vim91/indent/gdscript.vim
 usr/share/vim/vim91/indent/gitconfig.vim
 usr/share/vim/vim91/indent/gitolite.vim
+usr/share/vim/vim91/indent/glsl.vim
 usr/share/vim/vim91/indent/go.vim
 usr/share/vim/vim91/indent/gyp.vim
 usr/share/vim/vim91/indent/haml.vim
@@ -1048,6 +1073,7 @@ usr/share/vim/vim91/indent/matlab.vim
 usr/share/vim/vim91/indent/meson.vim
 usr/share/vim/vim91/indent/mf.vim
 usr/share/vim/vim91/indent/mma.vim
+usr/share/vim/vim91/indent/mojo.vim
 usr/share/vim/vim91/indent/mp.vim
 usr/share/vim/vim91/indent/nginx.vim
 usr/share/vim/vim91/indent/nsis.vim
@@ -1102,10 +1128,12 @@ usr/share/vim/vim91/indent/tcsh.vim
 usr/share/vim/vim91/indent/teraterm.vim
 usr/share/vim/vim91/indent/tex.vim
 usr/share/vim/vim91/indent/tf.vim
+usr/share/vim/vim91/indent/thrift.vim
 usr/share/vim/vim91/indent/tilde.vim
 usr/share/vim/vim91/indent/treetop.vim
 usr/share/vim/vim91/indent/typescript.vim
 usr/share/vim/vim91/indent/typescriptreact.vim
+usr/share/vim/vim91/indent/typst.vim
 usr/share/vim/vim91/indent/vb.vim
 usr/share/vim/vim91/indent/verilog.vim
 usr/share/vim/vim91/indent/vhdl.vim
@@ -1672,6 +1700,7 @@ usr/share/vim/vim91/syntax/aml.vim
 usr/share/vim/vim91/syntax/ampl.vim
 usr/share/vim/vim91/syntax/ant.vim
 usr/share/vim/vim91/syntax/antlr.vim
+usr/share/vim/vim91/syntax/antlr4.vim
 usr/share/vim/vim91/syntax/apache.vim
 usr/share/vim/vim91/syntax/apachestyle.vim
 usr/share/vim/vim91/syntax/aptconf.vim
@@ -1688,6 +1717,7 @@ usr/share/vim/vim91/syntax/aspvbs.vim
 usr/share/vim/vim91/syntax/asterisk.vim
 usr/share/vim/vim91/syntax/asteriskvm.vim
 usr/share/vim/vim91/syntax/astro.vim
+usr/share/vim/vim91/syntax/asy.vim
 usr/share/vim/vim91/syntax/atlas.vim
 usr/share/vim/vim91/syntax/autodoc.vim
 usr/share/vim/vim91/syntax/autohotkey.vim
@@ -1870,6 +1900,7 @@ usr/share/vim/vim91/syntax/gitolite.vim
 usr/share/vim/vim91/syntax/gitrebase.vim
 usr/share/vim/vim91/syntax/gitsendemail.vim
 usr/share/vim/vim91/syntax/gkrellmrc.vim
+usr/share/vim/vim91/syntax/glsl.vim
 usr/share/vim/vim91/syntax/gnash.vim
 usr/share/vim/vim91/syntax/gnuplot.vim
 usr/share/vim/vim91/syntax/go.vim
@@ -2005,6 +2036,7 @@ usr/share/vim/vim91/syntax/mason.vim
 usr/share/vim/vim91/syntax/master.vim
 usr/share/vim/vim91/syntax/matlab.vim
 usr/share/vim/vim91/syntax/maxima.vim
+usr/share/vim/vim91/syntax/mediawiki.vim
 usr/share/vim/vim91/syntax/mel.vim
 usr/share/vim/vim91/syntax/mermaid.vim
 usr/share/vim/vim91/syntax/meson.vim
@@ -2289,6 +2321,7 @@ usr/share/vim/vim91/syntax/tex.vim
 usr/share/vim/vim91/syntax/texinfo.vim
 usr/share/vim/vim91/syntax/texmf.vim
 usr/share/vim/vim91/syntax/tf.vim
+usr/share/vim/vim91/syntax/thrift.vim
 usr/share/vim/vim91/syntax/tidy.vim
 usr/share/vim/vim91/syntax/tilde.vim
 usr/share/vim/vim91/syntax/tli.vim
@@ -2302,11 +2335,13 @@ usr/share/vim/vim91/syntax/tsalt.vim
 usr/share/vim/vim91/syntax/tsscl.vim
 usr/share/vim/vim91/syntax/tssgm.vim
 usr/share/vim/vim91/syntax/tssop.vim
+usr/share/vim/vim91/syntax/tsv.vim
 usr/share/vim/vim91/syntax/tt2.vim
 usr/share/vim/vim91/syntax/tt2html.vim
 usr/share/vim/vim91/syntax/tt2js.vim
 usr/share/vim/vim91/syntax/typescript.vim
 usr/share/vim/vim91/syntax/typescriptreact.vim
+usr/share/vim/vim91/syntax/typst.vim
 usr/share/vim/vim91/syntax/uc.vim
 usr/share/vim/vim91/syntax/uci.vim
 usr/share/vim/vim91/syntax/udevconf.vim
