@@ -33,6 +33,7 @@
 # The gcc-compat package provides a link from
 # gcc.exe to clang
 /clangarm64/bin/gcc.exe
+/clangarm64/bin/libc++.dll
 
 # gettext (msgfmt)
 /clangarm64/bin/msgfmt.exe
