@@ -387,6 +387,7 @@ clangarm64/lib/libtxfw32.a
 clangarm64/lib/libucrt.a
 clangarm64/lib/libucrtapp.a
 clangarm64/lib/libucrtbase.a
+clangarm64/lib/libucrtbased.a
 clangarm64/lib/libuiautomationcore.a
 clangarm64/lib/libumdmxfrm.a
 clangarm64/lib/libunimdmat.a
