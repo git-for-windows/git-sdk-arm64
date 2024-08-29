@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-c-ares
 
 %VERSION%
-1.33.0-1
+1.33.1-1
 
 %BASE%
 mingw-w64-c-ares
@@ -17,16 +17,16 @@ https://c-ares.org/
 any
 
 %BUILDDATE%
-1723043544
+1724839600
 
 %INSTALLDATE%
-1723259556
+1724900900
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/67d510ec/10286950177)
+CI (msys2-arm/msys2-autobuild/f968d2f0/10594538735)
 
 %SIZE%
-853595
+851459
 
 %REASON%
 1
