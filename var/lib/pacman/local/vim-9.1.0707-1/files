@@ -718,6 +718,7 @@ usr/share/vim/vim91/ftplugin/gitignore.vim
 usr/share/vim/vim91/ftplugin/gitrebase.vim
 usr/share/vim/vim91/ftplugin/gitsendemail.vim
 usr/share/vim/vim91/ftplugin/go.vim
+usr/share/vim/vim91/ftplugin/goaccess.vim
 usr/share/vim/vim91/ftplugin/gomod.vim
 usr/share/vim/vim91/ftplugin/gpg.vim
 usr/share/vim/vim91/ftplugin/gprof.vim
@@ -1088,6 +1089,7 @@ usr/share/vim/vim91/indent/php.vim
 usr/share/vim/vim91/indent/postscr.vim
 usr/share/vim/vim91/indent/pov.vim
 usr/share/vim/vim91/indent/prolog.vim
+usr/share/vim/vim91/indent/proto.vim
 usr/share/vim/vim91/indent/ps1.vim
 usr/share/vim/vim91/indent/pyrex.vim
 usr/share/vim/vim91/indent/python.vim
@@ -1904,6 +1906,7 @@ usr/share/vim/vim91/syntax/glsl.vim
 usr/share/vim/vim91/syntax/gnash.vim
 usr/share/vim/vim91/syntax/gnuplot.vim
 usr/share/vim/vim91/syntax/go.vim
+usr/share/vim/vim91/syntax/goaccess.vim
 usr/share/vim/vim91/syntax/godoc.vim
 usr/share/vim/vim91/syntax/gp.vim
 usr/share/vim/vim91/syntax/gpg.vim
@@ -1938,6 +1941,7 @@ usr/share/vim/vim91/syntax/hollywood.vim
 usr/share/vim/vim91/syntax/hostconf.vim
 usr/share/vim/vim91/syntax/hostsaccess.vim
 usr/share/vim/vim91/syntax/html.vim
+usr/share/vim/vim91/syntax/htmlangular.vim
 usr/share/vim/vim91/syntax/htmlcheetah.vim
 usr/share/vim/vim91/syntax/htmldjango.vim
 usr/share/vim/vim91/syntax/htmlm4.vim

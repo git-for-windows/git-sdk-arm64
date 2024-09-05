@@ -2,7 +2,7 @@
 expat
 
 %VERSION%
-2.6.2-1
+2.6.3-1
 
 %BASE%
 expat
@@ -17,16 +17,16 @@ https://libexpat.github.io/
 x86_64
 
 %BUILDDATE%
-1710363492
+1725475229
 
 %INSTALLDATE%
-1710645297
+1725505689
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/dad66715/8271423783)
+CI (msys2/msys2-autobuild/22f1e5ad/10707410025)
 
 %SIZE%
-112729
+115531
 
 %REASON%
 1
@@ -36,4 +36,7 @@ spdx:MIT
 
 %VALIDATION%
 pgp
+
+%XDATA%
+pkgtype=split
 

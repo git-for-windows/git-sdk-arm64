@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-openssl
 
 %VERSION%
-3.2.2-1
+3.2.3-1
 
 %BASE%
 mingw-w64-openssl
@@ -17,16 +17,16 @@ https://www.openssl.org/
 any
 
 %BUILDDATE%
-1717571477
+1725464944
 
 %INSTALLDATE%
-1717643448
+1725505710
 
 %PACKAGER%
 Johannes Schindelin <johannes.schindelin@gmx.de>
 
 %SIZE%
-47210363
+47304023
 
 %REASON%
 1
