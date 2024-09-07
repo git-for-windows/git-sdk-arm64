@@ -434,6 +434,7 @@ clangarm64/lib/libwinrnr.a
 clangarm64/lib/libwinscard.a
 clangarm64/lib/libwinspool.a
 clangarm64/lib/libwinsrv.a
+clangarm64/lib/libwintrust.a
 clangarm64/lib/libwinusb.a
 clangarm64/lib/libwkscli.a
 clangarm64/lib/libwkssvc.a

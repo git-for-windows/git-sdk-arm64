@@ -1643,7 +1643,10 @@ clangarm64/include/wdstci.h
 clangarm64/include/wdstpdi.h
 clangarm64/include/wdstptmgmt.h
 clangarm64/include/wdstptmgmt.idl
+clangarm64/include/weakreference.h
+clangarm64/include/weakreference.idl
 clangarm64/include/webauthn.h
+clangarm64/include/webservices.h
 clangarm64/include/werapi.h
 clangarm64/include/wfext.h
 clangarm64/include/wia.h
