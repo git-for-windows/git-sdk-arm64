@@ -33,6 +33,7 @@
 # The gcc-compat package provides a link from
 # gcc.exe to clang
 /clangarm64/bin/gcc.exe
+/clangarm64/bin/libc++.dll
 
 # gettext (msgfmt)
 /clangarm64/bin/msgfmt.exe
@@ -50,8 +51,10 @@
 /clangarm64/bin/libssl-*.dll
 /clangarm64/bin/libnghttp2*.dll
 /clangarm64/bin/libidn2-*.dll
+/clangarm64/bin/libpsl*.dll
 /clangarm64/bin/libssh*.dll
 /clangarm64/bin/libunistring-*.dll
+/clangarm64/etc/ssl/certs/ca-bundle.crt
 /clangarm64/ssl/certs/ca-bundle.crt
 /clangarm64/include/curl/
 
@@ -216,6 +219,7 @@
 /usr/bin/head.exe
 /usr/bin/rmdir.exe
 /usr/bin/setfacl.exe
+/usr/bin/stat.exe
 /usr/bin/sleep.exe
 /usr/bin/tail.exe
 /usr/bin/tar.exe
@@ -224,5 +228,6 @@
 /usr/bin/tput.exe
 /usr/bin/true.exe
 /usr/bin/unzip.exe
+/usr/bin/msys-bz2-[0-9]*.dll
 /usr/bin/xargs.exe
 /usr/bin/zipinfo.exe

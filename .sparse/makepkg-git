@@ -33,7 +33,7 @@
 /usr/bin/msys-magic*.dll
 /usr/share/misc/magic.mgc
 /usr/bin/bsdtar.exe
-/usr/bin/msys-crypto-1.1.dll
+/usr/bin/msys-crypto-*.dll
 /usr/bin/msys-zstd*.dll
 /usr/bin/msys-nettle*.dll
 /usr/bin/msys-lzma*.dll
@@ -52,16 +52,41 @@
 /usr/share/makepkg/
 /usr/bin/zstd.exe
 
-# AsciiDoc
-/clangarm64/bin/asciidoc.exe
-/clangarm64/bin/asciidoc-script.py
-/clangarm64/bin/python*
-/clangarm64/bin/libpython*.dll
-/clangarm64/lib/python*/
-!/clangarm64/lib/python*/site-packages/
-!/clangarm64/lib/python*/test/
-/clangarm64/lib/python*/site-packages/asciidoc/
-/clangarm64/lib/python*/site-packages/asciidoc*-info/
+# gettext (for makepkg)
+/usr/bin/gettext.exe
+/usr/bin/xgettext.exe
+/usr/bin/msys-gettext*.dll
+
+# The `error_highlight` Ruby gem, needed by `asciidoctor`
+*error_highlight*
+
+# AsciiDoctor
+/clangarm64/bin/asciidoctor
+/clangarm64/bin/ruby.exe
+/clangarm64/bin/ruby*.dll
+/clangarm64/lib/ruby/*/aarch64-mingw-ucrt/rbconfig.rb
+/clangarm64/lib/ruby/*/rubygems.rb
+/clangarm64/lib/ruby/*/rubygems/
+/clangarm64/lib/ruby/*/delegate.rb
+/clangarm64/lib/ruby/*/uri.rb
+/clangarm64/lib/ruby/*/uri/
+/clangarm64/lib/ruby/*/aarch64-mingw-ucrt/stringio.so
+/clangarm64/lib/ruby/*/monitor.rb
+/clangarm64/lib/ruby/*/aarch64-mingw-ucrt/monitor.so
+/clangarm64/lib/ruby/gems/*/gems/asciidoctor-*
+/clangarm64/lib/ruby/gems/*/specifications/asciidoctor-*.gemspec
+/clangarm64/lib/ruby/*/tsort.rb
+/clangarm64/lib/ruby/*/set.rb
+/clangarm64/lib/ruby/*/logger.rb
+/clangarm64/lib/ruby/*/aarch64-mingw-ucrt/enc/encdb.so
+/clangarm64/lib/ruby/*/aarch64-mingw-ucrt/enc/windows_1252.so
+/clangarm64/lib/ruby/*/optparse.rb
+/clangarm64/lib/ruby/*/aarch64-mingw-ucrt/strscan.so
+/clangarm64/lib/ruby/*/pathname.rb
+/clangarm64/lib/ruby/*/aarch64-mingw-ucrt/pathname.so
+/clangarm64/lib/ruby/*/did_you_mean*
+/clangarm64/lib/ruby/*/cgi/util*
+/clangarm64/lib/ruby/*/logger*
 
 # xsltproc (e.g. for Git's user-manual.html)
 /usr/bin/xsltproc.exe
