@@ -2,7 +2,7 @@
 curl
 
 %VERSION%
-8.9.1-1
+8.10.0-1
 
 %BASE%
 curl
@@ -17,16 +17,16 @@ https://curl.haxx.se
 x86_64
 
 %BUILDDATE%
-1722420675
+1726057290
 
 %INSTALLDATE%
-1722481937
+1726111198
 
 %PACKAGER%
 Johannes Schindelin <johannes.schindelin@gmx.de>
 
 %SIZE%
-923230
+937727
 
 %REASON%
 1
