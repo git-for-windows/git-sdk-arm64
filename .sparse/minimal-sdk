@@ -21,8 +21,11 @@
 /clangarm64/bin/libgmp-*[0-9].dll
 /clangarm64/bin/libclang.dll
 /clangarm64/bin/libclang-cpp.dll
+/clangarm64/bin/libffi-*[0-9].dll
 /clangarm64/bin/libLLVM-*[0-9].dll
+/clangarm64/bin/liblzma-*[0-9].dll
 /clangarm64/bin/libwinpthread-*[0-9].dll
+/clangarm64/bin/libxml2-*[0-9].dll
 /clangarm64/bin/libzstd.dll
 /clangarm64/bin/llvm-strip.exe
 /clangarm64/bin/windres.exe
