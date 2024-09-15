@@ -15,7 +15,7 @@ env:
 
 jobs:
   minimal-sdk-artifact:
-    if: github.event.repository.fork == false
+    if: github.repository_owner == 'git-for-windows'
     runs-on: [Windows, ARM64]
     steps:
       - name: clone git-sdk-arm64
