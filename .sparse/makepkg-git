@@ -2,6 +2,8 @@
 /.sparse/makepkg-git
 
 # Pacman
+/usr/bin/pacman-conf.exe
+/usr/bin/pacman-key
 /usr/bin/pacman.exe
 /usr/bin/pactree.exe
 /usr/bin/msys-gpg*.dll
