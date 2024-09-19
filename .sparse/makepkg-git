@@ -16,6 +16,7 @@
 /usr/ssl/certs/ca-bundle.crt
 /usr/share/pacman/
 /var/lib/pacman/local/
+/update-via-pacman.ps1
 
 # GPG agent
 /usr/bin/gpg-agent.exe
