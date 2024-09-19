@@ -12,7 +12,7 @@ SYNOPSIS
 	[--onto <newbase> | --keep-base] [<upstream> [<branch>]]
 'git rebase' [-i | --interactive] [<options>] [--exec <cmd>] [--onto <newbase>]
 	--root [<branch>]
-'git rebase' (--continue | --skip | --abort | --quit | --edit-todo | --show-current-patch)
+'git rebase' (--continue|--skip|--abort|--quit|--edit-todo|--show-current-patch)
 
 DESCRIPTION
 -----------
@@ -37,6 +37,13 @@ The current branch is reset to `<upstream>` or `<newbase>` if the
 `--onto` option was supplied.  This has the exact same effect as
 `git reset --hard <upstream>` (or `<newbase>`). `ORIG_HEAD` is set
 to point at the tip of the branch before the reset.
+
+[NOTE]
+`ORIG_HEAD` is not guaranteed to still point to the previous branch tip
+at the end of the rebase if other commands that write that pseudo-ref
+(e.g. `git reset`) are used during the rebase. The previous branch tip,
+however, is accessible using the reflog of the current branch
+(i.e. `@{1}`, see linkgit:gitrevisions[7]).
 
 The commits that were previously saved into the temporary area are
 then reapplied to the current branch, one by one, in order. Note that
@@ -201,6 +208,39 @@ Alternatively, you can undo the 'git rebase' with
 
     git rebase --abort
 
+MODE OPTIONS
+------------
+
+The options in this section cannot be used with any other option,
+including not with each other:
+
+--continue::
+	Restart the rebasing process after having resolved a merge conflict.
+
+--skip::
+	Restart the rebasing process by skipping the current patch.
+
+--abort::
+	Abort the rebase operation and reset HEAD to the original
+	branch. If `<branch>` was provided when the rebase operation was
+	started, then `HEAD` will be reset to `<branch>`. Otherwise `HEAD`
+	will be reset to where it was when the rebase operation was
+	started.
+
+--quit::
+	Abort the rebase operation but `HEAD` is not reset back to the
+	original branch. The index and working tree are also left
+	unchanged as a result. If a temporary stash entry was created
+	using `--autostash`, it will be saved to the stash list.
+
+--edit-todo::
+	Edit the todo list during an interactive rebase.
+
+--show-current-patch::
+	Show the current patch in an interactive rebase or when rebase
+	is stopped because of conflicts. This is the equivalent of
+	`git show REBASE_HEAD`.
+
 OPTIONS
 -------
 --onto <newbase>::
@@ -242,22 +282,6 @@ See also INCOMPATIBLE OPTIONS below.
 <branch>::
 	Working branch; defaults to `HEAD`.
 
---continue::
-	Restart the rebasing process after having resolved a merge conflict.
-
---abort::
-	Abort the rebase operation and reset HEAD to the original
-	branch. If `<branch>` was provided when the rebase operation was
-	started, then `HEAD` will be reset to `<branch>`. Otherwise `HEAD`
-	will be reset to where it was when the rebase operation was
-	started.
-
---quit::
-	Abort the rebase operation but `HEAD` is not reset back to the
-	original branch. The index and working tree are also left
-	unchanged as a result. If a temporary stash entry was created
-	using `--autostash`, it will be saved to the stash list.
-
 --apply::
 	Use applying strategies to rebase (calling `git-am`
 	internally).  This option may become a no-op in the future
@@ -265,17 +289,25 @@ See also INCOMPATIBLE OPTIONS below.
 +
 See also INCOMPATIBLE OPTIONS below.
 
---empty={drop,keep,ask}::
+--empty=(drop|keep|stop)::
 	How to handle commits that are not empty to start and are not
 	clean cherry-picks of any upstream commit, but which become
 	empty after rebasing (because they contain a subset of already
-	upstream changes).  With drop (the default), commits that
-	become empty are dropped.  With keep, such commits are kept.
-	With ask (implied by `--interactive`), the rebase will halt when
-	an empty commit is applied allowing you to choose whether to
-	drop it, edit files more, or just commit the empty changes.
-	Other options, like `--exec`, will use the default of drop unless
-	`-i`/`--interactive` is explicitly specified.
+	upstream changes):
++
+--
+`drop`;;
+	The commit will be dropped. This is the default behavior.
+`keep`;;
+	The commit will be kept. This option is implied when `--exec` is
+	specified unless `-i`/`--interactive` is also specified.
+`stop`;;
+`ask`;;
+	The rebase will halt when the commit is applied, allowing you to
+	choose whether to drop it, edit files more, or just commit the empty
+	changes. This option is implied when `-i`/`--interactive` is
+	specified. `ask` is a deprecated synonym of `stop`.
+--
 +
 Note that commits which start empty are kept (unless `--no-keep-empty`
 is specified), and commits which are clean cherry-picks (as determined
@@ -314,7 +346,6 @@ See also INCOMPATIBLE OPTIONS below.
 	upstream changes, the behavior towards them is controlled by
 	the `--empty` flag.)
 +
-
 In the absence of `--keep-base` (or if `--no-reapply-cherry-picks` is
 given), these commits will be automatically dropped.  Because this
 necessitates reading all upstream commits, this can be expensive in
@@ -323,7 +354,6 @@ read. When using the 'merge' backend, warnings will be issued for each
 dropped commit (unless `--quiet` is given). Advice will also be issued
 unless `advice.skippedCherryPicks` is set to false (see
 linkgit:git-config[1]).
-
 +
 `--reapply-cherry-picks` allows rebase to forgo reading all upstream
 commits, potentially improving performance.
@@ -337,17 +367,6 @@ See also INCOMPATIBLE OPTIONS below.
 	message do not cause rebasing to halt.
 +
 See also INCOMPATIBLE OPTIONS below.
-
---skip::
-	Restart the rebasing process by skipping the current patch.
-
---edit-todo::
-	Edit the todo list during an interactive rebase.
-
---show-current-patch::
-	Show the current patch in an interactive rebase or when rebase
-	is stopped because of conflicts. This is the equivalent of
-	`git show REBASE_HEAD`.
 
 -m::
 --merge::
@@ -512,26 +531,31 @@ See also INCOMPATIBLE OPTIONS below.
 +
 The commit list format can be changed by setting the configuration option
 rebase.instructionFormat.  A customized instruction format will automatically
-have the long commit hash prepended to the format.
+have the commit hash prepended to the format.
 +
 See also INCOMPATIBLE OPTIONS below.
 
 -r::
 --rebase-merges[=(rebase-cousins|no-rebase-cousins)]::
+--no-rebase-merges::
 	By default, a rebase will simply drop merge commits from the todo
 	list, and put the rebased commits into a single, linear branch.
 	With `--rebase-merges`, the rebase will instead try to preserve
 	the branching structure within the commits that are to be rebased,
 	by recreating the merge commits. Any resolved merge conflicts or
 	manual amendments in these merge commits will have to be
-	resolved/re-applied manually.
+	resolved/re-applied manually. `--no-rebase-merges` can be used to
+	countermand both the `rebase.rebaseMerges` config option and a previous
+	`--rebase-merges`.
 +
-By default, or when `no-rebase-cousins` was specified, commits which do not
-have `<upstream>` as direct ancestor will keep their original branch point,
-i.e. commits that would be excluded by linkgit:git-log[1]'s
-`--ancestry-path` option will keep their original ancestry by default. If
-the `rebase-cousins` mode is turned on, such commits are instead rebased
-onto `<upstream>` (or `<onto>`, if specified).
+When rebasing merges, there are two modes: `rebase-cousins` and
+`no-rebase-cousins`. If the mode is not specified, it defaults to
+`no-rebase-cousins`. In `no-rebase-cousins` mode, commits which do not have
+`<upstream>` as direct ancestor will keep their original branch point, i.e.
+commits that would be excluded by linkgit:git-log[1]'s `--ancestry-path`
+option will keep their original ancestry by default. In `rebase-cousins` mode,
+such commits are instead rebased onto `<upstream>` (or `<onto>`, if
+specified).
 +
 It is currently only possible to recreate the merge commits using the
 `ort` merge strategy; different merge strategies can be used only via
@@ -567,30 +591,33 @@ See also INCOMPATIBLE OPTIONS below.
 --root::
 	Rebase all commits reachable from `<branch>`, instead of
 	limiting them with an `<upstream>`.  This allows you to rebase
-	the root commit(s) on a branch.  When used with `--onto`, it
-	will skip changes already contained in `<newbase>` (instead of
-	`<upstream>`) whereas without `--onto` it will operate on every
-	change.
+	the root commit(s) on a branch.
 +
 See also INCOMPATIBLE OPTIONS below.
 
 --autosquash::
 --no-autosquash::
-	When the commit log message begins with "squash! ..." or "fixup! ..."
-	or "amend! ...", and there is already a commit in the todo list that
-	matches the same `...`, automatically modify the todo list of
-	`rebase -i`, so that the commit marked for squashing comes right after
-	the commit to be modified, and change the action of the moved commit
-	from `pick` to `squash` or `fixup` or `fixup -C` respectively. A commit
-	matches the `...` if the commit subject matches, or if the `...` refers
-	to the commit's hash. As a fall-back, partial matches of the commit
-	subject work, too. The recommended way to create fixup/amend/squash
-	commits is by using the `--fixup`, `--fixup=amend:` or `--fixup=reword:`
-	and `--squash` options respectively of linkgit:git-commit[1].
+	Automatically squash commits with specially formatted messages into
+	previous commits being rebased.  If a commit message starts with
+	"squash! ", "fixup! " or "amend! ", the remainder of the subject line
+	is taken as a commit specifier, which matches a previous commit if it
+	matches the subject line or the hash of that commit.  If no commit
+	matches fully, matches of the specifier with the start of commit
+	subjects are considered.
 +
-If the `--autosquash` option is enabled by default using the
-configuration variable `rebase.autoSquash`, this option can be
-used to override and disable this setting.
+In the rebase todo list, the actions of squash, fixup and amend commits are
+changed from `pick` to `squash`, `fixup` or `fixup -C`, respectively, and they
+are moved right after the commit they modify.  The `--interactive` option can
+be used to review and edit the todo list before proceeding.
++
+The recommended way to create commits with squash markers is by using the
+`--squash`, `--fixup`, `--fixup=amend:` or `--fixup=reword:` options of
+linkgit:git-commit[1], which take the target commit as an argument and
+automatically fill in the subject line of the new commit from that.
++
+Setting configuration variable `rebase.autoSquash` to true enables
+auto-squashing by default for interactive rebase.  The `--no-autosquash`
+option can be used to override that setting.
 +
 See also INCOMPATIBLE OPTIONS below.
 
@@ -607,13 +634,16 @@ See also INCOMPATIBLE OPTIONS below.
 	Automatically reschedule `exec` commands that failed. This only makes
 	sense in interactive mode (or when an `--exec` option was provided).
 +
-Even though this option applies once a rebase is started, it's set for
-the whole rebase at the start based on either the
-`rebase.rescheduleFailedExec` configuration (see linkgit:git-config[1]
-or "CONFIGURATION" below) or whether this option is
-provided. Otherwise an explicit `--no-reschedule-failed-exec` at the
-start would be overridden by the presence of
-`rebase.rescheduleFailedExec=true` configuration.
+This option applies once a rebase is started. It is preserved for the whole
+rebase based on, in order, the command line option provided to the initial `git
+rebase`, the `rebase.rescheduleFailedExec` configuration (see
+linkgit:git-config[1] or "CONFIGURATION" below), or it defaults to false.
++
+Recording this option for the whole rebase is a convenience feature. Otherwise
+an explicit `--no-reschedule-failed-exec` at the start would be overridden by
+the presence of a `rebase.rescheduleFailedExec=true` configuration when `git
+rebase --continue` is invoked. Currently, you cannot pass
+`--[no-]reschedule-failed-exec` to `git rebase --continue`.
 
 --update-refs::
 --no-update-refs::
@@ -623,6 +653,8 @@ start would be overridden by the presence of
 +
 If the configuration variable `rebase.updateRefs` is set, then this option
 can be used to override and disable this setting.
++
+See also INCOMPATIBLE OPTIONS below.
 
 INCOMPATIBLE OPTIONS
 --------------------
@@ -638,17 +670,15 @@ are incompatible with the following options:
  * --merge
  * --strategy
  * --strategy-option
- * --allow-empty-message
- * --[no-]autosquash
+ * --autosquash
  * --rebase-merges
  * --interactive
  * --exec
  * --no-keep-empty
  * --empty=
- * --reapply-cherry-picks
- * --edit-todo
+ * --[no-]reapply-cherry-picks when used without --keep-base
  * --update-refs
- * --root when used in combination with --onto
+ * --root when used without --onto
 
 In addition, the following pairs of options are incompatible:
 
@@ -682,7 +712,7 @@ be dropped automatically with `--no-keep-empty`).
 Similar to the apply backend, by default the merge backend drops
 commits that become empty unless `-i`/`--interactive` is specified (in
 which case it stops and asks the user what to do).  The merge backend
-also has an `--empty={drop,keep,ask}` option for changing the behavior
+also has an `--empty=(drop|keep|stop)` option for changing the behavior
 of handling commits that become empty.
 
 Directory rename detection
@@ -707,7 +737,7 @@ The 'apply' backend works by creating a sequence of patches (by calling
 `format-patch` internally), and then applying the patches in sequence
 (calling `am` internally).  Patches are composed of multiple hunks,
 each with line numbers, a context region, and the actual changes.  The
-line numbers have to be taken with some fuzz, since the other side
+line numbers have to be taken with some offset, since the other side
 will likely have inserted or deleted lines earlier in the file.  The
 context region is meant to help find how to adjust the line numbers in
 order to apply the changes to the right lines.  However, if multiple
@@ -944,10 +974,9 @@ The interactive rebase will stop when a command fails (i.e. exits with
 non-0 status) to give you an opportunity to fix the problem. You can
 continue with `git rebase --continue`.
 
-The "exec" command launches the command in a shell (the one specified
-in `$SHELL`, or the default shell if `$SHELL` is not set), so you can
-use shell features (like "cd", ">", ";" ...). The command is run from
-the root of the working tree.
+The "exec" command launches the command in a shell (the default one, usually
+/bin/sh), so you can use shell features (like "cd", ">", ";" ...). The command
+is run from the root of the working tree.
 
 ----------------------------------
 $ git rebase -i --exec "make test"
