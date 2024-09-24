@@ -1,43 +1,46 @@
 %NAME%
-bash
+mintty
 
 %VERSION%
-5.2.032-1
+1~3.7.6-1
 
 %BASE%
-bash
+mintty
 
 %DESC%
-The GNU Bourne Again shell
+Terminal emulator with native Windows look and feel
 
 %URL%
-https://www.gnu.org/software/bash/bash.html
+https://mintty.github.io
 
 %ARCH%
 x86_64
 
 %BUILDDATE%
-1722584559
+1727167646
 
 %INSTALLDATE%
-1722654767
+1727179739
 
 %PACKAGER%
 Johannes Schindelin <johannes.schindelin@gmx.de>
 
 %SIZE%
-10723916
+1677294
+
+%GROUPS%
+base
 
 %LICENSE%
-GPL
+GPL3
 
 %VALIDATION%
 sha256
 pgp
 
-%PROVIDES%
+%DEPENDS%
 sh
 
 %XDATA%
-pkgtype=split
+pkgtype=pkg
 
