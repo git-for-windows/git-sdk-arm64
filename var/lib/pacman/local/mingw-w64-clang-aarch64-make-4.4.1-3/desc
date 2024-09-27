@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-make
 
 %VERSION%
-4.4.1-2
+4.4.1-3
 
 %BASE%
 mingw-w64-make
@@ -17,16 +17,16 @@ https://www.gnu.org/software/make
 any
 
 %BUILDDATE%
-1706880421
+1727289348
 
 %INSTALLDATE%
-1706930170
+1727407516
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/1c45f2ab/7756100020)
+CI (msys2-arm/msys2-autobuild/22f1e5ad/11038748121)
 
 %SIZE%
-283277
+278669
 
 %GROUPS%
 mingw-w64-clang-aarch64-toolchain
@@ -40,4 +40,7 @@ pgp
 
 %DEPENDS%
 mingw-w64-clang-aarch64-gettext-runtime
+
+%XDATA%
+pkgtype=pkg
 
