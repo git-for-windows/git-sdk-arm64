@@ -1,14 +1,14 @@
 %NAME%
-xz
+liblzma
 
 %VERSION%
-5.6.2-1
+5.6.3-1
 
 %BASE%
 xz
 
 %DESC%
-Library and command line tools for XZ and LZMA compressed files
+Library for XZ and LZMA compressed files
 
 %URL%
 https://tukaani.org/xz/
@@ -17,22 +17,22 @@ https://tukaani.org/xz/
 x86_64
 
 %BUILDDATE%
-1717025217
+1727855863
 
 %INSTALLDATE%
-1717124970
+1728012436
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/59bb7f6f/9294368313)
+CI (msys2/msys2-autobuild/cfdccd0a/11139921299)
 
 %SIZE%
-3840869
+174714
 
 %REASON%
 1
 
 %GROUPS%
-compression
+libraries
 
 %LICENSE%
 GPL
@@ -41,11 +41,6 @@ custom
 
 %VALIDATION%
 pgp
-
-%DEPENDS%
-liblzma
-libiconv
-libintl
 
 %XDATA%
 pkgtype=split
