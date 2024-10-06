@@ -803,6 +803,8 @@ clangarm64/include/ivec.h
 clangarm64/include/ivectorchangedeventargs.h
 clangarm64/include/ivectorchangedeventargs.idl
 clangarm64/include/iwamreg.h
+clangarm64/include/iwscapi.h
+clangarm64/include/iwscapi.idl
 clangarm64/include/jobapi.h
 clangarm64/include/joystickapi.h
 clangarm64/include/kcom.h
@@ -1909,6 +1911,7 @@ clangarm64/include/ws2dnet.h
 clangarm64/include/ws2ipdef.h
 clangarm64/include/ws2spi.h
 clangarm64/include/ws2tcpip.h
+clangarm64/include/wscapi.h
 clangarm64/include/wsdapi.h
 clangarm64/include/wsdattachment.h
 clangarm64/include/wsdattachment.idl
