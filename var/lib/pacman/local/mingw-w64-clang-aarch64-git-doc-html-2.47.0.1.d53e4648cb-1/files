@@ -41,6 +41,8 @@ clangarm64/share/doc/git-doc/git-archimport.html
 clangarm64/share/doc/git-doc/git-archimport.txt
 clangarm64/share/doc/git-doc/git-archive.html
 clangarm64/share/doc/git-doc/git-archive.txt
+clangarm64/share/doc/git-doc/git-backfill.html
+clangarm64/share/doc/git-doc/git-backfill.txt
 clangarm64/share/doc/git-doc/git-bash.html
 clangarm64/share/doc/git-doc/git-bash.txt
 clangarm64/share/doc/git-doc/git-bisect-lk2009.html
@@ -315,6 +317,8 @@ clangarm64/share/doc/git-doc/git-stripspace.txt
 clangarm64/share/doc/git-doc/git-submodule.html
 clangarm64/share/doc/git-doc/git-submodule.txt
 clangarm64/share/doc/git-doc/git-subtree.html
+clangarm64/share/doc/git-doc/git-survey.html
+clangarm64/share/doc/git-doc/git-survey.txt
 clangarm64/share/doc/git-doc/git-svn.html
 clangarm64/share/doc/git-doc/git-svn.txt
 clangarm64/share/doc/git-doc/git-switch.html
@@ -963,6 +967,7 @@ clangarm64/share/doc/git-doc/RelNotes/2.45.3.txt
 clangarm64/share/doc/git-doc/RelNotes/2.46.0.txt
 clangarm64/share/doc/git-doc/RelNotes/2.46.1.txt
 clangarm64/share/doc/git-doc/RelNotes/2.46.2.txt
+clangarm64/share/doc/git-doc/RelNotes/2.47.0.txt
 clangarm64/share/doc/git-doc/RelNotes/2.5.0.txt
 clangarm64/share/doc/git-doc/RelNotes/2.5.1.txt
 clangarm64/share/doc/git-doc/RelNotes/2.5.2.txt
@@ -1020,6 +1025,8 @@ clangarm64/share/doc/git-doc/technical/api-merge.html
 clangarm64/share/doc/git-doc/technical/api-merge.txt
 clangarm64/share/doc/git-doc/technical/api-parse-options.html
 clangarm64/share/doc/git-doc/technical/api-parse-options.txt
+clangarm64/share/doc/git-doc/technical/api-path-walk.html
+clangarm64/share/doc/git-doc/technical/api-path-walk.txt
 clangarm64/share/doc/git-doc/technical/api-simple-ipc.html
 clangarm64/share/doc/git-doc/technical/api-simple-ipc.txt
 clangarm64/share/doc/git-doc/technical/api-trace2.html
@@ -1043,6 +1050,8 @@ clangarm64/share/doc/git-doc/technical/parallel-checkout.html
 clangarm64/share/doc/git-doc/technical/parallel-checkout.txt
 clangarm64/share/doc/git-doc/technical/partial-clone.html
 clangarm64/share/doc/git-doc/technical/partial-clone.txt
+clangarm64/share/doc/git-doc/technical/platform-support.html
+clangarm64/share/doc/git-doc/technical/platform-support.txt
 clangarm64/share/doc/git-doc/technical/racy-git.html
 clangarm64/share/doc/git-doc/technical/racy-git.txt
 clangarm64/share/doc/git-doc/technical/reftable.html

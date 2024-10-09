@@ -74,6 +74,7 @@ clangarm64/libexec/git-core/mergetools/smerge
 clangarm64/libexec/git-core/mergetools/tkdiff
 clangarm64/libexec/git-core/mergetools/tortoisemerge
 clangarm64/libexec/git-core/mergetools/vimdiff
+clangarm64/libexec/git-core/mergetools/vscode
 clangarm64/libexec/git-core/mergetools/winmerge
 clangarm64/libexec/git-core/mergetools/xxdiff
 clangarm64/libexec/git-core/scalar.exe
