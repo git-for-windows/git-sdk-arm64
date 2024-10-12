@@ -1682,6 +1682,8 @@ clangarm64/include/windows.applicationmodel.h
 clangarm64/include/windows.applicationmodel.idl
 clangarm64/include/windows.data.json.h
 clangarm64/include/windows.data.json.idl
+clangarm64/include/windows.data.xml.dom.h
+clangarm64/include/windows.data.xml.dom.idl
 clangarm64/include/windows.devices.bluetooth.h
 clangarm64/include/windows.devices.bluetooth.idl
 clangarm64/include/windows.devices.enumeration.h
@@ -1763,6 +1765,8 @@ clangarm64/include/windows.perception.spatial.surfaces.h
 clangarm64/include/windows.perception.spatial.surfaces.idl
 clangarm64/include/windows.security.authentication.onlineid.h
 clangarm64/include/windows.security.authentication.onlineid.idl
+clangarm64/include/windows.security.authorization.appcapabilityaccess.h
+clangarm64/include/windows.security.authorization.appcapabilityaccess.idl
 clangarm64/include/windows.security.credentials.h
 clangarm64/include/windows.security.credentials.idl
 clangarm64/include/windows.security.credentials.ui.h
@@ -1803,10 +1807,16 @@ clangarm64/include/windows.ui.h
 clangarm64/include/windows.ui.idl
 clangarm64/include/windows.ui.input.h
 clangarm64/include/windows.ui.input.idl
+clangarm64/include/windows.ui.notifications.h
+clangarm64/include/windows.ui.notifications.idl
 clangarm64/include/windows.ui.viewmanagement.h
 clangarm64/include/windows.ui.viewmanagement.idl
+clangarm64/include/windows.ui.xaml.h
 clangarm64/include/windows.ui.xaml.hosting.desktopwindowxamlsource.h
 clangarm64/include/windows.ui.xaml.hosting.desktopwindowxamlsource.idl
+clangarm64/include/windows.ui.xaml.idl
+clangarm64/include/windows.ui.xaml.interop.h
+clangarm64/include/windows.ui.xaml.interop.idl
 clangarm64/include/windowscontracts.h
 clangarm64/include/windowscontracts.idl
 clangarm64/include/windowsnumerics.h
