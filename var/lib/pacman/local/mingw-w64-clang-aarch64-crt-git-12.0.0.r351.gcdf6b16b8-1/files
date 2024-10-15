@@ -420,6 +420,7 @@ clangarm64/lib/libwer.a
 clangarm64/lib/libwevtapi.a
 clangarm64/lib/libwiashext.a
 clangarm64/lib/libwimgapi.a
+clangarm64/lib/libwinbrand.a
 clangarm64/lib/libwindows.ai.machinelearning.a
 clangarm64/lib/libwindows.data.pdf.a
 clangarm64/lib/libwindows.networking.a
