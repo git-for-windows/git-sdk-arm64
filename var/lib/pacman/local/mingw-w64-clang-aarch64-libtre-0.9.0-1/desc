@@ -1,11 +1,11 @@
 %NAME%
-mingw-w64-clang-aarch64-libtre-git
+mingw-w64-clang-aarch64-libtre
 
 %VERSION%
-r177.07e66d0-2
+0.9.0-1
 
 %BASE%
-mingw-w64-libtre-git
+mingw-w64-libtre
 
 %DESC%
 The approximate regex matching library and agrep command line tool (mingw-w64)
@@ -17,16 +17,16 @@ https://github.com/laurikari/tre
 any
 
 %BUILDDATE%
-1706879732
+1729070085
 
 %INSTALLDATE%
-1706930170
+1729165327
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/1c45f2ab/7756100020)
+CI (msys2-arm/msys2-autobuild/7c56a1d7/11362574208)
 
 %SIZE%
-245402
+227631
 
 %REASON%
 1
@@ -38,13 +38,19 @@ BSD
 sha256
 pgp
 
+%REPLACES%
+mingw-w64-clang-aarch64-libtre-git
+
 %DEPENDS%
 mingw-w64-clang-aarch64-gcc-libs
 mingw-w64-clang-aarch64-gettext-runtime
 
 %CONFLICTS%
-mingw-w64-clang-aarch64-libtre
+mingw-w64-clang-aarch64-libtre-git
 
 %PROVIDES%
-mingw-w64-clang-aarch64-libtre
+mingw-w64-clang-aarch64-libtre-git
+
+%XDATA%
+pkgtype=pkg
 

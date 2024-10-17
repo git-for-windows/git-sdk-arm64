@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-libsystre
 
 %VERSION%
-1.0.1-5
+1.0.1-6
 
 %BASE%
 mingw-w64-libsystre
@@ -17,16 +17,16 @@ Wrapper library around TRE that provides POSIX API (mingw-w64)
 any
 
 %BUILDDATE%
-1702885561
+1729070315
 
 %INSTALLDATE%
-1702955711
+1729165327
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/0eca067d/7245021856)
+CI (msys2-arm/msys2-autobuild/7c56a1d7/11362574208)
 
 %SIZE%
-29607
+26535
 
 %REASON%
 1
@@ -49,4 +49,7 @@ mingw-w64-clang-aarch64-libgnurx
 
 %PROVIDES%
 mingw-w64-clang-aarch64-libgnurx
+
+%XDATA%
+pkgtype=pkg
 
