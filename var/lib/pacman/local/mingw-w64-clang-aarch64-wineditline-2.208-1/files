@@ -8,8 +8,8 @@ clangarm64/include/
 clangarm64/include/editline/
 clangarm64/include/editline/readline.h
 clangarm64/lib/
+clangarm64/lib/libedit.a
 clangarm64/lib/libedit.dll.a
-clangarm64/lib/libedit_static.a
 clangarm64/lib/pkgconfig/
 clangarm64/lib/pkgconfig/wineditline.pc
 clangarm64/share/

@@ -2,13 +2,13 @@
 mingw-w64-clang-aarch64-wineditline
 
 %VERSION%
-2.206-1
+2.208-1
 
 %BASE%
 mingw-w64-wineditline
 
 %DESC%
-port of the NetBSD Editline library (mingw-w64)
+An EditLine API implementation for the native Windows Console (mingw-w64)
 
 %URL%
 https://mingweditline.sourceforge.io/
@@ -17,23 +17,27 @@ https://mingweditline.sourceforge.io/
 any
 
 %BUILDDATE%
-1684776025
+1729405018
 
 %INSTALLDATE%
-1684811748
+1729481374
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/8d98d967/5048536662)
+CI (msys2-arm/msys2-autobuild/7c56a1d7/11424020336)
 
 %SIZE%
-179084
+236108
 
 %REASON%
 1
 
 %LICENSE%
-BSD
+spdx:BSD-3-Clause
 
 %VALIDATION%
+sha256
 pgp
+
+%XDATA%
+pkgtype=pkg
 
