@@ -2,7 +2,7 @@
 autoconf2.72
 
 %VERSION%
-2.72-1
+2.72-2
 
 %BASE%
 autoconf2.72
@@ -17,16 +17,16 @@ https://www.gnu.org/software/autoconf
 any
 
 %BUILDDATE%
-1703337447
+1730395203
 
 %INSTALLDATE%
-1703474125
+1730604655
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/0eca067d/7308452017)
+CI (msys2/msys2-autobuild/acafab9b/11616687191)
 
 %SIZE%
-2422491
+2424622
 
 %REASON%
 1
@@ -46,4 +46,7 @@ diffutils
 bash
 perl
 sed
+
+%XDATA%
+pkgtype=pkg
 
