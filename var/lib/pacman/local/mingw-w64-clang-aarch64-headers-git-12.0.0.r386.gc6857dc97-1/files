@@ -770,6 +770,7 @@ clangarm64/include/inputscope.h
 clangarm64/include/inputscope.idl
 clangarm64/include/inspectable.h
 clangarm64/include/inspectable.idl
+clangarm64/include/interactioncontext.h
 clangarm64/include/interlockedapi.h
 clangarm64/include/intrin.h
 clangarm64/include/intsafe.h
@@ -1678,6 +1679,12 @@ clangarm64/include/windows.applicationmodel.background.h
 clangarm64/include/windows.applicationmodel.background.idl
 clangarm64/include/windows.applicationmodel.core.h
 clangarm64/include/windows.applicationmodel.core.idl
+clangarm64/include/windows.applicationmodel.datatransfer.dragdrop.core.h
+clangarm64/include/windows.applicationmodel.datatransfer.dragdrop.core.idl
+clangarm64/include/windows.applicationmodel.datatransfer.dragdrop.h
+clangarm64/include/windows.applicationmodel.datatransfer.dragdrop.idl
+clangarm64/include/windows.applicationmodel.datatransfer.h
+clangarm64/include/windows.applicationmodel.datatransfer.idl
 clangarm64/include/windows.applicationmodel.h
 clangarm64/include/windows.applicationmodel.idl
 clangarm64/include/windows.data.json.h
@@ -1773,6 +1780,8 @@ clangarm64/include/windows.security.credentials.ui.h
 clangarm64/include/windows.security.credentials.ui.idl
 clangarm64/include/windows.security.cryptography.h
 clangarm64/include/windows.security.cryptography.idl
+clangarm64/include/windows.security.enterprisedata.h
+clangarm64/include/windows.security.enterprisedata.idl
 clangarm64/include/windows.security.exchangeactivesyncprovisioning.h
 clangarm64/include/windows.security.exchangeactivesyncprovisioning.idl
 clangarm64/include/windows.security.isolation.h

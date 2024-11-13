@@ -275,6 +275,7 @@ clangarm64/lib/libnetid.a
 clangarm64/lib/libnetio.a
 clangarm64/lib/libnetshell.a
 clangarm64/lib/libnetutils.a
+clangarm64/lib/libninput.a
 clangarm64/lib/libnormaliz.a
 clangarm64/lib/libntdll.a
 clangarm64/lib/libntdllcrt.a
