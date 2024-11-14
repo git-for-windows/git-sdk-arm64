@@ -1,59 +1,6 @@
-﻿!mod$ v1 sum:4260d890b8f27605
+﻿!mod$ v1 sum:f87ca5d7b627276d
+!need$ ccdc19077379c5ee n omp_lib_kinds
 module omp_lib
-use omp_lib_kinds,only:c_associated
-use omp_lib_kinds,only:c_funloc
-use omp_lib_kinds,only:c_funptr
-use omp_lib_kinds,only:c_f_pointer
-use omp_lib_kinds,only:c_loc
-use omp_lib_kinds,only:c_null_funptr
-use omp_lib_kinds,only:c_null_ptr
-use omp_lib_kinds,only:c_ptr
-use omp_lib_kinds,only:c_sizeof
-use omp_lib_kinds,only:operator(==)
-use omp_lib_kinds,only:operator(/=)
-use omp_lib_kinds,only:c_int8_t
-use omp_lib_kinds,only:c_int16_t
-use omp_lib_kinds,only:c_int32_t
-use omp_lib_kinds,only:c_int64_t
-use omp_lib_kinds,only:c_int128_t
-use omp_lib_kinds,only:c_int
-use omp_lib_kinds,only:c_short
-use omp_lib_kinds,only:c_long
-use omp_lib_kinds,only:c_long_long
-use omp_lib_kinds,only:c_signed_char
-use omp_lib_kinds,only:c_size_t
-use omp_lib_kinds,only:c_intmax_t
-use omp_lib_kinds,only:c_intptr_t
-use omp_lib_kinds,only:c_ptrdiff_t
-use omp_lib_kinds,only:c_int_least8_t
-use omp_lib_kinds,only:c_int_fast8_t
-use omp_lib_kinds,only:c_int_least16_t
-use omp_lib_kinds,only:c_int_fast16_t
-use omp_lib_kinds,only:c_int_least32_t
-use omp_lib_kinds,only:c_int_fast32_t
-use omp_lib_kinds,only:c_int_least64_t
-use omp_lib_kinds,only:c_int_fast64_t
-use omp_lib_kinds,only:c_int_least128_t
-use omp_lib_kinds,only:c_int_fast128_t
-use omp_lib_kinds,only:c_float
-use omp_lib_kinds,only:c_double
-use omp_lib_kinds,only:c_long_double
-use omp_lib_kinds,only:c_float_complex
-use omp_lib_kinds,only:c_double_complex
-use omp_lib_kinds,only:c_long_double_complex
-use omp_lib_kinds,only:c_bool
-use omp_lib_kinds,only:c_char
-use omp_lib_kinds,only:c_null_char
-use omp_lib_kinds,only:c_alert
-use omp_lib_kinds,only:c_backspace
-use omp_lib_kinds,only:c_form_feed
-use omp_lib_kinds,only:c_new_line
-use omp_lib_kinds,only:c_carriage_return
-use omp_lib_kinds,only:c_horizontal_tab
-use omp_lib_kinds,only:c_vertical_tab
-use omp_lib_kinds,only:c_float128
-use omp_lib_kinds,only:c_float128_complex
-use omp_lib_kinds,only:c_f_procpointer
 use omp_lib_kinds,only:omp_integer_kind
 use omp_lib_kinds,only:omp_logical_kind
 use omp_lib_kinds,only:omp_real_kind
@@ -84,13 +31,14 @@ integer(4),parameter::openmp_version=201611_4
 integer(4),parameter::kmp_version_major=5_4
 integer(4),parameter::kmp_version_minor=0_4
 integer(4),parameter::kmp_version_build=20140926_4
-character(*,1),parameter::kmp_build_date="No_Timestamp"
+character(*,1),parameter,private::kmp_build_date="No_Timestamp"
 integer(4),parameter::omp_sched_static=1_4
 integer(4),parameter::omp_sched_dynamic=2_4
 integer(4),parameter::omp_sched_guided=3_4
 integer(4),parameter::omp_sched_auto=4_4
 integer(4),parameter::omp_sched_monotonic=-2147483648_4
 intrinsic::int
+private::int
 integer(4),parameter::omp_proc_bind_false=0_4
 integer(4),parameter::omp_proc_bind_true=1_4
 integer(4),parameter::omp_proc_bind_master=2_4
@@ -550,7 +498,7 @@ end
 end interface
 interface
 function omp_target_alloc(size,device_num) bind(c)
-use omp_lib_kinds,only:c_ptr
+use,intrinsic::iso_c_binding,only:c_ptr
 integer(8),value::size
 integer(4),value::device_num
 type(c_ptr)::omp_target_alloc
@@ -558,14 +506,14 @@ end
 end interface
 interface
 subroutine omp_target_free(device_ptr,device_num) bind(c)
-use omp_lib_kinds,only:c_ptr
+use,intrinsic::iso_c_binding,only:c_ptr
 type(c_ptr),value::device_ptr
 integer(4),value::device_num
 end
 end interface
 interface
 function omp_target_is_present(ptr,device_num) bind(c)
-use omp_lib_kinds,only:c_ptr
+use,intrinsic::iso_c_binding,only:c_ptr
 type(c_ptr),value::ptr
 integer(4),value::device_num
 integer(4)::omp_target_is_present
@@ -573,7 +521,7 @@ end
 end interface
 interface
 function omp_target_memcpy(dst,src,length,dst_offset,src_offset,dst_device_num,src_device_num) bind(c)
-use omp_lib_kinds,only:c_ptr
+use,intrinsic::iso_c_binding,only:c_ptr
 type(c_ptr),value::dst
 type(c_ptr),value::src
 integer(8),value::length
@@ -586,7 +534,7 @@ end
 end interface
 interface
 function omp_target_memcpy_rect(dst,src,element_size,num_dims,volume,dst_offsets,src_offsets,dst_dimensions,src_dimensions,dst_device_num,src_device_num) bind(c)
-use omp_lib_kinds,only:c_ptr
+use,intrinsic::iso_c_binding,only:c_ptr
 type(c_ptr),value::dst
 type(c_ptr),value::src
 integer(8),value::element_size
@@ -603,7 +551,7 @@ end
 end interface
 interface
 function omp_target_memcpy_async(dst,src,length,dst_offset,src_offset,dst_device_num,src_device_num,depobj_count,depobj_list) bind(c)
-use omp_lib_kinds,only:c_ptr
+use,intrinsic::iso_c_binding,only:c_ptr
 type(c_ptr),value::dst
 type(c_ptr),value::src
 integer(8),value::length
@@ -618,7 +566,7 @@ end
 end interface
 interface
 function omp_target_memcpy_rect_async(dst,src,element_size,num_dims,volume,dst_offsets,src_offsets,dst_dimensions,src_dimensions,dst_device_num,src_device_num,depobj_count,depobj_list) bind(c)
-use omp_lib_kinds,only:c_ptr
+use,intrinsic::iso_c_binding,only:c_ptr
 type(c_ptr),value::dst
 type(c_ptr),value::src
 integer(8),value::element_size
@@ -659,7 +607,7 @@ end
 end interface
 interface
 function omp_target_associate_ptr(host_ptr,device_ptr,size,device_offset,device_num) bind(c)
-use omp_lib_kinds,only:c_ptr
+use,intrinsic::iso_c_binding,only:c_ptr
 type(c_ptr),value::host_ptr
 type(c_ptr),value::device_ptr
 integer(8),value::size
@@ -670,7 +618,7 @@ end
 end interface
 interface
 function omp_get_mapped_ptr(ptr,device_num) bind(c)
-use omp_lib_kinds,only:c_ptr
+use,intrinsic::iso_c_binding,only:c_ptr
 type(c_ptr),value::ptr
 integer(4),value::device_num
 type(c_ptr)::omp_get_mapped_ptr
@@ -678,7 +626,7 @@ end
 end interface
 interface
 function omp_target_disassociate_ptr(ptr,device_num) bind(c)
-use omp_lib_kinds,only:c_ptr
+use,intrinsic::iso_c_binding,only:c_ptr
 type(c_ptr),value::ptr
 integer(4),value::device_num
 integer(4)::omp_target_disassociate_ptr
@@ -686,7 +634,7 @@ end
 end interface
 interface
 function omp_target_is_accessible(ptr,size,device_num) bind(c)
-use omp_lib_kinds,only:c_ptr
+use,intrinsic::iso_c_binding,only:c_ptr
 type(c_ptr),value::ptr
 integer(8),value::size
 integer(4),value::device_num
@@ -695,7 +643,7 @@ end
 end interface
 interface
 function omp_alloc(size,allocator) bind(c)
-use omp_lib_kinds,only:c_ptr
+use,intrinsic::iso_c_binding,only:c_ptr
 integer(8),value::size
 integer(8),value::allocator
 type(c_ptr)::omp_alloc
@@ -703,7 +651,7 @@ end
 end interface
 interface
 function omp_aligned_alloc(alignment,size,allocator) bind(c)
-use omp_lib_kinds,only:c_ptr
+use,intrinsic::iso_c_binding,only:c_ptr
 integer(8),value::alignment
 integer(8),value::size
 integer(8),value::allocator
@@ -712,7 +660,7 @@ end
 end interface
 interface
 function omp_calloc(nmemb,size,allocator) bind(c)
-use omp_lib_kinds,only:c_ptr
+use,intrinsic::iso_c_binding,only:c_ptr
 integer(8),value::nmemb
 integer(8),value::size
 integer(8),value::allocator
@@ -721,7 +669,7 @@ end
 end interface
 interface
 function omp_aligned_calloc(alignment,nmemb,size,allocator) bind(c)
-use omp_lib_kinds,only:c_ptr
+use,intrinsic::iso_c_binding,only:c_ptr
 integer(8),value::alignment
 integer(8),value::nmemb
 integer(8),value::size
@@ -731,7 +679,7 @@ end
 end interface
 interface
 function omp_realloc(ptr,size,allocator,free_allocator) bind(c)
-use omp_lib_kinds,only:c_ptr
+use,intrinsic::iso_c_binding,only:c_ptr
 type(c_ptr),value::ptr
 integer(8),value::size
 integer(8),value::allocator
@@ -741,7 +689,7 @@ end
 end interface
 interface
 subroutine omp_free(ptr,allocator) bind(c)
-use omp_lib_kinds,only:c_ptr
+use,intrinsic::iso_c_binding,only:c_ptr
 type(c_ptr),value::ptr
 integer(8),value::allocator
 end

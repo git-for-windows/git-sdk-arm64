@@ -1,4 +1,5 @@
-﻿!mod$ v1 sum:1e317a1ea37acee4
+﻿!mod$ v1 sum:ccdc19077379c5ee
+!need$ 83f45743f4d17283 i iso_c_binding
 module omp_lib_kinds
 use,intrinsic::iso_c_binding,only:c_associated
 use,intrinsic::iso_c_binding,only:c_funloc
@@ -54,6 +55,60 @@ use,intrinsic::iso_c_binding,only:c_vertical_tab
 use,intrinsic::iso_c_binding,only:c_float128
 use,intrinsic::iso_c_binding,only:c_float128_complex
 use,intrinsic::iso_c_binding,only:c_f_procpointer
+private::c_associated
+private::c_funloc
+private::c_funptr
+private::c_f_pointer
+private::c_loc
+private::c_null_funptr
+private::c_null_ptr
+private::c_ptr
+private::c_sizeof
+private::operator(==)
+private::operator(/=)
+private::c_int8_t
+private::c_int16_t
+private::c_int32_t
+private::c_int64_t
+private::c_int128_t
+private::c_int
+private::c_short
+private::c_long
+private::c_long_long
+private::c_signed_char
+private::c_size_t
+private::c_intmax_t
+private::c_intptr_t
+private::c_ptrdiff_t
+private::c_int_least8_t
+private::c_int_fast8_t
+private::c_int_least16_t
+private::c_int_fast16_t
+private::c_int_least32_t
+private::c_int_fast32_t
+private::c_int_least64_t
+private::c_int_fast64_t
+private::c_int_least128_t
+private::c_int_fast128_t
+private::c_float
+private::c_double
+private::c_long_double
+private::c_float_complex
+private::c_double_complex
+private::c_long_double_complex
+private::c_bool
+private::c_char
+private::c_null_char
+private::c_alert
+private::c_backspace
+private::c_form_feed
+private::c_new_line
+private::c_carriage_return
+private::c_horizontal_tab
+private::c_vertical_tab
+private::c_float128
+private::c_float128_complex
+private::c_f_procpointer
 integer(4),parameter::omp_integer_kind=4_4
 integer(4),parameter::omp_logical_kind=4_4
 integer(4),parameter::omp_real_kind=4_4
