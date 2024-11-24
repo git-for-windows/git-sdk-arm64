@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-libssh2-wincng
 
 %VERSION%
-1.11.0-2
+1.11.1-1
 
 %BASE%
 mingw-w64-libssh2
@@ -17,24 +17,25 @@ https://libssh2.org/
 any
 
 %BUILDDATE%
-1694358571
+1732342865
 
 %INSTALLDATE%
-1694574925
+1732419584
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/f368fb49/6137915436)
+CI (msys2-arm/msys2-autobuild/a6b3079a/11984797187)
 
 %SIZE%
-751411
+794086
 
 %REASON%
 1
 
 %LICENSE%
-BSD
+spdx:BSD-3-Clause
 
 %VALIDATION%
+sha256
 pgp
 
 %DEPENDS%
@@ -45,4 +46,7 @@ mingw-w64-clang-aarch64-libssh2
 
 %PROVIDES%
 mingw-w64-clang-aarch64-libssh2
+
+%XDATA%
+pkgtype=split
 
