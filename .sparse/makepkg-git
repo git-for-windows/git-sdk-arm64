@@ -67,6 +67,7 @@
 /clangarm64/bin/asciidoctor
 /clangarm64/bin/ruby.exe
 /clangarm64/bin/ruby*.dll
+/clangarm64/bin/aarch64-ucrt-ruby*.dll
 /clangarm64/lib/ruby/*/aarch64-mingw-ucrt/rbconfig.rb
 /clangarm64/lib/ruby/*/rubygems.rb
 /clangarm64/lib/ruby/*/rubygems/
