@@ -90,6 +90,8 @@
 /clangarm64/lib/ruby/*/did_you_mean*
 /clangarm64/lib/ruby/*/cgi/util*
 /clangarm64/lib/ruby/*/logger*
+/clangarm64/lib/ruby/*/bundled_gems.rb
+/clangarm64/lib/ruby/*/syntax_suggest*
 
 # xsltproc (e.g. for Git's user-manual.html)
 /usr/bin/xsltproc.exe
