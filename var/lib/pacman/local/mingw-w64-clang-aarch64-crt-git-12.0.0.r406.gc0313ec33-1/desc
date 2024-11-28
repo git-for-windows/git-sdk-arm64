@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-crt-git
 
 %VERSION%
-12.0.0.r387.gcf5c50cce-1
+12.0.0.r406.gc0313ec33-1
 
 %BASE%
 mingw-w64-crt-git
@@ -17,16 +17,16 @@ https://www.mingw-w64.org/
 any
 
 %BUILDDATE%
-1731522133
+1732643725
 
 %INSTALLDATE%
-1731554720
+1732764969
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/a6b3079a/11823289065)
+CI (msys2-arm/msys2-autobuild/a6b3079a/12036226292)
 
 %SIZE%
-31549669
+31575199
 
 %GROUPS%
 mingw-w64-clang-aarch64-toolchain
