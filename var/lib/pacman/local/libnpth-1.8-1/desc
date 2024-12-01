@@ -2,7 +2,7 @@
 libnpth
 
 %VERSION%
-1.7-1
+1.8-1
 
 %BASE%
 npth
@@ -17,13 +17,13 @@ https://gnupg.org/
 x86_64
 
 %BUILDDATE%
-1708767618
+1732839547
 
 %INSTALLDATE%
-1709003997
+1733024866
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/d4515ba2/8029701412)
+CI (msys2/msys2-autobuild/a6b3079a/12076892420)
 
 %SIZE%
 17194
@@ -42,4 +42,7 @@ pgp
 
 %DEPENDS%
 gcc-libs
+
+%XDATA%
+pkgtype=split
 

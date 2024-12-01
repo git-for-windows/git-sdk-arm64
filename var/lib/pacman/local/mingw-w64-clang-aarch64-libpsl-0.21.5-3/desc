@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-libpsl
 
 %VERSION%
-0.21.5-2
+0.21.5-3
 
 %BASE%
 mingw-w64-libpsl
@@ -17,16 +17,16 @@ https://rockdaboot.github.io/libpsl/
 any
 
 %BUILDDATE%
-1706880345
+1732816621
 
 %INSTALLDATE%
-1706930170
+1733024866
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/1c45f2ab/7756100020)
+CI (msys2-arm/msys2-autobuild/a6b3079a/12073566926)
 
 %SIZE%
-260832
+256586
 
 %REASON%
 1
@@ -43,4 +43,7 @@ mingw-w64-clang-aarch64-libiconv
 mingw-w64-clang-aarch64-libidn2
 mingw-w64-clang-aarch64-libunistring
 mingw-w64-clang-aarch64-gettext-runtime
+
+%XDATA%
+pkgtype=pkg
 

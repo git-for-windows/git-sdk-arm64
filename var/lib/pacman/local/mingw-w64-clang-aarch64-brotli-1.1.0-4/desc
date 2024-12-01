@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-brotli
 
 %VERSION%
-1.1.0-3
+1.1.0-4
 
 %BASE%
 mingw-w64-brotli
@@ -17,16 +17,16 @@ https://github.com/google/brotli
 any
 
 %BUILDDATE%
-1730673050
+1732816710
 
 %INSTALLDATE%
-1731122619
+1733024866
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/acafab9b/11654837882)
+CI (msys2-arm/msys2-autobuild/a6b3079a/12073566926)
 
 %SIZE%
-1840569
+1855219
 
 %REASON%
 1

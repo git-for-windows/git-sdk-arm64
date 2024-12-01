@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-libzip
 
 %VERSION%
-1.10.1-2
+1.11.2-1
 
 %BASE%
 mingw-w64-libzip
@@ -17,16 +17,16 @@ https://libzip.org/
 any
 
 %BUILDDATE%
-1716104233
+1732829356
 
 %INSTALLDATE%
-1716415410
+1733024867
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/9c7e8d31/9144653453)
+CI (msys2-arm/msys2-autobuild/a6b3079a/12075473295)
 
 %SIZE%
-823825
+920693
 
 %REASON%
 1
