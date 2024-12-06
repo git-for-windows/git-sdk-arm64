@@ -212,6 +212,9 @@ clangarm64/include/comutil.h
 clangarm64/include/concurrencysal.h
 clangarm64/include/confpriv.h
 clangarm64/include/conio.h
+clangarm64/include/consoleapi.h
+clangarm64/include/consoleapi2.h
+clangarm64/include/consoleapi3.h
 clangarm64/include/control.h
 clangarm64/include/control.idl
 clangarm64/include/cor.h
@@ -1665,6 +1668,7 @@ clangarm64/include/wincodec.idl
 clangarm64/include/wincodecsdk.h
 clangarm64/include/wincodecsdk.idl
 clangarm64/include/wincon.h
+clangarm64/include/wincontypes.h
 clangarm64/include/wincred.h
 clangarm64/include/wincrypt.h
 clangarm64/include/wincrypt.idl
