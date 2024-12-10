@@ -18,10 +18,6 @@ clangarm64/lib/libsqlite3.a
 clangarm64/lib/libsqlite3.dll.a
 clangarm64/lib/pkgconfig/
 clangarm64/lib/pkgconfig/sqlite3.pc
-clangarm64/lib/sqlite3.46.1/
-clangarm64/lib/sqlite3.46.1/libtclsqlite3.dll
-clangarm64/lib/sqlite3.46.1/libtclsqlite3.dll.a
-clangarm64/lib/sqlite3.46.1/pkgIndex.tcl
 clangarm64/share/
 clangarm64/share/licenses/
 clangarm64/share/licenses/sqlite3/
@@ -111,8 +107,12 @@ clangarm64/share/sqlite/extensions/spellfix.c
 clangarm64/share/sqlite/extensions/spellfix.dll
 clangarm64/share/sqlite/extensions/sqlar.c
 clangarm64/share/sqlite/extensions/sqlar.dll
+clangarm64/share/sqlite/extensions/sqlite3_stdio.c
+clangarm64/share/sqlite/extensions/sqlite3_stdio.dll
 clangarm64/share/sqlite/extensions/stmt.c
 clangarm64/share/sqlite/extensions/stmt.dll
+clangarm64/share/sqlite/extensions/stmtrand.c
+clangarm64/share/sqlite/extensions/stmtrand.dll
 clangarm64/share/sqlite/extensions/templatevtab.c
 clangarm64/share/sqlite/extensions/templatevtab.dll
 clangarm64/share/sqlite/extensions/totype.c
@@ -129,6 +129,8 @@ clangarm64/share/sqlite/extensions/vfslog.c
 clangarm64/share/sqlite/extensions/vfslog.dll
 clangarm64/share/sqlite/extensions/vfsstat.c
 clangarm64/share/sqlite/extensions/vfsstat.dll
+clangarm64/share/sqlite/extensions/vfstrace.c
+clangarm64/share/sqlite/extensions/vfstrace.dll
 clangarm64/share/sqlite/extensions/vtablog.c
 clangarm64/share/sqlite/extensions/vtablog.dll
 clangarm64/share/sqlite/extensions/vtshim.c
