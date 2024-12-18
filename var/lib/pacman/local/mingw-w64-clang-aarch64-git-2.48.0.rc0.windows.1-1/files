@@ -81,7 +81,6 @@ clangarm64/libexec/git-core/scalar.exe
 clangarm64/share/
 clangarm64/share/git-core/
 clangarm64/share/git-core/templates/
-clangarm64/share/git-core/templates/branches/
 clangarm64/share/git-core/templates/description
 clangarm64/share/git-core/templates/hooks/
 clangarm64/share/git-core/templates/hooks/applypatch-msg.sample
@@ -168,6 +167,7 @@ clangarm64/share/git/completion/git-completion.bash
 clangarm64/share/git/completion/git-completion.tcsh
 clangarm64/share/git/completion/git-completion.zsh
 clangarm64/share/git/completion/git-prompt.sh
+clangarm64/share/git/completion/meson.build
 clangarm64/share/git/edit-git-bash.exe
 clangarm64/share/git/git-for-windows.ico
 clangarm64/share/git/git-wrapper.exe

@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-libiconv
 
 %VERSION%
-1.17-4
+1.18-1
 
 %BASE%
 mingw-w64-libiconv
@@ -17,16 +17,16 @@ https://www.gnu.org/software/libiconv/
 any
 
 %BUILDDATE%
-1706877974
+1734459415
 
 %INSTALLDATE%
-1706930168
+1734492679
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/1c45f2ab/7756100020)
+CI (msys2-arm/msys2-autobuild/0f71ee73/12375841669)
 
 %SIZE%
-2431176
+2458443
 
 %REASON%
 1
@@ -38,4 +38,7 @@ documentation:spdx:GPL-3.0-or-later
 %VALIDATION%
 sha256
 pgp
+
+%XDATA%
+pkgtype=split
 
