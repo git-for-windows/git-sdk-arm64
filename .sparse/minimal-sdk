@@ -41,6 +41,7 @@
 # gettext (msgfmt)
 /clangarm64/bin/msgfmt.exe
 /clangarm64/bin/libgettext*.dll
+/clangarm64/bin/libtextstyle-*[0-9].dll
 
 # Tcl (to emulate msgfmt, *somewhere*)
 /clangarm64/bin/tclsh.exe
