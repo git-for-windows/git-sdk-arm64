@@ -250,14 +250,14 @@ case ARM::BI__builtin_arm_mve_vstrwq_scatter_base_wb_p_u32: {
 case ARM::BI__builtin_arm_mve_vld1q_f32:
 case ARM::BI__builtin_arm_mve_vldrwq_f32: {
   Address Val0 = EmitPointerWithAlignment(E->getArg(0));
-  Value *Val1 = Builder.CreatePointerCast((Val0.getPointer()), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(FloatTy, 4)));
+  Value *Val1 = Builder.CreatePointerCast((Val0.emitRawPointer(*this)), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(FloatTy, 4)));
   Address Val2 = Address(Val1, llvm::FixedVectorType::get(FloatTy, 4), CharUnits::fromQuantity(4));
   return Builder.CreateLoad(Val2);
 }
 case ARM::BI__builtin_arm_mve_vld1q_z_f32:
 case ARM::BI__builtin_arm_mve_vldrwq_z_f32: {
   Address Val0 = EmitPointerWithAlignment(E->getArg(0));
-  Value *Val1 = Builder.CreatePointerCast((Val0.getPointer()), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(FloatTy, 4)));
+  Value *Val1 = Builder.CreatePointerCast((Val0.emitRawPointer(*this)), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(FloatTy, 4)));
   Value *Val2 = llvm::ConstantInt::get(Int32Ty, 4);
   Value *Val3 = EmitScalarExpr(E->getArg(1));
   Value *Val4 = Builder.CreateIntCast(Val3, Int32Ty, false);
@@ -269,14 +269,14 @@ case ARM::BI__builtin_arm_mve_vldrwq_z_f32: {
 case ARM::BI__builtin_arm_mve_vld1q_f16:
 case ARM::BI__builtin_arm_mve_vldrhq_f16: {
   Address Val0 = EmitPointerWithAlignment(E->getArg(0));
-  Value *Val1 = Builder.CreatePointerCast((Val0.getPointer()), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(HalfTy, 8)));
+  Value *Val1 = Builder.CreatePointerCast((Val0.emitRawPointer(*this)), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(HalfTy, 8)));
   Address Val2 = Address(Val1, llvm::FixedVectorType::get(HalfTy, 8), CharUnits::fromQuantity(2));
   return Builder.CreateLoad(Val2);
 }
 case ARM::BI__builtin_arm_mve_vld1q_z_f16:
 case ARM::BI__builtin_arm_mve_vldrhq_z_f16: {
   Address Val0 = EmitPointerWithAlignment(E->getArg(0));
-  Value *Val1 = Builder.CreatePointerCast((Val0.getPointer()), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(HalfTy, 8)));
+  Value *Val1 = Builder.CreatePointerCast((Val0.emitRawPointer(*this)), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(HalfTy, 8)));
   Value *Val2 = llvm::ConstantInt::get(Int32Ty, 2);
   Value *Val3 = EmitScalarExpr(E->getArg(1));
   Value *Val4 = Builder.CreateIntCast(Val3, Int32Ty, false);
@@ -297,7 +297,7 @@ case ARM::BI__builtin_arm_mve_vldrhq_u32: {
     break;
   }
   Address Val0 = EmitPointerWithAlignment(E->getArg(0));
-  Value *Val1 = Builder.CreatePointerCast((Val0.getPointer()), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(Int16Ty, 4)));
+  Value *Val1 = Builder.CreatePointerCast((Val0.emitRawPointer(*this)), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(Int16Ty, 4)));
   Address Val2 = Address(Val1, llvm::FixedVectorType::get(Int16Ty, 4), CharUnits::fromQuantity(2));
   Value *Val3 = Builder.CreateLoad(Val2);
   llvm::Type *Val4 = llvm::FixedVectorType::get(Int32Ty, 4);
@@ -315,7 +315,7 @@ case ARM::BI__builtin_arm_mve_vldrhq_z_u32: {
     break;
   }
   Address Val0 = EmitPointerWithAlignment(E->getArg(0));
-  Value *Val1 = Builder.CreatePointerCast((Val0.getPointer()), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(Int16Ty, 4)));
+  Value *Val1 = Builder.CreatePointerCast((Val0.emitRawPointer(*this)), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(Int16Ty, 4)));
   Value *Val2 = llvm::ConstantInt::get(Int32Ty, 2);
   Value *Val3 = EmitScalarExpr(E->getArg(1));
   Value *Val4 = Builder.CreateIntCast(Val3, Int32Ty, false);
@@ -331,7 +331,7 @@ case ARM::BI__builtin_arm_mve_vld1q_u16:
 case ARM::BI__builtin_arm_mve_vldrhq_s16:
 case ARM::BI__builtin_arm_mve_vldrhq_u16: {
   Address Val0 = EmitPointerWithAlignment(E->getArg(0));
-  Value *Val1 = Builder.CreatePointerCast((Val0.getPointer()), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(Int16Ty, 8)));
+  Value *Val1 = Builder.CreatePointerCast((Val0.emitRawPointer(*this)), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(Int16Ty, 8)));
   Address Val2 = Address(Val1, llvm::FixedVectorType::get(Int16Ty, 8), CharUnits::fromQuantity(2));
   return Builder.CreateLoad(Val2);
 }
@@ -340,7 +340,7 @@ case ARM::BI__builtin_arm_mve_vld1q_z_u16:
 case ARM::BI__builtin_arm_mve_vldrhq_z_s16:
 case ARM::BI__builtin_arm_mve_vldrhq_z_u16: {
   Address Val0 = EmitPointerWithAlignment(E->getArg(0));
-  Value *Val1 = Builder.CreatePointerCast((Val0.getPointer()), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(Int16Ty, 8)));
+  Value *Val1 = Builder.CreatePointerCast((Val0.emitRawPointer(*this)), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(Int16Ty, 8)));
   Value *Val2 = llvm::ConstantInt::get(Int32Ty, 2);
   Value *Val3 = EmitScalarExpr(E->getArg(1));
   Value *Val4 = Builder.CreateIntCast(Val3, Int32Ty, false);
@@ -354,7 +354,7 @@ case ARM::BI__builtin_arm_mve_vld1q_u32:
 case ARM::BI__builtin_arm_mve_vldrwq_s32:
 case ARM::BI__builtin_arm_mve_vldrwq_u32: {
   Address Val0 = EmitPointerWithAlignment(E->getArg(0));
-  Value *Val1 = Builder.CreatePointerCast((Val0.getPointer()), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(Int32Ty, 4)));
+  Value *Val1 = Builder.CreatePointerCast((Val0.emitRawPointer(*this)), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(Int32Ty, 4)));
   Address Val2 = Address(Val1, llvm::FixedVectorType::get(Int32Ty, 4), CharUnits::fromQuantity(4));
   return Builder.CreateLoad(Val2);
 }
@@ -363,7 +363,7 @@ case ARM::BI__builtin_arm_mve_vld1q_z_u32:
 case ARM::BI__builtin_arm_mve_vldrwq_z_s32:
 case ARM::BI__builtin_arm_mve_vldrwq_z_u32: {
   Address Val0 = EmitPointerWithAlignment(E->getArg(0));
-  Value *Val1 = Builder.CreatePointerCast((Val0.getPointer()), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(Int32Ty, 4)));
+  Value *Val1 = Builder.CreatePointerCast((Val0.emitRawPointer(*this)), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(Int32Ty, 4)));
   Value *Val2 = llvm::ConstantInt::get(Int32Ty, 4);
   Value *Val3 = EmitScalarExpr(E->getArg(1));
   Value *Val4 = Builder.CreateIntCast(Val3, Int32Ty, false);
@@ -377,7 +377,7 @@ case ARM::BI__builtin_arm_mve_vld1q_u8:
 case ARM::BI__builtin_arm_mve_vldrbq_s8:
 case ARM::BI__builtin_arm_mve_vldrbq_u8: {
   Address Val0 = EmitPointerWithAlignment(E->getArg(0));
-  Value *Val1 = Builder.CreatePointerCast((Val0.getPointer()), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(Int8Ty, 16)));
+  Value *Val1 = Builder.CreatePointerCast((Val0.emitRawPointer(*this)), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(Int8Ty, 16)));
   Address Val2 = Address(Val1, llvm::FixedVectorType::get(Int8Ty, 16), CharUnits::fromQuantity(1));
   return Builder.CreateLoad(Val2);
 }
@@ -386,7 +386,7 @@ case ARM::BI__builtin_arm_mve_vld1q_z_u8:
 case ARM::BI__builtin_arm_mve_vldrbq_z_s8:
 case ARM::BI__builtin_arm_mve_vldrbq_z_u8: {
   Address Val0 = EmitPointerWithAlignment(E->getArg(0));
-  Value *Val1 = Builder.CreatePointerCast((Val0.getPointer()), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(Int8Ty, 16)));
+  Value *Val1 = Builder.CreatePointerCast((Val0.emitRawPointer(*this)), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(Int8Ty, 16)));
   Value *Val2 = llvm::ConstantInt::get(Int32Ty, 1);
   Value *Val3 = EmitScalarExpr(E->getArg(1));
   Value *Val4 = Builder.CreateIntCast(Val3, Int32Ty, false);
@@ -407,7 +407,7 @@ case ARM::BI__builtin_arm_mve_vldrbq_u32: {
     break;
   }
   Address Val0 = EmitPointerWithAlignment(E->getArg(0));
-  Value *Val1 = Builder.CreatePointerCast((Val0.getPointer()), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(Int8Ty, 4)));
+  Value *Val1 = Builder.CreatePointerCast((Val0.emitRawPointer(*this)), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(Int8Ty, 4)));
   Address Val2 = Address(Val1, llvm::FixedVectorType::get(Int8Ty, 4), CharUnits::fromQuantity(1));
   Value *Val3 = Builder.CreateLoad(Val2);
   llvm::Type *Val4 = llvm::FixedVectorType::get(Int32Ty, 4);
@@ -425,7 +425,7 @@ case ARM::BI__builtin_arm_mve_vldrbq_z_u32: {
     break;
   }
   Address Val0 = EmitPointerWithAlignment(E->getArg(0));
-  Value *Val1 = Builder.CreatePointerCast((Val0.getPointer()), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(Int8Ty, 4)));
+  Value *Val1 = Builder.CreatePointerCast((Val0.emitRawPointer(*this)), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(Int8Ty, 4)));
   Value *Val2 = llvm::ConstantInt::get(Int32Ty, 1);
   Value *Val3 = EmitScalarExpr(E->getArg(1));
   Value *Val4 = Builder.CreateIntCast(Val3, Int32Ty, false);
@@ -448,7 +448,7 @@ case ARM::BI__builtin_arm_mve_vldrbq_u16: {
     break;
   }
   Address Val0 = EmitPointerWithAlignment(E->getArg(0));
-  Value *Val1 = Builder.CreatePointerCast((Val0.getPointer()), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(Int8Ty, 8)));
+  Value *Val1 = Builder.CreatePointerCast((Val0.emitRawPointer(*this)), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(Int8Ty, 8)));
   Address Val2 = Address(Val1, llvm::FixedVectorType::get(Int8Ty, 8), CharUnits::fromQuantity(1));
   Value *Val3 = Builder.CreateLoad(Val2);
   llvm::Type *Val4 = llvm::FixedVectorType::get(Int16Ty, 8);
@@ -466,7 +466,7 @@ case ARM::BI__builtin_arm_mve_vldrbq_z_u16: {
     break;
   }
   Address Val0 = EmitPointerWithAlignment(E->getArg(0));
-  Value *Val1 = Builder.CreatePointerCast((Val0.getPointer()), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(Int8Ty, 8)));
+  Value *Val1 = Builder.CreatePointerCast((Val0.emitRawPointer(*this)), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(Int8Ty, 8)));
   Value *Val2 = llvm::ConstantInt::get(Int32Ty, 1);
   Value *Val3 = EmitScalarExpr(E->getArg(1));
   Value *Val4 = Builder.CreateIntCast(Val3, Int32Ty, false);
@@ -727,7 +727,7 @@ case ARM::BI__builtin_arm_mve_vstrwq_scatter_shifted_offset_p_u32: {
   Value *Val5 = EmitScalarExpr(E->getArg(3));
   Value *Val6 = Builder.CreateIntCast(Val5, Int32Ty, false);
   Value *Val7 = Builder.CreateCall(CGM.getIntrinsic(Intrinsic::arm_mve_pred_i2v, {Param2}), {Val6});
-  return Builder.CreateCall(CGM.getIntrinsic(Intrinsic::arm_mve_vstr_scatter_offset_predicated, {Param3, Param4, Param5, Param2}), {(Val0.getPointer()), Val1, Val2, Val3, Val4, Val7});
+  return Builder.CreateCall(CGM.getIntrinsic(Intrinsic::arm_mve_vstr_scatter_offset_predicated, {Param3, Param4, Param5, Param2}), {(Val0.emitRawPointer(*this)), Val1, Val2, Val3, Val4, Val7});
 }
 case ARM::BI__builtin_arm_mve_vstrbq_scatter_offset_s16:
 case ARM::BI__builtin_arm_mve_vstrbq_scatter_offset_s32:
@@ -949,7 +949,7 @@ case ARM::BI__builtin_arm_mve_vstrwq_scatter_shifted_offset_u32: {
   Value *Val2 = EmitScalarExpr(E->getArg(2));
   Value *Val3 = llvm::ConstantInt::get(Int32Ty, Param0);
   Value *Val4 = llvm::ConstantInt::get(Int32Ty, Param1);
-  return Builder.CreateCall(CGM.getIntrinsic(Intrinsic::arm_mve_vstr_scatter_offset, {Param2, Param3, Param4}), {(Val0.getPointer()), Val1, Val2, Val3, Val4});
+  return Builder.CreateCall(CGM.getIntrinsic(Intrinsic::arm_mve_vstr_scatter_offset, {Param2, Param3, Param4}), {(Val0.emitRawPointer(*this)), Val1, Val2, Val3, Val4});
 }
 case ARM::BI__builtin_arm_mve_vldrbq_gather_offset_z_s16:
 case ARM::BI__builtin_arm_mve_vldrbq_gather_offset_z_s32:
@@ -1228,7 +1228,7 @@ case ARM::BI__builtin_arm_mve_vldrwq_gather_shifted_offset_z_u32: {
   Value *Val5 = EmitScalarExpr(E->getArg(2));
   Value *Val6 = Builder.CreateIntCast(Val5, Int32Ty, false);
   Value *Val7 = Builder.CreateCall(CGM.getIntrinsic(Intrinsic::arm_mve_pred_i2v, {Param3}), {Val6});
-  return Builder.CreateCall(CGM.getIntrinsic(Intrinsic::arm_mve_vldr_gather_offset_predicated, {Param4, Param5, Param6, Param3}), {(Val0.getPointer()), Val1, Val2, Val3, Val4, Val7});
+  return Builder.CreateCall(CGM.getIntrinsic(Intrinsic::arm_mve_vldr_gather_offset_predicated, {Param4, Param5, Param6, Param3}), {(Val0.emitRawPointer(*this)), Val1, Val2, Val3, Val4, Val7});
 }
 case ARM::BI__builtin_arm_mve_vldrbq_gather_offset_s16:
 case ARM::BI__builtin_arm_mve_vldrbq_gather_offset_s32:
@@ -1477,7 +1477,7 @@ case ARM::BI__builtin_arm_mve_vldrwq_gather_shifted_offset_u32: {
   Value *Val2 = llvm::ConstantInt::get(Int32Ty, Param0);
   Value *Val3 = llvm::ConstantInt::get(Int32Ty, Param1);
   Value *Val4 = llvm::ConstantInt::get(Int32Ty, Param2);
-  return Builder.CreateCall(CGM.getIntrinsic(Intrinsic::arm_mve_vldr_gather_offset, {Param3, Param4, Param5}), {(Val0.getPointer()), Val1, Val2, Val3, Val4});
+  return Builder.CreateCall(CGM.getIntrinsic(Intrinsic::arm_mve_vldr_gather_offset, {Param3, Param4, Param5}), {(Val0.emitRawPointer(*this)), Val1, Val2, Val3, Val4});
 }
 case ARM::BI__builtin_arm_mve_vshlcq_s16:
 case ARM::BI__builtin_arm_mve_vshlcq_s32:
@@ -8818,7 +8818,7 @@ case ARM::BI__builtin_arm_mve_vstrwq_p_u32: {
   }
   Value *Val0 = EmitScalarExpr(E->getArg(1));
   Address Val1 = EmitPointerWithAlignment(E->getArg(0));
-  Value *Val2 = Builder.CreatePointerCast((Val1.getPointer()), Param0);
+  Value *Val2 = Builder.CreatePointerCast((Val1.emitRawPointer(*this)), Param0);
   Value *Val3 = llvm::ConstantInt::get(Int32Ty, Param1);
   Value *Val4 = EmitScalarExpr(E->getArg(2));
   Value *Val5 = Builder.CreateIntCast(Val4, Int32Ty, false);
@@ -8829,7 +8829,7 @@ case ARM::BI__builtin_arm_mve_vst1q_f32:
 case ARM::BI__builtin_arm_mve_vstrwq_f32: {
   Value *Val0 = EmitScalarExpr(E->getArg(1));
   Address Val1 = EmitPointerWithAlignment(E->getArg(0));
-  Value *Val2 = Builder.CreatePointerCast((Val1.getPointer()), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(FloatTy, 4)));
+  Value *Val2 = Builder.CreatePointerCast((Val1.emitRawPointer(*this)), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(FloatTy, 4)));
   Address Val3 = Address(Val2, llvm::FixedVectorType::get(FloatTy, 4), CharUnits::fromQuantity(4));
   return Builder.CreateStore(Val0, Val3);
 }
@@ -8837,7 +8837,7 @@ case ARM::BI__builtin_arm_mve_vst1q_f16:
 case ARM::BI__builtin_arm_mve_vstrhq_f16: {
   Value *Val0 = EmitScalarExpr(E->getArg(1));
   Address Val1 = EmitPointerWithAlignment(E->getArg(0));
-  Value *Val2 = Builder.CreatePointerCast((Val1.getPointer()), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(HalfTy, 8)));
+  Value *Val2 = Builder.CreatePointerCast((Val1.emitRawPointer(*this)), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(HalfTy, 8)));
   Address Val3 = Address(Val2, llvm::FixedVectorType::get(HalfTy, 8), CharUnits::fromQuantity(2));
   return Builder.CreateStore(Val0, Val3);
 }
@@ -8847,7 +8847,7 @@ case ARM::BI__builtin_arm_mve_vstrhq_s16:
 case ARM::BI__builtin_arm_mve_vstrhq_u16: {
   Value *Val0 = EmitScalarExpr(E->getArg(1));
   Address Val1 = EmitPointerWithAlignment(E->getArg(0));
-  Value *Val2 = Builder.CreatePointerCast((Val1.getPointer()), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(Int16Ty, 8)));
+  Value *Val2 = Builder.CreatePointerCast((Val1.emitRawPointer(*this)), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(Int16Ty, 8)));
   Address Val3 = Address(Val2, llvm::FixedVectorType::get(Int16Ty, 8), CharUnits::fromQuantity(2));
   return Builder.CreateStore(Val0, Val3);
 }
@@ -8857,7 +8857,7 @@ case ARM::BI__builtin_arm_mve_vstrwq_s32:
 case ARM::BI__builtin_arm_mve_vstrwq_u32: {
   Value *Val0 = EmitScalarExpr(E->getArg(1));
   Address Val1 = EmitPointerWithAlignment(E->getArg(0));
-  Value *Val2 = Builder.CreatePointerCast((Val1.getPointer()), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(Int32Ty, 4)));
+  Value *Val2 = Builder.CreatePointerCast((Val1.emitRawPointer(*this)), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(Int32Ty, 4)));
   Address Val3 = Address(Val2, llvm::FixedVectorType::get(Int32Ty, 4), CharUnits::fromQuantity(4));
   return Builder.CreateStore(Val0, Val3);
 }
@@ -8867,7 +8867,7 @@ case ARM::BI__builtin_arm_mve_vstrbq_s8:
 case ARM::BI__builtin_arm_mve_vstrbq_u8: {
   Value *Val0 = EmitScalarExpr(E->getArg(1));
   Address Val1 = EmitPointerWithAlignment(E->getArg(0));
-  Value *Val2 = Builder.CreatePointerCast((Val1.getPointer()), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(Int8Ty, 16)));
+  Value *Val2 = Builder.CreatePointerCast((Val1.emitRawPointer(*this)), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(Int8Ty, 16)));
   Address Val3 = Address(Val2, llvm::FixedVectorType::get(Int8Ty, 16), CharUnits::fromQuantity(1));
   return Builder.CreateStore(Val0, Val3);
 }
@@ -11453,7 +11453,7 @@ case ARM::BI__builtin_arm_mve_vstrhq_u32: {
   llvm::Type *Val1 = llvm::FixedVectorType::get(Int16Ty, 4);
   Value *Val2 = Builder.CreateTrunc(Val0, Val1);
   Address Val3 = EmitPointerWithAlignment(E->getArg(0));
-  Value *Val4 = Builder.CreatePointerCast((Val3.getPointer()), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(Int16Ty, 4)));
+  Value *Val4 = Builder.CreatePointerCast((Val3.emitRawPointer(*this)), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(Int16Ty, 4)));
   Address Val5 = Address(Val4, llvm::FixedVectorType::get(Int16Ty, 4), CharUnits::fromQuantity(2));
   return Builder.CreateStore(Val2, Val5);
 }
@@ -11463,7 +11463,7 @@ case ARM::BI__builtin_arm_mve_vstrhq_p_u32: {
   llvm::Type *Val1 = llvm::FixedVectorType::get(Int16Ty, 4);
   Value *Val2 = Builder.CreateTrunc(Val0, Val1);
   Address Val3 = EmitPointerWithAlignment(E->getArg(0));
-  Value *Val4 = Builder.CreatePointerCast((Val3.getPointer()), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(Int16Ty, 4)));
+  Value *Val4 = Builder.CreatePointerCast((Val3.emitRawPointer(*this)), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(Int16Ty, 4)));
   Value *Val5 = llvm::ConstantInt::get(Int32Ty, 2);
   Value *Val6 = EmitScalarExpr(E->getArg(2));
   Value *Val7 = Builder.CreateIntCast(Val6, Int32Ty, false);
@@ -11809,7 +11809,7 @@ case ARM::BI__builtin_arm_mve_vstrbq_u32: {
   llvm::Type *Val1 = llvm::FixedVectorType::get(Int8Ty, 4);
   Value *Val2 = Builder.CreateTrunc(Val0, Val1);
   Address Val3 = EmitPointerWithAlignment(E->getArg(0));
-  Value *Val4 = Builder.CreatePointerCast((Val3.getPointer()), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(Int8Ty, 4)));
+  Value *Val4 = Builder.CreatePointerCast((Val3.emitRawPointer(*this)), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(Int8Ty, 4)));
   Address Val5 = Address(Val4, llvm::FixedVectorType::get(Int8Ty, 4), CharUnits::fromQuantity(1));
   return Builder.CreateStore(Val2, Val5);
 }
@@ -11819,7 +11819,7 @@ case ARM::BI__builtin_arm_mve_vstrbq_p_u32: {
   llvm::Type *Val1 = llvm::FixedVectorType::get(Int8Ty, 4);
   Value *Val2 = Builder.CreateTrunc(Val0, Val1);
   Address Val3 = EmitPointerWithAlignment(E->getArg(0));
-  Value *Val4 = Builder.CreatePointerCast((Val3.getPointer()), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(Int8Ty, 4)));
+  Value *Val4 = Builder.CreatePointerCast((Val3.emitRawPointer(*this)), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(Int8Ty, 4)));
   Value *Val5 = llvm::ConstantInt::get(Int32Ty, 1);
   Value *Val6 = EmitScalarExpr(E->getArg(2));
   Value *Val7 = Builder.CreateIntCast(Val6, Int32Ty, false);
@@ -11832,7 +11832,7 @@ case ARM::BI__builtin_arm_mve_vstrbq_u16: {
   llvm::Type *Val1 = llvm::FixedVectorType::get(Int8Ty, 8);
   Value *Val2 = Builder.CreateTrunc(Val0, Val1);
   Address Val3 = EmitPointerWithAlignment(E->getArg(0));
-  Value *Val4 = Builder.CreatePointerCast((Val3.getPointer()), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(Int8Ty, 8)));
+  Value *Val4 = Builder.CreatePointerCast((Val3.emitRawPointer(*this)), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(Int8Ty, 8)));
   Address Val5 = Address(Val4, llvm::FixedVectorType::get(Int8Ty, 8), CharUnits::fromQuantity(1));
   return Builder.CreateStore(Val2, Val5);
 }
@@ -11842,7 +11842,7 @@ case ARM::BI__builtin_arm_mve_vstrbq_p_u16: {
   llvm::Type *Val1 = llvm::FixedVectorType::get(Int8Ty, 8);
   Value *Val2 = Builder.CreateTrunc(Val0, Val1);
   Address Val3 = EmitPointerWithAlignment(E->getArg(0));
-  Value *Val4 = Builder.CreatePointerCast((Val3.getPointer()), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(Int8Ty, 8)));
+  Value *Val4 = Builder.CreatePointerCast((Val3.emitRawPointer(*this)), llvm::PointerType::getUnqual(llvm::FixedVectorType::get(Int8Ty, 8)));
   Value *Val5 = llvm::ConstantInt::get(Int32Ty, 1);
   Value *Val6 = EmitScalarExpr(E->getArg(2));
   Value *Val7 = Builder.CreateIntCast(Val6, Int32Ty, false);

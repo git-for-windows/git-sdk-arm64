@@ -1,0 +1,46 @@
+%NAME%
+mingw-w64-clang-aarch64-libunistring
+
+%VERSION%
+1.3-1
+
+%BASE%
+mingw-w64-libunistring
+
+%DESC%
+Library for manipulating Unicode strings and C strings. (mingw-w64)
+
+%URL%
+https://www.gnu.org/software/libunistring
+
+%ARCH%
+any
+
+%BUILDDATE%
+1735670488
+
+%INSTALLDATE%
+1736245185
+
+%PACKAGER%
+CI (msys2-arm/msys2-autobuild/35ff0b71/12562668337)
+
+%SIZE%
+6190688
+
+%REASON%
+1
+
+%LICENSE%
+spdx:LGPL-3.0-or-later OR GPL-3.0-or-later
+
+%VALIDATION%
+sha256
+pgp
+
+%DEPENDS%
+mingw-w64-clang-aarch64-libiconv
+
+%XDATA%
+pkgtype=pkg
+

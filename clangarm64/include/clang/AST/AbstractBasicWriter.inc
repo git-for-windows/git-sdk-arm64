@@ -143,6 +143,13 @@ struct WriteDispatcher<DeclarationName::NameKind> {
   }
 };
 template <>
+struct WriteDispatcher<EffectConditionExpr> {
+  template <class BasicWriter, class... Args>
+  static void write(BasicWriter &W, Args &&... args) {
+    return W.writeEffectConditionExpr(std::forward<Args>(args)...);
+  }
+};
+template <>
 struct WriteDispatcher<ElaboratedTypeKeyword> {
   template <class BasicWriter, class... Args>
   static void write(BasicWriter &W, Args &&... args) {
@@ -196,6 +203,13 @@ struct WriteDispatcher<const FunctionDecl*> {
   template <class BasicWriter, class... Args>
   static void write(BasicWriter &W, Args &&... args) {
     return W.writeFunctionDeclRef(std::forward<Args>(args)...);
+  }
+};
+template <>
+struct WriteDispatcher<FunctionEffect> {
+  template <class BasicWriter, class... Args>
+  static void write(BasicWriter &W, Args &&... args) {
+    return W.writeFunctionEffect(std::forward<Args>(args)...);
   }
 };
 template <>
@@ -448,6 +462,13 @@ struct WriteDispatcher<const TemplateTypeParmDecl*> {
   template <class BasicWriter, class... Args>
   static void write(BasicWriter &W, Args &&... args) {
     return W.writeTemplateTypeParmDeclRef(std::forward<Args>(args)...);
+  }
+};
+template <>
+struct WriteDispatcher<TypeCoupledDeclRefInfo> {
+  template <class BasicWriter, class... Args>
+  static void write(BasicWriter &W, Args &&... args) {
+    return W.writeTypeCoupledDeclRefInfo(std::forward<Args>(args)...);
   }
 };
 template <>

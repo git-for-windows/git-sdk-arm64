@@ -354,6 +354,16 @@ set_target_properties(clangIndexSerialization PROPERTIES
 list(APPEND _cmake_import_check_targets clangIndexSerialization )
 list(APPEND _cmake_import_check_files_for_clangIndexSerialization "${_IMPORT_PREFIX}/lib/libclangIndexSerialization.a" )
 
+# Import target "clangInstallAPI" for configuration "MinSizeRel"
+set_property(TARGET clangInstallAPI APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
+set_target_properties(clangInstallAPI PROPERTIES
+  IMPORTED_LINK_INTERFACE_LANGUAGES_MINSIZEREL "CXX"
+  IMPORTED_LOCATION_MINSIZEREL "${_IMPORT_PREFIX}/lib/libclangInstallAPI.a"
+  )
+
+list(APPEND _cmake_import_check_targets clangInstallAPI )
+list(APPEND _cmake_import_check_files_for_clangInstallAPI "${_IMPORT_PREFIX}/lib/libclangInstallAPI.a" )
+
 # Import target "clangStaticAnalyzerCore" for configuration "MinSizeRel"
 set_property(TARGET clangStaticAnalyzerCore APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
 set_target_properties(clangStaticAnalyzerCore PROPERTIES
@@ -470,6 +480,15 @@ set_target_properties(clang-linker-wrapper PROPERTIES
 list(APPEND _cmake_import_check_targets clang-linker-wrapper )
 list(APPEND _cmake_import_check_files_for_clang-linker-wrapper "${_IMPORT_PREFIX}/bin/clang-linker-wrapper.exe" )
 
+# Import target "clang-nvlink-wrapper" for configuration "MinSizeRel"
+set_property(TARGET clang-nvlink-wrapper APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
+set_target_properties(clang-nvlink-wrapper PROPERTIES
+  IMPORTED_LOCATION_MINSIZEREL "${_IMPORT_PREFIX}/bin/clang-nvlink-wrapper.exe"
+  )
+
+list(APPEND _cmake_import_check_targets clang-nvlink-wrapper )
+list(APPEND _cmake_import_check_files_for_clang-nvlink-wrapper "${_IMPORT_PREFIX}/bin/clang-nvlink-wrapper.exe" )
+
 # Import target "clang-offload-packager" for configuration "MinSizeRel"
 set_property(TARGET clang-offload-packager APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
 set_target_properties(clang-offload-packager PROPERTIES
@@ -496,6 +515,15 @@ set_target_properties(clang-scan-deps PROPERTIES
 
 list(APPEND _cmake_import_check_targets clang-scan-deps )
 list(APPEND _cmake_import_check_files_for_clang-scan-deps "${_IMPORT_PREFIX}/bin/clang-scan-deps.exe" )
+
+# Import target "clang-installapi" for configuration "MinSizeRel"
+set_property(TARGET clang-installapi APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
+set_target_properties(clang-installapi PROPERTIES
+  IMPORTED_LOCATION_MINSIZEREL "${_IMPORT_PREFIX}/bin/clang-installapi.exe"
+  )
+
+list(APPEND _cmake_import_check_targets clang-installapi )
+list(APPEND _cmake_import_check_files_for_clang-installapi "${_IMPORT_PREFIX}/bin/clang-installapi.exe" )
 
 # Import target "clang-repl" for configuration "MinSizeRel"
 set_property(TARGET clang-repl APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)

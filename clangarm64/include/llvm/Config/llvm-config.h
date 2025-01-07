@@ -142,7 +142,7 @@
 #define LLVM_USE_PERF 0
 
 /* Major version of the LLVM API */
-#define LLVM_VERSION_MAJOR 18
+#define LLVM_VERSION_MAJOR 19
 
 /* Minor version of the LLVM API */
 #define LLVM_VERSION_MINOR 1
@@ -151,7 +151,7 @@
 #define LLVM_VERSION_PATCH 6
 
 /* LLVM version string */
-#define LLVM_VERSION_STRING "18.1.6"
+#define LLVM_VERSION_STRING "19.1.6"
 
 /* Whether LLVM records statistics for use with GetStatistics(),
  * PrintStatistics() or PrintStatisticsJSON()
@@ -197,5 +197,8 @@
 
 /* Define if plugins enabled */
 #define LLVM_ENABLE_PLUGINS
+
+/* Define if logf128 is available */
+/* #undef LLVM_HAS_LOGF128 */
 
 #endif

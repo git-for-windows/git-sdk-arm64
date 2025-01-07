@@ -24,6 +24,12 @@
 TRANSLATIONUNIT(TranslationUnit, Decl)
 #undef TRANSLATIONUNIT
 
+#ifndef TOPLEVELSTMT
+#  define TOPLEVELSTMT(Type, Base) DECL(Type, Base)
+#endif
+TOPLEVELSTMT(TopLevelStmt, Decl)
+#undef TOPLEVELSTMT
+
 #ifndef REQUIRESEXPRBODY
 #  define REQUIRESEXPRBODY(Type, Base) DECL(Type, Base)
 #endif
@@ -59,12 +65,6 @@ CAPTURED(Captured, Decl)
 #endif
 BLOCK(Block, Decl)
 #undef BLOCK
-
-#ifndef TOPLEVELSTMT
-#  define TOPLEVELSTMT(Type, Base) DECL(Type, Base)
-#endif
-TOPLEVELSTMT(TopLevelStmt, Decl)
-#undef TOPLEVELSTMT
 
 #ifndef STATICASSERT
 #  define STATICASSERT(Type, Base) DECL(Type, Base)
@@ -685,5 +685,6 @@ DECL_CONTEXT(Record)
 DECL_CONTEXT(CXXRecord)
 DECL_CONTEXT(ClassTemplateSpecialization)
 DECL_CONTEXT(ClassTemplatePartialSpecialization)
+DECL_CONTEXT(TopLevelStmt)
 DECL_CONTEXT(TranslationUnit)
 #undef DECL_CONTEXT

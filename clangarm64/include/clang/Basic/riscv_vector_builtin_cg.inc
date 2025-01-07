@@ -1634,25 +1634,25 @@ case RISCVVector::BI__builtin_rvv_vcpop_m_m:
   std::rotate(Ops.begin(), Ops.begin() + 1, Ops.end() - 1);
   IntrinsicTypes = {Ops[0]->getType(), Ops.back()->getType()};
   break;
-case RISCVVector::BI__builtin_rvv_vcpopv_v_tu:
+case RISCVVector::BI__builtin_rvv_vcpop_v_tu:
   ID = Intrinsic::riscv_vcpopv;
   PolicyAttrs = 2;
   IntrinsicTypes = {ResultType, Ops.back()->getType()};
   break;
-case RISCVVector::BI__builtin_rvv_vcpopv_v:
+case RISCVVector::BI__builtin_rvv_vcpop_v:
   ID = Intrinsic::riscv_vcpopv;
   PolicyAttrs = 3;
   Ops.insert(Ops.begin(), llvm::PoisonValue::get(ResultType));
   IntrinsicTypes = {ResultType, Ops.back()->getType()};
   break;
-case RISCVVector::BI__builtin_rvv_vcpopv_v_tum:
+case RISCVVector::BI__builtin_rvv_vcpop_v_tum:
   ID = Intrinsic::riscv_vcpopv_mask;
   PolicyAttrs = 2;
   std::rotate(Ops.begin(), Ops.begin() + 1, Ops.end() - 1);
   Ops.push_back(ConstantInt::get(Ops.back()->getType(), PolicyAttrs));
   IntrinsicTypes = {ResultType, Ops.back()->getType()};
   break;
-case RISCVVector::BI__builtin_rvv_vcpopv_v_m:
+case RISCVVector::BI__builtin_rvv_vcpop_v_m:
   ID = Intrinsic::riscv_vcpopv_mask;
   PolicyAttrs = 3;
   std::rotate(Ops.begin(), Ops.begin() + 1, Ops.end() - 1);
@@ -1660,14 +1660,14 @@ case RISCVVector::BI__builtin_rvv_vcpopv_v_m:
   Ops.insert(Ops.begin(), llvm::PoisonValue::get(ResultType));
   IntrinsicTypes = {ResultType, Ops.back()->getType()};
   break;
-case RISCVVector::BI__builtin_rvv_vcpopv_v_tumu:
+case RISCVVector::BI__builtin_rvv_vcpop_v_tumu:
   ID = Intrinsic::riscv_vcpopv_mask;
   PolicyAttrs = 0;
   std::rotate(Ops.begin(), Ops.begin() + 1, Ops.end() - 1);
   Ops.push_back(ConstantInt::get(Ops.back()->getType(), PolicyAttrs));
   IntrinsicTypes = {ResultType, Ops.back()->getType()};
   break;
-case RISCVVector::BI__builtin_rvv_vcpopv_v_mu:
+case RISCVVector::BI__builtin_rvv_vcpop_v_mu:
   ID = Intrinsic::riscv_vcpopv_mask;
   PolicyAttrs = 1;
   std::rotate(Ops.begin(), Ops.begin() + 1, Ops.end() - 1);
@@ -6782,6 +6782,294 @@ IsMasked = true;
     return Builder.CreateCall(F, Operands, "");
   }
 break;
+case RISCVVector::BI__builtin_rvv_vfncvtbf16_f_f_w_rm_tu:
+case RISCVVector::BI__builtin_rvv_vfncvtbf16_f_f_w_tu:
+  ID = Intrinsic::riscv_vfncvtbf16_f_f_w;
+  PolicyAttrs = 2;
+IsMasked = false;
+
+  {
+    // LLVM intrinsic
+    // Unmasked: (passthru, op0, frm, vl)
+    // Masked:   (passthru, op0, mask, frm, vl, policy)
+    SmallVector<llvm::Value*, 7> Operands;
+    bool HasMaskedOff = !(
+        (IsMasked && (PolicyAttrs & RVV_VTA) && (PolicyAttrs & RVV_VMA)) ||
+        (!IsMasked && PolicyAttrs & RVV_VTA));
+    bool HasRoundModeOp = IsMasked ?
+      (HasMaskedOff ? Ops.size() == 5 : Ops.size() == 4) :
+      (HasMaskedOff ? Ops.size() == 4 : Ops.size() == 3);
+
+    unsigned Offset = IsMasked ?
+        (HasMaskedOff ? 2 : 1) : (HasMaskedOff ? 1 : 0);
+
+    if (!HasMaskedOff)
+      Operands.push_back(llvm::PoisonValue::get(ResultType));
+    else
+      Operands.push_back(Ops[IsMasked ? 1 : 0]);
+
+    Operands.push_back(Ops[Offset]); // op0
+
+    if (IsMasked)
+      Operands.push_back(Ops[0]); // mask
+
+    if (HasRoundModeOp) {
+      Operands.push_back(Ops[Offset + 1]); // frm
+      Operands.push_back(Ops[Offset + 2]); // vl
+    } else {
+      Operands.push_back(ConstantInt::get(Ops[Offset + 1]->getType(), 7)); // frm
+      Operands.push_back(Ops[Offset + 1]); // vl
+    }
+
+    if (IsMasked)
+      Operands.push_back(ConstantInt::get(Ops.back()->getType(), PolicyAttrs));
+
+    IntrinsicTypes = {ResultType, Ops[Offset]->getType(),
+                      Operands.back()->getType()};
+    llvm::Function *F = CGM.getIntrinsic(ID, IntrinsicTypes);
+    return Builder.CreateCall(F, Operands, "");
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfncvtbf16_f_f_w_rm:
+case RISCVVector::BI__builtin_rvv_vfncvtbf16_f_f_w:
+  ID = Intrinsic::riscv_vfncvtbf16_f_f_w;
+  PolicyAttrs = 3;
+IsMasked = false;
+
+  {
+    // LLVM intrinsic
+    // Unmasked: (passthru, op0, frm, vl)
+    // Masked:   (passthru, op0, mask, frm, vl, policy)
+    SmallVector<llvm::Value*, 7> Operands;
+    bool HasMaskedOff = !(
+        (IsMasked && (PolicyAttrs & RVV_VTA) && (PolicyAttrs & RVV_VMA)) ||
+        (!IsMasked && PolicyAttrs & RVV_VTA));
+    bool HasRoundModeOp = IsMasked ?
+      (HasMaskedOff ? Ops.size() == 5 : Ops.size() == 4) :
+      (HasMaskedOff ? Ops.size() == 4 : Ops.size() == 3);
+
+    unsigned Offset = IsMasked ?
+        (HasMaskedOff ? 2 : 1) : (HasMaskedOff ? 1 : 0);
+
+    if (!HasMaskedOff)
+      Operands.push_back(llvm::PoisonValue::get(ResultType));
+    else
+      Operands.push_back(Ops[IsMasked ? 1 : 0]);
+
+    Operands.push_back(Ops[Offset]); // op0
+
+    if (IsMasked)
+      Operands.push_back(Ops[0]); // mask
+
+    if (HasRoundModeOp) {
+      Operands.push_back(Ops[Offset + 1]); // frm
+      Operands.push_back(Ops[Offset + 2]); // vl
+    } else {
+      Operands.push_back(ConstantInt::get(Ops[Offset + 1]->getType(), 7)); // frm
+      Operands.push_back(Ops[Offset + 1]); // vl
+    }
+
+    if (IsMasked)
+      Operands.push_back(ConstantInt::get(Ops.back()->getType(), PolicyAttrs));
+
+    IntrinsicTypes = {ResultType, Ops[Offset]->getType(),
+                      Operands.back()->getType()};
+    llvm::Function *F = CGM.getIntrinsic(ID, IntrinsicTypes);
+    return Builder.CreateCall(F, Operands, "");
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfncvtbf16_f_f_w_rm_tum:
+case RISCVVector::BI__builtin_rvv_vfncvtbf16_f_f_w_tum:
+  ID = Intrinsic::riscv_vfncvtbf16_f_f_w_mask;
+  PolicyAttrs = 2;
+IsMasked = true;
+
+  {
+    // LLVM intrinsic
+    // Unmasked: (passthru, op0, frm, vl)
+    // Masked:   (passthru, op0, mask, frm, vl, policy)
+    SmallVector<llvm::Value*, 7> Operands;
+    bool HasMaskedOff = !(
+        (IsMasked && (PolicyAttrs & RVV_VTA) && (PolicyAttrs & RVV_VMA)) ||
+        (!IsMasked && PolicyAttrs & RVV_VTA));
+    bool HasRoundModeOp = IsMasked ?
+      (HasMaskedOff ? Ops.size() == 5 : Ops.size() == 4) :
+      (HasMaskedOff ? Ops.size() == 4 : Ops.size() == 3);
+
+    unsigned Offset = IsMasked ?
+        (HasMaskedOff ? 2 : 1) : (HasMaskedOff ? 1 : 0);
+
+    if (!HasMaskedOff)
+      Operands.push_back(llvm::PoisonValue::get(ResultType));
+    else
+      Operands.push_back(Ops[IsMasked ? 1 : 0]);
+
+    Operands.push_back(Ops[Offset]); // op0
+
+    if (IsMasked)
+      Operands.push_back(Ops[0]); // mask
+
+    if (HasRoundModeOp) {
+      Operands.push_back(Ops[Offset + 1]); // frm
+      Operands.push_back(Ops[Offset + 2]); // vl
+    } else {
+      Operands.push_back(ConstantInt::get(Ops[Offset + 1]->getType(), 7)); // frm
+      Operands.push_back(Ops[Offset + 1]); // vl
+    }
+
+    if (IsMasked)
+      Operands.push_back(ConstantInt::get(Ops.back()->getType(), PolicyAttrs));
+
+    IntrinsicTypes = {ResultType, Ops[Offset]->getType(),
+                      Operands.back()->getType()};
+    llvm::Function *F = CGM.getIntrinsic(ID, IntrinsicTypes);
+    return Builder.CreateCall(F, Operands, "");
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfncvtbf16_f_f_w_rm_m:
+case RISCVVector::BI__builtin_rvv_vfncvtbf16_f_f_w_m:
+  ID = Intrinsic::riscv_vfncvtbf16_f_f_w_mask;
+  PolicyAttrs = 3;
+IsMasked = true;
+
+  {
+    // LLVM intrinsic
+    // Unmasked: (passthru, op0, frm, vl)
+    // Masked:   (passthru, op0, mask, frm, vl, policy)
+    SmallVector<llvm::Value*, 7> Operands;
+    bool HasMaskedOff = !(
+        (IsMasked && (PolicyAttrs & RVV_VTA) && (PolicyAttrs & RVV_VMA)) ||
+        (!IsMasked && PolicyAttrs & RVV_VTA));
+    bool HasRoundModeOp = IsMasked ?
+      (HasMaskedOff ? Ops.size() == 5 : Ops.size() == 4) :
+      (HasMaskedOff ? Ops.size() == 4 : Ops.size() == 3);
+
+    unsigned Offset = IsMasked ?
+        (HasMaskedOff ? 2 : 1) : (HasMaskedOff ? 1 : 0);
+
+    if (!HasMaskedOff)
+      Operands.push_back(llvm::PoisonValue::get(ResultType));
+    else
+      Operands.push_back(Ops[IsMasked ? 1 : 0]);
+
+    Operands.push_back(Ops[Offset]); // op0
+
+    if (IsMasked)
+      Operands.push_back(Ops[0]); // mask
+
+    if (HasRoundModeOp) {
+      Operands.push_back(Ops[Offset + 1]); // frm
+      Operands.push_back(Ops[Offset + 2]); // vl
+    } else {
+      Operands.push_back(ConstantInt::get(Ops[Offset + 1]->getType(), 7)); // frm
+      Operands.push_back(Ops[Offset + 1]); // vl
+    }
+
+    if (IsMasked)
+      Operands.push_back(ConstantInt::get(Ops.back()->getType(), PolicyAttrs));
+
+    IntrinsicTypes = {ResultType, Ops[Offset]->getType(),
+                      Operands.back()->getType()};
+    llvm::Function *F = CGM.getIntrinsic(ID, IntrinsicTypes);
+    return Builder.CreateCall(F, Operands, "");
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfncvtbf16_f_f_w_rm_tumu:
+case RISCVVector::BI__builtin_rvv_vfncvtbf16_f_f_w_tumu:
+  ID = Intrinsic::riscv_vfncvtbf16_f_f_w_mask;
+  PolicyAttrs = 0;
+IsMasked = true;
+
+  {
+    // LLVM intrinsic
+    // Unmasked: (passthru, op0, frm, vl)
+    // Masked:   (passthru, op0, mask, frm, vl, policy)
+    SmallVector<llvm::Value*, 7> Operands;
+    bool HasMaskedOff = !(
+        (IsMasked && (PolicyAttrs & RVV_VTA) && (PolicyAttrs & RVV_VMA)) ||
+        (!IsMasked && PolicyAttrs & RVV_VTA));
+    bool HasRoundModeOp = IsMasked ?
+      (HasMaskedOff ? Ops.size() == 5 : Ops.size() == 4) :
+      (HasMaskedOff ? Ops.size() == 4 : Ops.size() == 3);
+
+    unsigned Offset = IsMasked ?
+        (HasMaskedOff ? 2 : 1) : (HasMaskedOff ? 1 : 0);
+
+    if (!HasMaskedOff)
+      Operands.push_back(llvm::PoisonValue::get(ResultType));
+    else
+      Operands.push_back(Ops[IsMasked ? 1 : 0]);
+
+    Operands.push_back(Ops[Offset]); // op0
+
+    if (IsMasked)
+      Operands.push_back(Ops[0]); // mask
+
+    if (HasRoundModeOp) {
+      Operands.push_back(Ops[Offset + 1]); // frm
+      Operands.push_back(Ops[Offset + 2]); // vl
+    } else {
+      Operands.push_back(ConstantInt::get(Ops[Offset + 1]->getType(), 7)); // frm
+      Operands.push_back(Ops[Offset + 1]); // vl
+    }
+
+    if (IsMasked)
+      Operands.push_back(ConstantInt::get(Ops.back()->getType(), PolicyAttrs));
+
+    IntrinsicTypes = {ResultType, Ops[Offset]->getType(),
+                      Operands.back()->getType()};
+    llvm::Function *F = CGM.getIntrinsic(ID, IntrinsicTypes);
+    return Builder.CreateCall(F, Operands, "");
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfncvtbf16_f_f_w_rm_mu:
+case RISCVVector::BI__builtin_rvv_vfncvtbf16_f_f_w_mu:
+  ID = Intrinsic::riscv_vfncvtbf16_f_f_w_mask;
+  PolicyAttrs = 1;
+IsMasked = true;
+
+  {
+    // LLVM intrinsic
+    // Unmasked: (passthru, op0, frm, vl)
+    // Masked:   (passthru, op0, mask, frm, vl, policy)
+    SmallVector<llvm::Value*, 7> Operands;
+    bool HasMaskedOff = !(
+        (IsMasked && (PolicyAttrs & RVV_VTA) && (PolicyAttrs & RVV_VMA)) ||
+        (!IsMasked && PolicyAttrs & RVV_VTA));
+    bool HasRoundModeOp = IsMasked ?
+      (HasMaskedOff ? Ops.size() == 5 : Ops.size() == 4) :
+      (HasMaskedOff ? Ops.size() == 4 : Ops.size() == 3);
+
+    unsigned Offset = IsMasked ?
+        (HasMaskedOff ? 2 : 1) : (HasMaskedOff ? 1 : 0);
+
+    if (!HasMaskedOff)
+      Operands.push_back(llvm::PoisonValue::get(ResultType));
+    else
+      Operands.push_back(Ops[IsMasked ? 1 : 0]);
+
+    Operands.push_back(Ops[Offset]); // op0
+
+    if (IsMasked)
+      Operands.push_back(Ops[0]); // mask
+
+    if (HasRoundModeOp) {
+      Operands.push_back(Ops[Offset + 1]); // frm
+      Operands.push_back(Ops[Offset + 2]); // vl
+    } else {
+      Operands.push_back(ConstantInt::get(Ops[Offset + 1]->getType(), 7)); // frm
+      Operands.push_back(Ops[Offset + 1]); // vl
+    }
+
+    if (IsMasked)
+      Operands.push_back(ConstantInt::get(Ops.back()->getType(), PolicyAttrs));
+
+    IntrinsicTypes = {ResultType, Ops[Offset]->getType(),
+                      Operands.back()->getType()};
+    llvm::Function *F = CGM.getIntrinsic(ID, IntrinsicTypes);
+    return Builder.CreateCall(F, Operands, "");
+  }
+break;
 case RISCVVector::BI__builtin_rvv_vfnmacc_vv_rm_tu:
 case RISCVVector::BI__builtin_rvv_vfnmacc_vf_rm_tu:
 case RISCVVector::BI__builtin_rvv_vfnmacc_vv_tu:
@@ -11744,6 +12032,46 @@ IsMasked = true;
     return Builder.CreateCall(F, Operands, "");
   }
 break;
+case RISCVVector::BI__builtin_rvv_vfwcvtbf16_f_f_v_tu:
+  ID = Intrinsic::riscv_vfwcvtbf16_f_f_v;
+  PolicyAttrs = 2;
+  IntrinsicTypes = {ResultType, Ops[1]->getType(), Ops.back()->getType()};
+  break;
+case RISCVVector::BI__builtin_rvv_vfwcvtbf16_f_f_v:
+  ID = Intrinsic::riscv_vfwcvtbf16_f_f_v;
+  PolicyAttrs = 3;
+  Ops.insert(Ops.begin(), llvm::PoisonValue::get(ResultType));
+  IntrinsicTypes = {ResultType, Ops[1]->getType(), Ops.back()->getType()};
+  break;
+case RISCVVector::BI__builtin_rvv_vfwcvtbf16_f_f_v_tum:
+  ID = Intrinsic::riscv_vfwcvtbf16_f_f_v_mask;
+  PolicyAttrs = 2;
+  std::rotate(Ops.begin(), Ops.begin() + 1, Ops.end() - 1);
+  Ops.push_back(ConstantInt::get(Ops.back()->getType(), PolicyAttrs));
+  IntrinsicTypes = {ResultType, Ops[1]->getType(), Ops.back()->getType()};
+  break;
+case RISCVVector::BI__builtin_rvv_vfwcvtbf16_f_f_v_m:
+  ID = Intrinsic::riscv_vfwcvtbf16_f_f_v_mask;
+  PolicyAttrs = 3;
+  std::rotate(Ops.begin(), Ops.begin() + 1, Ops.end() - 1);
+  Ops.push_back(ConstantInt::get(Ops.back()->getType(), PolicyAttrs));
+  Ops.insert(Ops.begin(), llvm::PoisonValue::get(ResultType));
+  IntrinsicTypes = {ResultType, Ops[1]->getType(), Ops.back()->getType()};
+  break;
+case RISCVVector::BI__builtin_rvv_vfwcvtbf16_f_f_v_tumu:
+  ID = Intrinsic::riscv_vfwcvtbf16_f_f_v_mask;
+  PolicyAttrs = 0;
+  std::rotate(Ops.begin(), Ops.begin() + 1, Ops.end() - 1);
+  Ops.push_back(ConstantInt::get(Ops.back()->getType(), PolicyAttrs));
+  IntrinsicTypes = {ResultType, Ops[1]->getType(), Ops.back()->getType()};
+  break;
+case RISCVVector::BI__builtin_rvv_vfwcvtbf16_f_f_v_mu:
+  ID = Intrinsic::riscv_vfwcvtbf16_f_f_v_mask;
+  PolicyAttrs = 1;
+  std::rotate(Ops.begin(), Ops.begin() + 1, Ops.end() - 1);
+  Ops.push_back(ConstantInt::get(Ops.back()->getType(), PolicyAttrs));
+  IntrinsicTypes = {ResultType, Ops[1]->getType(), Ops.back()->getType()};
+  break;
 case RISCVVector::BI__builtin_rvv_vfwmacc_vv_rm_tu:
 case RISCVVector::BI__builtin_rvv_vfwmacc_vf_rm_tu:
 case RISCVVector::BI__builtin_rvv_vfwmacc_vv_tu:
@@ -11969,6 +12297,270 @@ case RISCVVector::BI__builtin_rvv_vfwmacc_vf_rm_mu:
 case RISCVVector::BI__builtin_rvv_vfwmacc_vv_mu:
 case RISCVVector::BI__builtin_rvv_vfwmacc_vf_mu:
   ID = Intrinsic::riscv_vfwmacc_mask;
+  PolicyAttrs = 1;
+IsMasked = true;
+
+  {
+    // LLVM intrinsic
+    // Unmasked: (passthru, op0, op1, round_mode, vl)
+    // Masked:   (passthru, vector_in, vector_in/scalar_in, mask, frm, vl, policy)
+
+    SmallVector<llvm::Value*, 7> Operands;
+    bool HasRoundModeOp = IsMasked ? Ops.size() == 6 : Ops.size() == 5;
+
+    unsigned Offset = IsMasked ? 2 : 1;
+
+    Operands.push_back(Ops[IsMasked ? 1 : 0]); // passthrough
+
+    Operands.push_back(Ops[Offset]); // op0
+    Operands.push_back(Ops[Offset + 1]); // op1
+
+    if (IsMasked)
+      Operands.push_back(Ops[0]); // mask
+
+    if (HasRoundModeOp) {
+      Operands.push_back(Ops[Offset + 2]); // frm
+      Operands.push_back(Ops[Offset + 3]); // vl
+    } else {
+      Operands.push_back(ConstantInt::get(Ops[Offset + 2]->getType(), 7)); // frm
+      Operands.push_back(Ops[Offset + 2]); // vl
+    }
+
+    Operands.push_back(ConstantInt::get(Ops.back()->getType(), PolicyAttrs));
+
+    IntrinsicTypes = {ResultType, Ops[Offset]->getType(), Ops[Offset + 1]->getType(),
+                      Operands.back()->getType()};
+
+    llvm::Function *F = CGM.getIntrinsic(ID, IntrinsicTypes);
+
+    return Builder.CreateCall(F, Operands, "");
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfwmaccbf16_vv_rm_tu:
+case RISCVVector::BI__builtin_rvv_vfwmaccbf16_vf_rm_tu:
+case RISCVVector::BI__builtin_rvv_vfwmaccbf16_vv_tu:
+case RISCVVector::BI__builtin_rvv_vfwmaccbf16_vf_tu:
+  ID = Intrinsic::riscv_vfwmaccbf16;
+  PolicyAttrs = 2;
+IsMasked = false;
+
+  {
+    // LLVM intrinsic
+    // Unmasked: (passthru, op0, op1, round_mode, vl)
+    // Masked:   (passthru, vector_in, vector_in/scalar_in, mask, frm, vl, policy)
+
+    SmallVector<llvm::Value*, 7> Operands;
+    bool HasRoundModeOp = IsMasked ? Ops.size() == 6 : Ops.size() == 5;
+
+    unsigned Offset = IsMasked ? 2 : 1;
+
+    Operands.push_back(Ops[IsMasked ? 1 : 0]); // passthrough
+
+    Operands.push_back(Ops[Offset]); // op0
+    Operands.push_back(Ops[Offset + 1]); // op1
+
+    if (IsMasked)
+      Operands.push_back(Ops[0]); // mask
+
+    if (HasRoundModeOp) {
+      Operands.push_back(Ops[Offset + 2]); // frm
+      Operands.push_back(Ops[Offset + 3]); // vl
+    } else {
+      Operands.push_back(ConstantInt::get(Ops[Offset + 2]->getType(), 7)); // frm
+      Operands.push_back(Ops[Offset + 2]); // vl
+    }
+
+    Operands.push_back(ConstantInt::get(Ops.back()->getType(), PolicyAttrs));
+
+    IntrinsicTypes = {ResultType, Ops[Offset]->getType(), Ops[Offset + 1]->getType(),
+                      Operands.back()->getType()};
+
+    llvm::Function *F = CGM.getIntrinsic(ID, IntrinsicTypes);
+
+    return Builder.CreateCall(F, Operands, "");
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfwmaccbf16_vv_rm:
+case RISCVVector::BI__builtin_rvv_vfwmaccbf16_vf_rm:
+case RISCVVector::BI__builtin_rvv_vfwmaccbf16_vv:
+case RISCVVector::BI__builtin_rvv_vfwmaccbf16_vf:
+  ID = Intrinsic::riscv_vfwmaccbf16;
+  PolicyAttrs = 3;
+IsMasked = false;
+
+  {
+    // LLVM intrinsic
+    // Unmasked: (passthru, op0, op1, round_mode, vl)
+    // Masked:   (passthru, vector_in, vector_in/scalar_in, mask, frm, vl, policy)
+
+    SmallVector<llvm::Value*, 7> Operands;
+    bool HasRoundModeOp = IsMasked ? Ops.size() == 6 : Ops.size() == 5;
+
+    unsigned Offset = IsMasked ? 2 : 1;
+
+    Operands.push_back(Ops[IsMasked ? 1 : 0]); // passthrough
+
+    Operands.push_back(Ops[Offset]); // op0
+    Operands.push_back(Ops[Offset + 1]); // op1
+
+    if (IsMasked)
+      Operands.push_back(Ops[0]); // mask
+
+    if (HasRoundModeOp) {
+      Operands.push_back(Ops[Offset + 2]); // frm
+      Operands.push_back(Ops[Offset + 3]); // vl
+    } else {
+      Operands.push_back(ConstantInt::get(Ops[Offset + 2]->getType(), 7)); // frm
+      Operands.push_back(Ops[Offset + 2]); // vl
+    }
+
+    Operands.push_back(ConstantInt::get(Ops.back()->getType(), PolicyAttrs));
+
+    IntrinsicTypes = {ResultType, Ops[Offset]->getType(), Ops[Offset + 1]->getType(),
+                      Operands.back()->getType()};
+
+    llvm::Function *F = CGM.getIntrinsic(ID, IntrinsicTypes);
+
+    return Builder.CreateCall(F, Operands, "");
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfwmaccbf16_vv_rm_tum:
+case RISCVVector::BI__builtin_rvv_vfwmaccbf16_vf_rm_tum:
+case RISCVVector::BI__builtin_rvv_vfwmaccbf16_vv_tum:
+case RISCVVector::BI__builtin_rvv_vfwmaccbf16_vf_tum:
+  ID = Intrinsic::riscv_vfwmaccbf16_mask;
+  PolicyAttrs = 2;
+IsMasked = true;
+
+  {
+    // LLVM intrinsic
+    // Unmasked: (passthru, op0, op1, round_mode, vl)
+    // Masked:   (passthru, vector_in, vector_in/scalar_in, mask, frm, vl, policy)
+
+    SmallVector<llvm::Value*, 7> Operands;
+    bool HasRoundModeOp = IsMasked ? Ops.size() == 6 : Ops.size() == 5;
+
+    unsigned Offset = IsMasked ? 2 : 1;
+
+    Operands.push_back(Ops[IsMasked ? 1 : 0]); // passthrough
+
+    Operands.push_back(Ops[Offset]); // op0
+    Operands.push_back(Ops[Offset + 1]); // op1
+
+    if (IsMasked)
+      Operands.push_back(Ops[0]); // mask
+
+    if (HasRoundModeOp) {
+      Operands.push_back(Ops[Offset + 2]); // frm
+      Operands.push_back(Ops[Offset + 3]); // vl
+    } else {
+      Operands.push_back(ConstantInt::get(Ops[Offset + 2]->getType(), 7)); // frm
+      Operands.push_back(Ops[Offset + 2]); // vl
+    }
+
+    Operands.push_back(ConstantInt::get(Ops.back()->getType(), PolicyAttrs));
+
+    IntrinsicTypes = {ResultType, Ops[Offset]->getType(), Ops[Offset + 1]->getType(),
+                      Operands.back()->getType()};
+
+    llvm::Function *F = CGM.getIntrinsic(ID, IntrinsicTypes);
+
+    return Builder.CreateCall(F, Operands, "");
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfwmaccbf16_vv_rm_m:
+case RISCVVector::BI__builtin_rvv_vfwmaccbf16_vf_rm_m:
+case RISCVVector::BI__builtin_rvv_vfwmaccbf16_vv_m:
+case RISCVVector::BI__builtin_rvv_vfwmaccbf16_vf_m:
+  ID = Intrinsic::riscv_vfwmaccbf16_mask;
+  PolicyAttrs = 3;
+IsMasked = true;
+
+  {
+    // LLVM intrinsic
+    // Unmasked: (passthru, op0, op1, round_mode, vl)
+    // Masked:   (passthru, vector_in, vector_in/scalar_in, mask, frm, vl, policy)
+
+    SmallVector<llvm::Value*, 7> Operands;
+    bool HasRoundModeOp = IsMasked ? Ops.size() == 6 : Ops.size() == 5;
+
+    unsigned Offset = IsMasked ? 2 : 1;
+
+    Operands.push_back(Ops[IsMasked ? 1 : 0]); // passthrough
+
+    Operands.push_back(Ops[Offset]); // op0
+    Operands.push_back(Ops[Offset + 1]); // op1
+
+    if (IsMasked)
+      Operands.push_back(Ops[0]); // mask
+
+    if (HasRoundModeOp) {
+      Operands.push_back(Ops[Offset + 2]); // frm
+      Operands.push_back(Ops[Offset + 3]); // vl
+    } else {
+      Operands.push_back(ConstantInt::get(Ops[Offset + 2]->getType(), 7)); // frm
+      Operands.push_back(Ops[Offset + 2]); // vl
+    }
+
+    Operands.push_back(ConstantInt::get(Ops.back()->getType(), PolicyAttrs));
+
+    IntrinsicTypes = {ResultType, Ops[Offset]->getType(), Ops[Offset + 1]->getType(),
+                      Operands.back()->getType()};
+
+    llvm::Function *F = CGM.getIntrinsic(ID, IntrinsicTypes);
+
+    return Builder.CreateCall(F, Operands, "");
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfwmaccbf16_vv_rm_tumu:
+case RISCVVector::BI__builtin_rvv_vfwmaccbf16_vf_rm_tumu:
+case RISCVVector::BI__builtin_rvv_vfwmaccbf16_vv_tumu:
+case RISCVVector::BI__builtin_rvv_vfwmaccbf16_vf_tumu:
+  ID = Intrinsic::riscv_vfwmaccbf16_mask;
+  PolicyAttrs = 0;
+IsMasked = true;
+
+  {
+    // LLVM intrinsic
+    // Unmasked: (passthru, op0, op1, round_mode, vl)
+    // Masked:   (passthru, vector_in, vector_in/scalar_in, mask, frm, vl, policy)
+
+    SmallVector<llvm::Value*, 7> Operands;
+    bool HasRoundModeOp = IsMasked ? Ops.size() == 6 : Ops.size() == 5;
+
+    unsigned Offset = IsMasked ? 2 : 1;
+
+    Operands.push_back(Ops[IsMasked ? 1 : 0]); // passthrough
+
+    Operands.push_back(Ops[Offset]); // op0
+    Operands.push_back(Ops[Offset + 1]); // op1
+
+    if (IsMasked)
+      Operands.push_back(Ops[0]); // mask
+
+    if (HasRoundModeOp) {
+      Operands.push_back(Ops[Offset + 2]); // frm
+      Operands.push_back(Ops[Offset + 3]); // vl
+    } else {
+      Operands.push_back(ConstantInt::get(Ops[Offset + 2]->getType(), 7)); // frm
+      Operands.push_back(Ops[Offset + 2]); // vl
+    }
+
+    Operands.push_back(ConstantInt::get(Ops.back()->getType(), PolicyAttrs));
+
+    IntrinsicTypes = {ResultType, Ops[Offset]->getType(), Ops[Offset + 1]->getType(),
+                      Operands.back()->getType()};
+
+    llvm::Function *F = CGM.getIntrinsic(ID, IntrinsicTypes);
+
+    return Builder.CreateCall(F, Operands, "");
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfwmaccbf16_vv_rm_mu:
+case RISCVVector::BI__builtin_rvv_vfwmaccbf16_vf_rm_mu:
+case RISCVVector::BI__builtin_rvv_vfwmaccbf16_vv_mu:
+case RISCVVector::BI__builtin_rvv_vfwmaccbf16_vf_mu:
+  ID = Intrinsic::riscv_vfwmaccbf16_mask;
   PolicyAttrs = 1;
 IsMasked = true;
 

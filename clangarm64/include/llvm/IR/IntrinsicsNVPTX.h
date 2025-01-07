@@ -13,8 +13,9 @@ namespace llvm {
 namespace Intrinsic {
 enum NVVMIntrinsics : unsigned {
 // Enum values for intrinsics
-    nvvm_abs_bf16 = 7535,                             // llvm.nvvm.abs.bf16
+    nvvm_abs_bf16 = 7844,                             // llvm.nvvm.abs.bf16
     nvvm_abs_bf16x2,                           // llvm.nvvm.abs.bf16x2
+    nvvm_activemask,                           // llvm.nvvm.activemask
     nvvm_add_rm_d,                             // llvm.nvvm.add.rm.d
     nvvm_add_rm_f,                             // llvm.nvvm.add.rm.f
     nvvm_add_rm_ftz_f,                         // llvm.nvvm.add.rm.ftz.f
@@ -143,6 +144,7 @@ enum NVVMIntrinsics : unsigned {
     nvvm_ex2_approx_f16,                       // llvm.nvvm.ex2.approx.f16
     nvvm_ex2_approx_f16x2,                     // llvm.nvvm.ex2.approx.f16x2
     nvvm_ex2_approx_ftz_f,                     // llvm.nvvm.ex2.approx.ftz.f
+    nvvm_exit,                                 // llvm.nvvm.exit
     nvvm_f2bf16_rn,                            // llvm.nvvm.f2bf16.rn
     nvvm_f2bf16_rn_relu,                       // llvm.nvvm.f2bf16.rn.relu
     nvvm_f2bf16_rz,                            // llvm.nvvm.f2bf16.rz
@@ -486,6 +488,7 @@ enum NVVMIntrinsics : unsigned {
     nvvm_mulhi_ui,                             // llvm.nvvm.mulhi.ui
     nvvm_mulhi_ull,                            // llvm.nvvm.mulhi.ull
     nvvm_mulhi_us,                             // llvm.nvvm.mulhi.us
+    nvvm_nanosleep,                            // llvm.nvvm.nanosleep
     nvvm_neg_bf16,                             // llvm.nvvm.neg.bf16
     nvvm_neg_bf16x2,                           // llvm.nvvm.neg.bf16x2
     nvvm_prmt,                                 // llvm.nvvm.prmt
@@ -497,6 +500,7 @@ enum NVVMIntrinsics : unsigned {
     nvvm_ptr_gen_to_shared,                    // llvm.nvvm.ptr.gen.to.shared
     nvvm_ptr_global_to_gen,                    // llvm.nvvm.ptr.global.to.gen
     nvvm_ptr_local_to_gen,                     // llvm.nvvm.ptr.local.to.gen
+    nvvm_ptr_param_to_gen,                     // llvm.nvvm.ptr.param.to.gen
     nvvm_ptr_shared_to_gen,                    // llvm.nvvm.ptr.shared.to.gen
     nvvm_rcp_approx_ftz_d,                     // llvm.nvvm.rcp.approx.ftz.d
     nvvm_rcp_approx_ftz_f,                     // llvm.nvvm.rcp.approx.ftz.f
@@ -564,6 +568,7 @@ enum NVVMIntrinsics : unsigned {
     nvvm_read_ptx_sreg_envreg7,                // llvm.nvvm.read.ptx.sreg.envreg7
     nvvm_read_ptx_sreg_envreg8,                // llvm.nvvm.read.ptx.sreg.envreg8
     nvvm_read_ptx_sreg_envreg9,                // llvm.nvvm.read.ptx.sreg.envreg9
+    nvvm_read_ptx_sreg_globaltimer,            // llvm.nvvm.read.ptx.sreg.globaltimer
     nvvm_read_ptx_sreg_gridid,                 // llvm.nvvm.read.ptx.sreg.gridid
     nvvm_read_ptx_sreg_laneid,                 // llvm.nvvm.read.ptx.sreg.laneid
     nvvm_read_ptx_sreg_lanemask_eq,            // llvm.nvvm.read.ptx.sreg.lanemask.eq
@@ -613,6 +618,7 @@ enum NVVMIntrinsics : unsigned {
     nvvm_round_ftz_f,                          // llvm.nvvm.round.ftz.f
     nvvm_rsqrt_approx_d,                       // llvm.nvvm.rsqrt.approx.d
     nvvm_rsqrt_approx_f,                       // llvm.nvvm.rsqrt.approx.f
+    nvvm_rsqrt_approx_ftz_d,                   // llvm.nvvm.rsqrt.approx.ftz.d
     nvvm_rsqrt_approx_ftz_f,                   // llvm.nvvm.rsqrt.approx.ftz.f
     nvvm_sad_i,                                // llvm.nvvm.sad.i
     nvvm_sad_ll,                               // llvm.nvvm.sad.ll

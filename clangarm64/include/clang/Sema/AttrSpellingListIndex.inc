@@ -46,6 +46,13 @@
         return 2;
     break;
   }
+  case AT_AMDGPUMaxNumWorkGroups: {
+    if (Name == "amdgpu_max_num_work_groups" && getSyntax() == AttributeCommonInfo::AS_GNU && Scope == "")
+        return 0;
+    if (Name == "amdgpu_max_num_work_groups" && getSyntax() == AttributeCommonInfo::AS_CXX11 && Scope == "clang")
+        return 1;
+    break;
+  }
   case AT_AMDGPUNumSGPR: {
     if (Name == "amdgpu_num_sgpr" && getSyntax() == AttributeCommonInfo::AS_GNU && Scope == "")
         return 0;
@@ -179,6 +186,15 @@
     if (Name == "alloc_size" && getSyntax() == AttributeCommonInfo::AS_CXX11 && Scope == "gnu")
         return 1;
     if (Name == "alloc_size" && getSyntax() == AttributeCommonInfo::AS_C23 && Scope == "gnu")
+        return 2;
+    break;
+  }
+  case AT_Allocating: {
+    if (Name == "allocating" && getSyntax() == AttributeCommonInfo::AS_GNU && Scope == "")
+        return 0;
+    if (Name == "allocating" && getSyntax() == AttributeCommonInfo::AS_CXX11 && Scope == "clang")
+        return 1;
+    if (Name == "allocating" && getSyntax() == AttributeCommonInfo::AS_C23 && Scope == "clang")
         return 2;
     break;
   }
@@ -369,15 +385,6 @@
         return 2;
     break;
   }
-  case AT_Assumption: {
-    if (Name == "assume" && getSyntax() == AttributeCommonInfo::AS_GNU && Scope == "")
-        return 0;
-    if (Name == "assume" && getSyntax() == AttributeCommonInfo::AS_CXX11 && Scope == "clang")
-        return 1;
-    if (Name == "assume" && getSyntax() == AttributeCommonInfo::AS_C23 && Scope == "clang")
-        return 2;
-    break;
-  }
   case AT_Availability: {
     if (Name == "availability" && getSyntax() == AttributeCommonInfo::AS_GNU && Scope == "")
         return 0;
@@ -429,6 +436,15 @@
     if (Name == "btf_type_tag" && getSyntax() == AttributeCommonInfo::AS_CXX11 && Scope == "clang")
         return 1;
     if (Name == "btf_type_tag" && getSyntax() == AttributeCommonInfo::AS_C23 && Scope == "clang")
+        return 2;
+    break;
+  }
+  case AT_Blocking: {
+    if (Name == "blocking" && getSyntax() == AttributeCommonInfo::AS_GNU && Scope == "")
+        return 0;
+    if (Name == "blocking" && getSyntax() == AttributeCommonInfo::AS_CXX11 && Scope == "clang")
+        return 1;
+    if (Name == "blocking" && getSyntax() == AttributeCommonInfo::AS_C23 && Scope == "clang")
         return 2;
     break;
   }
@@ -618,6 +634,17 @@
         return 2;
     break;
   }
+  case AT_CXXAssume: {
+    if (Name == "assume" && getSyntax() == AttributeCommonInfo::AS_CXX11 && Scope == "")
+        return 0;
+    if (Name == "assume" && getSyntax() == AttributeCommonInfo::AS_GNU && Scope == "")
+        return 1;
+    if (Name == "assume" && getSyntax() == AttributeCommonInfo::AS_CXX11 && Scope == "clang")
+        return 2;
+    if (Name == "assume" && getSyntax() == AttributeCommonInfo::AS_C23 && Scope == "clang")
+        return 3;
+    break;
+  }
   case AT_CallableWhen: {
     if (Name == "callable_when" && getSyntax() == AttributeCommonInfo::AS_GNU && Scope == "")
         return 0;
@@ -667,6 +694,15 @@
     if (Name == "cleanup" && getSyntax() == AttributeCommonInfo::AS_CXX11 && Scope == "gnu")
         return 1;
     if (Name == "cleanup" && getSyntax() == AttributeCommonInfo::AS_C23 && Scope == "gnu")
+        return 2;
+    break;
+  }
+  case AT_ClspvLibclcBuiltin: {
+    if (Name == "clspv_libclc_builtin" && getSyntax() == AttributeCommonInfo::AS_GNU && Scope == "")
+        return 0;
+    if (Name == "clspv_libclc_builtin" && getSyntax() == AttributeCommonInfo::AS_CXX11 && Scope == "clang")
+        return 1;
+    if (Name == "clspv_libclc_builtin" && getSyntax() == AttributeCommonInfo::AS_C23 && Scope == "clang")
         return 2;
     break;
   }
@@ -835,6 +871,15 @@
     if (Name == "counted_by" && getSyntax() == AttributeCommonInfo::AS_CXX11 && Scope == "clang")
         return 1;
     if (Name == "counted_by" && getSyntax() == AttributeCommonInfo::AS_C23 && Scope == "clang")
+        return 2;
+    break;
+  }
+  case AT_CountedByOrNull: {
+    if (Name == "counted_by_or_null" && getSyntax() == AttributeCommonInfo::AS_GNU && Scope == "")
+        return 0;
+    if (Name == "counted_by_or_null" && getSyntax() == AttributeCommonInfo::AS_CXX11 && Scope == "clang")
+        return 1;
+    if (Name == "counted_by_or_null" && getSyntax() == AttributeCommonInfo::AS_C23 && Scope == "clang")
         return 2;
     break;
   }
@@ -1108,8 +1153,20 @@
         return 0;
     break;
   }
+  case AT_HLSLLoopHint: {
+    if (Name == "unroll" && getSyntax() == AttributeCommonInfo::AS_Microsoft && Scope == "")
+        return 0;
+    if (Name == "loop" && getSyntax() == AttributeCommonInfo::AS_Microsoft && Scope == "")
+        return 1;
+    break;
+  }
   case AT_HLSLNumThreads: {
     if (Name == "numthreads" && getSyntax() == AttributeCommonInfo::AS_Microsoft && Scope == "")
+        return 0;
+    break;
+  }
+  case AT_HLSLPackOffset: {
+    if (Name == "packoffset" && getSyntax() == AttributeCommonInfo::AS_HLSLAnnotation && Scope == "")
         return 0;
     break;
   }
@@ -1126,17 +1183,22 @@
     break;
   }
   case AT_HLSLResourceBinding: {
-    if (Name == "register" && getSyntax() == AttributeCommonInfo::AS_HLSLSemantic && Scope == "")
+    if (Name == "register" && getSyntax() == AttributeCommonInfo::AS_HLSLAnnotation && Scope == "")
+        return 0;
+    break;
+  }
+  case AT_HLSLResourceClass: {
+    if (Name == "resource_class" && getSyntax() == AttributeCommonInfo::AS_CXX11 && Scope == "hlsl")
         return 0;
     break;
   }
   case AT_HLSLSV_DispatchThreadID: {
-    if (Name == "SV_DispatchThreadID" && getSyntax() == AttributeCommonInfo::AS_HLSLSemantic && Scope == "")
+    if (Name == "SV_DispatchThreadID" && getSyntax() == AttributeCommonInfo::AS_HLSLAnnotation && Scope == "")
         return 0;
     break;
   }
   case AT_HLSLSV_GroupIndex: {
-    if (Name == "SV_GroupIndex" && getSyntax() == AttributeCommonInfo::AS_HLSLSemantic && Scope == "")
+    if (Name == "SV_GroupIndex" && getSyntax() == AttributeCommonInfo::AS_HLSLAnnotation && Scope == "")
         return 0;
     break;
   }
@@ -1152,6 +1214,17 @@
         return 1;
     if (Name == "hot" && getSyntax() == AttributeCommonInfo::AS_C23 && Scope == "gnu")
         return 2;
+    break;
+  }
+  case AT_HybridPatchable: {
+    if (Name == "hybrid_patchable" && getSyntax() == AttributeCommonInfo::AS_Declspec && Scope == "")
+        return 0;
+    if (Name == "hybrid_patchable" && getSyntax() == AttributeCommonInfo::AS_GNU && Scope == "")
+        return 1;
+    if (Name == "hybrid_patchable" && getSyntax() == AttributeCommonInfo::AS_CXX11 && Scope == "clang")
+        return 2;
+    if (Name == "hybrid_patchable" && getSyntax() == AttributeCommonInfo::AS_C23 && Scope == "clang")
+        return 3;
     break;
   }
   case AT_IBAction: {
@@ -1627,8 +1700,12 @@
         return 4;
     if (Name == "noinline" && getSyntax() == AttributeCommonInfo::AS_C23 && Scope == "clang")
         return 5;
-    if (Name == "noinline" && getSyntax() == AttributeCommonInfo::AS_Declspec && Scope == "")
+    if (Name == "noinline" && getSyntax() == AttributeCommonInfo::AS_CXX11 && Scope == "msvc")
         return 6;
+    if (Name == "noinline" && getSyntax() == AttributeCommonInfo::AS_C23 && Scope == "msvc")
+        return 7;
+    if (Name == "noinline" && getSyntax() == AttributeCommonInfo::AS_Declspec && Scope == "")
+        return 8;
     break;
   }
   case AT_NoInstrumentFunction: {
@@ -1801,6 +1878,24 @@
         return 2;
     break;
   }
+  case AT_NonAllocating: {
+    if (Name == "nonallocating" && getSyntax() == AttributeCommonInfo::AS_GNU && Scope == "")
+        return 0;
+    if (Name == "nonallocating" && getSyntax() == AttributeCommonInfo::AS_CXX11 && Scope == "clang")
+        return 1;
+    if (Name == "nonallocating" && getSyntax() == AttributeCommonInfo::AS_C23 && Scope == "clang")
+        return 2;
+    break;
+  }
+  case AT_NonBlocking: {
+    if (Name == "nonblocking" && getSyntax() == AttributeCommonInfo::AS_GNU && Scope == "")
+        return 0;
+    if (Name == "nonblocking" && getSyntax() == AttributeCommonInfo::AS_CXX11 && Scope == "clang")
+        return 1;
+    if (Name == "nonblocking" && getSyntax() == AttributeCommonInfo::AS_C23 && Scope == "clang")
+        return 2;
+    break;
+  }
   case AT_NonNull: {
     if (Name == "nonnull" && getSyntax() == AttributeCommonInfo::AS_GNU && Scope == "")
         return 0;
@@ -1817,6 +1912,11 @@
         return 1;
     if (Name == "not_tail_called" && getSyntax() == AttributeCommonInfo::AS_C23 && Scope == "clang")
         return 2;
+    break;
+  }
+  case AT_OMPAssume: {
+    if (Name == "assume" && getSyntax() == AttributeCommonInfo::AS_CXX11 && Scope == "omp")
+        return 0;
     break;
   }
   case AT_OSConsumed: {
@@ -2397,6 +2497,15 @@
         return 2;
     break;
   }
+  case AT_PreserveNone: {
+    if (Name == "preserve_none" && getSyntax() == AttributeCommonInfo::AS_GNU && Scope == "")
+        return 0;
+    if (Name == "preserve_none" && getSyntax() == AttributeCommonInfo::AS_CXX11 && Scope == "clang")
+        return 1;
+    if (Name == "preserve_none" && getSyntax() == AttributeCommonInfo::AS_C23 && Scope == "clang")
+        return 2;
+    break;
+  }
   case AT_PtGuardedBy: {
     if (Name == "pt_guarded_by" && getSyntax() == AttributeCommonInfo::AS_GNU && Scope == "")
         return 0;
@@ -2431,6 +2540,19 @@
   case AT_RISCVRVVVectorBits: {
     if (Name == "riscv_rvv_vector_bits" && getSyntax() == AttributeCommonInfo::AS_GNU && Scope == "")
         return 0;
+    break;
+  }
+  case AT_RISCVVectorCC: {
+    if (Name == "vector_cc" && getSyntax() == AttributeCommonInfo::AS_CXX11 && Scope == "riscv")
+        return 0;
+    if (Name == "vector_cc" && getSyntax() == AttributeCommonInfo::AS_C23 && Scope == "riscv")
+        return 1;
+    if (Name == "riscv_vector_cc" && getSyntax() == AttributeCommonInfo::AS_GNU && Scope == "")
+        return 2;
+    if (Name == "riscv_vector_cc" && getSyntax() == AttributeCommonInfo::AS_CXX11 && Scope == "clang")
+        return 3;
+    if (Name == "riscv_vector_cc" && getSyntax() == AttributeCommonInfo::AS_C23 && Scope == "clang")
+        return 4;
     break;
   }
   case AT_RandomizeLayout: {
@@ -2651,6 +2773,24 @@
   case AT_SharedTrylockFunction: {
     if (Name == "shared_trylock_function" && getSyntax() == AttributeCommonInfo::AS_GNU && Scope == "")
         return 0;
+    break;
+  }
+  case AT_SizedBy: {
+    if (Name == "sized_by" && getSyntax() == AttributeCommonInfo::AS_GNU && Scope == "")
+        return 0;
+    if (Name == "sized_by" && getSyntax() == AttributeCommonInfo::AS_CXX11 && Scope == "clang")
+        return 1;
+    if (Name == "sized_by" && getSyntax() == AttributeCommonInfo::AS_C23 && Scope == "clang")
+        return 2;
+    break;
+  }
+  case AT_SizedByOrNull: {
+    if (Name == "sized_by_or_null" && getSyntax() == AttributeCommonInfo::AS_GNU && Scope == "")
+        return 0;
+    if (Name == "sized_by_or_null" && getSyntax() == AttributeCommonInfo::AS_CXX11 && Scope == "clang")
+        return 1;
+    if (Name == "sized_by_or_null" && getSyntax() == AttributeCommonInfo::AS_C23 && Scope == "clang")
+        return 2;
     break;
   }
   case AT_SpeculativeLoadHardening: {
@@ -3035,6 +3175,15 @@
         return 0;
     if (Name == "uuid" && getSyntax() == AttributeCommonInfo::AS_Microsoft && Scope == "")
         return 1;
+    break;
+  }
+  case AT_VTablePointerAuthentication: {
+    if (Name == "ptrauth_vtable_pointer" && getSyntax() == AttributeCommonInfo::AS_GNU && Scope == "")
+        return 0;
+    if (Name == "ptrauth_vtable_pointer" && getSyntax() == AttributeCommonInfo::AS_CXX11 && Scope == "clang")
+        return 1;
+    if (Name == "ptrauth_vtable_pointer" && getSyntax() == AttributeCommonInfo::AS_C23 && Scope == "clang")
+        return 2;
     break;
   }
   case AT_VecReturn: {

@@ -8,17 +8,18 @@
 
 #ifdef GET_INTRINSIC_ENUM_VALUES
 // Enum values for intrinsics
-    aarch64_sve_pmov_to_pred_lane = 1,             // llvm.aarch64.sve.pmov.to.pred.lane
-    aarch64_sve_pmov_to_pred_lane_zero,        // llvm.aarch64.sve.pmov.to.pred.lane.zero
-    aarch64_sve_pmov_to_vector_lane_merging,   // llvm.aarch64.sve.pmov.to.vector.lane.merging
-    aarch64_sve_pmov_to_vector_lane_zeroing,   // llvm.aarch64.sve.pmov.to.vector.lane.zeroing
-    abs,                                       // llvm.abs
+    abs = 1,                                       // llvm.abs
+    acos,                                      // llvm.acos
     addressofreturnaddress,                    // llvm.addressofreturnaddress
     adjust_trampoline,                         // llvm.adjust.trampoline
+    allow_runtime_check,                       // llvm.allow.runtime.check
+    allow_ubsan_check,                         // llvm.allow.ubsan.check
     annotation,                                // llvm.annotation
     arithmetic_fence,                          // llvm.arithmetic.fence
     asan_check_memaccess,                      // llvm.asan.check.memaccess
+    asin,                                      // llvm.asin
     assume,                                    // llvm.assume
+    atan,                                      // llvm.atan
     bitreverse,                                // llvm.bitreverse
     bswap,                                     // llvm.bswap
     call_preallocated_arg,                     // llvm.call.preallocated.arg
@@ -41,6 +42,9 @@
     coro_async_context_dealloc,                // llvm.coro.async.context.dealloc
     coro_async_resume,                         // llvm.coro.async.resume
     coro_async_size_replace,                   // llvm.coro.async.size.replace
+    coro_await_suspend_bool,                   // llvm.coro.await.suspend.bool
+    coro_await_suspend_handle,                 // llvm.coro.await.suspend.handle
+    coro_await_suspend_void,                   // llvm.coro.await.suspend.void
     coro_begin,                                // llvm.coro.begin
     coro_destroy,                              // llvm.coro.destroy
     coro_done,                                 // llvm.coro.done
@@ -65,6 +69,7 @@
     coro_suspend_async,                        // llvm.coro.suspend.async
     coro_suspend_retcon,                       // llvm.coro.suspend.retcon
     cos,                                       // llvm.cos
+    cosh,                                      // llvm.cosh
     ctlz,                                      // llvm.ctlz
     ctpop,                                     // llvm.ctpop
     cttz,                                      // llvm.cttz
@@ -93,8 +98,12 @@
     exp2,                                      // llvm.exp2
     expect,                                    // llvm.expect
     expect_with_probability,                   // llvm.expect.with.probability
+    experimental_constrained_acos,             // llvm.experimental.constrained.acos
+    experimental_constrained_asin,             // llvm.experimental.constrained.asin
+    experimental_constrained_atan,             // llvm.experimental.constrained.atan
     experimental_constrained_ceil,             // llvm.experimental.constrained.ceil
     experimental_constrained_cos,              // llvm.experimental.constrained.cos
+    experimental_constrained_cosh,             // llvm.experimental.constrained.cosh
     experimental_constrained_exp,              // llvm.experimental.constrained.exp
     experimental_constrained_exp2,             // llvm.experimental.constrained.exp2
     experimental_constrained_fadd,             // llvm.experimental.constrained.fadd
@@ -130,8 +139,11 @@
     experimental_constrained_round,            // llvm.experimental.constrained.round
     experimental_constrained_roundeven,        // llvm.experimental.constrained.roundeven
     experimental_constrained_sin,              // llvm.experimental.constrained.sin
+    experimental_constrained_sinh,             // llvm.experimental.constrained.sinh
     experimental_constrained_sitofp,           // llvm.experimental.constrained.sitofp
     experimental_constrained_sqrt,             // llvm.experimental.constrained.sqrt
+    experimental_constrained_tan,              // llvm.experimental.constrained.tan
+    experimental_constrained_tanh,             // llvm.experimental.constrained.tanh
     experimental_constrained_trunc,            // llvm.experimental.constrained.trunc
     experimental_constrained_uitofp,           // llvm.experimental.constrained.uitofp
     experimental_convergence_anchor,           // llvm.experimental.convergence.anchor
@@ -147,15 +159,15 @@
     experimental_get_vector_length,            // llvm.experimental.get.vector.length
     experimental_guard,                        // llvm.experimental.guard
     experimental_noalias_scope_decl,           // llvm.experimental.noalias.scope.decl
-    experimental_patchpoint_i64,               // llvm.experimental.patchpoint.i64
+    experimental_patchpoint,                   // llvm.experimental.patchpoint
     experimental_patchpoint_void,              // llvm.experimental.patchpoint.void
     experimental_stackmap,                     // llvm.experimental.stackmap
     experimental_stepvector,                   // llvm.experimental.stepvector
-    experimental_vector_deinterleave2,         // llvm.experimental.vector.deinterleave2
-    experimental_vector_interleave2,           // llvm.experimental.vector.interleave2
-    experimental_vector_reverse,               // llvm.experimental.vector.reverse
-    experimental_vector_splice,                // llvm.experimental.vector.splice
+    experimental_vector_compress,              // llvm.experimental.vector.compress
+    experimental_vector_histogram_add,         // llvm.experimental.vector.histogram.add
+    experimental_vector_partial_reduce_add,    // llvm.experimental.vector.partial.reduce.add
     experimental_vp_reverse,                   // llvm.experimental.vp.reverse
+    experimental_vp_splat,                     // llvm.experimental.vp.splat
     experimental_vp_splice,                    // llvm.experimental.vp.splice
     experimental_vp_strided_load,              // llvm.experimental.vp.strided.load
     experimental_vp_strided_store,             // llvm.experimental.vp.strided.store
@@ -180,13 +192,15 @@
     get_fpmode,                                // llvm.get.fpmode
     get_rounding,                              // llvm.get.rounding
     hwasan_check_memaccess,                    // llvm.hwasan.check.memaccess
+    hwasan_check_memaccess_fixedshadow,        // llvm.hwasan.check.memaccess.fixedshadow
     hwasan_check_memaccess_shortgranules,      // llvm.hwasan.check.memaccess.shortgranules
+    hwasan_check_memaccess_shortgranules_fixedshadow,  // llvm.hwasan.check.memaccess.shortgranules.fixedshadow
     icall_branch_funnel,                       // llvm.icall.branch.funnel
     init_trampoline,                           // llvm.init.trampoline
+    instrprof_callsite,                        // llvm.instrprof.callsite
     instrprof_cover,                           // llvm.instrprof.cover
     instrprof_increment,                       // llvm.instrprof.increment
     instrprof_increment_step,                  // llvm.instrprof.increment.step
-    instrprof_mcdc_condbitmap_update,          // llvm.instrprof.mcdc.condbitmap.update
     instrprof_mcdc_parameters,                 // llvm.instrprof.mcdc.parameters
     instrprof_mcdc_tvbitmap_update,            // llvm.instrprof.mcdc.tvbitmap.update
     instrprof_timestamp,                       // llvm.instrprof.timestamp
@@ -288,6 +302,7 @@
     read_register,                             // llvm.read_register
     read_volatile_register,                    // llvm.read_volatile_register
     readcyclecounter,                          // llvm.readcyclecounter
+    readsteadycounter,                         // llvm.readsteadycounter
     reset_fpenv,                               // llvm.reset.fpenv
     reset_fpmode,                              // llvm.reset.fpmode
     returnaddress,                             // llvm.returnaddress
@@ -296,6 +311,7 @@
     roundeven,                                 // llvm.roundeven
     sadd_sat,                                  // llvm.sadd.sat
     sadd_with_overflow,                        // llvm.sadd.with.overflow
+    scmp,                                      // llvm.scmp
     sdiv_fix,                                  // llvm.sdiv.fix
     sdiv_fix_sat,                              // llvm.sdiv.fix.sat
     seh_scope_begin,                           // llvm.seh.scope.begin
@@ -308,6 +324,7 @@
     set_rounding,                              // llvm.set.rounding
     sideeffect,                                // llvm.sideeffect
     sin,                                       // llvm.sin
+    sinh,                                      // llvm.sinh
     smax,                                      // llvm.smax
     smin,                                      // llvm.smin
     smul_fix,                                  // llvm.smul.fix
@@ -326,6 +343,8 @@
     start_loop_iterations,                     // llvm.start.loop.iterations
     strip_invariant_group,                     // llvm.strip.invariant.group
     swift_async_context_addr,                  // llvm.swift.async.context.addr
+    tan,                                       // llvm.tan
+    tanh,                                      // llvm.tanh
     test_set_loop_iterations,                  // llvm.test.set.loop.iterations
     test_start_loop_iterations,                // llvm.test.start.loop.iterations
     thread_pointer,                            // llvm.thread.pointer
@@ -338,6 +357,7 @@
     uadd_sat,                                  // llvm.uadd.sat
     uadd_with_overflow,                        // llvm.uadd.with.overflow
     ubsantrap,                                 // llvm.ubsantrap
+    ucmp,                                      // llvm.ucmp
     udiv_fix,                                  // llvm.udiv.fix
     udiv_fix_sat,                              // llvm.udiv.fix.sat
     umax,                                      // llvm.umax
@@ -352,8 +372,10 @@
     vaend,                                     // llvm.va_end
     vastart,                                   // llvm.va_start
     var_annotation,                            // llvm.var.annotation
+    vector_deinterleave2,                      // llvm.vector.deinterleave2
     vector_extract,                            // llvm.vector.extract
     vector_insert,                             // llvm.vector.insert
+    vector_interleave2,                        // llvm.vector.interleave2
     vector_reduce_add,                         // llvm.vector.reduce.add
     vector_reduce_and,                         // llvm.vector.reduce.and
     vector_reduce_fadd,                        // llvm.vector.reduce.fadd
@@ -369,6 +391,8 @@
     vector_reduce_umax,                        // llvm.vector.reduce.umax
     vector_reduce_umin,                        // llvm.vector.reduce.umin
     vector_reduce_xor,                         // llvm.vector.reduce.xor
+    vector_reverse,                            // llvm.vector.reverse
+    vector_splice,                             // llvm.vector.splice
     vp_abs,                                    // llvm.vp.abs
     vp_add,                                    // llvm.vp.add
     vp_and,                                    // llvm.vp.and
@@ -380,6 +404,7 @@
     vp_ctlz,                                   // llvm.vp.ctlz
     vp_ctpop,                                  // llvm.vp.ctpop
     vp_cttz,                                   // llvm.vp.cttz
+    vp_cttz_elts,                              // llvm.vp.cttz.elts
     vp_fabs,                                   // llvm.vp.fabs
     vp_fadd,                                   // llvm.vp.fadd
     vp_fcmp,                                   // llvm.vp.fcmp
@@ -401,7 +426,9 @@
     vp_icmp,                                   // llvm.vp.icmp
     vp_inttoptr,                               // llvm.vp.inttoptr
     vp_is_fpclass,                             // llvm.vp.is.fpclass
+    vp_llrint,                                 // llvm.vp.llrint
     vp_load,                                   // llvm.vp.load
+    vp_lrint,                                  // llvm.vp.lrint
     vp_lshr,                                   // llvm.vp.lshr
     vp_maximum,                                // llvm.vp.maximum
     vp_maxnum,                                 // llvm.vp.maxnum
@@ -416,7 +443,9 @@
     vp_reduce_and,                             // llvm.vp.reduce.and
     vp_reduce_fadd,                            // llvm.vp.reduce.fadd
     vp_reduce_fmax,                            // llvm.vp.reduce.fmax
+    vp_reduce_fmaximum,                        // llvm.vp.reduce.fmaximum
     vp_reduce_fmin,                            // llvm.vp.reduce.fmin
+    vp_reduce_fminimum,                        // llvm.vp.reduce.fminimum
     vp_reduce_fmul,                            // llvm.vp.reduce.fmul
     vp_reduce_mul,                             // llvm.vp.reduce.mul
     vp_reduce_or,                              // llvm.vp.reduce.or
@@ -429,6 +458,7 @@
     vp_round,                                  // llvm.vp.round
     vp_roundeven,                              // llvm.vp.roundeven
     vp_roundtozero,                            // llvm.vp.roundtozero
+    vp_sadd_sat,                               // llvm.vp.sadd.sat
     vp_scatter,                                // llvm.vp.scatter
     vp_sdiv,                                   // llvm.vp.sdiv
     vp_select,                                 // llvm.vp.select
@@ -439,21 +469,24 @@
     vp_smin,                                   // llvm.vp.smin
     vp_sqrt,                                   // llvm.vp.sqrt
     vp_srem,                                   // llvm.vp.srem
+    vp_ssub_sat,                               // llvm.vp.ssub.sat
     vp_store,                                  // llvm.vp.store
     vp_sub,                                    // llvm.vp.sub
     vp_trunc,                                  // llvm.vp.trunc
+    vp_uadd_sat,                               // llvm.vp.uadd.sat
     vp_udiv,                                   // llvm.vp.udiv
     vp_uitofp,                                 // llvm.vp.uitofp
     vp_umax,                                   // llvm.vp.umax
     vp_umin,                                   // llvm.vp.umin
     vp_urem,                                   // llvm.vp.urem
+    vp_usub_sat,                               // llvm.vp.usub.sat
     vp_xor,                                    // llvm.vp.xor
     vp_zext,                                   // llvm.vp.zext
     vscale,                                    // llvm.vscale
     write_register,                            // llvm.write_register
     xray_customevent,                          // llvm.xray.customevent
     xray_typedevent,                           // llvm.xray.typedevent
-    num_intrinsics = 13653
+    num_intrinsics = 13938
 #endif
 
 // llvm::Intrinsic::IITDescriptor::ArgKind

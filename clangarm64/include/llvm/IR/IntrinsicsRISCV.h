@@ -13,7 +13,7 @@ namespace llvm {
 namespace Intrinsic {
 enum RISCVIntrinsics : unsigned {
 // Enum values for intrinsics
-    riscv_aes32dsi = 9854,                            // llvm.riscv.aes32dsi
+    riscv_aes32dsi = 10173,                            // llvm.riscv.aes32dsi
     riscv_aes32dsmi,                           // llvm.riscv.aes32dsmi
     riscv_aes32esi,                            // llvm.riscv.aes32esi
     riscv_aes32esmi,                           // llvm.riscv.aes32esmi
@@ -28,6 +28,16 @@ enum RISCVIntrinsics : unsigned {
     riscv_clmul,                               // llvm.riscv.clmul
     riscv_clmulh,                              // llvm.riscv.clmulh
     riscv_clmulr,                              // llvm.riscv.clmulr
+    riscv_cv_alu_addn,                         // llvm.riscv.cv.alu.addn
+    riscv_cv_alu_addrn,                        // llvm.riscv.cv.alu.addrn
+    riscv_cv_alu_addun,                        // llvm.riscv.cv.alu.addun
+    riscv_cv_alu_addurn,                       // llvm.riscv.cv.alu.addurn
+    riscv_cv_alu_clip,                         // llvm.riscv.cv.alu.clip
+    riscv_cv_alu_clipu,                        // llvm.riscv.cv.alu.clipu
+    riscv_cv_alu_subn,                         // llvm.riscv.cv.alu.subn
+    riscv_cv_alu_subrn,                        // llvm.riscv.cv.alu.subrn
+    riscv_cv_alu_subun,                        // llvm.riscv.cv.alu.subun
+    riscv_cv_alu_suburn,                       // llvm.riscv.cv.alu.suburn
     riscv_cv_bitmanip_bclr,                    // llvm.riscv.cv.bitmanip.bclr
     riscv_cv_bitmanip_bitrev,                  // llvm.riscv.cv.bitmanip.bitrev
     riscv_cv_bitmanip_bset,                    // llvm.riscv.cv.bitmanip.bset
@@ -35,6 +45,24 @@ enum RISCVIntrinsics : unsigned {
     riscv_cv_bitmanip_extract,                 // llvm.riscv.cv.bitmanip.extract
     riscv_cv_bitmanip_extractu,                // llvm.riscv.cv.bitmanip.extractu
     riscv_cv_bitmanip_insert,                  // llvm.riscv.cv.bitmanip.insert
+    riscv_cv_mac_mac,                          // llvm.riscv.cv.mac.mac
+    riscv_cv_mac_machhsN,                      // llvm.riscv.cv.mac.machhsN
+    riscv_cv_mac_machhsRN,                     // llvm.riscv.cv.mac.machhsRN
+    riscv_cv_mac_machhuN,                      // llvm.riscv.cv.mac.machhuN
+    riscv_cv_mac_machhuRN,                     // llvm.riscv.cv.mac.machhuRN
+    riscv_cv_mac_macsN,                        // llvm.riscv.cv.mac.macsN
+    riscv_cv_mac_macsRN,                       // llvm.riscv.cv.mac.macsRN
+    riscv_cv_mac_macuN,                        // llvm.riscv.cv.mac.macuN
+    riscv_cv_mac_macuRN,                       // llvm.riscv.cv.mac.macuRN
+    riscv_cv_mac_msu,                          // llvm.riscv.cv.mac.msu
+    riscv_cv_mac_mulhhsN,                      // llvm.riscv.cv.mac.mulhhsN
+    riscv_cv_mac_mulhhsRN,                     // llvm.riscv.cv.mac.mulhhsRN
+    riscv_cv_mac_mulhhuN,                      // llvm.riscv.cv.mac.mulhhuN
+    riscv_cv_mac_mulhhuRN,                     // llvm.riscv.cv.mac.mulhhuRN
+    riscv_cv_mac_mulsN,                        // llvm.riscv.cv.mac.mulsN
+    riscv_cv_mac_mulsRN,                       // llvm.riscv.cv.mac.mulsRN
+    riscv_cv_mac_muluN,                        // llvm.riscv.cv.mac.muluN
+    riscv_cv_mac_muluRN,                       // llvm.riscv.cv.mac.muluRN
     riscv_masked_atomicrmw_add_i32,            // llvm.riscv.masked.atomicrmw.add.i32
     riscv_masked_atomicrmw_add_i64,            // llvm.riscv.masked.atomicrmw.add.i64
     riscv_masked_atomicrmw_max_i32,            // llvm.riscv.masked.atomicrmw.max.i32
@@ -55,6 +83,8 @@ enum RISCVIntrinsics : unsigned {
     riscv_masked_cmpxchg_i64,                  // llvm.riscv.masked.cmpxchg.i64
     riscv_masked_strided_load,                 // llvm.riscv.masked.strided.load
     riscv_masked_strided_store,                // llvm.riscv.masked.strided.store
+    riscv_mopr,                                // llvm.riscv.mopr
+    riscv_moprr,                               // llvm.riscv.moprr
     riscv_orc_b,                               // llvm.riscv.orc.b
     riscv_seg2_load,                           // llvm.riscv.seg2.load
     riscv_seg2_store,                          // llvm.riscv.seg2.store
@@ -73,28 +103,7 @@ enum RISCVIntrinsics : unsigned {
     riscv_sf_vc_fv_se,                         // llvm.riscv.sf.vc.fv.se
     riscv_sf_vc_fvv_se,                        // llvm.riscv.sf.vc.fvv.se
     riscv_sf_vc_fvw_se,                        // llvm.riscv.sf.vc.fvw.se
-    riscv_sf_vc_i_se_e16m1,                    // llvm.riscv.sf.vc.i.se.e16m1
-    riscv_sf_vc_i_se_e16m2,                    // llvm.riscv.sf.vc.i.se.e16m2
-    riscv_sf_vc_i_se_e16m4,                    // llvm.riscv.sf.vc.i.se.e16m4
-    riscv_sf_vc_i_se_e16m8,                    // llvm.riscv.sf.vc.i.se.e16m8
-    riscv_sf_vc_i_se_e16mf2,                   // llvm.riscv.sf.vc.i.se.e16mf2
-    riscv_sf_vc_i_se_e16mf4,                   // llvm.riscv.sf.vc.i.se.e16mf4
-    riscv_sf_vc_i_se_e32m1,                    // llvm.riscv.sf.vc.i.se.e32m1
-    riscv_sf_vc_i_se_e32m2,                    // llvm.riscv.sf.vc.i.se.e32m2
-    riscv_sf_vc_i_se_e32m4,                    // llvm.riscv.sf.vc.i.se.e32m4
-    riscv_sf_vc_i_se_e32m8,                    // llvm.riscv.sf.vc.i.se.e32m8
-    riscv_sf_vc_i_se_e32mf2,                   // llvm.riscv.sf.vc.i.se.e32mf2
-    riscv_sf_vc_i_se_e64m1,                    // llvm.riscv.sf.vc.i.se.e64m1
-    riscv_sf_vc_i_se_e64m2,                    // llvm.riscv.sf.vc.i.se.e64m2
-    riscv_sf_vc_i_se_e64m4,                    // llvm.riscv.sf.vc.i.se.e64m4
-    riscv_sf_vc_i_se_e64m8,                    // llvm.riscv.sf.vc.i.se.e64m8
-    riscv_sf_vc_i_se_e8m1,                     // llvm.riscv.sf.vc.i.se.e8m1
-    riscv_sf_vc_i_se_e8m2,                     // llvm.riscv.sf.vc.i.se.e8m2
-    riscv_sf_vc_i_se_e8m4,                     // llvm.riscv.sf.vc.i.se.e8m4
-    riscv_sf_vc_i_se_e8m8,                     // llvm.riscv.sf.vc.i.se.e8m8
-    riscv_sf_vc_i_se_e8mf2,                    // llvm.riscv.sf.vc.i.se.e8mf2
-    riscv_sf_vc_i_se_e8mf4,                    // llvm.riscv.sf.vc.i.se.e8mf4
-    riscv_sf_vc_i_se_e8mf8,                    // llvm.riscv.sf.vc.i.se.e8mf8
+    riscv_sf_vc_i_se,                          // llvm.riscv.sf.vc.i.se
     riscv_sf_vc_iv_se,                         // llvm.riscv.sf.vc.iv.se
     riscv_sf_vc_ivv_se,                        // llvm.riscv.sf.vc.ivv.se
     riscv_sf_vc_ivw_se,                        // llvm.riscv.sf.vc.ivw.se
@@ -129,28 +138,7 @@ enum RISCVIntrinsics : unsigned {
     riscv_sf_vc_vv_se,                         // llvm.riscv.sf.vc.vv.se
     riscv_sf_vc_vvv_se,                        // llvm.riscv.sf.vc.vvv.se
     riscv_sf_vc_vvw_se,                        // llvm.riscv.sf.vc.vvw.se
-    riscv_sf_vc_x_se_e16m1,                    // llvm.riscv.sf.vc.x.se.e16m1
-    riscv_sf_vc_x_se_e16m2,                    // llvm.riscv.sf.vc.x.se.e16m2
-    riscv_sf_vc_x_se_e16m4,                    // llvm.riscv.sf.vc.x.se.e16m4
-    riscv_sf_vc_x_se_e16m8,                    // llvm.riscv.sf.vc.x.se.e16m8
-    riscv_sf_vc_x_se_e16mf2,                   // llvm.riscv.sf.vc.x.se.e16mf2
-    riscv_sf_vc_x_se_e16mf4,                   // llvm.riscv.sf.vc.x.se.e16mf4
-    riscv_sf_vc_x_se_e32m1,                    // llvm.riscv.sf.vc.x.se.e32m1
-    riscv_sf_vc_x_se_e32m2,                    // llvm.riscv.sf.vc.x.se.e32m2
-    riscv_sf_vc_x_se_e32m4,                    // llvm.riscv.sf.vc.x.se.e32m4
-    riscv_sf_vc_x_se_e32m8,                    // llvm.riscv.sf.vc.x.se.e32m8
-    riscv_sf_vc_x_se_e32mf2,                   // llvm.riscv.sf.vc.x.se.e32mf2
-    riscv_sf_vc_x_se_e64m1,                    // llvm.riscv.sf.vc.x.se.e64m1
-    riscv_sf_vc_x_se_e64m2,                    // llvm.riscv.sf.vc.x.se.e64m2
-    riscv_sf_vc_x_se_e64m4,                    // llvm.riscv.sf.vc.x.se.e64m4
-    riscv_sf_vc_x_se_e64m8,                    // llvm.riscv.sf.vc.x.se.e64m8
-    riscv_sf_vc_x_se_e8m1,                     // llvm.riscv.sf.vc.x.se.e8m1
-    riscv_sf_vc_x_se_e8m2,                     // llvm.riscv.sf.vc.x.se.e8m2
-    riscv_sf_vc_x_se_e8m4,                     // llvm.riscv.sf.vc.x.se.e8m4
-    riscv_sf_vc_x_se_e8m8,                     // llvm.riscv.sf.vc.x.se.e8m8
-    riscv_sf_vc_x_se_e8mf2,                    // llvm.riscv.sf.vc.x.se.e8mf2
-    riscv_sf_vc_x_se_e8mf4,                    // llvm.riscv.sf.vc.x.se.e8mf4
-    riscv_sf_vc_x_se_e8mf8,                    // llvm.riscv.sf.vc.x.se.e8mf8
+    riscv_sf_vc_x_se,                          // llvm.riscv.sf.vc.x.se
     riscv_sf_vc_xv_se,                         // llvm.riscv.sf.vc.xv.se
     riscv_sf_vc_xvv_se,                        // llvm.riscv.sf.vc.xvv.se
     riscv_sf_vc_xvw_se,                        // llvm.riscv.sf.vc.xvw.se

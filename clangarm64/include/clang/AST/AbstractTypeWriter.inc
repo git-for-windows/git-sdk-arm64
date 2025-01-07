@@ -22,6 +22,8 @@ public:
       return writeDecayedType(static_cast<const DecayedType *>(node));
     case Type::ConstantArray:
       return writeConstantArrayType(static_cast<const ConstantArrayType *>(node));
+    case Type::ArrayParameter:
+      return writeArrayParameterType(static_cast<const ArrayParameterType *>(node));
     case Type::DependentSizedArray:
       return writeDependentSizedArrayType(static_cast<const DependentSizedArrayType *>(node));
     case Type::IncompleteArray:
@@ -38,6 +40,8 @@ public:
       return writeBitIntType(static_cast<const BitIntType *>(node));
     case Type::BlockPointer:
       return writeBlockPointerType(static_cast<const BlockPointerType *>(node));
+    case Type::CountAttributed:
+      return writeCountAttributedType(static_cast<const CountAttributedType *>(node));
     case Type::Builtin:
       return writeBuiltinType(static_cast<const BuiltinType *>(node));
     case Type::Complex:
@@ -86,6 +90,8 @@ public:
       return writeObjCTypeParamType(static_cast<const ObjCTypeParamType *>(node));
     case Type::PackExpansion:
       return writePackExpansionType(static_cast<const PackExpansionType *>(node));
+    case Type::PackIndexing:
+      return writePackIndexingType(static_cast<const PackIndexingType *>(node));
     case Type::Paren:
       return writeParenType(static_cast<const ParenType *>(node));
     case Type::Pipe:
@@ -141,6 +147,19 @@ public:
   }
 
   void writeConstantArrayType(const ConstantArrayType *node) {
+    llvm::APInt sizeValue = ( node->getSize() );
+    W.find("sizeValue").writeAPInt(sizeValue);
+    const Expr* size = ( node->getSizeExpr() );
+    W.find("size").writeExprRef(size);
+    QualType elementType = ( node->getElementType() );
+    W.find("elementType").writeQualType(elementType);
+    ArraySizeModifier sizeModifier = ( node->getSizeModifier() );
+    W.find("sizeModifier").writeArraySizeModifier(sizeModifier);
+    Qualifiers indexQualifiers = ( Qualifiers::fromCVRMask(node->getIndexTypeCVRQualifiers()) );
+    W.find("indexQualifiers").writeQualifiers(indexQualifiers);
+  }
+
+  void writeArrayParameterType(const ArrayParameterType *node) {
     llvm::APInt sizeValue = ( node->getSize() );
     W.find("sizeValue").writeAPInt(sizeValue);
     const Expr* size = ( node->getSizeExpr() );
@@ -223,6 +242,19 @@ public:
   void writeBlockPointerType(const BlockPointerType *node) {
     QualType pointeeType = ( node->getPointeeType() );
     W.find("pointeeType").writeQualType(pointeeType);
+  }
+
+  void writeCountAttributedType(const CountAttributedType *node) {
+    QualType WrappedTy = ( node->desugar() );
+    W.find("WrappedTy").writeQualType(WrappedTy);
+    const Expr* CountExpr = ( node->getCountExpr() );
+    W.find("CountExpr").writeExprRef(CountExpr);
+    bool CountInBytes = ( node->isCountInBytes() );
+    W.find("CountInBytes").writeBool(CountInBytes);
+    bool OrNull = ( node->isOrNull() );
+    W.find("OrNull").writeBool(OrNull);
+    llvm::ArrayRef<TypeCoupledDeclRefInfo> CoupledDecls = ( node->getCoupledDecls() );
+    W.find("CoupledDecls").writeArray(CoupledDecls);
   }
 
   void writeBuiltinType(const BuiltinType *node) {
@@ -382,6 +414,10 @@ public:
     W.find("extParameterInfo").writeArray(extParameterInfo);
     uint32_t AArch64SMEAttributes = ( node->getAArch64SMEAttributes() );
     W.find("AArch64SMEAttributes").writeUInt32(AArch64SMEAttributes);
+    llvm::ArrayRef<FunctionEffect> functionEffects = ( node->getFunctionEffectsWithoutConditions() );
+    W.find("functionEffects").writeArray(functionEffects);
+    llvm::ArrayRef<EffectConditionExpr> functionEffectConds = ( node->getFunctionEffectConditions() );
+    W.find("functionEffectConds").writeArray(functionEffectConds);
     QualType returnType = ( node->getReturnType() );
     W.find("returnType").writeQualType(returnType);
     bool noReturn = ( node->getExtInfo().getNoReturn() );
@@ -476,6 +512,13 @@ public:
     W.find("pattern").writeQualType(pattern);
     std::optional<uint32_t> numExpansions = ( node->getNumExpansions() );
     W.find("numExpansions").writeOptional(numExpansions);
+  }
+
+  void writePackIndexingType(const PackIndexingType *node) {
+    QualType pattern = ( node->getPattern() );
+    W.find("pattern").writeQualType(pattern);
+    const Expr* indexExpression = ( node->getIndexExpr() );
+    W.find("indexExpression").writeExprRef(indexExpression);
   }
 
   void writeParenType(const ParenType *node) {

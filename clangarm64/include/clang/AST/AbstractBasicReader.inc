@@ -122,6 +122,13 @@ struct ReadDispatcher<DeclarationName::NameKind> {
   }
 };
 template <>
+struct ReadDispatcher<EffectConditionExpr> {
+  template <class BasicReader, class... Args>
+  static EffectConditionExpr read(BasicReader &R, Args &&... args) {
+    return R.readEffectConditionExpr(std::forward<Args>(args)...);
+  }
+};
+template <>
 struct ReadDispatcher<ElaboratedTypeKeyword> {
   template <class BasicReader, class... Args>
   static ElaboratedTypeKeyword read(BasicReader &R, Args &&... args) {
@@ -161,6 +168,13 @@ struct ReadDispatcher<FunctionDecl*> {
   template <class BasicReader, class... Args>
   static FunctionDecl* read(BasicReader &R, Args &&... args) {
     return R.readFunctionDeclRef(std::forward<Args>(args)...);
+  }
+};
+template <>
+struct ReadDispatcher<FunctionEffect> {
+  template <class BasicReader, class... Args>
+  static FunctionEffect read(BasicReader &R, Args &&... args) {
+    return R.readFunctionEffect(std::forward<Args>(args)...);
   }
 };
 template <>
@@ -336,6 +350,13 @@ struct ReadDispatcher<TemplateTypeParmDecl*> {
   template <class BasicReader, class... Args>
   static TemplateTypeParmDecl* read(BasicReader &R, Args &&... args) {
     return R.readTemplateTypeParmDeclRef(std::forward<Args>(args)...);
+  }
+};
+template <>
+struct ReadDispatcher<TypeCoupledDeclRefInfo> {
+  template <class BasicReader, class... Args>
+  static TypeCoupledDeclRefInfo read(BasicReader &R, Args &&... args) {
+    return R.readTypeCoupledDeclRefInfo(std::forward<Args>(args)...);
   }
 };
 template <>

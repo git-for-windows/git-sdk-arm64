@@ -235,6 +235,42 @@ ImmChecks.push_back(std::make_tuple(3, 15, 0));
 case SVE::BI__builtin_sve_svdot_lane_u64:
 ImmChecks.push_back(std::make_tuple(3, 9, 16));
   break;
+case SVE::BI__builtin_sve_svdup_laneq_bf16:
+ImmChecks.push_back(std::make_tuple(1, 6, 0));
+  break;
+case SVE::BI__builtin_sve_svdup_laneq_f16:
+ImmChecks.push_back(std::make_tuple(1, 6, 0));
+  break;
+case SVE::BI__builtin_sve_svdup_laneq_f32:
+ImmChecks.push_back(std::make_tuple(1, 15, 0));
+  break;
+case SVE::BI__builtin_sve_svdup_laneq_f64:
+ImmChecks.push_back(std::make_tuple(1, 13, 0));
+  break;
+case SVE::BI__builtin_sve_svdup_laneq_s16:
+ImmChecks.push_back(std::make_tuple(1, 6, 0));
+  break;
+case SVE::BI__builtin_sve_svdup_laneq_s32:
+ImmChecks.push_back(std::make_tuple(1, 15, 0));
+  break;
+case SVE::BI__builtin_sve_svdup_laneq_s64:
+ImmChecks.push_back(std::make_tuple(1, 13, 0));
+  break;
+case SVE::BI__builtin_sve_svdup_laneq_s8:
+ImmChecks.push_back(std::make_tuple(1, 17, 0));
+  break;
+case SVE::BI__builtin_sve_svdup_laneq_u16:
+ImmChecks.push_back(std::make_tuple(1, 6, 0));
+  break;
+case SVE::BI__builtin_sve_svdup_laneq_u32:
+ImmChecks.push_back(std::make_tuple(1, 15, 0));
+  break;
+case SVE::BI__builtin_sve_svdup_laneq_u64:
+ImmChecks.push_back(std::make_tuple(1, 13, 0));
+  break;
+case SVE::BI__builtin_sve_svdup_laneq_u8:
+ImmChecks.push_back(std::make_tuple(1, 17, 0));
+  break;
 case SVE::BI__builtin_sve_svext_bf16:
 ImmChecks.push_back(std::make_tuple(2, 2, 16));
   break;

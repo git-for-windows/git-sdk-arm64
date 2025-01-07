@@ -152,6 +152,12 @@ PARENLISTEXPR(ParenListExpr, Expr)
 PARENEXPR(ParenExpr, Expr)
 #undef PARENEXPR
 
+#ifndef PACKINDEXINGEXPR
+#  define PACKINDEXINGEXPR(Type, Base) EXPR(Type, Base)
+#endif
+PACKINDEXINGEXPR(PackIndexingExpr, Expr)
+#undef PACKINDEXINGEXPR
+
 #ifndef PACKEXPANSIONEXPR
 #  define PACKEXPANSIONEXPR(Type, Base) EXPR(Type, Base)
 #endif
@@ -292,12 +298,6 @@ OMPITERATOREXPR(OMPIteratorExpr, Expr)
 OMPARRAYSHAPINGEXPR(OMPArrayShapingExpr, Expr)
 #undef OMPARRAYSHAPINGEXPR
 
-#ifndef OMPARRAYSECTIONEXPR
-#  define OMPARRAYSECTIONEXPR(Type, Base) EXPR(Type, Base)
-#endif
-OMPARRAYSECTIONEXPR(OMPArraySectionExpr, Expr)
-#undef OMPARRAYSECTIONEXPR
-
 #ifndef NOINITEXPR
 #  define NOINITEXPR(Type, Base) EXPR(Type, Base)
 #endif
@@ -425,6 +425,12 @@ EXTVECTORELEMENTEXPR(ExtVectorElementExpr, Expr)
 #endif
 EXPRESSIONTRAITEXPR(ExpressionTraitExpr, Expr)
 #undef EXPRESSIONTRAITEXPR
+
+#ifndef EMBEDEXPR
+#  define EMBEDEXPR(Type, Base) EXPR(Type, Base)
+#endif
+EMBEDEXPR(EmbedExpr, Expr)
+#undef EMBEDEXPR
 
 #ifndef DESIGNATEDINITUPDATEEXPR
 #  define DESIGNATEDINITUPDATEEXPR(Type, Base) EXPR(Type, Base)
@@ -806,6 +812,12 @@ ARRAYTYPETRAITEXPR(ArrayTypeTraitExpr, Expr)
 ARRAYSUBSCRIPTEXPR(ArraySubscriptExpr, Expr)
 #undef ARRAYSUBSCRIPTEXPR
 
+#ifndef ARRAYSECTIONEXPR
+#  define ARRAYSECTIONEXPR(Type, Base) EXPR(Type, Base)
+#endif
+ARRAYSECTIONEXPR(ArraySectionExpr, Expr)
+#undef ARRAYSECTIONEXPR
+
 #ifndef ARRAYINITLOOPEXPR
 #  define ARRAYINITLOOPEXPR(Type, Base) EXPR(Type, Base)
 #endif
@@ -913,6 +925,34 @@ SEHEXCEPTSTMT(SEHExceptStmt, Stmt)
 #endif
 RETURNSTMT(ReturnStmt, Stmt)
 #undef RETURNSTMT
+
+#ifndef OPENACCCONSTRUCTSTMT
+#  define OPENACCCONSTRUCTSTMT(Type, Base) STMT(Type, Base)
+#endif
+ABSTRACT_STMT(OPENACCCONSTRUCTSTMT(OpenACCConstructStmt, Stmt))
+#ifndef OPENACCASSOCIATEDSTMTCONSTRUCT
+#  define OPENACCASSOCIATEDSTMTCONSTRUCT(Type, Base) OPENACCCONSTRUCTSTMT(Type, Base)
+#endif
+ABSTRACT_STMT(OPENACCASSOCIATEDSTMTCONSTRUCT(OpenACCAssociatedStmtConstruct, OpenACCConstructStmt))
+#ifndef OPENACCLOOPCONSTRUCT
+#  define OPENACCLOOPCONSTRUCT(Type, Base) OPENACCASSOCIATEDSTMTCONSTRUCT(Type, Base)
+#endif
+OPENACCLOOPCONSTRUCT(OpenACCLoopConstruct, OpenACCAssociatedStmtConstruct)
+#undef OPENACCLOOPCONSTRUCT
+
+#ifndef OPENACCCOMPUTECONSTRUCT
+#  define OPENACCCOMPUTECONSTRUCT(Type, Base) OPENACCASSOCIATEDSTMTCONSTRUCT(Type, Base)
+#endif
+OPENACCCOMPUTECONSTRUCT(OpenACCComputeConstruct, OpenACCAssociatedStmtConstruct)
+#undef OPENACCCOMPUTECONSTRUCT
+
+STMT_RANGE(OpenACCAssociatedStmtConstruct, OpenACCLoopConstruct, OpenACCComputeConstruct)
+
+#undef OPENACCASSOCIATEDSTMTCONSTRUCT
+
+STMT_RANGE(OpenACCConstructStmt, OpenACCLoopConstruct, OpenACCComputeConstruct)
+
+#undef OPENACCCONSTRUCTSTMT
 
 #ifndef OBJCFORCOLLECTIONSTMT
 #  define OBJCFORCOLLECTIONSTMT(Type, Base) STMT(Type, Base)
@@ -1136,7 +1176,19 @@ OMPUNROLLDIRECTIVE(OMPUnrollDirective, OMPLoopTransformationDirective)
 OMPTILEDIRECTIVE(OMPTileDirective, OMPLoopTransformationDirective)
 #undef OMPTILEDIRECTIVE
 
-STMT_RANGE(OMPLoopTransformationDirective, OMPUnrollDirective, OMPTileDirective)
+#ifndef OMPREVERSEDIRECTIVE
+#  define OMPREVERSEDIRECTIVE(Type, Base) OMPLOOPTRANSFORMATIONDIRECTIVE(Type, Base)
+#endif
+OMPREVERSEDIRECTIVE(OMPReverseDirective, OMPLoopTransformationDirective)
+#undef OMPREVERSEDIRECTIVE
+
+#ifndef OMPINTERCHANGEDIRECTIVE
+#  define OMPINTERCHANGEDIRECTIVE(Type, Base) OMPLOOPTRANSFORMATIONDIRECTIVE(Type, Base)
+#endif
+OMPINTERCHANGEDIRECTIVE(OMPInterchangeDirective, OMPLoopTransformationDirective)
+#undef OMPINTERCHANGEDIRECTIVE
+
+STMT_RANGE(OMPLoopTransformationDirective, OMPUnrollDirective, OMPInterchangeDirective)
 
 #undef OMPLOOPTRANSFORMATIONDIRECTIVE
 

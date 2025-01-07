@@ -38,6 +38,16 @@
     Record.push_back(A->isPackExpansion());
     break;
   }
+  case attr::AMDGPUMaxNumWorkGroups: {
+    const auto *SA = cast<AMDGPUMaxNumWorkGroupsAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    Record.AddStmt(SA->getMaxNumWorkGroupsX());
+    Record.AddStmt(SA->getMaxNumWorkGroupsY());
+    Record.AddStmt(SA->getMaxNumWorkGroupsZ());
+    break;
+  }
   case attr::AMDGPUNumSGPR: {
     const auto *SA = cast<AMDGPUNumSGPRAttr>(A);
     Record.push_back(SA->isInherited());
@@ -194,6 +204,11 @@ Record.push_back(static_cast<uint64_t>(SA->getInterrupt()));
     Record.push_back(A->isPackExpansion());
     Record.push_back(SA->getElemSizeParam().serialize());
     Record.push_back(SA->getNumElemsParam().serialize());
+    break;
+  }
+  case attr::Allocating: {
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
     break;
   }
   case attr::AlwaysDestroy: {
@@ -414,14 +429,6 @@ Record.push_back(static_cast<uint64_t>(SA->getInterrupt()));
     Record.AddStmt(SA->getOffset());
     break;
   }
-  case attr::Assumption: {
-    const auto *SA = cast<AssumptionAttr>(A);
-    Record.push_back(SA->isInherited());
-    Record.push_back(A->isImplicit());
-    Record.push_back(A->isPackExpansion());
-    Record.AddString(SA->getAssumption());
-    break;
-  }
   case attr::Availability: {
     const auto *SA = cast<AvailabilityAttr>(A);
     Record.push_back(SA->isInherited());
@@ -436,6 +443,7 @@ Record.push_back(static_cast<uint64_t>(SA->getInterrupt()));
     Record.push_back(SA->getStrict());
     Record.AddString(SA->getReplacement());
     Record.push_back(SA->getPriority());
+    Record.AddIdentifierRef(SA->getEnvironment());
     break;
   }
   case attr::AvailableOnlyInDefaultEvalMethod: {
@@ -472,6 +480,11 @@ Record.push_back(static_cast<uint64_t>(SA->getInterrupt()));
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
     Record.AddString(SA->getBTFTypeTag());
+    break;
+  }
+  case attr::Blocking: {
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
     break;
   }
   case attr::Blocks: {
@@ -654,6 +667,13 @@ Record.push_back(static_cast<uint64_t>(SA->getGuard()));
     Record.push_back(A->isPackExpansion());
     break;
   }
+  case attr::CXXAssume: {
+    const auto *SA = cast<CXXAssumeAttr>(A);
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    Record.AddStmt(SA->getAssumption());
+    break;
+  }
   case attr::CallableWhen: {
     const auto *SA = cast<CallableWhenAttr>(A);
     Record.push_back(SA->isInherited());
@@ -707,6 +727,13 @@ Record.push_back(static_cast<uint64_t>(SA->getGuard()));
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
     Record.AddDeclRef(SA->getFunctionDecl());
+    break;
+  }
+  case attr::ClspvLibclcBuiltin: {
+    const auto *SA = cast<ClspvLibclcBuiltinAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
     break;
   }
   case attr::CmseNSCall: {
@@ -849,7 +876,17 @@ Record.push_back(static_cast<uint64_t>(SA->getDefaultState()));
     Record.push_back(SA->isInherited());
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
-    Record.AddIdentifierRef(SA->getCountedByField());
+    Record.AddStmt(SA->getCount());
+    Record.push_back(SA->getNestedLevel());
+    break;
+  }
+  case attr::CountedByOrNull: {
+    const auto *SA = cast<CountedByOrNullAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    Record.AddStmt(SA->getCount());
+    Record.push_back(SA->getNestedLevel());
     break;
   }
   case attr::DLLExport: {
@@ -1104,6 +1141,13 @@ Record.push_back(static_cast<uint64_t>(SA->getThunkType()));
     Record.push_back(A->isPackExpansion());
     break;
   }
+  case attr::HLSLLoopHint: {
+    const auto *SA = cast<HLSLLoopHintAttr>(A);
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    Record.push_back(SA->getDirective());
+    break;
+  }
   case attr::HLSLNumThreads: {
     const auto *SA = cast<HLSLNumThreadsAttr>(A);
     Record.push_back(SA->isInherited());
@@ -1112,6 +1156,15 @@ Record.push_back(static_cast<uint64_t>(SA->getThunkType()));
     Record.push_back(SA->getX());
     Record.push_back(SA->getY());
     Record.push_back(SA->getZ());
+    break;
+  }
+  case attr::HLSLPackOffset: {
+    const auto *SA = cast<HLSLPackOffsetAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    Record.push_back(SA->getSubcomponent());
+    Record.push_back(SA->getComponent());
     break;
   }
   case attr::HLSLParamModifier: {
@@ -1126,7 +1179,6 @@ Record.push_back(static_cast<uint64_t>(SA->getThunkType()));
     Record.push_back(SA->isInherited());
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
-Record.push_back(static_cast<uint64_t>(SA->getResourceClass()));
 Record.push_back(static_cast<uint64_t>(SA->getResourceKind()));
     Record.push_back(SA->getIsROV());
     break;
@@ -1138,6 +1190,14 @@ Record.push_back(static_cast<uint64_t>(SA->getResourceKind()));
     Record.push_back(A->isPackExpansion());
     Record.AddString(SA->getSlot());
     Record.AddString(SA->getSpace());
+    break;
+  }
+  case attr::HLSLResourceClass: {
+    const auto *SA = cast<HLSLResourceClassAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+Record.push_back(static_cast<uint64_t>(SA->getResourceClass()));
     break;
   }
   case attr::HLSLSV_DispatchThreadID: {
@@ -1164,6 +1224,13 @@ Record.push_back(static_cast<uint64_t>(SA->getType()));
   }
   case attr::Hot: {
     const auto *SA = cast<HotAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    break;
+  }
+  case attr::HybridPatchable: {
+    const auto *SA = cast<HybridPatchableAttr>(A);
     Record.push_back(SA->isInherited());
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
@@ -1685,6 +1752,20 @@ Record.push_back(static_cast<uint64_t>(SA->getInterrupt()));
     Record.push_back(A->isPackExpansion());
     break;
   }
+  case attr::NonAllocating: {
+    const auto *SA = cast<NonAllocatingAttr>(A);
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    Record.AddStmt(SA->getCond());
+    break;
+  }
+  case attr::NonBlocking: {
+    const auto *SA = cast<NonBlockingAttr>(A);
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    Record.AddStmt(SA->getCond());
+    break;
+  }
   case attr::NonNull: {
     const auto *SA = cast<NonNullAttr>(A);
     Record.push_back(SA->isInherited());
@@ -1710,6 +1791,14 @@ Record.push_back(static_cast<uint64_t>(SA->getInterrupt()));
 Record.push_back(static_cast<uint64_t>(SA->getAllocatorType()));
     Record.AddStmt(SA->getAllocator());
     Record.AddStmt(SA->getAlignment());
+    break;
+  }
+  case attr::OMPAssume: {
+    const auto *SA = cast<OMPAssumeAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    Record.AddString(SA->getAssumption());
     break;
   }
   case attr::OMPCaptureKind: {
@@ -2248,6 +2337,13 @@ Record.push_back(static_cast<uint64_t>(SA->getPCS()));
     Record.push_back(A->isPackExpansion());
     break;
   }
+  case attr::PreserveNone: {
+    const auto *SA = cast<PreserveNoneAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    break;
+  }
   case attr::PtGuardedBy: {
     const auto *SA = cast<PtGuardedByAttr>(A);
     Record.push_back(SA->isInherited());
@@ -2286,6 +2382,13 @@ Record.push_back(static_cast<uint64_t>(SA->getPCS()));
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
 Record.push_back(static_cast<uint64_t>(SA->getInterrupt()));
+    break;
+  }
+  case attr::RISCVVectorCC: {
+    const auto *SA = cast<RISCVVectorCCAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
     break;
   }
   case attr::RandomizeLayout: {
@@ -2462,6 +2565,24 @@ Record.push_back(static_cast<uint64_t>(SA->getNewState()));
     Record.push_back(SA->args_size());
     for (auto &Val : SA->args())
       Record.AddStmt(Val);
+    break;
+  }
+  case attr::SizedBy: {
+    const auto *SA = cast<SizedByAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    Record.AddStmt(SA->getSize());
+    Record.push_back(SA->getNestedLevel());
+    break;
+  }
+  case attr::SizedByOrNull: {
+    const auto *SA = cast<SizedByOrNullAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    Record.AddStmt(SA->getSize());
+    Record.push_back(SA->getNestedLevel());
     break;
   }
   case attr::SpeculativeLoadHardening: {
@@ -2764,6 +2885,8 @@ Record.push_back(static_cast<uint64_t>(SA->getTestState()));
     break;
   }
   case attr::TypeNullable: {
+    const auto *SA = cast<TypeNullableAttr>(A);
+    Record.push_back(SA->isInherited());
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
     break;
@@ -2861,6 +2984,17 @@ Record.push_back(static_cast<uint64_t>(SA->getImplicitReason()));
     Record.push_back(A->isPackExpansion());
     Record.AddString(SA->getGuid());
     Record.AddDeclRef(SA->getGuidDecl());
+    break;
+  }
+  case attr::VTablePointerAuthentication: {
+    const auto *SA = cast<VTablePointerAuthenticationAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+Record.push_back(static_cast<uint64_t>(SA->getKey()));
+Record.push_back(static_cast<uint64_t>(SA->getAddressDiscrimination()));
+Record.push_back(static_cast<uint64_t>(SA->getExtraDiscrimination()));
+    Record.push_back(SA->getCustomDiscriminationValue());
     break;
   }
   case attr::VecReturn: {

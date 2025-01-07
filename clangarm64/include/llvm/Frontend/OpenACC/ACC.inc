@@ -1333,6 +1333,7 @@ __CLAUSE_NO_CLASS(write)
 
 #undef __IMPLICIT_CLAUSE_NO_CLASS
 #undef __IMPLICIT_CLAUSE_CLASS
+#undef __CLAUSE_NO_CLASS
 #undef __CLAUSE
 #undef CLAUSE_NO_CLASS
 #undef CLAUSE_CLASS
@@ -1342,6 +1343,8 @@ __CLAUSE_NO_CLASS(write)
 
 #ifdef GEN_DIRECTIVES_IMPL
 #undef GEN_DIRECTIVES_IMPL
+
+#include "llvm/Support/ErrorHandling.h"
 
 Directive llvm::acc::getOpenACCDirectiveKind(llvm::StringRef Str) {
   return llvm::StringSwitch<Directive>(Str)
@@ -2122,6 +2125,133 @@ bool llvm::acc::isAllowedClauseForDirective(Directive D, Clause C, unsigned Vers
   }
   llvm_unreachable("Invalid OpenACC Directive kind");
 }
+
+llvm::acc::Association llvm::acc::getDirectiveAssociation(llvm::acc::Directive Dir) {
+  switch (Dir) {
+  case llvm::acc::Directive::ACCD_atomic:
+    return llvm::acc::Association::Block;
+  case llvm::acc::Directive::ACCD_cache:
+    return llvm::acc::Association::None;
+  case llvm::acc::Directive::ACCD_data:
+    return llvm::acc::Association::Block;
+  case llvm::acc::Directive::ACCD_declare:
+    return llvm::acc::Association::None;
+  case llvm::acc::Directive::ACCD_enter_data:
+    return llvm::acc::Association::None;
+  case llvm::acc::Directive::ACCD_exit_data:
+    return llvm::acc::Association::None;
+  case llvm::acc::Directive::ACCD_host_data:
+    return llvm::acc::Association::Block;
+  case llvm::acc::Directive::ACCD_init:
+    return llvm::acc::Association::None;
+  case llvm::acc::Directive::ACCD_kernels:
+    return llvm::acc::Association::Block;
+  case llvm::acc::Directive::ACCD_kernels_loop:
+    return llvm::acc::Association::Loop;
+  case llvm::acc::Directive::ACCD_loop:
+    return llvm::acc::Association::Loop;
+  case llvm::acc::Directive::ACCD_parallel:
+    return llvm::acc::Association::Block;
+  case llvm::acc::Directive::ACCD_parallel_loop:
+    return llvm::acc::Association::Loop;
+  case llvm::acc::Directive::ACCD_routine:
+    return llvm::acc::Association::Declaration;
+  case llvm::acc::Directive::ACCD_serial:
+    return llvm::acc::Association::Block;
+  case llvm::acc::Directive::ACCD_serial_loop:
+    return llvm::acc::Association::Loop;
+  case llvm::acc::Directive::ACCD_set:
+    return llvm::acc::Association::None;
+  case llvm::acc::Directive::ACCD_shutdown:
+    return llvm::acc::Association::None;
+  case llvm::acc::Directive::ACCD_unknown:
+    return llvm::acc::Association::None;
+  case llvm::acc::Directive::ACCD_update:
+    return llvm::acc::Association::None;
+  case llvm::acc::Directive::ACCD_wait:
+    return llvm::acc::Association::None;
+  } // switch (Dir)
+  llvm_unreachable("Unexpected directive");
+}
+
+llvm::acc::Category llvm::acc::getDirectiveCategory(llvm::acc::Directive Dir) {
+  switch (Dir) {
+  case llvm::acc::ACCD_atomic:
+    return llvm::acc::Category::Executable;
+  case llvm::acc::ACCD_cache:
+    return llvm::acc::Category::Executable;
+  case llvm::acc::ACCD_data:
+    return llvm::acc::Category::Executable;
+  case llvm::acc::ACCD_declare:
+    return llvm::acc::Category::Declarative;
+  case llvm::acc::ACCD_enter_data:
+    return llvm::acc::Category::Executable;
+  case llvm::acc::ACCD_exit_data:
+    return llvm::acc::Category::Executable;
+  case llvm::acc::ACCD_host_data:
+    return llvm::acc::Category::Executable;
+  case llvm::acc::ACCD_init:
+    return llvm::acc::Category::Executable;
+  case llvm::acc::ACCD_kernels:
+    return llvm::acc::Category::Executable;
+  case llvm::acc::ACCD_kernels_loop:
+    return llvm::acc::Category::Executable;
+  case llvm::acc::ACCD_loop:
+    return llvm::acc::Category::Executable;
+  case llvm::acc::ACCD_parallel:
+    return llvm::acc::Category::Executable;
+  case llvm::acc::ACCD_parallel_loop:
+    return llvm::acc::Category::Executable;
+  case llvm::acc::ACCD_routine:
+    return llvm::acc::Category::Declarative;
+  case llvm::acc::ACCD_serial:
+    return llvm::acc::Category::Executable;
+  case llvm::acc::ACCD_serial_loop:
+    return llvm::acc::Category::Executable;
+  case llvm::acc::ACCD_set:
+    return llvm::acc::Category::Executable;
+  case llvm::acc::ACCD_shutdown:
+    return llvm::acc::Category::Executable;
+  case llvm::acc::ACCD_unknown:
+    return llvm::acc::Category::Utility;
+  case llvm::acc::ACCD_update:
+    return llvm::acc::Category::Executable;
+  case llvm::acc::ACCD_wait:
+    return llvm::acc::Category::Executable;
+  } // switch (Dir)
+  llvm_unreachable("Unexpected directive");
+}
+
+static_assert(sizeof(llvm::acc::Directive) == sizeof(int));
+[[maybe_unused]] static const llvm::acc::Directive LeafConstructTable[][4] = {
+    {llvm::acc::ACCD_atomic, static_cast<llvm::acc::Directive>(0), static_cast<llvm::acc::Directive>(-1), static_cast<llvm::acc::Directive>(-1),},
+    {llvm::acc::ACCD_cache, static_cast<llvm::acc::Directive>(0), static_cast<llvm::acc::Directive>(-1), static_cast<llvm::acc::Directive>(-1),},
+    {llvm::acc::ACCD_data, static_cast<llvm::acc::Directive>(0), static_cast<llvm::acc::Directive>(-1), static_cast<llvm::acc::Directive>(-1),},
+    {llvm::acc::ACCD_declare, static_cast<llvm::acc::Directive>(0), static_cast<llvm::acc::Directive>(-1), static_cast<llvm::acc::Directive>(-1),},
+    {llvm::acc::ACCD_enter_data, static_cast<llvm::acc::Directive>(0), static_cast<llvm::acc::Directive>(-1), static_cast<llvm::acc::Directive>(-1),},
+    {llvm::acc::ACCD_exit_data, static_cast<llvm::acc::Directive>(0), static_cast<llvm::acc::Directive>(-1), static_cast<llvm::acc::Directive>(-1),},
+    {llvm::acc::ACCD_host_data, static_cast<llvm::acc::Directive>(0), static_cast<llvm::acc::Directive>(-1), static_cast<llvm::acc::Directive>(-1),},
+    {llvm::acc::ACCD_init, static_cast<llvm::acc::Directive>(0), static_cast<llvm::acc::Directive>(-1), static_cast<llvm::acc::Directive>(-1),},
+    {llvm::acc::ACCD_kernels, static_cast<llvm::acc::Directive>(0), static_cast<llvm::acc::Directive>(-1), static_cast<llvm::acc::Directive>(-1),},
+    {llvm::acc::ACCD_loop, static_cast<llvm::acc::Directive>(0), static_cast<llvm::acc::Directive>(-1), static_cast<llvm::acc::Directive>(-1),},
+    {llvm::acc::ACCD_parallel, static_cast<llvm::acc::Directive>(0), static_cast<llvm::acc::Directive>(-1), static_cast<llvm::acc::Directive>(-1),},
+    {llvm::acc::ACCD_routine, static_cast<llvm::acc::Directive>(0), static_cast<llvm::acc::Directive>(-1), static_cast<llvm::acc::Directive>(-1),},
+    {llvm::acc::ACCD_serial, static_cast<llvm::acc::Directive>(0), static_cast<llvm::acc::Directive>(-1), static_cast<llvm::acc::Directive>(-1),},
+    {llvm::acc::ACCD_set, static_cast<llvm::acc::Directive>(0), static_cast<llvm::acc::Directive>(-1), static_cast<llvm::acc::Directive>(-1),},
+    {llvm::acc::ACCD_shutdown, static_cast<llvm::acc::Directive>(0), static_cast<llvm::acc::Directive>(-1), static_cast<llvm::acc::Directive>(-1),},
+    {llvm::acc::ACCD_unknown, static_cast<llvm::acc::Directive>(0), static_cast<llvm::acc::Directive>(-1), static_cast<llvm::acc::Directive>(-1),},
+    {llvm::acc::ACCD_update, static_cast<llvm::acc::Directive>(0), static_cast<llvm::acc::Directive>(-1), static_cast<llvm::acc::Directive>(-1),},
+    {llvm::acc::ACCD_wait, static_cast<llvm::acc::Directive>(0), static_cast<llvm::acc::Directive>(-1), static_cast<llvm::acc::Directive>(-1),},
+    {llvm::acc::ACCD_kernels_loop, static_cast<llvm::acc::Directive>(2), llvm::acc::ACCD_kernels, llvm::acc::ACCD_loop,},
+    {llvm::acc::ACCD_parallel_loop, static_cast<llvm::acc::Directive>(2), llvm::acc::ACCD_parallel, llvm::acc::ACCD_loop,},
+    {llvm::acc::ACCD_serial_loop, static_cast<llvm::acc::Directive>(2), llvm::acc::ACCD_serial, llvm::acc::ACCD_loop,},
+};
+
+[[maybe_unused]] static auto LeafConstructTableEndDirective = LeafConstructTable + 21;
+
+[[maybe_unused]] static const int LeafConstructTableOrdering[] = {
+    0, 1, 2, 3, 4, 5, 6, 7, 8, 18, 9, 10, 19, 11, 12, 20, 13, 14, 15, 16, 17,
+};
 
 #endif // GEN_DIRECTIVES_IMPL
 

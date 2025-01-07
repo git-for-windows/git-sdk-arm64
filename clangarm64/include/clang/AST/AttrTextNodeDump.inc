@@ -134,10 +134,6 @@
     const auto *SA = cast<AssertCapabilityAttr>(A); (void)SA;
     OS << " " << A->getSpelling();
   }
-  void VisitAssumptionAttr(const AssumptionAttr *A) {
-    const auto *SA = cast<AssumptionAttr>(A); (void)SA;
-    OS << " \"" << SA->getAssumption() << "\"";
-  }
   void VisitAvailabilityAttr(const AvailabilityAttr *A) {
     const auto *SA = cast<AvailabilityAttr>(A); (void)SA;
     if (SA->getPlatform())
@@ -150,6 +146,8 @@
     if (SA->getStrict()) OS << " Strict";
     OS << " \"" << SA->getReplacement() << "\"";
     OS << " " << SA->getPriority();
+    if (SA->getEnvironment())
+      OS << " " << SA->getEnvironment()->getName();
   }
   void VisitBTFDeclTagAttr(const BTFDeclTagAttr *A) {
     const auto *SA = cast<BTFDeclTagAttr>(A); (void)SA;
@@ -272,8 +270,11 @@
   }
   void VisitCountedByAttr(const CountedByAttr *A) {
     const auto *SA = cast<CountedByAttr>(A); (void)SA;
-    if (SA->getCountedByField())
-      OS << " " << SA->getCountedByField()->getName();
+    OS << " " << SA->getNestedLevel();
+  }
+  void VisitCountedByOrNullAttr(const CountedByOrNullAttr *A) {
+    const auto *SA = cast<CountedByOrNullAttr>(A); (void)SA;
+    OS << " " << SA->getNestedLevel();
   }
   void VisitDeprecatedAttr(const DeprecatedAttr *A) {
     const auto *SA = cast<DeprecatedAttr>(A); (void)SA;
@@ -366,11 +367,21 @@
       break;
     }
   }
+  void VisitHLSLLoopHintAttr(const HLSLLoopHintAttr *A) {
+    const auto *SA = cast<HLSLLoopHintAttr>(A); (void)SA;
+    OS << " " << A->getSpelling();
+    OS << " " << SA->getDirective();
+  }
   void VisitHLSLNumThreadsAttr(const HLSLNumThreadsAttr *A) {
     const auto *SA = cast<HLSLNumThreadsAttr>(A); (void)SA;
     OS << " " << SA->getX();
     OS << " " << SA->getY();
     OS << " " << SA->getZ();
+  }
+  void VisitHLSLPackOffsetAttr(const HLSLPackOffsetAttr *A) {
+    const auto *SA = cast<HLSLPackOffsetAttr>(A); (void)SA;
+    OS << " " << SA->getSubcomponent();
+    OS << " " << SA->getComponent();
   }
   void VisitHLSLParamModifierAttr(const HLSLParamModifierAttr *A) {
     const auto *SA = cast<HLSLParamModifierAttr>(A); (void)SA;
@@ -379,22 +390,6 @@
   }
   void VisitHLSLResourceAttr(const HLSLResourceAttr *A) {
     const auto *SA = cast<HLSLResourceAttr>(A); (void)SA;
-    switch(SA->getResourceClass()) {
-    case llvm::hlsl::ResourceClass::SRV:
-      OS << " SRV";
-      break;
-    case llvm::hlsl::ResourceClass::UAV:
-      OS << " UAV";
-      break;
-    case llvm::hlsl::ResourceClass::CBuffer:
-      OS << " CBuffer";
-      break;
-    case llvm::hlsl::ResourceClass::Sampler:
-      OS << " Sampler";
-      break;
-    default:
-      llvm_unreachable("Invalid attribute value");
-    }
     switch(SA->getResourceKind()) {
     case llvm::hlsl::ResourceKind::Texture1D:
       OS << " Texture1D";
@@ -460,51 +455,70 @@
     OS << " \"" << SA->getSlot() << "\"";
     OS << " \"" << SA->getSpace() << "\"";
   }
+  void VisitHLSLResourceClassAttr(const HLSLResourceClassAttr *A) {
+    const auto *SA = cast<HLSLResourceClassAttr>(A); (void)SA;
+    switch(SA->getResourceClass()) {
+    case llvm::hlsl::ResourceClass::SRV:
+      OS << " SRV";
+      break;
+    case llvm::hlsl::ResourceClass::UAV:
+      OS << " UAV";
+      break;
+    case llvm::hlsl::ResourceClass::CBuffer:
+      OS << " CBuffer";
+      break;
+    case llvm::hlsl::ResourceClass::Sampler:
+      OS << " Sampler";
+      break;
+    }
+  }
   void VisitHLSLShaderAttr(const HLSLShaderAttr *A) {
     const auto *SA = cast<HLSLShaderAttr>(A); (void)SA;
     switch(SA->getType()) {
-    case HLSLShaderAttr::ShaderType::Pixel:
+    case llvm::Triple::EnvironmentType::Pixel:
       OS << " Pixel";
       break;
-    case HLSLShaderAttr::ShaderType::Vertex:
+    case llvm::Triple::EnvironmentType::Vertex:
       OS << " Vertex";
       break;
-    case HLSLShaderAttr::ShaderType::Geometry:
+    case llvm::Triple::EnvironmentType::Geometry:
       OS << " Geometry";
       break;
-    case HLSLShaderAttr::ShaderType::Hull:
+    case llvm::Triple::EnvironmentType::Hull:
       OS << " Hull";
       break;
-    case HLSLShaderAttr::ShaderType::Domain:
+    case llvm::Triple::EnvironmentType::Domain:
       OS << " Domain";
       break;
-    case HLSLShaderAttr::ShaderType::Compute:
+    case llvm::Triple::EnvironmentType::Compute:
       OS << " Compute";
       break;
-    case HLSLShaderAttr::ShaderType::RayGeneration:
+    case llvm::Triple::EnvironmentType::RayGeneration:
       OS << " RayGeneration";
       break;
-    case HLSLShaderAttr::ShaderType::Intersection:
+    case llvm::Triple::EnvironmentType::Intersection:
       OS << " Intersection";
       break;
-    case HLSLShaderAttr::ShaderType::AnyHit:
+    case llvm::Triple::EnvironmentType::AnyHit:
       OS << " AnyHit";
       break;
-    case HLSLShaderAttr::ShaderType::ClosestHit:
+    case llvm::Triple::EnvironmentType::ClosestHit:
       OS << " ClosestHit";
       break;
-    case HLSLShaderAttr::ShaderType::Miss:
+    case llvm::Triple::EnvironmentType::Miss:
       OS << " Miss";
       break;
-    case HLSLShaderAttr::ShaderType::Callable:
+    case llvm::Triple::EnvironmentType::Callable:
       OS << " Callable";
       break;
-    case HLSLShaderAttr::ShaderType::Mesh:
+    case llvm::Triple::EnvironmentType::Mesh:
       OS << " Mesh";
       break;
-    case HLSLShaderAttr::ShaderType::Amplification:
+    case llvm::Triple::EnvironmentType::Amplification:
       OS << " Amplification";
       break;
+    default:
+      llvm_unreachable("Invalid attribute value");
     }
   }
   void VisitIBOutletCollectionAttr(const IBOutletCollectionAttr *A) {
@@ -717,6 +731,10 @@
       OS << " OMPUserDefinedMemAlloc";
       break;
     }
+  }
+  void VisitOMPAssumeAttr(const OMPAssumeAttr *A) {
+    const auto *SA = cast<OMPAssumeAttr>(A); (void)SA;
+    OS << " \"" << SA->getAssumption() << "\"";
   }
   void VisitOMPCaptureKindAttr(const OMPCaptureKindAttr *A) {
     const auto *SA = cast<OMPCaptureKindAttr>(A); (void)SA;
@@ -949,6 +967,9 @@
       break;
     }
   }
+  void VisitRISCVVectorCCAttr(const RISCVVectorCCAttr *A) {
+    OS << " " << A->getSpelling();
+  }
   void VisitReleaseCapabilityAttr(const ReleaseCapabilityAttr *A) {
     const auto *SA = cast<ReleaseCapabilityAttr>(A); (void)SA;
     OS << " " << A->getSpelling();
@@ -1007,6 +1028,14 @@
       OS << " Unconsumed";
       break;
     }
+  }
+  void VisitSizedByAttr(const SizedByAttr *A) {
+    const auto *SA = cast<SizedByAttr>(A); (void)SA;
+    OS << " " << SA->getNestedLevel();
+  }
+  void VisitSizedByOrNullAttr(const SizedByOrNullAttr *A) {
+    const auto *SA = cast<SizedByOrNullAttr>(A); (void)SA;
+    OS << " " << SA->getNestedLevel();
   }
   void VisitSuppressAttr(const SuppressAttr *A) {
     const auto *SA = cast<SuppressAttr>(A); (void)SA;
@@ -1196,6 +1225,49 @@
     OS << " \"" << SA->getGuid() << "\"";
     OS << " ";
     dumpBareDeclRef(SA->getGuidDecl());
+  }
+  void VisitVTablePointerAuthenticationAttr(const VTablePointerAuthenticationAttr *A) {
+    const auto *SA = cast<VTablePointerAuthenticationAttr>(A); (void)SA;
+    switch(SA->getKey()) {
+    case VTablePointerAuthenticationAttr::VPtrAuthKeyType::DefaultKey:
+      OS << " DefaultKey";
+      break;
+    case VTablePointerAuthenticationAttr::VPtrAuthKeyType::NoKey:
+      OS << " NoKey";
+      break;
+    case VTablePointerAuthenticationAttr::VPtrAuthKeyType::ProcessDependent:
+      OS << " ProcessDependent";
+      break;
+    case VTablePointerAuthenticationAttr::VPtrAuthKeyType::ProcessIndependent:
+      OS << " ProcessIndependent";
+      break;
+    }
+    switch(SA->getAddressDiscrimination()) {
+    case VTablePointerAuthenticationAttr::AddressDiscriminationMode::DefaultAddressDiscrimination:
+      OS << " DefaultAddressDiscrimination";
+      break;
+    case VTablePointerAuthenticationAttr::AddressDiscriminationMode::NoAddressDiscrimination:
+      OS << " NoAddressDiscrimination";
+      break;
+    case VTablePointerAuthenticationAttr::AddressDiscriminationMode::AddressDiscrimination:
+      OS << " AddressDiscrimination";
+      break;
+    }
+    switch(SA->getExtraDiscrimination()) {
+    case VTablePointerAuthenticationAttr::ExtraDiscrimination::DefaultExtraDiscrimination:
+      OS << " DefaultExtraDiscrimination";
+      break;
+    case VTablePointerAuthenticationAttr::ExtraDiscrimination::NoExtraDiscrimination:
+      OS << " NoExtraDiscrimination";
+      break;
+    case VTablePointerAuthenticationAttr::ExtraDiscrimination::TypeDiscrimination:
+      OS << " TypeDiscrimination";
+      break;
+    case VTablePointerAuthenticationAttr::ExtraDiscrimination::CustomDiscrimination:
+      OS << " CustomDiscrimination";
+      break;
+    }
+    OS << " " << SA->getCustomDiscriminationValue();
   }
   void VisitVecTypeHintAttr(const VecTypeHintAttr *A) {
     const auto *SA = cast<VecTypeHintAttr>(A); (void)SA;

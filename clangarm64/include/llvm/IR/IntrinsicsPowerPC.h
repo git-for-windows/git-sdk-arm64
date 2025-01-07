@@ -13,7 +13,7 @@ namespace llvm {
 namespace Intrinsic {
 enum PPCIntrinsics : unsigned {
 // Enum values for intrinsics
-    ppc_addex = 9203,                                 // llvm.ppc.addex
+    ppc_addex = 9518,                                 // llvm.ppc.addex
     ppc_addf128_round_to_odd,                  // llvm.ppc.addf128.round.to.odd
     ppc_altivec_crypto_vcipher,                // llvm.ppc.altivec.crypto.vcipher
     ppc_altivec_crypto_vcipherlast,            // llvm.ppc.altivec.crypto.vcipherlast
@@ -385,6 +385,7 @@ enum PPCIntrinsics : unsigned {
     ppc_fctudz,                                // llvm.ppc.fctudz
     ppc_fctuwz,                                // llvm.ppc.fctuwz
     ppc_fence,                                 // llvm.ppc.fence
+    ppc_fixed_addr_ld,                         // llvm.ppc.fixed.addr.ld
     ppc_fmaf128_round_to_odd,                  // llvm.ppc.fmaf128.round.to.odd
     ppc_fmsub,                                 // llvm.ppc.fmsub
     ppc_fmsubs,                                // llvm.ppc.fmsubs
@@ -505,6 +506,9 @@ enum PPCIntrinsics : unsigned {
     ppc_pextd,                                 // llvm.ppc.pextd
     ppc_popcntb,                               // llvm.ppc.popcntb
     ppc_readflm,                               // llvm.ppc.readflm
+    ppc_rldimi,                                // llvm.ppc.rldimi
+    ppc_rlwimi,                                // llvm.ppc.rlwimi
+    ppc_rlwnm,                                 // llvm.ppc.rlwnm
     ppc_scalar_extract_expq,                   // llvm.ppc.scalar.extract.expq
     ppc_scalar_insert_exp_qp,                  // llvm.ppc.scalar.insert.exp.qp
     ppc_set_texasr,                            // llvm.ppc.set.texasr

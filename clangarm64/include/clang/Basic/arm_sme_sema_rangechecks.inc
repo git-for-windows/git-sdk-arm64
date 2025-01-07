@@ -354,6 +354,18 @@ case SME::BI__builtin_sme_svluti4_lane_zt_u8_x2:
 ImmChecks.push_back(std::make_tuple(0, 16, 0));
 ImmChecks.push_back(std::make_tuple(2, 15, 0));
   break;
+case SME::BI__builtin_sme_svmla_lane_za16_bf16_vg1x2:
+ImmChecks.push_back(std::make_tuple(3, 6, 0));
+  break;
+case SME::BI__builtin_sme_svmla_lane_za16_bf16_vg1x4:
+ImmChecks.push_back(std::make_tuple(3, 6, 0));
+  break;
+case SME::BI__builtin_sme_svmla_lane_za16_f16_vg1x2:
+ImmChecks.push_back(std::make_tuple(3, 6, 0));
+  break;
+case SME::BI__builtin_sme_svmla_lane_za16_f16_vg1x4:
+ImmChecks.push_back(std::make_tuple(3, 6, 0));
+  break;
 case SME::BI__builtin_sme_svmla_lane_za32_bf16_vg2x1:
 ImmChecks.push_back(std::make_tuple(3, 6, 0));
   break;
@@ -436,6 +448,18 @@ case SME::BI__builtin_sme_svmla_lane_za64_u16_vg4x2:
 ImmChecks.push_back(std::make_tuple(3, 6, 0));
   break;
 case SME::BI__builtin_sme_svmla_lane_za64_u16_vg4x4:
+ImmChecks.push_back(std::make_tuple(3, 6, 0));
+  break;
+case SME::BI__builtin_sme_svmls_lane_za16_bf16_vg1x2:
+ImmChecks.push_back(std::make_tuple(3, 6, 0));
+  break;
+case SME::BI__builtin_sme_svmls_lane_za16_bf16_vg1x4:
+ImmChecks.push_back(std::make_tuple(3, 6, 0));
+  break;
+case SME::BI__builtin_sme_svmls_lane_za16_f16_vg1x2:
+ImmChecks.push_back(std::make_tuple(3, 6, 0));
+  break;
+case SME::BI__builtin_sme_svmls_lane_za16_f16_vg1x4:
 ImmChecks.push_back(std::make_tuple(3, 6, 0));
   break;
 case SME::BI__builtin_sme_svmls_lane_za32_bf16_vg2x1:
@@ -522,6 +546,12 @@ ImmChecks.push_back(std::make_tuple(3, 6, 0));
 case SME::BI__builtin_sme_svmls_lane_za64_u16_vg4x4:
 ImmChecks.push_back(std::make_tuple(3, 6, 0));
   break;
+case SME::BI__builtin_sme_svmopa_za16_bf16_m:
+ImmChecks.push_back(std::make_tuple(0, 13, 0));
+  break;
+case SME::BI__builtin_sme_svmopa_za16_f16_m:
+ImmChecks.push_back(std::make_tuple(0, 13, 0));
+  break;
 case SME::BI__builtin_sme_svmopa_za32_bf16_m:
 ImmChecks.push_back(std::make_tuple(0, 15, 0));
   break;
@@ -551,6 +581,12 @@ ImmChecks.push_back(std::make_tuple(0, 6, 0));
   break;
 case SME::BI__builtin_sme_svmopa_za64_u16_m:
 ImmChecks.push_back(std::make_tuple(0, 6, 0));
+  break;
+case SME::BI__builtin_sme_svmops_za16_bf16_m:
+ImmChecks.push_back(std::make_tuple(0, 13, 0));
+  break;
+case SME::BI__builtin_sme_svmops_za16_f16_m:
+ImmChecks.push_back(std::make_tuple(0, 13, 0));
   break;
 case SME::BI__builtin_sme_svmops_za32_bf16_m:
 ImmChecks.push_back(std::make_tuple(0, 15, 0));
@@ -868,6 +904,294 @@ case SME::BI__builtin_sme_svread_ver_za8_u8_vg2:
 ImmChecks.push_back(std::make_tuple(0, 16, 0));
   break;
 case SME::BI__builtin_sme_svread_ver_za8_u8_vg4:
+ImmChecks.push_back(std::make_tuple(0, 16, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_hor_za128_bf16:
+ImmChecks.push_back(std::make_tuple(0, 17, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_hor_za128_f16:
+ImmChecks.push_back(std::make_tuple(0, 17, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_hor_za128_f32:
+ImmChecks.push_back(std::make_tuple(0, 17, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_hor_za128_f64:
+ImmChecks.push_back(std::make_tuple(0, 17, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_hor_za128_s16:
+ImmChecks.push_back(std::make_tuple(0, 17, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_hor_za128_s32:
+ImmChecks.push_back(std::make_tuple(0, 17, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_hor_za128_s64:
+ImmChecks.push_back(std::make_tuple(0, 17, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_hor_za128_s8:
+ImmChecks.push_back(std::make_tuple(0, 17, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_hor_za128_u16:
+ImmChecks.push_back(std::make_tuple(0, 17, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_hor_za128_u32:
+ImmChecks.push_back(std::make_tuple(0, 17, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_hor_za128_u64:
+ImmChecks.push_back(std::make_tuple(0, 17, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_hor_za128_u8:
+ImmChecks.push_back(std::make_tuple(0, 17, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_hor_za16_bf16:
+ImmChecks.push_back(std::make_tuple(0, 13, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_hor_za16_bf16_vg2:
+ImmChecks.push_back(std::make_tuple(0, 13, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_hor_za16_bf16_vg4:
+ImmChecks.push_back(std::make_tuple(0, 13, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_hor_za16_f16:
+ImmChecks.push_back(std::make_tuple(0, 13, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_hor_za16_f16_vg2:
+ImmChecks.push_back(std::make_tuple(0, 13, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_hor_za16_f16_vg4:
+ImmChecks.push_back(std::make_tuple(0, 13, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_hor_za16_s16:
+ImmChecks.push_back(std::make_tuple(0, 13, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_hor_za16_s16_vg2:
+ImmChecks.push_back(std::make_tuple(0, 13, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_hor_za16_s16_vg4:
+ImmChecks.push_back(std::make_tuple(0, 13, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_hor_za16_u16:
+ImmChecks.push_back(std::make_tuple(0, 13, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_hor_za16_u16_vg2:
+ImmChecks.push_back(std::make_tuple(0, 13, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_hor_za16_u16_vg4:
+ImmChecks.push_back(std::make_tuple(0, 13, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_hor_za32_f32:
+ImmChecks.push_back(std::make_tuple(0, 15, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_hor_za32_f32_vg2:
+ImmChecks.push_back(std::make_tuple(0, 15, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_hor_za32_f32_vg4:
+ImmChecks.push_back(std::make_tuple(0, 15, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_hor_za32_s32:
+ImmChecks.push_back(std::make_tuple(0, 15, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_hor_za32_s32_vg2:
+ImmChecks.push_back(std::make_tuple(0, 15, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_hor_za32_s32_vg4:
+ImmChecks.push_back(std::make_tuple(0, 15, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_hor_za32_u32:
+ImmChecks.push_back(std::make_tuple(0, 15, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_hor_za32_u32_vg2:
+ImmChecks.push_back(std::make_tuple(0, 15, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_hor_za32_u32_vg4:
+ImmChecks.push_back(std::make_tuple(0, 15, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_hor_za64_f64:
+ImmChecks.push_back(std::make_tuple(0, 6, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_hor_za64_f64_vg2:
+ImmChecks.push_back(std::make_tuple(0, 6, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_hor_za64_f64_vg4:
+ImmChecks.push_back(std::make_tuple(0, 6, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_hor_za64_s64:
+ImmChecks.push_back(std::make_tuple(0, 6, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_hor_za64_s64_vg2:
+ImmChecks.push_back(std::make_tuple(0, 6, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_hor_za64_s64_vg4:
+ImmChecks.push_back(std::make_tuple(0, 6, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_hor_za64_u64:
+ImmChecks.push_back(std::make_tuple(0, 6, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_hor_za64_u64_vg2:
+ImmChecks.push_back(std::make_tuple(0, 6, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_hor_za64_u64_vg4:
+ImmChecks.push_back(std::make_tuple(0, 6, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_hor_za8_s8:
+ImmChecks.push_back(std::make_tuple(0, 16, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_hor_za8_s8_vg2:
+ImmChecks.push_back(std::make_tuple(0, 16, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_hor_za8_s8_vg4:
+ImmChecks.push_back(std::make_tuple(0, 16, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_hor_za8_u8:
+ImmChecks.push_back(std::make_tuple(0, 16, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_hor_za8_u8_vg2:
+ImmChecks.push_back(std::make_tuple(0, 16, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_hor_za8_u8_vg4:
+ImmChecks.push_back(std::make_tuple(0, 16, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_ver_za128_bf16:
+ImmChecks.push_back(std::make_tuple(0, 17, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_ver_za128_f16:
+ImmChecks.push_back(std::make_tuple(0, 17, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_ver_za128_f32:
+ImmChecks.push_back(std::make_tuple(0, 17, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_ver_za128_f64:
+ImmChecks.push_back(std::make_tuple(0, 17, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_ver_za128_s16:
+ImmChecks.push_back(std::make_tuple(0, 17, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_ver_za128_s32:
+ImmChecks.push_back(std::make_tuple(0, 17, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_ver_za128_s64:
+ImmChecks.push_back(std::make_tuple(0, 17, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_ver_za128_s8:
+ImmChecks.push_back(std::make_tuple(0, 17, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_ver_za128_u16:
+ImmChecks.push_back(std::make_tuple(0, 17, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_ver_za128_u32:
+ImmChecks.push_back(std::make_tuple(0, 17, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_ver_za128_u64:
+ImmChecks.push_back(std::make_tuple(0, 17, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_ver_za128_u8:
+ImmChecks.push_back(std::make_tuple(0, 17, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_ver_za16_bf16:
+ImmChecks.push_back(std::make_tuple(0, 13, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_ver_za16_bf16_vg2:
+ImmChecks.push_back(std::make_tuple(0, 13, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_ver_za16_bf16_vg4:
+ImmChecks.push_back(std::make_tuple(0, 13, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_ver_za16_f16:
+ImmChecks.push_back(std::make_tuple(0, 13, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_ver_za16_f16_vg2:
+ImmChecks.push_back(std::make_tuple(0, 13, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_ver_za16_f16_vg4:
+ImmChecks.push_back(std::make_tuple(0, 13, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_ver_za16_s16:
+ImmChecks.push_back(std::make_tuple(0, 13, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_ver_za16_s16_vg2:
+ImmChecks.push_back(std::make_tuple(0, 13, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_ver_za16_s16_vg4:
+ImmChecks.push_back(std::make_tuple(0, 13, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_ver_za16_u16:
+ImmChecks.push_back(std::make_tuple(0, 13, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_ver_za16_u16_vg2:
+ImmChecks.push_back(std::make_tuple(0, 13, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_ver_za16_u16_vg4:
+ImmChecks.push_back(std::make_tuple(0, 13, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_ver_za32_f32:
+ImmChecks.push_back(std::make_tuple(0, 15, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_ver_za32_f32_vg2:
+ImmChecks.push_back(std::make_tuple(0, 15, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_ver_za32_f32_vg4:
+ImmChecks.push_back(std::make_tuple(0, 15, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_ver_za32_s32:
+ImmChecks.push_back(std::make_tuple(0, 15, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_ver_za32_s32_vg2:
+ImmChecks.push_back(std::make_tuple(0, 15, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_ver_za32_s32_vg4:
+ImmChecks.push_back(std::make_tuple(0, 15, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_ver_za32_u32:
+ImmChecks.push_back(std::make_tuple(0, 15, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_ver_za32_u32_vg2:
+ImmChecks.push_back(std::make_tuple(0, 15, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_ver_za32_u32_vg4:
+ImmChecks.push_back(std::make_tuple(0, 15, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_ver_za64_f64:
+ImmChecks.push_back(std::make_tuple(0, 6, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_ver_za64_f64_vg2:
+ImmChecks.push_back(std::make_tuple(0, 6, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_ver_za64_f64_vg4:
+ImmChecks.push_back(std::make_tuple(0, 6, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_ver_za64_s64:
+ImmChecks.push_back(std::make_tuple(0, 6, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_ver_za64_s64_vg2:
+ImmChecks.push_back(std::make_tuple(0, 6, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_ver_za64_s64_vg4:
+ImmChecks.push_back(std::make_tuple(0, 6, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_ver_za64_u64:
+ImmChecks.push_back(std::make_tuple(0, 6, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_ver_za64_u64_vg2:
+ImmChecks.push_back(std::make_tuple(0, 6, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_ver_za64_u64_vg4:
+ImmChecks.push_back(std::make_tuple(0, 6, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_ver_za8_s8:
+ImmChecks.push_back(std::make_tuple(0, 16, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_ver_za8_s8_vg2:
+ImmChecks.push_back(std::make_tuple(0, 16, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_ver_za8_s8_vg4:
+ImmChecks.push_back(std::make_tuple(0, 16, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_ver_za8_u8:
+ImmChecks.push_back(std::make_tuple(0, 16, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_ver_za8_u8_vg2:
+ImmChecks.push_back(std::make_tuple(0, 16, 0));
+  break;
+case SME::BI__builtin_sme_svreadz_ver_za8_u8_vg4:
 ImmChecks.push_back(std::make_tuple(0, 16, 0));
   break;
 case SME::BI__builtin_sme_svst1_hor_vnum_za128:

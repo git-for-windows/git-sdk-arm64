@@ -13,26 +13,10 @@ namespace llvm {
 namespace Intrinsic {
 enum AMDGCNIntrinsics : unsigned {
 // Enum values for intrinsics
-    amdgcn_alignbyte = 1878,                          // llvm.amdgcn.alignbyte
+    amdgcn_addrspacecast_nonnull = 1951,              // llvm.amdgcn.addrspacecast.nonnull
+    amdgcn_alignbyte,                          // llvm.amdgcn.alignbyte
     amdgcn_atomic_cond_sub_u32,                // llvm.amdgcn.atomic.cond.sub.u32
     amdgcn_ballot,                             // llvm.amdgcn.ballot
-    amdgcn_buffer_atomic_add,                  // llvm.amdgcn.buffer.atomic.add
-    amdgcn_buffer_atomic_and,                  // llvm.amdgcn.buffer.atomic.and
-    amdgcn_buffer_atomic_cmpswap,              // llvm.amdgcn.buffer.atomic.cmpswap
-    amdgcn_buffer_atomic_csub,                 // llvm.amdgcn.buffer.atomic.csub
-    amdgcn_buffer_atomic_fadd,                 // llvm.amdgcn.buffer.atomic.fadd
-    amdgcn_buffer_atomic_or,                   // llvm.amdgcn.buffer.atomic.or
-    amdgcn_buffer_atomic_smax,                 // llvm.amdgcn.buffer.atomic.smax
-    amdgcn_buffer_atomic_smin,                 // llvm.amdgcn.buffer.atomic.smin
-    amdgcn_buffer_atomic_sub,                  // llvm.amdgcn.buffer.atomic.sub
-    amdgcn_buffer_atomic_swap,                 // llvm.amdgcn.buffer.atomic.swap
-    amdgcn_buffer_atomic_umax,                 // llvm.amdgcn.buffer.atomic.umax
-    amdgcn_buffer_atomic_umin,                 // llvm.amdgcn.buffer.atomic.umin
-    amdgcn_buffer_atomic_xor,                  // llvm.amdgcn.buffer.atomic.xor
-    amdgcn_buffer_load,                        // llvm.amdgcn.buffer.load
-    amdgcn_buffer_load_format,                 // llvm.amdgcn.buffer.load.format
-    amdgcn_buffer_store,                       // llvm.amdgcn.buffer.store
-    amdgcn_buffer_store_format,                // llvm.amdgcn.buffer.store.format
     amdgcn_buffer_wbinvl1,                     // llvm.amdgcn.buffer.wbinvl1
     amdgcn_buffer_wbinvl1_sc,                  // llvm.amdgcn.buffer.wbinvl1.sc
     amdgcn_buffer_wbinvl1_vol,                 // llvm.amdgcn.buffer.wbinvl1.vol
@@ -71,10 +55,6 @@ enum AMDGCNIntrinsics : unsigned {
     amdgcn_ds_bpermute,                        // llvm.amdgcn.ds.bpermute
     amdgcn_ds_bvh_stack_rtn,                   // llvm.amdgcn.ds.bvh.stack.rtn
     amdgcn_ds_consume,                         // llvm.amdgcn.ds.consume
-    amdgcn_ds_fadd,                            // llvm.amdgcn.ds.fadd
-    amdgcn_ds_fadd_v2bf16,                     // llvm.amdgcn.ds.fadd.v2bf16
-    amdgcn_ds_fmax,                            // llvm.amdgcn.ds.fmax
-    amdgcn_ds_fmin,                            // llvm.amdgcn.ds.fmin
     amdgcn_ds_gws_barrier,                     // llvm.amdgcn.ds.gws.barrier
     amdgcn_ds_gws_init,                        // llvm.amdgcn.ds.gws.init
     amdgcn_ds_gws_sema_br,                     // llvm.amdgcn.ds.gws.sema.br
@@ -121,7 +101,8 @@ enum AMDGCNIntrinsics : unsigned {
     amdgcn_global_atomic_fmin_num,             // llvm.amdgcn.global.atomic.fmin.num
     amdgcn_global_atomic_ordered_add_b64,      // llvm.amdgcn.global.atomic.ordered.add.b64
     amdgcn_global_load_lds,                    // llvm.amdgcn.global.load.lds
-    amdgcn_global_load_tr,                     // llvm.amdgcn.global.load.tr
+    amdgcn_global_load_tr_b128,                // llvm.amdgcn.global.load.tr.b128
+    amdgcn_global_load_tr_b64,                 // llvm.amdgcn.global.load.tr.b64
     amdgcn_groupstaticsize,                    // llvm.amdgcn.groupstaticsize
     amdgcn_icmp,                               // llvm.amdgcn.icmp
     amdgcn_if,                                 // llvm.amdgcn.if
@@ -393,245 +374,485 @@ enum AMDGCNIntrinsics : unsigned {
     amdgcn_image_msaa_load_x_2darraymsaa,      // llvm.amdgcn.image.msaa.load.x.2darraymsaa
     amdgcn_image_msaa_load_x_2dmsaa,           // llvm.amdgcn.image.msaa.load.x.2dmsaa
     amdgcn_image_sample_1d,                    // llvm.amdgcn.image.sample.1d
+    amdgcn_image_sample_1d_nortn,              // llvm.amdgcn.image.sample.1d.nortn
     amdgcn_image_sample_1darray,               // llvm.amdgcn.image.sample.1darray
+    amdgcn_image_sample_1darray_nortn,         // llvm.amdgcn.image.sample.1darray.nortn
     amdgcn_image_sample_2d,                    // llvm.amdgcn.image.sample.2d
+    amdgcn_image_sample_2d_nortn,              // llvm.amdgcn.image.sample.2d.nortn
     amdgcn_image_sample_2darray,               // llvm.amdgcn.image.sample.2darray
+    amdgcn_image_sample_2darray_nortn,         // llvm.amdgcn.image.sample.2darray.nortn
     amdgcn_image_sample_3d,                    // llvm.amdgcn.image.sample.3d
+    amdgcn_image_sample_3d_nortn,              // llvm.amdgcn.image.sample.3d.nortn
     amdgcn_image_sample_b_1d,                  // llvm.amdgcn.image.sample.b.1d
+    amdgcn_image_sample_b_1d_nortn,            // llvm.amdgcn.image.sample.b.1d.nortn
     amdgcn_image_sample_b_1darray,             // llvm.amdgcn.image.sample.b.1darray
+    amdgcn_image_sample_b_1darray_nortn,       // llvm.amdgcn.image.sample.b.1darray.nortn
     amdgcn_image_sample_b_2d,                  // llvm.amdgcn.image.sample.b.2d
+    amdgcn_image_sample_b_2d_nortn,            // llvm.amdgcn.image.sample.b.2d.nortn
     amdgcn_image_sample_b_2darray,             // llvm.amdgcn.image.sample.b.2darray
+    amdgcn_image_sample_b_2darray_nortn,       // llvm.amdgcn.image.sample.b.2darray.nortn
     amdgcn_image_sample_b_3d,                  // llvm.amdgcn.image.sample.b.3d
+    amdgcn_image_sample_b_3d_nortn,            // llvm.amdgcn.image.sample.b.3d.nortn
     amdgcn_image_sample_b_cl_1d,               // llvm.amdgcn.image.sample.b.cl.1d
+    amdgcn_image_sample_b_cl_1d_nortn,         // llvm.amdgcn.image.sample.b.cl.1d.nortn
     amdgcn_image_sample_b_cl_1darray,          // llvm.amdgcn.image.sample.b.cl.1darray
+    amdgcn_image_sample_b_cl_1darray_nortn,    // llvm.amdgcn.image.sample.b.cl.1darray.nortn
     amdgcn_image_sample_b_cl_2d,               // llvm.amdgcn.image.sample.b.cl.2d
+    amdgcn_image_sample_b_cl_2d_nortn,         // llvm.amdgcn.image.sample.b.cl.2d.nortn
     amdgcn_image_sample_b_cl_2darray,          // llvm.amdgcn.image.sample.b.cl.2darray
+    amdgcn_image_sample_b_cl_2darray_nortn,    // llvm.amdgcn.image.sample.b.cl.2darray.nortn
     amdgcn_image_sample_b_cl_3d,               // llvm.amdgcn.image.sample.b.cl.3d
+    amdgcn_image_sample_b_cl_3d_nortn,         // llvm.amdgcn.image.sample.b.cl.3d.nortn
     amdgcn_image_sample_b_cl_cube,             // llvm.amdgcn.image.sample.b.cl.cube
+    amdgcn_image_sample_b_cl_cube_nortn,       // llvm.amdgcn.image.sample.b.cl.cube.nortn
     amdgcn_image_sample_b_cl_o_1d,             // llvm.amdgcn.image.sample.b.cl.o.1d
+    amdgcn_image_sample_b_cl_o_1d_nortn,       // llvm.amdgcn.image.sample.b.cl.o.1d.nortn
     amdgcn_image_sample_b_cl_o_1darray,        // llvm.amdgcn.image.sample.b.cl.o.1darray
+    amdgcn_image_sample_b_cl_o_1darray_nortn,  // llvm.amdgcn.image.sample.b.cl.o.1darray.nortn
     amdgcn_image_sample_b_cl_o_2d,             // llvm.amdgcn.image.sample.b.cl.o.2d
+    amdgcn_image_sample_b_cl_o_2d_nortn,       // llvm.amdgcn.image.sample.b.cl.o.2d.nortn
     amdgcn_image_sample_b_cl_o_2darray,        // llvm.amdgcn.image.sample.b.cl.o.2darray
+    amdgcn_image_sample_b_cl_o_2darray_nortn,  // llvm.amdgcn.image.sample.b.cl.o.2darray.nortn
     amdgcn_image_sample_b_cl_o_3d,             // llvm.amdgcn.image.sample.b.cl.o.3d
+    amdgcn_image_sample_b_cl_o_3d_nortn,       // llvm.amdgcn.image.sample.b.cl.o.3d.nortn
     amdgcn_image_sample_b_cl_o_cube,           // llvm.amdgcn.image.sample.b.cl.o.cube
+    amdgcn_image_sample_b_cl_o_cube_nortn,     // llvm.amdgcn.image.sample.b.cl.o.cube.nortn
     amdgcn_image_sample_b_cube,                // llvm.amdgcn.image.sample.b.cube
+    amdgcn_image_sample_b_cube_nortn,          // llvm.amdgcn.image.sample.b.cube.nortn
     amdgcn_image_sample_b_o_1d,                // llvm.amdgcn.image.sample.b.o.1d
+    amdgcn_image_sample_b_o_1d_nortn,          // llvm.amdgcn.image.sample.b.o.1d.nortn
     amdgcn_image_sample_b_o_1darray,           // llvm.amdgcn.image.sample.b.o.1darray
+    amdgcn_image_sample_b_o_1darray_nortn,     // llvm.amdgcn.image.sample.b.o.1darray.nortn
     amdgcn_image_sample_b_o_2d,                // llvm.amdgcn.image.sample.b.o.2d
+    amdgcn_image_sample_b_o_2d_nortn,          // llvm.amdgcn.image.sample.b.o.2d.nortn
     amdgcn_image_sample_b_o_2darray,           // llvm.amdgcn.image.sample.b.o.2darray
+    amdgcn_image_sample_b_o_2darray_nortn,     // llvm.amdgcn.image.sample.b.o.2darray.nortn
     amdgcn_image_sample_b_o_3d,                // llvm.amdgcn.image.sample.b.o.3d
+    amdgcn_image_sample_b_o_3d_nortn,          // llvm.amdgcn.image.sample.b.o.3d.nortn
     amdgcn_image_sample_b_o_cube,              // llvm.amdgcn.image.sample.b.o.cube
+    amdgcn_image_sample_b_o_cube_nortn,        // llvm.amdgcn.image.sample.b.o.cube.nortn
     amdgcn_image_sample_c_1d,                  // llvm.amdgcn.image.sample.c.1d
+    amdgcn_image_sample_c_1d_nortn,            // llvm.amdgcn.image.sample.c.1d.nortn
     amdgcn_image_sample_c_1darray,             // llvm.amdgcn.image.sample.c.1darray
+    amdgcn_image_sample_c_1darray_nortn,       // llvm.amdgcn.image.sample.c.1darray.nortn
     amdgcn_image_sample_c_2d,                  // llvm.amdgcn.image.sample.c.2d
+    amdgcn_image_sample_c_2d_nortn,            // llvm.amdgcn.image.sample.c.2d.nortn
     amdgcn_image_sample_c_2darray,             // llvm.amdgcn.image.sample.c.2darray
+    amdgcn_image_sample_c_2darray_nortn,       // llvm.amdgcn.image.sample.c.2darray.nortn
     amdgcn_image_sample_c_3d,                  // llvm.amdgcn.image.sample.c.3d
+    amdgcn_image_sample_c_3d_nortn,            // llvm.amdgcn.image.sample.c.3d.nortn
     amdgcn_image_sample_c_b_1d,                // llvm.amdgcn.image.sample.c.b.1d
+    amdgcn_image_sample_c_b_1d_nortn,          // llvm.amdgcn.image.sample.c.b.1d.nortn
     amdgcn_image_sample_c_b_1darray,           // llvm.amdgcn.image.sample.c.b.1darray
+    amdgcn_image_sample_c_b_1darray_nortn,     // llvm.amdgcn.image.sample.c.b.1darray.nortn
     amdgcn_image_sample_c_b_2d,                // llvm.amdgcn.image.sample.c.b.2d
+    amdgcn_image_sample_c_b_2d_nortn,          // llvm.amdgcn.image.sample.c.b.2d.nortn
     amdgcn_image_sample_c_b_2darray,           // llvm.amdgcn.image.sample.c.b.2darray
+    amdgcn_image_sample_c_b_2darray_nortn,     // llvm.amdgcn.image.sample.c.b.2darray.nortn
     amdgcn_image_sample_c_b_3d,                // llvm.amdgcn.image.sample.c.b.3d
+    amdgcn_image_sample_c_b_3d_nortn,          // llvm.amdgcn.image.sample.c.b.3d.nortn
     amdgcn_image_sample_c_b_cl_1d,             // llvm.amdgcn.image.sample.c.b.cl.1d
+    amdgcn_image_sample_c_b_cl_1d_nortn,       // llvm.amdgcn.image.sample.c.b.cl.1d.nortn
     amdgcn_image_sample_c_b_cl_1darray,        // llvm.amdgcn.image.sample.c.b.cl.1darray
+    amdgcn_image_sample_c_b_cl_1darray_nortn,  // llvm.amdgcn.image.sample.c.b.cl.1darray.nortn
     amdgcn_image_sample_c_b_cl_2d,             // llvm.amdgcn.image.sample.c.b.cl.2d
+    amdgcn_image_sample_c_b_cl_2d_nortn,       // llvm.amdgcn.image.sample.c.b.cl.2d.nortn
     amdgcn_image_sample_c_b_cl_2darray,        // llvm.amdgcn.image.sample.c.b.cl.2darray
+    amdgcn_image_sample_c_b_cl_2darray_nortn,  // llvm.amdgcn.image.sample.c.b.cl.2darray.nortn
     amdgcn_image_sample_c_b_cl_3d,             // llvm.amdgcn.image.sample.c.b.cl.3d
+    amdgcn_image_sample_c_b_cl_3d_nortn,       // llvm.amdgcn.image.sample.c.b.cl.3d.nortn
     amdgcn_image_sample_c_b_cl_cube,           // llvm.amdgcn.image.sample.c.b.cl.cube
+    amdgcn_image_sample_c_b_cl_cube_nortn,     // llvm.amdgcn.image.sample.c.b.cl.cube.nortn
     amdgcn_image_sample_c_b_cl_o_1d,           // llvm.amdgcn.image.sample.c.b.cl.o.1d
+    amdgcn_image_sample_c_b_cl_o_1d_nortn,     // llvm.amdgcn.image.sample.c.b.cl.o.1d.nortn
     amdgcn_image_sample_c_b_cl_o_1darray,      // llvm.amdgcn.image.sample.c.b.cl.o.1darray
+    amdgcn_image_sample_c_b_cl_o_1darray_nortn,  // llvm.amdgcn.image.sample.c.b.cl.o.1darray.nortn
     amdgcn_image_sample_c_b_cl_o_2d,           // llvm.amdgcn.image.sample.c.b.cl.o.2d
+    amdgcn_image_sample_c_b_cl_o_2d_nortn,     // llvm.amdgcn.image.sample.c.b.cl.o.2d.nortn
     amdgcn_image_sample_c_b_cl_o_2darray,      // llvm.amdgcn.image.sample.c.b.cl.o.2darray
+    amdgcn_image_sample_c_b_cl_o_2darray_nortn,  // llvm.amdgcn.image.sample.c.b.cl.o.2darray.nortn
     amdgcn_image_sample_c_b_cl_o_3d,           // llvm.amdgcn.image.sample.c.b.cl.o.3d
+    amdgcn_image_sample_c_b_cl_o_3d_nortn,     // llvm.amdgcn.image.sample.c.b.cl.o.3d.nortn
     amdgcn_image_sample_c_b_cl_o_cube,         // llvm.amdgcn.image.sample.c.b.cl.o.cube
+    amdgcn_image_sample_c_b_cl_o_cube_nortn,   // llvm.amdgcn.image.sample.c.b.cl.o.cube.nortn
     amdgcn_image_sample_c_b_cube,              // llvm.amdgcn.image.sample.c.b.cube
+    amdgcn_image_sample_c_b_cube_nortn,        // llvm.amdgcn.image.sample.c.b.cube.nortn
     amdgcn_image_sample_c_b_o_1d,              // llvm.amdgcn.image.sample.c.b.o.1d
+    amdgcn_image_sample_c_b_o_1d_nortn,        // llvm.amdgcn.image.sample.c.b.o.1d.nortn
     amdgcn_image_sample_c_b_o_1darray,         // llvm.amdgcn.image.sample.c.b.o.1darray
+    amdgcn_image_sample_c_b_o_1darray_nortn,   // llvm.amdgcn.image.sample.c.b.o.1darray.nortn
     amdgcn_image_sample_c_b_o_2d,              // llvm.amdgcn.image.sample.c.b.o.2d
+    amdgcn_image_sample_c_b_o_2d_nortn,        // llvm.amdgcn.image.sample.c.b.o.2d.nortn
     amdgcn_image_sample_c_b_o_2darray,         // llvm.amdgcn.image.sample.c.b.o.2darray
+    amdgcn_image_sample_c_b_o_2darray_nortn,   // llvm.amdgcn.image.sample.c.b.o.2darray.nortn
     amdgcn_image_sample_c_b_o_3d,              // llvm.amdgcn.image.sample.c.b.o.3d
+    amdgcn_image_sample_c_b_o_3d_nortn,        // llvm.amdgcn.image.sample.c.b.o.3d.nortn
     amdgcn_image_sample_c_b_o_cube,            // llvm.amdgcn.image.sample.c.b.o.cube
+    amdgcn_image_sample_c_b_o_cube_nortn,      // llvm.amdgcn.image.sample.c.b.o.cube.nortn
     amdgcn_image_sample_c_cd_1d,               // llvm.amdgcn.image.sample.c.cd.1d
+    amdgcn_image_sample_c_cd_1d_nortn,         // llvm.amdgcn.image.sample.c.cd.1d.nortn
     amdgcn_image_sample_c_cd_1darray,          // llvm.amdgcn.image.sample.c.cd.1darray
+    amdgcn_image_sample_c_cd_1darray_nortn,    // llvm.amdgcn.image.sample.c.cd.1darray.nortn
     amdgcn_image_sample_c_cd_2d,               // llvm.amdgcn.image.sample.c.cd.2d
+    amdgcn_image_sample_c_cd_2d_nortn,         // llvm.amdgcn.image.sample.c.cd.2d.nortn
     amdgcn_image_sample_c_cd_2darray,          // llvm.amdgcn.image.sample.c.cd.2darray
+    amdgcn_image_sample_c_cd_2darray_nortn,    // llvm.amdgcn.image.sample.c.cd.2darray.nortn
     amdgcn_image_sample_c_cd_3d,               // llvm.amdgcn.image.sample.c.cd.3d
+    amdgcn_image_sample_c_cd_3d_nortn,         // llvm.amdgcn.image.sample.c.cd.3d.nortn
     amdgcn_image_sample_c_cd_cl_1d,            // llvm.amdgcn.image.sample.c.cd.cl.1d
+    amdgcn_image_sample_c_cd_cl_1d_nortn,      // llvm.amdgcn.image.sample.c.cd.cl.1d.nortn
     amdgcn_image_sample_c_cd_cl_1darray,       // llvm.amdgcn.image.sample.c.cd.cl.1darray
+    amdgcn_image_sample_c_cd_cl_1darray_nortn,  // llvm.amdgcn.image.sample.c.cd.cl.1darray.nortn
     amdgcn_image_sample_c_cd_cl_2d,            // llvm.amdgcn.image.sample.c.cd.cl.2d
+    amdgcn_image_sample_c_cd_cl_2d_nortn,      // llvm.amdgcn.image.sample.c.cd.cl.2d.nortn
     amdgcn_image_sample_c_cd_cl_2darray,       // llvm.amdgcn.image.sample.c.cd.cl.2darray
+    amdgcn_image_sample_c_cd_cl_2darray_nortn,  // llvm.amdgcn.image.sample.c.cd.cl.2darray.nortn
     amdgcn_image_sample_c_cd_cl_3d,            // llvm.amdgcn.image.sample.c.cd.cl.3d
+    amdgcn_image_sample_c_cd_cl_3d_nortn,      // llvm.amdgcn.image.sample.c.cd.cl.3d.nortn
     amdgcn_image_sample_c_cd_cl_cube,          // llvm.amdgcn.image.sample.c.cd.cl.cube
+    amdgcn_image_sample_c_cd_cl_cube_nortn,    // llvm.amdgcn.image.sample.c.cd.cl.cube.nortn
     amdgcn_image_sample_c_cd_cl_o_1d,          // llvm.amdgcn.image.sample.c.cd.cl.o.1d
+    amdgcn_image_sample_c_cd_cl_o_1d_nortn,    // llvm.amdgcn.image.sample.c.cd.cl.o.1d.nortn
     amdgcn_image_sample_c_cd_cl_o_1darray,     // llvm.amdgcn.image.sample.c.cd.cl.o.1darray
+    amdgcn_image_sample_c_cd_cl_o_1darray_nortn,  // llvm.amdgcn.image.sample.c.cd.cl.o.1darray.nortn
     amdgcn_image_sample_c_cd_cl_o_2d,          // llvm.amdgcn.image.sample.c.cd.cl.o.2d
+    amdgcn_image_sample_c_cd_cl_o_2d_nortn,    // llvm.amdgcn.image.sample.c.cd.cl.o.2d.nortn
     amdgcn_image_sample_c_cd_cl_o_2darray,     // llvm.amdgcn.image.sample.c.cd.cl.o.2darray
+    amdgcn_image_sample_c_cd_cl_o_2darray_nortn,  // llvm.amdgcn.image.sample.c.cd.cl.o.2darray.nortn
     amdgcn_image_sample_c_cd_cl_o_3d,          // llvm.amdgcn.image.sample.c.cd.cl.o.3d
+    amdgcn_image_sample_c_cd_cl_o_3d_nortn,    // llvm.amdgcn.image.sample.c.cd.cl.o.3d.nortn
     amdgcn_image_sample_c_cd_cl_o_cube,        // llvm.amdgcn.image.sample.c.cd.cl.o.cube
+    amdgcn_image_sample_c_cd_cl_o_cube_nortn,  // llvm.amdgcn.image.sample.c.cd.cl.o.cube.nortn
     amdgcn_image_sample_c_cd_cube,             // llvm.amdgcn.image.sample.c.cd.cube
+    amdgcn_image_sample_c_cd_cube_nortn,       // llvm.amdgcn.image.sample.c.cd.cube.nortn
     amdgcn_image_sample_c_cd_o_1d,             // llvm.amdgcn.image.sample.c.cd.o.1d
+    amdgcn_image_sample_c_cd_o_1d_nortn,       // llvm.amdgcn.image.sample.c.cd.o.1d.nortn
     amdgcn_image_sample_c_cd_o_1darray,        // llvm.amdgcn.image.sample.c.cd.o.1darray
+    amdgcn_image_sample_c_cd_o_1darray_nortn,  // llvm.amdgcn.image.sample.c.cd.o.1darray.nortn
     amdgcn_image_sample_c_cd_o_2d,             // llvm.amdgcn.image.sample.c.cd.o.2d
+    amdgcn_image_sample_c_cd_o_2d_nortn,       // llvm.amdgcn.image.sample.c.cd.o.2d.nortn
     amdgcn_image_sample_c_cd_o_2darray,        // llvm.amdgcn.image.sample.c.cd.o.2darray
+    amdgcn_image_sample_c_cd_o_2darray_nortn,  // llvm.amdgcn.image.sample.c.cd.o.2darray.nortn
     amdgcn_image_sample_c_cd_o_3d,             // llvm.amdgcn.image.sample.c.cd.o.3d
+    amdgcn_image_sample_c_cd_o_3d_nortn,       // llvm.amdgcn.image.sample.c.cd.o.3d.nortn
     amdgcn_image_sample_c_cd_o_cube,           // llvm.amdgcn.image.sample.c.cd.o.cube
+    amdgcn_image_sample_c_cd_o_cube_nortn,     // llvm.amdgcn.image.sample.c.cd.o.cube.nortn
     amdgcn_image_sample_c_cl_1d,               // llvm.amdgcn.image.sample.c.cl.1d
+    amdgcn_image_sample_c_cl_1d_nortn,         // llvm.amdgcn.image.sample.c.cl.1d.nortn
     amdgcn_image_sample_c_cl_1darray,          // llvm.amdgcn.image.sample.c.cl.1darray
+    amdgcn_image_sample_c_cl_1darray_nortn,    // llvm.amdgcn.image.sample.c.cl.1darray.nortn
     amdgcn_image_sample_c_cl_2d,               // llvm.amdgcn.image.sample.c.cl.2d
+    amdgcn_image_sample_c_cl_2d_nortn,         // llvm.amdgcn.image.sample.c.cl.2d.nortn
     amdgcn_image_sample_c_cl_2darray,          // llvm.amdgcn.image.sample.c.cl.2darray
+    amdgcn_image_sample_c_cl_2darray_nortn,    // llvm.amdgcn.image.sample.c.cl.2darray.nortn
     amdgcn_image_sample_c_cl_3d,               // llvm.amdgcn.image.sample.c.cl.3d
+    amdgcn_image_sample_c_cl_3d_nortn,         // llvm.amdgcn.image.sample.c.cl.3d.nortn
     amdgcn_image_sample_c_cl_cube,             // llvm.amdgcn.image.sample.c.cl.cube
+    amdgcn_image_sample_c_cl_cube_nortn,       // llvm.amdgcn.image.sample.c.cl.cube.nortn
     amdgcn_image_sample_c_cl_o_1d,             // llvm.amdgcn.image.sample.c.cl.o.1d
+    amdgcn_image_sample_c_cl_o_1d_nortn,       // llvm.amdgcn.image.sample.c.cl.o.1d.nortn
     amdgcn_image_sample_c_cl_o_1darray,        // llvm.amdgcn.image.sample.c.cl.o.1darray
+    amdgcn_image_sample_c_cl_o_1darray_nortn,  // llvm.amdgcn.image.sample.c.cl.o.1darray.nortn
     amdgcn_image_sample_c_cl_o_2d,             // llvm.amdgcn.image.sample.c.cl.o.2d
+    amdgcn_image_sample_c_cl_o_2d_nortn,       // llvm.amdgcn.image.sample.c.cl.o.2d.nortn
     amdgcn_image_sample_c_cl_o_2darray,        // llvm.amdgcn.image.sample.c.cl.o.2darray
+    amdgcn_image_sample_c_cl_o_2darray_nortn,  // llvm.amdgcn.image.sample.c.cl.o.2darray.nortn
     amdgcn_image_sample_c_cl_o_3d,             // llvm.amdgcn.image.sample.c.cl.o.3d
+    amdgcn_image_sample_c_cl_o_3d_nortn,       // llvm.amdgcn.image.sample.c.cl.o.3d.nortn
     amdgcn_image_sample_c_cl_o_cube,           // llvm.amdgcn.image.sample.c.cl.o.cube
+    amdgcn_image_sample_c_cl_o_cube_nortn,     // llvm.amdgcn.image.sample.c.cl.o.cube.nortn
     amdgcn_image_sample_c_cube,                // llvm.amdgcn.image.sample.c.cube
+    amdgcn_image_sample_c_cube_nortn,          // llvm.amdgcn.image.sample.c.cube.nortn
     amdgcn_image_sample_c_d_1d,                // llvm.amdgcn.image.sample.c.d.1d
+    amdgcn_image_sample_c_d_1d_nortn,          // llvm.amdgcn.image.sample.c.d.1d.nortn
     amdgcn_image_sample_c_d_1darray,           // llvm.amdgcn.image.sample.c.d.1darray
+    amdgcn_image_sample_c_d_1darray_nortn,     // llvm.amdgcn.image.sample.c.d.1darray.nortn
     amdgcn_image_sample_c_d_2d,                // llvm.amdgcn.image.sample.c.d.2d
+    amdgcn_image_sample_c_d_2d_nortn,          // llvm.amdgcn.image.sample.c.d.2d.nortn
     amdgcn_image_sample_c_d_2darray,           // llvm.amdgcn.image.sample.c.d.2darray
+    amdgcn_image_sample_c_d_2darray_nortn,     // llvm.amdgcn.image.sample.c.d.2darray.nortn
     amdgcn_image_sample_c_d_3d,                // llvm.amdgcn.image.sample.c.d.3d
+    amdgcn_image_sample_c_d_3d_nortn,          // llvm.amdgcn.image.sample.c.d.3d.nortn
     amdgcn_image_sample_c_d_cl_1d,             // llvm.amdgcn.image.sample.c.d.cl.1d
+    amdgcn_image_sample_c_d_cl_1d_nortn,       // llvm.amdgcn.image.sample.c.d.cl.1d.nortn
     amdgcn_image_sample_c_d_cl_1darray,        // llvm.amdgcn.image.sample.c.d.cl.1darray
+    amdgcn_image_sample_c_d_cl_1darray_nortn,  // llvm.amdgcn.image.sample.c.d.cl.1darray.nortn
     amdgcn_image_sample_c_d_cl_2d,             // llvm.amdgcn.image.sample.c.d.cl.2d
+    amdgcn_image_sample_c_d_cl_2d_nortn,       // llvm.amdgcn.image.sample.c.d.cl.2d.nortn
     amdgcn_image_sample_c_d_cl_2darray,        // llvm.amdgcn.image.sample.c.d.cl.2darray
+    amdgcn_image_sample_c_d_cl_2darray_nortn,  // llvm.amdgcn.image.sample.c.d.cl.2darray.nortn
     amdgcn_image_sample_c_d_cl_3d,             // llvm.amdgcn.image.sample.c.d.cl.3d
+    amdgcn_image_sample_c_d_cl_3d_nortn,       // llvm.amdgcn.image.sample.c.d.cl.3d.nortn
     amdgcn_image_sample_c_d_cl_cube,           // llvm.amdgcn.image.sample.c.d.cl.cube
+    amdgcn_image_sample_c_d_cl_cube_nortn,     // llvm.amdgcn.image.sample.c.d.cl.cube.nortn
     amdgcn_image_sample_c_d_cl_o_1d,           // llvm.amdgcn.image.sample.c.d.cl.o.1d
+    amdgcn_image_sample_c_d_cl_o_1d_nortn,     // llvm.amdgcn.image.sample.c.d.cl.o.1d.nortn
     amdgcn_image_sample_c_d_cl_o_1darray,      // llvm.amdgcn.image.sample.c.d.cl.o.1darray
+    amdgcn_image_sample_c_d_cl_o_1darray_nortn,  // llvm.amdgcn.image.sample.c.d.cl.o.1darray.nortn
     amdgcn_image_sample_c_d_cl_o_2d,           // llvm.amdgcn.image.sample.c.d.cl.o.2d
+    amdgcn_image_sample_c_d_cl_o_2d_nortn,     // llvm.amdgcn.image.sample.c.d.cl.o.2d.nortn
     amdgcn_image_sample_c_d_cl_o_2darray,      // llvm.amdgcn.image.sample.c.d.cl.o.2darray
+    amdgcn_image_sample_c_d_cl_o_2darray_nortn,  // llvm.amdgcn.image.sample.c.d.cl.o.2darray.nortn
     amdgcn_image_sample_c_d_cl_o_3d,           // llvm.amdgcn.image.sample.c.d.cl.o.3d
+    amdgcn_image_sample_c_d_cl_o_3d_nortn,     // llvm.amdgcn.image.sample.c.d.cl.o.3d.nortn
     amdgcn_image_sample_c_d_cl_o_cube,         // llvm.amdgcn.image.sample.c.d.cl.o.cube
+    amdgcn_image_sample_c_d_cl_o_cube_nortn,   // llvm.amdgcn.image.sample.c.d.cl.o.cube.nortn
     amdgcn_image_sample_c_d_cube,              // llvm.amdgcn.image.sample.c.d.cube
+    amdgcn_image_sample_c_d_cube_nortn,        // llvm.amdgcn.image.sample.c.d.cube.nortn
     amdgcn_image_sample_c_d_o_1d,              // llvm.amdgcn.image.sample.c.d.o.1d
+    amdgcn_image_sample_c_d_o_1d_nortn,        // llvm.amdgcn.image.sample.c.d.o.1d.nortn
     amdgcn_image_sample_c_d_o_1darray,         // llvm.amdgcn.image.sample.c.d.o.1darray
+    amdgcn_image_sample_c_d_o_1darray_nortn,   // llvm.amdgcn.image.sample.c.d.o.1darray.nortn
     amdgcn_image_sample_c_d_o_2d,              // llvm.amdgcn.image.sample.c.d.o.2d
+    amdgcn_image_sample_c_d_o_2d_nortn,        // llvm.amdgcn.image.sample.c.d.o.2d.nortn
     amdgcn_image_sample_c_d_o_2darray,         // llvm.amdgcn.image.sample.c.d.o.2darray
+    amdgcn_image_sample_c_d_o_2darray_nortn,   // llvm.amdgcn.image.sample.c.d.o.2darray.nortn
     amdgcn_image_sample_c_d_o_3d,              // llvm.amdgcn.image.sample.c.d.o.3d
+    amdgcn_image_sample_c_d_o_3d_nortn,        // llvm.amdgcn.image.sample.c.d.o.3d.nortn
     amdgcn_image_sample_c_d_o_cube,            // llvm.amdgcn.image.sample.c.d.o.cube
+    amdgcn_image_sample_c_d_o_cube_nortn,      // llvm.amdgcn.image.sample.c.d.o.cube.nortn
     amdgcn_image_sample_c_l_1d,                // llvm.amdgcn.image.sample.c.l.1d
+    amdgcn_image_sample_c_l_1d_nortn,          // llvm.amdgcn.image.sample.c.l.1d.nortn
     amdgcn_image_sample_c_l_1darray,           // llvm.amdgcn.image.sample.c.l.1darray
+    amdgcn_image_sample_c_l_1darray_nortn,     // llvm.amdgcn.image.sample.c.l.1darray.nortn
     amdgcn_image_sample_c_l_2d,                // llvm.amdgcn.image.sample.c.l.2d
+    amdgcn_image_sample_c_l_2d_nortn,          // llvm.amdgcn.image.sample.c.l.2d.nortn
     amdgcn_image_sample_c_l_2darray,           // llvm.amdgcn.image.sample.c.l.2darray
+    amdgcn_image_sample_c_l_2darray_nortn,     // llvm.amdgcn.image.sample.c.l.2darray.nortn
     amdgcn_image_sample_c_l_3d,                // llvm.amdgcn.image.sample.c.l.3d
+    amdgcn_image_sample_c_l_3d_nortn,          // llvm.amdgcn.image.sample.c.l.3d.nortn
     amdgcn_image_sample_c_l_cube,              // llvm.amdgcn.image.sample.c.l.cube
+    amdgcn_image_sample_c_l_cube_nortn,        // llvm.amdgcn.image.sample.c.l.cube.nortn
     amdgcn_image_sample_c_l_o_1d,              // llvm.amdgcn.image.sample.c.l.o.1d
+    amdgcn_image_sample_c_l_o_1d_nortn,        // llvm.amdgcn.image.sample.c.l.o.1d.nortn
     amdgcn_image_sample_c_l_o_1darray,         // llvm.amdgcn.image.sample.c.l.o.1darray
+    amdgcn_image_sample_c_l_o_1darray_nortn,   // llvm.amdgcn.image.sample.c.l.o.1darray.nortn
     amdgcn_image_sample_c_l_o_2d,              // llvm.amdgcn.image.sample.c.l.o.2d
+    amdgcn_image_sample_c_l_o_2d_nortn,        // llvm.amdgcn.image.sample.c.l.o.2d.nortn
     amdgcn_image_sample_c_l_o_2darray,         // llvm.amdgcn.image.sample.c.l.o.2darray
+    amdgcn_image_sample_c_l_o_2darray_nortn,   // llvm.amdgcn.image.sample.c.l.o.2darray.nortn
     amdgcn_image_sample_c_l_o_3d,              // llvm.amdgcn.image.sample.c.l.o.3d
+    amdgcn_image_sample_c_l_o_3d_nortn,        // llvm.amdgcn.image.sample.c.l.o.3d.nortn
     amdgcn_image_sample_c_l_o_cube,            // llvm.amdgcn.image.sample.c.l.o.cube
+    amdgcn_image_sample_c_l_o_cube_nortn,      // llvm.amdgcn.image.sample.c.l.o.cube.nortn
     amdgcn_image_sample_c_lz_1d,               // llvm.amdgcn.image.sample.c.lz.1d
+    amdgcn_image_sample_c_lz_1d_nortn,         // llvm.amdgcn.image.sample.c.lz.1d.nortn
     amdgcn_image_sample_c_lz_1darray,          // llvm.amdgcn.image.sample.c.lz.1darray
+    amdgcn_image_sample_c_lz_1darray_nortn,    // llvm.amdgcn.image.sample.c.lz.1darray.nortn
     amdgcn_image_sample_c_lz_2d,               // llvm.amdgcn.image.sample.c.lz.2d
+    amdgcn_image_sample_c_lz_2d_nortn,         // llvm.amdgcn.image.sample.c.lz.2d.nortn
     amdgcn_image_sample_c_lz_2darray,          // llvm.amdgcn.image.sample.c.lz.2darray
+    amdgcn_image_sample_c_lz_2darray_nortn,    // llvm.amdgcn.image.sample.c.lz.2darray.nortn
     amdgcn_image_sample_c_lz_3d,               // llvm.amdgcn.image.sample.c.lz.3d
+    amdgcn_image_sample_c_lz_3d_nortn,         // llvm.amdgcn.image.sample.c.lz.3d.nortn
     amdgcn_image_sample_c_lz_cube,             // llvm.amdgcn.image.sample.c.lz.cube
+    amdgcn_image_sample_c_lz_cube_nortn,       // llvm.amdgcn.image.sample.c.lz.cube.nortn
     amdgcn_image_sample_c_lz_o_1d,             // llvm.amdgcn.image.sample.c.lz.o.1d
+    amdgcn_image_sample_c_lz_o_1d_nortn,       // llvm.amdgcn.image.sample.c.lz.o.1d.nortn
     amdgcn_image_sample_c_lz_o_1darray,        // llvm.amdgcn.image.sample.c.lz.o.1darray
+    amdgcn_image_sample_c_lz_o_1darray_nortn,  // llvm.amdgcn.image.sample.c.lz.o.1darray.nortn
     amdgcn_image_sample_c_lz_o_2d,             // llvm.amdgcn.image.sample.c.lz.o.2d
+    amdgcn_image_sample_c_lz_o_2d_nortn,       // llvm.amdgcn.image.sample.c.lz.o.2d.nortn
     amdgcn_image_sample_c_lz_o_2darray,        // llvm.amdgcn.image.sample.c.lz.o.2darray
+    amdgcn_image_sample_c_lz_o_2darray_nortn,  // llvm.amdgcn.image.sample.c.lz.o.2darray.nortn
     amdgcn_image_sample_c_lz_o_3d,             // llvm.amdgcn.image.sample.c.lz.o.3d
+    amdgcn_image_sample_c_lz_o_3d_nortn,       // llvm.amdgcn.image.sample.c.lz.o.3d.nortn
     amdgcn_image_sample_c_lz_o_cube,           // llvm.amdgcn.image.sample.c.lz.o.cube
+    amdgcn_image_sample_c_lz_o_cube_nortn,     // llvm.amdgcn.image.sample.c.lz.o.cube.nortn
     amdgcn_image_sample_c_o_1d,                // llvm.amdgcn.image.sample.c.o.1d
+    amdgcn_image_sample_c_o_1d_nortn,          // llvm.amdgcn.image.sample.c.o.1d.nortn
     amdgcn_image_sample_c_o_1darray,           // llvm.amdgcn.image.sample.c.o.1darray
+    amdgcn_image_sample_c_o_1darray_nortn,     // llvm.amdgcn.image.sample.c.o.1darray.nortn
     amdgcn_image_sample_c_o_2d,                // llvm.amdgcn.image.sample.c.o.2d
+    amdgcn_image_sample_c_o_2d_nortn,          // llvm.amdgcn.image.sample.c.o.2d.nortn
     amdgcn_image_sample_c_o_2darray,           // llvm.amdgcn.image.sample.c.o.2darray
+    amdgcn_image_sample_c_o_2darray_nortn,     // llvm.amdgcn.image.sample.c.o.2darray.nortn
     amdgcn_image_sample_c_o_3d,                // llvm.amdgcn.image.sample.c.o.3d
+    amdgcn_image_sample_c_o_3d_nortn,          // llvm.amdgcn.image.sample.c.o.3d.nortn
     amdgcn_image_sample_c_o_cube,              // llvm.amdgcn.image.sample.c.o.cube
+    amdgcn_image_sample_c_o_cube_nortn,        // llvm.amdgcn.image.sample.c.o.cube.nortn
     amdgcn_image_sample_cd_1d,                 // llvm.amdgcn.image.sample.cd.1d
+    amdgcn_image_sample_cd_1d_nortn,           // llvm.amdgcn.image.sample.cd.1d.nortn
     amdgcn_image_sample_cd_1darray,            // llvm.amdgcn.image.sample.cd.1darray
+    amdgcn_image_sample_cd_1darray_nortn,      // llvm.amdgcn.image.sample.cd.1darray.nortn
     amdgcn_image_sample_cd_2d,                 // llvm.amdgcn.image.sample.cd.2d
+    amdgcn_image_sample_cd_2d_nortn,           // llvm.amdgcn.image.sample.cd.2d.nortn
     amdgcn_image_sample_cd_2darray,            // llvm.amdgcn.image.sample.cd.2darray
+    amdgcn_image_sample_cd_2darray_nortn,      // llvm.amdgcn.image.sample.cd.2darray.nortn
     amdgcn_image_sample_cd_3d,                 // llvm.amdgcn.image.sample.cd.3d
+    amdgcn_image_sample_cd_3d_nortn,           // llvm.amdgcn.image.sample.cd.3d.nortn
     amdgcn_image_sample_cd_cl_1d,              // llvm.amdgcn.image.sample.cd.cl.1d
+    amdgcn_image_sample_cd_cl_1d_nortn,        // llvm.amdgcn.image.sample.cd.cl.1d.nortn
     amdgcn_image_sample_cd_cl_1darray,         // llvm.amdgcn.image.sample.cd.cl.1darray
+    amdgcn_image_sample_cd_cl_1darray_nortn,   // llvm.amdgcn.image.sample.cd.cl.1darray.nortn
     amdgcn_image_sample_cd_cl_2d,              // llvm.amdgcn.image.sample.cd.cl.2d
+    amdgcn_image_sample_cd_cl_2d_nortn,        // llvm.amdgcn.image.sample.cd.cl.2d.nortn
     amdgcn_image_sample_cd_cl_2darray,         // llvm.amdgcn.image.sample.cd.cl.2darray
+    amdgcn_image_sample_cd_cl_2darray_nortn,   // llvm.amdgcn.image.sample.cd.cl.2darray.nortn
     amdgcn_image_sample_cd_cl_3d,              // llvm.amdgcn.image.sample.cd.cl.3d
+    amdgcn_image_sample_cd_cl_3d_nortn,        // llvm.amdgcn.image.sample.cd.cl.3d.nortn
     amdgcn_image_sample_cd_cl_cube,            // llvm.amdgcn.image.sample.cd.cl.cube
+    amdgcn_image_sample_cd_cl_cube_nortn,      // llvm.amdgcn.image.sample.cd.cl.cube.nortn
     amdgcn_image_sample_cd_cl_o_1d,            // llvm.amdgcn.image.sample.cd.cl.o.1d
+    amdgcn_image_sample_cd_cl_o_1d_nortn,      // llvm.amdgcn.image.sample.cd.cl.o.1d.nortn
     amdgcn_image_sample_cd_cl_o_1darray,       // llvm.amdgcn.image.sample.cd.cl.o.1darray
+    amdgcn_image_sample_cd_cl_o_1darray_nortn,  // llvm.amdgcn.image.sample.cd.cl.o.1darray.nortn
     amdgcn_image_sample_cd_cl_o_2d,            // llvm.amdgcn.image.sample.cd.cl.o.2d
+    amdgcn_image_sample_cd_cl_o_2d_nortn,      // llvm.amdgcn.image.sample.cd.cl.o.2d.nortn
     amdgcn_image_sample_cd_cl_o_2darray,       // llvm.amdgcn.image.sample.cd.cl.o.2darray
+    amdgcn_image_sample_cd_cl_o_2darray_nortn,  // llvm.amdgcn.image.sample.cd.cl.o.2darray.nortn
     amdgcn_image_sample_cd_cl_o_3d,            // llvm.amdgcn.image.sample.cd.cl.o.3d
+    amdgcn_image_sample_cd_cl_o_3d_nortn,      // llvm.amdgcn.image.sample.cd.cl.o.3d.nortn
     amdgcn_image_sample_cd_cl_o_cube,          // llvm.amdgcn.image.sample.cd.cl.o.cube
+    amdgcn_image_sample_cd_cl_o_cube_nortn,    // llvm.amdgcn.image.sample.cd.cl.o.cube.nortn
     amdgcn_image_sample_cd_cube,               // llvm.amdgcn.image.sample.cd.cube
+    amdgcn_image_sample_cd_cube_nortn,         // llvm.amdgcn.image.sample.cd.cube.nortn
     amdgcn_image_sample_cd_o_1d,               // llvm.amdgcn.image.sample.cd.o.1d
+    amdgcn_image_sample_cd_o_1d_nortn,         // llvm.amdgcn.image.sample.cd.o.1d.nortn
     amdgcn_image_sample_cd_o_1darray,          // llvm.amdgcn.image.sample.cd.o.1darray
+    amdgcn_image_sample_cd_o_1darray_nortn,    // llvm.amdgcn.image.sample.cd.o.1darray.nortn
     amdgcn_image_sample_cd_o_2d,               // llvm.amdgcn.image.sample.cd.o.2d
+    amdgcn_image_sample_cd_o_2d_nortn,         // llvm.amdgcn.image.sample.cd.o.2d.nortn
     amdgcn_image_sample_cd_o_2darray,          // llvm.amdgcn.image.sample.cd.o.2darray
+    amdgcn_image_sample_cd_o_2darray_nortn,    // llvm.amdgcn.image.sample.cd.o.2darray.nortn
     amdgcn_image_sample_cd_o_3d,               // llvm.amdgcn.image.sample.cd.o.3d
+    amdgcn_image_sample_cd_o_3d_nortn,         // llvm.amdgcn.image.sample.cd.o.3d.nortn
     amdgcn_image_sample_cd_o_cube,             // llvm.amdgcn.image.sample.cd.o.cube
+    amdgcn_image_sample_cd_o_cube_nortn,       // llvm.amdgcn.image.sample.cd.o.cube.nortn
     amdgcn_image_sample_cl_1d,                 // llvm.amdgcn.image.sample.cl.1d
+    amdgcn_image_sample_cl_1d_nortn,           // llvm.amdgcn.image.sample.cl.1d.nortn
     amdgcn_image_sample_cl_1darray,            // llvm.amdgcn.image.sample.cl.1darray
+    amdgcn_image_sample_cl_1darray_nortn,      // llvm.amdgcn.image.sample.cl.1darray.nortn
     amdgcn_image_sample_cl_2d,                 // llvm.amdgcn.image.sample.cl.2d
+    amdgcn_image_sample_cl_2d_nortn,           // llvm.amdgcn.image.sample.cl.2d.nortn
     amdgcn_image_sample_cl_2darray,            // llvm.amdgcn.image.sample.cl.2darray
+    amdgcn_image_sample_cl_2darray_nortn,      // llvm.amdgcn.image.sample.cl.2darray.nortn
     amdgcn_image_sample_cl_3d,                 // llvm.amdgcn.image.sample.cl.3d
+    amdgcn_image_sample_cl_3d_nortn,           // llvm.amdgcn.image.sample.cl.3d.nortn
     amdgcn_image_sample_cl_cube,               // llvm.amdgcn.image.sample.cl.cube
+    amdgcn_image_sample_cl_cube_nortn,         // llvm.amdgcn.image.sample.cl.cube.nortn
     amdgcn_image_sample_cl_o_1d,               // llvm.amdgcn.image.sample.cl.o.1d
+    amdgcn_image_sample_cl_o_1d_nortn,         // llvm.amdgcn.image.sample.cl.o.1d.nortn
     amdgcn_image_sample_cl_o_1darray,          // llvm.amdgcn.image.sample.cl.o.1darray
+    amdgcn_image_sample_cl_o_1darray_nortn,    // llvm.amdgcn.image.sample.cl.o.1darray.nortn
     amdgcn_image_sample_cl_o_2d,               // llvm.amdgcn.image.sample.cl.o.2d
+    amdgcn_image_sample_cl_o_2d_nortn,         // llvm.amdgcn.image.sample.cl.o.2d.nortn
     amdgcn_image_sample_cl_o_2darray,          // llvm.amdgcn.image.sample.cl.o.2darray
+    amdgcn_image_sample_cl_o_2darray_nortn,    // llvm.amdgcn.image.sample.cl.o.2darray.nortn
     amdgcn_image_sample_cl_o_3d,               // llvm.amdgcn.image.sample.cl.o.3d
+    amdgcn_image_sample_cl_o_3d_nortn,         // llvm.amdgcn.image.sample.cl.o.3d.nortn
     amdgcn_image_sample_cl_o_cube,             // llvm.amdgcn.image.sample.cl.o.cube
+    amdgcn_image_sample_cl_o_cube_nortn,       // llvm.amdgcn.image.sample.cl.o.cube.nortn
     amdgcn_image_sample_cube,                  // llvm.amdgcn.image.sample.cube
+    amdgcn_image_sample_cube_nortn,            // llvm.amdgcn.image.sample.cube.nortn
     amdgcn_image_sample_d_1d,                  // llvm.amdgcn.image.sample.d.1d
+    amdgcn_image_sample_d_1d_nortn,            // llvm.amdgcn.image.sample.d.1d.nortn
     amdgcn_image_sample_d_1darray,             // llvm.amdgcn.image.sample.d.1darray
+    amdgcn_image_sample_d_1darray_nortn,       // llvm.amdgcn.image.sample.d.1darray.nortn
     amdgcn_image_sample_d_2d,                  // llvm.amdgcn.image.sample.d.2d
+    amdgcn_image_sample_d_2d_nortn,            // llvm.amdgcn.image.sample.d.2d.nortn
     amdgcn_image_sample_d_2darray,             // llvm.amdgcn.image.sample.d.2darray
+    amdgcn_image_sample_d_2darray_nortn,       // llvm.amdgcn.image.sample.d.2darray.nortn
     amdgcn_image_sample_d_3d,                  // llvm.amdgcn.image.sample.d.3d
+    amdgcn_image_sample_d_3d_nortn,            // llvm.amdgcn.image.sample.d.3d.nortn
     amdgcn_image_sample_d_cl_1d,               // llvm.amdgcn.image.sample.d.cl.1d
+    amdgcn_image_sample_d_cl_1d_nortn,         // llvm.amdgcn.image.sample.d.cl.1d.nortn
     amdgcn_image_sample_d_cl_1darray,          // llvm.amdgcn.image.sample.d.cl.1darray
+    amdgcn_image_sample_d_cl_1darray_nortn,    // llvm.amdgcn.image.sample.d.cl.1darray.nortn
     amdgcn_image_sample_d_cl_2d,               // llvm.amdgcn.image.sample.d.cl.2d
+    amdgcn_image_sample_d_cl_2d_nortn,         // llvm.amdgcn.image.sample.d.cl.2d.nortn
     amdgcn_image_sample_d_cl_2darray,          // llvm.amdgcn.image.sample.d.cl.2darray
+    amdgcn_image_sample_d_cl_2darray_nortn,    // llvm.amdgcn.image.sample.d.cl.2darray.nortn
     amdgcn_image_sample_d_cl_3d,               // llvm.amdgcn.image.sample.d.cl.3d
+    amdgcn_image_sample_d_cl_3d_nortn,         // llvm.amdgcn.image.sample.d.cl.3d.nortn
     amdgcn_image_sample_d_cl_cube,             // llvm.amdgcn.image.sample.d.cl.cube
+    amdgcn_image_sample_d_cl_cube_nortn,       // llvm.amdgcn.image.sample.d.cl.cube.nortn
     amdgcn_image_sample_d_cl_o_1d,             // llvm.amdgcn.image.sample.d.cl.o.1d
+    amdgcn_image_sample_d_cl_o_1d_nortn,       // llvm.amdgcn.image.sample.d.cl.o.1d.nortn
     amdgcn_image_sample_d_cl_o_1darray,        // llvm.amdgcn.image.sample.d.cl.o.1darray
+    amdgcn_image_sample_d_cl_o_1darray_nortn,  // llvm.amdgcn.image.sample.d.cl.o.1darray.nortn
     amdgcn_image_sample_d_cl_o_2d,             // llvm.amdgcn.image.sample.d.cl.o.2d
+    amdgcn_image_sample_d_cl_o_2d_nortn,       // llvm.amdgcn.image.sample.d.cl.o.2d.nortn
     amdgcn_image_sample_d_cl_o_2darray,        // llvm.amdgcn.image.sample.d.cl.o.2darray
+    amdgcn_image_sample_d_cl_o_2darray_nortn,  // llvm.amdgcn.image.sample.d.cl.o.2darray.nortn
     amdgcn_image_sample_d_cl_o_3d,             // llvm.amdgcn.image.sample.d.cl.o.3d
+    amdgcn_image_sample_d_cl_o_3d_nortn,       // llvm.amdgcn.image.sample.d.cl.o.3d.nortn
     amdgcn_image_sample_d_cl_o_cube,           // llvm.amdgcn.image.sample.d.cl.o.cube
+    amdgcn_image_sample_d_cl_o_cube_nortn,     // llvm.amdgcn.image.sample.d.cl.o.cube.nortn
     amdgcn_image_sample_d_cube,                // llvm.amdgcn.image.sample.d.cube
+    amdgcn_image_sample_d_cube_nortn,          // llvm.amdgcn.image.sample.d.cube.nortn
     amdgcn_image_sample_d_o_1d,                // llvm.amdgcn.image.sample.d.o.1d
+    amdgcn_image_sample_d_o_1d_nortn,          // llvm.amdgcn.image.sample.d.o.1d.nortn
     amdgcn_image_sample_d_o_1darray,           // llvm.amdgcn.image.sample.d.o.1darray
+    amdgcn_image_sample_d_o_1darray_nortn,     // llvm.amdgcn.image.sample.d.o.1darray.nortn
     amdgcn_image_sample_d_o_2d,                // llvm.amdgcn.image.sample.d.o.2d
+    amdgcn_image_sample_d_o_2d_nortn,          // llvm.amdgcn.image.sample.d.o.2d.nortn
     amdgcn_image_sample_d_o_2darray,           // llvm.amdgcn.image.sample.d.o.2darray
+    amdgcn_image_sample_d_o_2darray_nortn,     // llvm.amdgcn.image.sample.d.o.2darray.nortn
     amdgcn_image_sample_d_o_3d,                // llvm.amdgcn.image.sample.d.o.3d
+    amdgcn_image_sample_d_o_3d_nortn,          // llvm.amdgcn.image.sample.d.o.3d.nortn
     amdgcn_image_sample_d_o_cube,              // llvm.amdgcn.image.sample.d.o.cube
+    amdgcn_image_sample_d_o_cube_nortn,        // llvm.amdgcn.image.sample.d.o.cube.nortn
     amdgcn_image_sample_l_1d,                  // llvm.amdgcn.image.sample.l.1d
+    amdgcn_image_sample_l_1d_nortn,            // llvm.amdgcn.image.sample.l.1d.nortn
     amdgcn_image_sample_l_1darray,             // llvm.amdgcn.image.sample.l.1darray
+    amdgcn_image_sample_l_1darray_nortn,       // llvm.amdgcn.image.sample.l.1darray.nortn
     amdgcn_image_sample_l_2d,                  // llvm.amdgcn.image.sample.l.2d
+    amdgcn_image_sample_l_2d_nortn,            // llvm.amdgcn.image.sample.l.2d.nortn
     amdgcn_image_sample_l_2darray,             // llvm.amdgcn.image.sample.l.2darray
+    amdgcn_image_sample_l_2darray_nortn,       // llvm.amdgcn.image.sample.l.2darray.nortn
     amdgcn_image_sample_l_3d,                  // llvm.amdgcn.image.sample.l.3d
+    amdgcn_image_sample_l_3d_nortn,            // llvm.amdgcn.image.sample.l.3d.nortn
     amdgcn_image_sample_l_cube,                // llvm.amdgcn.image.sample.l.cube
+    amdgcn_image_sample_l_cube_nortn,          // llvm.amdgcn.image.sample.l.cube.nortn
     amdgcn_image_sample_l_o_1d,                // llvm.amdgcn.image.sample.l.o.1d
+    amdgcn_image_sample_l_o_1d_nortn,          // llvm.amdgcn.image.sample.l.o.1d.nortn
     amdgcn_image_sample_l_o_1darray,           // llvm.amdgcn.image.sample.l.o.1darray
+    amdgcn_image_sample_l_o_1darray_nortn,     // llvm.amdgcn.image.sample.l.o.1darray.nortn
     amdgcn_image_sample_l_o_2d,                // llvm.amdgcn.image.sample.l.o.2d
+    amdgcn_image_sample_l_o_2d_nortn,          // llvm.amdgcn.image.sample.l.o.2d.nortn
     amdgcn_image_sample_l_o_2darray,           // llvm.amdgcn.image.sample.l.o.2darray
+    amdgcn_image_sample_l_o_2darray_nortn,     // llvm.amdgcn.image.sample.l.o.2darray.nortn
     amdgcn_image_sample_l_o_3d,                // llvm.amdgcn.image.sample.l.o.3d
+    amdgcn_image_sample_l_o_3d_nortn,          // llvm.amdgcn.image.sample.l.o.3d.nortn
     amdgcn_image_sample_l_o_cube,              // llvm.amdgcn.image.sample.l.o.cube
+    amdgcn_image_sample_l_o_cube_nortn,        // llvm.amdgcn.image.sample.l.o.cube.nortn
     amdgcn_image_sample_lz_1d,                 // llvm.amdgcn.image.sample.lz.1d
+    amdgcn_image_sample_lz_1d_nortn,           // llvm.amdgcn.image.sample.lz.1d.nortn
     amdgcn_image_sample_lz_1darray,            // llvm.amdgcn.image.sample.lz.1darray
+    amdgcn_image_sample_lz_1darray_nortn,      // llvm.amdgcn.image.sample.lz.1darray.nortn
     amdgcn_image_sample_lz_2d,                 // llvm.amdgcn.image.sample.lz.2d
+    amdgcn_image_sample_lz_2d_nortn,           // llvm.amdgcn.image.sample.lz.2d.nortn
     amdgcn_image_sample_lz_2darray,            // llvm.amdgcn.image.sample.lz.2darray
+    amdgcn_image_sample_lz_2darray_nortn,      // llvm.amdgcn.image.sample.lz.2darray.nortn
     amdgcn_image_sample_lz_3d,                 // llvm.amdgcn.image.sample.lz.3d
+    amdgcn_image_sample_lz_3d_nortn,           // llvm.amdgcn.image.sample.lz.3d.nortn
     amdgcn_image_sample_lz_cube,               // llvm.amdgcn.image.sample.lz.cube
+    amdgcn_image_sample_lz_cube_nortn,         // llvm.amdgcn.image.sample.lz.cube.nortn
     amdgcn_image_sample_lz_o_1d,               // llvm.amdgcn.image.sample.lz.o.1d
+    amdgcn_image_sample_lz_o_1d_nortn,         // llvm.amdgcn.image.sample.lz.o.1d.nortn
     amdgcn_image_sample_lz_o_1darray,          // llvm.amdgcn.image.sample.lz.o.1darray
+    amdgcn_image_sample_lz_o_1darray_nortn,    // llvm.amdgcn.image.sample.lz.o.1darray.nortn
     amdgcn_image_sample_lz_o_2d,               // llvm.amdgcn.image.sample.lz.o.2d
+    amdgcn_image_sample_lz_o_2d_nortn,         // llvm.amdgcn.image.sample.lz.o.2d.nortn
     amdgcn_image_sample_lz_o_2darray,          // llvm.amdgcn.image.sample.lz.o.2darray
+    amdgcn_image_sample_lz_o_2darray_nortn,    // llvm.amdgcn.image.sample.lz.o.2darray.nortn
     amdgcn_image_sample_lz_o_3d,               // llvm.amdgcn.image.sample.lz.o.3d
+    amdgcn_image_sample_lz_o_3d_nortn,         // llvm.amdgcn.image.sample.lz.o.3d.nortn
     amdgcn_image_sample_lz_o_cube,             // llvm.amdgcn.image.sample.lz.o.cube
+    amdgcn_image_sample_lz_o_cube_nortn,       // llvm.amdgcn.image.sample.lz.o.cube.nortn
     amdgcn_image_sample_o_1d,                  // llvm.amdgcn.image.sample.o.1d
+    amdgcn_image_sample_o_1d_nortn,            // llvm.amdgcn.image.sample.o.1d.nortn
     amdgcn_image_sample_o_1darray,             // llvm.amdgcn.image.sample.o.1darray
+    amdgcn_image_sample_o_1darray_nortn,       // llvm.amdgcn.image.sample.o.1darray.nortn
     amdgcn_image_sample_o_2d,                  // llvm.amdgcn.image.sample.o.2d
+    amdgcn_image_sample_o_2d_nortn,            // llvm.amdgcn.image.sample.o.2d.nortn
     amdgcn_image_sample_o_2darray,             // llvm.amdgcn.image.sample.o.2darray
+    amdgcn_image_sample_o_2darray_nortn,       // llvm.amdgcn.image.sample.o.2darray.nortn
     amdgcn_image_sample_o_3d,                  // llvm.amdgcn.image.sample.o.3d
+    amdgcn_image_sample_o_3d_nortn,            // llvm.amdgcn.image.sample.o.3d.nortn
     amdgcn_image_sample_o_cube,                // llvm.amdgcn.image.sample.o.cube
+    amdgcn_image_sample_o_cube_nortn,          // llvm.amdgcn.image.sample.o.cube.nortn
     amdgcn_image_store_1d,                     // llvm.amdgcn.image.store.1d
     amdgcn_image_store_1darray,                // llvm.amdgcn.image.store.1darray
     amdgcn_image_store_2d,                     // llvm.amdgcn.image.store.2d
@@ -657,8 +878,10 @@ enum AMDGCNIntrinsics : unsigned {
     amdgcn_interp_mov,                         // llvm.amdgcn.interp.mov
     amdgcn_interp_p1,                          // llvm.amdgcn.interp.p1
     amdgcn_interp_p1_f16,                      // llvm.amdgcn.interp.p1.f16
+    amdgcn_interp_p10_rtz_f16,                 // llvm.amdgcn.interp.p10.rtz.f16
     amdgcn_interp_p2,                          // llvm.amdgcn.interp.p2
     amdgcn_interp_p2_f16,                      // llvm.amdgcn.interp.p2.f16
+    amdgcn_interp_p2_rtz_f16,                  // llvm.amdgcn.interp.p2.rtz.f16
     amdgcn_inverse_ballot,                     // llvm.amdgcn.inverse.ballot
     amdgcn_is_private,                         // llvm.amdgcn.is.private
     amdgcn_is_shared,                          // llvm.amdgcn.is.shared
@@ -729,16 +952,17 @@ enum AMDGCNIntrinsics : unsigned {
     amdgcn_permlane64,                         // llvm.amdgcn.permlane64
     amdgcn_permlanex16,                        // llvm.amdgcn.permlanex16
     amdgcn_permlanex16_var,                    // llvm.amdgcn.permlanex16.var
+    amdgcn_pops_exiting_wave_id,               // llvm.amdgcn.pops.exiting.wave.id
     amdgcn_ps_live,                            // llvm.amdgcn.ps.live
     amdgcn_qsad_pk_u16_u8,                     // llvm.amdgcn.qsad.pk.u16.u8
     amdgcn_queue_ptr,                          // llvm.amdgcn.queue.ptr
+    amdgcn_raw_atomic_buffer_load,             // llvm.amdgcn.raw.atomic.buffer.load
     amdgcn_raw_buffer_atomic_add,              // llvm.amdgcn.raw.buffer.atomic.add
     amdgcn_raw_buffer_atomic_and,              // llvm.amdgcn.raw.buffer.atomic.and
     amdgcn_raw_buffer_atomic_cmpswap,          // llvm.amdgcn.raw.buffer.atomic.cmpswap
     amdgcn_raw_buffer_atomic_cond_sub_u32,     // llvm.amdgcn.raw.buffer.atomic.cond.sub.u32
     amdgcn_raw_buffer_atomic_dec,              // llvm.amdgcn.raw.buffer.atomic.dec
     amdgcn_raw_buffer_atomic_fadd,             // llvm.amdgcn.raw.buffer.atomic.fadd
-    amdgcn_raw_buffer_atomic_fadd_v2bf16,      // llvm.amdgcn.raw.buffer.atomic.fadd.v2bf16
     amdgcn_raw_buffer_atomic_fmax,             // llvm.amdgcn.raw.buffer.atomic.fmax
     amdgcn_raw_buffer_atomic_fmin,             // llvm.amdgcn.raw.buffer.atomic.fmin
     amdgcn_raw_buffer_atomic_inc,              // llvm.amdgcn.raw.buffer.atomic.inc
@@ -755,13 +979,13 @@ enum AMDGCNIntrinsics : unsigned {
     amdgcn_raw_buffer_load_lds,                // llvm.amdgcn.raw.buffer.load.lds
     amdgcn_raw_buffer_store,                   // llvm.amdgcn.raw.buffer.store
     amdgcn_raw_buffer_store_format,            // llvm.amdgcn.raw.buffer.store.format
+    amdgcn_raw_ptr_atomic_buffer_load,         // llvm.amdgcn.raw.ptr.atomic.buffer.load
     amdgcn_raw_ptr_buffer_atomic_add,          // llvm.amdgcn.raw.ptr.buffer.atomic.add
     amdgcn_raw_ptr_buffer_atomic_and,          // llvm.amdgcn.raw.ptr.buffer.atomic.and
     amdgcn_raw_ptr_buffer_atomic_cmpswap,      // llvm.amdgcn.raw.ptr.buffer.atomic.cmpswap
     amdgcn_raw_ptr_buffer_atomic_cond_sub_u32,  // llvm.amdgcn.raw.ptr.buffer.atomic.cond.sub.u32
     amdgcn_raw_ptr_buffer_atomic_dec,          // llvm.amdgcn.raw.ptr.buffer.atomic.dec
     amdgcn_raw_ptr_buffer_atomic_fadd,         // llvm.amdgcn.raw.ptr.buffer.atomic.fadd
-    amdgcn_raw_ptr_buffer_atomic_fadd_v2bf16,  // llvm.amdgcn.raw.ptr.buffer.atomic.fadd.v2bf16
     amdgcn_raw_ptr_buffer_atomic_fmax,         // llvm.amdgcn.raw.ptr.buffer.atomic.fmax
     amdgcn_raw_ptr_buffer_atomic_fmin,         // llvm.amdgcn.raw.ptr.buffer.atomic.fmin
     amdgcn_raw_ptr_buffer_atomic_inc,          // llvm.amdgcn.raw.ptr.buffer.atomic.inc
@@ -873,7 +1097,6 @@ enum AMDGCNIntrinsics : unsigned {
     amdgcn_struct_buffer_atomic_cond_sub_u32,  // llvm.amdgcn.struct.buffer.atomic.cond.sub.u32
     amdgcn_struct_buffer_atomic_dec,           // llvm.amdgcn.struct.buffer.atomic.dec
     amdgcn_struct_buffer_atomic_fadd,          // llvm.amdgcn.struct.buffer.atomic.fadd
-    amdgcn_struct_buffer_atomic_fadd_v2bf16,   // llvm.amdgcn.struct.buffer.atomic.fadd.v2bf16
     amdgcn_struct_buffer_atomic_fmax,          // llvm.amdgcn.struct.buffer.atomic.fmax
     amdgcn_struct_buffer_atomic_fmin,          // llvm.amdgcn.struct.buffer.atomic.fmin
     amdgcn_struct_buffer_atomic_inc,           // llvm.amdgcn.struct.buffer.atomic.inc
@@ -896,7 +1119,6 @@ enum AMDGCNIntrinsics : unsigned {
     amdgcn_struct_ptr_buffer_atomic_cond_sub_u32,  // llvm.amdgcn.struct.ptr.buffer.atomic.cond.sub.u32
     amdgcn_struct_ptr_buffer_atomic_dec,       // llvm.amdgcn.struct.ptr.buffer.atomic.dec
     amdgcn_struct_ptr_buffer_atomic_fadd,      // llvm.amdgcn.struct.ptr.buffer.atomic.fadd
-    amdgcn_struct_ptr_buffer_atomic_fadd_v2bf16,  // llvm.amdgcn.struct.ptr.buffer.atomic.fadd.v2bf16
     amdgcn_struct_ptr_buffer_atomic_fmax,      // llvm.amdgcn.struct.ptr.buffer.atomic.fmax
     amdgcn_struct_ptr_buffer_atomic_fmin,      // llvm.amdgcn.struct.ptr.buffer.atomic.fmin
     amdgcn_struct_ptr_buffer_atomic_inc,       // llvm.amdgcn.struct.ptr.buffer.atomic.inc
@@ -930,8 +1152,6 @@ enum AMDGCNIntrinsics : unsigned {
     amdgcn_swmmac_i32_16x16x32_iu4,            // llvm.amdgcn.swmmac.i32.16x16x32.iu4
     amdgcn_swmmac_i32_16x16x32_iu8,            // llvm.amdgcn.swmmac.i32.16x16x32.iu8
     amdgcn_swmmac_i32_16x16x64_iu4,            // llvm.amdgcn.swmmac.i32.16x16x64.iu4
-    amdgcn_tbuffer_load,                       // llvm.amdgcn.tbuffer.load
-    amdgcn_tbuffer_store,                      // llvm.amdgcn.tbuffer.store
     amdgcn_trig_preop,                         // llvm.amdgcn.trig.preop
     amdgcn_ubfe,                               // llvm.amdgcn.ubfe
     amdgcn_udot2,                              // llvm.amdgcn.udot2

@@ -22,6 +22,8 @@ public:
       return readDecayedType();
     case Type::ConstantArray:
       return readConstantArrayType();
+    case Type::ArrayParameter:
+      return readArrayParameterType();
     case Type::DependentSizedArray:
       return readDependentSizedArrayType();
     case Type::IncompleteArray:
@@ -38,6 +40,8 @@ public:
       return readBitIntType();
     case Type::BlockPointer:
       return readBlockPointerType();
+    case Type::CountAttributed:
+      return readCountAttributedType();
     case Type::Builtin:
       return readBuiltinType();
     case Type::Complex:
@@ -86,6 +90,8 @@ public:
       return readObjCTypeParamType();
     case Type::PackExpansion:
       return readPackExpansionType();
+    case Type::PackIndexing:
+      return readPackIndexingType();
     case Type::Paren:
       return readParenType();
     case Type::Pipe:
@@ -153,6 +159,19 @@ public:
                                     sizeModifier,
                                     indexQualifiers.getCVRQualifiers());
   
+  }
+
+  QualType readArrayParameterType() {
+    auto &ctx = R.getASTContext();
+    llvm::APInt sizeValue = R.find("sizeValue").readAPInt();
+    Expr* size = R.find("size").readExprRef();
+    QualType elementType = R.find("elementType").readQualType();
+    ArraySizeModifier sizeModifier = R.find("sizeModifier").readArraySizeModifier();
+    Qualifiers indexQualifiers = R.find("indexQualifiers").readQualifiers();
+     return ctx.getAdjustedParameterType(
+                              ctx.getConstantArrayType(elementType,sizeValue,
+                                    size,sizeModifier,
+                                    indexQualifiers.getCVRQualifiers())); 
   }
 
   QualType readDependentSizedArrayType() {
@@ -240,6 +259,17 @@ public:
      return ctx.getBlockPointerType(pointeeType); 
   }
 
+  QualType readCountAttributedType() {
+    auto &ctx = R.getASTContext();
+    QualType WrappedTy = R.find("WrappedTy").readQualType();
+    Expr* CountExpr = R.find("CountExpr").readExprRef();
+    bool CountInBytes = R.find("CountInBytes").readBool();
+    bool OrNull = R.find("OrNull").readBool();
+    llvm::SmallVector<TypeCoupledDeclRefInfo, 8> CoupledDecls_buffer_0;
+    llvm::ArrayRef<TypeCoupledDeclRefInfo> CoupledDecls = R.find("CoupledDecls").template readArray<TypeCoupledDeclRefInfo>(CoupledDecls_buffer_0);
+     return ctx.getCountAttributedType(WrappedTy, CountExpr, CountInBytes, OrNull, CoupledDecls); 
+  }
+
   QualType readBuiltinType() {
     auto &ctx = R.getASTContext();
     BuiltinType::Kind kind = R.find("kind").readBuiltinTypeKind();
@@ -268,6 +298,10 @@ public:
 #define WASM_TYPE(NAME, ID, SINGLETON_ID) \
       case BuiltinType::ID: return ctx.SINGLETON_ID;
 #include "clang/Basic/WebAssemblyReferenceTypes.def"
+
+#define AMDGPU_TYPE(NAME, ID, SINGLETON_ID) \
+      case BuiltinType::ID: return ctx.SINGLETON_ID;
+#include "clang/Basic/AMDGPUTypes.def"
 
 #define BUILTIN_TYPE(ID, SINGLETON_ID) \
       case BuiltinType::ID: return ctx.SINGLETON_ID;
@@ -435,6 +469,10 @@ public:
     llvm::SmallVector<FunctionProtoType::ExtParameterInfo, 8> extParameterInfo_buffer_0;
     llvm::ArrayRef<FunctionProtoType::ExtParameterInfo> extParameterInfo = R.find("extParameterInfo").template readArray<FunctionProtoType::ExtParameterInfo>(extParameterInfo_buffer_0);
     uint32_t AArch64SMEAttributes = R.find("AArch64SMEAttributes").readUInt32();
+    llvm::SmallVector<FunctionEffect, 8> functionEffects_buffer_0;
+    llvm::ArrayRef<FunctionEffect> functionEffects = R.find("functionEffects").template readArray<FunctionEffect>(functionEffects_buffer_0);
+    llvm::SmallVector<EffectConditionExpr, 8> functionEffectConds_buffer_0;
+    llvm::ArrayRef<EffectConditionExpr> functionEffectConds = R.find("functionEffectConds").template readArray<EffectConditionExpr>(functionEffectConds_buffer_0);
     QualType returnType = R.find("returnType").readQualType();
     bool noReturn = R.find("noReturn").readBool();
     bool hasRegParm = R.find("hasRegParm").readBool();
@@ -459,6 +497,7 @@ public:
     epi.ExtParameterInfos =
       extParameterInfo.empty() ? nullptr : extParameterInfo.data();
     epi.AArch64SMEAttributes = AArch64SMEAttributes;
+    epi.FunctionEffects = FunctionEffectsRef::create(functionEffects, functionEffectConds);
     return ctx.getFunctionType(returnType, parameters, epi);
   
   }
@@ -575,6 +614,15 @@ public:
     
     return ctx.getPackExpansionType(pattern, numExpansions,
                                     /*ExpectPackInType*/false);
+  
+  }
+
+  QualType readPackIndexingType() {
+    auto &ctx = R.getASTContext();
+    QualType pattern = R.find("pattern").readQualType();
+    Expr* indexExpression = R.find("indexExpression").readExprRef();
+    
+    return ctx.getPackIndexingType(pattern, indexExpression);
   
   }
 

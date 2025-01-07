@@ -1,5 +1,5 @@
 #ifdef LLVM_GET_SVE_TYPEFLAGS
-const uint64_t NoFlags = 0;
+const uint64_t SplatOperandMask = 7168;
 const uint64_t IsTupleCreate = 4294967296;
 const uint64_t IsOutZA = 17592186044416;
 const uint64_t IsWriteZA = 1099511627776;
@@ -7,6 +7,7 @@ const uint64_t IsInZA = 8796093022208;
 const uint64_t IsStreaming = 137438953472;
 const uint64_t IsReadZA = 549755813888;
 const uint64_t IsInsertOp1SVALL = 67108864;
+const uint64_t VerifyRuntimeMode = 4398046511104;
 const uint64_t IsByteIndexed = 16777216;
 const uint64_t IsOutZT0 = 140737488355328;
 const uint64_t IsInZT0 = 70368744177664;
@@ -37,8 +38,7 @@ const uint64_t ReverseMergeAnyAccOp = 68719476736;
 const uint64_t IsOverloadWhileOrMultiVecCvt = 2097152;
 const uint64_t IsReductionQV = 2199023255552;
 const uint64_t FirstEltType = 1;
-const uint64_t IsStreamingOrSVE2p1 = 4398046511104;
-const uint64_t SplatOperandMask = 7168;
+const uint64_t NoFlags = 0;
 const uint64_t IsTupleSet = 17179869184;
 const uint64_t IsStreamingCompatible = 274877906944;
 const uint64_t FirstMergeTypeMask = 128;

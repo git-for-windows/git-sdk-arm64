@@ -12,6 +12,12 @@
     Visit(SA->getMin());
     Visit(SA->getMax());
   }
+  void VisitAMDGPUMaxNumWorkGroupsAttr(const AMDGPUMaxNumWorkGroupsAttr *A) {
+    const auto *SA = cast<AMDGPUMaxNumWorkGroupsAttr>(A); (void)SA;
+    Visit(SA->getMaxNumWorkGroupsX());
+    Visit(SA->getMaxNumWorkGroupsY());
+    Visit(SA->getMaxNumWorkGroupsZ());
+  }
   void VisitAMDGPUWavesPerEUAttr(const AMDGPUWavesPerEUAttr *A) {
     const auto *SA = cast<AMDGPUWavesPerEUAttr>(A); (void)SA;
     Visit(SA->getMin());
@@ -81,9 +87,21 @@
     Visit(SA->getMinBlocks());
     Visit(SA->getMaxBlocks());
   }
+  void VisitCXXAssumeAttr(const CXXAssumeAttr *A) {
+    const auto *SA = cast<CXXAssumeAttr>(A); (void)SA;
+    Visit(SA->getAssumption());
+  }
   void VisitCodeAlignAttr(const CodeAlignAttr *A) {
     const auto *SA = cast<CodeAlignAttr>(A); (void)SA;
     Visit(SA->getAlignment());
+  }
+  void VisitCountedByAttr(const CountedByAttr *A) {
+    const auto *SA = cast<CountedByAttr>(A); (void)SA;
+    Visit(SA->getCount());
+  }
+  void VisitCountedByOrNullAttr(const CountedByOrNullAttr *A) {
+    const auto *SA = cast<CountedByOrNullAttr>(A); (void)SA;
+    Visit(SA->getCount());
   }
   void VisitDiagnoseIfAttr(const DiagnoseIfAttr *A) {
     const auto *SA = cast<DiagnoseIfAttr>(A); (void)SA;
@@ -115,6 +133,14 @@
   void VisitLoopHintAttr(const LoopHintAttr *A) {
     const auto *SA = cast<LoopHintAttr>(A); (void)SA;
     Visit(SA->getValue());
+  }
+  void VisitNonAllocatingAttr(const NonAllocatingAttr *A) {
+    const auto *SA = cast<NonAllocatingAttr>(A); (void)SA;
+    Visit(SA->getCond());
+  }
+  void VisitNonBlockingAttr(const NonBlockingAttr *A) {
+    const auto *SA = cast<NonBlockingAttr>(A); (void)SA;
+    Visit(SA->getCond());
   }
   void VisitOMPAllocateDeclAttr(const OMPAllocateDeclAttr *A) {
     const auto *SA = cast<OMPAllocateDeclAttr>(A); (void)SA;
@@ -170,6 +196,14 @@
     Visit(SA->getSuccessValue());
     for (SharedTrylockFunctionAttr::args_iterator I = SA->args_begin(), E = SA->args_end(); I != E; ++I)
       Visit(*I);
+  }
+  void VisitSizedByAttr(const SizedByAttr *A) {
+    const auto *SA = cast<SizedByAttr>(A); (void)SA;
+    Visit(SA->getSize());
+  }
+  void VisitSizedByOrNullAttr(const SizedByOrNullAttr *A) {
+    const auto *SA = cast<SizedByOrNullAttr>(A); (void)SA;
+    Visit(SA->getSize());
   }
   void VisitSwiftVersionedAdditionAttr(const SwiftVersionedAdditionAttr *A) {
     const auto *SA = cast<SwiftVersionedAdditionAttr>(A); (void)SA;

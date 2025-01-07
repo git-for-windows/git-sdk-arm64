@@ -29,6 +29,10 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
       const auto *A = cast<AMDGPUKernelCallAttr>(At);
       return A->clone(C);
     }
+    case attr::AMDGPUMaxNumWorkGroups: {
+      const auto *A = cast<AMDGPUMaxNumWorkGroupsAttr>(At);
+      return A->clone(C);
+    }
     case attr::AMDGPUNumSGPR: {
       const auto *A = cast<AMDGPUNumSGPRAttr>(At);
       return A->clone(C);
@@ -143,6 +147,10 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
     case attr::AllocSize: {
       const auto *A = cast<AllocSizeAttr>(At);
       return new (C) AllocSizeAttr(C, *A, A->getElemSizeParam(), A->getNumElemsParam());
+    }
+    case attr::Allocating: {
+      const auto *A = cast<AllocatingAttr>(At);
+      return A->clone(C);
     }
     case attr::AlwaysDestroy: {
       const auto *A = cast<AlwaysDestroyAttr>(At);
@@ -287,10 +295,6 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
       const auto *A = cast<AssumeAlignedAttr>(At);
       return A->clone(C);
     }
-    case attr::Assumption: {
-      const auto *A = cast<AssumptionAttr>(At);
-      return A->clone(C);
-    }
     case attr::Availability: {
       const auto *A = cast<AvailabilityAttr>(At);
       return A->clone(C);
@@ -313,6 +317,10 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
     }
     case attr::BTFTypeTag: {
       const auto *A = cast<BTFTypeTagAttr>(At);
+      return A->clone(C);
+    }
+    case attr::Blocking: {
+      const auto *A = cast<BlockingAttr>(At);
       return A->clone(C);
     }
     case attr::Blocks: {
@@ -411,6 +419,10 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
       const auto *A = cast<CXX11NoReturnAttr>(At);
       return A->clone(C);
     }
+    case attr::CXXAssume: {
+      const auto *A = cast<CXXAssumeAttr>(At);
+      return A->clone(C);
+    }
     case attr::CallableWhen: {
       const auto *A = cast<CallableWhenAttr>(At);
       return A->clone(C);
@@ -437,6 +449,10 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
     }
     case attr::Cleanup: {
       const auto *A = cast<CleanupAttr>(At);
+      return A->clone(C);
+    }
+    case attr::ClspvLibclcBuiltin: {
+      const auto *A = cast<ClspvLibclcBuiltinAttr>(At);
       return A->clone(C);
     }
     case attr::CmseNSCall: {
@@ -517,6 +533,10 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
     }
     case attr::CountedBy: {
       const auto *A = cast<CountedByAttr>(At);
+      return A->clone(C);
+    }
+    case attr::CountedByOrNull: {
+      const auto *A = cast<CountedByOrNullAttr>(At);
       return A->clone(C);
     }
     case attr::DLLExport: {
@@ -692,8 +712,16 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
       const auto *A = cast<HLSLGroupSharedAddressSpaceAttr>(At);
       return A->clone(C);
     }
+    case attr::HLSLLoopHint: {
+      const auto *A = cast<HLSLLoopHintAttr>(At);
+      return A->clone(C);
+    }
     case attr::HLSLNumThreads: {
       const auto *A = cast<HLSLNumThreadsAttr>(At);
+      return A->clone(C);
+    }
+    case attr::HLSLPackOffset: {
+      const auto *A = cast<HLSLPackOffsetAttr>(At);
       return A->clone(C);
     }
     case attr::HLSLParamModifier: {
@@ -706,6 +734,10 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
     }
     case attr::HLSLResourceBinding: {
       const auto *A = cast<HLSLResourceBindingAttr>(At);
+      return A->clone(C);
+    }
+    case attr::HLSLResourceClass: {
+      const auto *A = cast<HLSLResourceClassAttr>(At);
       return A->clone(C);
     }
     case attr::HLSLSV_DispatchThreadID: {
@@ -722,6 +754,10 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
     }
     case attr::Hot: {
       const auto *A = cast<HotAttr>(At);
+      return A->clone(C);
+    }
+    case attr::HybridPatchable: {
+      const auto *A = cast<HybridPatchableAttr>(At);
       return A->clone(C);
     }
     case attr::IBAction: {
@@ -1033,6 +1069,14 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
       const auto *A = cast<NoUwtableAttr>(At);
       return A->clone(C);
     }
+    case attr::NonAllocating: {
+      const auto *A = cast<NonAllocatingAttr>(At);
+      return A->clone(C);
+    }
+    case attr::NonBlocking: {
+      const auto *A = cast<NonBlockingAttr>(At);
+      return A->clone(C);
+    }
     case attr::NonNull: {
       const auto *A = cast<NonNullAttr>(At);
       return A->clone(C);
@@ -1043,6 +1087,10 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
     }
     case attr::OMPAllocateDecl: {
       const auto *A = cast<OMPAllocateDeclAttr>(At);
+      return A->clone(C);
+    }
+    case attr::OMPAssume: {
+      const auto *A = cast<OMPAssumeAttr>(At);
       return A->clone(C);
     }
     case attr::OMPCaptureKind: {
@@ -1341,6 +1389,10 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
       const auto *A = cast<PreserveMostAttr>(At);
       return A->clone(C);
     }
+    case attr::PreserveNone: {
+      const auto *A = cast<PreserveNoneAttr>(At);
+      return A->clone(C);
+    }
     case attr::PtGuardedBy: {
       const auto *A = cast<PtGuardedByAttr>(At);
       Expr * tempInstArg;
@@ -1371,6 +1423,10 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
     }
     case attr::RISCVInterrupt: {
       const auto *A = cast<RISCVInterruptAttr>(At);
+      return A->clone(C);
+    }
+    case attr::RISCVVectorCC: {
+      const auto *A = cast<RISCVVectorCCAttr>(At);
       return A->clone(C);
     }
     case attr::RandomizeLayout: {
@@ -1511,6 +1567,14 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
         }
       }
       return new (C) SharedTrylockFunctionAttr(C, *A, tempInstSuccessValue, tempInstArgs, A->args_size());
+    }
+    case attr::SizedBy: {
+      const auto *A = cast<SizedByAttr>(At);
+      return A->clone(C);
+    }
+    case attr::SizedByOrNull: {
+      const auto *A = cast<SizedByOrNullAttr>(At);
+      return A->clone(C);
     }
     case attr::SpeculativeLoadHardening: {
       const auto *A = cast<SpeculativeLoadHardeningAttr>(At);
@@ -1748,6 +1812,10 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
       const auto *A = cast<UuidAttr>(At);
       return A->clone(C);
     }
+    case attr::VTablePointerAuthentication: {
+      const auto *A = cast<VTablePointerAuthenticationAttr>(At);
+      return A->clone(C);
+    }
     case attr::VecReturn: {
       const auto *A = cast<VecReturnAttr>(At);
       return A->clone(C);
@@ -1840,6 +1908,9 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
     case attr::AMDGPUKernelCall: {
       return nullptr;
     }
+    case attr::AMDGPUMaxNumWorkGroups: {
+      return nullptr;
+    }
     case attr::AMDGPUNumSGPR: {
       return nullptr;
     }
@@ -1896,6 +1967,9 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
       return nullptr;
     }
     case attr::AllocSize: {
+      return nullptr;
+    }
+    case attr::Allocating: {
       return nullptr;
     }
     case attr::AlwaysDestroy: {
@@ -1976,9 +2050,6 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
     case attr::AssumeAligned: {
       return nullptr;
     }
-    case attr::Assumption: {
-      return nullptr;
-    }
     case attr::Availability: {
       return nullptr;
     }
@@ -1995,6 +2066,9 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
       return nullptr;
     }
     case attr::BTFTypeTag: {
+      return nullptr;
+    }
+    case attr::Blocking: {
       return nullptr;
     }
     case attr::Blocks: {
@@ -2071,6 +2145,9 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
     case attr::CXX11NoReturn: {
       return nullptr;
     }
+    case attr::CXXAssume: {
+      return nullptr;
+    }
     case attr::CallableWhen: {
       return nullptr;
     }
@@ -2090,6 +2167,9 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
       return nullptr;
     }
     case attr::Cleanup: {
+      return nullptr;
+    }
+    case attr::ClspvLibclcBuiltin: {
       return nullptr;
     }
     case attr::CmseNSCall: {
@@ -2150,6 +2230,9 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
       return nullptr;
     }
     case attr::CountedBy: {
+      return nullptr;
+    }
+    case attr::CountedByOrNull: {
       return nullptr;
     }
     case attr::DLLExport: {
@@ -2250,7 +2333,13 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
     case attr::HLSLGroupSharedAddressSpace: {
       return nullptr;
     }
+    case attr::HLSLLoopHint: {
+      return nullptr;
+    }
     case attr::HLSLNumThreads: {
+      return nullptr;
+    }
+    case attr::HLSLPackOffset: {
       return nullptr;
     }
     case attr::HLSLParamModifier: {
@@ -2260,6 +2349,9 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
       return nullptr;
     }
     case attr::HLSLResourceBinding: {
+      return nullptr;
+    }
+    case attr::HLSLResourceClass: {
       return nullptr;
     }
     case attr::HLSLSV_DispatchThreadID: {
@@ -2272,6 +2364,9 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
       return nullptr;
     }
     case attr::Hot: {
+      return nullptr;
+    }
+    case attr::HybridPatchable: {
       return nullptr;
     }
     case attr::IBAction: {
@@ -2490,6 +2585,12 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
     case attr::NoUwtable: {
       return nullptr;
     }
+    case attr::NonAllocating: {
+      return nullptr;
+    }
+    case attr::NonBlocking: {
+      return nullptr;
+    }
     case attr::NonNull: {
       return nullptr;
     }
@@ -2497,6 +2598,9 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
       return nullptr;
     }
     case attr::OMPAllocateDecl: {
+      return nullptr;
+    }
+    case attr::OMPAssume: {
       return nullptr;
     }
     case attr::OMPCaptureKind: {
@@ -2723,6 +2827,9 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
     case attr::PreserveMost: {
       return nullptr;
     }
+    case attr::PreserveNone: {
+      return nullptr;
+    }
     case attr::PtGuardedBy: {
       return nullptr;
     }
@@ -2739,6 +2846,9 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
       return nullptr;
     }
     case attr::RISCVInterrupt: {
+      return nullptr;
+    }
+    case attr::RISCVVectorCC: {
       return nullptr;
     }
     case attr::RandomizeLayout: {
@@ -2808,6 +2918,12 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
       return nullptr;
     }
     case attr::SharedTrylockFunction: {
+      return nullptr;
+    }
+    case attr::SizedBy: {
+      return nullptr;
+    }
+    case attr::SizedByOrNull: {
       return nullptr;
     }
     case attr::SpeculativeLoadHardening: {
@@ -2971,6 +3087,9 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
       return nullptr;
     }
     case attr::Uuid: {
+      return nullptr;
+    }
+    case attr::VTablePointerAuthentication: {
       return nullptr;
     }
     case attr::VecReturn: {
