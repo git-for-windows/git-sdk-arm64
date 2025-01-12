@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-python-six
 
 %VERSION%
-1.16.0-6
+1.17.0-1
 
 %BASE%
 mingw-w64-python-six
@@ -11,44 +11,35 @@ mingw-w64-python-six
 Python 2 and 3 compatibility utilities (mingw-w64)
 
 %URL%
-https://pypi.python.org/pypi/six/
+https://github.com/benjaminp/six
 
 %ARCH%
 any
 
 %BUILDDATE%
-1730760279
+1736535314
 
 %INSTALLDATE%
-1731122629
+1736652693
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/acafab9b/11672721097)
+CI (msys2-arm/msys2-autobuild/35ff0b71/12713233597)
 
 %SIZE%
-120059
+121716
 
 %REASON%
 1
 
 %LICENSE%
-MIT
+spdx:MIT
 
 %VALIDATION%
 sha256
 pgp
 
-%REPLACES%
-mingw-w64-clang-aarch64-python3-six
-
 %DEPENDS%
 mingw-w64-clang-aarch64-python
-
-%CONFLICTS%
-mingw-w64-clang-aarch64-python3-six
-
-%PROVIDES%
-mingw-w64-clang-aarch64-python3-six
 
 %XDATA%
 pkgtype=pkg

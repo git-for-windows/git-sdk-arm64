@@ -38,7 +38,7 @@ abs_builddir=	/c/M/B/src/build-CLANGARM64
 CC=		clang
 CXX=		clang++
 LINKCC=		$(PURIFY) $(CC)
-AR=		ar
+AR=		/clangarm64/bin/llvm-ar
 WINDRES=	windres
 READELF=	@READELF@
 SOABI=		cpython-312
@@ -88,14 +88,14 @@ CONFIGURE_CFLAGS=	-O2 -pipe -Wp,-D_FORTIFY_SOURCE=2 -fstack-protector-strong -Wp
 # CFLAGS_NODIST is used for building the interpreter and stdlib C extensions.
 # Use it when a compiler flag should _not_ be part of the distutils CFLAGS
 # once Python is installed (Issue #21121).
-CONFIGURE_CFLAGS_NODIST= -std=c11 -Wno-error=incompatible-pointer-types -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -Wstrict-prototypes -Werror=implicit-function-declaration -fvisibility=hidden -D_WIN32_WINNT=0x0602 -DPY3_DLLNAME='L"libpython$(LDVERSION).dll"' -DMS_DLL_ID='"3.12-arm64"'
+CONFIGURE_CFLAGS_NODIST= -flto=thin -g -std=c11 -Wno-error=incompatible-pointer-types -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -Wstrict-prototypes -Werror=implicit-function-declaration -fvisibility=hidden -D_WIN32_WINNT=0x0602 -DPY3_DLLNAME='L"libpython$(LDVERSION).dll"' -DMS_DLL_ID='"3.12-arm64"'
 # LDFLAGS_NODIST is used in the same manner as CFLAGS_NODIST.
 # Use it when a linker flag should _not_ be part of the distutils LDFLAGS
 # once Python is installed (bpo-35257)
-CONFIGURE_LDFLAGS_NODIST=
+CONFIGURE_LDFLAGS_NODIST= -flto=thin -g
 # LDFLAGS_NOLTO is an extra flag to disable lto. It is used to speed up building
 # of _bootstrap_python and _freeze_module tools, which don't need LTO.
-CONFIGURE_LDFLAGS_NOLTO=
+CONFIGURE_LDFLAGS_NOLTO=-flto=thin
 CONFIGURE_CPPFLAGS=	-I$(srcdir)/PC  -I.
 CONFIGURE_LDFLAGS=	
 # Avoid assigning CFLAGS, LDFLAGS, etc. so users can use them on the
@@ -381,7 +381,7 @@ EXEMODE=	755
 FILEMODE=	644
 
 # configure script arguments
-CONFIG_ARGS=	 '--prefix=/clangarm64' '--host=aarch64-w64-mingw32' '--build=aarch64-w64-mingw32' '--enable-shared' '--with-system-expat' '--with-system-ffi' '--with-system-libmpdec' '--without-ensurepip' '--enable-loadable-sqlite-extensions' '--with-tzpath=/clangarm64/share/zoneinfo' '--enable-optimizations' 'build_alias=aarch64-w64-mingw32' 'host_alias=aarch64-w64-mingw32' 'PKG_CONFIG_PATH=/clangarm64/lib/pkgconfig:/clangarm64/share/pkgconfig' 'CC=clang' 'CFLAGS=-O2 -pipe -Wp,-D_FORTIFY_SOURCE=2 -fstack-protector-strong -Wp,-D__USE_MINGW_ANSI_STDIO=1 -O3' 'LDFLAGS=' 'CPPFLAGS='
+CONFIG_ARGS=	 '--prefix=/clangarm64' '--host=aarch64-w64-mingw32' '--build=aarch64-w64-mingw32' '--enable-shared' '--with-system-expat' '--with-system-ffi' '--with-system-libmpdec' '--without-ensurepip' '--enable-loadable-sqlite-extensions' '--with-tzpath=/clangarm64/share/zoneinfo' '--enable-optimizations' '--with-lto' 'build_alias=aarch64-w64-mingw32' 'host_alias=aarch64-w64-mingw32' 'PKG_CONFIG_PATH=/clangarm64/lib/pkgconfig:/clangarm64/share/pkgconfig' 'CC=clang' 'CFLAGS=-O2 -pipe -Wp,-D_FORTIFY_SOURCE=2 -fstack-protector-strong -Wp,-D__USE_MINGW_ANSI_STDIO=1 -O3' 'LDFLAGS=' 'CPPFLAGS='
 
 
 # Subdirectories with code

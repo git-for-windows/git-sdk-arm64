@@ -6,11 +6,12 @@ clangarm64/lib/python3.12/site-packages/
 clangarm64/lib/python3.12/site-packages/__pycache__/
 clangarm64/lib/python3.12/site-packages/__pycache__/six.cpython-312.opt-1.pyc
 clangarm64/lib/python3.12/site-packages/__pycache__/six.cpython-312.pyc
-clangarm64/lib/python3.12/site-packages/six-1.16.0-py3.12.egg-info/
-clangarm64/lib/python3.12/site-packages/six-1.16.0-py3.12.egg-info/dependency_links.txt
-clangarm64/lib/python3.12/site-packages/six-1.16.0-py3.12.egg-info/PKG-INFO
-clangarm64/lib/python3.12/site-packages/six-1.16.0-py3.12.egg-info/SOURCES.txt
-clangarm64/lib/python3.12/site-packages/six-1.16.0-py3.12.egg-info/top_level.txt
+clangarm64/lib/python3.12/site-packages/six-1.17.0.dist-info/
+clangarm64/lib/python3.12/site-packages/six-1.17.0.dist-info/LICENSE
+clangarm64/lib/python3.12/site-packages/six-1.17.0.dist-info/METADATA
+clangarm64/lib/python3.12/site-packages/six-1.17.0.dist-info/RECORD
+clangarm64/lib/python3.12/site-packages/six-1.17.0.dist-info/top_level.txt
+clangarm64/lib/python3.12/site-packages/six-1.17.0.dist-info/WHEEL
 clangarm64/lib/python3.12/site-packages/six.py
 clangarm64/share/
 clangarm64/share/licenses/
