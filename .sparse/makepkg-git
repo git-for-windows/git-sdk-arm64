@@ -86,6 +86,7 @@
 /clangarm64/lib/ruby/*/aarch64-mingw-ucrt/enc/windows_1252.so
 /clangarm64/lib/ruby/*/optparse.rb
 /clangarm64/lib/ruby/*/aarch64-mingw-ucrt/strscan.so
+/clangarm64/lib/ruby/*/strscan/strscan.rb
 /clangarm64/lib/ruby/*/pathname.rb
 /clangarm64/lib/ruby/*/aarch64-mingw-ucrt/pathname.so
 /clangarm64/lib/ruby/*/did_you_mean*
