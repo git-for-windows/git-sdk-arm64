@@ -1,19 +1,18 @@
 %FILES%
 clangarm64/
 clangarm64/bin/
-clangarm64/bin/a2x-script.py
 clangarm64/bin/a2x.exe
-clangarm64/bin/asciidoc-script.py
 clangarm64/bin/asciidoc.exe
 clangarm64/lib/
 clangarm64/lib/python3.12/
 clangarm64/lib/python3.12/site-packages/
-clangarm64/lib/python3.12/site-packages/asciidoc-10.2.1-py3.12.egg-info/
-clangarm64/lib/python3.12/site-packages/asciidoc-10.2.1-py3.12.egg-info/dependency_links.txt
-clangarm64/lib/python3.12/site-packages/asciidoc-10.2.1-py3.12.egg-info/entry_points.txt
-clangarm64/lib/python3.12/site-packages/asciidoc-10.2.1-py3.12.egg-info/PKG-INFO
-clangarm64/lib/python3.12/site-packages/asciidoc-10.2.1-py3.12.egg-info/SOURCES.txt
-clangarm64/lib/python3.12/site-packages/asciidoc-10.2.1-py3.12.egg-info/top_level.txt
+clangarm64/lib/python3.12/site-packages/asciidoc-10.2.1.dist-info/
+clangarm64/lib/python3.12/site-packages/asciidoc-10.2.1.dist-info/entry_points.txt
+clangarm64/lib/python3.12/site-packages/asciidoc-10.2.1.dist-info/LICENSE
+clangarm64/lib/python3.12/site-packages/asciidoc-10.2.1.dist-info/METADATA
+clangarm64/lib/python3.12/site-packages/asciidoc-10.2.1.dist-info/RECORD
+clangarm64/lib/python3.12/site-packages/asciidoc-10.2.1.dist-info/top_level.txt
+clangarm64/lib/python3.12/site-packages/asciidoc-10.2.1.dist-info/WHEEL
 clangarm64/lib/python3.12/site-packages/asciidoc/
 clangarm64/lib/python3.12/site-packages/asciidoc/__init__.py
 clangarm64/lib/python3.12/site-packages/asciidoc/__main__.py
@@ -190,5 +189,5 @@ clangarm64/lib/python3.12/site-packages/asciidoc/utils.py
 clangarm64/share/
 clangarm64/share/licenses/
 clangarm64/share/licenses/asciidoc/
-clangarm64/share/licenses/asciidoc/COPYRIGHT
+clangarm64/share/licenses/asciidoc/LICENSE
 

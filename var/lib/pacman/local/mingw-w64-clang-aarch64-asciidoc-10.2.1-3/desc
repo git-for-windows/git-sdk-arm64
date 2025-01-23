@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-asciidoc
 
 %VERSION%
-10.2.1-2
+10.2.1-3
 
 %BASE%
 mingw-w64-asciidoc
@@ -17,19 +17,19 @@ https://github.com/asciidoc-py/asciidoc-py
 any
 
 %BUILDDATE%
-1730672925
+1737391276
 
 %INSTALLDATE%
-1731122619
+1737602471
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/acafab9b/11654837882)
+CI (msys2-arm/msys2-autobuild/98f6ea28/12872390508)
 
 %SIZE%
-1715304
+1864590
 
 %LICENSE%
-GPL
+spdx:GPL-2.0-or-later
 
 %VALIDATION%
 sha256
@@ -39,12 +39,6 @@ pgp
 mingw-w64-clang-aarch64-python
 mingw-w64-clang-aarch64-libxslt
 mingw-w64-clang-aarch64-docbook-xsl
-
-%CONFLICTS%
-mingw-w64-clang-aarch64-asciidoc-py3-git
-
-%PROVIDES%
-mingw-w64-clang-aarch64-asciidoc-py3-git
 
 %XDATA%
 pkgtype=pkg
