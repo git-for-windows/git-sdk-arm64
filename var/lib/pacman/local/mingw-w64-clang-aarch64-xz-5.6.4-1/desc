@@ -1,0 +1,46 @@
+%NAME%
+mingw-w64-clang-aarch64-xz
+
+%VERSION%
+5.6.4-1
+
+%BASE%
+mingw-w64-xz
+
+%DESC%
+Library and command line tools for XZ and LZMA compressed files (mingw-w64)
+
+%URL%
+https://tukaani.org/xz
+
+%ARCH%
+any
+
+%BUILDDATE%
+1737790366
+
+%INSTALLDATE%
+1737852411
+
+%PACKAGER%
+CI (msys2-arm/msys2-autobuild/2bdd09d8/12963009606)
+
+%SIZE%
+4049990
+
+%REASON%
+1
+
+%LICENSE%
+spdx:0BSD AND LGPL-2.1-or-later AND GPL-2.0-or-later
+
+%VALIDATION%
+sha256
+pgp
+
+%DEPENDS%
+mingw-w64-clang-aarch64-gettext-runtime
+
+%XDATA%
+pkgtype=pkg
+
