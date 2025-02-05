@@ -10,10 +10,11 @@ env:
   GIT_CONFIG_PARAMETERS: "'checkout.workers=56'"
   HOME: "${{github.workspace}}\\home"
   USERPROFILE: "${{github.workspace}}\\home"
-  MSYSTEM: MINGW64
-
-  ARCH_NAME: x86_64
-  ARCH_BITNESS: 64
+  ARCHITECTURE: aarch64
+  MSYSTEM: CLANGARM64
+  MINGW_PREFIX: clangarm64
+  MINGW_PACKAGE_PREFIX: mingw-w64-clang-aarch64
+  SDK_REPO_ARCH: arm64
 
 jobs:
   build:
@@ -30,15 +31,15 @@ jobs:
           git config --global user.email "$USER_EMAIL" &&
           echo "PACKAGER=$USER_NAME <$USER_EMAIL>" >>$GITHUB_ENV
 
-      - name: clone git-sdk-${{env.ARCH_BITNESS}}
+      - name: clone git-sdk-${{env.SDK_REPO_ARCH}}
         shell: bash
         run: |
           # cannot use `git clone` directly, to allow for PR's refs to be fetched
-          git init --bare -b ${REF#refs/heads/} git-sdk-${{env.ARCH_BITNESS}}.git &&
-          git -C git-sdk-${{env.ARCH_BITNESS}}.git remote add origin https://github.com/${{github.repository}} &&
-          git -C git-sdk-${{env.ARCH_BITNESS}}.git config remote.origin.promisor true &&
-          git -C git-sdk-${{env.ARCH_BITNESS}}.git config remote.origin.partialCloneFilter blob:none &&
-          git -C git-sdk-${{env.ARCH_BITNESS}}.git fetch --depth=1 origin $REF:refs/heads/${REF#refs/heads/}
+          git init --bare -b ${REF#refs/heads/} git-sdk-${{env.SDK_REPO_ARCH}}.git &&
+          git -C git-sdk-${{env.SDK_REPO_ARCH}}.git remote add origin https://github.com/${{github.repository}} &&
+          git -C git-sdk-${{env.SDK_REPO_ARCH}}.git config remote.origin.promisor true &&
+          git -C git-sdk-${{env.SDK_REPO_ARCH}}.git config remote.origin.partialCloneFilter blob:none &&
+          git -C git-sdk-${{env.SDK_REPO_ARCH}}.git fetch --depth=1 origin $REF:refs/heads/${REF#refs/heads/}
         env:
           REF: ${{github.ref}}
       - name: clone build-extra
@@ -47,11 +48,11 @@ jobs:
       - name: create build-installers artifact
         shell: bash
         run: |
-          sh -x ./build-extra/please.sh create-sdk-artifact --sdk=git-sdk-${{env.ARCH_BITNESS}}.git build-installers &&
+          sh -x ./build-extra/please.sh create-sdk-artifact --sdk=git-sdk-${{env.SDK_REPO_ARCH}}.git build-installers &&
 
           cygpath -aw "$PWD/build-installers/usr/bin/core_perl" >>$GITHUB_PATH &&
           cygpath -aw "$PWD/build-installers/usr/bin" >>$GITHUB_PATH &&
-          cygpath -aw "$PWD/build-installers/mingw${{env.ARCH_BITNESS}}/bin" >>$GITHUB_PATH &&
+          cygpath -aw "$PWD/build-installers/${{env.MINGW_PREFIX}}/bin" >>$GITHUB_PATH &&
 
           mkdir -p build-installers/usr/src &&
           mv build-extra build-installers/usr/src/
@@ -59,7 +60,7 @@ jobs:
       - name: Generate bundle artifacts
         shell: bash
         run: |
-          printf '#!/bin/sh\n\nexec /mingw${{env.ARCH_BITNESS}}/bin/git.exe "$@"\n' >/usr/bin/git &&
+          printf '#!/bin/sh\n\nexec /${{env.MINGW_PREFIX}}/bin/git.exe "$@"\n' >/usr/bin/git &&
           mkdir -p bundle-artifacts &&
 
           { test -n "$REPOSITORY" || REPOSITORY='${{github.repository}}'; } &&
@@ -91,18 +92,18 @@ jobs:
           git remote add -f origin https://github.com/git-for-windows/git &&
           git fetch --tags bundle-artifacts/git.bundle $(cat bundle-artifacts/next_version) &&
           git reset --hard $(cat bundle-artifacts/next_version)
-      - name: Build mingw-w64-${{env.ARCH_NAME}}-git
+      - name: Build ${{env.MINGW_PACKAGE_PREFIX}}-git
         shell: bash
         run: |
           set -x
 
           # Make sure that there is a `/usr/bin/git` that can be used by `makepkg-mingw`
-          printf '#!/bin/sh\n\nexec /mingw${{env.ARCH_BITNESS}}/bin/git.exe "$@"\n' >/usr/bin/git &&
+          printf '#!/bin/sh\n\nexec /${{env.MINGW_PREFIX}}/bin/git.exe "$@"\n' >/usr/bin/git &&
 
           # Restrict `PATH` to MSYS2
-          PATH="/mingw${{env.ARCH_BITNESS}}/bin:/usr/bin:/C/Windows/system32"
+          PATH="/${{env.MINGW_PREFIX}}/bin:/usr/bin:/C/Windows/system32"
 
-          sh -x /usr/src/build-extra/please.sh build-mingw-w64-git --only-${{env.ARCH_BITNESS}}-bit --build-src-pkg -o artifacts HEAD &&
+          sh -x /usr/src/build-extra/please.sh build-mingw-w64-git --only-$ARCHITECTURE --build-src-pkg -o artifacts HEAD &&
           cp bundle-artifacts/ver artifacts/ &&
 
           b=$PWD/artifacts &&
@@ -111,10 +112,10 @@ jobs:
           cp PKGBUILD.$version PKGBUILD &&
           git commit -s -m "mingw-w64-git: new version ($version)" PKGBUILD &&
           git bundle create "$b"/MINGW-packages.bundle origin/main..main)
-      - name: Publish mingw-w64-${{env.ARCH_NAME}}-git
+      - name: Publish ${{env.MINGW_PACKAGE_PREFIX}}-git
         uses: actions/upload-artifact@v4
         with:
-          name: pkg-${{env.ARCH_NAME}}
+          name: pkg-${{env.ARCHITECTURE}}
           path: artifacts
           retention-days: 5
 
@@ -137,11 +138,11 @@ jobs:
         artifact: [installer, portable, mingit]
       fail-fast: false
     steps:
-      - name: Download pkg-${{env.ARCH_NAME}}
+      - name: Download pkg-${{env.ARCHITECTURE}}
         uses: actions/download-artifact@v4
         with:
-          name: pkg-${{env.ARCH_NAME}}
-          path: pkg-${{env.ARCH_NAME}}
+          name: pkg-${{env.ARCHITECTURE}}
+          path: pkg-${{env.ARCHITECTURE}}
       - name: Download bundle-artifacts
         uses: actions/download-artifact@v4
         with:
@@ -157,16 +158,16 @@ jobs:
           tar xf build-installers.tgz &&
           cygpath -aw "$PWD/build-installers/usr/bin/core_perl" >>$GITHUB_PATH &&
           cygpath -aw "$PWD/build-installers/usr/bin" >>$GITHUB_PATH &&
-          cygpath -aw "$PWD/build-installers/mingw${{env.ARCH_BITNESS}}/bin" >>$GITHUB_PATH
-      - name: Build ${{env.ARCH_BITNESS}}-bit ${{matrix.artifact}}
+          cygpath -aw "$PWD/build-installers/${{env.MINGW_PREFIX}}/bin" >>$GITHUB_PATH
+      - name: Build ${{env.ARCHITECTURE}} ${{matrix.artifact}}
         shell: bash
         run: |
           sh -x /usr/src/build-extra/please.sh make_installers_from_mingw_w64_git \
-            --version=$(cat pkg-${{env.ARCH_NAME}}/ver) \
+            --version=$(cat pkg-${{env.ARCHITECTURE}}/ver) \
             -o artifacts \
             --${{matrix.artifact}} \
-            --pkg=pkg-${{env.ARCH_NAME}}/mingw-w64-${{env.ARCH_NAME}}-git-[0-9]*.tar.xz \
-            --pkg=pkg-${{env.ARCH_NAME}}/mingw-w64-${{env.ARCH_NAME}}-git-doc-html-[0-9]*.tar.xz
+            --pkg=pkg-${{env.ARCHITECTURE}}/${{env.MINGW_PACKAGE_PREFIX}}-git-[0-9]*.tar.xz \
+            --pkg=pkg-${{env.ARCHITECTURE}}/${{env.MINGW_PACKAGE_PREFIX}}-git-doc-html-[0-9]*.tar.xz
       - name: Copy package-versions and pdbs
         if: matrix.artifact == 'installer'
         shell: bash
@@ -174,15 +175,15 @@ jobs:
           cp /usr/src/build-extra/installer/package-versions.txt artifacts/ &&
 
           a=$PWD/artifacts &&
-          p=$PWD/pkg-${{env.ARCH_NAME}} &&
+          p=$PWD/pkg-${{env.ARCHITECTURE}} &&
           (cd /usr/src/build-extra &&
           mkdir -p cached-source-packages &&
           cp "$p"/*-pdb* cached-source-packages/ &&
-          GIT_CONFIG_PARAMETERS="'windows.sdk${{env.ARCH_BITNESS}}.path='" ./please.sh bundle_pdbs --arch=${{env.ARCH_NAME}} --directory="$a" installer/package-versions.txt)
-      - name: Publish ${{matrix.artifact}}-${{env.ARCH_NAME}}
+          GIT_CONFIG_PARAMETERS="'windows.sdk${{env.SDK_REPO_ARCH}}.path='" ./please.sh bundle_pdbs --arch=${{env.ARCHITECTURE}} --directory="$a" installer/package-versions.txt)
+      - name: Publish ${{matrix.artifact}}-${{env.ARCHITECTURE}}
         uses: actions/upload-artifact@v4
         with:
-          name: ${{matrix.artifact}}-${{env.ARCH_NAME}}
+          name: ${{matrix.artifact}}-${{env.ARCHITECTURE}}
           path: artifacts
           retention-days: 5
 
@@ -198,7 +199,7 @@ jobs:
             exit 1
           }
           "$env:ProgramFiles\Git\usr\bin" | Out-File -Encoding ascii -Append $env:GITHUB_PATH
-          "$env:ProgramFiles\Git\mingw${{env.ARCH_BITNESS}}\bin" | Out-File -Encoding ascii -Append $env:GITHUB_PATH
+          "$env:ProgramFiles\Git\${{env.MINGW_PREFIX}}\bin" | Out-File -Encoding ascii -Append $env:GITHUB_PATH
       - name: Publish installer log
         if: matrix.artifact == 'installer' && (failure() || success())
         uses: actions/upload-artifact@v4
