@@ -18,7 +18,7 @@ clangarm64/share/info/libtasn1.info.gz
 clangarm64/share/licenses/
 clangarm64/share/licenses/libtasn1/
 clangarm64/share/licenses/libtasn1/COPYING
-clangarm64/share/licenses/libtasn1/COPYING.LESSER
+clangarm64/share/licenses/libtasn1/COPYING.LESSERv2
 clangarm64/share/man/
 clangarm64/share/man/man1/
 clangarm64/share/man/man1/asn1Coding.1.gz
