@@ -1,8 +1,8 @@
 %NAME%
-libintl
+libgettextpo
 
 %VERSION%
-0.22.4-1
+0.22.5-1
 
 %BASE%
 gettext
@@ -17,16 +17,16 @@ https://www.gnu.org/software/gettext/
 x86_64
 
 %BUILDDATE%
-1700600723
+1739195711
 
 %INSTALLDATE%
-1700709301
+1739330585
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/1ed7c15c/6949490990)
+CI (msys2/msys2-autobuild/b4421681/13242412014)
 
 %SIZE%
-110760
+363923
 
 %REASON%
 1
@@ -42,5 +42,7 @@ pgp
 
 %DEPENDS%
 gcc-libs
-libiconv
+
+%XDATA%
+pkgtype=split
 

@@ -1,14 +1,14 @@
 %NAME%
-libutil-linux
+util-linux
 
 %VERSION%
-2.40.2-1
+2.40.2-2
 
 %BASE%
 util-linux
 
 %DESC%
-Block device ID and Universally Unique ID libraries
+Collection of basic system utilities
 
 %URL%
 https://www.kernel.org/pub/linux/utils/util-linux/
@@ -17,19 +17,16 @@ https://www.kernel.org/pub/linux/utils/util-linux/
 x86_64
 
 %BUILDDATE%
-1739127198
+1739275019
 
 %INSTALLDATE%
-1739244289
+1739330586
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/b4421681/13228650055)
+CI (msys2/msys2-autobuild/b4421681/13262284127)
 
 %SIZE%
-948152
-
-%REASON%
-1
+12648386
 
 %LICENSE%
 spdx:GPL-2.0-or-later
@@ -37,14 +34,21 @@ spdx:GPL-2.0-or-later
 %VALIDATION%
 pgp
 
+%REPLACES%
+getopt
+
 %DEPENDS%
-gcc-libs
-libintl
+coreutils
+libutil-linux
+libiconv
+libreadline
+libsqlite
+
+%CONFLICTS%
+getopt
 
 %PROVIDES%
-libblkid
-libuuid
-libsmartcols
+getopt
 
 %XDATA%
 pkgtype=split
