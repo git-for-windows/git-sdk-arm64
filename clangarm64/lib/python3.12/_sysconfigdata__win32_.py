@@ -46,7 +46,7 @@ build_time_vars = {'ABI3DLLLIBRARY': 'libpython3.dll',
  'CONFIGURE_CFLAGS': '-O2 -pipe -Wp,-D_FORTIFY_SOURCE=2 '
                      '-fstack-protector-strong -Wp,-D__USE_MINGW_ANSI_STDIO=1 '
                      '-O3',
- 'CONFIGURE_CFLAGS_NODIST': '-flto=thin -g -std=c11 '
+ 'CONFIGURE_CFLAGS_NODIST': '-flto=full -g -std=c11 '
                             '-Wno-error=incompatible-pointer-types -Wextra '
                             '-Wno-unused-parameter '
                             '-Wno-missing-field-initializers '
@@ -57,7 +57,7 @@ build_time_vars = {'ABI3DLLLIBRARY': 'libpython3.dll',
                             '-DMS_DLL_ID=\'"3.12-arm64"\'',
  'CONFIGURE_CPPFLAGS': '-I../Python-3.12.9/PC  -I.',
  'CONFIGURE_LDFLAGS': '',
- 'CONFIGURE_LDFLAGS_NODIST': '-flto=thin -g',
+ 'CONFIGURE_LDFLAGS_NODIST': '-flto=full -g',
  'CONFIGURE_LDFLAGS_NOLTO': '-flto=thin',
  'CONFIG_ARGS': "'--prefix=/clangarm64' '--host=aarch64-w64-mingw32' "
                 "'--build=aarch64-w64-mingw32' '--enable-shared' "
@@ -65,7 +65,7 @@ build_time_vars = {'ABI3DLLLIBRARY': 'libpython3.dll',
                 "'--with-system-libmpdec' '--without-ensurepip' "
                 "'--enable-loadable-sqlite-extensions' "
                 "'--with-tzpath=/clangarm64/share/zoneinfo' "
-                "'--enable-optimizations' '--with-lto' "
+                "'--enable-optimizations' '--with-lto=full' "
                 "'build_alias=aarch64-w64-mingw32' "
                 "'host_alias=aarch64-w64-mingw32' "
                 "'PKG_CONFIG_PATH=/clangarm64/lib/pkgconfig:/clangarm64/share/pkgconfig' "
@@ -658,7 +658,7 @@ build_time_vars = {'ABI3DLLLIBRARY': 'libpython3.dll',
                     '-fstack-protector-strong -Wp,-D__USE_MINGW_ANSI_STDIO=1 '
                     '-O3 -O2 -pipe -Wp,-D_FORTIFY_SOURCE=2 '
                     '-fstack-protector-strong -Wp,-D__USE_MINGW_ANSI_STDIO=1 '
-                    '-O3 -flto=thin -g -std=c11 '
+                    '-O3 -flto=full -g -std=c11 '
                     '-Wno-error=incompatible-pointer-types -Wextra '
                     '-Wno-unused-parameter -Wno-missing-field-initializers '
                     '-Wstrict-prototypes -Werror=implicit-function-declaration '
@@ -677,7 +677,7 @@ build_time_vars = {'ABI3DLLLIBRARY': 'libpython3.dll',
                    '-Wp,-D_FORTIFY_SOURCE=2 -fstack-protector-strong '
                    '-Wp,-D__USE_MINGW_ANSI_STDIO=1 -O3 -O2 -pipe '
                    '-Wp,-D_FORTIFY_SOURCE=2 -fstack-protector-strong '
-                   '-Wp,-D__USE_MINGW_ANSI_STDIO=1 -O3 -flto=thin -g -std=c11 '
+                   '-Wp,-D__USE_MINGW_ANSI_STDIO=1 -O3 -flto=full -g -std=c11 '
                    '-Wno-error=incompatible-pointer-types -Wextra '
                    '-Wno-unused-parameter -Wno-missing-field-initializers '
                    '-Wstrict-prototypes -Werror=implicit-function-declaration '
@@ -700,7 +700,7 @@ build_time_vars = {'ABI3DLLLIBRARY': 'libpython3.dll',
                     '-fstack-protector-strong -Wp,-D__USE_MINGW_ANSI_STDIO=1 '
                     '-O3 -O2 -pipe -Wp,-D_FORTIFY_SOURCE=2 '
                     '-fstack-protector-strong -Wp,-D__USE_MINGW_ANSI_STDIO=1 '
-                    '-O3 -flto=thin -g -std=c11 '
+                    '-O3 -flto=full -g -std=c11 '
                     '-Wno-error=incompatible-pointer-types -Wextra '
                     '-Wno-unused-parameter -Wno-missing-field-initializers '
                     '-Wstrict-prototypes -Werror=implicit-function-declaration '
@@ -1093,7 +1093,7 @@ build_time_vars = {'ABI3DLLLIBRARY': 'libpython3.dll',
                              '-fstack-protector-strong '
                              '-Wp,-D__USE_MINGW_ANSI_STDIO=1 -O3 -O2 -pipe '
                              '-Wp,-D_FORTIFY_SOURCE=2 -fstack-protector-strong '
-                             '-Wp,-D__USE_MINGW_ANSI_STDIO=1 -O3 -flto=thin -g '
+                             '-Wp,-D__USE_MINGW_ANSI_STDIO=1 -O3 -flto=full -g '
                              '-std=c11 -Wno-error=incompatible-pointer-types '
                              '-Wextra -Wno-unused-parameter '
                              '-Wno-missing-field-initializers '
@@ -1113,7 +1113,7 @@ build_time_vars = {'ABI3DLLLIBRARY': 'libpython3.dll',
               '-fstack-protector-strong -Wp,-D__USE_MINGW_ANSI_STDIO=1 -O3 -O2 '
               '-pipe -Wp,-D_FORTIFY_SOURCE=2 -fstack-protector-strong '
               '-Wp,-D__USE_MINGW_ANSI_STDIO=1 -O3',
- 'PY_CFLAGS_NODIST': '-flto=thin -g -std=c11 '
+ 'PY_CFLAGS_NODIST': '-flto=full -g -std=c11 '
                      '-Wno-error=incompatible-pointer-types -Wextra '
                      '-Wno-unused-parameter -Wno-missing-field-initializers '
                      '-Wstrict-prototypes '
@@ -1129,7 +1129,7 @@ build_time_vars = {'ABI3DLLLIBRARY': 'libpython3.dll',
                    '-fstack-protector-strong -Wp,-D__USE_MINGW_ANSI_STDIO=1 '
                    '-O3 -O2 -pipe -Wp,-D_FORTIFY_SOURCE=2 '
                    '-fstack-protector-strong -Wp,-D__USE_MINGW_ANSI_STDIO=1 '
-                   '-O3 -flto=thin -g -std=c11 '
+                   '-O3 -flto=full -g -std=c11 '
                    '-Wno-error=incompatible-pointer-types -Wextra '
                    '-Wno-unused-parameter -Wno-missing-field-initializers '
                    '-Wstrict-prototypes -Werror=implicit-function-declaration '
@@ -1140,13 +1140,13 @@ build_time_vars = {'ABI3DLLLIBRARY': 'libpython3.dll',
                    '-I../Python-3.12.9/Include/internal -IObjects -IInclude '
                    '-IPython -I. -I../Python-3.12.9/Include '
                    '-I../Python-3.12.9/PC  -I. -DPy_BUILD_CORE',
- 'PY_CORE_LDFLAGS': '-flto=thin -g',
+ 'PY_CORE_LDFLAGS': '-flto=full -g',
  'PY_CPPFLAGS': '-IObjects -IInclude -IPython -I. -I../Python-3.12.9/Include '
                 '-I../Python-3.12.9/PC  -I.',
  'PY_ENABLE_SHARED': 1,
  'PY_HAVE_PERF_TRAMPOLINE': 0,
  'PY_LDFLAGS': '',
- 'PY_LDFLAGS_NODIST': '-flto=thin -g',
+ 'PY_LDFLAGS_NODIST': '-flto=full -g',
  'PY_LDFLAGS_NOLTO': '-flto=thin',
  'PY_SQLITE_ENABLE_LOAD_EXTENSION': 1,
  'PY_SQLITE_HAVE_SERIALIZE': 1,
@@ -1157,7 +1157,7 @@ build_time_vars = {'ABI3DLLLIBRARY': 'libpython3.dll',
                         '-Wp,-D_FORTIFY_SOURCE=2 -fstack-protector-strong '
                         '-Wp,-D__USE_MINGW_ANSI_STDIO=1 -O3 -O2 -pipe '
                         '-Wp,-D_FORTIFY_SOURCE=2 -fstack-protector-strong '
-                        '-Wp,-D__USE_MINGW_ANSI_STDIO=1 -O3 -flto=thin -g '
+                        '-Wp,-D__USE_MINGW_ANSI_STDIO=1 -O3 -flto=full -g '
                         '-std=c11 -Wno-error=incompatible-pointer-types '
                         '-Wextra -Wno-unused-parameter '
                         '-Wno-missing-field-initializers -Wstrict-prototypes '

@@ -2,7 +2,7 @@
 nano
 
 %VERSION%
-8.2-1
+8.3-1
 
 %BASE%
 nano
@@ -17,16 +17,16 @@ https://www.nano-editor.org
 x86_64
 
 %BUILDDATE%
-1725869810
+1739303977
 
 %INSTALLDATE%
-1726024482
+1739442813
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/22f1e5ad/10769246031)
+CI (msys2/msys2-autobuild/b4421681/13271174966)
 
 %SIZE%
-3058815
+3084611
 
 %GROUPS%
 editors
