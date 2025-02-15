@@ -2,7 +2,7 @@
 libgnutls
 
 %VERSION%
-3.8.4-1
+3.8.4-2
 
 %BASE%
 gnutls
@@ -17,10 +17,10 @@ https://www.gnutls.org/
 x86_64
 
 %BUILDDATE%
-1711012564
+1739521134
 
 %INSTALLDATE%
-1711077333
+1739589724
 
 %PACKAGER%
 Johannes Schindelin <johannes.schindelin@gmx.de>
@@ -39,6 +39,7 @@ GPL3
 LGPL2.1
 
 %VALIDATION%
+sha256
 pgp
 
 %DEPENDS%
@@ -51,4 +52,7 @@ libnettle
 libp11-kit
 libtasn1
 zlib
+
+%XDATA%
+pkgtype=split
 
