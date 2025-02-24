@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-odt2txt
 
 %VERSION%
-0.5-3
+0.5-4
 
 %BASE%
 mingw-w64-odt2txt
@@ -17,25 +17,29 @@ https://github.com/dstosberg/odt2txt/
 any
 
 %BUILDDATE%
-1667043437
+1740308625
 
 %INSTALLDATE%
-1672731873
+1740367716
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/3a324f9f/3351251450)
+CI (msys2-arm/msys2-autobuild/a187346d/13482355580)
 
 %SIZE%
-59500
+39020
 
 %LICENSE%
 GPL2
 
 %VALIDATION%
+sha256
 pgp
 
 %DEPENDS%
 mingw-w64-clang-aarch64-libiconv
 mingw-w64-clang-aarch64-libzip
-mingw-w64-clang-aarch64-pcre
+mingw-w64-clang-aarch64-pcre2
+
+%XDATA%
+pkgtype=pkg
 
