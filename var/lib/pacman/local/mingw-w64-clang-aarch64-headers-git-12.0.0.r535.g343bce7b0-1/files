@@ -221,6 +221,7 @@ clangarm64/include/cor.h
 clangarm64/include/corecrt.h
 clangarm64/include/corecrt_startup.h
 clangarm64/include/corecrt_stdio_config.h
+clangarm64/include/corecrt_wctype.h
 clangarm64/include/corecrt_wstdlib.h
 clangarm64/include/corerror.h
 clangarm64/include/corhdr.h
