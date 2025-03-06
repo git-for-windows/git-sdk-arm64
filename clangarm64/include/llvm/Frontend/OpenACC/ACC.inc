@@ -206,6 +206,7 @@ namespace acc {
     llvm::acc::Clause::ACCC_present,
     llvm::acc::Clause::ACCC_private,
     llvm::acc::Clause::ACCC_reduction,
+    llvm::acc::Clause::ACCC_shortloop,
     llvm::acc::Clause::ACCC_tile,
     llvm::acc::Clause::ACCC_vector,
     llvm::acc::Clause::ACCC_vector_length,
@@ -237,6 +238,7 @@ namespace acc {
     llvm::acc::Clause::ACCC_reduction,
     llvm::acc::Clause::ACCC_collapse,
     llvm::acc::Clause::ACCC_gang,
+    llvm::acc::Clause::ACCC_shortloop,
     llvm::acc::Clause::ACCC_tile,
     llvm::acc::Clause::ACCC_vector,
     llvm::acc::Clause::ACCC_worker,
@@ -307,6 +309,7 @@ namespace acc {
     llvm::acc::Clause::ACCC_present,
     llvm::acc::Clause::ACCC_private,
     llvm::acc::Clause::ACCC_reduction,
+    llvm::acc::Clause::ACCC_shortloop,
     llvm::acc::Clause::ACCC_tile,
     llvm::acc::Clause::ACCC_vector,
     llvm::acc::Clause::ACCC_vector_length,
@@ -399,6 +402,7 @@ namespace acc {
     llvm::acc::Clause::ACCC_present,
     llvm::acc::Clause::ACCC_private,
     llvm::acc::Clause::ACCC_reduction,
+    llvm::acc::Clause::ACCC_shortloop,
     llvm::acc::Clause::ACCC_tile,
     llvm::acc::Clause::ACCC_vector,
     llvm::acc::Clause::ACCC_wait,
@@ -731,6 +735,7 @@ EMPTY_CLASS(Read);
 WRAPPER_CLASS(Reduction, AccObjectListWithReduction);
 WRAPPER_CLASS(Self, std::optional<AccSelfClause>);
 EMPTY_CLASS(Seq);
+EMPTY_CLASS(Shortloop);
 WRAPPER_CLASS(Tile, AccTileExprList);
 EMPTY_CLASS(Unknown);
 WRAPPER_CLASS(UseDevice, AccObjectList);
@@ -782,6 +787,7 @@ Async
 , Reduction
 , Self
 , Seq
+, Shortloop
 , Tile
 , Unknown
 , UseDevice
@@ -833,6 +839,7 @@ NODE(AccClause, Read)
 NODE(AccClause, Reduction)
 NODE(AccClause, Self)
 NODE(AccClause, Seq)
+NODE(AccClause, Shortloop)
 NODE(AccClause, Tile)
 NODE(AccClause, Unknown)
 NODE(AccClause, UseDevice)
@@ -1023,6 +1030,7 @@ void Unparse(const AccClause::Self &x) {
   Walk("(", x.v, ")");
 }
 void Before(const AccClause::Seq &) { Word("SEQ"); }
+void Before(const AccClause::Shortloop &) { Word("SHORTLOOP"); }
 void Unparse(const AccClause::Tile &x) {
   Word("TILE");
   Put("(");
@@ -1098,6 +1106,7 @@ void Enter(const parser::AccClause::Read &);
 void Enter(const parser::AccClause::Reduction &);
 void Enter(const parser::AccClause::Self &);
 void Enter(const parser::AccClause::Seq &);
+void Enter(const parser::AccClause::Shortloop &);
 void Enter(const parser::AccClause::Tile &);
 void Enter(const parser::AccClause::Unknown &);
 void Enter(const parser::AccClause::UseDevice &);
@@ -1186,6 +1195,8 @@ if constexpr (std::is_same_v<A, parser::AccClause::Self>)
   return llvm::acc::Clause::ACCC_self;
 if constexpr (std::is_same_v<A, parser::AccClause::Seq>)
   return llvm::acc::Clause::ACCC_seq;
+if constexpr (std::is_same_v<A, parser::AccClause::Shortloop>)
+  return llvm::acc::Clause::ACCC_shortloop;
 if constexpr (std::is_same_v<A, parser::AccClause::Tile>)
   return llvm::acc::Clause::ACCC_tile;
 if constexpr (std::is_same_v<A, parser::AccClause::Unknown>)
@@ -1218,6 +1229,7 @@ TYPE_PARSER(
   "use_device" >> construct<AccClause>(construct<AccClause::UseDevice>(parenthesized(Parser<AccObjectList>{}))) ||
   "unknown" >> construct<AccClause>(construct<AccClause::Unknown>()) ||
   "tile" >> construct<AccClause>(construct<AccClause::Tile>(parenthesized(Parser<AccTileExprList>{}))) ||
+  "shortloop" >> construct<AccClause>(construct<AccClause::Shortloop>()) ||
   "seq" >> construct<AccClause>(construct<AccClause::Seq>()) ||
   "self" >> construct<AccClause>(construct<AccClause::Self>(maybe(parenthesized(Parser<AccSelfClause>{})))) ||
   "reduction" >> construct<AccClause>(construct<AccClause::Reduction>(parenthesized(Parser<AccObjectListWithReduction>{}))) ||
@@ -1322,6 +1334,7 @@ __CLAUSE_NO_CLASS(read)
 __CLAUSE_NO_CLASS(reduction)
 __CLAUSE_NO_CLASS(self)
 __CLAUSE_NO_CLASS(seq)
+__CLAUSE_NO_CLASS(shortloop)
 __CLAUSE_NO_CLASS(tile)
 __CLAUSE_NO_CLASS(unknown)
 __CLAUSE_NO_CLASS(use_device)
@@ -1459,6 +1472,7 @@ Clause llvm::acc::getOpenACCClauseKind(llvm::StringRef Str) {
     .Case("reduction",ACCC_reduction)
     .Case("self",ACCC_self)
     .Case("seq",ACCC_seq)
+    .Case("shortloop",ACCC_shortloop)
     .Case("tile",ACCC_tile)
     .Case("unknown",ACCC_unknown)
     .Case("use_device",ACCC_use_device)
@@ -1546,6 +1560,8 @@ llvm::StringRef llvm::acc::getOpenACCClauseName(Clause Kind) {
       return "self";
     case ACCC_seq:
       return "seq";
+    case ACCC_shortloop:
+      return "shortloop";
     case ACCC_tile:
       return "tile";
     case ACCC_unknown:
@@ -1781,6 +1797,8 @@ bool llvm::acc::isAllowedClauseForDirective(Directive D, Clause C, unsigned Vers
           return 1 <= Version && 2147483647 >= Version;
         case ACCC_reduction:
           return 1 <= Version && 2147483647 >= Version;
+        case ACCC_shortloop:
+          return 1 <= Version && 2147483647 >= Version;
         case ACCC_tile:
           return 1 <= Version && 2147483647 >= Version;
         case ACCC_vector:
@@ -1820,6 +1838,8 @@ bool llvm::acc::isAllowedClauseForDirective(Directive D, Clause C, unsigned Vers
         case ACCC_collapse:
           return 1 <= Version && 2147483647 >= Version;
         case ACCC_gang:
+          return 1 <= Version && 2147483647 >= Version;
+        case ACCC_shortloop:
           return 1 <= Version && 2147483647 >= Version;
         case ACCC_tile:
           return 1 <= Version && 2147483647 >= Version;
@@ -1916,6 +1936,8 @@ bool llvm::acc::isAllowedClauseForDirective(Directive D, Clause C, unsigned Vers
         case ACCC_private:
           return 1 <= Version && 2147483647 >= Version;
         case ACCC_reduction:
+          return 1 <= Version && 2147483647 >= Version;
+        case ACCC_shortloop:
           return 1 <= Version && 2147483647 >= Version;
         case ACCC_tile:
           return 1 <= Version && 2147483647 >= Version;
@@ -2034,6 +2056,8 @@ bool llvm::acc::isAllowedClauseForDirective(Directive D, Clause C, unsigned Vers
         case ACCC_private:
           return 1 <= Version && 2147483647 >= Version;
         case ACCC_reduction:
+          return 1 <= Version && 2147483647 >= Version;
+        case ACCC_shortloop:
           return 1 <= Version && 2147483647 >= Version;
         case ACCC_tile:
           return 1 <= Version && 2147483647 >= Version;

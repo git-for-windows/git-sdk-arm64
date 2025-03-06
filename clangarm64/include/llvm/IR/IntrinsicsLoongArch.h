@@ -8,12 +8,10 @@
 
 #ifndef LLVM_IR_INTRINSIC_LOONGARCH_ENUMS_H
 #define LLVM_IR_INTRINSIC_LOONGARCH_ENUMS_H
-
-namespace llvm {
-namespace Intrinsic {
+namespace llvm::Intrinsic {
 enum LOONGARCHIntrinsics : unsigned {
-// Enum values for intrinsics
-    loongarch_asrtgt_d = 5659,                        // llvm.loongarch.asrtgt.d
+// Enum values for intrinsics.
+    loongarch_asrtgt_d = 5932,                        // llvm.loongarch.asrtgt.d
     loongarch_asrtle_d,                        // llvm.loongarch.asrtle.d
     loongarch_break,                           // llvm.loongarch.break
     loongarch_cacop_d,                         // llvm.loongarch.cacop.d
@@ -1528,7 +1526,6 @@ enum LOONGARCHIntrinsics : unsigned {
     loongarch_movgr2fcsr,                      // llvm.loongarch.movgr2fcsr
     loongarch_syscall,                         // llvm.loongarch.syscall
 }; // enum
-} // namespace Intrinsic
-} // namespace llvm
-
+} // namespace llvm::Intrinsic
 #endif
+

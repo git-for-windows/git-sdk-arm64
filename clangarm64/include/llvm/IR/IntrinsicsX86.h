@@ -8,12 +8,10 @@
 
 #ifndef LLVM_IR_INTRINSIC_X86_ENUMS_H
 #define LLVM_IR_INTRINSIC_X86_ENUMS_H
-
-namespace llvm {
-namespace Intrinsic {
+namespace llvm::Intrinsic {
 enum X86Intrinsics : unsigned {
-// Enum values for intrinsics
-    x86_aadd32 = 12482,                                // llvm.x86.aadd32
+// Enum values for intrinsics.
+    x86_aadd32 = 12956,                                // llvm.x86.aadd32
     x86_aadd64,                                // llvm.x86.aadd64
     x86_aand32,                                // llvm.x86.aand32
     x86_aand64,                                // llvm.x86.aand64
@@ -110,6 +108,340 @@ enum X86Intrinsics : unsigned {
     x86_avx_vtestz_ps_256,                     // llvm.x86.avx.vtestz.ps.256
     x86_avx_vzeroall,                          // llvm.x86.avx.vzeroall
     x86_avx_vzeroupper,                        // llvm.x86.avx.vzeroupper
+    x86_avx10_fpclass_bf16_128,                // llvm.x86.avx10.fpclass.bf16.128
+    x86_avx10_fpclass_bf16_256,                // llvm.x86.avx10.fpclass.bf16.256
+    x86_avx10_fpclass_bf16_512,                // llvm.x86.avx10.fpclass.bf16.512
+    x86_avx10_mask_getexp_bf16_128,            // llvm.x86.avx10.mask.getexp.bf16.128
+    x86_avx10_mask_getexp_bf16_256,            // llvm.x86.avx10.mask.getexp.bf16.256
+    x86_avx10_mask_getexp_bf16_512,            // llvm.x86.avx10.mask.getexp.bf16.512
+    x86_avx10_mask_getmant_bf16_128,           // llvm.x86.avx10.mask.getmant.bf16.128
+    x86_avx10_mask_getmant_bf16_256,           // llvm.x86.avx10.mask.getmant.bf16.256
+    x86_avx10_mask_getmant_bf16_512,           // llvm.x86.avx10.mask.getmant.bf16.512
+    x86_avx10_mask_rcp_bf16_128,               // llvm.x86.avx10.mask.rcp.bf16.128
+    x86_avx10_mask_rcp_bf16_256,               // llvm.x86.avx10.mask.rcp.bf16.256
+    x86_avx10_mask_rcp_bf16_512,               // llvm.x86.avx10.mask.rcp.bf16.512
+    x86_avx10_mask_reduce_bf16_128,            // llvm.x86.avx10.mask.reduce.bf16.128
+    x86_avx10_mask_reduce_bf16_256,            // llvm.x86.avx10.mask.reduce.bf16.256
+    x86_avx10_mask_reduce_bf16_512,            // llvm.x86.avx10.mask.reduce.bf16.512
+    x86_avx10_mask_rndscale_bf16_128,          // llvm.x86.avx10.mask.rndscale.bf16.128
+    x86_avx10_mask_rndscale_bf16_256,          // llvm.x86.avx10.mask.rndscale.bf16.256
+    x86_avx10_mask_rndscale_bf16_512,          // llvm.x86.avx10.mask.rndscale.bf16.512
+    x86_avx10_mask_rsqrt_bf16_128,             // llvm.x86.avx10.mask.rsqrt.bf16.128
+    x86_avx10_mask_rsqrt_bf16_256,             // llvm.x86.avx10.mask.rsqrt.bf16.256
+    x86_avx10_mask_rsqrt_bf16_512,             // llvm.x86.avx10.mask.rsqrt.bf16.512
+    x86_avx10_mask_scalef_bf16_128,            // llvm.x86.avx10.mask.scalef.bf16.128
+    x86_avx10_mask_scalef_bf16_256,            // llvm.x86.avx10.mask.scalef.bf16.256
+    x86_avx10_mask_scalef_bf16_512,            // llvm.x86.avx10.mask.scalef.bf16.512
+    x86_avx10_mask_vcmppd256,                  // llvm.x86.avx10.mask.vcmppd256
+    x86_avx10_mask_vcmpph256,                  // llvm.x86.avx10.mask.vcmpph256
+    x86_avx10_mask_vcmpps256,                  // llvm.x86.avx10.mask.vcmpps256
+    x86_avx10_mask_vcvt2ps2phx_128,            // llvm.x86.avx10.mask.vcvt2ps2phx.128
+    x86_avx10_mask_vcvt2ps2phx_256,            // llvm.x86.avx10.mask.vcvt2ps2phx.256
+    x86_avx10_mask_vcvt2ps2phx_512,            // llvm.x86.avx10.mask.vcvt2ps2phx.512
+    x86_avx10_mask_vcvtbiasph2bf8128,          // llvm.x86.avx10.mask.vcvtbiasph2bf8128
+    x86_avx10_mask_vcvtbiasph2bf8256,          // llvm.x86.avx10.mask.vcvtbiasph2bf8256
+    x86_avx10_mask_vcvtbiasph2bf8512,          // llvm.x86.avx10.mask.vcvtbiasph2bf8512
+    x86_avx10_mask_vcvtbiasph2bf8s128,         // llvm.x86.avx10.mask.vcvtbiasph2bf8s128
+    x86_avx10_mask_vcvtbiasph2bf8s256,         // llvm.x86.avx10.mask.vcvtbiasph2bf8s256
+    x86_avx10_mask_vcvtbiasph2bf8s512,         // llvm.x86.avx10.mask.vcvtbiasph2bf8s512
+    x86_avx10_mask_vcvtbiasph2hf8128,          // llvm.x86.avx10.mask.vcvtbiasph2hf8128
+    x86_avx10_mask_vcvtbiasph2hf8256,          // llvm.x86.avx10.mask.vcvtbiasph2hf8256
+    x86_avx10_mask_vcvtbiasph2hf8512,          // llvm.x86.avx10.mask.vcvtbiasph2hf8512
+    x86_avx10_mask_vcvtbiasph2hf8s128,         // llvm.x86.avx10.mask.vcvtbiasph2hf8s128
+    x86_avx10_mask_vcvtbiasph2hf8s256,         // llvm.x86.avx10.mask.vcvtbiasph2hf8s256
+    x86_avx10_mask_vcvtbiasph2hf8s512,         // llvm.x86.avx10.mask.vcvtbiasph2hf8s512
+    x86_avx10_mask_vcvthf82ph128,              // llvm.x86.avx10.mask.vcvthf82ph128
+    x86_avx10_mask_vcvthf82ph256,              // llvm.x86.avx10.mask.vcvthf82ph256
+    x86_avx10_mask_vcvthf82ph512,              // llvm.x86.avx10.mask.vcvthf82ph512
+    x86_avx10_mask_vcvtpd2dq256,               // llvm.x86.avx10.mask.vcvtpd2dq256
+    x86_avx10_mask_vcvtpd2ph256,               // llvm.x86.avx10.mask.vcvtpd2ph256
+    x86_avx10_mask_vcvtpd2ps256,               // llvm.x86.avx10.mask.vcvtpd2ps256
+    x86_avx10_mask_vcvtpd2qq256,               // llvm.x86.avx10.mask.vcvtpd2qq256
+    x86_avx10_mask_vcvtpd2udq256,              // llvm.x86.avx10.mask.vcvtpd2udq256
+    x86_avx10_mask_vcvtpd2uqq256,              // llvm.x86.avx10.mask.vcvtpd2uqq256
+    x86_avx10_mask_vcvtph2bf8128,              // llvm.x86.avx10.mask.vcvtph2bf8128
+    x86_avx10_mask_vcvtph2bf8256,              // llvm.x86.avx10.mask.vcvtph2bf8256
+    x86_avx10_mask_vcvtph2bf8512,              // llvm.x86.avx10.mask.vcvtph2bf8512
+    x86_avx10_mask_vcvtph2bf8s128,             // llvm.x86.avx10.mask.vcvtph2bf8s128
+    x86_avx10_mask_vcvtph2bf8s256,             // llvm.x86.avx10.mask.vcvtph2bf8s256
+    x86_avx10_mask_vcvtph2bf8s512,             // llvm.x86.avx10.mask.vcvtph2bf8s512
+    x86_avx10_mask_vcvtph2dq256,               // llvm.x86.avx10.mask.vcvtph2dq256
+    x86_avx10_mask_vcvtph2hf8128,              // llvm.x86.avx10.mask.vcvtph2hf8128
+    x86_avx10_mask_vcvtph2hf8256,              // llvm.x86.avx10.mask.vcvtph2hf8256
+    x86_avx10_mask_vcvtph2hf8512,              // llvm.x86.avx10.mask.vcvtph2hf8512
+    x86_avx10_mask_vcvtph2hf8s128,             // llvm.x86.avx10.mask.vcvtph2hf8s128
+    x86_avx10_mask_vcvtph2hf8s256,             // llvm.x86.avx10.mask.vcvtph2hf8s256
+    x86_avx10_mask_vcvtph2hf8s512,             // llvm.x86.avx10.mask.vcvtph2hf8s512
+    x86_avx10_mask_vcvtph2ibs128,              // llvm.x86.avx10.mask.vcvtph2ibs128
+    x86_avx10_mask_vcvtph2ibs256,              // llvm.x86.avx10.mask.vcvtph2ibs256
+    x86_avx10_mask_vcvtph2ibs512,              // llvm.x86.avx10.mask.vcvtph2ibs512
+    x86_avx10_mask_vcvtph2iubs128,             // llvm.x86.avx10.mask.vcvtph2iubs128
+    x86_avx10_mask_vcvtph2iubs256,             // llvm.x86.avx10.mask.vcvtph2iubs256
+    x86_avx10_mask_vcvtph2iubs512,             // llvm.x86.avx10.mask.vcvtph2iubs512
+    x86_avx10_mask_vcvtph2pd256,               // llvm.x86.avx10.mask.vcvtph2pd256
+    x86_avx10_mask_vcvtph2psx256,              // llvm.x86.avx10.mask.vcvtph2psx256
+    x86_avx10_mask_vcvtph2qq256,               // llvm.x86.avx10.mask.vcvtph2qq256
+    x86_avx10_mask_vcvtph2udq256,              // llvm.x86.avx10.mask.vcvtph2udq256
+    x86_avx10_mask_vcvtph2uqq256,              // llvm.x86.avx10.mask.vcvtph2uqq256
+    x86_avx10_mask_vcvtph2uw256,               // llvm.x86.avx10.mask.vcvtph2uw256
+    x86_avx10_mask_vcvtph2w256,                // llvm.x86.avx10.mask.vcvtph2w256
+    x86_avx10_mask_vcvtps2dq256,               // llvm.x86.avx10.mask.vcvtps2dq256
+    x86_avx10_mask_vcvtps2ibs128,              // llvm.x86.avx10.mask.vcvtps2ibs128
+    x86_avx10_mask_vcvtps2ibs256,              // llvm.x86.avx10.mask.vcvtps2ibs256
+    x86_avx10_mask_vcvtps2ibs512,              // llvm.x86.avx10.mask.vcvtps2ibs512
+    x86_avx10_mask_vcvtps2iubs128,             // llvm.x86.avx10.mask.vcvtps2iubs128
+    x86_avx10_mask_vcvtps2iubs256,             // llvm.x86.avx10.mask.vcvtps2iubs256
+    x86_avx10_mask_vcvtps2iubs512,             // llvm.x86.avx10.mask.vcvtps2iubs512
+    x86_avx10_mask_vcvtps2pd256,               // llvm.x86.avx10.mask.vcvtps2pd256
+    x86_avx10_mask_vcvtps2ph256,               // llvm.x86.avx10.mask.vcvtps2ph256
+    x86_avx10_mask_vcvtps2phx256,              // llvm.x86.avx10.mask.vcvtps2phx256
+    x86_avx10_mask_vcvtps2qq256,               // llvm.x86.avx10.mask.vcvtps2qq256
+    x86_avx10_mask_vcvtps2udq256,              // llvm.x86.avx10.mask.vcvtps2udq256
+    x86_avx10_mask_vcvtps2uqq256,              // llvm.x86.avx10.mask.vcvtps2uqq256
+    x86_avx10_mask_vcvttpd2dq256,              // llvm.x86.avx10.mask.vcvttpd2dq256
+    x86_avx10_mask_vcvttpd2dqs_128,            // llvm.x86.avx10.mask.vcvttpd2dqs.128
+    x86_avx10_mask_vcvttpd2dqs_round_256,      // llvm.x86.avx10.mask.vcvttpd2dqs.round.256
+    x86_avx10_mask_vcvttpd2dqs_round_512,      // llvm.x86.avx10.mask.vcvttpd2dqs.round.512
+    x86_avx10_mask_vcvttpd2qq256,              // llvm.x86.avx10.mask.vcvttpd2qq256
+    x86_avx10_mask_vcvttpd2qqs_128,            // llvm.x86.avx10.mask.vcvttpd2qqs.128
+    x86_avx10_mask_vcvttpd2qqs_round_256,      // llvm.x86.avx10.mask.vcvttpd2qqs.round.256
+    x86_avx10_mask_vcvttpd2qqs_round_512,      // llvm.x86.avx10.mask.vcvttpd2qqs.round.512
+    x86_avx10_mask_vcvttpd2udq256,             // llvm.x86.avx10.mask.vcvttpd2udq256
+    x86_avx10_mask_vcvttpd2udqs_128,           // llvm.x86.avx10.mask.vcvttpd2udqs.128
+    x86_avx10_mask_vcvttpd2udqs_round_256,     // llvm.x86.avx10.mask.vcvttpd2udqs.round.256
+    x86_avx10_mask_vcvttpd2udqs_round_512,     // llvm.x86.avx10.mask.vcvttpd2udqs.round.512
+    x86_avx10_mask_vcvttpd2uqq256,             // llvm.x86.avx10.mask.vcvttpd2uqq256
+    x86_avx10_mask_vcvttpd2uqqs_128,           // llvm.x86.avx10.mask.vcvttpd2uqqs.128
+    x86_avx10_mask_vcvttpd2uqqs_round_256,     // llvm.x86.avx10.mask.vcvttpd2uqqs.round.256
+    x86_avx10_mask_vcvttpd2uqqs_round_512,     // llvm.x86.avx10.mask.vcvttpd2uqqs.round.512
+    x86_avx10_mask_vcvttph2dq256,              // llvm.x86.avx10.mask.vcvttph2dq256
+    x86_avx10_mask_vcvttph2ibs128,             // llvm.x86.avx10.mask.vcvttph2ibs128
+    x86_avx10_mask_vcvttph2ibs256,             // llvm.x86.avx10.mask.vcvttph2ibs256
+    x86_avx10_mask_vcvttph2ibs512,             // llvm.x86.avx10.mask.vcvttph2ibs512
+    x86_avx10_mask_vcvttph2iubs128,            // llvm.x86.avx10.mask.vcvttph2iubs128
+    x86_avx10_mask_vcvttph2iubs256,            // llvm.x86.avx10.mask.vcvttph2iubs256
+    x86_avx10_mask_vcvttph2iubs512,            // llvm.x86.avx10.mask.vcvttph2iubs512
+    x86_avx10_mask_vcvttph2qq256,              // llvm.x86.avx10.mask.vcvttph2qq256
+    x86_avx10_mask_vcvttph2udq256,             // llvm.x86.avx10.mask.vcvttph2udq256
+    x86_avx10_mask_vcvttph2uqq256,             // llvm.x86.avx10.mask.vcvttph2uqq256
+    x86_avx10_mask_vcvttph2uw256,              // llvm.x86.avx10.mask.vcvttph2uw256
+    x86_avx10_mask_vcvttph2w256,               // llvm.x86.avx10.mask.vcvttph2w256
+    x86_avx10_mask_vcvttps2dq256,              // llvm.x86.avx10.mask.vcvttps2dq256
+    x86_avx10_mask_vcvttps2dqs_128,            // llvm.x86.avx10.mask.vcvttps2dqs.128
+    x86_avx10_mask_vcvttps2dqs_round_256,      // llvm.x86.avx10.mask.vcvttps2dqs.round.256
+    x86_avx10_mask_vcvttps2dqs_round_512,      // llvm.x86.avx10.mask.vcvttps2dqs.round.512
+    x86_avx10_mask_vcvttps2ibs128,             // llvm.x86.avx10.mask.vcvttps2ibs128
+    x86_avx10_mask_vcvttps2ibs256,             // llvm.x86.avx10.mask.vcvttps2ibs256
+    x86_avx10_mask_vcvttps2ibs512,             // llvm.x86.avx10.mask.vcvttps2ibs512
+    x86_avx10_mask_vcvttps2iubs128,            // llvm.x86.avx10.mask.vcvttps2iubs128
+    x86_avx10_mask_vcvttps2iubs256,            // llvm.x86.avx10.mask.vcvttps2iubs256
+    x86_avx10_mask_vcvttps2iubs512,            // llvm.x86.avx10.mask.vcvttps2iubs512
+    x86_avx10_mask_vcvttps2qq256,              // llvm.x86.avx10.mask.vcvttps2qq256
+    x86_avx10_mask_vcvttps2qqs_128,            // llvm.x86.avx10.mask.vcvttps2qqs.128
+    x86_avx10_mask_vcvttps2qqs_round_256,      // llvm.x86.avx10.mask.vcvttps2qqs.round.256
+    x86_avx10_mask_vcvttps2qqs_round_512,      // llvm.x86.avx10.mask.vcvttps2qqs.round.512
+    x86_avx10_mask_vcvttps2udq256,             // llvm.x86.avx10.mask.vcvttps2udq256
+    x86_avx10_mask_vcvttps2udqs_128,           // llvm.x86.avx10.mask.vcvttps2udqs.128
+    x86_avx10_mask_vcvttps2udqs_round_256,     // llvm.x86.avx10.mask.vcvttps2udqs.round.256
+    x86_avx10_mask_vcvttps2udqs_round_512,     // llvm.x86.avx10.mask.vcvttps2udqs.round.512
+    x86_avx10_mask_vcvttps2uqq256,             // llvm.x86.avx10.mask.vcvttps2uqq256
+    x86_avx10_mask_vcvttps2uqqs_128,           // llvm.x86.avx10.mask.vcvttps2uqqs.128
+    x86_avx10_mask_vcvttps2uqqs_round_256,     // llvm.x86.avx10.mask.vcvttps2uqqs.round.256
+    x86_avx10_mask_vcvttps2uqqs_round_512,     // llvm.x86.avx10.mask.vcvttps2uqqs.round.512
+    x86_avx10_mask_vfcmaddcph256,              // llvm.x86.avx10.mask.vfcmaddcph256
+    x86_avx10_mask_vfcmulcph256,               // llvm.x86.avx10.mask.vfcmulcph256
+    x86_avx10_mask_vfixupimmpd256,             // llvm.x86.avx10.mask.vfixupimmpd256
+    x86_avx10_mask_vfixupimmps256,             // llvm.x86.avx10.mask.vfixupimmps256
+    x86_avx10_mask_vfmaddcph256,               // llvm.x86.avx10.mask.vfmaddcph256
+    x86_avx10_mask_vfmulcph256,                // llvm.x86.avx10.mask.vfmulcph256
+    x86_avx10_mask_vgetexppd256,               // llvm.x86.avx10.mask.vgetexppd256
+    x86_avx10_mask_vgetexpph256,               // llvm.x86.avx10.mask.vgetexpph256
+    x86_avx10_mask_vgetexpps256,               // llvm.x86.avx10.mask.vgetexpps256
+    x86_avx10_mask_vgetmantpd256,              // llvm.x86.avx10.mask.vgetmantpd256
+    x86_avx10_mask_vgetmantph256,              // llvm.x86.avx10.mask.vgetmantph256
+    x86_avx10_mask_vgetmantps256,              // llvm.x86.avx10.mask.vgetmantps256
+    x86_avx10_mask_vminmaxpd_round,            // llvm.x86.avx10.mask.vminmaxpd.round
+    x86_avx10_mask_vminmaxpd128,               // llvm.x86.avx10.mask.vminmaxpd128
+    x86_avx10_mask_vminmaxpd256_round,         // llvm.x86.avx10.mask.vminmaxpd256.round
+    x86_avx10_mask_vminmaxph_round,            // llvm.x86.avx10.mask.vminmaxph.round
+    x86_avx10_mask_vminmaxph128,               // llvm.x86.avx10.mask.vminmaxph128
+    x86_avx10_mask_vminmaxph256_round,         // llvm.x86.avx10.mask.vminmaxph256.round
+    x86_avx10_mask_vminmaxps_round,            // llvm.x86.avx10.mask.vminmaxps.round
+    x86_avx10_mask_vminmaxps128,               // llvm.x86.avx10.mask.vminmaxps128
+    x86_avx10_mask_vminmaxps256_round,         // llvm.x86.avx10.mask.vminmaxps256.round
+    x86_avx10_mask_vminmaxsd_round,            // llvm.x86.avx10.mask.vminmaxsd.round
+    x86_avx10_mask_vminmaxsh_round,            // llvm.x86.avx10.mask.vminmaxsh.round
+    x86_avx10_mask_vminmaxss_round,            // llvm.x86.avx10.mask.vminmaxss.round
+    x86_avx10_mask_vrangepd256,                // llvm.x86.avx10.mask.vrangepd256
+    x86_avx10_mask_vrangeps256,                // llvm.x86.avx10.mask.vrangeps256
+    x86_avx10_mask_vreducepd256,               // llvm.x86.avx10.mask.vreducepd256
+    x86_avx10_mask_vreduceph256,               // llvm.x86.avx10.mask.vreduceph256
+    x86_avx10_mask_vreduceps256,               // llvm.x86.avx10.mask.vreduceps256
+    x86_avx10_mask_vrndscalepd256,             // llvm.x86.avx10.mask.vrndscalepd256
+    x86_avx10_mask_vrndscaleph256,             // llvm.x86.avx10.mask.vrndscaleph256
+    x86_avx10_mask_vrndscaleps256,             // llvm.x86.avx10.mask.vrndscaleps256
+    x86_avx10_mask_vscalefpd256,               // llvm.x86.avx10.mask.vscalefpd256
+    x86_avx10_mask_vscalefph256,               // llvm.x86.avx10.mask.vscalefph256
+    x86_avx10_mask_vscalefps256,               // llvm.x86.avx10.mask.vscalefps256
+    x86_avx10_maskz_vfcmaddcph256,             // llvm.x86.avx10.maskz.vfcmaddcph256
+    x86_avx10_maskz_vfixupimmpd256,            // llvm.x86.avx10.maskz.vfixupimmpd256
+    x86_avx10_maskz_vfixupimmps256,            // llvm.x86.avx10.maskz.vfixupimmps256
+    x86_avx10_maskz_vfmaddcph256,              // llvm.x86.avx10.maskz.vfmaddcph256
+    x86_avx10_vaddbf16128,                     // llvm.x86.avx10.vaddbf16128
+    x86_avx10_vaddbf16256,                     // llvm.x86.avx10.vaddbf16256
+    x86_avx10_vaddbf16512,                     // llvm.x86.avx10.vaddbf16512
+    x86_avx10_vaddpd256,                       // llvm.x86.avx10.vaddpd256
+    x86_avx10_vaddph256,                       // llvm.x86.avx10.vaddph256
+    x86_avx10_vaddps256,                       // llvm.x86.avx10.vaddps256
+    x86_avx10_vcomisbf16eq,                    // llvm.x86.avx10.vcomisbf16eq
+    x86_avx10_vcomisbf16ge,                    // llvm.x86.avx10.vcomisbf16ge
+    x86_avx10_vcomisbf16gt,                    // llvm.x86.avx10.vcomisbf16gt
+    x86_avx10_vcomisbf16le,                    // llvm.x86.avx10.vcomisbf16le
+    x86_avx10_vcomisbf16lt,                    // llvm.x86.avx10.vcomisbf16lt
+    x86_avx10_vcomisbf16neq,                   // llvm.x86.avx10.vcomisbf16neq
+    x86_avx10_vcvt2ph2bf8128,                  // llvm.x86.avx10.vcvt2ph2bf8128
+    x86_avx10_vcvt2ph2bf8256,                  // llvm.x86.avx10.vcvt2ph2bf8256
+    x86_avx10_vcvt2ph2bf8512,                  // llvm.x86.avx10.vcvt2ph2bf8512
+    x86_avx10_vcvt2ph2bf8s128,                 // llvm.x86.avx10.vcvt2ph2bf8s128
+    x86_avx10_vcvt2ph2bf8s256,                 // llvm.x86.avx10.vcvt2ph2bf8s256
+    x86_avx10_vcvt2ph2bf8s512,                 // llvm.x86.avx10.vcvt2ph2bf8s512
+    x86_avx10_vcvt2ph2hf8128,                  // llvm.x86.avx10.vcvt2ph2hf8128
+    x86_avx10_vcvt2ph2hf8256,                  // llvm.x86.avx10.vcvt2ph2hf8256
+    x86_avx10_vcvt2ph2hf8512,                  // llvm.x86.avx10.vcvt2ph2hf8512
+    x86_avx10_vcvt2ph2hf8s128,                 // llvm.x86.avx10.vcvt2ph2hf8s128
+    x86_avx10_vcvt2ph2hf8s256,                 // llvm.x86.avx10.vcvt2ph2hf8s256
+    x86_avx10_vcvt2ph2hf8s512,                 // llvm.x86.avx10.vcvt2ph2hf8s512
+    x86_avx10_vcvtbf162ibs128,                 // llvm.x86.avx10.vcvtbf162ibs128
+    x86_avx10_vcvtbf162ibs256,                 // llvm.x86.avx10.vcvtbf162ibs256
+    x86_avx10_vcvtbf162ibs512,                 // llvm.x86.avx10.vcvtbf162ibs512
+    x86_avx10_vcvtbf162iubs128,                // llvm.x86.avx10.vcvtbf162iubs128
+    x86_avx10_vcvtbf162iubs256,                // llvm.x86.avx10.vcvtbf162iubs256
+    x86_avx10_vcvtbf162iubs512,                // llvm.x86.avx10.vcvtbf162iubs512
+    x86_avx10_vcvttbf162ibs128,                // llvm.x86.avx10.vcvttbf162ibs128
+    x86_avx10_vcvttbf162ibs256,                // llvm.x86.avx10.vcvttbf162ibs256
+    x86_avx10_vcvttbf162ibs512,                // llvm.x86.avx10.vcvttbf162ibs512
+    x86_avx10_vcvttbf162iubs128,               // llvm.x86.avx10.vcvttbf162iubs128
+    x86_avx10_vcvttbf162iubs256,               // llvm.x86.avx10.vcvttbf162iubs256
+    x86_avx10_vcvttbf162iubs512,               // llvm.x86.avx10.vcvttbf162iubs512
+    x86_avx10_vcvttsd2sis,                     // llvm.x86.avx10.vcvttsd2sis
+    x86_avx10_vcvttsd2sis64,                   // llvm.x86.avx10.vcvttsd2sis64
+    x86_avx10_vcvttsd2usis,                    // llvm.x86.avx10.vcvttsd2usis
+    x86_avx10_vcvttsd2usis64,                  // llvm.x86.avx10.vcvttsd2usis64
+    x86_avx10_vcvttss2sis,                     // llvm.x86.avx10.vcvttss2sis
+    x86_avx10_vcvttss2sis64,                   // llvm.x86.avx10.vcvttss2sis64
+    x86_avx10_vcvttss2usis,                    // llvm.x86.avx10.vcvttss2usis
+    x86_avx10_vcvttss2usis64,                  // llvm.x86.avx10.vcvttss2usis64
+    x86_avx10_vdivbf16128,                     // llvm.x86.avx10.vdivbf16128
+    x86_avx10_vdivbf16256,                     // llvm.x86.avx10.vdivbf16256
+    x86_avx10_vdivbf16512,                     // llvm.x86.avx10.vdivbf16512
+    x86_avx10_vdivpd256,                       // llvm.x86.avx10.vdivpd256
+    x86_avx10_vdivph256,                       // llvm.x86.avx10.vdivph256
+    x86_avx10_vdivps256,                       // llvm.x86.avx10.vdivps256
+    x86_avx10_vdpphps_128,                     // llvm.x86.avx10.vdpphps.128
+    x86_avx10_vdpphps_256,                     // llvm.x86.avx10.vdpphps.256
+    x86_avx10_vdpphps_512,                     // llvm.x86.avx10.vdpphps.512
+    x86_avx10_vfmadd132bf16128,                // llvm.x86.avx10.vfmadd132bf16128
+    x86_avx10_vfmadd132bf16256,                // llvm.x86.avx10.vfmadd132bf16256
+    x86_avx10_vfmadd132bf16512,                // llvm.x86.avx10.vfmadd132bf16512
+    x86_avx10_vfmadd213bf16128,                // llvm.x86.avx10.vfmadd213bf16128
+    x86_avx10_vfmadd213bf16256,                // llvm.x86.avx10.vfmadd213bf16256
+    x86_avx10_vfmadd231bf16128,                // llvm.x86.avx10.vfmadd231bf16128
+    x86_avx10_vfmadd231bf16256,                // llvm.x86.avx10.vfmadd231bf16256
+    x86_avx10_vfmadd231bf16512,                // llvm.x86.avx10.vfmadd231bf16512
+    x86_avx10_vfmaddpd256,                     // llvm.x86.avx10.vfmaddpd256
+    x86_avx10_vfmaddph256,                     // llvm.x86.avx10.vfmaddph256
+    x86_avx10_vfmaddps256,                     // llvm.x86.avx10.vfmaddps256
+    x86_avx10_vfmaddsubpd256,                  // llvm.x86.avx10.vfmaddsubpd256
+    x86_avx10_vfmaddsubph256,                  // llvm.x86.avx10.vfmaddsubph256
+    x86_avx10_vfmaddsubps256,                  // llvm.x86.avx10.vfmaddsubps256
+    x86_avx10_vfmsub132bf16128,                // llvm.x86.avx10.vfmsub132bf16128
+    x86_avx10_vfmsub132bf16256,                // llvm.x86.avx10.vfmsub132bf16256
+    x86_avx10_vfmsub132bf16512,                // llvm.x86.avx10.vfmsub132bf16512
+    x86_avx10_vfmsub213bf16128,                // llvm.x86.avx10.vfmsub213bf16128
+    x86_avx10_vfmsub213bf16256,                // llvm.x86.avx10.vfmsub213bf16256
+    x86_avx10_vfmsub213bf16512,                // llvm.x86.avx10.vfmsub213bf16512
+    x86_avx10_vfmsub231bf16128,                // llvm.x86.avx10.vfmsub231bf16128
+    x86_avx10_vfmsub231bf16256,                // llvm.x86.avx10.vfmsub231bf16256
+    x86_avx10_vfmsub231bf16512,                // llvm.x86.avx10.vfmsub231bf16512
+    x86_avx10_vfnmadd132bf16128,               // llvm.x86.avx10.vfnmadd132bf16128
+    x86_avx10_vfnmadd132bf16256,               // llvm.x86.avx10.vfnmadd132bf16256
+    x86_avx10_vfnmadd132bf16512,               // llvm.x86.avx10.vfnmadd132bf16512
+    x86_avx10_vfnmadd213bf16128,               // llvm.x86.avx10.vfnmadd213bf16128
+    x86_avx10_vfnmadd213bf16256,               // llvm.x86.avx10.vfnmadd213bf16256
+    x86_avx10_vfnmadd213bf16512,               // llvm.x86.avx10.vfnmadd213bf16512
+    x86_avx10_vfnmadd231bf16128,               // llvm.x86.avx10.vfnmadd231bf16128
+    x86_avx10_vfnmadd231bf16256,               // llvm.x86.avx10.vfnmadd231bf16256
+    x86_avx10_vfnmadd231bf16512,               // llvm.x86.avx10.vfnmadd231bf16512
+    x86_avx10_vfnmsub132bf16128,               // llvm.x86.avx10.vfnmsub132bf16128
+    x86_avx10_vfnmsub132bf16256,               // llvm.x86.avx10.vfnmsub132bf16256
+    x86_avx10_vfnmsub132bf16512,               // llvm.x86.avx10.vfnmsub132bf16512
+    x86_avx10_vfnmsub213bf16128,               // llvm.x86.avx10.vfnmsub213bf16128
+    x86_avx10_vfnmsub213bf16256,               // llvm.x86.avx10.vfnmsub213bf16256
+    x86_avx10_vfnmsub213bf16512,               // llvm.x86.avx10.vfnmsub213bf16512
+    x86_avx10_vfnmsub231bf16128,               // llvm.x86.avx10.vfnmsub231bf16128
+    x86_avx10_vfnmsub231bf16256,               // llvm.x86.avx10.vfnmsub231bf16256
+    x86_avx10_vfnmsub231bf16512,               // llvm.x86.avx10.vfnmsub231bf16512
+    x86_avx10_vmaxbf16128,                     // llvm.x86.avx10.vmaxbf16128
+    x86_avx10_vmaxbf16256,                     // llvm.x86.avx10.vmaxbf16256
+    x86_avx10_vmaxbf16512,                     // llvm.x86.avx10.vmaxbf16512
+    x86_avx10_vmaxpd256,                       // llvm.x86.avx10.vmaxpd256
+    x86_avx10_vmaxph256,                       // llvm.x86.avx10.vmaxph256
+    x86_avx10_vmaxps256,                       // llvm.x86.avx10.vmaxps256
+    x86_avx10_vminbf16128,                     // llvm.x86.avx10.vminbf16128
+    x86_avx10_vminbf16256,                     // llvm.x86.avx10.vminbf16256
+    x86_avx10_vminbf16512,                     // llvm.x86.avx10.vminbf16512
+    x86_avx10_vminmaxbf16128,                  // llvm.x86.avx10.vminmaxbf16128
+    x86_avx10_vminmaxbf16256,                  // llvm.x86.avx10.vminmaxbf16256
+    x86_avx10_vminmaxbf16512,                  // llvm.x86.avx10.vminmaxbf16512
+    x86_avx10_vminmaxpd128,                    // llvm.x86.avx10.vminmaxpd128
+    x86_avx10_vminmaxpd256,                    // llvm.x86.avx10.vminmaxpd256
+    x86_avx10_vminmaxph128,                    // llvm.x86.avx10.vminmaxph128
+    x86_avx10_vminmaxph256,                    // llvm.x86.avx10.vminmaxph256
+    x86_avx10_vminmaxps128,                    // llvm.x86.avx10.vminmaxps128
+    x86_avx10_vminmaxps256,                    // llvm.x86.avx10.vminmaxps256
+    x86_avx10_vminpd256,                       // llvm.x86.avx10.vminpd256
+    x86_avx10_vminph256,                       // llvm.x86.avx10.vminph256
+    x86_avx10_vminps256,                       // llvm.x86.avx10.vminps256
+    x86_avx10_vmovrsb128,                      // llvm.x86.avx10.vmovrsb128
+    x86_avx10_vmovrsb256,                      // llvm.x86.avx10.vmovrsb256
+    x86_avx10_vmovrsb512,                      // llvm.x86.avx10.vmovrsb512
+    x86_avx10_vmovrsd128,                      // llvm.x86.avx10.vmovrsd128
+    x86_avx10_vmovrsd256,                      // llvm.x86.avx10.vmovrsd256
+    x86_avx10_vmovrsd512,                      // llvm.x86.avx10.vmovrsd512
+    x86_avx10_vmovrsq128,                      // llvm.x86.avx10.vmovrsq128
+    x86_avx10_vmovrsq256,                      // llvm.x86.avx10.vmovrsq256
+    x86_avx10_vmovrsq512,                      // llvm.x86.avx10.vmovrsq512
+    x86_avx10_vmovrsw128,                      // llvm.x86.avx10.vmovrsw128
+    x86_avx10_vmovrsw256,                      // llvm.x86.avx10.vmovrsw256
+    x86_avx10_vmovrsw512,                      // llvm.x86.avx10.vmovrsw512
+    x86_avx10_vmpsadbw_512,                    // llvm.x86.avx10.vmpsadbw.512
+    x86_avx10_vmulbf16128,                     // llvm.x86.avx10.vmulbf16128
+    x86_avx10_vmulbf16256,                     // llvm.x86.avx10.vmulbf16256
+    x86_avx10_vmulbf16512,                     // llvm.x86.avx10.vmulbf16512
+    x86_avx10_vmulpd256,                       // llvm.x86.avx10.vmulpd256
+    x86_avx10_vmulph256,                       // llvm.x86.avx10.vmulph256
+    x86_avx10_vmulps256,                       // llvm.x86.avx10.vmulps256
+    x86_avx10_vpdpbssd_512,                    // llvm.x86.avx10.vpdpbssd.512
+    x86_avx10_vpdpbssds_512,                   // llvm.x86.avx10.vpdpbssds.512
+    x86_avx10_vpdpbsud_512,                    // llvm.x86.avx10.vpdpbsud.512
+    x86_avx10_vpdpbsuds_512,                   // llvm.x86.avx10.vpdpbsuds.512
+    x86_avx10_vpdpbuud_512,                    // llvm.x86.avx10.vpdpbuud.512
+    x86_avx10_vpdpbuuds_512,                   // llvm.x86.avx10.vpdpbuuds.512
+    x86_avx10_vpdpwsud_512,                    // llvm.x86.avx10.vpdpwsud.512
+    x86_avx10_vpdpwsuds_512,                   // llvm.x86.avx10.vpdpwsuds.512
+    x86_avx10_vpdpwusd_512,                    // llvm.x86.avx10.vpdpwusd.512
+    x86_avx10_vpdpwusds_512,                   // llvm.x86.avx10.vpdpwusds.512
+    x86_avx10_vpdpwuud_512,                    // llvm.x86.avx10.vpdpwuud.512
+    x86_avx10_vpdpwuuds_512,                   // llvm.x86.avx10.vpdpwuuds.512
+    x86_avx10_vsqrtpd256,                      // llvm.x86.avx10.vsqrtpd256
+    x86_avx10_vsqrtph256,                      // llvm.x86.avx10.vsqrtph256
+    x86_avx10_vsqrtps256,                      // llvm.x86.avx10.vsqrtps256
+    x86_avx10_vsubbf16128,                     // llvm.x86.avx10.vsubbf16128
+    x86_avx10_vsubbf16256,                     // llvm.x86.avx10.vsubbf16256
+    x86_avx10_vsubbf16512,                     // llvm.x86.avx10.vsubbf16512
+    x86_avx10_vsubpd256,                       // llvm.x86.avx10.vsubpd256
+    x86_avx10_vsubph256,                       // llvm.x86.avx10.vsubph256
+    x86_avx10_vsubps256,                       // llvm.x86.avx10.vsubps256
     x86_avx2_gather_d_d,                       // llvm.x86.avx2.gather.d.d
     x86_avx2_gather_d_d_256,                   // llvm.x86.avx2.gather.d.d.256
     x86_avx2_gather_d_pd,                      // llvm.x86.avx2.gather.d.pd
@@ -1056,10 +1388,15 @@ enum X86Intrinsics : unsigned {
     x86_mmx_pxor,                              // llvm.x86.mmx.pxor
     x86_monitorx,                              // llvm.x86.monitorx
     x86_movdir64b,                             // llvm.x86.movdir64b
+    x86_movrsdi,                               // llvm.x86.movrsdi
+    x86_movrshi,                               // llvm.x86.movrshi
+    x86_movrsqi,                               // llvm.x86.movrsqi
+    x86_movrssi,                               // llvm.x86.movrssi
     x86_mwaitx,                                // llvm.x86.mwaitx
     x86_pclmulqdq,                             // llvm.x86.pclmulqdq
     x86_pclmulqdq_256,                         // llvm.x86.pclmulqdq.256
     x86_pclmulqdq_512,                         // llvm.x86.pclmulqdq.512
+    x86_prefetchrs,                            // llvm.x86.prefetchrs
     x86_ptwrite32,                             // llvm.x86.ptwrite32
     x86_ptwrite64,                             // llvm.x86.ptwrite64
     x86_rdfsbase_32,                           // llvm.x86.rdfsbase.32
@@ -1271,14 +1608,48 @@ enum X86Intrinsics : unsigned {
     x86_stui,                                  // llvm.x86.stui
     x86_subborrow_32,                          // llvm.x86.subborrow.32
     x86_subborrow_64,                          // llvm.x86.subborrow.64
+    x86_t2rpntlvwz0,                           // llvm.x86.t2rpntlvwz0
+    x86_t2rpntlvwz0_internal,                  // llvm.x86.t2rpntlvwz0.internal
+    x86_t2rpntlvwz0rs,                         // llvm.x86.t2rpntlvwz0rs
+    x86_t2rpntlvwz0rs_internal,                // llvm.x86.t2rpntlvwz0rs.internal
+    x86_t2rpntlvwz0rst1,                       // llvm.x86.t2rpntlvwz0rst1
+    x86_t2rpntlvwz0rst1_internal,              // llvm.x86.t2rpntlvwz0rst1.internal
+    x86_t2rpntlvwz0t1,                         // llvm.x86.t2rpntlvwz0t1
+    x86_t2rpntlvwz0t1_internal,                // llvm.x86.t2rpntlvwz0t1.internal
+    x86_t2rpntlvwz1,                           // llvm.x86.t2rpntlvwz1
+    x86_t2rpntlvwz1_internal,                  // llvm.x86.t2rpntlvwz1.internal
+    x86_t2rpntlvwz1rs,                         // llvm.x86.t2rpntlvwz1rs
+    x86_t2rpntlvwz1rs_internal,                // llvm.x86.t2rpntlvwz1rs.internal
+    x86_t2rpntlvwz1rst1,                       // llvm.x86.t2rpntlvwz1rst1
+    x86_t2rpntlvwz1rst1_internal,              // llvm.x86.t2rpntlvwz1rst1.internal
+    x86_t2rpntlvwz1t1,                         // llvm.x86.t2rpntlvwz1t1
+    x86_t2rpntlvwz1t1_internal,                // llvm.x86.t2rpntlvwz1t1.internal
     x86_tbm_bextri_u32,                        // llvm.x86.tbm.bextri.u32
     x86_tbm_bextri_u64,                        // llvm.x86.tbm.bextri.u64
     x86_tcmmimfp16ps,                          // llvm.x86.tcmmimfp16ps
     x86_tcmmimfp16ps_internal,                 // llvm.x86.tcmmimfp16ps.internal
     x86_tcmmrlfp16ps,                          // llvm.x86.tcmmrlfp16ps
     x86_tcmmrlfp16ps_internal,                 // llvm.x86.tcmmrlfp16ps.internal
+    x86_tconjtcmmimfp16ps,                     // llvm.x86.tconjtcmmimfp16ps
+    x86_tconjtcmmimfp16ps_internal,            // llvm.x86.tconjtcmmimfp16ps.internal
+    x86_tconjtfp16,                            // llvm.x86.tconjtfp16
+    x86_tconjtfp16_internal,                   // llvm.x86.tconjtfp16.internal
+    x86_tcvtrowd2ps,                           // llvm.x86.tcvtrowd2ps
+    x86_tcvtrowd2ps_internal,                  // llvm.x86.tcvtrowd2ps.internal
+    x86_tcvtrowps2bf16h,                       // llvm.x86.tcvtrowps2bf16h
+    x86_tcvtrowps2bf16h_internal,              // llvm.x86.tcvtrowps2bf16h.internal
+    x86_tcvtrowps2bf16l,                       // llvm.x86.tcvtrowps2bf16l
+    x86_tcvtrowps2bf16l_internal,              // llvm.x86.tcvtrowps2bf16l.internal
+    x86_tcvtrowps2phh,                         // llvm.x86.tcvtrowps2phh
+    x86_tcvtrowps2phh_internal,                // llvm.x86.tcvtrowps2phh.internal
+    x86_tcvtrowps2phl,                         // llvm.x86.tcvtrowps2phl
+    x86_tcvtrowps2phl_internal,                // llvm.x86.tcvtrowps2phl.internal
     x86_tdpbf16ps,                             // llvm.x86.tdpbf16ps
     x86_tdpbf16ps_internal,                    // llvm.x86.tdpbf16ps.internal
+    x86_tdpbf8ps,                              // llvm.x86.tdpbf8ps
+    x86_tdpbf8ps_internal,                     // llvm.x86.tdpbf8ps.internal
+    x86_tdpbhf8ps,                             // llvm.x86.tdpbhf8ps
+    x86_tdpbhf8ps_internal,                    // llvm.x86.tdpbhf8ps.internal
     x86_tdpbssd,                               // llvm.x86.tdpbssd
     x86_tdpbssd_internal,                      // llvm.x86.tdpbssd.internal
     x86_tdpbsud,                               // llvm.x86.tdpbsud
@@ -1289,17 +1660,41 @@ enum X86Intrinsics : unsigned {
     x86_tdpbuud_internal,                      // llvm.x86.tdpbuud.internal
     x86_tdpfp16ps,                             // llvm.x86.tdpfp16ps
     x86_tdpfp16ps_internal,                    // llvm.x86.tdpfp16ps.internal
+    x86_tdphbf8ps,                             // llvm.x86.tdphbf8ps
+    x86_tdphbf8ps_internal,                    // llvm.x86.tdphbf8ps.internal
+    x86_tdphf8ps,                              // llvm.x86.tdphf8ps
+    x86_tdphf8ps_internal,                     // llvm.x86.tdphf8ps.internal
     x86_testui,                                // llvm.x86.testui
     x86_tileloadd64,                           // llvm.x86.tileloadd64
     x86_tileloadd64_internal,                  // llvm.x86.tileloadd64.internal
+    x86_tileloaddrs64,                         // llvm.x86.tileloaddrs64
+    x86_tileloaddrs64_internal,                // llvm.x86.tileloaddrs64.internal
+    x86_tileloaddrst164,                       // llvm.x86.tileloaddrst164
+    x86_tileloaddrst164_internal,              // llvm.x86.tileloaddrst164.internal
     x86_tileloaddt164,                         // llvm.x86.tileloaddt164
     x86_tileloaddt164_internal,                // llvm.x86.tileloaddt164.internal
+    x86_tilemovrow,                            // llvm.x86.tilemovrow
+    x86_tilemovrow_internal,                   // llvm.x86.tilemovrow.internal
     x86_tilerelease,                           // llvm.x86.tilerelease
     x86_tilestored64,                          // llvm.x86.tilestored64
     x86_tilestored64_internal,                 // llvm.x86.tilestored64.internal
     x86_tilezero,                              // llvm.x86.tilezero
     x86_tilezero_internal,                     // llvm.x86.tilezero.internal
+    x86_tmmultf32ps,                           // llvm.x86.tmmultf32ps
+    x86_tmmultf32ps_internal,                  // llvm.x86.tmmultf32ps.internal
     x86_tpause,                                // llvm.x86.tpause
+    x86_ttcmmimfp16ps,                         // llvm.x86.ttcmmimfp16ps
+    x86_ttcmmimfp16ps_internal,                // llvm.x86.ttcmmimfp16ps.internal
+    x86_ttcmmrlfp16ps,                         // llvm.x86.ttcmmrlfp16ps
+    x86_ttcmmrlfp16ps_internal,                // llvm.x86.ttcmmrlfp16ps.internal
+    x86_ttdpbf16ps,                            // llvm.x86.ttdpbf16ps
+    x86_ttdpbf16ps_internal,                   // llvm.x86.ttdpbf16ps.internal
+    x86_ttdpfp16ps,                            // llvm.x86.ttdpfp16ps
+    x86_ttdpfp16ps_internal,                   // llvm.x86.ttdpfp16ps.internal
+    x86_ttmmultf32ps,                          // llvm.x86.ttmmultf32ps
+    x86_ttmmultf32ps_internal,                 // llvm.x86.ttmmultf32ps.internal
+    x86_ttransposed,                           // llvm.x86.ttransposed
+    x86_ttransposed_internal,                  // llvm.x86.ttransposed.internal
     x86_umonitor,                              // llvm.x86.umonitor
     x86_umwait,                                // llvm.x86.umwait
     x86_urdmsr,                                // llvm.x86.urdmsr
@@ -1337,8 +1732,10 @@ enum X86Intrinsics : unsigned {
     x86_vsm3rnds2,                             // llvm.x86.vsm3rnds2
     x86_vsm4key4128,                           // llvm.x86.vsm4key4128
     x86_vsm4key4256,                           // llvm.x86.vsm4key4256
+    x86_vsm4key4512,                           // llvm.x86.vsm4key4512
     x86_vsm4rnds4128,                          // llvm.x86.vsm4rnds4128
     x86_vsm4rnds4256,                          // llvm.x86.vsm4rnds4256
+    x86_vsm4rnds4512,                          // llvm.x86.vsm4rnds4512
     x86_wbinvd,                                // llvm.x86.wbinvd
     x86_wbnoinvd,                              // llvm.x86.wbnoinvd
     x86_wrfsbase_32,                           // llvm.x86.wrfsbase.32
@@ -1417,7 +1814,6 @@ enum X86Intrinsics : unsigned {
     x86_xsusldtrk,                             // llvm.x86.xsusldtrk
     x86_xtest,                                 // llvm.x86.xtest
 }; // enum
-} // namespace Intrinsic
-} // namespace llvm
-
+} // namespace llvm::Intrinsic
 #endif
+

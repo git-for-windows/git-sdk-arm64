@@ -45,6 +45,13 @@ struct ReadDispatcher<ArraySizeModifier> {
   }
 };
 template <>
+struct ReadDispatcher<const Attr *> {
+  template <class BasicReader, class... Args>
+  static const Attr * read(BasicReader &R, Args &&... args) {
+    return R.readAttr(std::forward<Args>(args)...);
+  }
+};
+template <>
 struct ReadDispatcher<attr::Kind> {
   template <class BasicReader, class... Args>
   static attr::Kind read(BasicReader &R, Args &&... args) {
@@ -294,6 +301,13 @@ struct ReadDispatcher<Stmt*> {
   template <class BasicReader, class... Args>
   static Stmt* read(BasicReader &R, Args &&... args) {
     return R.readStmtRef(std::forward<Args>(args)...);
+  }
+};
+template <>
+struct ReadDispatcher<SubstTemplateTypeParmTypeFlag> {
+  template <class BasicReader, class... Args>
+  static SubstTemplateTypeParmTypeFlag read(BasicReader &R, Args &&... args) {
+    return R.readSubstTemplateTypeParmTypeFlag(std::forward<Args>(args)...);
   }
 };
 template <>
@@ -924,6 +938,9 @@ public:
   RefQualifierKind readRefQualifierKind() {
     return asImpl().template readEnum<RefQualifierKind>();
   }
+  SubstTemplateTypeParmTypeFlag readSubstTemplateTypeParmTypeFlag() {
+    return asImpl().template readEnum<SubstTemplateTypeParmTypeFlag>();
+  }
   TagDecl* readTagDeclRef() {
     return cast_or_null<TagDecl>(asImpl().readDeclRef());
   }
@@ -1114,6 +1131,16 @@ public:
     bool final = subR.find("final").readBool();
     
     return ctx.getSubstTemplateTemplateParmPack(argumentPack, associatedDecl, index, final);
+  
+    }
+
+    case TemplateName::DeducedTemplate: {
+    TemplateName underlying = subR.find("underlying").readTemplateName();
+    uint32_t startPos = subR.find("startPos").readUInt32();
+    llvm::SmallVector<TemplateArgument, 8> defaultArgs_buffer_0;
+    llvm::ArrayRef<TemplateArgument> defaultArgs = subR.find("defaultArgs").template readArray<TemplateArgument>(defaultArgs_buffer_0);
+    
+    return ctx.getDeducedTemplateName(underlying, {startPos, defaultArgs});
   
     }
 

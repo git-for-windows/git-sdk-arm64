@@ -186,17 +186,41 @@ case NEON::BI__builtin_neon_vsubh_f16: BuiltinType = ArmNonStreaming; break;
 #endif
 
 #ifdef GET_NEON_IMMEDIATE_CHECK
-case NEON::BI__builtin_neon_vcvth_n_s32_f16: i = 1; l = 1; u = 15; break;
-case NEON::BI__builtin_neon_vcvth_n_s64_f16: i = 1; l = 1; u = 15; break;
-case NEON::BI__builtin_neon_vcvth_n_s16_f16: i = 1; l = 1; u = 15; break;
-case NEON::BI__builtin_neon_vcvth_n_u32_f16: i = 1; l = 1; u = 15; break;
-case NEON::BI__builtin_neon_vcvth_n_u64_f16: i = 1; l = 1; u = 15; break;
-case NEON::BI__builtin_neon_vcvth_n_u16_f16: i = 1; l = 1; u = 15; break;
-case NEON::BI__builtin_neon_vcvth_n_f16_u32: i = 1; l = 1; u = 15; break;
-case NEON::BI__builtin_neon_vcvth_n_f16_s32: i = 1; l = 1; u = 15; break;
-case NEON::BI__builtin_neon_vcvth_n_f16_u64: i = 1; l = 1; u = 15; break;
-case NEON::BI__builtin_neon_vcvth_n_f16_s64: i = 1; l = 1; u = 15; break;
-case NEON::BI__builtin_neon_vcvth_n_f16_u16: i = 1; l = 1; u = 15; break;
-case NEON::BI__builtin_neon_vcvth_n_f16_s16: i = 1; l = 1; u = 15; break;
+case NEON::BI__builtin_neon_vcvth_n_s32_f16:
+ ImmChecks.emplace_back(1, 8, 16, 64);
+ break;
+case NEON::BI__builtin_neon_vcvth_n_s64_f16:
+ ImmChecks.emplace_back(1, 8, 16, 64);
+ break;
+case NEON::BI__builtin_neon_vcvth_n_s16_f16:
+ ImmChecks.emplace_back(1, 8, 16, 64);
+ break;
+case NEON::BI__builtin_neon_vcvth_n_u32_f16:
+ ImmChecks.emplace_back(1, 8, 16, 64);
+ break;
+case NEON::BI__builtin_neon_vcvth_n_u64_f16:
+ ImmChecks.emplace_back(1, 8, 16, 64);
+ break;
+case NEON::BI__builtin_neon_vcvth_n_u16_f16:
+ ImmChecks.emplace_back(1, 8, 16, 64);
+ break;
+case NEON::BI__builtin_neon_vcvth_n_f16_u32:
+ ImmChecks.emplace_back(1, 1, 0, 0);
+ break;
+case NEON::BI__builtin_neon_vcvth_n_f16_s32:
+ ImmChecks.emplace_back(1, 1, 0, 0);
+ break;
+case NEON::BI__builtin_neon_vcvth_n_f16_u64:
+ ImmChecks.emplace_back(1, 1, 0, 0);
+ break;
+case NEON::BI__builtin_neon_vcvth_n_f16_s64:
+ ImmChecks.emplace_back(1, 1, 0, 0);
+ break;
+case NEON::BI__builtin_neon_vcvth_n_f16_u16:
+ ImmChecks.emplace_back(1, 1, 0, 0);
+ break;
+case NEON::BI__builtin_neon_vcvth_n_f16_s16:
+ ImmChecks.emplace_back(1, 1, 0, 0);
+ break;
 #endif
 

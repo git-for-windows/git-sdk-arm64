@@ -24,6 +24,10 @@
 #if defined(BUILTIN) && !defined(TARGET_BUILTIN)
 #  define TARGET_BUILTIN(ID, TYPE, ATTRS, FEATURE) BUILTIN(ID, TYPE, ATTRS)
 #endif
+
+#if defined(BUILTIN) && !defined(TARGET_HEADER_BUILTIN)
+#  define TARGET_HEADER_BUILTIN(ID, TYPE, ATTRS, HEADER, LANG, FEATURE) BUILTIN(ID, TYPE, ATTRS)
+#endif
 TARGET_BUILTIN(__builtin_btf_type_id, "LUi.", "t", "")
 TARGET_BUILTIN(__builtin_preserve_enum_value, "Li.", "t", "")
 TARGET_BUILTIN(__builtin_preserve_field_info, "Ui.", "t", "")
@@ -34,3 +38,4 @@ TARGET_BUILTIN(__builtin_preserve_type_info, "LUi.", "t", "")
 #undef LIBBUILTIN
 #undef LANGBUILTIN
 #undef TARGET_BUILTIN
+#undef TARGET_HEADER_BUILTIN

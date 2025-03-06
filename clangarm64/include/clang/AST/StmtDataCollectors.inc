@@ -72,7 +72,6 @@ DEF_ADD_DATA(CallExpr, {
           // Add a padding character so that 'foo<X, XX>()' != 'foo<XX, X>()'.
           OS << '\n';
         }
-        OS.flush();
 
         addData(ArgString);
       }

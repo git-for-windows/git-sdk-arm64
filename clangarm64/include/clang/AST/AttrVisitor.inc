@@ -149,6 +149,10 @@
   bool VisitArgumentWithTypeTagAttr(ArgumentWithTypeTagAttr *A) {
     return true; 
   }
+  bool TraverseArmAgnosticAttr(ArmAgnosticAttr *A);
+  bool VisitArmAgnosticAttr(ArmAgnosticAttr *A) {
+    return true; 
+  }
   bool TraverseArmBuiltinAliasAttr(ArmBuiltinAliasAttr *A);
   bool VisitArmBuiltinAliasAttr(ArmBuiltinAliasAttr *A) {
     return true; 
@@ -219,6 +223,10 @@
   }
   bool TraverseAvailableOnlyInDefaultEvalMethodAttr(AvailableOnlyInDefaultEvalMethodAttr *A);
   bool VisitAvailableOnlyInDefaultEvalMethodAttr(AvailableOnlyInDefaultEvalMethodAttr *A) {
+    return true; 
+  }
+  bool TraverseBPFFastCallAttr(BPFFastCallAttr *A);
+  bool VisitBPFFastCallAttr(BPFFastCallAttr *A) {
     return true; 
   }
   bool TraverseBPFPreserveAccessIndexAttr(BPFPreserveAccessIndexAttr *A);
@@ -315,6 +323,10 @@
   }
   bool TraverseCUDAGlobalAttr(CUDAGlobalAttr *A);
   bool VisitCUDAGlobalAttr(CUDAGlobalAttr *A) {
+    return true; 
+  }
+  bool TraverseCUDAGridConstantAttr(CUDAGridConstantAttr *A);
+  bool VisitCUDAGridConstantAttr(CUDAGridConstantAttr *A) {
     return true; 
   }
   bool TraverseCUDAHostAttr(CUDAHostAttr *A);
@@ -429,6 +441,14 @@
   bool VisitConvergentAttr(ConvergentAttr *A) {
     return true; 
   }
+  bool TraverseCoroAwaitElidableAttr(CoroAwaitElidableAttr *A);
+  bool VisitCoroAwaitElidableAttr(CoroAwaitElidableAttr *A) {
+    return true; 
+  }
+  bool TraverseCoroAwaitElidableArgumentAttr(CoroAwaitElidableArgumentAttr *A);
+  bool VisitCoroAwaitElidableArgumentAttr(CoroAwaitElidableArgumentAttr *A) {
+    return true; 
+  }
   bool TraverseCoroDisableLifetimeBoundAttr(CoroDisableLifetimeBoundAttr *A);
   bool VisitCoroDisableLifetimeBoundAttr(CoroDisableLifetimeBoundAttr *A) {
     return true; 
@@ -529,6 +549,10 @@
   bool VisitExclusiveTrylockFunctionAttr(ExclusiveTrylockFunctionAttr *A) {
     return true; 
   }
+  bool TraverseExplicitInitAttr(ExplicitInitAttr *A);
+  bool VisitExplicitInitAttr(ExplicitInitAttr *A) {
+    return true; 
+  }
   bool TraverseExternalSourceSymbolAttr(ExternalSourceSymbolAttr *A);
   bool VisitExternalSourceSymbolAttr(ExternalSourceSymbolAttr *A) {
     return true; 
@@ -581,6 +605,14 @@
   bool VisitHIPManagedAttr(HIPManagedAttr *A) {
     return true; 
   }
+  bool TraverseHLSLContainedTypeAttr(HLSLContainedTypeAttr *A);
+  bool VisitHLSLContainedTypeAttr(HLSLContainedTypeAttr *A) {
+    return true; 
+  }
+  bool TraverseHLSLControlFlowHintAttr(HLSLControlFlowHintAttr *A);
+  bool VisitHLSLControlFlowHintAttr(HLSLControlFlowHintAttr *A) {
+    return true; 
+  }
   bool TraverseHLSLGroupSharedAddressSpaceAttr(HLSLGroupSharedAddressSpaceAttr *A);
   bool VisitHLSLGroupSharedAddressSpaceAttr(HLSLGroupSharedAddressSpaceAttr *A) {
     return true; 
@@ -601,6 +633,14 @@
   bool VisitHLSLParamModifierAttr(HLSLParamModifierAttr *A) {
     return true; 
   }
+  bool TraverseHLSLROVAttr(HLSLROVAttr *A);
+  bool VisitHLSLROVAttr(HLSLROVAttr *A) {
+    return true; 
+  }
+  bool TraverseHLSLRawBufferAttr(HLSLRawBufferAttr *A);
+  bool VisitHLSLRawBufferAttr(HLSLRawBufferAttr *A) {
+    return true; 
+  }
   bool TraverseHLSLResourceAttr(HLSLResourceAttr *A);
   bool VisitHLSLResourceAttr(HLSLResourceAttr *A) {
     return true; 
@@ -617,12 +657,24 @@
   bool VisitHLSLSV_DispatchThreadIDAttr(HLSLSV_DispatchThreadIDAttr *A) {
     return true; 
   }
+  bool TraverseHLSLSV_GroupIDAttr(HLSLSV_GroupIDAttr *A);
+  bool VisitHLSLSV_GroupIDAttr(HLSLSV_GroupIDAttr *A) {
+    return true; 
+  }
   bool TraverseHLSLSV_GroupIndexAttr(HLSLSV_GroupIndexAttr *A);
   bool VisitHLSLSV_GroupIndexAttr(HLSLSV_GroupIndexAttr *A) {
     return true; 
   }
+  bool TraverseHLSLSV_GroupThreadIDAttr(HLSLSV_GroupThreadIDAttr *A);
+  bool VisitHLSLSV_GroupThreadIDAttr(HLSLSV_GroupThreadIDAttr *A) {
+    return true; 
+  }
   bool TraverseHLSLShaderAttr(HLSLShaderAttr *A);
   bool VisitHLSLShaderAttr(HLSLShaderAttr *A) {
+    return true; 
+  }
+  bool TraverseHLSLWaveSizeAttr(HLSLWaveSizeAttr *A);
+  bool VisitHLSLWaveSizeAttr(HLSLWaveSizeAttr *A) {
     return true; 
   }
   bool TraverseHotAttr(HotAttr *A);
@@ -679,6 +731,10 @@
   }
   bool TraverseLifetimeBoundAttr(LifetimeBoundAttr *A);
   bool VisitLifetimeBoundAttr(LifetimeBoundAttr *A) {
+    return true; 
+  }
+  bool TraverseLifetimeCaptureByAttr(LifetimeCaptureByAttr *A);
+  bool VisitLifetimeCaptureByAttr(LifetimeCaptureByAttr *A) {
     return true; 
   }
   bool TraverseLikelyAttr(LikelyAttr *A);
@@ -837,6 +893,10 @@
   bool VisitNoCommonAttr(NoCommonAttr *A) {
     return true; 
   }
+  bool TraverseNoConvergentAttr(NoConvergentAttr *A);
+  bool VisitNoConvergentAttr(NoConvergentAttr *A) {
+    return true; 
+  }
   bool TraverseNoDebugAttr(NoDebugAttr *A);
   bool VisitNoDebugAttr(NoDebugAttr *A) {
     return true; 
@@ -893,6 +953,10 @@
   bool VisitNoSanitizeAttr(NoSanitizeAttr *A) {
     return true; 
   }
+  bool TraverseNoSpecializationsAttr(NoSpecializationsAttr *A);
+  bool VisitNoSpecializationsAttr(NoSpecializationsAttr *A) {
+    return true; 
+  }
   bool TraverseNoSpeculativeLoadHardeningAttr(NoSpeculativeLoadHardeningAttr *A);
   bool VisitNoSpeculativeLoadHardeningAttr(NoSpeculativeLoadHardeningAttr *A) {
     return true; 
@@ -911,6 +975,10 @@
   }
   bool TraverseNoThrowAttr(NoThrowAttr *A);
   bool VisitNoThrowAttr(NoThrowAttr *A) {
+    return true; 
+  }
+  bool TraverseNoTrivialAutoVarInitAttr(NoTrivialAutoVarInitAttr *A);
+  bool VisitNoTrivialAutoVarInitAttr(NoTrivialAutoVarInitAttr *A) {
     return true; 
   }
   bool TraverseNoUniqueAddressAttr(NoUniqueAddressAttr *A);
@@ -1293,10 +1361,6 @@
   bool VisitReleaseHandleAttr(ReleaseHandleAttr *A) {
     return true; 
   }
-  bool TraverseRenderScriptKernelAttr(RenderScriptKernelAttr *A);
-  bool VisitRenderScriptKernelAttr(RenderScriptKernelAttr *A) {
-    return true; 
-  }
   bool TraverseReqdWorkGroupSizeAttr(ReqdWorkGroupSizeAttr *A);
   bool VisitReqdWorkGroupSizeAttr(ReqdWorkGroupSizeAttr *A) {
     return true; 
@@ -1331,6 +1395,10 @@
   }
   bool TraverseSYCLKernelAttr(SYCLKernelAttr *A);
   bool VisitSYCLKernelAttr(SYCLKernelAttr *A) {
+    return true; 
+  }
+  bool TraverseSYCLKernelEntryPointAttr(SYCLKernelEntryPointAttr *A);
+  bool VisitSYCLKernelEntryPointAttr(SYCLKernelEntryPointAttr *A) {
     return true; 
   }
   bool TraverseSYCLSpecialClassAttr(SYCLSpecialClassAttr *A);
@@ -2059,6 +2127,15 @@ bool VISITORCLASS<Derived>::TraverseArgumentWithTypeTagAttr(ArgumentWithTypeTagA
 }
 
 template <typename Derived>
+bool VISITORCLASS<Derived>::TraverseArmAgnosticAttr(ArmAgnosticAttr *A) {
+  if (!getDerived().VisitAttr(A))
+    return false;
+  if (!getDerived().VisitArmAgnosticAttr(A))
+    return false;
+  return true;
+}
+
+template <typename Derived>
 bool VISITORCLASS<Derived>::TraverseArmBuiltinAliasAttr(ArmBuiltinAliasAttr *A) {
   if (!getDerived().VisitAttr(A))
     return false;
@@ -2244,6 +2321,15 @@ bool VISITORCLASS<Derived>::TraverseAvailableOnlyInDefaultEvalMethodAttr(Availab
   if (!getDerived().VisitAttr(A))
     return false;
   if (!getDerived().VisitAvailableOnlyInDefaultEvalMethodAttr(A))
+    return false;
+  return true;
+}
+
+template <typename Derived>
+bool VISITORCLASS<Derived>::TraverseBPFFastCallAttr(BPFFastCallAttr *A) {
+  if (!getDerived().VisitAttr(A))
+    return false;
+  if (!getDerived().VisitBPFFastCallAttr(A))
     return false;
   return true;
 }
@@ -2460,6 +2546,15 @@ bool VISITORCLASS<Derived>::TraverseCUDAGlobalAttr(CUDAGlobalAttr *A) {
   if (!getDerived().VisitAttr(A))
     return false;
   if (!getDerived().VisitCUDAGlobalAttr(A))
+    return false;
+  return true;
+}
+
+template <typename Derived>
+bool VISITORCLASS<Derived>::TraverseCUDAGridConstantAttr(CUDAGridConstantAttr *A) {
+  if (!getDerived().VisitAttr(A))
+    return false;
+  if (!getDerived().VisitCUDAGridConstantAttr(A))
     return false;
   return true;
 }
@@ -2727,6 +2822,24 @@ bool VISITORCLASS<Derived>::TraverseConvergentAttr(ConvergentAttr *A) {
 }
 
 template <typename Derived>
+bool VISITORCLASS<Derived>::TraverseCoroAwaitElidableAttr(CoroAwaitElidableAttr *A) {
+  if (!getDerived().VisitAttr(A))
+    return false;
+  if (!getDerived().VisitCoroAwaitElidableAttr(A))
+    return false;
+  return true;
+}
+
+template <typename Derived>
+bool VISITORCLASS<Derived>::TraverseCoroAwaitElidableArgumentAttr(CoroAwaitElidableArgumentAttr *A) {
+  if (!getDerived().VisitAttr(A))
+    return false;
+  if (!getDerived().VisitCoroAwaitElidableArgumentAttr(A))
+    return false;
+  return true;
+}
+
+template <typename Derived>
 bool VISITORCLASS<Derived>::TraverseCoroDisableLifetimeBoundAttr(CoroDisableLifetimeBoundAttr *A) {
   if (!getDerived().VisitAttr(A))
     return false;
@@ -2970,6 +3083,15 @@ bool VISITORCLASS<Derived>::TraverseExclusiveTrylockFunctionAttr(ExclusiveTryloc
 }
 
 template <typename Derived>
+bool VISITORCLASS<Derived>::TraverseExplicitInitAttr(ExplicitInitAttr *A) {
+  if (!getDerived().VisitAttr(A))
+    return false;
+  if (!getDerived().VisitExplicitInitAttr(A))
+    return false;
+  return true;
+}
+
+template <typename Derived>
 bool VISITORCLASS<Derived>::TraverseExternalSourceSymbolAttr(ExternalSourceSymbolAttr *A) {
   if (!getDerived().VisitAttr(A))
     return false;
@@ -3089,6 +3211,27 @@ bool VISITORCLASS<Derived>::TraverseHIPManagedAttr(HIPManagedAttr *A) {
 }
 
 template <typename Derived>
+bool VISITORCLASS<Derived>::TraverseHLSLContainedTypeAttr(HLSLContainedTypeAttr *A) {
+  if (!getDerived().VisitAttr(A))
+    return false;
+  if (!getDerived().VisitHLSLContainedTypeAttr(A))
+    return false;
+  if (auto *TSI = A->getTypeLoc())
+    if (!getDerived().TraverseTypeLoc(TSI->getTypeLoc()))
+      return false;
+  return true;
+}
+
+template <typename Derived>
+bool VISITORCLASS<Derived>::TraverseHLSLControlFlowHintAttr(HLSLControlFlowHintAttr *A) {
+  if (!getDerived().VisitAttr(A))
+    return false;
+  if (!getDerived().VisitHLSLControlFlowHintAttr(A))
+    return false;
+  return true;
+}
+
+template <typename Derived>
 bool VISITORCLASS<Derived>::TraverseHLSLGroupSharedAddressSpaceAttr(HLSLGroupSharedAddressSpaceAttr *A) {
   if (!getDerived().VisitAttr(A))
     return false;
@@ -3134,6 +3277,24 @@ bool VISITORCLASS<Derived>::TraverseHLSLParamModifierAttr(HLSLParamModifierAttr 
 }
 
 template <typename Derived>
+bool VISITORCLASS<Derived>::TraverseHLSLROVAttr(HLSLROVAttr *A) {
+  if (!getDerived().VisitAttr(A))
+    return false;
+  if (!getDerived().VisitHLSLROVAttr(A))
+    return false;
+  return true;
+}
+
+template <typename Derived>
+bool VISITORCLASS<Derived>::TraverseHLSLRawBufferAttr(HLSLRawBufferAttr *A) {
+  if (!getDerived().VisitAttr(A))
+    return false;
+  if (!getDerived().VisitHLSLRawBufferAttr(A))
+    return false;
+  return true;
+}
+
+template <typename Derived>
 bool VISITORCLASS<Derived>::TraverseHLSLResourceAttr(HLSLResourceAttr *A) {
   if (!getDerived().VisitAttr(A))
     return false;
@@ -3170,6 +3331,15 @@ bool VISITORCLASS<Derived>::TraverseHLSLSV_DispatchThreadIDAttr(HLSLSV_DispatchT
 }
 
 template <typename Derived>
+bool VISITORCLASS<Derived>::TraverseHLSLSV_GroupIDAttr(HLSLSV_GroupIDAttr *A) {
+  if (!getDerived().VisitAttr(A))
+    return false;
+  if (!getDerived().VisitHLSLSV_GroupIDAttr(A))
+    return false;
+  return true;
+}
+
+template <typename Derived>
 bool VISITORCLASS<Derived>::TraverseHLSLSV_GroupIndexAttr(HLSLSV_GroupIndexAttr *A) {
   if (!getDerived().VisitAttr(A))
     return false;
@@ -3179,10 +3349,28 @@ bool VISITORCLASS<Derived>::TraverseHLSLSV_GroupIndexAttr(HLSLSV_GroupIndexAttr 
 }
 
 template <typename Derived>
+bool VISITORCLASS<Derived>::TraverseHLSLSV_GroupThreadIDAttr(HLSLSV_GroupThreadIDAttr *A) {
+  if (!getDerived().VisitAttr(A))
+    return false;
+  if (!getDerived().VisitHLSLSV_GroupThreadIDAttr(A))
+    return false;
+  return true;
+}
+
+template <typename Derived>
 bool VISITORCLASS<Derived>::TraverseHLSLShaderAttr(HLSLShaderAttr *A) {
   if (!getDerived().VisitAttr(A))
     return false;
   if (!getDerived().VisitHLSLShaderAttr(A))
+    return false;
+  return true;
+}
+
+template <typename Derived>
+bool VISITORCLASS<Derived>::TraverseHLSLWaveSizeAttr(HLSLWaveSizeAttr *A) {
+  if (!getDerived().VisitAttr(A))
+    return false;
+  if (!getDerived().VisitHLSLWaveSizeAttr(A))
     return false;
   return true;
 }
@@ -3312,6 +3500,15 @@ bool VISITORCLASS<Derived>::TraverseLifetimeBoundAttr(LifetimeBoundAttr *A) {
   if (!getDerived().VisitAttr(A))
     return false;
   if (!getDerived().VisitLifetimeBoundAttr(A))
+    return false;
+  return true;
+}
+
+template <typename Derived>
+bool VISITORCLASS<Derived>::TraverseLifetimeCaptureByAttr(LifetimeCaptureByAttr *A) {
+  if (!getDerived().VisitAttr(A))
+    return false;
+  if (!getDerived().VisitLifetimeCaptureByAttr(A))
     return false;
   return true;
 }
@@ -3680,6 +3877,15 @@ bool VISITORCLASS<Derived>::TraverseNoCommonAttr(NoCommonAttr *A) {
 }
 
 template <typename Derived>
+bool VISITORCLASS<Derived>::TraverseNoConvergentAttr(NoConvergentAttr *A) {
+  if (!getDerived().VisitAttr(A))
+    return false;
+  if (!getDerived().VisitNoConvergentAttr(A))
+    return false;
+  return true;
+}
+
+template <typename Derived>
 bool VISITORCLASS<Derived>::TraverseNoDebugAttr(NoDebugAttr *A) {
   if (!getDerived().VisitAttr(A))
     return false;
@@ -3806,6 +4012,15 @@ bool VISITORCLASS<Derived>::TraverseNoSanitizeAttr(NoSanitizeAttr *A) {
 }
 
 template <typename Derived>
+bool VISITORCLASS<Derived>::TraverseNoSpecializationsAttr(NoSpecializationsAttr *A) {
+  if (!getDerived().VisitAttr(A))
+    return false;
+  if (!getDerived().VisitNoSpecializationsAttr(A))
+    return false;
+  return true;
+}
+
+template <typename Derived>
 bool VISITORCLASS<Derived>::TraverseNoSpeculativeLoadHardeningAttr(NoSpeculativeLoadHardeningAttr *A) {
   if (!getDerived().VisitAttr(A))
     return false;
@@ -3846,6 +4061,15 @@ bool VISITORCLASS<Derived>::TraverseNoThrowAttr(NoThrowAttr *A) {
   if (!getDerived().VisitAttr(A))
     return false;
   if (!getDerived().VisitNoThrowAttr(A))
+    return false;
+  return true;
+}
+
+template <typename Derived>
+bool VISITORCLASS<Derived>::TraverseNoTrivialAutoVarInitAttr(NoTrivialAutoVarInitAttr *A) {
+  if (!getDerived().VisitAttr(A))
+    return false;
+  if (!getDerived().VisitNoTrivialAutoVarInitAttr(A))
     return false;
   return true;
 }
@@ -4800,15 +5024,6 @@ bool VISITORCLASS<Derived>::TraverseReleaseHandleAttr(ReleaseHandleAttr *A) {
 }
 
 template <typename Derived>
-bool VISITORCLASS<Derived>::TraverseRenderScriptKernelAttr(RenderScriptKernelAttr *A) {
-  if (!getDerived().VisitAttr(A))
-    return false;
-  if (!getDerived().VisitRenderScriptKernelAttr(A))
-    return false;
-  return true;
-}
-
-template <typename Derived>
 bool VISITORCLASS<Derived>::TraverseReqdWorkGroupSizeAttr(ReqdWorkGroupSizeAttr *A) {
   if (!getDerived().VisitAttr(A))
     return false;
@@ -4894,6 +5109,18 @@ bool VISITORCLASS<Derived>::TraverseSYCLKernelAttr(SYCLKernelAttr *A) {
     return false;
   if (!getDerived().VisitSYCLKernelAttr(A))
     return false;
+  return true;
+}
+
+template <typename Derived>
+bool VISITORCLASS<Derived>::TraverseSYCLKernelEntryPointAttr(SYCLKernelEntryPointAttr *A) {
+  if (!getDerived().VisitAttr(A))
+    return false;
+  if (!getDerived().VisitSYCLKernelEntryPointAttr(A))
+    return false;
+  if (auto *TSI = A->getKernelNameLoc())
+    if (!getDerived().TraverseTypeLoc(TSI->getTypeLoc()))
+      return false;
   return true;
 }
 
@@ -5741,6 +5968,8 @@ bool VISITORCLASS<Derived>::TraverseAttr(Attr *A) {
       return getDerived().TraverseArcWeakrefUnavailableAttr(cast<ArcWeakrefUnavailableAttr>(A));
     case attr::ArgumentWithTypeTag:
       return getDerived().TraverseArgumentWithTypeTagAttr(cast<ArgumentWithTypeTagAttr>(A));
+    case attr::ArmAgnostic:
+      return getDerived().TraverseArmAgnosticAttr(cast<ArmAgnosticAttr>(A));
     case attr::ArmBuiltinAlias:
       return getDerived().TraverseArmBuiltinAliasAttr(cast<ArmBuiltinAliasAttr>(A));
     case attr::ArmIn:
@@ -5777,6 +6006,8 @@ bool VISITORCLASS<Derived>::TraverseAttr(Attr *A) {
       return getDerived().TraverseAvailabilityAttr(cast<AvailabilityAttr>(A));
     case attr::AvailableOnlyInDefaultEvalMethod:
       return getDerived().TraverseAvailableOnlyInDefaultEvalMethodAttr(cast<AvailableOnlyInDefaultEvalMethodAttr>(A));
+    case attr::BPFFastCall:
+      return getDerived().TraverseBPFFastCallAttr(cast<BPFFastCallAttr>(A));
     case attr::BPFPreserveAccessIndex:
       return getDerived().TraverseBPFPreserveAccessIndexAttr(cast<BPFPreserveAccessIndexAttr>(A));
     case attr::BPFPreserveStaticOffset:
@@ -5825,6 +6056,8 @@ bool VISITORCLASS<Derived>::TraverseAttr(Attr *A) {
       return getDerived().TraverseCUDADeviceBuiltinTextureTypeAttr(cast<CUDADeviceBuiltinTextureTypeAttr>(A));
     case attr::CUDAGlobal:
       return getDerived().TraverseCUDAGlobalAttr(cast<CUDAGlobalAttr>(A));
+    case attr::CUDAGridConstant:
+      return getDerived().TraverseCUDAGridConstantAttr(cast<CUDAGridConstantAttr>(A));
     case attr::CUDAHost:
       return getDerived().TraverseCUDAHostAttr(cast<CUDAHostAttr>(A));
     case attr::CUDAInvalidTarget:
@@ -5881,6 +6114,10 @@ bool VISITORCLASS<Derived>::TraverseAttr(Attr *A) {
       return getDerived().TraverseConsumableSetOnReadAttr(cast<ConsumableSetOnReadAttr>(A));
     case attr::Convergent:
       return getDerived().TraverseConvergentAttr(cast<ConvergentAttr>(A));
+    case attr::CoroAwaitElidable:
+      return getDerived().TraverseCoroAwaitElidableAttr(cast<CoroAwaitElidableAttr>(A));
+    case attr::CoroAwaitElidableArgument:
+      return getDerived().TraverseCoroAwaitElidableArgumentAttr(cast<CoroAwaitElidableArgumentAttr>(A));
     case attr::CoroDisableLifetimeBound:
       return getDerived().TraverseCoroDisableLifetimeBoundAttr(cast<CoroDisableLifetimeBoundAttr>(A));
     case attr::CoroLifetimeBound:
@@ -5931,6 +6168,8 @@ bool VISITORCLASS<Derived>::TraverseAttr(Attr *A) {
       return getDerived().TraverseExcludeFromExplicitInstantiationAttr(cast<ExcludeFromExplicitInstantiationAttr>(A));
     case attr::ExclusiveTrylockFunction:
       return getDerived().TraverseExclusiveTrylockFunctionAttr(cast<ExclusiveTrylockFunctionAttr>(A));
+    case attr::ExplicitInit:
+      return getDerived().TraverseExplicitInitAttr(cast<ExplicitInitAttr>(A));
     case attr::ExternalSourceSymbol:
       return getDerived().TraverseExternalSourceSymbolAttr(cast<ExternalSourceSymbolAttr>(A));
     case attr::FallThrough:
@@ -5957,6 +6196,10 @@ bool VISITORCLASS<Derived>::TraverseAttr(Attr *A) {
       return getDerived().TraverseGuardedVarAttr(cast<GuardedVarAttr>(A));
     case attr::HIPManaged:
       return getDerived().TraverseHIPManagedAttr(cast<HIPManagedAttr>(A));
+    case attr::HLSLContainedType:
+      return getDerived().TraverseHLSLContainedTypeAttr(cast<HLSLContainedTypeAttr>(A));
+    case attr::HLSLControlFlowHint:
+      return getDerived().TraverseHLSLControlFlowHintAttr(cast<HLSLControlFlowHintAttr>(A));
     case attr::HLSLGroupSharedAddressSpace:
       return getDerived().TraverseHLSLGroupSharedAddressSpaceAttr(cast<HLSLGroupSharedAddressSpaceAttr>(A));
     case attr::HLSLLoopHint:
@@ -5967,6 +6210,10 @@ bool VISITORCLASS<Derived>::TraverseAttr(Attr *A) {
       return getDerived().TraverseHLSLPackOffsetAttr(cast<HLSLPackOffsetAttr>(A));
     case attr::HLSLParamModifier:
       return getDerived().TraverseHLSLParamModifierAttr(cast<HLSLParamModifierAttr>(A));
+    case attr::HLSLROV:
+      return getDerived().TraverseHLSLROVAttr(cast<HLSLROVAttr>(A));
+    case attr::HLSLRawBuffer:
+      return getDerived().TraverseHLSLRawBufferAttr(cast<HLSLRawBufferAttr>(A));
     case attr::HLSLResource:
       return getDerived().TraverseHLSLResourceAttr(cast<HLSLResourceAttr>(A));
     case attr::HLSLResourceBinding:
@@ -5975,10 +6222,16 @@ bool VISITORCLASS<Derived>::TraverseAttr(Attr *A) {
       return getDerived().TraverseHLSLResourceClassAttr(cast<HLSLResourceClassAttr>(A));
     case attr::HLSLSV_DispatchThreadID:
       return getDerived().TraverseHLSLSV_DispatchThreadIDAttr(cast<HLSLSV_DispatchThreadIDAttr>(A));
+    case attr::HLSLSV_GroupID:
+      return getDerived().TraverseHLSLSV_GroupIDAttr(cast<HLSLSV_GroupIDAttr>(A));
     case attr::HLSLSV_GroupIndex:
       return getDerived().TraverseHLSLSV_GroupIndexAttr(cast<HLSLSV_GroupIndexAttr>(A));
+    case attr::HLSLSV_GroupThreadID:
+      return getDerived().TraverseHLSLSV_GroupThreadIDAttr(cast<HLSLSV_GroupThreadIDAttr>(A));
     case attr::HLSLShader:
       return getDerived().TraverseHLSLShaderAttr(cast<HLSLShaderAttr>(A));
+    case attr::HLSLWaveSize:
+      return getDerived().TraverseHLSLWaveSizeAttr(cast<HLSLWaveSizeAttr>(A));
     case attr::Hot:
       return getDerived().TraverseHotAttr(cast<HotAttr>(A));
     case attr::HybridPatchable:
@@ -6007,6 +6260,8 @@ bool VISITORCLASS<Derived>::TraverseAttr(Attr *A) {
       return getDerived().TraverseLeafAttr(cast<LeafAttr>(A));
     case attr::LifetimeBound:
       return getDerived().TraverseLifetimeBoundAttr(cast<LifetimeBoundAttr>(A));
+    case attr::LifetimeCaptureBy:
+      return getDerived().TraverseLifetimeCaptureByAttr(cast<LifetimeCaptureByAttr>(A));
     case attr::Likely:
       return getDerived().TraverseLikelyAttr(cast<LikelyAttr>(A));
     case attr::LoaderUninitialized:
@@ -6085,6 +6340,8 @@ bool VISITORCLASS<Derived>::TraverseAttr(Attr *A) {
       return getDerived().TraverseNoBuiltinAttr(cast<NoBuiltinAttr>(A));
     case attr::NoCommon:
       return getDerived().TraverseNoCommonAttr(cast<NoCommonAttr>(A));
+    case attr::NoConvergent:
+      return getDerived().TraverseNoConvergentAttr(cast<NoConvergentAttr>(A));
     case attr::NoDebug:
       return getDerived().TraverseNoDebugAttr(cast<NoDebugAttr>(A));
     case attr::NoDeref:
@@ -6113,6 +6370,8 @@ bool VISITORCLASS<Derived>::TraverseAttr(Attr *A) {
       return getDerived().TraverseNoReturnAttr(cast<NoReturnAttr>(A));
     case attr::NoSanitize:
       return getDerived().TraverseNoSanitizeAttr(cast<NoSanitizeAttr>(A));
+    case attr::NoSpecializations:
+      return getDerived().TraverseNoSpecializationsAttr(cast<NoSpecializationsAttr>(A));
     case attr::NoSpeculativeLoadHardening:
       return getDerived().TraverseNoSpeculativeLoadHardeningAttr(cast<NoSpeculativeLoadHardeningAttr>(A));
     case attr::NoSplitStack:
@@ -6123,6 +6382,8 @@ bool VISITORCLASS<Derived>::TraverseAttr(Attr *A) {
       return getDerived().TraverseNoThreadSafetyAnalysisAttr(cast<NoThreadSafetyAnalysisAttr>(A));
     case attr::NoThrow:
       return getDerived().TraverseNoThrowAttr(cast<NoThrowAttr>(A));
+    case attr::NoTrivialAutoVarInit:
+      return getDerived().TraverseNoTrivialAutoVarInitAttr(cast<NoTrivialAutoVarInitAttr>(A));
     case attr::NoUniqueAddress:
       return getDerived().TraverseNoUniqueAddressAttr(cast<NoUniqueAddressAttr>(A));
     case attr::NoUwtable:
@@ -6313,8 +6574,6 @@ bool VISITORCLASS<Derived>::TraverseAttr(Attr *A) {
       return getDerived().TraverseReleaseCapabilityAttr(cast<ReleaseCapabilityAttr>(A));
     case attr::ReleaseHandle:
       return getDerived().TraverseReleaseHandleAttr(cast<ReleaseHandleAttr>(A));
-    case attr::RenderScriptKernel:
-      return getDerived().TraverseRenderScriptKernelAttr(cast<RenderScriptKernelAttr>(A));
     case attr::ReqdWorkGroupSize:
       return getDerived().TraverseReqdWorkGroupSizeAttr(cast<ReqdWorkGroupSizeAttr>(A));
     case attr::RequiresCapability:
@@ -6333,6 +6592,8 @@ bool VISITORCLASS<Derived>::TraverseAttr(Attr *A) {
       return getDerived().TraverseSPtrAttr(cast<SPtrAttr>(A));
     case attr::SYCLKernel:
       return getDerived().TraverseSYCLKernelAttr(cast<SYCLKernelAttr>(A));
+    case attr::SYCLKernelEntryPoint:
+      return getDerived().TraverseSYCLKernelEntryPointAttr(cast<SYCLKernelEntryPointAttr>(A));
     case attr::SYCLSpecialClass:
       return getDerived().TraverseSYCLSpecialClassAttr(cast<SYCLSpecialClassAttr>(A));
     case attr::ScopedLockable:

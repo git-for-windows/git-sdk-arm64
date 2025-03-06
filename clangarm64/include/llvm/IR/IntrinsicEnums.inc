@@ -7,7 +7,7 @@
 \*===----------------------------------------------------------------------===*/
 
 #ifdef GET_INTRINSIC_ENUM_VALUES
-// Enum values for intrinsics
+// Enum values for intrinsics.
     abs = 1,                                       // llvm.abs
     acos,                                      // llvm.acos
     addressofreturnaddress,                    // llvm.addressofreturnaddress
@@ -20,6 +20,7 @@
     asin,                                      // llvm.asin
     assume,                                    // llvm.assume
     atan,                                      // llvm.atan
+    atan2,                                     // llvm.atan2
     bitreverse,                                // llvm.bitreverse
     bswap,                                     // llvm.bswap
     call_preallocated_arg,                     // llvm.call.preallocated.arg
@@ -46,6 +47,7 @@
     coro_await_suspend_handle,                 // llvm.coro.await.suspend.handle
     coro_await_suspend_void,                   // llvm.coro.await.suspend.void
     coro_begin,                                // llvm.coro.begin
+    coro_begin_custom_abi,                     // llvm.coro.begin.custom.abi
     coro_destroy,                              // llvm.coro.destroy
     coro_done,                                 // llvm.coro.done
     coro_end,                                  // llvm.coro.end
@@ -101,6 +103,7 @@
     experimental_constrained_acos,             // llvm.experimental.constrained.acos
     experimental_constrained_asin,             // llvm.experimental.constrained.asin
     experimental_constrained_atan,             // llvm.experimental.constrained.atan
+    experimental_constrained_atan2,            // llvm.experimental.constrained.atan2
     experimental_constrained_ceil,             // llvm.experimental.constrained.ceil
     experimental_constrained_cos,              // llvm.experimental.constrained.cos
     experimental_constrained_cosh,             // llvm.experimental.constrained.cosh
@@ -158,13 +161,15 @@
     experimental_gc_statepoint,                // llvm.experimental.gc.statepoint
     experimental_get_vector_length,            // llvm.experimental.get.vector.length
     experimental_guard,                        // llvm.experimental.guard
+    experimental_memset_pattern,               // llvm.experimental.memset.pattern
     experimental_noalias_scope_decl,           // llvm.experimental.noalias.scope.decl
     experimental_patchpoint,                   // llvm.experimental.patchpoint
     experimental_patchpoint_void,              // llvm.experimental.patchpoint.void
     experimental_stackmap,                     // llvm.experimental.stackmap
-    experimental_stepvector,                   // llvm.experimental.stepvector
     experimental_vector_compress,              // llvm.experimental.vector.compress
+    experimental_vector_extract_last_active,   // llvm.experimental.vector.extract.last.active
     experimental_vector_histogram_add,         // llvm.experimental.vector.histogram.add
+    experimental_vector_match,                 // llvm.experimental.vector.match
     experimental_vector_partial_reduce_add,    // llvm.experimental.vector.partial.reduce.add
     experimental_vp_reverse,                   // llvm.experimental.vp.reverse
     experimental_vp_splat,                     // llvm.experimental.vp.splat
@@ -173,6 +178,7 @@
     experimental_vp_strided_store,             // llvm.experimental.vp.strided.store
     experimental_widenable_condition,          // llvm.experimental.widenable.condition
     fabs,                                      // llvm.fabs
+    fake_use,                                  // llvm.fake.use
     floor,                                     // llvm.floor
     fma,                                       // llvm.fma
     fmuladd,                                   // llvm.fmuladd
@@ -237,6 +243,7 @@
     matrix_multiply,                           // llvm.matrix.multiply
     matrix_transpose,                          // llvm.matrix.transpose
     maximum,                                   // llvm.maximum
+    maximumnum,                                // llvm.maximumnum
     maxnum,                                    // llvm.maxnum
     memcpy,                                    // llvm.memcpy
     memcpy_element_unordered_atomic,           // llvm.memcpy.element.unordered.atomic
@@ -247,6 +254,7 @@
     memset_element_unordered_atomic,           // llvm.memset.element.unordered.atomic
     memset_inline,                             // llvm.memset.inline
     minimum,                                   // llvm.minimum
+    minimumnum,                                // llvm.minimumnum
     minnum,                                    // llvm.minnum
     nearbyint,                                 // llvm.nearbyint
     objc_arc_annotation_bottomup_bbend,        // llvm.objc.arc.annotation.bottomup.bbend
@@ -324,6 +332,7 @@
     set_rounding,                              // llvm.set.rounding
     sideeffect,                                // llvm.sideeffect
     sin,                                       // llvm.sin
+    sincos,                                    // llvm.sincos
     sinh,                                      // llvm.sinh
     smax,                                      // llvm.smax
     smin,                                      // llvm.smin
@@ -341,6 +350,7 @@
     stackrestore,                              // llvm.stackrestore
     stacksave,                                 // llvm.stacksave
     start_loop_iterations,                     // llvm.start.loop.iterations
+    stepvector,                                // llvm.stepvector
     strip_invariant_group,                     // llvm.strip.invariant.group
     swift_async_context_addr,                  // llvm.swift.async.context.addr
     tan,                                       // llvm.tan
@@ -486,10 +496,10 @@
     write_register,                            // llvm.write_register
     xray_customevent,                          // llvm.xray.customevent
     xray_typedevent,                           // llvm.xray.typedevent
-    num_intrinsics = 13938
+    num_intrinsics = 14811
 #endif
 
-// llvm::Intrinsic::IITDescriptor::ArgKind
+// llvm::Intrinsic::IITDescriptor::ArgKind.
 #ifdef GET_INTRINSIC_ARGKIND
     AK_Any = 0,
     AK_AnyInteger = 1,

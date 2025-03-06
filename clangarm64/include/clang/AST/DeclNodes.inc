@@ -36,6 +36,12 @@ TOPLEVELSTMT(TopLevelStmt, Decl)
 REQUIRESEXPRBODY(RequiresExprBody, Decl)
 #undef REQUIRESEXPRBODY
 
+#ifndef OUTLINEDFUNCTION
+#  define OUTLINEDFUNCTION(Type, Base) DECL(Type, Base)
+#endif
+OUTLINEDFUNCTION(OutlinedFunction, Decl)
+#undef OUTLINEDFUNCTION
+
 #ifndef LINKAGESPEC
 #  define LINKAGESPEC(Type, Base) DECL(Type, Base)
 #endif
@@ -679,6 +685,7 @@ DECL_CONTEXT(ObjCImplementation)
 DECL_CONTEXT(ObjCInterface)
 DECL_CONTEXT(ObjCProtocol)
 DECL_CONTEXT(ObjCMethod)
+DECL_CONTEXT(OutlinedFunction)
 DECL_CONTEXT(RequiresExprBody)
 DECL_CONTEXT(Enum)
 DECL_CONTEXT(Record)

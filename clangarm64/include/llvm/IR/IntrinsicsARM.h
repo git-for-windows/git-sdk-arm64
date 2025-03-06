@@ -8,12 +8,10 @@
 
 #ifndef LLVM_IR_INTRINSIC_ARM_ENUMS_H
 #define LLVM_IR_INTRINSIC_ARM_ENUMS_H
-
-namespace llvm {
-namespace Intrinsic {
+namespace llvm::Intrinsic {
 enum ARMIntrinsics : unsigned {
-// Enum values for intrinsics
-    arm_cde_cx1 = 3126,                               // llvm.arm.cde.cx1
+// Enum values for intrinsics.
+    arm_cde_cx1 = 3323,                               // llvm.arm.cde.cx1
     arm_cde_cx1a,                              // llvm.arm.cde.cx1a
     arm_cde_cx1d,                              // llvm.arm.cde.cx1d
     arm_cde_cx1da,                             // llvm.arm.cde.cx1da
@@ -505,7 +503,6 @@ enum ARMIntrinsics : unsigned {
     arm_vcvtr,                                 // llvm.arm.vcvtr
     arm_vcvtru,                                // llvm.arm.vcvtru
 }; // enum
-} // namespace Intrinsic
-} // namespace llvm
-
+} // namespace llvm::Intrinsic
 #endif
+

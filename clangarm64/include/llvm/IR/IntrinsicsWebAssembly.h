@@ -8,12 +8,10 @@
 
 #ifndef LLVM_IR_INTRINSIC_WASM_ENUMS_H
 #define LLVM_IR_INTRINSIC_WASM_ENUMS_H
-
-namespace llvm {
-namespace Intrinsic {
+namespace llvm::Intrinsic {
 enum WASMIntrinsics : unsigned {
-// Enum values for intrinsics
-    wasm_alltrue = 12408,                              // llvm.wasm.alltrue
+// Enum values for intrinsics.
+    wasm_alltrue = 12883,                              // llvm.wasm.alltrue
     wasm_anytrue,                              // llvm.wasm.anytrue
     wasm_avgr_unsigned,                        // llvm.wasm.avgr.unsigned
     wasm_bitmask,                              // llvm.wasm.bitmask
@@ -58,12 +56,11 @@ enum WASMIntrinsics : unsigned {
     wasm_relaxed_trunc_signed_zero,            // llvm.wasm.relaxed.trunc.signed.zero
     wasm_relaxed_trunc_unsigned,               // llvm.wasm.relaxed.trunc.unsigned
     wasm_relaxed_trunc_unsigned_zero,          // llvm.wasm.relaxed.trunc.unsigned.zero
+    wasm_replace_lane_f16x8,                   // llvm.wasm.replace.lane.f16x8
     wasm_rethrow,                              // llvm.wasm.rethrow
     wasm_shuffle,                              // llvm.wasm.shuffle
     wasm_splat_f16x8,                          // llvm.wasm.splat.f16x8
     wasm_storef16_f32,                         // llvm.wasm.storef16.f32
-    wasm_sub_sat_signed,                       // llvm.wasm.sub.sat.signed
-    wasm_sub_sat_unsigned,                     // llvm.wasm.sub.sat.unsigned
     wasm_swizzle,                              // llvm.wasm.swizzle
     wasm_table_copy,                           // llvm.wasm.table.copy
     wasm_table_fill_exnref,                    // llvm.wasm.table.fill.exnref
@@ -88,7 +85,6 @@ enum WASMIntrinsics : unsigned {
     wasm_trunc_signed,                         // llvm.wasm.trunc.signed
     wasm_trunc_unsigned,                       // llvm.wasm.trunc.unsigned
 }; // enum
-} // namespace Intrinsic
-} // namespace llvm
-
+} // namespace llvm::Intrinsic
 #endif
+

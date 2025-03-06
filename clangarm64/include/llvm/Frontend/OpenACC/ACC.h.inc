@@ -3,6 +3,7 @@
 
 #include "llvm/ADT/ArrayRef.h"
 #include "llvm/ADT/BitmaskEnum.h"
+#include "llvm/Support/Compiler.h"
 #include <cstddef>
 
 namespace llvm {
@@ -119,6 +120,7 @@ enum class Clause {
   ACCC_reduction,
   ACCC_self,
   ACCC_seq,
+  ACCC_shortloop,
   ACCC_tile,
   ACCC_unknown,
   ACCC_use_device,
@@ -129,7 +131,7 @@ enum class Clause {
   ACCC_write,
 };
 
-static constexpr std::size_t Clause_enumSize = 45;
+static constexpr std::size_t Clause_enumSize = 46;
 
 constexpr auto ACCC_async = llvm::acc::Clause::ACCC_async;
 constexpr auto ACCC_attach = llvm::acc::Clause::ACCC_attach;
@@ -168,6 +170,7 @@ constexpr auto ACCC_read = llvm::acc::Clause::ACCC_read;
 constexpr auto ACCC_reduction = llvm::acc::Clause::ACCC_reduction;
 constexpr auto ACCC_self = llvm::acc::Clause::ACCC_self;
 constexpr auto ACCC_seq = llvm::acc::Clause::ACCC_seq;
+constexpr auto ACCC_shortloop = llvm::acc::Clause::ACCC_shortloop;
 constexpr auto ACCC_tile = llvm::acc::Clause::ACCC_tile;
 constexpr auto ACCC_unknown = llvm::acc::Clause::ACCC_unknown;
 constexpr auto ACCC_use_device = llvm::acc::Clause::ACCC_use_device;
@@ -186,22 +189,22 @@ constexpr auto ACC_Default_present = llvm::acc::DefaultValue::ACC_Default_presen
 constexpr auto ACC_Default_none = llvm::acc::DefaultValue::ACC_Default_none;
 
 // Enumeration helper functions
-Directive getOpenACCDirectiveKind(llvm::StringRef Str);
+LLVM_ABI Directive getOpenACCDirectiveKind(llvm::StringRef Str);
 
-llvm::StringRef getOpenACCDirectiveName(Directive D);
+LLVM_ABI llvm::StringRef getOpenACCDirectiveName(Directive D);
 
-Clause getOpenACCClauseKind(llvm::StringRef Str);
+LLVM_ABI Clause getOpenACCClauseKind(llvm::StringRef Str);
 
-llvm::StringRef getOpenACCClauseName(Clause C);
+LLVM_ABI llvm::StringRef getOpenACCClauseName(Clause C);
 
 /// Return true if \p C is a valid clause for \p D in version \p Version.
-bool isAllowedClauseForDirective(Directive D, Clause C, unsigned Version);
+LLVM_ABI bool isAllowedClauseForDirective(Directive D, Clause C, unsigned Version);
 
 constexpr std::size_t getMaxLeafCount() { return 2; }
-Association getDirectiveAssociation(Directive D);
-Category getDirectiveCategory(Directive D);
-DefaultValue getDefaultValue(StringRef);
-llvm::StringRef getOpenACCDefaultValueName(DefaultValue);
+LLVM_ABI Association getDirectiveAssociation(Directive D);
+LLVM_ABI Category getDirectiveCategory(Directive D);
+LLVM_ABI DefaultValue getDefaultValue(StringRef);
+LLVM_ABI llvm::StringRef getOpenACCDefaultValueName(DefaultValue);
 
 } // namespace acc
 } // namespace llvm

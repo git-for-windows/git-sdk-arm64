@@ -24,6 +24,10 @@
 #if defined(BUILTIN) && !defined(TARGET_BUILTIN)
 #  define TARGET_BUILTIN(ID, TYPE, ATTRS, FEATURE) BUILTIN(ID, TYPE, ATTRS)
 #endif
+
+#if defined(BUILTIN) && !defined(TARGET_HEADER_BUILTIN)
+#  define TARGET_HEADER_BUILTIN(ID, TYPE, ATTRS, HEADER, LANG, FEATURE) BUILTIN(ID, TYPE, ATTRS)
+#endif
 TARGET_BUILTIN(__builtin_riscv_aes32dsi, "UiUiUiIUi", "nc", "zknd,32bit")
 TARGET_BUILTIN(__builtin_riscv_aes32dsmi, "UiUiUiIUi", "nc", "zknd,32bit")
 TARGET_BUILTIN(__builtin_riscv_aes32esi, "UiUiUiIUi", "nc", "zkne,32bit")
@@ -35,6 +39,22 @@ TARGET_BUILTIN(__builtin_riscv_aes64esm, "UWiUWiUWi", "nc", "zkne,64bit")
 TARGET_BUILTIN(__builtin_riscv_aes64im, "UWiUWi", "nc", "zknd,64bit")
 TARGET_BUILTIN(__builtin_riscv_aes64ks1i, "UWiUWiIUi", "nc", "zknd|zkne,64bit")
 TARGET_BUILTIN(__builtin_riscv_aes64ks2, "UWiUWiUWi", "nc", "zknd|zkne,64bit")
+TARGET_BUILTIN(__builtin_riscv_cv_alu_addN, "iiiUi", "nc", "xcvalu")
+TARGET_BUILTIN(__builtin_riscv_cv_alu_addRN, "iiiUi", "nc", "xcvalu")
+TARGET_BUILTIN(__builtin_riscv_cv_alu_adduN, "UiUiUiUi", "nc", "xcvalu")
+TARGET_BUILTIN(__builtin_riscv_cv_alu_adduRN, "UiUiUiUi", "nc", "xcvalu")
+TARGET_BUILTIN(__builtin_riscv_cv_alu_clip, "iii", "nc", "xcvalu")
+TARGET_BUILTIN(__builtin_riscv_cv_alu_clipu, "UiUiUi", "nc", "xcvalu")
+TARGET_BUILTIN(__builtin_riscv_cv_alu_extbs, "ii", "nc", "xcvalu")
+TARGET_BUILTIN(__builtin_riscv_cv_alu_extbz, "UiUi", "nc", "xcvalu")
+TARGET_BUILTIN(__builtin_riscv_cv_alu_exths, "ii", "nc", "xcvalu")
+TARGET_BUILTIN(__builtin_riscv_cv_alu_exthz, "UiUi", "nc", "xcvalu")
+TARGET_BUILTIN(__builtin_riscv_cv_alu_slet, "iii", "nc", "xcvalu")
+TARGET_BUILTIN(__builtin_riscv_cv_alu_sletu, "iUiUi", "nc", "xcvalu")
+TARGET_BUILTIN(__builtin_riscv_cv_alu_subN, "iiiUi", "nc", "xcvalu")
+TARGET_BUILTIN(__builtin_riscv_cv_alu_subRN, "iiiUi", "nc", "xcvalu")
+TARGET_BUILTIN(__builtin_riscv_cv_alu_subuN, "UiUiUiUi", "nc", "xcvalu")
+TARGET_BUILTIN(__builtin_riscv_cv_alu_subuRN, "UiUiUiUi", "nc", "xcvalu")
 TARGET_BUILTIN(__builtin_riscv_brev8_32, "UiUi", "nc", "zbkb")
 TARGET_BUILTIN(__builtin_riscv_brev8_64, "UWiUWi", "nc", "zbkb,64bit")
 TARGET_BUILTIN(__builtin_riscv_clmul_32, "UiUiUi", "nc", "zbc|zbkc")
@@ -81,3 +101,4 @@ TARGET_BUILTIN(__builtin_riscv_zip_32, "UiUi", "nc", "zbkb,32bit")
 #undef LIBBUILTIN
 #undef LANGBUILTIN
 #undef TARGET_BUILTIN
+#undef TARGET_HEADER_BUILTIN

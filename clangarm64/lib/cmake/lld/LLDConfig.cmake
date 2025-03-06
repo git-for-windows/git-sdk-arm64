@@ -6,7 +6,7 @@ get_filename_component(LLD_INSTALL_PREFIX "${LLD_INSTALL_PREFIX}" PATH)
 get_filename_component(LLD_INSTALL_PREFIX "${LLD_INSTALL_PREFIX}" PATH)
 get_filename_component(LLD_INSTALL_PREFIX "${LLD_INSTALL_PREFIX}" PATH)
 
-set(LLVM_VERSION 19.1.6)
+set(LLVM_VERSION 20.1.0)
 find_package(LLVM ${LLVM_VERSION} EXACT REQUIRED CONFIG
              HINTS "${LLD_INSTALL_PREFIX}/lib/cmake/llvm")
 

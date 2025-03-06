@@ -7,6 +7,7 @@
 |*                                                                            *|
 \*===----------------------------------------------------------------------===*/
 
+KEYWORD_ATTRIBUTE(__arm_agnostic, true, )
 KEYWORD_ATTRIBUTE(__arm_in, true, )
 KEYWORD_ATTRIBUTE(__arm_inout, true, )
 KEYWORD_ATTRIBUTE(__arm_locally_streaming, false, )

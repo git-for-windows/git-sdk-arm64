@@ -8,12 +8,10 @@
 
 #ifndef LLVM_IR_INTRINSIC_RISCV_ENUMS_H
 #define LLVM_IR_INTRINSIC_RISCV_ENUMS_H
-
-namespace llvm {
-namespace Intrinsic {
+namespace llvm::Intrinsic {
 enum RISCVIntrinsics : unsigned {
-// Enum values for intrinsics
-    riscv_aes32dsi = 10173,                            // llvm.riscv.aes32dsi
+// Enum values for intrinsics.
+    riscv_aes32dsi = 10575,                            // llvm.riscv.aes32dsi
     riscv_aes32dsmi,                           // llvm.riscv.aes32dsmi
     riscv_aes32esi,                            // llvm.riscv.aes32esi
     riscv_aes32esmi,                           // llvm.riscv.aes32esmi
@@ -28,16 +26,16 @@ enum RISCVIntrinsics : unsigned {
     riscv_clmul,                               // llvm.riscv.clmul
     riscv_clmulh,                              // llvm.riscv.clmulh
     riscv_clmulr,                              // llvm.riscv.clmulr
-    riscv_cv_alu_addn,                         // llvm.riscv.cv.alu.addn
-    riscv_cv_alu_addrn,                        // llvm.riscv.cv.alu.addrn
-    riscv_cv_alu_addun,                        // llvm.riscv.cv.alu.addun
-    riscv_cv_alu_addurn,                       // llvm.riscv.cv.alu.addurn
+    riscv_cv_alu_addN,                         // llvm.riscv.cv.alu.addN
+    riscv_cv_alu_addRN,                        // llvm.riscv.cv.alu.addRN
+    riscv_cv_alu_adduN,                        // llvm.riscv.cv.alu.adduN
+    riscv_cv_alu_adduRN,                       // llvm.riscv.cv.alu.adduRN
     riscv_cv_alu_clip,                         // llvm.riscv.cv.alu.clip
     riscv_cv_alu_clipu,                        // llvm.riscv.cv.alu.clipu
-    riscv_cv_alu_subn,                         // llvm.riscv.cv.alu.subn
-    riscv_cv_alu_subrn,                        // llvm.riscv.cv.alu.subrn
-    riscv_cv_alu_subun,                        // llvm.riscv.cv.alu.subun
-    riscv_cv_alu_suburn,                       // llvm.riscv.cv.alu.suburn
+    riscv_cv_alu_subN,                         // llvm.riscv.cv.alu.subN
+    riscv_cv_alu_subRN,                        // llvm.riscv.cv.alu.subRN
+    riscv_cv_alu_subuN,                        // llvm.riscv.cv.alu.subuN
+    riscv_cv_alu_subuRN,                       // llvm.riscv.cv.alu.subuRN
     riscv_cv_bitmanip_bclr,                    // llvm.riscv.cv.bitmanip.bclr
     riscv_cv_bitmanip_bitrev,                  // llvm.riscv.cv.bitmanip.bitrev
     riscv_cv_bitmanip_bset,                    // llvm.riscv.cv.bitmanip.bset
@@ -81,8 +79,6 @@ enum RISCVIntrinsics : unsigned {
     riscv_masked_atomicrmw_xchg_i64,           // llvm.riscv.masked.atomicrmw.xchg.i64
     riscv_masked_cmpxchg_i32,                  // llvm.riscv.masked.cmpxchg.i32
     riscv_masked_cmpxchg_i64,                  // llvm.riscv.masked.cmpxchg.i64
-    riscv_masked_strided_load,                 // llvm.riscv.masked.strided.load
-    riscv_masked_strided_store,                // llvm.riscv.masked.strided.store
     riscv_mopr,                                // llvm.riscv.mopr
     riscv_moprr,                               // llvm.riscv.moprr
     riscv_orc_b,                               // llvm.riscv.orc.b
@@ -181,6 +177,8 @@ enum RISCVIntrinsics : unsigned {
     riscv_th_vmaqau_mask,                      // llvm.riscv.th.vmaqau.mask
     riscv_th_vmaqaus,                          // llvm.riscv.th.vmaqaus
     riscv_th_vmaqaus_mask,                     // llvm.riscv.th.vmaqaus.mask
+    riscv_tuple_extract,                       // llvm.riscv.tuple.extract
+    riscv_tuple_insert,                        // llvm.riscv.tuple.insert
     riscv_unzip,                               // llvm.riscv.unzip
     riscv_vaadd,                               // llvm.riscv.vaadd
     riscv_vaadd_mask,                          // llvm.riscv.vaadd.mask
@@ -727,7 +725,6 @@ enum RISCVIntrinsics : unsigned {
     riscv_xperm8,                              // llvm.riscv.xperm8
     riscv_zip,                                 // llvm.riscv.zip
 }; // enum
-} // namespace Intrinsic
-} // namespace llvm
-
+} // namespace llvm::Intrinsic
 #endif
+

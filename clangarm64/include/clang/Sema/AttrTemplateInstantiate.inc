@@ -192,6 +192,10 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
       const auto *A = cast<ArgumentWithTypeTagAttr>(At);
       return A->clone(C);
     }
+    case attr::ArmAgnostic: {
+      const auto *A = cast<ArmAgnosticAttr>(At);
+      return A->clone(C);
+    }
     case attr::ArmBuiltinAlias: {
       const auto *A = cast<ArmBuiltinAliasAttr>(At);
       return A->clone(C);
@@ -303,6 +307,10 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
       const auto *A = cast<AvailableOnlyInDefaultEvalMethodAttr>(At);
       return A->clone(C);
     }
+    case attr::BPFFastCall: {
+      const auto *A = cast<BPFFastCallAttr>(At);
+      return A->clone(C);
+    }
     case attr::BPFPreserveAccessIndex: {
       const auto *A = cast<BPFPreserveAccessIndexAttr>(At);
       return A->clone(C);
@@ -397,6 +405,10 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
     }
     case attr::CUDAGlobal: {
       const auto *A = cast<CUDAGlobalAttr>(At);
+      return A->clone(C);
+    }
+    case attr::CUDAGridConstant: {
+      const auto *A = cast<CUDAGridConstantAttr>(At);
       return A->clone(C);
     }
     case attr::CUDAHost: {
@@ -511,6 +523,14 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
       const auto *A = cast<ConvergentAttr>(At);
       return A->clone(C);
     }
+    case attr::CoroAwaitElidable: {
+      const auto *A = cast<CoroAwaitElidableAttr>(At);
+      return A->clone(C);
+    }
+    case attr::CoroAwaitElidableArgument: {
+      const auto *A = cast<CoroAwaitElidableArgumentAttr>(At);
+      return A->clone(C);
+    }
     case attr::CoroDisableLifetimeBound: {
       const auto *A = cast<CoroDisableLifetimeBoundAttr>(At);
       return A->clone(C);
@@ -577,7 +597,7 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
           return nullptr;
         tempInstCond = Result.get();
       }
-      return new (C) DiagnoseIfAttr(C, *A, tempInstCond, A->getMessage(), A->getDiagnosticType(), A->getArgDependent(), A->getParent());
+      return new (C) DiagnoseIfAttr(C, *A, tempInstCond, A->getMessage(), A->getDefaultSeverity(), A->getWarningGroup(), A->getArgDependent(), A->getParent());
     }
     case attr::DisableSanitizerInstrumentation: {
       const auto *A = cast<DisableSanitizerInstrumentationAttr>(At);
@@ -648,6 +668,10 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
       }
       return new (C) ExclusiveTrylockFunctionAttr(C, *A, tempInstSuccessValue, tempInstArgs, A->args_size());
     }
+    case attr::ExplicitInit: {
+      const auto *A = cast<ExplicitInitAttr>(At);
+      return A->clone(C);
+    }
     case attr::ExternalSourceSymbol: {
       const auto *A = cast<ExternalSourceSymbolAttr>(At);
       return A->clone(C);
@@ -708,6 +732,14 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
       const auto *A = cast<HIPManagedAttr>(At);
       return A->clone(C);
     }
+    case attr::HLSLContainedType: {
+      const auto *A = cast<HLSLContainedTypeAttr>(At);
+      return A->clone(C);
+    }
+    case attr::HLSLControlFlowHint: {
+      const auto *A = cast<HLSLControlFlowHintAttr>(At);
+      return A->clone(C);
+    }
     case attr::HLSLGroupSharedAddressSpace: {
       const auto *A = cast<HLSLGroupSharedAddressSpaceAttr>(At);
       return A->clone(C);
@@ -728,6 +760,14 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
       const auto *A = cast<HLSLParamModifierAttr>(At);
       return A->clone(C);
     }
+    case attr::HLSLROV: {
+      const auto *A = cast<HLSLROVAttr>(At);
+      return A->clone(C);
+    }
+    case attr::HLSLRawBuffer: {
+      const auto *A = cast<HLSLRawBufferAttr>(At);
+      return A->clone(C);
+    }
     case attr::HLSLResource: {
       const auto *A = cast<HLSLResourceAttr>(At);
       return A->clone(C);
@@ -744,12 +784,24 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
       const auto *A = cast<HLSLSV_DispatchThreadIDAttr>(At);
       return A->clone(C);
     }
+    case attr::HLSLSV_GroupID: {
+      const auto *A = cast<HLSLSV_GroupIDAttr>(At);
+      return A->clone(C);
+    }
     case attr::HLSLSV_GroupIndex: {
       const auto *A = cast<HLSLSV_GroupIndexAttr>(At);
       return A->clone(C);
     }
+    case attr::HLSLSV_GroupThreadID: {
+      const auto *A = cast<HLSLSV_GroupThreadIDAttr>(At);
+      return A->clone(C);
+    }
     case attr::HLSLShader: {
       const auto *A = cast<HLSLShaderAttr>(At);
+      return A->clone(C);
+    }
+    case attr::HLSLWaveSize: {
+      const auto *A = cast<HLSLWaveSizeAttr>(At);
       return A->clone(C);
     }
     case attr::Hot: {
@@ -806,6 +858,10 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
     }
     case attr::LifetimeBound: {
       const auto *A = cast<LifetimeBoundAttr>(At);
+      return A->clone(C);
+    }
+    case attr::LifetimeCaptureBy: {
+      const auto *A = cast<LifetimeCaptureByAttr>(At);
       return A->clone(C);
     }
     case attr::Likely: {
@@ -985,6 +1041,10 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
       const auto *A = cast<NoCommonAttr>(At);
       return A->clone(C);
     }
+    case attr::NoConvergent: {
+      const auto *A = cast<NoConvergentAttr>(At);
+      return A->clone(C);
+    }
     case attr::NoDebug: {
       const auto *A = cast<NoDebugAttr>(At);
       return A->clone(C);
@@ -1041,6 +1101,10 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
       const auto *A = cast<NoSanitizeAttr>(At);
       return A->clone(C);
     }
+    case attr::NoSpecializations: {
+      const auto *A = cast<NoSpecializationsAttr>(At);
+      return new (C) NoSpecializationsAttr(C, *A, A->getMessage());
+    }
     case attr::NoSpeculativeLoadHardening: {
       const auto *A = cast<NoSpeculativeLoadHardeningAttr>(At);
       return A->clone(C);
@@ -1059,6 +1123,10 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
     }
     case attr::NoThrow: {
       const auto *A = cast<NoThrowAttr>(At);
+      return A->clone(C);
+    }
+    case attr::NoTrivialAutoVarInit: {
+      const auto *A = cast<NoTrivialAutoVarInitAttr>(At);
       return A->clone(C);
     }
     case attr::NoUniqueAddress: {
@@ -1466,10 +1534,6 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
       const auto *A = cast<ReleaseHandleAttr>(At);
       return A->clone(C);
     }
-    case attr::RenderScriptKernel: {
-      const auto *A = cast<RenderScriptKernelAttr>(At);
-      return A->clone(C);
-    }
     case attr::ReqdWorkGroupSize: {
       const auto *A = cast<ReqdWorkGroupSizeAttr>(At);
       return A->clone(C);
@@ -1518,6 +1582,14 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
     case attr::SYCLKernel: {
       const auto *A = cast<SYCLKernelAttr>(At);
       return A->clone(C);
+    }
+    case attr::SYCLKernelEntryPoint: {
+      const auto *A = cast<SYCLKernelEntryPointAttr>(At);
+      TypeSourceInfo * tempInstKernelName =
+        S.SubstType(A->getKernelNameLoc(), TemplateArgs, A->getLoc(), A->getAttrName());
+      if (!tempInstKernelName)
+        return nullptr;
+      return new (C) SYCLKernelEntryPointAttr(C, *A, tempInstKernelName, A->getInvalid());
     }
     case attr::SYCLSpecialClass: {
       const auto *A = cast<SYCLSpecialClassAttr>(At);
@@ -2002,6 +2074,9 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
     case attr::ArgumentWithTypeTag: {
       return nullptr;
     }
+    case attr::ArmAgnostic: {
+      return nullptr;
+    }
     case attr::ArmBuiltinAlias: {
       return nullptr;
     }
@@ -2054,6 +2129,9 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
       return nullptr;
     }
     case attr::AvailableOnlyInDefaultEvalMethod: {
+      return nullptr;
+    }
+    case attr::BPFFastCall: {
       return nullptr;
     }
     case attr::BPFPreserveAccessIndex: {
@@ -2128,6 +2206,9 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
       return A->clone(C);
     }
     case attr::CUDAGlobal: {
+      return nullptr;
+    }
+    case attr::CUDAGridConstant: {
       return nullptr;
     }
     case attr::CUDAHost: {
@@ -2214,6 +2295,12 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
     case attr::Convergent: {
       return nullptr;
     }
+    case attr::CoroAwaitElidable: {
+      return nullptr;
+    }
+    case attr::CoroAwaitElidableArgument: {
+      return nullptr;
+    }
     case attr::CoroDisableLifetimeBound: {
       return nullptr;
     }
@@ -2291,6 +2378,9 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
     case attr::ExclusiveTrylockFunction: {
       return nullptr;
     }
+    case attr::ExplicitInit: {
+      return nullptr;
+    }
     case attr::ExternalSourceSymbol: {
       return nullptr;
     }
@@ -2330,6 +2420,12 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
     case attr::HIPManaged: {
       return nullptr;
     }
+    case attr::HLSLContainedType: {
+      return nullptr;
+    }
+    case attr::HLSLControlFlowHint: {
+      return nullptr;
+    }
     case attr::HLSLGroupSharedAddressSpace: {
       return nullptr;
     }
@@ -2345,6 +2441,12 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
     case attr::HLSLParamModifier: {
       return nullptr;
     }
+    case attr::HLSLROV: {
+      return nullptr;
+    }
+    case attr::HLSLRawBuffer: {
+      return nullptr;
+    }
     case attr::HLSLResource: {
       return nullptr;
     }
@@ -2357,10 +2459,19 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
     case attr::HLSLSV_DispatchThreadID: {
       return nullptr;
     }
+    case attr::HLSLSV_GroupID: {
+      return nullptr;
+    }
     case attr::HLSLSV_GroupIndex: {
       return nullptr;
     }
+    case attr::HLSLSV_GroupThreadID: {
+      return nullptr;
+    }
     case attr::HLSLShader: {
+      return nullptr;
+    }
+    case attr::HLSLWaveSize: {
       return nullptr;
     }
     case attr::Hot: {
@@ -2403,6 +2514,9 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
       return nullptr;
     }
     case attr::LifetimeBound: {
+      return nullptr;
+    }
+    case attr::LifetimeCaptureBy: {
       return nullptr;
     }
     case attr::Likely: {
@@ -2522,6 +2636,9 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
     case attr::NoCommon: {
       return nullptr;
     }
+    case attr::NoConvergent: {
+      return nullptr;
+    }
     case attr::NoDebug: {
       return nullptr;
     }
@@ -2564,6 +2681,10 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
     case attr::NoSanitize: {
       return nullptr;
     }
+    case attr::NoSpecializations: {
+      const auto *A = cast<NoSpecializationsAttr>(At);
+      return new (C) NoSpecializationsAttr(C, *A, A->getMessage());
+    }
     case attr::NoSpeculativeLoadHardening: {
       return nullptr;
     }
@@ -2577,6 +2698,9 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
       return nullptr;
     }
     case attr::NoThrow: {
+      return nullptr;
+    }
+    case attr::NoTrivialAutoVarInit: {
       return nullptr;
     }
     case attr::NoUniqueAddress: {
@@ -2869,9 +2993,6 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
     case attr::ReleaseHandle: {
       return nullptr;
     }
-    case attr::RenderScriptKernel: {
-      return nullptr;
-    }
     case attr::ReqdWorkGroupSize: {
       return nullptr;
     }
@@ -2897,6 +3018,9 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
       return nullptr;
     }
     case attr::SYCLKernel: {
+      return nullptr;
+    }
+    case attr::SYCLKernelEntryPoint: {
       return nullptr;
     }
     case attr::SYCLSpecialClass: {

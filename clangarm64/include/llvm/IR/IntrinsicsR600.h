@@ -8,12 +8,10 @@
 
 #ifndef LLVM_IR_INTRINSIC_R600_ENUMS_H
 #define LLVM_IR_INTRINSIC_R600_ENUMS_H
-
-namespace llvm {
-namespace Intrinsic {
+namespace llvm::Intrinsic {
 enum R600Intrinsics : unsigned {
-// Enum values for intrinsics
-    r600_cube = 10138,                                 // llvm.r600.cube
+// Enum values for intrinsics.
+    r600_cube = 10540,                                 // llvm.r600.cube
     r600_ddx,                                  // llvm.r600.ddx
     r600_ddy,                                  // llvm.r600.ddy
     r600_dot4,                                 // llvm.r600.dot4
@@ -49,7 +47,6 @@ enum R600Intrinsics : unsigned {
     r600_txlc,                                 // llvm.r600.txlc
     r600_txq,                                  // llvm.r600.txq
 }; // enum
-} // namespace Intrinsic
-} // namespace llvm
-
+} // namespace llvm::Intrinsic
 #endif
+

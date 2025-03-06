@@ -516,6 +516,15 @@ set_target_properties(clang-scan-deps PROPERTIES
 list(APPEND _cmake_import_check_targets clang-scan-deps )
 list(APPEND _cmake_import_check_files_for_clang-scan-deps "${_IMPORT_PREFIX}/bin/clang-scan-deps.exe" )
 
+# Import target "clang-sycl-linker" for configuration "MinSizeRel"
+set_property(TARGET clang-sycl-linker APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
+set_target_properties(clang-sycl-linker PROPERTIES
+  IMPORTED_LOCATION_MINSIZEREL "${_IMPORT_PREFIX}/bin/clang-sycl-linker.exe"
+  )
+
+list(APPEND _cmake_import_check_targets clang-sycl-linker )
+list(APPEND _cmake_import_check_files_for_clang-sycl-linker "${_IMPORT_PREFIX}/bin/clang-sycl-linker.exe" )
+
 # Import target "clang-installapi" for configuration "MinSizeRel"
 set_property(TARGET clang-installapi APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
 set_target_properties(clang-installapi PROPERTIES
@@ -533,15 +542,6 @@ set_target_properties(clang-repl PROPERTIES
 
 list(APPEND _cmake_import_check_targets clang-repl )
 list(APPEND _cmake_import_check_files_for_clang-repl "${_IMPORT_PREFIX}/bin/clang-repl.exe" )
-
-# Import target "clang-rename" for configuration "MinSizeRel"
-set_property(TARGET clang-rename APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
-set_target_properties(clang-rename PROPERTIES
-  IMPORTED_LOCATION_MINSIZEREL "${_IMPORT_PREFIX}/bin/clang-rename.exe"
-  )
-
-list(APPEND _cmake_import_check_targets clang-rename )
-list(APPEND _cmake_import_check_files_for_clang-rename "${_IMPORT_PREFIX}/bin/clang-rename.exe" )
 
 # Import target "clang-refactor" for configuration "MinSizeRel"
 set_property(TARGET clang-refactor APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
@@ -1068,55 +1068,6 @@ set_target_properties(pp-trace PROPERTIES
 
 list(APPEND _cmake_import_check_targets pp-trace )
 list(APPEND _cmake_import_check_files_for_pp-trace "${_IMPORT_PREFIX}/bin/pp-trace.exe" )
-
-# Import target "clangPseudoCLI" for configuration "MinSizeRel"
-set_property(TARGET clangPseudoCLI APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
-set_target_properties(clangPseudoCLI PROPERTIES
-  IMPORTED_LINK_INTERFACE_LANGUAGES_MINSIZEREL "CXX"
-  IMPORTED_LOCATION_MINSIZEREL "${_IMPORT_PREFIX}/lib/libclangPseudoCLI.a"
-  )
-
-list(APPEND _cmake_import_check_targets clangPseudoCLI )
-list(APPEND _cmake_import_check_files_for_clangPseudoCLI "${_IMPORT_PREFIX}/lib/libclangPseudoCLI.a" )
-
-# Import target "clangPseudoCXX" for configuration "MinSizeRel"
-set_property(TARGET clangPseudoCXX APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
-set_target_properties(clangPseudoCXX PROPERTIES
-  IMPORTED_LINK_INTERFACE_LANGUAGES_MINSIZEREL "CXX"
-  IMPORTED_LOCATION_MINSIZEREL "${_IMPORT_PREFIX}/lib/libclangPseudoCXX.a"
-  )
-
-list(APPEND _cmake_import_check_targets clangPseudoCXX )
-list(APPEND _cmake_import_check_files_for_clangPseudoCXX "${_IMPORT_PREFIX}/lib/libclangPseudoCXX.a" )
-
-# Import target "clangPseudoGrammar" for configuration "MinSizeRel"
-set_property(TARGET clangPseudoGrammar APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
-set_target_properties(clangPseudoGrammar PROPERTIES
-  IMPORTED_LINK_INTERFACE_LANGUAGES_MINSIZEREL "CXX"
-  IMPORTED_LOCATION_MINSIZEREL "${_IMPORT_PREFIX}/lib/libclangPseudoGrammar.a"
-  )
-
-list(APPEND _cmake_import_check_targets clangPseudoGrammar )
-list(APPEND _cmake_import_check_files_for_clangPseudoGrammar "${_IMPORT_PREFIX}/lib/libclangPseudoGrammar.a" )
-
-# Import target "clangPseudo" for configuration "MinSizeRel"
-set_property(TARGET clangPseudo APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
-set_target_properties(clangPseudo PROPERTIES
-  IMPORTED_LINK_INTERFACE_LANGUAGES_MINSIZEREL "CXX"
-  IMPORTED_LOCATION_MINSIZEREL "${_IMPORT_PREFIX}/lib/libclangPseudo.a"
-  )
-
-list(APPEND _cmake_import_check_targets clangPseudo )
-list(APPEND _cmake_import_check_files_for_clangPseudo "${_IMPORT_PREFIX}/lib/libclangPseudo.a" )
-
-# Import target "clang-pseudo" for configuration "MinSizeRel"
-set_property(TARGET clang-pseudo APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
-set_target_properties(clang-pseudo PROPERTIES
-  IMPORTED_LOCATION_MINSIZEREL "${_IMPORT_PREFIX}/bin/clang-pseudo.exe"
-  )
-
-list(APPEND _cmake_import_check_targets clang-pseudo )
-list(APPEND _cmake_import_check_files_for_clang-pseudo "${_IMPORT_PREFIX}/bin/clang-pseudo.exe" )
 
 # Import target "clangdSupport" for configuration "MinSizeRel"
 set_property(TARGET clangdSupport APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)

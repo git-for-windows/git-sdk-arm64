@@ -8,12 +8,12 @@
 
 #ifndef LLVM_IR_INTRINSIC_S390_ENUMS_H
 #define LLVM_IR_INTRINSIC_S390_ENUMS_H
-
-namespace llvm {
-namespace Intrinsic {
+namespace llvm::Intrinsic {
 enum S390Intrinsics : unsigned {
-// Enum values for intrinsics
-    s390_efpc = 10886,                                 // llvm.s390.efpc
+// Enum values for intrinsics.
+    s390_bdepg = 11288,                                // llvm.s390.bdepg
+    s390_bextg,                                // llvm.s390.bextg
+    s390_efpc,                                 // llvm.s390.efpc
     s390_etnd,                                 // llvm.s390.etnd
     s390_lcbb,                                 // llvm.s390.lcbb
     s390_ntstg,                                // llvm.s390.ntstg
@@ -41,11 +41,14 @@ enum S390Intrinsics : unsigned {
     s390_vavglf,                               // llvm.s390.vavglf
     s390_vavglg,                               // llvm.s390.vavglg
     s390_vavglh,                               // llvm.s390.vavglh
+    s390_vavglq,                               // llvm.s390.vavglq
+    s390_vavgq,                                // llvm.s390.vavgq
     s390_vbperm,                               // llvm.s390.vbperm
     s390_vceqbs,                               // llvm.s390.vceqbs
     s390_vceqfs,                               // llvm.s390.vceqfs
     s390_vceqgs,                               // llvm.s390.vceqgs
     s390_vceqhs,                               // llvm.s390.vceqhs
+    s390_vceqqs,                               // llvm.s390.vceqqs
     s390_vcfn,                                 // llvm.s390.vcfn
     s390_vchbs,                                // llvm.s390.vchbs
     s390_vchfs,                                // llvm.s390.vchfs
@@ -55,6 +58,8 @@ enum S390Intrinsics : unsigned {
     s390_vchlfs,                               // llvm.s390.vchlfs
     s390_vchlgs,                               // llvm.s390.vchlgs
     s390_vchlhs,                               // llvm.s390.vchlhs
+    s390_vchlqs,                               // llvm.s390.vchlqs
+    s390_vchqs,                                // llvm.s390.vchqs
     s390_vcksm,                                // llvm.s390.vcksm
     s390_vclfnhs,                              // llvm.s390.vclfnhs
     s390_vclfnls,                              // llvm.s390.vclfnls
@@ -64,6 +69,7 @@ enum S390Intrinsics : unsigned {
     s390_verimf,                               // llvm.s390.verimf
     s390_verimg,                               // llvm.s390.verimg
     s390_verimh,                               // llvm.s390.verimh
+    s390_veval,                                // llvm.s390.veval
     s390_vfaeb,                                // llvm.s390.vfaeb
     s390_vfaebs,                               // llvm.s390.vfaebs
     s390_vfaef,                                // llvm.s390.vfaef
@@ -114,6 +120,11 @@ enum S390Intrinsics : unsigned {
     s390_vfminsb,                              // llvm.s390.vfminsb
     s390_vftcidb,                              // llvm.s390.vftcidb
     s390_vftcisb,                              // llvm.s390.vftcisb
+    s390_vgemb,                                // llvm.s390.vgemb
+    s390_vgemf,                                // llvm.s390.vgemf
+    s390_vgemg,                                // llvm.s390.vgemg
+    s390_vgemh,                                // llvm.s390.vgemh
+    s390_vgemq,                                // llvm.s390.vgemq
     s390_vgfmab,                               // llvm.s390.vgfmab
     s390_vgfmaf,                               // llvm.s390.vgfmaf
     s390_vgfmag,                               // llvm.s390.vgfmag
@@ -133,39 +144,55 @@ enum S390Intrinsics : unsigned {
     s390_vlrl,                                 // llvm.s390.vlrl
     s390_vmaeb,                                // llvm.s390.vmaeb
     s390_vmaef,                                // llvm.s390.vmaef
+    s390_vmaeg,                                // llvm.s390.vmaeg
     s390_vmaeh,                                // llvm.s390.vmaeh
     s390_vmahb,                                // llvm.s390.vmahb
     s390_vmahf,                                // llvm.s390.vmahf
+    s390_vmahg,                                // llvm.s390.vmahg
     s390_vmahh,                                // llvm.s390.vmahh
+    s390_vmahq,                                // llvm.s390.vmahq
     s390_vmaleb,                               // llvm.s390.vmaleb
     s390_vmalef,                               // llvm.s390.vmalef
+    s390_vmaleg,                               // llvm.s390.vmaleg
     s390_vmaleh,                               // llvm.s390.vmaleh
     s390_vmalhb,                               // llvm.s390.vmalhb
     s390_vmalhf,                               // llvm.s390.vmalhf
+    s390_vmalhg,                               // llvm.s390.vmalhg
     s390_vmalhh,                               // llvm.s390.vmalhh
+    s390_vmalhq,                               // llvm.s390.vmalhq
     s390_vmalob,                               // llvm.s390.vmalob
     s390_vmalof,                               // llvm.s390.vmalof
+    s390_vmalog,                               // llvm.s390.vmalog
     s390_vmaloh,                               // llvm.s390.vmaloh
     s390_vmaob,                                // llvm.s390.vmaob
     s390_vmaof,                                // llvm.s390.vmaof
+    s390_vmaog,                                // llvm.s390.vmaog
     s390_vmaoh,                                // llvm.s390.vmaoh
     s390_vmeb,                                 // llvm.s390.vmeb
     s390_vmef,                                 // llvm.s390.vmef
+    s390_vmeg,                                 // llvm.s390.vmeg
     s390_vmeh,                                 // llvm.s390.vmeh
     s390_vmhb,                                 // llvm.s390.vmhb
     s390_vmhf,                                 // llvm.s390.vmhf
+    s390_vmhg,                                 // llvm.s390.vmhg
     s390_vmhh,                                 // llvm.s390.vmhh
+    s390_vmhq,                                 // llvm.s390.vmhq
     s390_vmleb,                                // llvm.s390.vmleb
     s390_vmlef,                                // llvm.s390.vmlef
+    s390_vmleg,                                // llvm.s390.vmleg
     s390_vmleh,                                // llvm.s390.vmleh
     s390_vmlhb,                                // llvm.s390.vmlhb
     s390_vmlhf,                                // llvm.s390.vmlhf
+    s390_vmlhg,                                // llvm.s390.vmlhg
     s390_vmlhh,                                // llvm.s390.vmlhh
+    s390_vmlhq,                                // llvm.s390.vmlhq
     s390_vmlob,                                // llvm.s390.vmlob
     s390_vmlof,                                // llvm.s390.vmlof
+    s390_vmlog,                                // llvm.s390.vmlog
     s390_vmloh,                                // llvm.s390.vmloh
     s390_vmob,                                 // llvm.s390.vmob
     s390_vmof,                                 // llvm.s390.vmof
+    s390_vmog,                                 // llvm.s390.vmog
     s390_vmoh,                                 // llvm.s390.vmoh
     s390_vmslg,                                // llvm.s390.vmslg
     s390_vpdi,                                 // llvm.s390.vpdi
@@ -228,18 +255,21 @@ enum S390Intrinsics : unsigned {
     s390_vtm,                                  // llvm.s390.vtm
     s390_vuphb,                                // llvm.s390.vuphb
     s390_vuphf,                                // llvm.s390.vuphf
+    s390_vuphg,                                // llvm.s390.vuphg
     s390_vuphh,                                // llvm.s390.vuphh
     s390_vuplb,                                // llvm.s390.vuplb
     s390_vuplf,                                // llvm.s390.vuplf
+    s390_vuplg,                                // llvm.s390.vuplg
     s390_vuplhb,                               // llvm.s390.vuplhb
     s390_vuplhf,                               // llvm.s390.vuplhf
+    s390_vuplhg,                               // llvm.s390.vuplhg
     s390_vuplhh,                               // llvm.s390.vuplhh
     s390_vuplhw,                               // llvm.s390.vuplhw
     s390_vupllb,                               // llvm.s390.vupllb
     s390_vupllf,                               // llvm.s390.vupllf
+    s390_vupllg,                               // llvm.s390.vupllg
     s390_vupllh,                               // llvm.s390.vupllh
 }; // enum
-} // namespace Intrinsic
-} // namespace llvm
-
+} // namespace llvm::Intrinsic
 #endif
+

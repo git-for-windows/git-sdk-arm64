@@ -9,7 +9,6 @@
 
 #ifndef LLVM_CLANG_ATTR_CLASSES_INC
 #define LLVM_CLANG_ATTR_CLASSES_INC
-
 static inline void DelimitAttributeArgument(raw_ostream& OS, bool& IsFirst) {
   if (IsFirst) {
     IsFirst = false;
@@ -17,7 +16,7 @@ static inline void DelimitAttributeArgument(raw_ostream& OS, bool& IsFirst) {
   } else
     OS << ", ";
 }
-class AArch64SVEPcsAttr : public InheritableAttr {
+class CLANG_ABI AArch64SVEPcsAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_aarch64_sve_pcs = 0,
@@ -46,7 +45,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::AArch64SVEPcs; }
 };
 
-class AArch64VectorPcsAttr : public InheritableAttr {
+class CLANG_ABI AArch64VectorPcsAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_aarch64_vector_pcs = 0,
@@ -75,7 +74,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::AArch64VectorPcs; }
 };
 
-class AMDGPUFlatWorkGroupSizeAttr : public InheritableAttr {
+class CLANG_ABI AMDGPUFlatWorkGroupSizeAttr : public InheritableAttr {
 Expr * min;
 
 Expr * max;
@@ -117,7 +116,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::AMDGPUFlatWorkGroupSize; }
 };
 
-class AMDGPUKernelCallAttr : public InheritableAttr {
+class CLANG_ABI AMDGPUKernelCallAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_amdgpu_kernel = 0,
@@ -146,7 +145,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::AMDGPUKernelCall; }
 };
 
-class AMDGPUMaxNumWorkGroupsAttr : public InheritableAttr {
+class CLANG_ABI AMDGPUMaxNumWorkGroupsAttr : public InheritableAttr {
 Expr * maxNumWorkGroupsX;
 
 Expr * maxNumWorkGroupsY;
@@ -198,7 +197,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::AMDGPUMaxNumWorkGroups; }
 };
 
-class AMDGPUNumSGPRAttr : public InheritableAttr {
+class CLANG_ABI AMDGPUNumSGPRAttr : public InheritableAttr {
 unsigned numSGPR;
 
 public:
@@ -233,7 +232,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::AMDGPUNumSGPR; }
 };
 
-class AMDGPUNumVGPRAttr : public InheritableAttr {
+class CLANG_ABI AMDGPUNumVGPRAttr : public InheritableAttr {
 unsigned numVGPR;
 
 public:
@@ -268,7 +267,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::AMDGPUNumVGPR; }
 };
 
-class AMDGPUWavesPerEUAttr : public InheritableAttr {
+class CLANG_ABI AMDGPUWavesPerEUAttr : public InheritableAttr {
 Expr * min;
 
 Expr * max;
@@ -313,7 +312,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::AMDGPUWavesPerEU; }
 };
 
-class ARMInterruptAttr : public InheritableAttr {
+class CLANG_ABI ARMInterruptAttr : public InheritableAttr {
 public:
   enum InterruptType {
     IRQ,
@@ -363,7 +362,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ARMInterrupt; }
 };
 
-class AVRInterruptAttr : public InheritableAttr {
+class CLANG_ABI AVRInterruptAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_interrupt = 0,
@@ -392,7 +391,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::AVRInterrupt; }
 };
 
-class AVRSignalAttr : public InheritableAttr {
+class CLANG_ABI AVRSignalAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_signal = 0,
@@ -421,7 +420,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::AVRSignal; }
 };
 
-class AbiTagAttr : public Attr {
+class CLANG_ABI AbiTagAttr : public Attr {
   unsigned tags_Size;
   StringRef *tags_;
 
@@ -462,7 +461,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::AbiTag; }
 };
 
-class AcquireCapabilityAttr : public InheritableAttr {
+class CLANG_ABI AcquireCapabilityAttr : public InheritableAttr {
   unsigned args_Size;
   Expr * *args_;
 
@@ -511,7 +510,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::AcquireCapability; }
 };
 
-class AcquireHandleAttr : public InheritableAttr {
+class CLANG_ABI AcquireHandleAttr : public InheritableAttr {
 unsigned handleTypeLength;
 char *handleType;
 
@@ -557,7 +556,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::AcquireHandle; }
 };
 
-class AcquiredAfterAttr : public InheritableAttr {
+class CLANG_ABI AcquiredAfterAttr : public InheritableAttr {
   unsigned args_Size;
   Expr * *args_;
 
@@ -591,7 +590,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::AcquiredAfter; }
 };
 
-class AcquiredBeforeAttr : public InheritableAttr {
+class CLANG_ABI AcquiredBeforeAttr : public InheritableAttr {
   unsigned args_Size;
   Expr * *args_;
 
@@ -625,7 +624,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::AcquiredBefore; }
 };
 
-class AddressSpaceAttr : public TypeAttr {
+class CLANG_ABI AddressSpaceAttr : public TypeAttr {
 int addressSpace;
 
 public:
@@ -661,7 +660,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::AddressSpace; }
 };
 
-class AliasAttr : public Attr {
+class CLANG_ABI AliasAttr : public Attr {
 unsigned aliaseeLength;
 char *aliasee;
 
@@ -707,7 +706,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Alias; }
 };
 
-class AlignMac68kAttr : public InheritableAttr {
+class CLANG_ABI AlignMac68kAttr : public InheritableAttr {
 public:
   // Factory methods
   static AlignMac68kAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
@@ -728,7 +727,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::AlignMac68k; }
 };
 
-class AlignNaturalAttr : public InheritableAttr {
+class CLANG_ABI AlignNaturalAttr : public InheritableAttr {
 public:
   // Factory methods
   static AlignNaturalAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
@@ -749,7 +748,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::AlignNatural; }
 };
 
-class AlignValueAttr : public Attr {
+class CLANG_ABI AlignValueAttr : public Attr {
 Expr * alignment;
 
 public:
@@ -777,7 +776,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::AlignValue; }
 };
 
-class AlignedAttr : public InheritableAttr {
+class CLANG_ABI AlignedAttr : public InheritableAttr {
 bool isalignmentExpr;
 union {
 Expr *alignmentExpr;
@@ -847,7 +846,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Aligned; }
 };
 
-class AllocAlignAttr : public InheritableAttr {
+class CLANG_ABI AllocAlignAttr : public InheritableAttr {
 ParamIdx paramIndex;
 
 public:
@@ -883,7 +882,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::AllocAlign; }
 };
 
-class AllocSizeAttr : public InheritableAttr {
+class CLANG_ABI AllocSizeAttr : public InheritableAttr {
 ParamIdx elemSizeParam;
 
 ParamIdx numElemsParam;
@@ -929,7 +928,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::AllocSize; }
 };
 
-class AllocatingAttr : public TypeAttr {
+class CLANG_ABI AllocatingAttr : public TypeAttr {
 public:
   enum Spelling {
     GNU_allocating = 0,
@@ -958,7 +957,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Allocating; }
 };
 
-class AlwaysDestroyAttr : public InheritableAttr {
+class CLANG_ABI AlwaysDestroyAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_always_destroy = 0,
@@ -986,7 +985,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::AlwaysDestroy; }
 };
 
-class AlwaysInlineAttr : public DeclOrStmtAttr {
+class CLANG_ABI AlwaysInlineAttr : public DeclOrStmtAttr {
 public:
   enum Spelling {
     GNU_always_inline = 0,
@@ -1021,7 +1020,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::AlwaysInline; }
 };
 
-class AnalyzerNoReturnAttr : public InheritableAttr {
+class CLANG_ABI AnalyzerNoReturnAttr : public InheritableAttr {
 public:
   // Factory methods
   static AnalyzerNoReturnAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
@@ -1042,7 +1041,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::AnalyzerNoReturn; }
 };
 
-class AnnotateAttr : public InheritableParamAttr {
+class CLANG_ABI AnnotateAttr : public InheritableParamOrStmtAttr {
 unsigned annotationLength;
 char *annotation;
 
@@ -1130,7 +1129,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Annotate; }
 };
 
-class AnnotateTypeAttr : public TypeAttr {
+class CLANG_ABI AnnotateTypeAttr : public TypeAttr {
 unsigned annotationLength;
 char *annotation;
 
@@ -1208,7 +1207,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::AnnotateType; }
 };
 
-class AnyX86InterruptAttr : public InheritableAttr {
+class CLANG_ABI AnyX86InterruptAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_interrupt = 0,
@@ -1237,7 +1236,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::AnyX86Interrupt; }
 };
 
-class AnyX86NoCallerSavedRegistersAttr : public InheritableAttr {
+class CLANG_ABI AnyX86NoCallerSavedRegistersAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_no_caller_saved_registers = 0,
@@ -1266,7 +1265,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::AnyX86NoCallerSavedRegisters; }
 };
 
-class AnyX86NoCfCheckAttr : public InheritableAttr {
+class CLANG_ABI AnyX86NoCfCheckAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_nocf_check = 0,
@@ -1295,7 +1294,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::AnyX86NoCfCheck; }
 };
 
-class ArcWeakrefUnavailableAttr : public InheritableAttr {
+class CLANG_ABI ArcWeakrefUnavailableAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_objc_arc_weak_reference_unavailable = 0,
@@ -1324,7 +1323,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ArcWeakrefUnavailable; }
 };
 
-class ArgumentWithTypeTagAttr : public InheritableAttr {
+class CLANG_ABI ArgumentWithTypeTagAttr : public InheritableAttr {
 IdentifierInfo * argumentKind;
 
 ParamIdx argumentIdx;
@@ -1394,7 +1393,41 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ArgumentWithTypeTag; }
 };
 
-class ArmBuiltinAliasAttr : public InheritableAttr {
+class CLANG_ABI ArmAgnosticAttr : public TypeAttr {
+  unsigned agnosticArgs_Size;
+  StringRef *agnosticArgs_;
+
+public:
+  // Factory methods
+  static ArmAgnosticAttr *CreateImplicit(ASTContext &Ctx, StringRef *AgnosticArgs, unsigned AgnosticArgsSize, const AttributeCommonInfo &CommonInfo);
+  static ArmAgnosticAttr *Create(ASTContext &Ctx, StringRef *AgnosticArgs, unsigned AgnosticArgsSize, const AttributeCommonInfo &CommonInfo);
+  static ArmAgnosticAttr *CreateImplicit(ASTContext &Ctx, StringRef *AgnosticArgs, unsigned AgnosticArgsSize, SourceRange Range = {});
+  static ArmAgnosticAttr *Create(ASTContext &Ctx, StringRef *AgnosticArgs, unsigned AgnosticArgsSize, SourceRange Range = {});
+
+  // Constructors
+  ArmAgnosticAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , StringRef *AgnosticArgs, unsigned AgnosticArgsSize
+             );
+  ArmAgnosticAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             );
+
+  ArmAgnosticAttr *clone(ASTContext &C) const;
+  void printPretty(raw_ostream &OS,
+                   const PrintingPolicy &Policy) const;
+  const char *getSpelling() const;
+  typedef StringRef* agnosticArgs_iterator;
+  agnosticArgs_iterator agnosticArgs_begin() const { return agnosticArgs_; }
+  agnosticArgs_iterator agnosticArgs_end() const { return agnosticArgs_ + agnosticArgs_Size; }
+  unsigned agnosticArgs_size() const { return agnosticArgs_Size; }
+  llvm::iterator_range<agnosticArgs_iterator> agnosticArgs() const { return llvm::make_range(agnosticArgs_begin(), agnosticArgs_end()); }
+
+
+
+
+  static bool classof(const Attr *A) { return A->getKind() == attr::ArmAgnostic; }
+};
+
+class CLANG_ABI ArmBuiltinAliasAttr : public InheritableAttr {
 IdentifierInfo * builtinName;
 
 public:
@@ -1430,7 +1463,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ArmBuiltinAlias; }
 };
 
-class ArmInAttr : public TypeAttr {
+class CLANG_ABI ArmInAttr : public TypeAttr {
   unsigned inArgs_Size;
   StringRef *inArgs_;
 
@@ -1464,7 +1497,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ArmIn; }
 };
 
-class ArmInOutAttr : public TypeAttr {
+class CLANG_ABI ArmInOutAttr : public TypeAttr {
   unsigned inOutArgs_Size;
   StringRef *inOutArgs_;
 
@@ -1498,7 +1531,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ArmInOut; }
 };
 
-class ArmLocallyStreamingAttr : public InheritableAttr {
+class CLANG_ABI ArmLocallyStreamingAttr : public InheritableAttr {
 public:
   // Factory methods
   static ArmLocallyStreamingAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
@@ -1519,7 +1552,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ArmLocallyStreaming; }
 };
 
-class ArmMveStrictPolymorphismAttr : public TypeAttr {
+class CLANG_ABI ArmMveStrictPolymorphismAttr : public TypeAttr {
 public:
   enum Spelling {
     GNU_clang_arm_mve_strict_polymorphism = 0,
@@ -1548,7 +1581,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ArmMveStrictPolymorphism; }
 };
 
-class ArmNewAttr : public InheritableAttr {
+class CLANG_ABI ArmNewAttr : public InheritableAttr {
   unsigned newArgs_Size;
   StringRef *newArgs_;
 
@@ -1589,7 +1622,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ArmNew; }
 };
 
-class ArmOutAttr : public TypeAttr {
+class CLANG_ABI ArmOutAttr : public TypeAttr {
   unsigned outArgs_Size;
   StringRef *outArgs_;
 
@@ -1623,7 +1656,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ArmOut; }
 };
 
-class ArmPreservesAttr : public TypeAttr {
+class CLANG_ABI ArmPreservesAttr : public TypeAttr {
   unsigned preserveArgs_Size;
   StringRef *preserveArgs_;
 
@@ -1657,7 +1690,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ArmPreserves; }
 };
 
-class ArmStreamingAttr : public TypeAttr {
+class CLANG_ABI ArmStreamingAttr : public TypeAttr {
 public:
   // Factory methods
   static ArmStreamingAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
@@ -1678,7 +1711,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ArmStreaming; }
 };
 
-class ArmStreamingCompatibleAttr : public TypeAttr {
+class CLANG_ABI ArmStreamingCompatibleAttr : public TypeAttr {
 public:
   // Factory methods
   static ArmStreamingCompatibleAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
@@ -1699,7 +1732,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ArmStreamingCompatible; }
 };
 
-class ArtificialAttr : public InheritableAttr {
+class CLANG_ABI ArtificialAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_artificial = 0,
@@ -1728,7 +1761,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Artificial; }
 };
 
-class AsmLabelAttr : public InheritableAttr {
+class CLANG_ABI AsmLabelAttr : public InheritableAttr {
 unsigned labelLength;
 char *label;
 
@@ -1790,7 +1823,7 @@ bool isEquivalent(AsmLabelAttr *Other) const {
   static bool classof(const Attr *A) { return A->getKind() == attr::AsmLabel; }
 };
 
-class AssertCapabilityAttr : public InheritableAttr {
+class CLANG_ABI AssertCapabilityAttr : public InheritableAttr {
   unsigned args_Size;
   Expr * *args_;
 
@@ -1836,7 +1869,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::AssertCapability; }
 };
 
-class AssertExclusiveLockAttr : public InheritableAttr {
+class CLANG_ABI AssertExclusiveLockAttr : public InheritableAttr {
   unsigned args_Size;
   Expr * *args_;
 
@@ -1870,7 +1903,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::AssertExclusiveLock; }
 };
 
-class AssertSharedLockAttr : public InheritableAttr {
+class CLANG_ABI AssertSharedLockAttr : public InheritableAttr {
   unsigned args_Size;
   Expr * *args_;
 
@@ -1904,7 +1937,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::AssertSharedLock; }
 };
 
-class AssumeAlignedAttr : public InheritableAttr {
+class CLANG_ABI AssumeAlignedAttr : public InheritableAttr {
 Expr * alignment;
 
 Expr * offset;
@@ -1950,7 +1983,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::AssumeAligned; }
 };
 
-class AvailabilityAttr : public InheritableAttr {
+class CLANG_ABI AvailabilityAttr : public InheritableAttr {
 IdentifierInfo * platform;
 
 VersionTuple introduced;
@@ -2135,6 +2168,36 @@ static llvm::StringRef canonicalizePlatformName(llvm::StringRef Platform) {
              .Case("ShaderModel", "shadermodel")
              .Default(Platform);
 }
+static std::vector<llvm::StringRef> equivalentPlatformNames(llvm::StringRef Platform) {
+    return llvm::StringSwitch<std::vector<llvm::StringRef>>(Platform)
+             .Case("ios", {"ios", "iOS"})
+             .Case("iOS", {"ios", "iOS"})
+             .Case("macos", {"macos", "macOS"})
+             .Case("macOS", {"macos", "macOS"})
+             .Case("tvos", {"tvos", "tvOS"})
+             .Case("tvOS", {"tvos", "tvOS"})
+             .Case("watchos", {"watchos", "watchOS"})
+             .Case("watchOS", {"watchos", "watchOS"})
+             .Case("ios_app_extension", {"iOSApplicationExtension", "ios_app_extension"})
+             .Case("iOSApplicationExtension", {"iOSApplicationExtension", "ios_app_extension"})
+             .Case("macos_app_extension", {"macOSApplicationExtension", "macos_app_extension"})
+             .Case("macOSApplicationExtension", {"macOSApplicationExtension", "macos_app_extension"})
+             .Case("tvos_app_extension", {"tvOSApplicationExtension", "tvos_app_extension"})
+             .Case("tvOSApplicationExtension", {"tvOSApplicationExtension", "tvos_app_extension"})
+             .Case("watchos_app_extension", {"watchOSApplicationExtension", "watchos_app_extension"})
+             .Case("watchOSApplicationExtension", {"watchOSApplicationExtension", "watchos_app_extension"})
+             .Case("maccatalyst", {"macCatalyst", "maccatalyst"})
+             .Case("macCatalyst", {"macCatalyst", "maccatalyst"})
+             .Case("maccatalyst_app_extension", {"macCatalystApplicationExtension", "maccatalyst_app_extension"})
+             .Case("macCatalystApplicationExtension", {"macCatalystApplicationExtension", "maccatalyst_app_extension"})
+             .Case("xros", {"visionos", "visionOS", "xros"})
+             .Case("visionOS", {"visionos", "visionOS", "xros"})
+             .Case("visionos", {"visionos", "visionOS", "xros"})
+             .Case("xros_app_extension", {"visionOSApplicationExtension", "visionos_app_extension", "xros_app_extension"})
+             .Case("visionOSApplicationExtension", {"visionOSApplicationExtension", "visionos_app_extension", "xros_app_extension"})
+             .Case("visionos_app_extension", {"visionOSApplicationExtension", "visionos_app_extension", "xros_app_extension"})
+             .Default({Platform});
+}
 static llvm::Triple::EnvironmentType getEnvironmentType(llvm::StringRef Environment) {
     return llvm::StringSwitch<llvm::Triple::EnvironmentType>(Environment)
              .Case("pixel", llvm::Triple::Pixel)
@@ -2159,7 +2222,7 @@ static llvm::Triple::EnvironmentType getEnvironmentType(llvm::StringRef Environm
   static bool classof(const Attr *A) { return A->getKind() == attr::Availability; }
 };
 
-class AvailableOnlyInDefaultEvalMethodAttr : public InheritableAttr {
+class CLANG_ABI AvailableOnlyInDefaultEvalMethodAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_available_only_in_default_eval_method = 0,
@@ -2188,7 +2251,36 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::AvailableOnlyInDefaultEvalMethod; }
 };
 
-class BPFPreserveAccessIndexAttr : public InheritableAttr {
+class CLANG_ABI BPFFastCallAttr : public InheritableAttr {
+public:
+  enum Spelling {
+    GNU_bpf_fastcall = 0,
+    CXX11_clang_bpf_fastcall = 1,
+    C23_clang_bpf_fastcall = 2,
+  SpellingNotCalculated = 15
+
+  };
+
+  // Factory methods
+  static BPFFastCallAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static BPFFastCallAttr *Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static BPFFastCallAttr *CreateImplicit(ASTContext &Ctx, SourceRange Range = {}, Spelling S = GNU_bpf_fastcall);
+  static BPFFastCallAttr *Create(ASTContext &Ctx, SourceRange Range = {}, Spelling S = GNU_bpf_fastcall);
+
+  // Constructors
+  BPFFastCallAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             );
+
+  BPFFastCallAttr *clone(ASTContext &C) const;
+  void printPretty(raw_ostream &OS,
+                   const PrintingPolicy &Policy) const;
+  const char *getSpelling() const;
+
+
+  static bool classof(const Attr *A) { return A->getKind() == attr::BPFFastCall; }
+};
+
+class CLANG_ABI BPFPreserveAccessIndexAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_preserve_access_index = 0,
@@ -2217,7 +2309,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::BPFPreserveAccessIndex; }
 };
 
-class BPFPreserveStaticOffsetAttr : public InheritableAttr {
+class CLANG_ABI BPFPreserveStaticOffsetAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_preserve_static_offset = 0,
@@ -2246,7 +2338,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::BPFPreserveStaticOffset; }
 };
 
-class BTFDeclTagAttr : public InheritableAttr {
+class CLANG_ABI BTFDeclTagAttr : public InheritableAttr {
 unsigned bTFDeclTagLength;
 char *bTFDeclTag;
 
@@ -2292,7 +2384,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::BTFDeclTag; }
 };
 
-class BTFTypeTagAttr : public TypeAttr {
+class CLANG_ABI BTFTypeTagAttr : public TypeAttr {
 unsigned bTFTypeTagLength;
 char *bTFTypeTag;
 
@@ -2338,7 +2430,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::BTFTypeTag; }
 };
 
-class BlockingAttr : public TypeAttr {
+class CLANG_ABI BlockingAttr : public TypeAttr {
 public:
   enum Spelling {
     GNU_blocking = 0,
@@ -2367,7 +2459,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Blocking; }
 };
 
-class BlocksAttr : public InheritableAttr {
+class CLANG_ABI BlocksAttr : public InheritableAttr {
 public:
   enum BlockType {
     ByRef
@@ -2410,7 +2502,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Blocks; }
 };
 
-class BuiltinAttr : public InheritableAttr {
+class CLANG_ABI BuiltinAttr : public InheritableAttr {
 unsigned iD;
 
 public:
@@ -2438,7 +2530,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Builtin; }
 };
 
-class BuiltinAliasAttr : public Attr {
+class CLANG_ABI BuiltinAliasAttr : public Attr {
 IdentifierInfo * builtinName;
 
 public:
@@ -2475,7 +2567,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::BuiltinAlias; }
 };
 
-class C11NoReturnAttr : public InheritableAttr {
+class CLANG_ABI C11NoReturnAttr : public InheritableAttr {
 public:
   // Factory methods
   static C11NoReturnAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
@@ -2496,7 +2588,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::C11NoReturn; }
 };
 
-class CDeclAttr : public InheritableAttr {
+class CLANG_ABI CDeclAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_cdecl = 0,
@@ -2526,7 +2618,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::CDecl; }
 };
 
-class CFAuditedTransferAttr : public InheritableAttr {
+class CLANG_ABI CFAuditedTransferAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_cf_audited_transfer = 0,
@@ -2555,7 +2647,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::CFAuditedTransfer; }
 };
 
-class CFConsumedAttr : public InheritableParamAttr {
+class CLANG_ABI CFConsumedAttr : public InheritableParamAttr {
 public:
   enum Spelling {
     GNU_cf_consumed = 0,
@@ -2584,7 +2676,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::CFConsumed; }
 };
 
-class CFGuardAttr : public InheritableAttr {
+class CLANG_ABI CFGuardAttr : public InheritableAttr {
 public:
   enum GuardArg {
     nocf
@@ -2628,7 +2720,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::CFGuard; }
 };
 
-class CFICanonicalJumpTableAttr : public InheritableAttr {
+class CLANG_ABI CFICanonicalJumpTableAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_cfi_canonical_jump_table = 0,
@@ -2657,7 +2749,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::CFICanonicalJumpTable; }
 };
 
-class CFReturnsNotRetainedAttr : public InheritableAttr {
+class CLANG_ABI CFReturnsNotRetainedAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_cf_returns_not_retained = 0,
@@ -2686,7 +2778,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::CFReturnsNotRetained; }
 };
 
-class CFReturnsRetainedAttr : public InheritableAttr {
+class CLANG_ABI CFReturnsRetainedAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_cf_returns_retained = 0,
@@ -2715,7 +2807,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::CFReturnsRetained; }
 };
 
-class CFUnknownTransferAttr : public InheritableAttr {
+class CLANG_ABI CFUnknownTransferAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_cf_unknown_transfer = 0,
@@ -2744,7 +2836,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::CFUnknownTransfer; }
 };
 
-class CPUDispatchAttr : public InheritableAttr {
+class CLANG_ABI CPUDispatchAttr : public InheritableAttr {
   unsigned cpus_Size;
   IdentifierInfo * *cpus_;
 
@@ -2787,7 +2879,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::CPUDispatch; }
 };
 
-class CPUSpecificAttr : public InheritableAttr {
+class CLANG_ABI CPUSpecificAttr : public InheritableAttr {
   unsigned cpus_Size;
   IdentifierInfo * *cpus_;
 
@@ -2834,7 +2926,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::CPUSpecific; }
 };
 
-class CUDAConstantAttr : public InheritableAttr {
+class CLANG_ABI CUDAConstantAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_constant = 0,
@@ -2862,7 +2954,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::CUDAConstant; }
 };
 
-class CUDADeviceAttr : public InheritableAttr {
+class CLANG_ABI CUDADeviceAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_device = 0,
@@ -2890,7 +2982,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::CUDADevice; }
 };
 
-class CUDADeviceBuiltinSurfaceTypeAttr : public InheritableAttr {
+class CLANG_ABI CUDADeviceBuiltinSurfaceTypeAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_device_builtin_surface_type = 0,
@@ -2918,7 +3010,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::CUDADeviceBuiltinSurfaceType; }
 };
 
-class CUDADeviceBuiltinTextureTypeAttr : public InheritableAttr {
+class CLANG_ABI CUDADeviceBuiltinTextureTypeAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_device_builtin_texture_type = 0,
@@ -2946,7 +3038,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::CUDADeviceBuiltinTextureType; }
 };
 
-class CUDAGlobalAttr : public InheritableAttr {
+class CLANG_ABI CUDAGlobalAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_global = 0,
@@ -2974,7 +3066,35 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::CUDAGlobal; }
 };
 
-class CUDAHostAttr : public InheritableAttr {
+class CLANG_ABI CUDAGridConstantAttr : public InheritableAttr {
+public:
+  enum Spelling {
+    GNU_grid_constant = 0,
+    Declspec_grid_constant = 1,
+  SpellingNotCalculated = 15
+
+  };
+
+  // Factory methods
+  static CUDAGridConstantAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static CUDAGridConstantAttr *Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static CUDAGridConstantAttr *CreateImplicit(ASTContext &Ctx, SourceRange Range = {}, Spelling S = GNU_grid_constant);
+  static CUDAGridConstantAttr *Create(ASTContext &Ctx, SourceRange Range = {}, Spelling S = GNU_grid_constant);
+
+  // Constructors
+  CUDAGridConstantAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             );
+
+  CUDAGridConstantAttr *clone(ASTContext &C) const;
+  void printPretty(raw_ostream &OS,
+                   const PrintingPolicy &Policy) const;
+  const char *getSpelling() const;
+
+
+  static bool classof(const Attr *A) { return A->getKind() == attr::CUDAGridConstant; }
+};
+
+class CLANG_ABI CUDAHostAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_host = 0,
@@ -3002,7 +3122,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::CUDAHost; }
 };
 
-class CUDAInvalidTargetAttr : public InheritableAttr {
+class CLANG_ABI CUDAInvalidTargetAttr : public InheritableAttr {
 public:
   // Factory methods
   static CUDAInvalidTargetAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
@@ -3023,7 +3143,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::CUDAInvalidTarget; }
 };
 
-class CUDALaunchBoundsAttr : public InheritableAttr {
+class CLANG_ABI CUDALaunchBoundsAttr : public InheritableAttr {
 Expr * maxThreads;
 
 Expr * minBlocks;
@@ -3075,7 +3195,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::CUDALaunchBounds; }
 };
 
-class CUDASharedAttr : public InheritableAttr {
+class CLANG_ABI CUDASharedAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_shared = 0,
@@ -3103,7 +3223,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::CUDAShared; }
 };
 
-class CXX11NoReturnAttr : public InheritableAttr {
+class CLANG_ABI CXX11NoReturnAttr : public InheritableAttr {
 public:
   enum Spelling {
     CXX11_noreturn = 0,
@@ -3133,7 +3253,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::CXX11NoReturn; }
 };
 
-class CXXAssumeAttr : public StmtAttr {
+class CLANG_ABI CXXAssumeAttr : public StmtAttr {
 Expr * assumption;
 
 public:
@@ -3170,7 +3290,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::CXXAssume; }
 };
 
-class CallableWhenAttr : public InheritableAttr {
+class CLANG_ABI CallableWhenAttr : public InheritableAttr {
 public:
   enum ConsumedState {
     Unknown,
@@ -3220,7 +3340,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::CallableWhen; }
 };
 
-class CallbackAttr : public InheritableAttr {
+class CLANG_ABI CallbackAttr : public InheritableAttr {
   unsigned encoding_Size;
   int *encoding_;
 
@@ -3262,7 +3382,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Callback; }
 };
 
-class CalledOnceAttr : public Attr {
+class CLANG_ABI CalledOnceAttr : public Attr {
 public:
   enum Spelling {
     GNU_called_once = 0,
@@ -3291,7 +3411,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::CalledOnce; }
 };
 
-class CapabilityAttr : public InheritableAttr {
+class CLANG_ABI CapabilityAttr : public InheritableAttr {
 unsigned nameLength;
 char *name;
 
@@ -3341,7 +3461,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Capability; }
 };
 
-class CapturedRecordAttr : public InheritableAttr {
+class CLANG_ABI CapturedRecordAttr : public InheritableAttr {
 public:
   // Factory methods
   static CapturedRecordAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
@@ -3362,7 +3482,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::CapturedRecord; }
 };
 
-class CarriesDependencyAttr : public InheritableParamAttr {
+class CLANG_ABI CarriesDependencyAttr : public InheritableParamAttr {
 public:
   enum Spelling {
     GNU_carries_dependency = 0,
@@ -3390,7 +3510,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::CarriesDependency; }
 };
 
-class CleanupAttr : public InheritableAttr {
+class CLANG_ABI CleanupAttr : public InheritableAttr {
 FunctionDecl * functionDecl;
 
 public:
@@ -3426,7 +3546,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Cleanup; }
 };
 
-class ClspvLibclcBuiltinAttr : public InheritableAttr {
+class CLANG_ABI ClspvLibclcBuiltinAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_clspv_libclc_builtin = 0,
@@ -3455,7 +3575,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ClspvLibclcBuiltin; }
 };
 
-class CmseNSCallAttr : public TypeAttr {
+class CLANG_ABI CmseNSCallAttr : public TypeAttr {
 public:
   // Factory methods
   static CmseNSCallAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
@@ -3476,7 +3596,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::CmseNSCall; }
 };
 
-class CmseNSEntryAttr : public InheritableAttr {
+class CLANG_ABI CmseNSEntryAttr : public InheritableAttr {
 public:
   // Factory methods
   static CmseNSEntryAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
@@ -3497,7 +3617,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::CmseNSEntry; }
 };
 
-class CodeAlignAttr : public StmtAttr {
+class CLANG_ABI CodeAlignAttr : public StmtAttr {
 Expr * alignment;
 
 public:
@@ -3536,7 +3656,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::CodeAlign; }
 };
 
-class CodeModelAttr : public InheritableAttr {
+class CLANG_ABI CodeModelAttr : public InheritableAttr {
 private:
   llvm::CodeModel::Model model;
 
@@ -3575,7 +3695,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::CodeModel; }
 };
 
-class CodeSegAttr : public InheritableAttr {
+class CLANG_ABI CodeSegAttr : public InheritableAttr {
 unsigned nameLength;
 char *name;
 
@@ -3613,7 +3733,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::CodeSeg; }
 };
 
-class ColdAttr : public InheritableAttr {
+class CLANG_ABI ColdAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_cold = 0,
@@ -3642,7 +3762,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Cold; }
 };
 
-class CommonAttr : public InheritableAttr {
+class CLANG_ABI CommonAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_common = 0,
@@ -3671,7 +3791,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Common; }
 };
 
-class ConstAttr : public InheritableAttr {
+class CLANG_ABI ConstAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_const = 0,
@@ -3700,7 +3820,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Const; }
 };
 
-class ConstInitAttr : public InheritableAttr {
+class CLANG_ABI ConstInitAttr : public InheritableAttr {
 public:
   enum Spelling {
     Keyword_constinit = 0,
@@ -3731,7 +3851,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ConstInit; }
 };
 
-class ConstructorAttr : public InheritableAttr {
+class CLANG_ABI ConstructorAttr : public InheritableAttr {
 int priority;
 
 public:
@@ -3771,7 +3891,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Constructor; }
 };
 
-class ConsumableAttr : public InheritableAttr {
+class CLANG_ABI ConsumableAttr : public InheritableAttr {
 public:
   enum ConsumedState {
     Unknown,
@@ -3815,7 +3935,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Consumable; }
 };
 
-class ConsumableAutoCastAttr : public InheritableAttr {
+class CLANG_ABI ConsumableAutoCastAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_consumable_auto_cast_state = 0,
@@ -3843,7 +3963,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ConsumableAutoCast; }
 };
 
-class ConsumableSetOnReadAttr : public InheritableAttr {
+class CLANG_ABI ConsumableSetOnReadAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_consumable_set_state_on_read = 0,
@@ -3871,7 +3991,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ConsumableSetOnRead; }
 };
 
-class ConvergentAttr : public InheritableAttr {
+class CLANG_ABI ConvergentAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_convergent = 0,
@@ -3900,7 +4020,65 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Convergent; }
 };
 
-class CoroDisableLifetimeBoundAttr : public InheritableAttr {
+class CLANG_ABI CoroAwaitElidableAttr : public InheritableAttr {
+public:
+  enum Spelling {
+    GNU_coro_await_elidable = 0,
+    CXX11_clang_coro_await_elidable = 1,
+    C23_clang_coro_await_elidable = 2,
+  SpellingNotCalculated = 15
+
+  };
+
+  // Factory methods
+  static CoroAwaitElidableAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static CoroAwaitElidableAttr *Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static CoroAwaitElidableAttr *CreateImplicit(ASTContext &Ctx, SourceRange Range = {}, Spelling S = GNU_coro_await_elidable);
+  static CoroAwaitElidableAttr *Create(ASTContext &Ctx, SourceRange Range = {}, Spelling S = GNU_coro_await_elidable);
+
+  // Constructors
+  CoroAwaitElidableAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             );
+
+  CoroAwaitElidableAttr *clone(ASTContext &C) const;
+  void printPretty(raw_ostream &OS,
+                   const PrintingPolicy &Policy) const;
+  const char *getSpelling() const;
+
+
+  static bool classof(const Attr *A) { return A->getKind() == attr::CoroAwaitElidable; }
+};
+
+class CLANG_ABI CoroAwaitElidableArgumentAttr : public InheritableAttr {
+public:
+  enum Spelling {
+    GNU_coro_await_elidable_argument = 0,
+    CXX11_clang_coro_await_elidable_argument = 1,
+    C23_clang_coro_await_elidable_argument = 2,
+  SpellingNotCalculated = 15
+
+  };
+
+  // Factory methods
+  static CoroAwaitElidableArgumentAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static CoroAwaitElidableArgumentAttr *Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static CoroAwaitElidableArgumentAttr *CreateImplicit(ASTContext &Ctx, SourceRange Range = {}, Spelling S = GNU_coro_await_elidable_argument);
+  static CoroAwaitElidableArgumentAttr *Create(ASTContext &Ctx, SourceRange Range = {}, Spelling S = GNU_coro_await_elidable_argument);
+
+  // Constructors
+  CoroAwaitElidableArgumentAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             );
+
+  CoroAwaitElidableArgumentAttr *clone(ASTContext &C) const;
+  void printPretty(raw_ostream &OS,
+                   const PrintingPolicy &Policy) const;
+  const char *getSpelling() const;
+
+
+  static bool classof(const Attr *A) { return A->getKind() == attr::CoroAwaitElidableArgument; }
+};
+
+class CLANG_ABI CoroDisableLifetimeBoundAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_coro_disable_lifetimebound = 0,
@@ -3929,7 +4107,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::CoroDisableLifetimeBound; }
 };
 
-class CoroLifetimeBoundAttr : public InheritableAttr {
+class CLANG_ABI CoroLifetimeBoundAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_coro_lifetimebound = 0,
@@ -3958,7 +4136,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::CoroLifetimeBound; }
 };
 
-class CoroOnlyDestroyWhenCompleteAttr : public InheritableAttr {
+class CLANG_ABI CoroOnlyDestroyWhenCompleteAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_coro_only_destroy_when_complete = 0,
@@ -3987,7 +4165,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::CoroOnlyDestroyWhenComplete; }
 };
 
-class CoroReturnTypeAttr : public InheritableAttr {
+class CLANG_ABI CoroReturnTypeAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_coro_return_type = 0,
@@ -4016,7 +4194,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::CoroReturnType; }
 };
 
-class CoroWrapperAttr : public InheritableAttr {
+class CLANG_ABI CoroWrapperAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_coro_wrapper = 0,
@@ -4045,7 +4223,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::CoroWrapper; }
 };
 
-class CountedByAttr : public InheritableAttr {
+class CLANG_ABI CountedByAttr : public InheritableAttr {
 Expr * count;
 
 int nestedLevel;
@@ -4091,7 +4269,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::CountedBy; }
 };
 
-class CountedByOrNullAttr : public InheritableAttr {
+class CLANG_ABI CountedByOrNullAttr : public InheritableAttr {
 Expr * count;
 
 int nestedLevel;
@@ -4137,7 +4315,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::CountedByOrNull; }
 };
 
-class DLLExportAttr : public InheritableAttr {
+class CLANG_ABI DLLExportAttr : public InheritableAttr {
 public:
   enum Spelling {
     Declspec_dllexport = 0,
@@ -4167,7 +4345,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::DLLExport; }
 };
 
-class DLLExportStaticLocalAttr : public InheritableAttr {
+class CLANG_ABI DLLExportStaticLocalAttr : public InheritableAttr {
 public:
   // Factory methods
   static DLLExportStaticLocalAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
@@ -4188,7 +4366,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::DLLExportStaticLocal; }
 };
 
-class DLLImportAttr : public InheritableAttr {
+class CLANG_ABI DLLImportAttr : public InheritableAttr {
 public:
   enum Spelling {
     Declspec_dllimport = 0,
@@ -4225,7 +4403,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::DLLImport; }
 };
 
-class DLLImportStaticLocalAttr : public InheritableAttr {
+class CLANG_ABI DLLImportStaticLocalAttr : public InheritableAttr {
 public:
   // Factory methods
   static DLLImportStaticLocalAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
@@ -4246,7 +4424,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::DLLImportStaticLocal; }
 };
 
-class DeprecatedAttr : public InheritableAttr {
+class CLANG_ABI DeprecatedAttr : public InheritableAttr {
 unsigned messageLength;
 char *message;
 
@@ -4314,7 +4492,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Deprecated; }
 };
 
-class DestructorAttr : public InheritableAttr {
+class CLANG_ABI DestructorAttr : public InheritableAttr {
 int priority;
 
 public:
@@ -4354,7 +4532,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Destructor; }
 };
 
-class DiagnoseAsBuiltinAttr : public InheritableAttr {
+class CLANG_ABI DiagnoseAsBuiltinAttr : public InheritableAttr {
 FunctionDecl * function;
 
   unsigned argIndices_Size;
@@ -4404,19 +4582,22 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::DiagnoseAsBuiltin; }
 };
 
-class DiagnoseIfAttr : public InheritableAttr {
+class CLANG_ABI DiagnoseIfAttr : public InheritableAttr {
 Expr * cond;
 
 unsigned messageLength;
 char *message;
 
 public:
-  enum DiagnosticType {
-    DT_Error,
-    DT_Warning
+  enum DefaultSeverity {
+    DS_error,
+    DS_warning
   };
 private:
-  DiagnoseIfAttr::DiagnosticType diagnosticType;
+  DiagnoseIfAttr::DefaultSeverity defaultSeverity;
+
+unsigned warningGroupLength;
+char *warningGroup;
 
 bool argDependent;
 
@@ -4424,27 +4605,34 @@ NamedDecl * parent;
 
 public:
   // Factory methods
-  static DiagnoseIfAttr *CreateImplicit(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnoseIfAttr::DiagnosticType DiagnosticType, bool ArgDependent, NamedDecl * Parent, const AttributeCommonInfo &CommonInfo);
-  static DiagnoseIfAttr *Create(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnoseIfAttr::DiagnosticType DiagnosticType, bool ArgDependent, NamedDecl * Parent, const AttributeCommonInfo &CommonInfo);
-  static DiagnoseIfAttr *CreateImplicit(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnoseIfAttr::DiagnosticType DiagnosticType, bool ArgDependent, NamedDecl * Parent, SourceRange Range = {});
-  static DiagnoseIfAttr *Create(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnoseIfAttr::DiagnosticType DiagnosticType, bool ArgDependent, NamedDecl * Parent, SourceRange Range = {});
-  static DiagnoseIfAttr *CreateImplicit(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnoseIfAttr::DiagnosticType DiagnosticType, const AttributeCommonInfo &CommonInfo);
-  static DiagnoseIfAttr *Create(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnoseIfAttr::DiagnosticType DiagnosticType, const AttributeCommonInfo &CommonInfo);
-  static DiagnoseIfAttr *CreateImplicit(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnoseIfAttr::DiagnosticType DiagnosticType, SourceRange Range = {});
-  static DiagnoseIfAttr *Create(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnoseIfAttr::DiagnosticType DiagnosticType, SourceRange Range = {});
+  static DiagnoseIfAttr *CreateImplicit(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnoseIfAttr::DefaultSeverity DefaultSeverity, llvm::StringRef WarningGroup, bool ArgDependent, NamedDecl * Parent, const AttributeCommonInfo &CommonInfo);
+  static DiagnoseIfAttr *Create(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnoseIfAttr::DefaultSeverity DefaultSeverity, llvm::StringRef WarningGroup, bool ArgDependent, NamedDecl * Parent, const AttributeCommonInfo &CommonInfo);
+  static DiagnoseIfAttr *CreateImplicit(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnoseIfAttr::DefaultSeverity DefaultSeverity, llvm::StringRef WarningGroup, bool ArgDependent, NamedDecl * Parent, SourceRange Range = {});
+  static DiagnoseIfAttr *Create(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnoseIfAttr::DefaultSeverity DefaultSeverity, llvm::StringRef WarningGroup, bool ArgDependent, NamedDecl * Parent, SourceRange Range = {});
+  static DiagnoseIfAttr *CreateImplicit(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnoseIfAttr::DefaultSeverity DefaultSeverity, llvm::StringRef WarningGroup, const AttributeCommonInfo &CommonInfo);
+  static DiagnoseIfAttr *Create(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnoseIfAttr::DefaultSeverity DefaultSeverity, llvm::StringRef WarningGroup, const AttributeCommonInfo &CommonInfo);
+  static DiagnoseIfAttr *CreateImplicit(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnoseIfAttr::DefaultSeverity DefaultSeverity, llvm::StringRef WarningGroup, SourceRange Range = {});
+  static DiagnoseIfAttr *Create(ASTContext &Ctx, Expr * Cond, llvm::StringRef Message, DiagnoseIfAttr::DefaultSeverity DefaultSeverity, llvm::StringRef WarningGroup, SourceRange Range = {});
 
   // Constructors
   DiagnoseIfAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
               , Expr * Cond
               , llvm::StringRef Message
-              , DiagnoseIfAttr::DiagnosticType DiagnosticType
+              , DiagnoseIfAttr::DefaultSeverity DefaultSeverity
+              , llvm::StringRef WarningGroup
               , bool ArgDependent
               , NamedDecl * Parent
              );
   DiagnoseIfAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
               , Expr * Cond
               , llvm::StringRef Message
-              , DiagnoseIfAttr::DiagnosticType DiagnosticType
+              , DiagnoseIfAttr::DefaultSeverity DefaultSeverity
+              , llvm::StringRef WarningGroup
+             );
+  DiagnoseIfAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , Expr * Cond
+              , llvm::StringRef Message
+              , DiagnoseIfAttr::DefaultSeverity DefaultSeverity
              );
 
   DiagnoseIfAttr *clone(ASTContext &C) const;
@@ -4468,12 +4656,25 @@ public:
       std::memcpy(this->message, S.data(), messageLength);
   }
 
-  DiagnoseIfAttr::DiagnosticType getDiagnosticType() const {
-    return diagnosticType;
+  DiagnoseIfAttr::DefaultSeverity getDefaultSeverity() const {
+    return defaultSeverity;
   }
 
-  static bool ConvertStrToDiagnosticType(StringRef Val, DiagnoseIfAttr::DiagnosticType &Out);
-  static const char *ConvertDiagnosticTypeToStr(DiagnoseIfAttr::DiagnosticType Val);
+  static bool ConvertStrToDefaultSeverity(StringRef Val, DiagnoseIfAttr::DefaultSeverity &Out);
+  static const char *ConvertDefaultSeverityToStr(DiagnoseIfAttr::DefaultSeverity Val);
+  llvm::StringRef getWarningGroup() const {
+    return llvm::StringRef(warningGroup, warningGroupLength);
+  }
+  unsigned getWarningGroupLength() const {
+    return warningGroupLength;
+  }
+  void setWarningGroup(ASTContext &C, llvm::StringRef S) {
+    warningGroupLength = S.size();
+    this->warningGroup = new (C, 1) char [warningGroupLength];
+    if (!S.empty())
+      std::memcpy(this->warningGroup, S.data(), warningGroupLength);
+  }
+
   bool getArgDependent() const {
     return argDependent;
   }
@@ -4483,14 +4684,11 @@ public:
   }
 
 
-    bool isError() const { return diagnosticType == DT_Error; }
-    bool isWarning() const { return diagnosticType == DT_Warning; }
-  
 
   static bool classof(const Attr *A) { return A->getKind() == attr::DiagnoseIf; }
 };
 
-class DisableSanitizerInstrumentationAttr : public InheritableAttr {
+class CLANG_ABI DisableSanitizerInstrumentationAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_disable_sanitizer_instrumentation = 0,
@@ -4519,7 +4717,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::DisableSanitizerInstrumentation; }
 };
 
-class DisableTailCallsAttr : public InheritableAttr {
+class CLANG_ABI DisableTailCallsAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_disable_tail_calls = 0,
@@ -4548,7 +4746,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::DisableTailCalls; }
 };
 
-class EmptyBasesAttr : public InheritableAttr {
+class CLANG_ABI EmptyBasesAttr : public InheritableAttr {
 public:
   // Factory methods
   static EmptyBasesAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
@@ -4569,7 +4767,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::EmptyBases; }
 };
 
-class EnableIfAttr : public InheritableAttr {
+class CLANG_ABI EnableIfAttr : public InheritableAttr {
 Expr * cond;
 
 unsigned messageLength;
@@ -4614,7 +4812,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::EnableIf; }
 };
 
-class EnforceTCBAttr : public InheritableAttr {
+class CLANG_ABI EnforceTCBAttr : public InheritableAttr {
 unsigned tCBNameLength;
 char *tCBName;
 
@@ -4660,7 +4858,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::EnforceTCB; }
 };
 
-class EnforceTCBLeafAttr : public InheritableAttr {
+class CLANG_ABI EnforceTCBLeafAttr : public InheritableAttr {
 unsigned tCBNameLength;
 char *tCBName;
 
@@ -4706,7 +4904,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::EnforceTCBLeaf; }
 };
 
-class EnumExtensibilityAttr : public InheritableAttr {
+class CLANG_ABI EnumExtensibilityAttr : public InheritableAttr {
 public:
   enum Kind {
     Closed,
@@ -4750,7 +4948,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::EnumExtensibility; }
 };
 
-class ErrorAttr : public InheritableAttr {
+class CLANG_ABI ErrorAttr : public InheritableAttr {
 unsigned userDiagnosticLength;
 char *userDiagnostic;
 
@@ -4806,7 +5004,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Error; }
 };
 
-class ExcludeFromExplicitInstantiationAttr : public InheritableAttr {
+class CLANG_ABI ExcludeFromExplicitInstantiationAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_exclude_from_explicit_instantiation = 0,
@@ -4835,7 +5033,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ExcludeFromExplicitInstantiation; }
 };
 
-class ExclusiveTrylockFunctionAttr : public InheritableAttr {
+class CLANG_ABI ExclusiveTrylockFunctionAttr : public InheritableAttr {
 Expr * successValue;
 
   unsigned args_Size;
@@ -4877,7 +5075,36 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ExclusiveTrylockFunction; }
 };
 
-class ExternalSourceSymbolAttr : public InheritableAttr {
+class CLANG_ABI ExplicitInitAttr : public InheritableAttr {
+public:
+  enum Spelling {
+    GNU_require_explicit_initialization = 0,
+    CXX11_clang_require_explicit_initialization = 1,
+    C23_clang_require_explicit_initialization = 2,
+  SpellingNotCalculated = 15
+
+  };
+
+  // Factory methods
+  static ExplicitInitAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static ExplicitInitAttr *Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static ExplicitInitAttr *CreateImplicit(ASTContext &Ctx, SourceRange Range = {}, Spelling S = GNU_require_explicit_initialization);
+  static ExplicitInitAttr *Create(ASTContext &Ctx, SourceRange Range = {}, Spelling S = GNU_require_explicit_initialization);
+
+  // Constructors
+  ExplicitInitAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             );
+
+  ExplicitInitAttr *clone(ASTContext &C) const;
+  void printPretty(raw_ostream &OS,
+                   const PrintingPolicy &Policy) const;
+  const char *getSpelling() const;
+
+
+  static bool classof(const Attr *A) { return A->getKind() == attr::ExplicitInit; }
+};
+
+class CLANG_ABI ExternalSourceSymbolAttr : public InheritableAttr {
 unsigned languageLength;
 char *language;
 
@@ -4966,7 +5193,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ExternalSourceSymbol; }
 };
 
-class FallThroughAttr : public StmtAttr {
+class CLANG_ABI FallThroughAttr : public StmtAttr {
 public:
   enum Spelling {
     CXX11_fallthrough = 0,
@@ -4998,7 +5225,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::FallThrough; }
 };
 
-class FastCallAttr : public InheritableAttr {
+class CLANG_ABI FastCallAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_fastcall = 0,
@@ -5028,7 +5255,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::FastCall; }
 };
 
-class FinalAttr : public InheritableAttr {
+class CLANG_ABI FinalAttr : public InheritableAttr {
 public:
   enum Spelling {
     Keyword_final = 0,
@@ -5058,7 +5285,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Final; }
 };
 
-class FlagEnumAttr : public InheritableAttr {
+class CLANG_ABI FlagEnumAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_flag_enum = 0,
@@ -5087,7 +5314,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::FlagEnum; }
 };
 
-class FlattenAttr : public InheritableAttr {
+class CLANG_ABI FlattenAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_flatten = 0,
@@ -5116,7 +5343,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Flatten; }
 };
 
-class FormatAttr : public InheritableAttr {
+class CLANG_ABI FormatAttr : public InheritableAttr {
 IdentifierInfo * type;
 
 int formatIdx;
@@ -5166,7 +5393,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Format; }
 };
 
-class FormatArgAttr : public InheritableAttr {
+class CLANG_ABI FormatArgAttr : public InheritableAttr {
 ParamIdx formatIdx;
 
 public:
@@ -5202,7 +5429,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::FormatArg; }
 };
 
-class FunctionReturnThunksAttr : public InheritableAttr {
+class CLANG_ABI FunctionReturnThunksAttr : public InheritableAttr {
 public:
   enum Kind {
     Keep,
@@ -5246,7 +5473,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::FunctionReturnThunks; }
 };
 
-class GNUInlineAttr : public InheritableAttr {
+class CLANG_ABI GNUInlineAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_gnu_inline = 0,
@@ -5275,7 +5502,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::GNUInline; }
 };
 
-class GuardedByAttr : public InheritableAttr {
+class CLANG_ABI GuardedByAttr : public InheritableAttr {
 Expr * arg;
 
 public:
@@ -5303,7 +5530,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::GuardedBy; }
 };
 
-class GuardedVarAttr : public InheritableAttr {
+class CLANG_ABI GuardedVarAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_guarded_var = 0,
@@ -5331,7 +5558,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::GuardedVar; }
 };
 
-class HIPManagedAttr : public InheritableAttr {
+class CLANG_ABI HIPManagedAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_managed = 0,
@@ -5359,7 +5586,66 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::HIPManaged; }
 };
 
-class HLSLGroupSharedAddressSpaceAttr : public TypeAttr {
+class CLANG_ABI HLSLContainedTypeAttr : public TypeAttr {
+TypeSourceInfo * type;
+
+public:
+  // Factory methods
+  static HLSLContainedTypeAttr *CreateImplicit(ASTContext &Ctx, TypeSourceInfo * Type, const AttributeCommonInfo &CommonInfo);
+  static HLSLContainedTypeAttr *Create(ASTContext &Ctx, TypeSourceInfo * Type, const AttributeCommonInfo &CommonInfo);
+  static HLSLContainedTypeAttr *CreateImplicit(ASTContext &Ctx, TypeSourceInfo * Type, SourceRange Range = {});
+  static HLSLContainedTypeAttr *Create(ASTContext &Ctx, TypeSourceInfo * Type, SourceRange Range = {});
+
+  // Constructors
+  HLSLContainedTypeAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , TypeSourceInfo * Type
+             );
+
+  HLSLContainedTypeAttr *clone(ASTContext &C) const;
+  void printPretty(raw_ostream &OS,
+                   const PrintingPolicy &Policy) const;
+  const char *getSpelling() const;
+  QualType getType() const {
+    return type->getType();
+  }  TypeSourceInfo * getTypeLoc() const {
+    return type;
+  }
+
+
+
+  static bool classof(const Attr *A) { return A->getKind() == attr::HLSLContainedType; }
+};
+
+class CLANG_ABI HLSLControlFlowHintAttr : public StmtAttr {
+public:
+  enum Spelling {
+    Microsoft_branch = 0,
+    Microsoft_flatten = 1,
+  SpellingNotCalculated = 15
+
+  };
+
+  // Factory methods
+  static HLSLControlFlowHintAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static HLSLControlFlowHintAttr *Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static HLSLControlFlowHintAttr *CreateImplicit(ASTContext &Ctx, SourceRange Range = {}, Spelling S = Microsoft_branch);
+  static HLSLControlFlowHintAttr *Create(ASTContext &Ctx, SourceRange Range = {}, Spelling S = Microsoft_branch);
+
+  // Constructors
+  HLSLControlFlowHintAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             );
+
+  HLSLControlFlowHintAttr *clone(ASTContext &C) const;
+  void printPretty(raw_ostream &OS,
+                   const PrintingPolicy &Policy) const;
+  const char *getSpelling() const;
+  Spelling getSemanticSpelling() const;
+
+
+  static bool classof(const Attr *A) { return A->getKind() == attr::HLSLControlFlowHint; }
+};
+
+class CLANG_ABI HLSLGroupSharedAddressSpaceAttr : public TypeAttr {
 public:
   // Factory methods
   static HLSLGroupSharedAddressSpaceAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
@@ -5380,7 +5666,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::HLSLGroupSharedAddressSpace; }
 };
 
-class HLSLLoopHintAttr : public StmtAttr {
+class CLANG_ABI HLSLLoopHintAttr : public StmtAttr {
 unsigned directive;
 
 public:
@@ -5418,7 +5704,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::HLSLLoopHint; }
 };
 
-class HLSLNumThreadsAttr : public InheritableAttr {
+class CLANG_ABI HLSLNumThreadsAttr : public InheritableAttr {
 int x;
 
 int y;
@@ -5460,7 +5746,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::HLSLNumThreads; }
 };
 
-class HLSLPackOffsetAttr : public HLSLAnnotationAttr {
+class CLANG_ABI HLSLPackOffsetAttr : public HLSLAnnotationAttr {
 int subcomponent;
 
 int component;
@@ -5491,15 +5777,15 @@ public:
   }
 
 
-      unsigned getOffset() {
-        return subcomponent * 4 + component;
-      }
+  unsigned getOffsetInBytes() {
+    return subcomponent * 16 + component * 4;
+  }
   
 
   static bool classof(const Attr *A) { return A->getKind() == attr::HLSLPackOffset; }
 };
 
-class HLSLParamModifierAttr : public TypeAttr {
+class CLANG_ABI HLSLParamModifierAttr : public ParameterABIAttr {
 bool mergedSpelling;
 
 public:
@@ -5551,24 +5837,60 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::HLSLParamModifier; }
 };
 
-class HLSLResourceAttr : public InheritableAttr {
+class CLANG_ABI HLSLROVAttr : public TypeAttr {
+public:
+  // Factory methods
+  static HLSLROVAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static HLSLROVAttr *Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static HLSLROVAttr *CreateImplicit(ASTContext &Ctx, SourceRange Range = {});
+  static HLSLROVAttr *Create(ASTContext &Ctx, SourceRange Range = {});
+
+  // Constructors
+  HLSLROVAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             );
+
+  HLSLROVAttr *clone(ASTContext &C) const;
+  void printPretty(raw_ostream &OS,
+                   const PrintingPolicy &Policy) const;
+  const char *getSpelling() const;
+
+
+  static bool classof(const Attr *A) { return A->getKind() == attr::HLSLROV; }
+};
+
+class CLANG_ABI HLSLRawBufferAttr : public TypeAttr {
+public:
+  // Factory methods
+  static HLSLRawBufferAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static HLSLRawBufferAttr *Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static HLSLRawBufferAttr *CreateImplicit(ASTContext &Ctx, SourceRange Range = {});
+  static HLSLRawBufferAttr *Create(ASTContext &Ctx, SourceRange Range = {});
+
+  // Constructors
+  HLSLRawBufferAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             );
+
+  HLSLRawBufferAttr *clone(ASTContext &C) const;
+  void printPretty(raw_ostream &OS,
+                   const PrintingPolicy &Policy) const;
+  const char *getSpelling() const;
+
+
+  static bool classof(const Attr *A) { return A->getKind() == attr::HLSLRawBuffer; }
+};
+
+class CLANG_ABI HLSLResourceAttr : public InheritableAttr {
 private:
   llvm::hlsl::ResourceKind resourceKind;
 
-bool isROV;
-
 public:
   // Factory methods
-  static HLSLResourceAttr *CreateImplicit(ASTContext &Ctx, llvm::hlsl::ResourceKind ResourceKind, bool IsROV, const AttributeCommonInfo &CommonInfo);
-  static HLSLResourceAttr *Create(ASTContext &Ctx, llvm::hlsl::ResourceKind ResourceKind, bool IsROV, const AttributeCommonInfo &CommonInfo);
-  static HLSLResourceAttr *CreateImplicit(ASTContext &Ctx, llvm::hlsl::ResourceKind ResourceKind, bool IsROV, SourceRange Range = {});
-  static HLSLResourceAttr *Create(ASTContext &Ctx, llvm::hlsl::ResourceKind ResourceKind, bool IsROV, SourceRange Range = {});
+  static HLSLResourceAttr *CreateImplicit(ASTContext &Ctx, llvm::hlsl::ResourceKind ResourceKind, const AttributeCommonInfo &CommonInfo);
+  static HLSLResourceAttr *Create(ASTContext &Ctx, llvm::hlsl::ResourceKind ResourceKind, const AttributeCommonInfo &CommonInfo);
+  static HLSLResourceAttr *CreateImplicit(ASTContext &Ctx, llvm::hlsl::ResourceKind ResourceKind, SourceRange Range = {});
+  static HLSLResourceAttr *Create(ASTContext &Ctx, llvm::hlsl::ResourceKind ResourceKind, SourceRange Range = {});
 
   // Constructors
-  HLSLResourceAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , llvm::hlsl::ResourceKind ResourceKind
-              , bool IsROV
-             );
   HLSLResourceAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
               , llvm::hlsl::ResourceKind ResourceKind
              );
@@ -5583,18 +5905,12 @@ public:
 
   static bool ConvertStrToResourceKind(StringRef Val, llvm::hlsl::ResourceKind &Out);
   static const char *ConvertResourceKindToStr(llvm::hlsl::ResourceKind Val);
-  bool getIsROV() const {
-    return isROV;
-  }
-
-  static const bool DefaultIsROV = false;
-
 
 
   static bool classof(const Attr *A) { return A->getKind() == attr::HLSLResource; }
 };
 
-class HLSLResourceBindingAttr : public InheritableAttr {
+class CLANG_ABI HLSLResourceBindingAttr : public InheritableAttr {
 unsigned slotLength;
 char *slot;
 
@@ -5648,11 +5964,35 @@ public:
   }
 
 
+  public:
+      enum class RegisterType : unsigned { SRV, UAV, CBuffer, Sampler, C, I };
+
+  private:
+      RegisterType RegType;
+      unsigned SlotNumber;
+      unsigned SpaceNumber;
+
+  public:
+      void setBinding(RegisterType RT, unsigned SlotNum, unsigned SpaceNum) {
+        RegType = RT;
+        SlotNumber = SlotNum;
+        SpaceNumber = SpaceNum;
+      }
+      RegisterType getRegisterType() const {
+        return RegType;
+      }
+      unsigned getSlotNumber() const {
+        return SlotNumber;
+      }
+      unsigned getSpaceNumber() const {
+        return SpaceNumber;
+      }
+  
 
   static bool classof(const Attr *A) { return A->getKind() == attr::HLSLResourceBinding; }
 };
 
-class HLSLResourceClassAttr : public InheritableAttr {
+class CLANG_ABI HLSLResourceClassAttr : public TypeAttr {
 private:
   llvm::hlsl::ResourceClass resourceClass;
 
@@ -5683,7 +6023,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::HLSLResourceClass; }
 };
 
-class HLSLSV_DispatchThreadIDAttr : public HLSLAnnotationAttr {
+class CLANG_ABI HLSLSV_DispatchThreadIDAttr : public HLSLAnnotationAttr {
 public:
   // Factory methods
   static HLSLSV_DispatchThreadIDAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
@@ -5704,7 +6044,28 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::HLSLSV_DispatchThreadID; }
 };
 
-class HLSLSV_GroupIndexAttr : public HLSLAnnotationAttr {
+class CLANG_ABI HLSLSV_GroupIDAttr : public HLSLAnnotationAttr {
+public:
+  // Factory methods
+  static HLSLSV_GroupIDAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static HLSLSV_GroupIDAttr *Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static HLSLSV_GroupIDAttr *CreateImplicit(ASTContext &Ctx, SourceRange Range = {});
+  static HLSLSV_GroupIDAttr *Create(ASTContext &Ctx, SourceRange Range = {});
+
+  // Constructors
+  HLSLSV_GroupIDAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             );
+
+  HLSLSV_GroupIDAttr *clone(ASTContext &C) const;
+  void printPretty(raw_ostream &OS,
+                   const PrintingPolicy &Policy) const;
+  const char *getSpelling() const;
+
+
+  static bool classof(const Attr *A) { return A->getKind() == attr::HLSLSV_GroupID; }
+};
+
+class CLANG_ABI HLSLSV_GroupIndexAttr : public HLSLAnnotationAttr {
 public:
   // Factory methods
   static HLSLSV_GroupIndexAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
@@ -5725,7 +6086,28 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::HLSLSV_GroupIndex; }
 };
 
-class HLSLShaderAttr : public InheritableAttr {
+class CLANG_ABI HLSLSV_GroupThreadIDAttr : public HLSLAnnotationAttr {
+public:
+  // Factory methods
+  static HLSLSV_GroupThreadIDAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static HLSLSV_GroupThreadIDAttr *Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static HLSLSV_GroupThreadIDAttr *CreateImplicit(ASTContext &Ctx, SourceRange Range = {});
+  static HLSLSV_GroupThreadIDAttr *Create(ASTContext &Ctx, SourceRange Range = {});
+
+  // Constructors
+  HLSLSV_GroupThreadIDAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             );
+
+  HLSLSV_GroupThreadIDAttr *clone(ASTContext &C) const;
+  void printPretty(raw_ostream &OS,
+                   const PrintingPolicy &Policy) const;
+  const char *getSpelling() const;
+
+
+  static bool classof(const Attr *A) { return A->getKind() == attr::HLSLSV_GroupThreadID; }
+};
+
+class CLANG_ABI HLSLShaderAttr : public InheritableAttr {
 private:
   llvm::Triple::EnvironmentType type;
 
@@ -5760,7 +6142,63 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::HLSLShader; }
 };
 
-class HotAttr : public InheritableAttr {
+class CLANG_ABI HLSLWaveSizeAttr : public InheritableAttr {
+int min;
+
+int max;
+
+int preferred;
+
+public:
+  // Factory methods
+  static HLSLWaveSizeAttr *CreateImplicit(ASTContext &Ctx, int Min, int Max, int Preferred, const AttributeCommonInfo &CommonInfo);
+  static HLSLWaveSizeAttr *Create(ASTContext &Ctx, int Min, int Max, int Preferred, const AttributeCommonInfo &CommonInfo);
+  static HLSLWaveSizeAttr *CreateImplicit(ASTContext &Ctx, int Min, int Max, int Preferred, SourceRange Range = {});
+  static HLSLWaveSizeAttr *Create(ASTContext &Ctx, int Min, int Max, int Preferred, SourceRange Range = {});
+
+  // Constructors
+  HLSLWaveSizeAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , int Min
+              , int Max
+              , int Preferred
+             );
+  HLSLWaveSizeAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , int Min
+             );
+
+  HLSLWaveSizeAttr *clone(ASTContext &C) const;
+  void printPretty(raw_ostream &OS,
+                   const PrintingPolicy &Policy) const;
+  const char *getSpelling() const;
+  int getMin() const {
+    return min;
+  }
+
+  int getMax() const {
+    return max;
+  }
+
+  static const int DefaultMax = 0;
+
+  int getPreferred() const {
+    return preferred;
+  }
+
+  static const int DefaultPreferred = 0;
+
+
+    private:
+      int SpelledArgsCount = 0;
+
+    public:
+      void setSpelledArgsCount(int C) { SpelledArgsCount = C; }
+      int getSpelledArgsCount() const { return SpelledArgsCount; }
+  
+
+  static bool classof(const Attr *A) { return A->getKind() == attr::HLSLWaveSize; }
+};
+
+class CLANG_ABI HotAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_hot = 0,
@@ -5789,7 +6227,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Hot; }
 };
 
-class HybridPatchableAttr : public InheritableAttr {
+class CLANG_ABI HybridPatchableAttr : public InheritableAttr {
 public:
   enum Spelling {
     Declspec_hybrid_patchable = 0,
@@ -5819,7 +6257,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::HybridPatchable; }
 };
 
-class IBActionAttr : public InheritableAttr {
+class CLANG_ABI IBActionAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_ibaction = 0,
@@ -5848,7 +6286,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::IBAction; }
 };
 
-class IBOutletAttr : public InheritableAttr {
+class CLANG_ABI IBOutletAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_iboutlet = 0,
@@ -5877,7 +6315,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::IBOutlet; }
 };
 
-class IBOutletCollectionAttr : public InheritableAttr {
+class CLANG_ABI IBOutletCollectionAttr : public InheritableAttr {
 TypeSourceInfo * interface_;
 
 public:
@@ -5917,7 +6355,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::IBOutletCollection; }
 };
 
-class IFuncAttr : public Attr {
+class CLANG_ABI IFuncAttr : public Attr {
 unsigned resolverLength;
 char *resolver;
 
@@ -5963,7 +6401,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::IFunc; }
 };
 
-class InitPriorityAttr : public InheritableAttr {
+class CLANG_ABI InitPriorityAttr : public InheritableAttr {
 unsigned priority;
 
 public:
@@ -5998,7 +6436,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::InitPriority; }
 };
 
-class InitSegAttr : public Attr {
+class CLANG_ABI InitSegAttr : public Attr {
 unsigned sectionLength;
 char *section;
 
@@ -6040,7 +6478,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::InitSeg; }
 };
 
-class IntelOclBiccAttr : public InheritableAttr {
+class CLANG_ABI IntelOclBiccAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_intel_ocl_bicc = 0,
@@ -6068,7 +6506,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::IntelOclBicc; }
 };
 
-class InternalLinkageAttr : public InheritableAttr {
+class CLANG_ABI InternalLinkageAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_internal_linkage = 0,
@@ -6097,7 +6535,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::InternalLinkage; }
 };
 
-class LTOVisibilityPublicAttr : public InheritableAttr {
+class CLANG_ABI LTOVisibilityPublicAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_lto_visibility_public = 0,
@@ -6126,7 +6564,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::LTOVisibilityPublic; }
 };
 
-class LayoutVersionAttr : public InheritableAttr {
+class CLANG_ABI LayoutVersionAttr : public InheritableAttr {
 unsigned version;
 
 public:
@@ -6154,7 +6592,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::LayoutVersion; }
 };
 
-class LeafAttr : public InheritableAttr {
+class CLANG_ABI LeafAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_leaf = 0,
@@ -6183,7 +6621,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Leaf; }
 };
 
-class LifetimeBoundAttr : public InheritableAttr {
+class CLANG_ABI LifetimeBoundAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_lifetimebound = 0,
@@ -6211,7 +6649,71 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::LifetimeBound; }
 };
 
-class LikelyAttr : public StmtAttr {
+class CLANG_ABI LifetimeCaptureByAttr : public InheritableAttr {
+  unsigned params_Size;
+  int *params_;
+
+public:
+  enum Spelling {
+    GNU_lifetime_capture_by = 0,
+    CXX11_clang_lifetime_capture_by = 1,
+  SpellingNotCalculated = 15
+
+  };
+
+  // Factory methods
+  static LifetimeCaptureByAttr *CreateImplicit(ASTContext &Ctx, int *Params, unsigned ParamsSize, const AttributeCommonInfo &CommonInfo);
+  static LifetimeCaptureByAttr *Create(ASTContext &Ctx, int *Params, unsigned ParamsSize, const AttributeCommonInfo &CommonInfo);
+  static LifetimeCaptureByAttr *CreateImplicit(ASTContext &Ctx, int *Params, unsigned ParamsSize, SourceRange Range = {}, Spelling S = GNU_lifetime_capture_by);
+  static LifetimeCaptureByAttr *Create(ASTContext &Ctx, int *Params, unsigned ParamsSize, SourceRange Range = {}, Spelling S = GNU_lifetime_capture_by);
+
+  // Constructors
+  LifetimeCaptureByAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , int *Params, unsigned ParamsSize
+             );
+  LifetimeCaptureByAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             );
+
+  LifetimeCaptureByAttr *clone(ASTContext &C) const;
+  void printPretty(raw_ostream &OS,
+                   const PrintingPolicy &Policy) const;
+  const char *getSpelling() const;
+  typedef int* params_iterator;
+  params_iterator params_begin() const { return params_; }
+  params_iterator params_end() const { return params_ + params_Size; }
+  unsigned params_size() const { return params_Size; }
+  llvm::iterator_range<params_iterator> params() const { return llvm::make_range(params_begin(), params_end()); }
+
+
+
+private:
+  ArrayRef<IdentifierInfo*> ArgIdents;
+  ArrayRef<SourceLocation> ArgLocs;
+
+public:
+  static constexpr int THIS = 0;
+  static constexpr int INVALID = -1;
+  static constexpr int UNKNOWN = -2;
+  static constexpr int GLOBAL = -3;
+
+  void setArgs(ArrayRef<IdentifierInfo*> Idents, ArrayRef<SourceLocation> Locs) {
+    assert(Idents.size() == params_Size);
+    assert(Locs.size() == params_Size);
+    ArgIdents = Idents;
+    ArgLocs = Locs;
+  }
+  auto getArgIdents() const { return ArgIdents; }
+  auto getArgLocs() const { return ArgLocs; }
+  void setParamIdx(size_t Idx, int Val) {
+    assert(Idx < params_Size);
+    params_[Idx] = Val;
+  }
+
+
+  static bool classof(const Attr *A) { return A->getKind() == attr::LifetimeCaptureBy; }
+};
+
+class CLANG_ABI LikelyAttr : public StmtAttr {
 public:
   enum Spelling {
     CXX11_likely = 0,
@@ -6239,7 +6741,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Likely; }
 };
 
-class LoaderUninitializedAttr : public Attr {
+class CLANG_ABI LoaderUninitializedAttr : public Attr {
 public:
   enum Spelling {
     GNU_loader_uninitialized = 0,
@@ -6268,7 +6770,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::LoaderUninitialized; }
 };
 
-class LockReturnedAttr : public InheritableAttr {
+class CLANG_ABI LockReturnedAttr : public InheritableAttr {
 Expr * arg;
 
 public:
@@ -6296,7 +6798,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::LockReturned; }
 };
 
-class LocksExcludedAttr : public InheritableAttr {
+class CLANG_ABI LocksExcludedAttr : public InheritableAttr {
   unsigned args_Size;
   Expr * *args_;
 
@@ -6330,7 +6832,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::LocksExcluded; }
 };
 
-class LoopHintAttr : public Attr {
+class CLANG_ABI LoopHintAttr : public Attr {
 public:
   enum OptionType {
     Vectorize,
@@ -6441,7 +6943,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::LoopHint; }
 };
 
-class M68kInterruptAttr : public InheritableAttr {
+class CLANG_ABI M68kInterruptAttr : public InheritableAttr {
 unsigned number;
 
 public:
@@ -6469,7 +6971,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::M68kInterrupt; }
 };
 
-class M68kRTDAttr : public InheritableAttr {
+class CLANG_ABI M68kRTDAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_m68k_rtd = 0,
@@ -6498,7 +7000,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::M68kRTD; }
 };
 
-class MIGServerRoutineAttr : public InheritableAttr {
+class CLANG_ABI MIGServerRoutineAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_mig_server_routine = 0,
@@ -6527,7 +7029,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::MIGServerRoutine; }
 };
 
-class MSABIAttr : public InheritableAttr {
+class CLANG_ABI MSABIAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_ms_abi = 0,
@@ -6556,7 +7058,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::MSABI; }
 };
 
-class MSAllocatorAttr : public InheritableAttr {
+class CLANG_ABI MSAllocatorAttr : public InheritableAttr {
 public:
   // Factory methods
   static MSAllocatorAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
@@ -6577,7 +7079,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::MSAllocator; }
 };
 
-class MSConstexprAttr : public InheritableAttr {
+class CLANG_ABI MSConstexprAttr : public InheritableAttr {
 public:
   // Factory methods
   static MSConstexprAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
@@ -6598,7 +7100,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::MSConstexpr; }
 };
 
-class MSInheritanceAttr : public InheritableAttr {
+class CLANG_ABI MSInheritanceAttr : public InheritableAttr {
 bool bestCase;
 
 public:
@@ -6649,7 +7151,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::MSInheritance; }
 };
 
-class MSNoVTableAttr : public InheritableAttr {
+class CLANG_ABI MSNoVTableAttr : public InheritableAttr {
 public:
   // Factory methods
   static MSNoVTableAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
@@ -6670,7 +7172,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::MSNoVTable; }
 };
 
-class MSP430InterruptAttr : public InheritableAttr {
+class CLANG_ABI MSP430InterruptAttr : public InheritableAttr {
 unsigned number;
 
 public:
@@ -6706,7 +7208,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::MSP430Interrupt; }
 };
 
-class MSStructAttr : public InheritableAttr {
+class CLANG_ABI MSStructAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_ms_struct = 0,
@@ -6735,7 +7237,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::MSStruct; }
 };
 
-class MSVtorDispAttr : public InheritableAttr {
+class CLANG_ABI MSVtorDispAttr : public InheritableAttr {
 unsigned vdm;
 
 public:
@@ -6765,7 +7267,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::MSVtorDisp; }
 };
 
-class MaxFieldAlignmentAttr : public InheritableAttr {
+class CLANG_ABI MaxFieldAlignmentAttr : public InheritableAttr {
 unsigned alignment;
 
 public:
@@ -6793,7 +7295,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::MaxFieldAlignment; }
 };
 
-class MayAliasAttr : public InheritableAttr {
+class CLANG_ABI MayAliasAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_may_alias = 0,
@@ -6822,7 +7324,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::MayAlias; }
 };
 
-class MaybeUndefAttr : public InheritableAttr {
+class CLANG_ABI MaybeUndefAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_maybe_undef = 0,
@@ -6851,7 +7353,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::MaybeUndef; }
 };
 
-class MicroMipsAttr : public InheritableAttr {
+class CLANG_ABI MicroMipsAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_micromips = 0,
@@ -6880,7 +7382,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::MicroMips; }
 };
 
-class MinSizeAttr : public InheritableAttr {
+class CLANG_ABI MinSizeAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_minsize = 0,
@@ -6909,7 +7411,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::MinSize; }
 };
 
-class MinVectorWidthAttr : public InheritableAttr {
+class CLANG_ABI MinVectorWidthAttr : public InheritableAttr {
 unsigned vectorWidth;
 
 public:
@@ -6945,7 +7447,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::MinVectorWidth; }
 };
 
-class Mips16Attr : public InheritableAttr {
+class CLANG_ABI Mips16Attr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_mips16 = 0,
@@ -6974,7 +7476,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Mips16; }
 };
 
-class MipsInterruptAttr : public InheritableAttr {
+class CLANG_ABI MipsInterruptAttr : public InheritableAttr {
 public:
   enum InterruptType {
     sw0,
@@ -7025,7 +7527,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::MipsInterrupt; }
 };
 
-class MipsLongCallAttr : public InheritableAttr {
+class CLANG_ABI MipsLongCallAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_long_call = 0,
@@ -7058,7 +7560,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::MipsLongCall; }
 };
 
-class MipsShortCallAttr : public InheritableAttr {
+class CLANG_ABI MipsShortCallAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_short_call = 0,
@@ -7091,7 +7593,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::MipsShortCall; }
 };
 
-class ModeAttr : public Attr {
+class CLANG_ABI ModeAttr : public Attr {
 IdentifierInfo * mode;
 
 public:
@@ -7127,7 +7629,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Mode; }
 };
 
-class MustTailAttr : public StmtAttr {
+class CLANG_ABI MustTailAttr : public StmtAttr {
 public:
   enum Spelling {
     GNU_musttail = 0,
@@ -7156,7 +7658,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::MustTail; }
 };
 
-class NSConsumedAttr : public InheritableParamAttr {
+class CLANG_ABI NSConsumedAttr : public InheritableParamAttr {
 public:
   enum Spelling {
     GNU_ns_consumed = 0,
@@ -7185,7 +7687,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::NSConsumed; }
 };
 
-class NSConsumesSelfAttr : public InheritableAttr {
+class CLANG_ABI NSConsumesSelfAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_ns_consumes_self = 0,
@@ -7214,7 +7716,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::NSConsumesSelf; }
 };
 
-class NSErrorDomainAttr : public InheritableAttr {
+class CLANG_ABI NSErrorDomainAttr : public InheritableAttr {
 IdentifierInfo * errorDomain;
 
 public:
@@ -7242,7 +7744,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::NSErrorDomain; }
 };
 
-class NSReturnsAutoreleasedAttr : public InheritableAttr {
+class CLANG_ABI NSReturnsAutoreleasedAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_ns_returns_autoreleased = 0,
@@ -7271,7 +7773,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::NSReturnsAutoreleased; }
 };
 
-class NSReturnsNotRetainedAttr : public InheritableAttr {
+class CLANG_ABI NSReturnsNotRetainedAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_ns_returns_not_retained = 0,
@@ -7300,7 +7802,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::NSReturnsNotRetained; }
 };
 
-class NSReturnsRetainedAttr : public InheritableAttr {
+class CLANG_ABI NSReturnsRetainedAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_ns_returns_retained = 0,
@@ -7329,7 +7831,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::NSReturnsRetained; }
 };
 
-class NVPTXKernelAttr : public InheritableAttr {
+class CLANG_ABI NVPTXKernelAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_nvptx_kernel = 0,
@@ -7358,7 +7860,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::NVPTXKernel; }
 };
 
-class NakedAttr : public InheritableAttr {
+class CLANG_ABI NakedAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_naked = 0,
@@ -7388,7 +7890,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Naked; }
 };
 
-class NoAliasAttr : public InheritableAttr {
+class CLANG_ABI NoAliasAttr : public InheritableAttr {
 public:
   // Factory methods
   static NoAliasAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
@@ -7409,7 +7911,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::NoAlias; }
 };
 
-class NoBuiltinAttr : public Attr {
+class CLANG_ABI NoBuiltinAttr : public Attr {
   unsigned builtinNames_Size;
   StringRef *builtinNames_;
 
@@ -7451,7 +7953,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::NoBuiltin; }
 };
 
-class NoCommonAttr : public InheritableAttr {
+class CLANG_ABI NoCommonAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_nocommon = 0,
@@ -7480,7 +7982,37 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::NoCommon; }
 };
 
-class NoDebugAttr : public InheritableAttr {
+class CLANG_ABI NoConvergentAttr : public InheritableAttr {
+public:
+  enum Spelling {
+    GNU_noconvergent = 0,
+    CXX11_clang_noconvergent = 1,
+    C23_clang_noconvergent = 2,
+    Declspec_noconvergent = 3,
+  SpellingNotCalculated = 15
+
+  };
+
+  // Factory methods
+  static NoConvergentAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static NoConvergentAttr *Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static NoConvergentAttr *CreateImplicit(ASTContext &Ctx, SourceRange Range = {}, Spelling S = GNU_noconvergent);
+  static NoConvergentAttr *Create(ASTContext &Ctx, SourceRange Range = {}, Spelling S = GNU_noconvergent);
+
+  // Constructors
+  NoConvergentAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             );
+
+  NoConvergentAttr *clone(ASTContext &C) const;
+  void printPretty(raw_ostream &OS,
+                   const PrintingPolicy &Policy) const;
+  const char *getSpelling() const;
+
+
+  static bool classof(const Attr *A) { return A->getKind() == attr::NoConvergent; }
+};
+
+class CLANG_ABI NoDebugAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_nodebug = 0,
@@ -7509,7 +8041,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::NoDebug; }
 };
 
-class NoDerefAttr : public TypeAttr {
+class CLANG_ABI NoDerefAttr : public TypeAttr {
 public:
   enum Spelling {
     GNU_noderef = 0,
@@ -7538,7 +8070,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::NoDeref; }
 };
 
-class NoDestroyAttr : public InheritableAttr {
+class CLANG_ABI NoDestroyAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_no_destroy = 0,
@@ -7566,7 +8098,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::NoDestroy; }
 };
 
-class NoDuplicateAttr : public InheritableAttr {
+class CLANG_ABI NoDuplicateAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_noduplicate = 0,
@@ -7595,7 +8127,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::NoDuplicate; }
 };
 
-class NoEscapeAttr : public Attr {
+class CLANG_ABI NoEscapeAttr : public Attr {
 public:
   enum Spelling {
     GNU_noescape = 0,
@@ -7624,7 +8156,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::NoEscape; }
 };
 
-class NoInlineAttr : public DeclOrStmtAttr {
+class CLANG_ABI NoInlineAttr : public DeclOrStmtAttr {
 public:
   enum Spelling {
     Keyword_noinline = 0,
@@ -7663,7 +8195,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::NoInline; }
 };
 
-class NoInstrumentFunctionAttr : public InheritableAttr {
+class CLANG_ABI NoInstrumentFunctionAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_no_instrument_function = 0,
@@ -7692,7 +8224,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::NoInstrumentFunction; }
 };
 
-class NoMergeAttr : public DeclOrStmtAttr {
+class CLANG_ABI NoMergeAttr : public DeclOrStmtAttr {
 public:
   enum Spelling {
     GNU_nomerge = 0,
@@ -7721,7 +8253,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::NoMerge; }
 };
 
-class NoMicroMipsAttr : public InheritableAttr {
+class CLANG_ABI NoMicroMipsAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_nomicromips = 0,
@@ -7750,7 +8282,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::NoMicroMips; }
 };
 
-class NoMips16Attr : public InheritableAttr {
+class CLANG_ABI NoMips16Attr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_nomips16 = 0,
@@ -7779,7 +8311,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::NoMips16; }
 };
 
-class NoProfileFunctionAttr : public InheritableAttr {
+class CLANG_ABI NoProfileFunctionAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_no_profile_instrument_function = 0,
@@ -7808,7 +8340,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::NoProfileFunction; }
 };
 
-class NoRandomizeLayoutAttr : public InheritableAttr {
+class CLANG_ABI NoRandomizeLayoutAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_no_randomize_layout = 0,
@@ -7837,7 +8369,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::NoRandomizeLayout; }
 };
 
-class NoReturnAttr : public InheritableAttr {
+class CLANG_ABI NoReturnAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_noreturn = 0,
@@ -7867,7 +8399,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::NoReturn; }
 };
 
-class NoSanitizeAttr : public InheritableAttr {
+class CLANG_ABI NoSanitizeAttr : public InheritableAttr {
   unsigned sanitizers_Size;
   StringRef *sanitizers_;
 
@@ -7923,7 +8455,54 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::NoSanitize; }
 };
 
-class NoSpeculativeLoadHardeningAttr : public InheritableAttr {
+class CLANG_ABI NoSpecializationsAttr : public InheritableAttr {
+unsigned messageLength;
+char *message;
+
+public:
+  enum Spelling {
+    GNU_no_specializations = 0,
+    CXX11_clang_no_specializations = 1,
+  SpellingNotCalculated = 15
+
+  };
+
+  // Factory methods
+  static NoSpecializationsAttr *CreateImplicit(ASTContext &Ctx, llvm::StringRef Message, const AttributeCommonInfo &CommonInfo);
+  static NoSpecializationsAttr *Create(ASTContext &Ctx, llvm::StringRef Message, const AttributeCommonInfo &CommonInfo);
+  static NoSpecializationsAttr *CreateImplicit(ASTContext &Ctx, llvm::StringRef Message, SourceRange Range = {}, Spelling S = GNU_no_specializations);
+  static NoSpecializationsAttr *Create(ASTContext &Ctx, llvm::StringRef Message, SourceRange Range = {}, Spelling S = GNU_no_specializations);
+
+  // Constructors
+  NoSpecializationsAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , llvm::StringRef Message
+             );
+  NoSpecializationsAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             );
+
+  NoSpecializationsAttr *clone(ASTContext &C) const;
+  void printPretty(raw_ostream &OS,
+                   const PrintingPolicy &Policy) const;
+  const char *getSpelling() const;
+  llvm::StringRef getMessage() const {
+    return llvm::StringRef(message, messageLength);
+  }
+  unsigned getMessageLength() const {
+    return messageLength;
+  }
+  void setMessage(ASTContext &C, llvm::StringRef S) {
+    messageLength = S.size();
+    this->message = new (C, 1) char [messageLength];
+    if (!S.empty())
+      std::memcpy(this->message, S.data(), messageLength);
+  }
+
+
+
+  static bool classof(const Attr *A) { return A->getKind() == attr::NoSpecializations; }
+};
+
+class CLANG_ABI NoSpeculativeLoadHardeningAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_no_speculative_load_hardening = 0,
@@ -7952,7 +8531,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::NoSpeculativeLoadHardening; }
 };
 
-class NoSplitStackAttr : public InheritableAttr {
+class CLANG_ABI NoSplitStackAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_no_split_stack = 0,
@@ -7981,7 +8560,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::NoSplitStack; }
 };
 
-class NoStackProtectorAttr : public InheritableAttr {
+class CLANG_ABI NoStackProtectorAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_no_stack_protector = 0,
@@ -8014,7 +8593,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::NoStackProtector; }
 };
 
-class NoThreadSafetyAnalysisAttr : public InheritableAttr {
+class CLANG_ABI NoThreadSafetyAnalysisAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_no_thread_safety_analysis = 0,
@@ -8043,7 +8622,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::NoThreadSafetyAnalysis; }
 };
 
-class NoThrowAttr : public InheritableAttr {
+class CLANG_ABI NoThrowAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_nothrow = 0,
@@ -8073,7 +8652,28 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::NoThrow; }
 };
 
-class NoUniqueAddressAttr : public InheritableAttr {
+class CLANG_ABI NoTrivialAutoVarInitAttr : public InheritableAttr {
+public:
+  // Factory methods
+  static NoTrivialAutoVarInitAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static NoTrivialAutoVarInitAttr *Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
+  static NoTrivialAutoVarInitAttr *CreateImplicit(ASTContext &Ctx, SourceRange Range = {});
+  static NoTrivialAutoVarInitAttr *Create(ASTContext &Ctx, SourceRange Range = {});
+
+  // Constructors
+  NoTrivialAutoVarInitAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             );
+
+  NoTrivialAutoVarInitAttr *clone(ASTContext &C) const;
+  void printPretty(raw_ostream &OS,
+                   const PrintingPolicy &Policy) const;
+  const char *getSpelling() const;
+
+
+  static bool classof(const Attr *A) { return A->getKind() == attr::NoTrivialAutoVarInit; }
+};
+
+class CLANG_ABI NoUniqueAddressAttr : public InheritableAttr {
 public:
   enum Spelling {
     CXX11_no_unique_address = 0,
@@ -8101,7 +8701,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::NoUniqueAddress; }
 };
 
-class NoUwtableAttr : public InheritableAttr {
+class CLANG_ABI NoUwtableAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_nouwtable = 0,
@@ -8130,7 +8730,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::NoUwtable; }
 };
 
-class NonAllocatingAttr : public TypeAttr {
+class CLANG_ABI NonAllocatingAttr : public TypeAttr {
 Expr * cond;
 
 public:
@@ -8168,7 +8768,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::NonAllocating; }
 };
 
-class NonBlockingAttr : public TypeAttr {
+class CLANG_ABI NonBlockingAttr : public TypeAttr {
 Expr * cond;
 
 public:
@@ -8206,7 +8806,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::NonBlocking; }
 };
 
-class NonNullAttr : public InheritableParamAttr {
+class CLANG_ABI NonNullAttr : public InheritableParamAttr {
   unsigned args_Size;
   ParamIdx *args_;
 
@@ -8256,7 +8856,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::NonNull; }
 };
 
-class NotTailCalledAttr : public InheritableAttr {
+class CLANG_ABI NotTailCalledAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_not_tail_called = 0,
@@ -8285,7 +8885,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::NotTailCalled; }
 };
 
-class OMPAllocateDeclAttr : public InheritableAttr {
+class CLANG_ABI OMPAllocateDeclAttr : public InheritableAttr {
 public:
   enum AllocatorTypeTy {
     OMPNullMemAlloc,
@@ -8343,7 +8943,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::OMPAllocateDecl; }
 };
 
-class OMPAssumeAttr : public InheritableAttr {
+class CLANG_ABI OMPAssumeAttr : public InheritableAttr {
 unsigned assumptionLength;
 char *assumption;
 
@@ -8381,7 +8981,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::OMPAssume; }
 };
 
-class OMPCaptureKindAttr : public Attr {
+class CLANG_ABI OMPCaptureKindAttr : public Attr {
 unsigned captureKindVal;
 
 public:
@@ -8413,7 +9013,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::OMPCaptureKind; }
 };
 
-class OMPCaptureNoInitAttr : public InheritableAttr {
+class CLANG_ABI OMPCaptureNoInitAttr : public InheritableAttr {
 public:
   // Factory methods
   static OMPCaptureNoInitAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
@@ -8434,7 +9034,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::OMPCaptureNoInit; }
 };
 
-class OMPDeclareSimdDeclAttr : public Attr {
+class CLANG_ABI OMPDeclareSimdDeclAttr : public Attr {
 public:
   enum BranchStateTy {
     BS_Undefined,
@@ -8551,7 +9151,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::OMPDeclareSimdDecl; }
 };
 
-class OMPDeclareTargetDeclAttr : public InheritableAttr {
+class CLANG_ABI OMPDeclareTargetDeclAttr : public InheritableAttr {
 public:
   enum MapTypeTy {
     MT_To,
@@ -8632,7 +9232,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::OMPDeclareTargetDecl; }
 };
 
-class OMPDeclareVariantAttr : public InheritableAttr {
+class CLANG_ABI OMPDeclareVariantAttr : public InheritableAttr {
 Expr * variantFuncRef;
 
 OMPTraitInfo * traitInfos;
@@ -8716,7 +9316,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::OMPDeclareVariant; }
 };
 
-class OMPReferencedVarAttr : public Attr {
+class CLANG_ABI OMPReferencedVarAttr : public Attr {
 Expr * ref;
 
 public:
@@ -8744,7 +9344,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::OMPReferencedVar; }
 };
 
-class OMPThreadPrivateDeclAttr : public InheritableAttr {
+class CLANG_ABI OMPThreadPrivateDeclAttr : public InheritableAttr {
 public:
   // Factory methods
   static OMPThreadPrivateDeclAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
@@ -8765,7 +9365,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::OMPThreadPrivateDecl; }
 };
 
-class OSConsumedAttr : public InheritableParamAttr {
+class CLANG_ABI OSConsumedAttr : public InheritableParamAttr {
 public:
   enum Spelling {
     GNU_os_consumed = 0,
@@ -8794,7 +9394,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::OSConsumed; }
 };
 
-class OSConsumesThisAttr : public InheritableAttr {
+class CLANG_ABI OSConsumesThisAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_os_consumes_this = 0,
@@ -8823,7 +9423,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::OSConsumesThis; }
 };
 
-class OSReturnsNotRetainedAttr : public InheritableAttr {
+class CLANG_ABI OSReturnsNotRetainedAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_os_returns_not_retained = 0,
@@ -8852,7 +9452,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::OSReturnsNotRetained; }
 };
 
-class OSReturnsRetainedAttr : public InheritableAttr {
+class CLANG_ABI OSReturnsRetainedAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_os_returns_retained = 0,
@@ -8881,7 +9481,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::OSReturnsRetained; }
 };
 
-class OSReturnsRetainedOnNonZeroAttr : public InheritableAttr {
+class CLANG_ABI OSReturnsRetainedOnNonZeroAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_os_returns_retained_on_non_zero = 0,
@@ -8910,7 +9510,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::OSReturnsRetainedOnNonZero; }
 };
 
-class OSReturnsRetainedOnZeroAttr : public InheritableAttr {
+class CLANG_ABI OSReturnsRetainedOnZeroAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_os_returns_retained_on_zero = 0,
@@ -8939,7 +9539,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::OSReturnsRetainedOnZero; }
 };
 
-class ObjCBoxableAttr : public Attr {
+class CLANG_ABI ObjCBoxableAttr : public Attr {
 public:
   enum Spelling {
     GNU_objc_boxable = 0,
@@ -8968,7 +9568,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ObjCBoxable; }
 };
 
-class ObjCBridgeAttr : public InheritableAttr {
+class CLANG_ABI ObjCBridgeAttr : public InheritableAttr {
 IdentifierInfo * bridgedType;
 
 public:
@@ -9004,7 +9604,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ObjCBridge; }
 };
 
-class ObjCBridgeMutableAttr : public InheritableAttr {
+class CLANG_ABI ObjCBridgeMutableAttr : public InheritableAttr {
 IdentifierInfo * bridgedType;
 
 public:
@@ -9040,7 +9640,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ObjCBridgeMutable; }
 };
 
-class ObjCBridgeRelatedAttr : public InheritableAttr {
+class CLANG_ABI ObjCBridgeRelatedAttr : public InheritableAttr {
 IdentifierInfo * relatedClass;
 
 IdentifierInfo * classMethod;
@@ -9090,7 +9690,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ObjCBridgeRelated; }
 };
 
-class ObjCClassStubAttr : public Attr {
+class CLANG_ABI ObjCClassStubAttr : public Attr {
 public:
   enum Spelling {
     GNU_objc_class_stub = 0,
@@ -9119,7 +9719,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ObjCClassStub; }
 };
 
-class ObjCDesignatedInitializerAttr : public Attr {
+class CLANG_ABI ObjCDesignatedInitializerAttr : public Attr {
 public:
   enum Spelling {
     GNU_objc_designated_initializer = 0,
@@ -9148,7 +9748,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ObjCDesignatedInitializer; }
 };
 
-class ObjCDirectAttr : public Attr {
+class CLANG_ABI ObjCDirectAttr : public Attr {
 public:
   enum Spelling {
     GNU_objc_direct = 0,
@@ -9177,7 +9777,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ObjCDirect; }
 };
 
-class ObjCDirectMembersAttr : public Attr {
+class CLANG_ABI ObjCDirectMembersAttr : public Attr {
 public:
   enum Spelling {
     GNU_objc_direct_members = 0,
@@ -9206,7 +9806,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ObjCDirectMembers; }
 };
 
-class ObjCExceptionAttr : public InheritableAttr {
+class CLANG_ABI ObjCExceptionAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_objc_exception = 0,
@@ -9235,7 +9835,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ObjCException; }
 };
 
-class ObjCExplicitProtocolImplAttr : public InheritableAttr {
+class CLANG_ABI ObjCExplicitProtocolImplAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_objc_protocol_requires_explicit_implementation = 0,
@@ -9264,7 +9864,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ObjCExplicitProtocolImpl; }
 };
 
-class ObjCExternallyRetainedAttr : public InheritableAttr {
+class CLANG_ABI ObjCExternallyRetainedAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_objc_externally_retained = 0,
@@ -9293,7 +9893,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ObjCExternallyRetained; }
 };
 
-class ObjCGCAttr : public TypeAttr {
+class CLANG_ABI ObjCGCAttr : public TypeAttr {
 IdentifierInfo * kind;
 
 public:
@@ -9329,7 +9929,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ObjCGC; }
 };
 
-class ObjCIndependentClassAttr : public InheritableAttr {
+class CLANG_ABI ObjCIndependentClassAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_objc_independent_class = 0,
@@ -9358,7 +9958,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ObjCIndependentClass; }
 };
 
-class ObjCInertUnsafeUnretainedAttr : public TypeAttr {
+class CLANG_ABI ObjCInertUnsafeUnretainedAttr : public TypeAttr {
 public:
   // Factory methods
   static ObjCInertUnsafeUnretainedAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
@@ -9379,7 +9979,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ObjCInertUnsafeUnretained; }
 };
 
-class ObjCKindOfAttr : public TypeAttr {
+class CLANG_ABI ObjCKindOfAttr : public TypeAttr {
 public:
   // Factory methods
   static ObjCKindOfAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
@@ -9400,7 +10000,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ObjCKindOf; }
 };
 
-class ObjCMethodFamilyAttr : public InheritableAttr {
+class CLANG_ABI ObjCMethodFamilyAttr : public InheritableAttr {
 public:
   enum FamilyKind {
     OMF_None,
@@ -9448,7 +10048,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ObjCMethodFamily; }
 };
 
-class ObjCNSObjectAttr : public InheritableAttr {
+class CLANG_ABI ObjCNSObjectAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_NSObject = 0,
@@ -9477,7 +10077,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ObjCNSObject; }
 };
 
-class ObjCNonLazyClassAttr : public Attr {
+class CLANG_ABI ObjCNonLazyClassAttr : public Attr {
 public:
   enum Spelling {
     GNU_objc_nonlazy_class = 0,
@@ -9506,7 +10106,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ObjCNonLazyClass; }
 };
 
-class ObjCNonRuntimeProtocolAttr : public Attr {
+class CLANG_ABI ObjCNonRuntimeProtocolAttr : public Attr {
 public:
   enum Spelling {
     GNU_objc_non_runtime_protocol = 0,
@@ -9535,7 +10135,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ObjCNonRuntimeProtocol; }
 };
 
-class ObjCOwnershipAttr : public InheritableAttr {
+class CLANG_ABI ObjCOwnershipAttr : public InheritableAttr {
 IdentifierInfo * kind;
 
 public:
@@ -9571,7 +10171,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ObjCOwnership; }
 };
 
-class ObjCPreciseLifetimeAttr : public InheritableAttr {
+class CLANG_ABI ObjCPreciseLifetimeAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_objc_precise_lifetime = 0,
@@ -9600,7 +10200,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ObjCPreciseLifetime; }
 };
 
-class ObjCRequiresPropertyDefsAttr : public InheritableAttr {
+class CLANG_ABI ObjCRequiresPropertyDefsAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_objc_requires_property_definitions = 0,
@@ -9629,7 +10229,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ObjCRequiresPropertyDefs; }
 };
 
-class ObjCRequiresSuperAttr : public InheritableAttr {
+class CLANG_ABI ObjCRequiresSuperAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_objc_requires_super = 0,
@@ -9658,7 +10258,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ObjCRequiresSuper; }
 };
 
-class ObjCReturnsInnerPointerAttr : public InheritableAttr {
+class CLANG_ABI ObjCReturnsInnerPointerAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_objc_returns_inner_pointer = 0,
@@ -9687,7 +10287,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ObjCReturnsInnerPointer; }
 };
 
-class ObjCRootClassAttr : public InheritableAttr {
+class CLANG_ABI ObjCRootClassAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_objc_root_class = 0,
@@ -9716,7 +10316,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ObjCRootClass; }
 };
 
-class ObjCRuntimeNameAttr : public Attr {
+class CLANG_ABI ObjCRuntimeNameAttr : public Attr {
 unsigned metadataNameLength;
 char *metadataName;
 
@@ -9762,7 +10362,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ObjCRuntimeName; }
 };
 
-class ObjCRuntimeVisibleAttr : public Attr {
+class CLANG_ABI ObjCRuntimeVisibleAttr : public Attr {
 public:
   enum Spelling {
     GNU_objc_runtime_visible = 0,
@@ -9791,7 +10391,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ObjCRuntimeVisible; }
 };
 
-class ObjCSubclassingRestrictedAttr : public InheritableAttr {
+class CLANG_ABI ObjCSubclassingRestrictedAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_objc_subclassing_restricted = 0,
@@ -9820,7 +10420,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ObjCSubclassingRestricted; }
 };
 
-class OpenCLAccessAttr : public Attr {
+class CLANG_ABI OpenCLAccessAttr : public Attr {
 public:
   enum Spelling {
     Keyword_read_only = 0,
@@ -9856,7 +10456,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::OpenCLAccess; }
 };
 
-class OpenCLConstantAddressSpaceAttr : public TypeAttr {
+class CLANG_ABI OpenCLConstantAddressSpaceAttr : public TypeAttr {
 public:
   enum Spelling {
     Keyword_constant = 0,
@@ -9887,7 +10487,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::OpenCLConstantAddressSpace; }
 };
 
-class OpenCLGenericAddressSpaceAttr : public TypeAttr {
+class CLANG_ABI OpenCLGenericAddressSpaceAttr : public TypeAttr {
 public:
   enum Spelling {
     Keyword_generic = 0,
@@ -9918,7 +10518,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::OpenCLGenericAddressSpace; }
 };
 
-class OpenCLGlobalAddressSpaceAttr : public TypeAttr {
+class CLANG_ABI OpenCLGlobalAddressSpaceAttr : public TypeAttr {
 public:
   enum Spelling {
     Keyword_global = 0,
@@ -9949,7 +10549,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::OpenCLGlobalAddressSpace; }
 };
 
-class OpenCLGlobalDeviceAddressSpaceAttr : public TypeAttr {
+class CLANG_ABI OpenCLGlobalDeviceAddressSpaceAttr : public TypeAttr {
 public:
   enum Spelling {
     GNU_opencl_global_device = 0,
@@ -9978,7 +10578,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::OpenCLGlobalDeviceAddressSpace; }
 };
 
-class OpenCLGlobalHostAddressSpaceAttr : public TypeAttr {
+class CLANG_ABI OpenCLGlobalHostAddressSpaceAttr : public TypeAttr {
 public:
   enum Spelling {
     GNU_opencl_global_host = 0,
@@ -10007,7 +10607,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::OpenCLGlobalHostAddressSpace; }
 };
 
-class OpenCLIntelReqdSubGroupSizeAttr : public InheritableAttr {
+class CLANG_ABI OpenCLIntelReqdSubGroupSizeAttr : public InheritableAttr {
 unsigned subGroupSize;
 
 public:
@@ -10035,7 +10635,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::OpenCLIntelReqdSubGroupSize; }
 };
 
-class OpenCLKernelAttr : public InheritableAttr {
+class CLANG_ABI OpenCLKernelAttr : public InheritableAttr {
 public:
   enum Spelling {
     Keyword_kernel = 0,
@@ -10062,7 +10662,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::OpenCLKernel; }
 };
 
-class OpenCLLocalAddressSpaceAttr : public TypeAttr {
+class CLANG_ABI OpenCLLocalAddressSpaceAttr : public TypeAttr {
 public:
   enum Spelling {
     Keyword_local = 0,
@@ -10093,7 +10693,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::OpenCLLocalAddressSpace; }
 };
 
-class OpenCLPrivateAddressSpaceAttr : public TypeAttr {
+class CLANG_ABI OpenCLPrivateAddressSpaceAttr : public TypeAttr {
 public:
   enum Spelling {
     Keyword_private = 0,
@@ -10124,7 +10724,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::OpenCLPrivateAddressSpace; }
 };
 
-class OpenCLUnrollHintAttr : public StmtAttr {
+class CLANG_ABI OpenCLUnrollHintAttr : public StmtAttr {
 unsigned unrollHint;
 
 public:
@@ -10154,7 +10754,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::OpenCLUnrollHint; }
 };
 
-class OptimizeNoneAttr : public InheritableAttr {
+class CLANG_ABI OptimizeNoneAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_optnone = 0,
@@ -10183,7 +10783,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::OptimizeNone; }
 };
 
-class OverloadableAttr : public Attr {
+class CLANG_ABI OverloadableAttr : public Attr {
 public:
   enum Spelling {
     GNU_overloadable = 0,
@@ -10212,7 +10812,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Overloadable; }
 };
 
-class OverrideAttr : public InheritableAttr {
+class CLANG_ABI OverrideAttr : public InheritableAttr {
 public:
   // Factory methods
   static OverrideAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
@@ -10233,7 +10833,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Override; }
 };
 
-class OwnerAttr : public InheritableAttr {
+class CLANG_ABI OwnerAttr : public InheritableAttr {
 TypeSourceInfo * derefType;
 
 public:
@@ -10265,7 +10865,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Owner; }
 };
 
-class OwnershipAttr : public InheritableAttr {
+class CLANG_ABI OwnershipAttr : public InheritableAttr {
 IdentifierInfo * module;
 
   unsigned args_Size;
@@ -10338,7 +10938,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Ownership; }
 };
 
-class PackedAttr : public InheritableAttr {
+class CLANG_ABI PackedAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_packed = 0,
@@ -10367,7 +10967,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Packed; }
 };
 
-class ParamTypestateAttr : public InheritableAttr {
+class CLANG_ABI ParamTypestateAttr : public InheritableAttr {
 public:
   enum ConsumedState {
     Unknown,
@@ -10411,7 +11011,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ParamTypestate; }
 };
 
-class PascalAttr : public InheritableAttr {
+class CLANG_ABI PascalAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_pascal = 0,
@@ -10441,7 +11041,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Pascal; }
 };
 
-class PassObjectSizeAttr : public InheritableParamAttr {
+class CLANG_ABI PassObjectSizeAttr : public InheritableParamAttr {
 int type;
 
 public:
@@ -10484,7 +11084,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::PassObjectSize; }
 };
 
-class PatchableFunctionEntryAttr : public InheritableAttr {
+class CLANG_ABI PatchableFunctionEntryAttr : public InheritableAttr {
 unsigned count;
 
 int offset;
@@ -10532,7 +11132,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::PatchableFunctionEntry; }
 };
 
-class PcsAttr : public InheritableAttr {
+class CLANG_ABI PcsAttr : public InheritableAttr {
 public:
   enum PCSType {
     AAPCS,
@@ -10576,7 +11176,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Pcs; }
 };
 
-class PointerAttr : public InheritableAttr {
+class CLANG_ABI PointerAttr : public InheritableAttr {
 TypeSourceInfo * derefType;
 
 public:
@@ -10608,7 +11208,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Pointer; }
 };
 
-class PragmaClangBSSSectionAttr : public InheritableAttr {
+class CLANG_ABI PragmaClangBSSSectionAttr : public InheritableAttr {
 unsigned nameLength;
 char *name;
 
@@ -10646,7 +11246,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::PragmaClangBSSSection; }
 };
 
-class PragmaClangDataSectionAttr : public InheritableAttr {
+class CLANG_ABI PragmaClangDataSectionAttr : public InheritableAttr {
 unsigned nameLength;
 char *name;
 
@@ -10684,7 +11284,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::PragmaClangDataSection; }
 };
 
-class PragmaClangRelroSectionAttr : public InheritableAttr {
+class CLANG_ABI PragmaClangRelroSectionAttr : public InheritableAttr {
 unsigned nameLength;
 char *name;
 
@@ -10722,7 +11322,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::PragmaClangRelroSection; }
 };
 
-class PragmaClangRodataSectionAttr : public InheritableAttr {
+class CLANG_ABI PragmaClangRodataSectionAttr : public InheritableAttr {
 unsigned nameLength;
 char *name;
 
@@ -10760,7 +11360,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::PragmaClangRodataSection; }
 };
 
-class PragmaClangTextSectionAttr : public InheritableAttr {
+class CLANG_ABI PragmaClangTextSectionAttr : public InheritableAttr {
 unsigned nameLength;
 char *name;
 
@@ -10798,7 +11398,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::PragmaClangTextSection; }
 };
 
-class PreferredNameAttr : public InheritableAttr {
+class CLANG_ABI PreferredNameAttr : public InheritableAttr {
 TypeSourceInfo * typedefType;
 
 public:
@@ -10835,7 +11435,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::PreferredName; }
 };
 
-class PreferredTypeAttr : public InheritableAttr {
+class CLANG_ABI PreferredTypeAttr : public InheritableAttr {
 TypeSourceInfo * type;
 
 public:
@@ -10875,7 +11475,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::PreferredType; }
 };
 
-class PreserveAllAttr : public InheritableAttr {
+class CLANG_ABI PreserveAllAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_preserve_all = 0,
@@ -10904,7 +11504,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::PreserveAll; }
 };
 
-class PreserveMostAttr : public InheritableAttr {
+class CLANG_ABI PreserveMostAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_preserve_most = 0,
@@ -10933,7 +11533,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::PreserveMost; }
 };
 
-class PreserveNoneAttr : public InheritableAttr {
+class CLANG_ABI PreserveNoneAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_preserve_none = 0,
@@ -10962,7 +11562,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::PreserveNone; }
 };
 
-class PtGuardedByAttr : public InheritableAttr {
+class CLANG_ABI PtGuardedByAttr : public InheritableAttr {
 Expr * arg;
 
 public:
@@ -10990,7 +11590,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::PtGuardedBy; }
 };
 
-class PtGuardedVarAttr : public InheritableAttr {
+class CLANG_ABI PtGuardedVarAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_pt_guarded_var = 0,
@@ -11018,7 +11618,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::PtGuardedVar; }
 };
 
-class Ptr32Attr : public TypeAttr {
+class CLANG_ABI Ptr32Attr : public TypeAttr {
 public:
   // Factory methods
   static Ptr32Attr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
@@ -11039,7 +11639,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Ptr32; }
 };
 
-class Ptr64Attr : public TypeAttr {
+class CLANG_ABI Ptr64Attr : public TypeAttr {
 public:
   // Factory methods
   static Ptr64Attr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
@@ -11060,7 +11660,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Ptr64; }
 };
 
-class PureAttr : public InheritableAttr {
+class CLANG_ABI PureAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_pure = 0,
@@ -11089,7 +11689,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Pure; }
 };
 
-class RISCVInterruptAttr : public InheritableAttr {
+class CLANG_ABI RISCVInterruptAttr : public InheritableAttr {
 public:
   enum InterruptType {
     supervisor,
@@ -11135,7 +11735,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::RISCVInterrupt; }
 };
 
-class RISCVVectorCCAttr : public InheritableAttr {
+class CLANG_ABI RISCVVectorCCAttr : public InheritableAttr {
 public:
   enum Spelling {
     CXX11_riscv_vector_cc = 0,
@@ -11167,7 +11767,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::RISCVVectorCC; }
 };
 
-class RandomizeLayoutAttr : public InheritableAttr {
+class CLANG_ABI RandomizeLayoutAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_randomize_layout = 0,
@@ -11196,7 +11796,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::RandomizeLayout; }
 };
 
-class ReadOnlyPlacementAttr : public InheritableAttr {
+class CLANG_ABI ReadOnlyPlacementAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_enforce_read_only_placement = 0,
@@ -11225,7 +11825,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ReadOnlyPlacement; }
 };
 
-class RegCallAttr : public InheritableAttr {
+class CLANG_ABI RegCallAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_regcall = 0,
@@ -11255,7 +11855,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::RegCall; }
 };
 
-class ReinitializesAttr : public InheritableAttr {
+class CLANG_ABI ReinitializesAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_reinitializes = 0,
@@ -11283,7 +11883,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Reinitializes; }
 };
 
-class ReleaseCapabilityAttr : public InheritableAttr {
+class CLANG_ABI ReleaseCapabilityAttr : public InheritableAttr {
   unsigned args_Size;
   Expr * *args_;
 
@@ -11337,7 +11937,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ReleaseCapability; }
 };
 
-class ReleaseHandleAttr : public InheritableParamAttr {
+class CLANG_ABI ReleaseHandleAttr : public InheritableParamAttr {
 unsigned handleTypeLength;
 char *handleType;
 
@@ -11383,28 +11983,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ReleaseHandle; }
 };
 
-class RenderScriptKernelAttr : public Attr {
-public:
-  // Factory methods
-  static RenderScriptKernelAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
-  static RenderScriptKernelAttr *Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
-  static RenderScriptKernelAttr *CreateImplicit(ASTContext &Ctx, SourceRange Range = {});
-  static RenderScriptKernelAttr *Create(ASTContext &Ctx, SourceRange Range = {});
-
-  // Constructors
-  RenderScriptKernelAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-             );
-
-  RenderScriptKernelAttr *clone(ASTContext &C) const;
-  void printPretty(raw_ostream &OS,
-                   const PrintingPolicy &Policy) const;
-  const char *getSpelling() const;
-
-
-  static bool classof(const Attr *A) { return A->getKind() == attr::RenderScriptKernel; }
-};
-
-class ReqdWorkGroupSizeAttr : public InheritableAttr {
+class CLANG_ABI ReqdWorkGroupSizeAttr : public InheritableAttr {
 unsigned xDim;
 
 unsigned yDim;
@@ -11446,7 +12025,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ReqdWorkGroupSize; }
 };
 
-class RequiresCapabilityAttr : public InheritableAttr {
+class CLANG_ABI RequiresCapabilityAttr : public InheritableAttr {
   unsigned args_Size;
   Expr * *args_;
 
@@ -11498,7 +12077,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::RequiresCapability; }
 };
 
-class RestrictAttr : public InheritableAttr {
+class CLANG_ABI RestrictAttr : public InheritableAttr {
 public:
   enum Spelling {
     Declspec_restrict = 0,
@@ -11529,7 +12108,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Restrict; }
 };
 
-class RetainAttr : public InheritableAttr {
+class CLANG_ABI RetainAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_retain = 0,
@@ -11558,7 +12137,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Retain; }
 };
 
-class ReturnTypestateAttr : public InheritableAttr {
+class CLANG_ABI ReturnTypestateAttr : public InheritableAttr {
 public:
   enum ConsumedState {
     Unknown,
@@ -11602,7 +12181,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ReturnTypestate; }
 };
 
-class ReturnsNonNullAttr : public InheritableAttr {
+class CLANG_ABI ReturnsNonNullAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_returns_nonnull = 0,
@@ -11631,7 +12210,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ReturnsNonNull; }
 };
 
-class ReturnsTwiceAttr : public InheritableAttr {
+class CLANG_ABI ReturnsTwiceAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_returns_twice = 0,
@@ -11660,7 +12239,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ReturnsTwice; }
 };
 
-class SPtrAttr : public TypeAttr {
+class CLANG_ABI SPtrAttr : public TypeAttr {
 public:
   // Factory methods
   static SPtrAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
@@ -11681,7 +12260,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::SPtr; }
 };
 
-class SYCLKernelAttr : public InheritableAttr {
+class CLANG_ABI SYCLKernelAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_sycl_kernel = 0,
@@ -11710,7 +12289,64 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::SYCLKernel; }
 };
 
-class SYCLSpecialClassAttr : public InheritableAttr {
+class CLANG_ABI SYCLKernelEntryPointAttr : public InheritableAttr {
+TypeSourceInfo * kernelName;
+
+bool invalid;
+
+public:
+  enum Spelling {
+    GNU_sycl_kernel_entry_point = 0,
+    CXX11_clang_sycl_kernel_entry_point = 1,
+    C23_clang_sycl_kernel_entry_point = 2,
+  SpellingNotCalculated = 15
+
+  };
+
+  // Factory methods
+  static SYCLKernelEntryPointAttr *CreateImplicit(ASTContext &Ctx, TypeSourceInfo * KernelName, bool Invalid, const AttributeCommonInfo &CommonInfo);
+  static SYCLKernelEntryPointAttr *Create(ASTContext &Ctx, TypeSourceInfo * KernelName, bool Invalid, const AttributeCommonInfo &CommonInfo);
+  static SYCLKernelEntryPointAttr *CreateImplicit(ASTContext &Ctx, TypeSourceInfo * KernelName, bool Invalid, SourceRange Range = {}, Spelling S = GNU_sycl_kernel_entry_point);
+  static SYCLKernelEntryPointAttr *Create(ASTContext &Ctx, TypeSourceInfo * KernelName, bool Invalid, SourceRange Range = {}, Spelling S = GNU_sycl_kernel_entry_point);
+  static SYCLKernelEntryPointAttr *CreateImplicit(ASTContext &Ctx, TypeSourceInfo * KernelName, const AttributeCommonInfo &CommonInfo);
+  static SYCLKernelEntryPointAttr *Create(ASTContext &Ctx, TypeSourceInfo * KernelName, const AttributeCommonInfo &CommonInfo);
+  static SYCLKernelEntryPointAttr *CreateImplicit(ASTContext &Ctx, TypeSourceInfo * KernelName, SourceRange Range = {}, Spelling S = GNU_sycl_kernel_entry_point);
+  static SYCLKernelEntryPointAttr *Create(ASTContext &Ctx, TypeSourceInfo * KernelName, SourceRange Range = {}, Spelling S = GNU_sycl_kernel_entry_point);
+
+  // Constructors
+  SYCLKernelEntryPointAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , TypeSourceInfo * KernelName
+              , bool Invalid
+             );
+  SYCLKernelEntryPointAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , TypeSourceInfo * KernelName
+             );
+
+  SYCLKernelEntryPointAttr *clone(ASTContext &C) const;
+  void printPretty(raw_ostream &OS,
+                   const PrintingPolicy &Policy) const;
+  const char *getSpelling() const;
+  QualType getKernelName() const {
+    return kernelName->getType();
+  }  TypeSourceInfo * getKernelNameLoc() const {
+    return kernelName;
+  }
+
+  bool getInvalid() const {
+    return invalid;
+  }
+
+  static const bool DefaultInvalid = false;
+
+
+    void setInvalidAttr() { invalid = true; }
+    bool isInvalidAttr() const { return invalid; }
+  
+
+  static bool classof(const Attr *A) { return A->getKind() == attr::SYCLKernelEntryPoint; }
+};
+
+class CLANG_ABI SYCLSpecialClassAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_sycl_special_class = 0,
@@ -11739,7 +12375,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::SYCLSpecialClass; }
 };
 
-class ScopedLockableAttr : public InheritableAttr {
+class CLANG_ABI ScopedLockableAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_scoped_lockable = 0,
@@ -11767,7 +12403,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ScopedLockable; }
 };
 
-class SectionAttr : public InheritableAttr {
+class CLANG_ABI SectionAttr : public InheritableAttr {
 unsigned nameLength;
 char *name;
 
@@ -11815,7 +12451,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Section; }
 };
 
-class SelectAnyAttr : public InheritableAttr {
+class CLANG_ABI SelectAnyAttr : public InheritableAttr {
 public:
   enum Spelling {
     Declspec_selectany = 0,
@@ -11845,7 +12481,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::SelectAny; }
 };
 
-class SentinelAttr : public InheritableAttr {
+class CLANG_ABI SentinelAttr : public InheritableAttr {
 int sentinel;
 
 int nullPos;
@@ -11894,7 +12530,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Sentinel; }
 };
 
-class SetTypestateAttr : public InheritableAttr {
+class CLANG_ABI SetTypestateAttr : public InheritableAttr {
 public:
   enum ConsumedState {
     Unknown,
@@ -11938,7 +12574,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::SetTypestate; }
 };
 
-class SharedTrylockFunctionAttr : public InheritableAttr {
+class CLANG_ABI SharedTrylockFunctionAttr : public InheritableAttr {
 Expr * successValue;
 
   unsigned args_Size;
@@ -11980,7 +12616,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::SharedTrylockFunction; }
 };
 
-class SizedByAttr : public InheritableAttr {
+class CLANG_ABI SizedByAttr : public InheritableAttr {
 Expr * size;
 
 int nestedLevel;
@@ -12026,7 +12662,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::SizedBy; }
 };
 
-class SizedByOrNullAttr : public InheritableAttr {
+class CLANG_ABI SizedByOrNullAttr : public InheritableAttr {
 Expr * size;
 
 int nestedLevel;
@@ -12072,7 +12708,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::SizedByOrNull; }
 };
 
-class SpeculativeLoadHardeningAttr : public InheritableAttr {
+class CLANG_ABI SpeculativeLoadHardeningAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_speculative_load_hardening = 0,
@@ -12101,7 +12737,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::SpeculativeLoadHardening; }
 };
 
-class StandaloneDebugAttr : public InheritableAttr {
+class CLANG_ABI StandaloneDebugAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_standalone_debug = 0,
@@ -12129,7 +12765,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::StandaloneDebug; }
 };
 
-class StdCallAttr : public InheritableAttr {
+class CLANG_ABI StdCallAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_stdcall = 0,
@@ -12159,7 +12795,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::StdCall; }
 };
 
-class StrictFPAttr : public InheritableAttr {
+class CLANG_ABI StrictFPAttr : public InheritableAttr {
 public:
   // Factory methods
   static StrictFPAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
@@ -12180,7 +12816,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::StrictFP; }
 };
 
-class StrictGuardStackCheckAttr : public InheritableAttr {
+class CLANG_ABI StrictGuardStackCheckAttr : public InheritableAttr {
 public:
   // Factory methods
   static StrictGuardStackCheckAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
@@ -12201,7 +12837,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::StrictGuardStackCheck; }
 };
 
-class SuppressAttr : public DeclOrStmtAttr {
+class CLANG_ABI SuppressAttr : public DeclOrStmtAttr {
   unsigned diagnosticIdentifiers_Size;
   StringRef *diagnosticIdentifiers_;
 
@@ -12245,7 +12881,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Suppress; }
 };
 
-class SwiftAsyncAttr : public InheritableAttr {
+class CLANG_ABI SwiftAsyncAttr : public InheritableAttr {
 public:
   enum Kind {
     None,
@@ -12300,7 +12936,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::SwiftAsync; }
 };
 
-class SwiftAsyncCallAttr : public InheritableAttr {
+class CLANG_ABI SwiftAsyncCallAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_swiftasynccall = 0,
@@ -12329,7 +12965,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::SwiftAsyncCall; }
 };
 
-class SwiftAsyncContextAttr : public ParameterABIAttr {
+class CLANG_ABI SwiftAsyncContextAttr : public ParameterABIAttr {
 public:
   enum Spelling {
     GNU_swift_async_context = 0,
@@ -12358,7 +12994,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::SwiftAsyncContext; }
 };
 
-class SwiftAsyncErrorAttr : public InheritableAttr {
+class CLANG_ABI SwiftAsyncErrorAttr : public InheritableAttr {
 public:
   enum ConventionKind {
     None,
@@ -12414,7 +13050,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::SwiftAsyncError; }
 };
 
-class SwiftAsyncNameAttr : public InheritableAttr {
+class CLANG_ABI SwiftAsyncNameAttr : public InheritableAttr {
 unsigned nameLength;
 char *name;
 
@@ -12452,7 +13088,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::SwiftAsyncName; }
 };
 
-class SwiftAttrAttr : public InheritableAttr {
+class CLANG_ABI SwiftAttrAttr : public InheritableAttr {
 unsigned attributeLength;
 char *attribute;
 
@@ -12490,7 +13126,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::SwiftAttr; }
 };
 
-class SwiftBridgeAttr : public InheritableAttr {
+class CLANG_ABI SwiftBridgeAttr : public InheritableAttr {
 unsigned swiftTypeLength;
 char *swiftType;
 
@@ -12528,7 +13164,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::SwiftBridge; }
 };
 
-class SwiftBridgedTypedefAttr : public InheritableAttr {
+class CLANG_ABI SwiftBridgedTypedefAttr : public InheritableAttr {
 public:
   // Factory methods
   static SwiftBridgedTypedefAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
@@ -12549,7 +13185,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::SwiftBridgedTypedef; }
 };
 
-class SwiftCallAttr : public InheritableAttr {
+class CLANG_ABI SwiftCallAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_swiftcall = 0,
@@ -12578,7 +13214,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::SwiftCall; }
 };
 
-class SwiftContextAttr : public ParameterABIAttr {
+class CLANG_ABI SwiftContextAttr : public ParameterABIAttr {
 public:
   enum Spelling {
     GNU_swift_context = 0,
@@ -12607,7 +13243,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::SwiftContext; }
 };
 
-class SwiftErrorAttr : public InheritableAttr {
+class CLANG_ABI SwiftErrorAttr : public InheritableAttr {
 public:
   enum ConventionKind {
     None,
@@ -12646,7 +13282,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::SwiftError; }
 };
 
-class SwiftErrorResultAttr : public ParameterABIAttr {
+class CLANG_ABI SwiftErrorResultAttr : public ParameterABIAttr {
 public:
   enum Spelling {
     GNU_swift_error_result = 0,
@@ -12675,7 +13311,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::SwiftErrorResult; }
 };
 
-class SwiftImportAsNonGenericAttr : public InheritableAttr {
+class CLANG_ABI SwiftImportAsNonGenericAttr : public InheritableAttr {
 public:
   // Factory methods
   static SwiftImportAsNonGenericAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
@@ -12696,7 +13332,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::SwiftImportAsNonGeneric; }
 };
 
-class SwiftImportPropertyAsAccessorsAttr : public InheritableAttr {
+class CLANG_ABI SwiftImportPropertyAsAccessorsAttr : public InheritableAttr {
 public:
   // Factory methods
   static SwiftImportPropertyAsAccessorsAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
@@ -12717,7 +13353,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::SwiftImportPropertyAsAccessors; }
 };
 
-class SwiftIndirectResultAttr : public ParameterABIAttr {
+class CLANG_ABI SwiftIndirectResultAttr : public ParameterABIAttr {
 public:
   enum Spelling {
     GNU_swift_indirect_result = 0,
@@ -12746,7 +13382,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::SwiftIndirectResult; }
 };
 
-class SwiftNameAttr : public InheritableAttr {
+class CLANG_ABI SwiftNameAttr : public InheritableAttr {
 unsigned nameLength;
 char *name;
 
@@ -12784,7 +13420,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::SwiftName; }
 };
 
-class SwiftNewTypeAttr : public InheritableAttr {
+class CLANG_ABI SwiftNewTypeAttr : public InheritableAttr {
 public:
   enum NewtypeKind {
     NK_Struct,
@@ -12828,7 +13464,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::SwiftNewType; }
 };
 
-class SwiftObjCMembersAttr : public Attr {
+class CLANG_ABI SwiftObjCMembersAttr : public Attr {
 public:
   // Factory methods
   static SwiftObjCMembersAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
@@ -12849,7 +13485,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::SwiftObjCMembers; }
 };
 
-class SwiftPrivateAttr : public InheritableAttr {
+class CLANG_ABI SwiftPrivateAttr : public InheritableAttr {
 public:
   // Factory methods
   static SwiftPrivateAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
@@ -12870,7 +13506,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::SwiftPrivate; }
 };
 
-class SwiftVersionedAdditionAttr : public Attr {
+class CLANG_ABI SwiftVersionedAdditionAttr : public Attr {
 VersionTuple version;
 
 
@@ -12916,7 +13552,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::SwiftVersionedAddition; }
 };
 
-class SwiftVersionedRemovalAttr : public Attr {
+class CLANG_ABI SwiftVersionedRemovalAttr : public Attr {
 VersionTuple version;
 
 
@@ -12966,7 +13602,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::SwiftVersionedRemoval; }
 };
 
-class SysVABIAttr : public InheritableAttr {
+class CLANG_ABI SysVABIAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_sysv_abi = 0,
@@ -12995,7 +13631,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::SysVABI; }
 };
 
-class TLSModelAttr : public InheritableAttr {
+class CLANG_ABI TLSModelAttr : public InheritableAttr {
 unsigned modelLength;
 char *model;
 
@@ -13041,7 +13677,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::TLSModel; }
 };
 
-class TargetAttr : public InheritableAttr {
+class CLANG_ABI TargetAttr : public InheritableAttr {
 unsigned featuresStrLength;
 char *featuresStr;
 
@@ -13083,33 +13719,28 @@ public:
   }
 
 
-    StringRef getArchitecture() const {
+    std::optional<StringRef> getX86Architecture() const {
       StringRef Features = getFeaturesStr();
-      if (Features == "default") return {};
-
-      SmallVector<StringRef, 1> AttrFeatures;
-      Features.split(AttrFeatures, ",");
-
-      for (auto &Feature : AttrFeatures) {
+      SmallVector<StringRef, 4> AttrFeatures;
+      Features.split(AttrFeatures, ',');
+      for (StringRef Feature : AttrFeatures) {
         Feature = Feature.trim();
         if (Feature.starts_with("arch="))
           return Feature.drop_front(sizeof("arch=") - 1);
       }
-      return "";
+      return std::nullopt;
     }
 
     // Gets the list of features as simple string-refs with no +/- or 'no-'.
     // Only adds the items to 'Out' that are additions.
-    void getAddedFeatures(llvm::SmallVectorImpl<StringRef> &Out) const {
+    void getX86AddedFeatures(llvm::SmallVectorImpl<StringRef> &Out) const {
+      if (isDefaultVersion())
+        return;
       StringRef Features = getFeaturesStr();
-      if (Features == "default") return;
-
-      SmallVector<StringRef, 1> AttrFeatures;
-      Features.split(AttrFeatures, ",");
-
+      SmallVector<StringRef, 4> AttrFeatures;
+      Features.split(AttrFeatures, ',');
       for (auto &Feature : AttrFeatures) {
         Feature = Feature.trim();
-
         if (!Feature.starts_with("no-") && !Feature.starts_with("arch=") &&
             !Feature.starts_with("fpmath=") && !Feature.starts_with("tune="))
           Out.push_back(Feature);
@@ -13122,7 +13753,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Target; }
 };
 
-class TargetClonesAttr : public InheritableAttr {
+class CLANG_ABI TargetClonesAttr : public InheritableAttr {
   unsigned featuresStrs_Size;
   StringRef *featuresStrs_;
 
@@ -13163,20 +13794,40 @@ public:
     StringRef getFeatureStr(unsigned Index) const {
       return *(featuresStrs_begin() + Index);
     }
+
     bool isDefaultVersion(unsigned Index) const {
       return getFeatureStr(Index) == "default";
     }
+
     void getFeatures(llvm::SmallVectorImpl<StringRef> &Out,
-                     unsigned Index) const {
-      if (isDefaultVersion(Index)) return;
+                     unsigned Index, char Delim = '+') const {
+      if (isDefaultVersion(Index))
+        return;
       StringRef Features = getFeatureStr(Index);
-      SmallVector<StringRef, 8> AttrFeatures;
-      Features.split(AttrFeatures, "+");
-      for (auto &Feature : AttrFeatures) {
+      SmallVector<StringRef, 4> AttrFeatures;
+      Features.split(AttrFeatures, Delim);
+      for (StringRef Feature : AttrFeatures) {
         Feature = Feature.trim();
         Out.push_back(Feature);
       }
     }
+
+    std::optional<StringRef> getX86Architecture(unsigned Index) const {
+      StringRef Feature = getFeatureStr(Index);
+      if (Feature.starts_with("arch="))
+        return Feature.drop_front(sizeof("arch=") - 1);
+      return std::nullopt;
+    }
+
+    void getX86Feature(llvm::SmallVectorImpl<StringRef> &Out,
+                       unsigned Index) const {
+      if (isDefaultVersion(Index))
+        return;
+      if (getX86Architecture(Index))
+        return;
+      Out.push_back(getFeatureStr(Index));
+    }
+
     // Given an index into the 'featuresStrs' sequence, compute a unique
     // ID to be used with function name mangling for the associated variant.
     // This mapping is necessary due to a requirement that the mangling ID
@@ -13208,7 +13859,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::TargetClones; }
 };
 
-class TargetVersionAttr : public InheritableAttr {
+class CLANG_ABI TargetVersionAttr : public InheritableAttr {
 unsigned namesStrLength;
 char *namesStr;
 
@@ -13251,17 +13902,17 @@ public:
 
 
     StringRef getName() const { return getNamesStr().trim(); }
-    bool isDefaultVersion() const {
-      return getName() == "default";
-    }
-    void getFeatures(llvm::SmallVectorImpl<StringRef> &Out) const {
-      if (isDefaultVersion()) return;
+
+    bool isDefaultVersion() const { return getName() == "default"; }
+
+    void getFeatures(llvm::SmallVectorImpl<StringRef> &Out,
+                     char Delim = '+') const {
+      if (isDefaultVersion())
+        return;
       StringRef Features = getName();
-
-      SmallVector<StringRef, 8> AttrFeatures;
-      Features.split(AttrFeatures, "+");
-
-      for (auto &Feature : AttrFeatures) {
+      SmallVector<StringRef, 4> AttrFeatures;
+      Features.split(AttrFeatures, Delim);
+      for (StringRef Feature : AttrFeatures) {
         Feature = Feature.trim();
         Out.push_back(Feature);
       }
@@ -13271,7 +13922,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::TargetVersion; }
 };
 
-class TestTypestateAttr : public InheritableAttr {
+class CLANG_ABI TestTypestateAttr : public InheritableAttr {
 public:
   enum ConsumedState {
     Consumed,
@@ -13314,7 +13965,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::TestTypestate; }
 };
 
-class ThisCallAttr : public InheritableAttr {
+class CLANG_ABI ThisCallAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_thiscall = 0,
@@ -13344,7 +13995,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::ThisCall; }
 };
 
-class ThreadAttr : public Attr {
+class CLANG_ABI ThreadAttr : public Attr {
 public:
   // Factory methods
   static ThreadAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
@@ -13365,7 +14016,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Thread; }
 };
 
-class TransparentUnionAttr : public InheritableAttr {
+class CLANG_ABI TransparentUnionAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_transparent_union = 0,
@@ -13394,7 +14045,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::TransparentUnion; }
 };
 
-class TrivialABIAttr : public InheritableAttr {
+class CLANG_ABI TrivialABIAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_trivial_abi = 0,
@@ -13422,7 +14073,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::TrivialABI; }
 };
 
-class TryAcquireCapabilityAttr : public InheritableAttr {
+class CLANG_ABI TryAcquireCapabilityAttr : public InheritableAttr {
 Expr * successValue;
 
   unsigned args_Size;
@@ -13476,7 +14127,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::TryAcquireCapability; }
 };
 
-class TypeNonNullAttr : public TypeAttr {
+class CLANG_ABI TypeNonNullAttr : public TypeAttr {
 public:
   // Factory methods
   static TypeNonNullAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
@@ -13497,7 +14148,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::TypeNonNull; }
 };
 
-class TypeNullUnspecifiedAttr : public TypeAttr {
+class CLANG_ABI TypeNullUnspecifiedAttr : public TypeAttr {
 public:
   // Factory methods
   static TypeNullUnspecifiedAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
@@ -13518,7 +14169,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::TypeNullUnspecified; }
 };
 
-class TypeNullableAttr : public InheritableAttr {
+class CLANG_ABI TypeNullableAttr : public InheritableAttr {
 public:
   // Factory methods
   static TypeNullableAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
@@ -13539,7 +14190,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::TypeNullable; }
 };
 
-class TypeNullableResultAttr : public TypeAttr {
+class CLANG_ABI TypeNullableResultAttr : public TypeAttr {
 public:
   // Factory methods
   static TypeNullableResultAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
@@ -13560,7 +14211,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::TypeNullableResult; }
 };
 
-class TypeTagForDatatypeAttr : public InheritableAttr {
+class CLANG_ABI TypeTagForDatatypeAttr : public InheritableAttr {
 IdentifierInfo * argumentKind;
 
 TypeSourceInfo * matchingCType;
@@ -13619,7 +14270,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::TypeTagForDatatype; }
 };
 
-class TypeVisibilityAttr : public InheritableAttr {
+class CLANG_ABI TypeVisibilityAttr : public InheritableAttr {
 public:
   enum VisibilityType {
     Default,
@@ -13664,7 +14315,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::TypeVisibility; }
 };
 
-class UPtrAttr : public TypeAttr {
+class CLANG_ABI UPtrAttr : public TypeAttr {
 public:
   // Factory methods
   static UPtrAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
@@ -13685,7 +14336,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::UPtr; }
 };
 
-class UnavailableAttr : public InheritableAttr {
+class CLANG_ABI UnavailableAttr : public InheritableAttr {
 unsigned messageLength;
 char *message;
 
@@ -13757,7 +14408,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Unavailable; }
 };
 
-class UninitializedAttr : public InheritableAttr {
+class CLANG_ABI UninitializedAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_uninitialized = 0,
@@ -13785,7 +14436,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Uninitialized; }
 };
 
-class UnlikelyAttr : public StmtAttr {
+class CLANG_ABI UnlikelyAttr : public StmtAttr {
 public:
   enum Spelling {
     CXX11_unlikely = 0,
@@ -13813,7 +14464,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Unlikely; }
 };
 
-class UnsafeBufferUsageAttr : public InheritableAttr {
+class CLANG_ABI UnsafeBufferUsageAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_unsafe_buffer_usage = 0,
@@ -13842,7 +14493,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::UnsafeBufferUsage; }
 };
 
-class UnusedAttr : public InheritableAttr {
+class CLANG_ABI UnusedAttr : public InheritableAttr {
 public:
   enum Spelling {
     CXX11_maybe_unused = 0,
@@ -13874,7 +14525,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Unused; }
 };
 
-class UseHandleAttr : public InheritableParamAttr {
+class CLANG_ABI UseHandleAttr : public InheritableParamAttr {
 unsigned handleTypeLength;
 char *handleType;
 
@@ -13920,7 +14571,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::UseHandle; }
 };
 
-class UsedAttr : public InheritableAttr {
+class CLANG_ABI UsedAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_used = 0,
@@ -13949,7 +14600,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Used; }
 };
 
-class UsingIfExistsAttr : public InheritableAttr {
+class CLANG_ABI UsingIfExistsAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_using_if_exists = 0,
@@ -13977,7 +14628,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::UsingIfExists; }
 };
 
-class UuidAttr : public InheritableAttr {
+class CLANG_ABI UuidAttr : public InheritableAttr {
 unsigned guidLength;
 char *guid;
 
@@ -14036,7 +14687,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Uuid; }
 };
 
-class VTablePointerAuthenticationAttr : public InheritableAttr {
+class CLANG_ABI VTablePointerAuthenticationAttr : public InheritableAttr {
 public:
   enum VPtrAuthKeyType {
     DefaultKey,
@@ -14127,7 +14778,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::VTablePointerAuthentication; }
 };
 
-class VecReturnAttr : public InheritableAttr {
+class CLANG_ABI VecReturnAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_vecreturn = 0,
@@ -14155,7 +14806,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::VecReturn; }
 };
 
-class VecTypeHintAttr : public InheritableAttr {
+class CLANG_ABI VecTypeHintAttr : public InheritableAttr {
 TypeSourceInfo * typeHint;
 
 public:
@@ -14185,7 +14836,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::VecTypeHint; }
 };
 
-class VectorCallAttr : public InheritableAttr {
+class CLANG_ABI VectorCallAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_vectorcall = 0,
@@ -14215,7 +14866,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::VectorCall; }
 };
 
-class VisibilityAttr : public InheritableAttr {
+class CLANG_ABI VisibilityAttr : public InheritableAttr {
 public:
   enum VisibilityType {
     Default,
@@ -14260,7 +14911,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Visibility; }
 };
 
-class WarnUnusedAttr : public InheritableAttr {
+class CLANG_ABI WarnUnusedAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_warn_unused = 0,
@@ -14289,7 +14940,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::WarnUnused; }
 };
 
-class WarnUnusedResultAttr : public InheritableAttr {
+class CLANG_ABI WarnUnusedResultAttr : public InheritableAttr {
 unsigned messageLength;
 char *message;
 
@@ -14347,7 +14998,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::WarnUnusedResult; }
 };
 
-class WeakAttr : public InheritableAttr {
+class CLANG_ABI WeakAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_weak = 0,
@@ -14376,7 +15027,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::Weak; }
 };
 
-class WeakImportAttr : public InheritableAttr {
+class CLANG_ABI WeakImportAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_weak_import = 0,
@@ -14405,7 +15056,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::WeakImport; }
 };
 
-class WeakRefAttr : public InheritableAttr {
+class CLANG_ABI WeakRefAttr : public InheritableAttr {
 unsigned aliaseeLength;
 char *aliasee;
 
@@ -14453,7 +15104,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::WeakRef; }
 };
 
-class WebAssemblyExportNameAttr : public InheritableAttr {
+class CLANG_ABI WebAssemblyExportNameAttr : public InheritableAttr {
 unsigned exportNameLength;
 char *exportName;
 
@@ -14499,7 +15150,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::WebAssemblyExportName; }
 };
 
-class WebAssemblyFuncrefAttr : public TypeAttr {
+class CLANG_ABI WebAssemblyFuncrefAttr : public TypeAttr {
 public:
   // Factory methods
   static WebAssemblyFuncrefAttr *CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo);
@@ -14520,7 +15171,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::WebAssemblyFuncref; }
 };
 
-class WebAssemblyImportModuleAttr : public InheritableAttr {
+class CLANG_ABI WebAssemblyImportModuleAttr : public InheritableAttr {
 unsigned importModuleLength;
 char *importModule;
 
@@ -14566,7 +15217,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::WebAssemblyImportModule; }
 };
 
-class WebAssemblyImportNameAttr : public InheritableAttr {
+class CLANG_ABI WebAssemblyImportNameAttr : public InheritableAttr {
 unsigned importNameLength;
 char *importName;
 
@@ -14612,7 +15263,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::WebAssemblyImportName; }
 };
 
-class WorkGroupSizeHintAttr : public InheritableAttr {
+class CLANG_ABI WorkGroupSizeHintAttr : public InheritableAttr {
 unsigned xDim;
 
 unsigned yDim;
@@ -14654,7 +15305,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::WorkGroupSizeHint; }
 };
 
-class X86ForceAlignArgPointerAttr : public InheritableAttr {
+class CLANG_ABI X86ForceAlignArgPointerAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_force_align_arg_pointer = 0,
@@ -14683,7 +15334,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::X86ForceAlignArgPointer; }
 };
 
-class XRayInstrumentAttr : public InheritableAttr {
+class CLANG_ABI XRayInstrumentAttr : public InheritableAttr {
 public:
   enum Spelling {
     GNU_xray_always_instrument = 0,
@@ -14722,7 +15373,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::XRayInstrument; }
 };
 
-class XRayLogArgsAttr : public InheritableAttr {
+class CLANG_ABI XRayLogArgsAttr : public InheritableAttr {
 unsigned argumentCount;
 
 public:
@@ -14758,7 +15409,7 @@ public:
   static bool classof(const Attr *A) { return A->getKind() == attr::XRayLogArgs; }
 };
 
-class ZeroCallUsedRegsAttr : public InheritableAttr {
+class CLANG_ABI ZeroCallUsedRegsAttr : public InheritableAttr {
 public:
   enum ZeroCallUsedRegsKind {
     Skip,

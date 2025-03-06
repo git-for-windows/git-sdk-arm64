@@ -95,6 +95,11 @@
     OS << " " << SA->getTypeTagIdx().getSourceIndex();
     if (SA->getIsPointer()) OS << " IsPointer";
   }
+  void VisitArmAgnosticAttr(const ArmAgnosticAttr *A) {
+    const auto *SA = cast<ArmAgnosticAttr>(A); (void)SA;
+    for (const auto &Val : SA->agnosticArgs())
+      OS << " " << Val;
+  }
   void VisitArmBuiltinAliasAttr(const ArmBuiltinAliasAttr *A) {
     const auto *SA = cast<ArmBuiltinAliasAttr>(A); (void)SA;
     if (SA->getBuiltinName())
@@ -295,14 +300,15 @@
   void VisitDiagnoseIfAttr(const DiagnoseIfAttr *A) {
     const auto *SA = cast<DiagnoseIfAttr>(A); (void)SA;
     OS << " \"" << SA->getMessage() << "\"";
-    switch(SA->getDiagnosticType()) {
-    case DiagnoseIfAttr::DiagnosticType::DT_Error:
-      OS << " DT_Error";
+    switch(SA->getDefaultSeverity()) {
+    case DiagnoseIfAttr::DefaultSeverity::DS_error:
+      OS << " DS_error";
       break;
-    case DiagnoseIfAttr::DiagnosticType::DT_Warning:
-      OS << " DT_Warning";
+    case DiagnoseIfAttr::DefaultSeverity::DS_warning:
+      OS << " DS_warning";
       break;
     }
+    OS << " \"" << SA->getWarningGroup() << "\"";
     if (SA->getArgDependent()) OS << " ArgDependent";
     OS << " ";
     dumpBareDeclRef(SA->getParent());
@@ -366,6 +372,13 @@
       OS << " Extern";
       break;
     }
+  }
+  void VisitHLSLContainedTypeAttr(const HLSLContainedTypeAttr *A) {
+    const auto *SA = cast<HLSLContainedTypeAttr>(A); (void)SA;
+    OS << " " << SA->getType().getAsString();
+  }
+  void VisitHLSLControlFlowHintAttr(const HLSLControlFlowHintAttr *A) {
+    OS << " " << A->getSpelling();
   }
   void VisitHLSLLoopHintAttr(const HLSLLoopHintAttr *A) {
     const auto *SA = cast<HLSLLoopHintAttr>(A); (void)SA;
@@ -448,7 +461,6 @@
     default:
       llvm_unreachable("Invalid attribute value");
     }
-    if (SA->getIsROV()) OS << " IsROV";
   }
   void VisitHLSLResourceBindingAttr(const HLSLResourceBindingAttr *A) {
     const auto *SA = cast<HLSLResourceBindingAttr>(A); (void)SA;
@@ -521,6 +533,12 @@
       llvm_unreachable("Invalid attribute value");
     }
   }
+  void VisitHLSLWaveSizeAttr(const HLSLWaveSizeAttr *A) {
+    const auto *SA = cast<HLSLWaveSizeAttr>(A); (void)SA;
+    OS << " " << SA->getMin();
+    OS << " " << SA->getMax();
+    OS << " " << SA->getPreferred();
+  }
   void VisitIBOutletCollectionAttr(const IBOutletCollectionAttr *A) {
     const auto *SA = cast<IBOutletCollectionAttr>(A); (void)SA;
     if (SA->getInterfaceLoc())    OS << " " << SA->getInterface().getAsString();
@@ -540,6 +558,11 @@
   void VisitLayoutVersionAttr(const LayoutVersionAttr *A) {
     const auto *SA = cast<LayoutVersionAttr>(A); (void)SA;
     OS << " " << SA->getVersion();
+  }
+  void VisitLifetimeCaptureByAttr(const LifetimeCaptureByAttr *A) {
+    const auto *SA = cast<LifetimeCaptureByAttr>(A); (void)SA;
+    for (const auto &Val : SA->params())
+      OS << " " << Val;
   }
   void VisitLoopHintAttr(const LoopHintAttr *A) {
     const auto *SA = cast<LoopHintAttr>(A); (void)SA;
@@ -688,6 +711,10 @@
     const auto *SA = cast<NoSanitizeAttr>(A); (void)SA;
     for (const auto &Val : SA->sanitizers())
       OS << " " << Val;
+  }
+  void VisitNoSpecializationsAttr(const NoSpecializationsAttr *A) {
+    const auto *SA = cast<NoSpecializationsAttr>(A); (void)SA;
+    OS << " \"" << SA->getMessage() << "\"";
   }
   void VisitNoStackProtectorAttr(const NoStackProtectorAttr *A) {
     OS << " " << A->getSpelling();
@@ -1004,6 +1031,11 @@
       OS << " Unconsumed";
       break;
     }
+  }
+  void VisitSYCLKernelEntryPointAttr(const SYCLKernelEntryPointAttr *A) {
+    const auto *SA = cast<SYCLKernelEntryPointAttr>(A); (void)SA;
+    OS << " " << SA->getKernelName().getAsString();
+    if (SA->getInvalid()) OS << " Invalid";
   }
   void VisitSectionAttr(const SectionAttr *A) {
     const auto *SA = cast<SectionAttr>(A); (void)SA;

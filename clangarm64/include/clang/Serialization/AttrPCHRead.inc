@@ -421,6 +421,23 @@
     New->setPackExpansion(isPackExpansion);
     break;
   }
+  case attr::ArmAgnostic: {
+    bool isImplicit = Record.readInt();
+    bool isPackExpansion = Record.readInt();
+    unsigned agnosticArgsSize = Record.readInt();
+    SmallVector<StringRef, 4> agnosticArgs;
+    agnosticArgs.reserve(agnosticArgsSize);
+    SmallVector<std::string, 4> agnosticArgsStorage;
+    agnosticArgsStorage.reserve(agnosticArgsSize);
+    for (unsigned i = 0; i != agnosticArgsSize; ++i)
+      agnosticArgsStorage.push_back(Record.readString());
+    for (unsigned i = 0; i != agnosticArgsSize; ++i)
+      agnosticArgs.push_back(agnosticArgsStorage[i]);
+    New = new (Context) ArmAgnosticAttr(Context, Info, agnosticArgs.data(), agnosticArgsSize);
+    New->setImplicit(isImplicit);
+    New->setPackExpansion(isPackExpansion);
+    break;
+  }
   case attr::ArmBuiltinAlias: {
     bool isInherited = Record.readInt();
     bool isImplicit = Record.readInt();
@@ -657,6 +674,16 @@
     bool isImplicit = Record.readInt();
     bool isPackExpansion = Record.readInt();
     New = new (Context) AvailableOnlyInDefaultEvalMethodAttr(Context, Info);
+    cast<InheritableAttr>(New)->setInherited(isInherited);
+    New->setImplicit(isImplicit);
+    New->setPackExpansion(isPackExpansion);
+    break;
+  }
+  case attr::BPFFastCall: {
+    bool isInherited = Record.readInt();
+    bool isImplicit = Record.readInt();
+    bool isPackExpansion = Record.readInt();
+    New = new (Context) BPFFastCallAttr(Context, Info);
     cast<InheritableAttr>(New)->setInherited(isInherited);
     New->setImplicit(isImplicit);
     New->setPackExpansion(isPackExpansion);
@@ -907,6 +934,16 @@
     bool isImplicit = Record.readInt();
     bool isPackExpansion = Record.readInt();
     New = new (Context) CUDAGlobalAttr(Context, Info);
+    cast<InheritableAttr>(New)->setInherited(isInherited);
+    New->setImplicit(isImplicit);
+    New->setPackExpansion(isPackExpansion);
+    break;
+  }
+  case attr::CUDAGridConstant: {
+    bool isInherited = Record.readInt();
+    bool isImplicit = Record.readInt();
+    bool isPackExpansion = Record.readInt();
+    New = new (Context) CUDAGridConstantAttr(Context, Info);
     cast<InheritableAttr>(New)->setInherited(isInherited);
     New->setImplicit(isImplicit);
     New->setPackExpansion(isPackExpansion);
@@ -1205,6 +1242,26 @@
     New->setPackExpansion(isPackExpansion);
     break;
   }
+  case attr::CoroAwaitElidable: {
+    bool isInherited = Record.readInt();
+    bool isImplicit = Record.readInt();
+    bool isPackExpansion = Record.readInt();
+    New = new (Context) CoroAwaitElidableAttr(Context, Info);
+    cast<InheritableAttr>(New)->setInherited(isInherited);
+    New->setImplicit(isImplicit);
+    New->setPackExpansion(isPackExpansion);
+    break;
+  }
+  case attr::CoroAwaitElidableArgument: {
+    bool isInherited = Record.readInt();
+    bool isImplicit = Record.readInt();
+    bool isPackExpansion = Record.readInt();
+    New = new (Context) CoroAwaitElidableArgumentAttr(Context, Info);
+    cast<InheritableAttr>(New)->setInherited(isInherited);
+    New->setImplicit(isImplicit);
+    New->setPackExpansion(isPackExpansion);
+    break;
+  }
   case attr::CoroDisableLifetimeBound: {
     bool isInherited = Record.readInt();
     bool isImplicit = Record.readInt();
@@ -1364,10 +1421,11 @@
     bool isPackExpansion = Record.readInt();
     Expr * cond = Record.readExpr();
     std::string message= Record.readString();
-    DiagnoseIfAttr::DiagnosticType diagnosticType(static_cast<DiagnoseIfAttr::DiagnosticType>(Record.readInt()));
+    DiagnoseIfAttr::DefaultSeverity defaultSeverity(static_cast<DiagnoseIfAttr::DefaultSeverity>(Record.readInt()));
+    std::string warningGroup= Record.readString();
     bool argDependent = Record.readInt();
     NamedDecl * parent = Record.readDeclAs<NamedDecl >();
-    New = new (Context) DiagnoseIfAttr(Context, Info, cond, message, diagnosticType, argDependent, parent);
+    New = new (Context) DiagnoseIfAttr(Context, Info, cond, message, defaultSeverity, warningGroup, argDependent, parent);
     cast<InheritableAttr>(New)->setInherited(isInherited);
     New->setImplicit(isImplicit);
     New->setPackExpansion(isPackExpansion);
@@ -1480,6 +1538,16 @@
     for (unsigned i = 0; i != argsSize; ++i)
       args.push_back(Record.readExpr());
     New = new (Context) ExclusiveTrylockFunctionAttr(Context, Info, successValue, args.data(), argsSize);
+    cast<InheritableAttr>(New)->setInherited(isInherited);
+    New->setImplicit(isImplicit);
+    New->setPackExpansion(isPackExpansion);
+    break;
+  }
+  case attr::ExplicitInit: {
+    bool isInherited = Record.readInt();
+    bool isImplicit = Record.readInt();
+    bool isPackExpansion = Record.readInt();
+    New = new (Context) ExplicitInitAttr(Context, Info);
     cast<InheritableAttr>(New)->setInherited(isInherited);
     New->setImplicit(isImplicit);
     New->setPackExpansion(isPackExpansion);
@@ -1623,6 +1691,23 @@
     New->setPackExpansion(isPackExpansion);
     break;
   }
+  case attr::HLSLContainedType: {
+    bool isImplicit = Record.readInt();
+    bool isPackExpansion = Record.readInt();
+    TypeSourceInfo * type = Record.readTypeSourceInfo();
+    New = new (Context) HLSLContainedTypeAttr(Context, Info, type);
+    New->setImplicit(isImplicit);
+    New->setPackExpansion(isPackExpansion);
+    break;
+  }
+  case attr::HLSLControlFlowHint: {
+    bool isImplicit = Record.readInt();
+    bool isPackExpansion = Record.readInt();
+    New = new (Context) HLSLControlFlowHintAttr(Context, Info);
+    New->setImplicit(isImplicit);
+    New->setPackExpansion(isPackExpansion);
+    break;
+  }
   case attr::HLSLGroupSharedAddressSpace: {
     bool isImplicit = Record.readInt();
     bool isPackExpansion = Record.readInt();
@@ -1666,10 +1751,28 @@
     break;
   }
   case attr::HLSLParamModifier: {
+    bool isInherited = Record.readInt();
     bool isImplicit = Record.readInt();
     bool isPackExpansion = Record.readInt();
     bool mergedSpelling = Record.readInt();
     New = new (Context) HLSLParamModifierAttr(Context, Info, mergedSpelling);
+    cast<InheritableAttr>(New)->setInherited(isInherited);
+    New->setImplicit(isImplicit);
+    New->setPackExpansion(isPackExpansion);
+    break;
+  }
+  case attr::HLSLROV: {
+    bool isImplicit = Record.readInt();
+    bool isPackExpansion = Record.readInt();
+    New = new (Context) HLSLROVAttr(Context, Info);
+    New->setImplicit(isImplicit);
+    New->setPackExpansion(isPackExpansion);
+    break;
+  }
+  case attr::HLSLRawBuffer: {
+    bool isImplicit = Record.readInt();
+    bool isPackExpansion = Record.readInt();
+    New = new (Context) HLSLRawBufferAttr(Context, Info);
     New->setImplicit(isImplicit);
     New->setPackExpansion(isPackExpansion);
     break;
@@ -1679,8 +1782,7 @@
     bool isImplicit = Record.readInt();
     bool isPackExpansion = Record.readInt();
     llvm::hlsl::ResourceKind resourceKind(static_cast<llvm::hlsl::ResourceKind>(Record.readInt()));
-    bool isROV = Record.readInt();
-    New = new (Context) HLSLResourceAttr(Context, Info, resourceKind, isROV);
+    New = new (Context) HLSLResourceAttr(Context, Info, resourceKind);
     cast<InheritableAttr>(New)->setInherited(isInherited);
     New->setImplicit(isImplicit);
     New->setPackExpansion(isPackExpansion);
@@ -1699,12 +1801,10 @@
     break;
   }
   case attr::HLSLResourceClass: {
-    bool isInherited = Record.readInt();
     bool isImplicit = Record.readInt();
     bool isPackExpansion = Record.readInt();
     llvm::hlsl::ResourceClass resourceClass(static_cast<llvm::hlsl::ResourceClass>(Record.readInt()));
     New = new (Context) HLSLResourceClassAttr(Context, Info, resourceClass);
-    cast<InheritableAttr>(New)->setInherited(isInherited);
     New->setImplicit(isImplicit);
     New->setPackExpansion(isPackExpansion);
     break;
@@ -1714,6 +1814,16 @@
     bool isImplicit = Record.readInt();
     bool isPackExpansion = Record.readInt();
     New = new (Context) HLSLSV_DispatchThreadIDAttr(Context, Info);
+    cast<InheritableAttr>(New)->setInherited(isInherited);
+    New->setImplicit(isImplicit);
+    New->setPackExpansion(isPackExpansion);
+    break;
+  }
+  case attr::HLSLSV_GroupID: {
+    bool isInherited = Record.readInt();
+    bool isImplicit = Record.readInt();
+    bool isPackExpansion = Record.readInt();
+    New = new (Context) HLSLSV_GroupIDAttr(Context, Info);
     cast<InheritableAttr>(New)->setInherited(isInherited);
     New->setImplicit(isImplicit);
     New->setPackExpansion(isPackExpansion);
@@ -1729,12 +1839,35 @@
     New->setPackExpansion(isPackExpansion);
     break;
   }
+  case attr::HLSLSV_GroupThreadID: {
+    bool isInherited = Record.readInt();
+    bool isImplicit = Record.readInt();
+    bool isPackExpansion = Record.readInt();
+    New = new (Context) HLSLSV_GroupThreadIDAttr(Context, Info);
+    cast<InheritableAttr>(New)->setInherited(isInherited);
+    New->setImplicit(isImplicit);
+    New->setPackExpansion(isPackExpansion);
+    break;
+  }
   case attr::HLSLShader: {
     bool isInherited = Record.readInt();
     bool isImplicit = Record.readInt();
     bool isPackExpansion = Record.readInt();
     llvm::Triple::EnvironmentType type(static_cast<llvm::Triple::EnvironmentType>(Record.readInt()));
     New = new (Context) HLSLShaderAttr(Context, Info, type);
+    cast<InheritableAttr>(New)->setInherited(isInherited);
+    New->setImplicit(isImplicit);
+    New->setPackExpansion(isPackExpansion);
+    break;
+  }
+  case attr::HLSLWaveSize: {
+    bool isInherited = Record.readInt();
+    bool isImplicit = Record.readInt();
+    bool isPackExpansion = Record.readInt();
+    int min = Record.readInt();
+    int max = Record.readInt();
+    int preferred = Record.readInt();
+    New = new (Context) HLSLWaveSizeAttr(Context, Info, min, max, preferred);
     cast<InheritableAttr>(New)->setInherited(isInherited);
     New->setImplicit(isImplicit);
     New->setPackExpansion(isPackExpansion);
@@ -1876,6 +2009,21 @@
     bool isImplicit = Record.readInt();
     bool isPackExpansion = Record.readInt();
     New = new (Context) LifetimeBoundAttr(Context, Info);
+    cast<InheritableAttr>(New)->setInherited(isInherited);
+    New->setImplicit(isImplicit);
+    New->setPackExpansion(isPackExpansion);
+    break;
+  }
+  case attr::LifetimeCaptureBy: {
+    bool isInherited = Record.readInt();
+    bool isImplicit = Record.readInt();
+    bool isPackExpansion = Record.readInt();
+    unsigned paramsSize = Record.readInt();
+    SmallVector<int, 4> params;
+    params.reserve(paramsSize);
+    for (unsigned i = 0; i != paramsSize; ++i)
+      params.push_back(Record.readInt());
+    New = new (Context) LifetimeCaptureByAttr(Context, Info, params.data(), paramsSize);
     cast<InheritableAttr>(New)->setInherited(isInherited);
     New->setImplicit(isImplicit);
     New->setPackExpansion(isPackExpansion);
@@ -2286,6 +2434,16 @@
     New->setPackExpansion(isPackExpansion);
     break;
   }
+  case attr::NoConvergent: {
+    bool isInherited = Record.readInt();
+    bool isImplicit = Record.readInt();
+    bool isPackExpansion = Record.readInt();
+    New = new (Context) NoConvergentAttr(Context, Info);
+    cast<InheritableAttr>(New)->setInherited(isInherited);
+    New->setImplicit(isImplicit);
+    New->setPackExpansion(isPackExpansion);
+    break;
+  }
   case attr::NoDebug: {
     bool isInherited = Record.readInt();
     bool isImplicit = Record.readInt();
@@ -2431,6 +2589,17 @@
     New->setPackExpansion(isPackExpansion);
     break;
   }
+  case attr::NoSpecializations: {
+    bool isInherited = Record.readInt();
+    bool isImplicit = Record.readInt();
+    bool isPackExpansion = Record.readInt();
+    std::string message= Record.readString();
+    New = new (Context) NoSpecializationsAttr(Context, Info, message);
+    cast<InheritableAttr>(New)->setInherited(isInherited);
+    New->setImplicit(isImplicit);
+    New->setPackExpansion(isPackExpansion);
+    break;
+  }
   case attr::NoSpeculativeLoadHardening: {
     bool isInherited = Record.readInt();
     bool isImplicit = Record.readInt();
@@ -2476,6 +2645,16 @@
     bool isImplicit = Record.readInt();
     bool isPackExpansion = Record.readInt();
     New = new (Context) NoThrowAttr(Context, Info);
+    cast<InheritableAttr>(New)->setInherited(isInherited);
+    New->setImplicit(isImplicit);
+    New->setPackExpansion(isPackExpansion);
+    break;
+  }
+  case attr::NoTrivialAutoVarInit: {
+    bool isInherited = Record.readInt();
+    bool isImplicit = Record.readInt();
+    bool isPackExpansion = Record.readInt();
+    New = new (Context) NoTrivialAutoVarInitAttr(Context, Info);
     cast<InheritableAttr>(New)->setInherited(isInherited);
     New->setImplicit(isImplicit);
     New->setPackExpansion(isPackExpansion);
@@ -3482,14 +3661,6 @@
     New->setPackExpansion(isPackExpansion);
     break;
   }
-  case attr::RenderScriptKernel: {
-    bool isImplicit = Record.readInt();
-    bool isPackExpansion = Record.readInt();
-    New = new (Context) RenderScriptKernelAttr(Context, Info);
-    New->setImplicit(isImplicit);
-    New->setPackExpansion(isPackExpansion);
-    break;
-  }
   case attr::ReqdWorkGroupSize: {
     bool isInherited = Record.readInt();
     bool isImplicit = Record.readInt();
@@ -3582,6 +3753,18 @@
     bool isImplicit = Record.readInt();
     bool isPackExpansion = Record.readInt();
     New = new (Context) SYCLKernelAttr(Context, Info);
+    cast<InheritableAttr>(New)->setInherited(isInherited);
+    New->setImplicit(isImplicit);
+    New->setPackExpansion(isPackExpansion);
+    break;
+  }
+  case attr::SYCLKernelEntryPoint: {
+    bool isInherited = Record.readInt();
+    bool isImplicit = Record.readInt();
+    bool isPackExpansion = Record.readInt();
+    TypeSourceInfo * kernelName = Record.readTypeSourceInfo();
+    bool invalid = Record.readInt();
+    New = new (Context) SYCLKernelEntryPointAttr(Context, Info, kernelName, invalid);
     cast<InheritableAttr>(New)->setInherited(isInherited);
     New->setImplicit(isImplicit);
     New->setPackExpansion(isPackExpansion);

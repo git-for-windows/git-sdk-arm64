@@ -298,6 +298,15 @@ Record.push_back(static_cast<uint64_t>(SA->getInterrupt()));
     Record.push_back(SA->getIsPointer());
     break;
   }
+  case attr::ArmAgnostic: {
+    const auto *SA = cast<ArmAgnosticAttr>(A);
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    Record.push_back(SA->agnosticArgs_size());
+    for (auto &Val : SA->agnosticArgs())
+      Record.AddString(Val);
+    break;
+  }
   case attr::ArmBuiltinAlias: {
     const auto *SA = cast<ArmBuiltinAliasAttr>(A);
     Record.push_back(SA->isInherited());
@@ -448,6 +457,13 @@ Record.push_back(static_cast<uint64_t>(SA->getInterrupt()));
   }
   case attr::AvailableOnlyInDefaultEvalMethod: {
     const auto *SA = cast<AvailableOnlyInDefaultEvalMethodAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    break;
+  }
+  case attr::BPFFastCall: {
+    const auto *SA = cast<BPFFastCallAttr>(A);
     Record.push_back(SA->isInherited());
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
@@ -624,6 +640,13 @@ Record.push_back(static_cast<uint64_t>(SA->getGuard()));
   }
   case attr::CUDAGlobal: {
     const auto *SA = cast<CUDAGlobalAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    break;
+  }
+  case attr::CUDAGridConstant: {
+    const auto *SA = cast<CUDAGridConstantAttr>(A);
     Record.push_back(SA->isInherited());
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
@@ -836,6 +859,20 @@ Record.push_back(static_cast<uint64_t>(SA->getDefaultState()));
     Record.push_back(A->isPackExpansion());
     break;
   }
+  case attr::CoroAwaitElidable: {
+    const auto *SA = cast<CoroAwaitElidableAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    break;
+  }
+  case attr::CoroAwaitElidableArgument: {
+    const auto *SA = cast<CoroAwaitElidableArgumentAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    break;
+  }
   case attr::CoroDisableLifetimeBound: {
     const auto *SA = cast<CoroDisableLifetimeBoundAttr>(A);
     Record.push_back(SA->isInherited());
@@ -952,7 +989,8 @@ Record.push_back(static_cast<uint64_t>(SA->getDefaultState()));
     Record.push_back(A->isPackExpansion());
     Record.AddStmt(SA->getCond());
     Record.AddString(SA->getMessage());
-Record.push_back(static_cast<uint64_t>(SA->getDiagnosticType()));
+Record.push_back(static_cast<uint64_t>(SA->getDefaultSeverity()));
+    Record.AddString(SA->getWarningGroup());
     Record.push_back(SA->getArgDependent());
     Record.AddDeclRef(SA->getParent());
     break;
@@ -1035,6 +1073,13 @@ Record.push_back(static_cast<uint64_t>(SA->getExtensibility()));
     Record.push_back(SA->args_size());
     for (auto &Val : SA->args())
       Record.AddStmt(Val);
+    break;
+  }
+  case attr::ExplicitInit: {
+    const auto *SA = cast<ExplicitInitAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
     break;
   }
   case attr::ExternalSourceSymbol: {
@@ -1136,6 +1181,18 @@ Record.push_back(static_cast<uint64_t>(SA->getThunkType()));
     Record.push_back(A->isPackExpansion());
     break;
   }
+  case attr::HLSLContainedType: {
+    const auto *SA = cast<HLSLContainedTypeAttr>(A);
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    Record.AddTypeSourceInfo(SA->getTypeLoc());
+    break;
+  }
+  case attr::HLSLControlFlowHint: {
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    break;
+  }
   case attr::HLSLGroupSharedAddressSpace: {
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
@@ -1169,9 +1226,20 @@ Record.push_back(static_cast<uint64_t>(SA->getThunkType()));
   }
   case attr::HLSLParamModifier: {
     const auto *SA = cast<HLSLParamModifierAttr>(A);
+    Record.push_back(SA->isInherited());
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
     Record.push_back(SA->getMergedSpelling());
+    break;
+  }
+  case attr::HLSLROV: {
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    break;
+  }
+  case attr::HLSLRawBuffer: {
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
     break;
   }
   case attr::HLSLResource: {
@@ -1180,7 +1248,6 @@ Record.push_back(static_cast<uint64_t>(SA->getThunkType()));
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
 Record.push_back(static_cast<uint64_t>(SA->getResourceKind()));
-    Record.push_back(SA->getIsROV());
     break;
   }
   case attr::HLSLResourceBinding: {
@@ -1194,7 +1261,6 @@ Record.push_back(static_cast<uint64_t>(SA->getResourceKind()));
   }
   case attr::HLSLResourceClass: {
     const auto *SA = cast<HLSLResourceClassAttr>(A);
-    Record.push_back(SA->isInherited());
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
 Record.push_back(static_cast<uint64_t>(SA->getResourceClass()));
@@ -1207,8 +1273,22 @@ Record.push_back(static_cast<uint64_t>(SA->getResourceClass()));
     Record.push_back(A->isPackExpansion());
     break;
   }
+  case attr::HLSLSV_GroupID: {
+    const auto *SA = cast<HLSLSV_GroupIDAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    break;
+  }
   case attr::HLSLSV_GroupIndex: {
     const auto *SA = cast<HLSLSV_GroupIndexAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    break;
+  }
+  case attr::HLSLSV_GroupThreadID: {
+    const auto *SA = cast<HLSLSV_GroupThreadIDAttr>(A);
     Record.push_back(SA->isInherited());
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
@@ -1220,6 +1300,16 @@ Record.push_back(static_cast<uint64_t>(SA->getResourceClass()));
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
 Record.push_back(static_cast<uint64_t>(SA->getType()));
+    break;
+  }
+  case attr::HLSLWaveSize: {
+    const auto *SA = cast<HLSLWaveSizeAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    Record.push_back(SA->getMin());
+    Record.push_back(SA->getMax());
+    Record.push_back(SA->getPreferred());
     break;
   }
   case attr::Hot: {
@@ -1321,6 +1411,16 @@ Record.push_back(static_cast<uint64_t>(SA->getType()));
     Record.push_back(SA->isInherited());
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
+    break;
+  }
+  case attr::LifetimeCaptureBy: {
+    const auto *SA = cast<LifetimeCaptureByAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    Record.push_back(SA->params_size());
+    for (auto &Val : SA->params())
+      Record.push_back(Val);
     break;
   }
   case attr::Likely: {
@@ -1606,6 +1706,13 @@ Record.push_back(static_cast<uint64_t>(SA->getInterrupt()));
     Record.push_back(A->isPackExpansion());
     break;
   }
+  case attr::NoConvergent: {
+    const auto *SA = cast<NoConvergentAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    break;
+  }
   case attr::NoDebug: {
     const auto *SA = cast<NoDebugAttr>(A);
     Record.push_back(SA->isInherited());
@@ -1703,6 +1810,14 @@ Record.push_back(static_cast<uint64_t>(SA->getInterrupt()));
       Record.AddString(Val);
     break;
   }
+  case attr::NoSpecializations: {
+    const auto *SA = cast<NoSpecializationsAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    Record.AddString(SA->getMessage());
+    break;
+  }
   case attr::NoSpeculativeLoadHardening: {
     const auto *SA = cast<NoSpeculativeLoadHardeningAttr>(A);
     Record.push_back(SA->isInherited());
@@ -1733,6 +1848,13 @@ Record.push_back(static_cast<uint64_t>(SA->getInterrupt()));
   }
   case attr::NoThrow: {
     const auto *SA = cast<NoThrowAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    break;
+  }
+  case attr::NoTrivialAutoVarInit: {
+    const auto *SA = cast<NoTrivialAutoVarInitAttr>(A);
     Record.push_back(SA->isInherited());
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
@@ -2437,11 +2559,6 @@ Record.push_back(static_cast<uint64_t>(SA->getInterrupt()));
     Record.AddString(SA->getHandleType());
     break;
   }
-  case attr::RenderScriptKernel: {
-    Record.push_back(A->isImplicit());
-    Record.push_back(A->isPackExpansion());
-    break;
-  }
   case attr::ReqdWorkGroupSize: {
     const auto *SA = cast<ReqdWorkGroupSizeAttr>(A);
     Record.push_back(SA->isInherited());
@@ -2508,6 +2625,15 @@ Record.push_back(static_cast<uint64_t>(SA->getState()));
     Record.push_back(SA->isInherited());
     Record.push_back(A->isImplicit());
     Record.push_back(A->isPackExpansion());
+    break;
+  }
+  case attr::SYCLKernelEntryPoint: {
+    const auto *SA = cast<SYCLKernelEntryPointAttr>(A);
+    Record.push_back(SA->isInherited());
+    Record.push_back(A->isImplicit());
+    Record.push_back(A->isPackExpansion());
+    Record.AddTypeSourceInfo(SA->getKernelNameLoc());
+    Record.push_back(SA->getInvalid());
     break;
   }
   case attr::SYCLSpecialClass: {

@@ -70,6 +70,8 @@ public:
       return readFunctionNoProtoType();
     case Type::FunctionProto:
       return readFunctionProtoType();
+    case Type::HLSLAttributedResource:
+      return readHLSLAttributedResourceType();
     case Type::InjectedClassName:
       return readInjectedClassNameType();
     case Type::MacroQualified:
@@ -229,9 +231,11 @@ public:
     auto &ctx = R.getASTContext();
     QualType modifiedType = R.find("modifiedType").readQualType();
     QualType equivalentType = R.find("equivalentType").readQualType();
-    attr::Kind attribute = R.find("attribute").readAttrKind();
+    attr::Kind attrKind = R.find("attrKind").readAttrKind();
+    const Attr * attribute = R.find("attribute").readAttr();
     
-    return ctx.getAttributedType(attribute, modifiedType, equivalentType);
+    return ctx.getAttributedType(attrKind, modifiedType,
+                                 equivalentType, attribute);
   
   }
 
@@ -299,9 +303,13 @@ public:
       case BuiltinType::ID: return ctx.SINGLETON_ID;
 #include "clang/Basic/WebAssemblyReferenceTypes.def"
 
-#define AMDGPU_TYPE(NAME, ID, SINGLETON_ID) \
+#define AMDGPU_TYPE(NAME, ID, SINGLETON_ID, WIDTH, ALIGN) \
       case BuiltinType::ID: return ctx.SINGLETON_ID;
 #include "clang/Basic/AMDGPUTypes.def"
+
+#define HLSL_INTANGIBLE_TYPE(NAME, ID, SINGLETON_ID) \
+      case BuiltinType::ID: return ctx.SINGLETON_ID;
+#include "clang/Basic/HLSLIntangibleTypes.def"
 
 #define BUILTIN_TYPE(ID, SINGLETON_ID) \
       case BuiltinType::ID: return ctx.SINGLETON_ID;
@@ -502,6 +510,19 @@ public:
   
   }
 
+  QualType readHLSLAttributedResourceType() {
+    auto &ctx = R.getASTContext();
+    uint32_t resClass = R.find("resClass").readUInt32();
+    bool isROV = R.find("isROV").readBool();
+    bool rawBuffer = R.find("rawBuffer").readBool();
+    QualType wrappedTy = R.find("wrappedTy").readQualType();
+    QualType containedTy = R.find("containedTy").readQualType();
+    
+    HLSLAttributedResourceType::Attributes attrs(static_cast<llvm::dxil::ResourceClass>(resClass), isROV, rawBuffer);
+    return ctx.getHLSLAttributedResourceType(wrappedTy, containedTy, attrs);
+  
+  }
+
   QualType readInjectedClassNameType() {
     auto &ctx = R.getASTContext();
     Decl* declaration = R.find("declaration").readDeclRef();
@@ -621,8 +642,9 @@ public:
     auto &ctx = R.getASTContext();
     QualType pattern = R.find("pattern").readQualType();
     Expr* indexExpression = R.find("indexExpression").readExprRef();
+    bool isFullySubstituted = R.find("isFullySubstituted").readBool();
     
-    return ctx.getPackIndexingType(pattern, indexExpression);
+    return ctx.getPackIndexingType(pattern, indexExpression, isFullySubstituted);
   
   }
 
@@ -685,9 +707,10 @@ public:
     Decl* associatedDecl = R.find("associatedDecl").readDeclRef();
     uint32_t Index = R.find("Index").readUInt32();
     std::optional<uint32_t> PackIndex = R.find("PackIndex").template readOptional<uint32_t>();
+    SubstTemplateTypeParmTypeFlag SubstitutionFlag = R.find("SubstitutionFlag").readSubstTemplateTypeParmTypeFlag();
     
     return ctx.getSubstTemplateTypeParmType(
-        replacementType, associatedDecl, Index, PackIndex);
+        replacementType, associatedDecl, Index, PackIndex, SubstitutionFlag);
   
   }
 

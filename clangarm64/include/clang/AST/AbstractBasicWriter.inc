@@ -45,6 +45,13 @@ struct WriteDispatcher<ArraySizeModifier> {
   }
 };
 template <>
+struct WriteDispatcher<const Attr *> {
+  template <class BasicWriter, class... Args>
+  static void write(BasicWriter &W, Args &&... args) {
+    return W.writeAttr(std::forward<Args>(args)...);
+  }
+};
+template <>
 struct WriteDispatcher<attr::Kind> {
   template <class BasicWriter, class... Args>
   static void write(BasicWriter &W, Args &&... args) {
@@ -381,6 +388,13 @@ struct WriteDispatcher<const Stmt*> {
   }
 };
 template <>
+struct WriteDispatcher<SubstTemplateTypeParmTypeFlag> {
+  template <class BasicWriter, class... Args>
+  static void write(BasicWriter &W, Args &&... args) {
+    return W.writeSubstTemplateTypeParmTypeFlag(std::forward<Args>(args)...);
+  }
+};
+template <>
 struct WriteDispatcher<TagDecl*> {
   template <class BasicWriter, class... Args>
   static void write(BasicWriter &W, Args &&... args) {
@@ -554,133 +568,133 @@ struct PackOptionalValue;
 template <>
 struct PackOptionalValue<CXXRecordDecl*> {
   static CXXRecordDecl* pack(std::optional<CXXRecordDecl*> value) {
-    return value ? *value : nullptr;
+    return value.value_or(nullptr);
   }
 };
 template <>
 struct PackOptionalValue<const CXXRecordDecl*> {
   static const CXXRecordDecl* pack(std::optional<const CXXRecordDecl*> value) {
-    return value ? *value : nullptr;
+    return value.value_or(nullptr);
   }
 };
 template <>
 struct PackOptionalValue<ConceptDecl*> {
   static ConceptDecl* pack(std::optional<ConceptDecl*> value) {
-    return value ? *value : nullptr;
+    return value.value_or(nullptr);
   }
 };
 template <>
 struct PackOptionalValue<const ConceptDecl*> {
   static const ConceptDecl* pack(std::optional<const ConceptDecl*> value) {
-    return value ? *value : nullptr;
+    return value.value_or(nullptr);
   }
 };
 template <>
 struct PackOptionalValue<Decl*> {
   static Decl* pack(std::optional<Decl*> value) {
-    return value ? *value : nullptr;
+    return value.value_or(nullptr);
   }
 };
 template <>
 struct PackOptionalValue<const Decl*> {
   static const Decl* pack(std::optional<const Decl*> value) {
-    return value ? *value : nullptr;
+    return value.value_or(nullptr);
   }
 };
 template <>
 struct PackOptionalValue<Expr*> {
   static Expr* pack(std::optional<Expr*> value) {
-    return value ? *value : nullptr;
+    return value.value_or(nullptr);
   }
 };
 template <>
 struct PackOptionalValue<const Expr*> {
   static const Expr* pack(std::optional<const Expr*> value) {
-    return value ? *value : nullptr;
+    return value.value_or(nullptr);
   }
 };
 template <>
 struct PackOptionalValue<FunctionDecl*> {
   static FunctionDecl* pack(std::optional<FunctionDecl*> value) {
-    return value ? *value : nullptr;
+    return value.value_or(nullptr);
   }
 };
 template <>
 struct PackOptionalValue<const FunctionDecl*> {
   static const FunctionDecl* pack(std::optional<const FunctionDecl*> value) {
-    return value ? *value : nullptr;
+    return value.value_or(nullptr);
   }
 };
 template <>
 struct PackOptionalValue<IdentifierInfo*> {
   static IdentifierInfo* pack(std::optional<IdentifierInfo*> value) {
-    return value ? *value : nullptr;
+    return value.value_or(nullptr);
   }
 };
 template <>
 struct PackOptionalValue<const IdentifierInfo*> {
   static const IdentifierInfo* pack(std::optional<const IdentifierInfo*> value) {
-    return value ? *value : nullptr;
+    return value.value_or(nullptr);
   }
 };
 template <>
 struct PackOptionalValue<NamedDecl*> {
   static NamedDecl* pack(std::optional<NamedDecl*> value) {
-    return value ? *value : nullptr;
+    return value.value_or(nullptr);
   }
 };
 template <>
 struct PackOptionalValue<const NamedDecl*> {
   static const NamedDecl* pack(std::optional<const NamedDecl*> value) {
-    return value ? *value : nullptr;
+    return value.value_or(nullptr);
   }
 };
 template <>
 struct PackOptionalValue<NamespaceAliasDecl*> {
   static NamespaceAliasDecl* pack(std::optional<NamespaceAliasDecl*> value) {
-    return value ? *value : nullptr;
+    return value.value_or(nullptr);
   }
 };
 template <>
 struct PackOptionalValue<const NamespaceAliasDecl*> {
   static const NamespaceAliasDecl* pack(std::optional<const NamespaceAliasDecl*> value) {
-    return value ? *value : nullptr;
+    return value.value_or(nullptr);
   }
 };
 template <>
 struct PackOptionalValue<NamespaceDecl*> {
   static NamespaceDecl* pack(std::optional<NamespaceDecl*> value) {
-    return value ? *value : nullptr;
+    return value.value_or(nullptr);
   }
 };
 template <>
 struct PackOptionalValue<const NamespaceDecl*> {
   static const NamespaceDecl* pack(std::optional<const NamespaceDecl*> value) {
-    return value ? *value : nullptr;
+    return value.value_or(nullptr);
   }
 };
 template <>
 struct PackOptionalValue<ObjCProtocolDecl*> {
   static ObjCProtocolDecl* pack(std::optional<ObjCProtocolDecl*> value) {
-    return value ? *value : nullptr;
+    return value.value_or(nullptr);
   }
 };
 template <>
 struct PackOptionalValue<const ObjCProtocolDecl*> {
   static const ObjCProtocolDecl* pack(std::optional<const ObjCProtocolDecl*> value) {
-    return value ? *value : nullptr;
+    return value.value_or(nullptr);
   }
 };
 template <>
 struct PackOptionalValue<ObjCTypeParamDecl*> {
   static ObjCTypeParamDecl* pack(std::optional<ObjCTypeParamDecl*> value) {
-    return value ? *value : nullptr;
+    return value.value_or(nullptr);
   }
 };
 template <>
 struct PackOptionalValue<const ObjCTypeParamDecl*> {
   static const ObjCTypeParamDecl* pack(std::optional<const ObjCTypeParamDecl*> value) {
-    return value ? *value : nullptr;
+    return value.value_or(nullptr);
   }
 };
 template <>
@@ -692,37 +706,37 @@ struct PackOptionalValue<QualType> {
 template <>
 struct PackOptionalValue<Stmt*> {
   static Stmt* pack(std::optional<Stmt*> value) {
-    return value ? *value : nullptr;
+    return value.value_or(nullptr);
   }
 };
 template <>
 struct PackOptionalValue<const Stmt*> {
   static const Stmt* pack(std::optional<const Stmt*> value) {
-    return value ? *value : nullptr;
+    return value.value_or(nullptr);
   }
 };
 template <>
 struct PackOptionalValue<TagDecl*> {
   static TagDecl* pack(std::optional<TagDecl*> value) {
-    return value ? *value : nullptr;
+    return value.value_or(nullptr);
   }
 };
 template <>
 struct PackOptionalValue<const TagDecl*> {
   static const TagDecl* pack(std::optional<const TagDecl*> value) {
-    return value ? *value : nullptr;
+    return value.value_or(nullptr);
   }
 };
 template <>
 struct PackOptionalValue<TemplateDecl*> {
   static TemplateDecl* pack(std::optional<TemplateDecl*> value) {
-    return value ? *value : nullptr;
+    return value.value_or(nullptr);
   }
 };
 template <>
 struct PackOptionalValue<const TemplateDecl*> {
   static const TemplateDecl* pack(std::optional<const TemplateDecl*> value) {
-    return value ? *value : nullptr;
+    return value.value_or(nullptr);
   }
 };
 template <>
@@ -734,25 +748,25 @@ struct PackOptionalValue<TemplateName> {
 template <>
 struct PackOptionalValue<TemplateTemplateParmDecl*> {
   static TemplateTemplateParmDecl* pack(std::optional<TemplateTemplateParmDecl*> value) {
-    return value ? *value : nullptr;
+    return value.value_or(nullptr);
   }
 };
 template <>
 struct PackOptionalValue<const TemplateTemplateParmDecl*> {
   static const TemplateTemplateParmDecl* pack(std::optional<const TemplateTemplateParmDecl*> value) {
-    return value ? *value : nullptr;
+    return value.value_or(nullptr);
   }
 };
 template <>
 struct PackOptionalValue<TemplateTypeParmDecl*> {
   static TemplateTypeParmDecl* pack(std::optional<TemplateTypeParmDecl*> value) {
-    return value ? *value : nullptr;
+    return value.value_or(nullptr);
   }
 };
 template <>
 struct PackOptionalValue<const TemplateTypeParmDecl*> {
   static const TemplateTypeParmDecl* pack(std::optional<const TemplateTypeParmDecl*> value) {
-    return value ? *value : nullptr;
+    return value.value_or(nullptr);
   }
 };
 template <>
@@ -770,25 +784,25 @@ struct PackOptionalValue<uint64_t> {
 template <>
 struct PackOptionalValue<UsingShadowDecl*> {
   static UsingShadowDecl* pack(std::optional<UsingShadowDecl*> value) {
-    return value ? *value : nullptr;
+    return value.value_or(nullptr);
   }
 };
 template <>
 struct PackOptionalValue<const UsingShadowDecl*> {
   static const UsingShadowDecl* pack(std::optional<const UsingShadowDecl*> value) {
-    return value ? *value : nullptr;
+    return value.value_or(nullptr);
   }
 };
 template <>
 struct PackOptionalValue<ValueDecl*> {
   static ValueDecl* pack(std::optional<ValueDecl*> value) {
-    return value ? *value : nullptr;
+    return value.value_or(nullptr);
   }
 };
 template <>
 struct PackOptionalValue<const ValueDecl*> {
   static const ValueDecl* pack(std::optional<const ValueDecl*> value) {
-    return value ? *value : nullptr;
+    return value.value_or(nullptr);
   }
 };
 
@@ -1151,6 +1165,9 @@ public:
   void writeRefQualifierKind(RefQualifierKind value) {
     asImpl().writeEnum(value);
   }
+  void writeSubstTemplateTypeParmTypeFlag(SubstTemplateTypeParmTypeFlag value) {
+    asImpl().writeEnum(value);
+  }
   void writeTagDeclRef(const TagDecl* value) {
     asImpl().writeDeclRef(value);
   }
@@ -1341,6 +1358,19 @@ public:
     subW.find("index").writeUInt32(index);
     bool final = ( parm->getFinal() );
     subW.find("final").writeBool(final);
+    return;
+    }
+
+    case TemplateName::DeducedTemplate: {
+    
+    auto DTS = node.getAsDeducedTemplateName();
+  
+    TemplateName underlying = ( DTS->getUnderlying() );
+    subW.find("underlying").writeTemplateName(underlying);
+    uint32_t startPos = ( DTS->getDefaultArguments().StartPos );
+    subW.find("startPos").writeUInt32(startPos);
+    llvm::ArrayRef<TemplateArgument> defaultArgs = ( DTS->getDefaultArguments().Args );
+    subW.find("defaultArgs").writeArray(defaultArgs);
     return;
     }
 

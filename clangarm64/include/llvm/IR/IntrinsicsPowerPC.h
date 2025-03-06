@@ -8,13 +8,13 @@
 
 #ifndef LLVM_IR_INTRINSIC_PPC_ENUMS_H
 #define LLVM_IR_INTRINSIC_PPC_ENUMS_H
-
-namespace llvm {
-namespace Intrinsic {
+namespace llvm::Intrinsic {
 enum PPCIntrinsics : unsigned {
-// Enum values for intrinsics
-    ppc_addex = 9518,                                 // llvm.ppc.addex
+// Enum values for intrinsics.
+    ppc_addex = 9914,                                 // llvm.ppc.addex
     ppc_addf128_round_to_odd,                  // llvm.ppc.addf128.round.to.odd
+    ppc_addg6s,                                // llvm.ppc.addg6s
+    ppc_addg6sd,                               // llvm.ppc.addg6sd
     ppc_altivec_crypto_vcipher,                // llvm.ppc.altivec.crypto.vcipher
     ppc_altivec_crypto_vcipherlast,            // llvm.ppc.altivec.crypto.vcipherlast
     ppc_altivec_crypto_vncipher,               // llvm.ppc.altivec.crypto.vncipher
@@ -335,6 +335,10 @@ enum PPCIntrinsics : unsigned {
     ppc_bcdsub,                                // llvm.ppc.bcdsub
     ppc_bcdsub_p,                              // llvm.ppc.bcdsub.p
     ppc_bpermd,                                // llvm.ppc.bpermd
+    ppc_cbcdtd,                                // llvm.ppc.cbcdtd
+    ppc_cbcdtdd,                               // llvm.ppc.cbcdtdd
+    ppc_cdtbcd,                                // llvm.ppc.cdtbcd
+    ppc_cdtbcdd,                               // llvm.ppc.cdtbcdd
     ppc_cfence,                                // llvm.ppc.cfence
     ppc_cfuged,                                // llvm.ppc.cfuged
     ppc_cmpb,                                  // llvm.ppc.cmpb
@@ -634,7 +638,6 @@ enum PPCIntrinsics : unsigned {
     ppc_vsx_xxleqv,                            // llvm.ppc.vsx.xxleqv
     ppc_vsx_xxpermx,                           // llvm.ppc.vsx.xxpermx
 }; // enum
-} // namespace Intrinsic
-} // namespace llvm
-
+} // namespace llvm::Intrinsic
 #endif
+

@@ -1,0 +1,11 @@
+%FILES%
+clangarm64/
+clangarm64/bin/
+clangarm64/bin/libLLVM-20.dll
+clangarm64/bin/libLTO.dll
+clangarm64/bin/libRemarks.dll
+clangarm64/share/
+clangarm64/share/licenses/
+clangarm64/share/licenses/llvm-libs/
+clangarm64/share/licenses/llvm-libs/LICENSE
+

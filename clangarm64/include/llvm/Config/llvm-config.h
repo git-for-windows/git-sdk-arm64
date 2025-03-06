@@ -142,16 +142,16 @@
 #define LLVM_USE_PERF 0
 
 /* Major version of the LLVM API */
-#define LLVM_VERSION_MAJOR 19
+#define LLVM_VERSION_MAJOR 20
 
 /* Minor version of the LLVM API */
 #define LLVM_VERSION_MINOR 1
 
 /* Patch version of the LLVM API */
-#define LLVM_VERSION_PATCH 6
+#define LLVM_VERSION_PATCH 0
 
 /* LLVM version string */
-#define LLVM_VERSION_STRING "19.1.6"
+#define LLVM_VERSION_STRING "20.1.0"
 
 /* Whether LLVM records statistics for use with GetStatistics(),
  * PrintStatistics() or PrintStatisticsJSON()

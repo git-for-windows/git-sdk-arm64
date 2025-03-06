@@ -8,12 +8,10 @@
 
 #ifndef LLVM_IR_INTRINSIC_BPF_ENUMS_H
 #define LLVM_IR_INTRINSIC_BPF_ENUMS_H
-
-namespace llvm {
-namespace Intrinsic {
+namespace llvm::Intrinsic {
 enum BPFIntrinsics : unsigned {
-// Enum values for intrinsics
-    bpf_btf_type_id = 3617,                           // llvm.bpf.btf.type.id
+// Enum values for intrinsics.
+    bpf_btf_type_id = 3814,                           // llvm.bpf.btf.type.id
     bpf_compare,                               // llvm.bpf.compare
     bpf_getelementptr_and_load,                // llvm.bpf.getelementptr.and.load
     bpf_getelementptr_and_store,               // llvm.bpf.getelementptr.and.store
@@ -26,7 +24,6 @@ enum BPFIntrinsics : unsigned {
     bpf_preserve_type_info,                    // llvm.bpf.preserve.type.info
     bpf_pseudo,                                // llvm.bpf.pseudo
 }; // enum
-} // namespace Intrinsic
-} // namespace llvm
-
+} // namespace llvm::Intrinsic
 #endif
+

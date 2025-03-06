@@ -25,6 +25,7 @@ const uint64_t EltTypeMask = 15;
 const uint64_t IsPrefetch = 134217728;
 const uint64_t IsZExtReturn = 524288;
 const uint64_t IsOverloadNone = 1048576;
+const uint64_t SetsFPMR = 562949953421312;
 const uint64_t FirstMemEltType = 16;
 const uint64_t IsUndef = 2147483648;
 const uint64_t MemEltTypeMask = 112;
@@ -61,6 +62,7 @@ const uint64_t OverloadKindMask = 14680064;
   EltTyBool64 = 12,
   EltTyInvalid = 0,
   EltTyBFloat16 = 13,
+  EltTyMFloat8 = 14,
   EltTyInt32 = 3,
 #endif
 
@@ -79,31 +81,5 @@ const uint64_t OverloadKindMask = 14680064;
   MergeZero = 3,
   MergeZeroExp = 5,
   MergeAnyExp = 4,
-#endif
-
-#ifdef LLVM_GET_SVE_IMMCHECKTYPES
-  ImmCheckLaneIndexDot = 9,
-  ImmCheck0_0 = 16,
-  ImmCheckShiftLeft = 5,
-  ImmCheck0_3 = 15,
-  ImmCheck0_15 = 17,
-  ImmCheckExtract = 2,
-  ImmCheckLaneIndex = 7,
-  ImmCheck1_1 = 20,
-  ImmCheck0_1 = 13,
-  ImmCheck0_2 = 14,
-  ImmCheck1_7 = 22,
-  ImmCheck0_7 = 6,
-  ImmCheck0_255 = 18,
-  ImmCheck0_13 = 12,
-  ImmCheck1_16 = 1,
-  ImmCheckShiftRight = 3,
-  ImmCheckComplexRotAll90 = 11,
-  ImmCheckLaneIndexCompRotate = 8,
-  ImmCheckComplexRot90_270 = 10,
-  ImmCheckShiftRightNarrow = 4,
-  ImmCheck2_4_Mul2 = 19,
-  ImmCheck0_31 = 0,
-  ImmCheck1_3 = 21,
 #endif
 

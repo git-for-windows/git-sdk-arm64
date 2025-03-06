@@ -70,6 +70,8 @@ public:
       return writeFunctionNoProtoType(static_cast<const FunctionNoProtoType *>(node));
     case Type::FunctionProto:
       return writeFunctionProtoType(static_cast<const FunctionProtoType *>(node));
+    case Type::HLSLAttributedResource:
+      return writeHLSLAttributedResourceType(static_cast<const HLSLAttributedResourceType *>(node));
     case Type::InjectedClassName:
       return writeInjectedClassNameType(static_cast<const InjectedClassNameType *>(node));
     case Type::MacroQualified:
@@ -221,8 +223,10 @@ public:
     W.find("modifiedType").writeQualType(modifiedType);
     QualType equivalentType = ( node->getEquivalentType() );
     W.find("equivalentType").writeQualType(equivalentType);
-    attr::Kind attribute = ( node->getAttrKind() );
-    W.find("attribute").writeAttrKind(attribute);
+    attr::Kind attrKind = ( node->getAttrKind() );
+    W.find("attrKind").writeAttrKind(attrKind);
+    const Attr * attribute = ( node->getAttr() );
+    W.find("attribute").writeAttr(attribute);
   }
 
   void writeBTFTagAttributedType(const BTFTagAttributedType *node) {
@@ -438,6 +442,19 @@ public:
     W.find("cmseNSCall").writeBool(cmseNSCall);
   }
 
+  void writeHLSLAttributedResourceType(const HLSLAttributedResourceType *node) {
+    uint32_t resClass = ( static_cast<uint32_t>(node->getAttrs().ResourceClass) );
+    W.find("resClass").writeUInt32(resClass);
+    bool isROV = ( node->getAttrs().IsROV );
+    W.find("isROV").writeBool(isROV);
+    bool rawBuffer = ( node->getAttrs().RawBuffer );
+    W.find("rawBuffer").writeBool(rawBuffer);
+    QualType wrappedTy = ( node->getWrappedType() );
+    W.find("wrappedTy").writeQualType(wrappedTy);
+    QualType containedTy = ( node->getContainedType() );
+    W.find("containedTy").writeQualType(containedTy);
+  }
+
   void writeInjectedClassNameType(const InjectedClassNameType *node) {
     const Decl* declaration = ( node->getDecl()->getCanonicalDecl() );
     W.find("declaration").writeDeclRef(declaration);
@@ -519,6 +536,8 @@ public:
     W.find("pattern").writeQualType(pattern);
     const Expr* indexExpression = ( node->getIndexExpr() );
     W.find("indexExpression").writeExprRef(indexExpression);
+    bool isFullySubstituted = ( node->isFullySubstituted() );
+    W.find("isFullySubstituted").writeBool(isFullySubstituted);
   }
 
   void writeParenType(const ParenType *node) {
@@ -570,6 +589,8 @@ public:
     W.find("Index").writeUInt32(Index);
     std::optional<uint32_t> PackIndex = ( node->getPackIndex() );
     W.find("PackIndex").writeOptional(PackIndex);
+    SubstTemplateTypeParmTypeFlag SubstitutionFlag = ( node->getSubstitutionFlag() );
+    W.find("SubstitutionFlag").writeSubstTemplateTypeParmTypeFlag(SubstitutionFlag);
   }
 
   void writeEnumType(const EnumType *node) {

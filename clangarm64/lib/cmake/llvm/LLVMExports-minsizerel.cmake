@@ -134,6 +134,16 @@ set_target_properties(LLVMIRReader PROPERTIES
 list(APPEND _cmake_import_check_targets LLVMIRReader )
 list(APPEND _cmake_import_check_files_for_LLVMIRReader "${_IMPORT_PREFIX}/lib/libLLVMIRReader.a" )
 
+# Import target "LLVMCGData" for configuration "MinSizeRel"
+set_property(TARGET LLVMCGData APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
+set_target_properties(LLVMCGData PROPERTIES
+  IMPORTED_LINK_INTERFACE_LANGUAGES_MINSIZEREL "CXX"
+  IMPORTED_LOCATION_MINSIZEREL "${_IMPORT_PREFIX}/lib/libLLVMCGData.a"
+  )
+
+list(APPEND _cmake_import_check_targets LLVMCGData )
+list(APPEND _cmake_import_check_files_for_LLVMCGData "${_IMPORT_PREFIX}/lib/libLLVMCGData.a" )
+
 # Import target "LLVMCodeGen" for configuration "MinSizeRel"
 set_property(TARGET LLVMCodeGen APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
 set_target_properties(LLVMCodeGen PROPERTIES
@@ -183,16 +193,6 @@ set_target_properties(LLVMGlobalISel PROPERTIES
 
 list(APPEND _cmake_import_check_targets LLVMGlobalISel )
 list(APPEND _cmake_import_check_files_for_LLVMGlobalISel "${_IMPORT_PREFIX}/lib/libLLVMGlobalISel.a" )
-
-# Import target "LLVMCodeGenData" for configuration "MinSizeRel"
-set_property(TARGET LLVMCodeGenData APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
-set_target_properties(LLVMCodeGenData PROPERTIES
-  IMPORTED_LINK_INTERFACE_LANGUAGES_MINSIZEREL "CXX"
-  IMPORTED_LOCATION_MINSIZEREL "${_IMPORT_PREFIX}/lib/libLLVMCodeGenData.a"
-  )
-
-list(APPEND _cmake_import_check_targets LLVMCodeGenData )
-list(APPEND _cmake_import_check_files_for_LLVMCodeGenData "${_IMPORT_PREFIX}/lib/libLLVMCodeGenData.a" )
 
 # Import target "LLVMCodeGenTypes" for configuration "MinSizeRel"
 set_property(TARGET LLVMCodeGenTypes APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
@@ -283,6 +283,16 @@ set_target_properties(LLVMExtensions PROPERTIES
 
 list(APPEND _cmake_import_check_targets LLVMExtensions )
 list(APPEND _cmake_import_check_files_for_LLVMExtensions "${_IMPORT_PREFIX}/lib/libLLVMExtensions.a" )
+
+# Import target "LLVMFrontendAtomic" for configuration "MinSizeRel"
+set_property(TARGET LLVMFrontendAtomic APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
+set_target_properties(LLVMFrontendAtomic PROPERTIES
+  IMPORTED_LINK_INTERFACE_LANGUAGES_MINSIZEREL "CXX"
+  IMPORTED_LOCATION_MINSIZEREL "${_IMPORT_PREFIX}/lib/libLLVMFrontendAtomic.a"
+  )
+
+list(APPEND _cmake_import_check_targets LLVMFrontendAtomic )
+list(APPEND _cmake_import_check_files_for_LLVMFrontendAtomic "${_IMPORT_PREFIX}/lib/libLLVMFrontendAtomic.a" )
 
 # Import target "LLVMFrontendDriver" for configuration "MinSizeRel"
 set_property(TARGET LLVMFrontendDriver APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
@@ -914,6 +924,16 @@ set_target_properties(LLVMTextAPIBinaryReader PROPERTIES
 list(APPEND _cmake_import_check_targets LLVMTextAPIBinaryReader )
 list(APPEND _cmake_import_check_files_for_LLVMTextAPIBinaryReader "${_IMPORT_PREFIX}/lib/libLLVMTextAPIBinaryReader.a" )
 
+# Import target "LLVMTelemetry" for configuration "MinSizeRel"
+set_property(TARGET LLVMTelemetry APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
+set_target_properties(LLVMTelemetry PROPERTIES
+  IMPORTED_LINK_INTERFACE_LANGUAGES_MINSIZEREL "CXX"
+  IMPORTED_LOCATION_MINSIZEREL "${_IMPORT_PREFIX}/lib/libLLVMTelemetry.a"
+  )
+
+list(APPEND _cmake_import_check_targets LLVMTelemetry )
+list(APPEND _cmake_import_check_files_for_LLVMTelemetry "${_IMPORT_PREFIX}/lib/libLLVMTelemetry.a" )
+
 # Import target "LLVMDlltoolDriver" for configuration "MinSizeRel"
 set_property(TARGET LLVMDlltoolDriver APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
 set_target_properties(LLVMDlltoolDriver PROPERTIES
@@ -1056,6 +1076,15 @@ set_target_properties(llvm-config PROPERTIES
 list(APPEND _cmake_import_check_targets llvm-config )
 list(APPEND _cmake_import_check_files_for_llvm-config "${_IMPORT_PREFIX}/bin/llvm-config.exe" )
 
+# Import target "llvm-ctxprof-util" for configuration "MinSizeRel"
+set_property(TARGET llvm-ctxprof-util APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
+set_target_properties(llvm-ctxprof-util PROPERTIES
+  IMPORTED_LOCATION_MINSIZEREL "${_IMPORT_PREFIX}/bin/llvm-ctxprof-util.exe"
+  )
+
+list(APPEND _cmake_import_check_targets llvm-ctxprof-util )
+list(APPEND _cmake_import_check_files_for_llvm-ctxprof-util "${_IMPORT_PREFIX}/bin/llvm-ctxprof-util.exe" )
+
 # Import target "llvm-lto" for configuration "MinSizeRel"
 set_property(TARGET llvm-lto APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
 set_target_properties(llvm-lto PROPERTIES
@@ -1173,6 +1202,15 @@ set_target_properties(LLVMCFIVerify PROPERTIES
 
 list(APPEND _cmake_import_check_targets LLVMCFIVerify )
 list(APPEND _cmake_import_check_files_for_LLVMCFIVerify "${_IMPORT_PREFIX}/lib/libLLVMCFIVerify.a" )
+
+# Import target "llvm-cgdata" for configuration "MinSizeRel"
+set_property(TARGET llvm-cgdata APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
+set_target_properties(llvm-cgdata PROPERTIES
+  IMPORTED_LOCATION_MINSIZEREL "${_IMPORT_PREFIX}/bin/llvm-cgdata.exe"
+  )
+
+list(APPEND _cmake_import_check_targets llvm-cgdata )
+list(APPEND _cmake_import_check_files_for_llvm-cgdata "${_IMPORT_PREFIX}/bin/llvm-cgdata.exe" )
 
 # Import target "llvm-cov" for configuration "MinSizeRel"
 set_property(TARGET llvm-cov APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
@@ -1567,12 +1605,12 @@ list(APPEND _cmake_import_check_files_for_llvm-rtdyld "${_IMPORT_PREFIX}/bin/llv
 # Import target "LLVM" for configuration "MinSizeRel"
 set_property(TARGET LLVM APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
 set_target_properties(LLVM PROPERTIES
-  IMPORTED_IMPLIB_MINSIZEREL "${_IMPORT_PREFIX}/lib/libLLVM-19.dll.a"
-  IMPORTED_LOCATION_MINSIZEREL "${_IMPORT_PREFIX}/bin/libLLVM-19.dll"
+  IMPORTED_IMPLIB_MINSIZEREL "${_IMPORT_PREFIX}/lib/libLLVM-20.dll.a"
+  IMPORTED_LOCATION_MINSIZEREL "${_IMPORT_PREFIX}/bin/libLLVM-20.dll"
   )
 
 list(APPEND _cmake_import_check_targets LLVM )
-list(APPEND _cmake_import_check_files_for_LLVM "${_IMPORT_PREFIX}/lib/libLLVM-19.dll.a" "${_IMPORT_PREFIX}/bin/libLLVM-19.dll" )
+list(APPEND _cmake_import_check_files_for_LLVM "${_IMPORT_PREFIX}/lib/libLLVM-20.dll.a" "${_IMPORT_PREFIX}/bin/libLLVM-20.dll" )
 
 # Import target "llvm-sim" for configuration "MinSizeRel"
 set_property(TARGET llvm-sim APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
