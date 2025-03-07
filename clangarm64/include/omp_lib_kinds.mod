@@ -1,5 +1,5 @@
-﻿!mod$ v1 sum:ccdc19077379c5ee
-!need$ 83f45743f4d17283 i iso_c_binding
+﻿!mod$ v1 sum:f5aadb670ed024bd
+!need$ a22ad870b208de91 i iso_c_binding
 module omp_lib_kinds
 use,intrinsic::iso_c_binding,only:c_associated
 use,intrinsic::iso_c_binding,only:c_funloc
@@ -54,6 +54,27 @@ use,intrinsic::iso_c_binding,only:c_horizontal_tab
 use,intrinsic::iso_c_binding,only:c_vertical_tab
 use,intrinsic::iso_c_binding,only:c_float128
 use,intrinsic::iso_c_binding,only:c_float128_complex
+use,intrinsic::iso_c_binding,only:c_uint8_t
+use,intrinsic::iso_c_binding,only:c_uint16_t
+use,intrinsic::iso_c_binding,only:c_uint32_t
+use,intrinsic::iso_c_binding,only:c_uint64_t
+use,intrinsic::iso_c_binding,only:c_uint128_t
+use,intrinsic::iso_c_binding,only:c_unsigned_char
+use,intrinsic::iso_c_binding,only:c_unsigned_short
+use,intrinsic::iso_c_binding,only:c_unsigned
+use,intrinsic::iso_c_binding,only:c_unsigned_long
+use,intrinsic::iso_c_binding,only:c_unsigned_long_long
+use,intrinsic::iso_c_binding,only:c_uintmax_t
+use,intrinsic::iso_c_binding,only:c_uint_fast8_t
+use,intrinsic::iso_c_binding,only:c_uint_fast16_t
+use,intrinsic::iso_c_binding,only:c_uint_fast32_t
+use,intrinsic::iso_c_binding,only:c_uint_fast64_t
+use,intrinsic::iso_c_binding,only:c_uint_fast128_t
+use,intrinsic::iso_c_binding,only:c_uint_least8_t
+use,intrinsic::iso_c_binding,only:c_uint_least16_t
+use,intrinsic::iso_c_binding,only:c_uint_least32_t
+use,intrinsic::iso_c_binding,only:c_uint_least64_t
+use,intrinsic::iso_c_binding,only:c_uint_least128_t
 use,intrinsic::iso_c_binding,only:c_f_procpointer
 private::c_associated
 private::c_funloc
@@ -108,6 +129,27 @@ private::c_horizontal_tab
 private::c_vertical_tab
 private::c_float128
 private::c_float128_complex
+private::c_uint8_t
+private::c_uint16_t
+private::c_uint32_t
+private::c_uint64_t
+private::c_uint128_t
+private::c_unsigned_char
+private::c_unsigned_short
+private::c_unsigned
+private::c_unsigned_long
+private::c_unsigned_long_long
+private::c_uintmax_t
+private::c_uint_fast8_t
+private::c_uint_fast16_t
+private::c_uint_fast32_t
+private::c_uint_fast64_t
+private::c_uint_fast128_t
+private::c_uint_least8_t
+private::c_uint_least16_t
+private::c_uint_least32_t
+private::c_uint_least64_t
+private::c_uint_least128_t
 private::c_f_procpointer
 integer(4),parameter::omp_integer_kind=4_4
 integer(4),parameter::omp_logical_kind=4_4

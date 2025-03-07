@@ -1,5 +1,5 @@
-﻿!mod$ v1 sum:f87ca5d7b627276d
-!need$ ccdc19077379c5ee n omp_lib_kinds
+﻿!mod$ v1 sum:92a3b05fcfe01ed4
+!need$ f5aadb670ed024bd n omp_lib_kinds
 module omp_lib
 use omp_lib_kinds,only:omp_integer_kind
 use omp_lib_kinds,only:omp_logical_kind
@@ -120,6 +120,7 @@ integer(8),parameter::llvm_omp_target_device_mem_space=102_8
 integer(4),parameter::omp_pause_resume=0_4
 integer(4),parameter::omp_pause_soft=1_4
 integer(4),parameter::omp_pause_hard=2_4
+integer(4),parameter::omp_pause_stop_tool=3_4
 integer(4),parameter::omp_ifr_cuda=1_4
 integer(4),parameter::omp_ifr_cuda_driver=2_4
 integer(4),parameter::omp_ifr_opencl=3_4
