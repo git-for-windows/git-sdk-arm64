@@ -952,8 +952,10 @@ clangarm64/include/mobsync.h
 clangarm64/include/moniker.h
 clangarm64/include/mpeg2bits.h
 clangarm64/include/mpeg2data.h
+clangarm64/include/mpeg2data.idl
 clangarm64/include/mpeg2psiparser.h
 clangarm64/include/mpeg2structs.h
+clangarm64/include/mpeg2structs.idl
 clangarm64/include/mprapi.h
 clangarm64/include/mprerror.h
 clangarm64/include/mq.h

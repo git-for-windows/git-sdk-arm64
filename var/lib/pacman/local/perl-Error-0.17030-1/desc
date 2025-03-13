@@ -2,7 +2,7 @@
 perl-Error
 
 %VERSION%
-0.17029-2
+0.17030-1
 
 %BASE%
 perl-Error
@@ -17,16 +17,16 @@ https://metacpan.org/release/Error
 any
 
 %BUILDDATE%
-1702148865
+1741683042
 
 %INSTALLDATE%
-1702264545
+1741836720
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/0eca067d/7152978995)
+CI (msys2/msys2-autobuild/fe4bcd08/13783574133)
 
 %SIZE%
-43508
+42780
 
 %GROUPS%
 perl-modules
@@ -40,4 +40,7 @@ pgp
 
 %DEPENDS%
 perl
+
+%XDATA%
+pkgtype=pkg
 

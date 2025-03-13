@@ -2,7 +2,7 @@
 perl-libwww
 
 %VERSION%
-6.77-1
+6.78-1
 
 %BASE%
 perl-libwww
@@ -17,16 +17,16 @@ https://metacpan.org/dist/libwww-perl
 any
 
 %BUILDDATE%
-1719815128
+1741683173
 
 %INSTALLDATE%
-1719889945
+1741836721
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/00495cb2/9739154571)
+CI (msys2/msys2-autobuild/fe4bcd08/13783574133)
 
 %SIZE%
-293529
+293695
 
 %GROUPS%
 perl-modules
