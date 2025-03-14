@@ -60,7 +60,7 @@ while test $# -gt 0; do
 	;;
 
     --version)
-	echo 1.1.42
+	echo 1.1.43
 	exit 0
 	;;
 
@@ -85,7 +85,7 @@ while test $# -gt 0; do
             shift
             libs="-lxslt -L${libdir} -lxml2"
         else
-            libs="-lxslt -L${libdir} -lxml2 -lm"
+            libs="-lxslt -L${libdir} -lxml2  "
         fi
 
         if [ "-L${libdir}" != "-L/usr/lib" -a "-L${libdir}" != "-L/usr/lib64" ]; then

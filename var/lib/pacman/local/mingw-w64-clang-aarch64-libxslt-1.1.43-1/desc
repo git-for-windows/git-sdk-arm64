@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-libxslt
 
 %VERSION%
-1.1.42-1
+1.1.43-1
 
 %BASE%
 mingw-w64-libxslt
@@ -17,16 +17,16 @@ https://gitlab.gnome.org/GNOME/libxslt/-/wikis/home
 any
 
 %BUILDDATE%
-1720277844
+1741846934
 
 %INSTALLDATE%
-1720321974
+1741923051
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/00495cb2/9820115090)
+CI (msys2-arm/msys2-autobuild/e9e823c2/13828306951)
 
 %SIZE%
-1724380
+1685327
 
 %REASON%
 1

@@ -3,6 +3,6 @@
 #
 XSLT_LIBDIR="-L/clangarm64/lib"
 XSLT_LIBS="-lxslt -L/clangarm64/lib -lxml2 "
-XSLT_PRIVATE_LIBS="-lm"
+XSLT_PRIVATE_LIBS=""
 XSLT_INCLUDEDIR="-I/clangarm64/include"
-MODULE_VERSION="xslt-1.1.42"
+MODULE_VERSION="xslt-1.1.43"
