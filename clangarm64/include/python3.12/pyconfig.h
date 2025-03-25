@@ -417,7 +417,7 @@
 #define HAVE_FTELLO 1
 
 /* Define to 1 if you have the `ftime' function. */
-/* #undef HAVE_FTIME */
+#define HAVE_FTIME 1
 
 /* Define to 1 if you have the `ftruncate' function. */
 /* #undef HAVE_FTRUNCATE */

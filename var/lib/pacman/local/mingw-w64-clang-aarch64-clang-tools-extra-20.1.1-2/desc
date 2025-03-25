@@ -1,0 +1,46 @@
+%NAME%
+mingw-w64-clang-aarch64-clang-tools-extra
+
+%VERSION%
+20.1.1-2
+
+%BASE%
+mingw-w64-llvm
+
+%DESC%
+Extra tools built using Clang's tooling APIs (mingw-w64)
+
+%URL%
+https://clang.llvm.org/
+
+%ARCH%
+any
+
+%BUILDDATE%
+1742839256
+
+%INSTALLDATE%
+1742873859
+
+%PACKAGER%
+Johannes Schindelin <johannes.schindelin@gmx.de>
+
+%SIZE%
+140314029
+
+%GROUPS%
+mingw-w64-clang-aarch64-toolchain
+
+%LICENSE%
+spdx:Apache-2.0 WITH LLVM-exception
+
+%VALIDATION%
+sha256
+pgp
+
+%DEPENDS%
+mingw-w64-clang-aarch64-clang=20.1.1
+
+%XDATA%
+pkgtype=split
+
