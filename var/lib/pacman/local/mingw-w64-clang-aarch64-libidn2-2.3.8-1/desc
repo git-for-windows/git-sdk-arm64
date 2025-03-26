@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-libidn2
 
 %VERSION%
-2.3.7-2
+2.3.8-1
 
 %BASE%
 mingw-w64-libidn2
@@ -17,16 +17,16 @@ https://www.gnu.org/software/libidn/#libidn2
 any
 
 %BUILDDATE%
-1706865716
+1742884097
 
 %INSTALLDATE%
-1706930170
+1742960029
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/1c45f2ab/7753574959)
+CI (msys2-arm/msys2-autobuild/e9e823c2/14052970391)
 
 %SIZE%
-727448
+732230
 
 %REASON%
 1
@@ -42,4 +42,7 @@ pgp
 %DEPENDS%
 mingw-w64-clang-aarch64-gettext-runtime
 mingw-w64-clang-aarch64-libunistring
+
+%XDATA%
+pkgtype=pkg
 
