@@ -9,11 +9,11 @@ clangarm64/include/expat_config.h
 clangarm64/include/expat_external.h
 clangarm64/lib/
 clangarm64/lib/cmake/
-clangarm64/lib/cmake/expat-2.7.0/
-clangarm64/lib/cmake/expat-2.7.0/expat-config-version.cmake
-clangarm64/lib/cmake/expat-2.7.0/expat-config.cmake
-clangarm64/lib/cmake/expat-2.7.0/expat-noconfig.cmake
-clangarm64/lib/cmake/expat-2.7.0/expat.cmake
+clangarm64/lib/cmake/expat-2.7.1/
+clangarm64/lib/cmake/expat-2.7.1/expat-config-version.cmake
+clangarm64/lib/cmake/expat-2.7.1/expat-config.cmake
+clangarm64/lib/cmake/expat-2.7.1/expat-noconfig.cmake
+clangarm64/lib/cmake/expat-2.7.1/expat.cmake
 clangarm64/lib/libexpat.a
 clangarm64/lib/libexpat.dll.a
 clangarm64/lib/pkgconfig/
