@@ -2,7 +2,7 @@
 msys2-runtime-devel
 
 %VERSION%
-3.6.1-1
+3.6.1-2
 
 %BASE%
 msys2-runtime
@@ -17,10 +17,10 @@ https://www.cygwin.com/
 x86_64
 
 %BUILDDATE%
-1744226560
+1744436209
 
 %INSTALLDATE%
-1744256270
+1744437277
 
 %PACKAGER%
 Johannes Schindelin <johannes.schindelin@gmx.de>

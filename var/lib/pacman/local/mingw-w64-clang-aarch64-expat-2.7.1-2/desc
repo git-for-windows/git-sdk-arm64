@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-expat
 
 %VERSION%
-2.7.1-1
+2.7.1-2
 
 %BASE%
 mingw-w64-expat
@@ -17,16 +17,16 @@ https://libexpat.github.io/
 any
 
 %BUILDDATE%
-1743282794
+1744373785
 
 %INSTALLDATE%
-1743306020
+1744437325
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/e9e823c2/14149447497)
+CI (msys2-arm/msys2-autobuild/16350b0a/14402692279)
 
 %SIZE%
-604388
+605924
 
 %REASON%
 1
