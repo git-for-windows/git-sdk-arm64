@@ -7,7 +7,7 @@ if(CMAKE_VERSION VERSION_LESS "2.8.12")
    message(FATAL_ERROR "CMake >= 2.8.12 required")
 endif()
 cmake_policy(PUSH)
-cmake_policy(VERSION 2.8.12...3.29)
+cmake_policy(VERSION 2.8.12...3.30)
 #----------------------------------------------------------------
 # Generated CMake target import file.
 #----------------------------------------------------------------
@@ -702,7 +702,7 @@ set_target_properties(LLVMTelemetry PROPERTIES
 add_library(LLVMDlltoolDriver STATIC IMPORTED)
 
 set_target_properties(LLVMDlltoolDriver PROPERTIES
-  INTERFACE_LINK_LIBRARIES "LLVMObject;LLVMOption;LLVMSupport;LLVMTargetParser"
+  INTERFACE_LINK_LIBRARIES "LLVMBinaryFormat;LLVMObject;LLVMOption;LLVMSupport;LLVMTargetParser"
 )
 
 # Create imported target LLVMLibDriver
