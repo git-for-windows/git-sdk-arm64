@@ -19,7 +19,7 @@ env:
 jobs:
   build:
     if: github.repository_owner == 'git-for-windows'
-    runs-on: [Windows, ARM64]
+    runs-on: windows-11-arm
     steps:
       - name: Configure user
         shell: bash
@@ -134,7 +134,7 @@ jobs:
           retention-days: 1
 
   artifacts:
-    runs-on: [Windows, ARM64]
+    runs-on: windows-11-arm
     needs: [build]
     strategy:
       matrix:
