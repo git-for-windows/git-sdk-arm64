@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - debug-use-hosted-windows-arm64-runners
   workflow_dispatch:
 
 env:
