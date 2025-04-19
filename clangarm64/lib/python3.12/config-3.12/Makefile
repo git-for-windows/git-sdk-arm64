@@ -29,9 +29,9 @@ MODLIBS=           $(LOCALMODLIBS) $(BASEMODLIBS)
 
 # === Variables set by configure
 VERSION=	3.12
-srcdir=		../Python-3.12.9
-VPATH=		../Python-3.12.9
-abs_srcdir=	/c/M/B/src/build-CLANGARM64/../Python-3.12.9
+srcdir=		../Python-3.12.10
+VPATH=		../Python-3.12.10
+abs_srcdir=	/c/M/B/src/build-CLANGARM64/../Python-3.12.10
 abs_builddir=	/c/M/B/src/build-CLANGARM64
 
 
@@ -126,7 +126,7 @@ PY_CORE_CFLAGS=	$(PY_STDMODULE_CFLAGS) -DPy_BUILD_CORE
 PY_CORE_LDFLAGS=$(PY_LDFLAGS) $(PY_LDFLAGS_NODIST)
 # Strict or non-strict aliasing flags used to compile dtoa.c, see above
 CFLAGS_ALIASING=-fno-strict-aliasing
-RCFLAGS= -DFIELD3=9150 -O COFF
+RCFLAGS= -DFIELD3=10150 -O COFF
 
 
 # Machine-dependent subdirectories
@@ -146,10 +146,10 @@ exec_prefix=	${prefix}
 datarootdir=    ${prefix}/share
 
 # Locations needed for semi-native fixup of sysconfig.
-srcdir_b2h=		C:/M/B/src/Python-3.12.9
-abs_srcdir_b2h=		C:/M/B/src/Python-3.12.9
+srcdir_b2h=		C:/M/B/src/Python-3.12.10
+abs_srcdir_b2h=		C:/M/B/src/Python-3.12.10
 abs_builddir_b2h=	C:/M/B/src/build-CLANGARM64
-prefix_b2h=		C:/msys64/clangarm64
+prefix_b2h=		C:/a/msys64/clangarm64
 
 # Expanded directories
 BINDIR=		${exec_prefix}/bin
@@ -309,7 +309,7 @@ MODULE__CTYPES_STATE=yes
 MODULE__CTYPES_CFLAGS=-fno-strict-overflow 
 MODULE__CTYPES_LDFLAGS=-lffi -lole32 -loleaut32 -luuid
 MODULE__CURSES_STATE=yes
-MODULE__CURSES_CFLAGS=-DNCURSES_WIDECHAR -IC:/msys64/clangarm64/include/ncursesw
+MODULE__CURSES_CFLAGS=-DNCURSES_WIDECHAR -IC:/a/msys64/clangarm64/include/ncursesw
 MODULE__CURSES_LDFLAGS=-lncursesw -lsystre -ltre -lintl -liconv
 
 MODULE__CURSES_PANEL_STATE=missing
@@ -436,7 +436,7 @@ BUILDVENVWLAUNCHER=	venvwlauncher$(BUILDEXE)
 
 HOSTRUNNER= 
 
-PYTHON_FOR_REGEN?=python3.12
+PYTHON_FOR_REGEN?=python3
 UPDATE_FILE=$(PYTHON_FOR_REGEN) $(srcdir)/Tools/build/update_file.py
 PYTHON_FOR_BUILD=./$(BUILDPYTHON) -E
 # Single-platform builds depend on $(BUILDPYTHON). Cross builds use an
@@ -505,7 +505,7 @@ IO_OBJS=	\
 
 ##########################################################################
 
-NCURSESW_INCLUDEDIR=	C:/msys64/clangarm64/include/ncursesw
+NCURSESW_INCLUDEDIR=	C:/a/msys64/clangarm64/include/ncursesw
 
 ##########################################################################
 # Parser
@@ -1783,7 +1783,7 @@ Python/frozen.o: $(FROZEN_FILES_OUT)
 # an include guard, so we can't use a pipeline to transform its output.
 Include/pydtrace_probes.h: $(srcdir)/Include/pydtrace.d
 	$(MKDIR_P) Include
-	$(DTRACE) $(DFLAGS) -o $@ -h -s $<
+	CC="$(CC)" CFLAGS="$(CFLAGS)" $(DTRACE) $(DFLAGS) -o $@ -h -s $<
 	: sed in-place edit with POSIX-only tools
 	sed 's/PYTHON_/PyDTrace_/' $@ > $@.tmp
 	mv $@.tmp $@
@@ -1793,7 +1793,7 @@ Python/import.o: $(srcdir)/Include/pydtrace.h
 Modules/gcmodule.o: $(srcdir)/Include/pydtrace.h
 
 Python/pydtrace.o: $(srcdir)/Include/pydtrace.d $(DTRACE_DEPS)
-	$(DTRACE) $(DFLAGS) -o $@ -G -s $< $(DTRACE_DEPS)
+	CC="$(CC)" CFLAGS="$(CFLAGS)" $(DTRACE) $(DFLAGS) -o $@ -G -s $< $(DTRACE_DEPS)
 
 Objects/typeobject.o: Objects/typeslots.inc
 
@@ -2452,6 +2452,7 @@ TESTSUBDIRS=	idlelib/idle_test \
 		test/test_tomllib/data/valid/multiline-basic-str \
 		test/test_tools \
 		test/test_tools/i18n_data \
+		test/test_tools/msgfmt_data \
 		test/test_ttk \
 		test/test_unittest \
 		test/test_unittest/testmock \
