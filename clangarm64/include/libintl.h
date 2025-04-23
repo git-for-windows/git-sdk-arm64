@@ -826,7 +826,7 @@ namespace std { using ::libintl_vasprintf; }
 
 # endif
 
-# if 0
+# if 1
 
 #  if defined _INTL_REDIRECT_INLINE && !defined __MINGW32__
 extern int libintl_vfwprintf (FILE *, const wchar_t *, va_list)
