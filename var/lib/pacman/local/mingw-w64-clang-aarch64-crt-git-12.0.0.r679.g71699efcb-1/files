@@ -310,6 +310,7 @@ clangarm64/lib/libprntvpt.a
 clangarm64/lib/libpropsys.a
 clangarm64/lib/libpsapi.a
 clangarm64/lib/libpstorec.a
+clangarm64/lib/libquartz.a
 clangarm64/lib/libquery.a
 clangarm64/lib/libqutil.a
 clangarm64/lib/libqwave.a
