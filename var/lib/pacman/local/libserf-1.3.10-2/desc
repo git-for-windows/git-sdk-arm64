@@ -2,7 +2,7 @@
 libserf
 
 %VERSION%
-1.3.10-1
+1.3.10-2
 
 %BASE%
 serf
@@ -17,13 +17,13 @@ https://serf.apache.org/
 x86_64
 
 %BUILDDATE%
-1718090850
+1745592508
 
 %INSTALLDATE%
-1718248165
+1745811650
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/40ab9379/9461271533)
+CI (msys2/msys2-autobuild/e8d10d7e/14667279803)
 
 %SIZE%
 97178
