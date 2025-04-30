@@ -17,7 +17,7 @@ env:
 jobs:
   sync:
     if: github.repository_owner == 'git-for-windows' || github.event.inputs.debug_with_ssh_key != ''
-    runs-on: [Windows, ARM64]
+    runs-on: windows-11-arm
     environment: sync
     steps:
       - name: clone git-sdk-arm64

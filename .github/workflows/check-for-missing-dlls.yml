@@ -11,7 +11,7 @@ env:
 jobs:
   check:
     if: github.repository_owner == 'git-for-windows'
-    runs-on: [Windows, ARM64]
+    runs-on: windows-11-arm
     steps:
       - name: clone git-sdk-arm64
         shell: bash
