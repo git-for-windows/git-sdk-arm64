@@ -55,7 +55,7 @@ jobs:
           make -C ../git DEVELOPER=1 NO_PERL=1 SKIP_DASHED_BUILT_INS=YesPlease -j8 all strip
       - name: show build-options
         shell: bash
-        run: ../git/git version --build-options
+        run: . /etc/profile && ../git/git version --build-options
       - name: compress git artifacts
         shell: bash
         run: tar -C .. -czf git-artifacts.tar.gz --exclude '*.a' --exclude '*.o' --exclude .git --exclude .depend git
