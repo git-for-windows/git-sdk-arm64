@@ -36,7 +36,8 @@ jobs:
           sh -x ./build-extra/please.sh create-sdk-artifact --sdk=git-sdk-arm64.git build-installers &&
           cygpath -aw "$PWD/build-installers/usr/bin/core_perl" >>$GITHUB_PATH &&
           cygpath -aw "$PWD/build-installers/usr/bin" >>$GITHUB_PATH &&
-          cygpath -aw "$PWD/build-installers/mingw64/bin" >>$GITHUB_PATH
+          cygpath -aw "$PWD/build-installers/clangarm64/bin" >>$GITHUB_PATH &&
+          echo "MSYSTEM=CLANGARM64" >>$GITHUB_ENV
       - name: check for missing DLLs
         shell: bash
         run: ./build-extra/check-for-missing-dlls.sh
