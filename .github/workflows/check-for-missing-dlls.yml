@@ -1,6 +1,10 @@
 name: check-for-missing-dlls
 
 on:
+  push:
+    branches:
+      - main
+  pull_request:
   workflow_dispatch:
 
 env:
