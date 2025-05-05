@@ -18,10 +18,16 @@ clangarm64/lib/libsqlite3.a
 clangarm64/lib/libsqlite3.dll.a
 clangarm64/lib/pkgconfig/
 clangarm64/lib/pkgconfig/sqlite3.pc
+clangarm64/lib/sqlite3.49.1/
+clangarm64/lib/sqlite3.49.1/libtclsqlite3.dll
+clangarm64/lib/sqlite3.49.1/pkgIndex.tcl
 clangarm64/share/
 clangarm64/share/licenses/
 clangarm64/share/licenses/sqlite3/
 clangarm64/share/licenses/sqlite3/LICENSE
+clangarm64/share/man/
+clangarm64/share/man/man1/
+clangarm64/share/man/man1/sqlite3.1.gz
 clangarm64/share/sqlite/
 clangarm64/share/sqlite/extensions/
 clangarm64/share/sqlite/extensions/amatch.c
@@ -129,8 +135,6 @@ clangarm64/share/sqlite/extensions/vfslog.c
 clangarm64/share/sqlite/extensions/vfslog.dll
 clangarm64/share/sqlite/extensions/vfsstat.c
 clangarm64/share/sqlite/extensions/vfsstat.dll
-clangarm64/share/sqlite/extensions/vfstrace.c
-clangarm64/share/sqlite/extensions/vfstrace.dll
 clangarm64/share/sqlite/extensions/vtablog.c
 clangarm64/share/sqlite/extensions/vtablog.dll
 clangarm64/share/sqlite/extensions/vtshim.c
