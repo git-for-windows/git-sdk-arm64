@@ -18,6 +18,9 @@ clangarm64/share/
 clangarm64/share/doc/
 clangarm64/share/doc/mpdecimal/
 clangarm64/share/doc/mpdecimal/COPYRIGHT.txt
+clangarm64/share/licenses/
+clangarm64/share/licenses/mpdecimal/
+clangarm64/share/licenses/mpdecimal/LICENSE
 clangarm64/share/man/
 clangarm64/share/man/man3/
 clangarm64/share/man/man3/libmpdec++.3.gz
