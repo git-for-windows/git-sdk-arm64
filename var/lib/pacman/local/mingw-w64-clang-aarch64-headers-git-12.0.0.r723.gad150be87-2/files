@@ -724,6 +724,8 @@ clangarm64/include/htmlhelp.h
 clangarm64/include/http.h
 clangarm64/include/httpext.h
 clangarm64/include/httpfilt.h
+clangarm64/include/httprequest.h
+clangarm64/include/httprequest.idl
 clangarm64/include/httprequestid.h
 clangarm64/include/hvsocket.h
 clangarm64/include/i_cryptasn1tls.h
