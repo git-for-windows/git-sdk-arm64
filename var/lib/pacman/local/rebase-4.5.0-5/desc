@@ -2,7 +2,7 @@
 rebase
 
 %VERSION%
-4.5.0-4
+4.5.0-5
 
 %BASE%
 rebase
@@ -17,16 +17,16 @@ https://www.cygwin.com/
 x86_64
 
 %BUILDDATE%
-1681762672
+1747295414
 
 %INSTALLDATE%
-1682405895
+1747366716
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/1a8a8810/4725215680)
+CI (msys2/msys2-autobuild/3a5fc4c4/15039443783)
 
 %SIZE%
-985302
+1001902
 
 %LICENSE%
 custom
@@ -36,4 +36,7 @@ pgp
 
 %DEPENDS%
 dash
+
+%XDATA%
+pkgtype=pkg
 
