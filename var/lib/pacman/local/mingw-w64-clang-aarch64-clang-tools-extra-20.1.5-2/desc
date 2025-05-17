@@ -1,32 +1,32 @@
 %NAME%
-mingw-w64-clang-aarch64-llvm
+mingw-w64-clang-aarch64-clang-tools-extra
 
 %VERSION%
-20.1.3-2
+20.1.5-2
 
 %BASE%
 mingw-w64-llvm
 
 %DESC%
-Low Level Virtual Machine (mingw-w64)
+Extra tools built using Clang's tooling APIs (mingw-w64)
 
 %URL%
-https://llvm.org/
+https://clang.llvm.org/
 
 %ARCH%
 any
 
 %BUILDDATE%
-1745290978
+1747406339
 
 %INSTALLDATE%
-1745379737
+1747452858
 
 %PACKAGER%
 Johannes Schindelin <johannes.schindelin@gmx.de>
 
 %SIZE%
-352749605
+140315192
 
 %GROUPS%
 mingw-w64-clang-aarch64-toolchain
@@ -39,7 +39,7 @@ sha256
 pgp
 
 %DEPENDS%
-mingw-w64-clang-aarch64-llvm-libs=20.1.3
+mingw-w64-clang-aarch64-clang=20.1.5
 
 %XDATA%
 pkgtype=split

@@ -1,32 +1,32 @@
 %NAME%
-mingw-w64-clang-aarch64-compiler-rt
+mingw-w64-clang-aarch64-clang-analyzer
 
 %VERSION%
-20.1.3-2
+20.1.5-2
 
 %BASE%
 mingw-w64-llvm
 
 %DESC%
-Runtime libraries for Clang and LLVM (mingw-w64)
+A source code analysis framework (mingw-w64)
 
 %URL%
-https://compiler-rt.llvm.org/
+https://clang-analyzer.llvm.org/
 
 %ARCH%
 any
 
 %BUILDDATE%
-1745290978
+1747406339
 
 %INSTALLDATE%
-1745379739
+1747452856
 
 %PACKAGER%
 Johannes Schindelin <johannes.schindelin@gmx.de>
 
 %SIZE%
-454831
+574454
 
 %GROUPS%
 mingw-w64-clang-aarch64-toolchain
@@ -37,6 +37,10 @@ spdx:Apache-2.0 WITH LLVM-exception
 %VALIDATION%
 sha256
 pgp
+
+%DEPENDS%
+mingw-w64-clang-aarch64-clang=20.1.5
+mingw-w64-clang-aarch64-python
 
 %XDATA%
 pkgtype=split

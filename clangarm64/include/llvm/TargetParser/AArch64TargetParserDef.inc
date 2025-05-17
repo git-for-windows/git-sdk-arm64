@@ -2182,6 +2182,8 @@ inline constexpr CpuInfo CpuInfos[] = {
       AArch64::AEK_MEC,
       AArch64::AEK_FAMINMAX,
       AArch64::AEK_FP8DOT2,
+      AArch64::AEK_FP8DOT4,
+      AArch64::AEK_FP8FMA,
       AArch64::AEK_LUT,
     })
   },
