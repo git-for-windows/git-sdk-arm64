@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-libc++
 
 %VERSION%
-20.1.5-1
+20.1.5-2
 
 %BASE%
 mingw-w64-libc++
@@ -17,13 +17,13 @@ https://libcxx.llvm.org/
 any
 
 %BUILDDATE%
-1747394243
+1747586426
 
 %INSTALLDATE%
-1747539645
+1747712248
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/3a5fc4c4/15064862544)
+CI (msys2/msys2-autobuild/3a5fc4c4/15097931050)
 
 %SIZE%
 22848882
@@ -42,8 +42,8 @@ pgp
 mingw-w64-clang-aarch64-libunwind
 
 %PROVIDES%
-mingw-w64-clang-aarch64-libc++abi
 mingw-w64-clang-aarch64-gcc-libs
+mingw-w64-clang-aarch64-cc-libs
 
 %XDATA%
 pkgtype=split
