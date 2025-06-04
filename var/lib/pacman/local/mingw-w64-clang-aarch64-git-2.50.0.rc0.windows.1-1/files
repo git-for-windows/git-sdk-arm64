@@ -79,6 +79,9 @@ clangarm64/libexec/git-core/mergetools/winmerge
 clangarm64/libexec/git-core/mergetools/xxdiff
 clangarm64/libexec/git-core/scalar.exe
 clangarm64/share/
+clangarm64/share/bash-completion/
+clangarm64/share/bash-completion/completions/
+clangarm64/share/bash-completion/completions/git
 clangarm64/share/git-core/
 clangarm64/share/git-core/templates/
 clangarm64/share/git-core/templates/description
@@ -186,6 +189,7 @@ clangarm64/share/gitk/lib/msgs/pt_br.msg
 clangarm64/share/gitk/lib/msgs/pt_pt.msg
 clangarm64/share/gitk/lib/msgs/ru.msg
 clangarm64/share/gitk/lib/msgs/sv.msg
+clangarm64/share/gitk/lib/msgs/ta.msg
 clangarm64/share/gitk/lib/msgs/vi.msg
 clangarm64/share/gitk/lib/msgs/zh_cn.msg
 clangarm64/share/gitweb/
