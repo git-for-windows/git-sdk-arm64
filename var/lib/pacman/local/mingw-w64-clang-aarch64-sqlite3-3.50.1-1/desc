@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-sqlite3
 
 %VERSION%
-3.50.0-1
+3.50.1-1
 
 %BASE%
 mingw-w64-sqlite3
@@ -17,16 +17,16 @@ https://www.sqlite.org/
 any
 
 %BUILDDATE%
-1748581269
+1749287137
 
 %INSTALLDATE%
-1748662549
+1749354405
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/776a26e0/15339376029)
+CI (msys2/msys2-autobuild/5c250470/15506283514)
 
 %SIZE%
-21754808
+21759080
 
 %REASON%
 1
@@ -52,8 +52,8 @@ mingw-w64-clang-aarch64-tcl: for sqlite3_analyzer
 mingw-w64-clang-aarch64-sqlite-analyzer
 
 %PROVIDES%
-mingw-w64-clang-aarch64-sqlite=3.50.0
-mingw-w64-clang-aarch64-sqlite-analyzer=3.50.0
+mingw-w64-clang-aarch64-sqlite=3.50.1
+mingw-w64-clang-aarch64-sqlite-analyzer=3.50.1
 
 %XDATA%
 pkgtype=split
