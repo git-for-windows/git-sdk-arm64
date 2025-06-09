@@ -2738,11 +2738,11 @@ clangarm64/lib/python3.12/lib2to3/fixes/fix_xrange.py
 clangarm64/lib/python3.12/lib2to3/fixes/fix_xreadlines.py
 clangarm64/lib/python3.12/lib2to3/fixes/fix_zip.py
 clangarm64/lib/python3.12/lib2to3/Grammar.txt
-clangarm64/lib/python3.12/lib2to3/Grammar3.12.10.final.0.pickle
+clangarm64/lib/python3.12/lib2to3/Grammar3.12.11.final.0.pickle
 clangarm64/lib/python3.12/lib2to3/main.py
 clangarm64/lib/python3.12/lib2to3/patcomp.py
 clangarm64/lib/python3.12/lib2to3/PatternGrammar.txt
-clangarm64/lib/python3.12/lib2to3/PatternGrammar3.12.10.final.0.pickle
+clangarm64/lib/python3.12/lib2to3/PatternGrammar3.12.11.final.0.pickle
 clangarm64/lib/python3.12/lib2to3/pgen2/
 clangarm64/lib/python3.12/lib2to3/pgen2/__init__.py
 clangarm64/lib/python3.12/lib2to3/pgen2/__pycache__/

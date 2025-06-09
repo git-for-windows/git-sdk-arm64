@@ -29,10 +29,10 @@ MODLIBS=           $(LOCALMODLIBS) $(BASEMODLIBS)
 
 # === Variables set by configure
 VERSION=	3.12
-srcdir=		../Python-3.12.10
-VPATH=		../Python-3.12.10
-abs_srcdir=	/c/M/B/src/build-CLANGARM64/../Python-3.12.10
-abs_builddir=	/c/M/B/src/build-CLANGARM64
+srcdir=		../Python-3.12.11
+VPATH=		../Python-3.12.11
+abs_srcdir=	/c/W/B/src/build-CLANGARM64/../Python-3.12.11
+abs_builddir=	/c/W/B/src/build-CLANGARM64
 
 
 CC=		clang
@@ -126,7 +126,7 @@ PY_CORE_CFLAGS=	$(PY_STDMODULE_CFLAGS) -DPy_BUILD_CORE
 PY_CORE_LDFLAGS=$(PY_LDFLAGS) $(PY_LDFLAGS_NODIST)
 # Strict or non-strict aliasing flags used to compile dtoa.c, see above
 CFLAGS_ALIASING=-fno-strict-aliasing
-RCFLAGS= -DFIELD3=10150 -O COFF
+RCFLAGS= -DFIELD3=11150 -O COFF
 
 
 # Machine-dependent subdirectories
@@ -146,10 +146,10 @@ exec_prefix=	${prefix}
 datarootdir=    ${prefix}/share
 
 # Locations needed for semi-native fixup of sysconfig.
-srcdir_b2h=		C:/M/B/src/Python-3.12.10
-abs_srcdir_b2h=		C:/M/B/src/Python-3.12.10
-abs_builddir_b2h=	C:/M/B/src/build-CLANGARM64
-prefix_b2h=		C:/a/msys64/clangarm64
+srcdir_b2h=		C:/W/B/src/Python-3.12.11
+abs_srcdir_b2h=		C:/W/B/src/Python-3.12.11
+abs_builddir_b2h=	C:/W/B/src/build-CLANGARM64
+prefix_b2h=		C:/M/msys64/clangarm64
 
 # Expanded directories
 BINDIR=		${exec_prefix}/bin
@@ -309,7 +309,7 @@ MODULE__CTYPES_STATE=yes
 MODULE__CTYPES_CFLAGS=-fno-strict-overflow 
 MODULE__CTYPES_LDFLAGS=-lffi -lole32 -loleaut32 -luuid
 MODULE__CURSES_STATE=yes
-MODULE__CURSES_CFLAGS=-DNCURSES_WIDECHAR -IC:/a/msys64/clangarm64/include/ncursesw
+MODULE__CURSES_CFLAGS=-DNCURSES_WIDECHAR -IC:/M/msys64/clangarm64/include/ncursesw
 MODULE__CURSES_LDFLAGS=-lncursesw -lsystre -ltre -lintl -liconv
 
 MODULE__CURSES_PANEL_STATE=missing
@@ -505,7 +505,7 @@ IO_OBJS=	\
 
 ##########################################################################
 
-NCURSESW_INCLUDEDIR=	C:/a/msys64/clangarm64/include/ncursesw
+NCURSESW_INCLUDEDIR=	C:/M/msys64/clangarm64/include/ncursesw
 
 ##########################################################################
 # Parser

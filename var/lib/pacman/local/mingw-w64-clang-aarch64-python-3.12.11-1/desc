@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-python
 
 %VERSION%
-3.12.10-1
+3.12.11-1
 
 %BASE%
 mingw-w64-python
@@ -17,16 +17,16 @@ https://www.python.org/
 any
 
 %BUILDDATE%
-1744956916
+1749299681
 
 %INSTALLDATE%
-1745033324
+1749440818
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/e8d10d7e/14530630295)
+CI (msys2/msys2-autobuild/5c250470/15507745648)
 
 %SIZE%
-193631333
+193859362
 
 %REASON%
 1
@@ -43,7 +43,7 @@ mingw-w64-clang-aarch64-python3
 mingw-w64-clang-aarch64-python3.12
 
 %DEPENDS%
-mingw-w64-clang-aarch64-gcc-libs
+mingw-w64-clang-aarch64-cc-libs
 mingw-w64-clang-aarch64-expat
 mingw-w64-clang-aarch64-bzip2
 mingw-w64-clang-aarch64-libffi
