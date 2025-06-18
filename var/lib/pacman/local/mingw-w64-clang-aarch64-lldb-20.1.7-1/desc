@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-lldb
 
 %VERSION%
-20.1.5-1
+20.1.7-1
 
 %BASE%
 mingw-w64-lldb
@@ -17,16 +17,16 @@ https://lldb.llvm.org/
 any
 
 %BUILDDATE%
-1747395341
+1750151386
 
 %INSTALLDATE%
-1747539646
+1750218174
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/3a5fc4c4/15064862544)
+CI (msys2/msys2-autobuild/c237bc16/15700281734)
 
 %SIZE%
-48887400
+48888424
 
 %GROUPS%
 mingw-w64-clang-aarch64-toolchain
@@ -39,7 +39,7 @@ sha256
 pgp
 
 %DEPENDS%
-mingw-w64-clang-aarch64-gcc-libs
+mingw-w64-clang-aarch64-cc-libs
 mingw-w64-clang-aarch64-clang-libs
 mingw-w64-clang-aarch64-llvm-libs
 mingw-w64-clang-aarch64-libxml2

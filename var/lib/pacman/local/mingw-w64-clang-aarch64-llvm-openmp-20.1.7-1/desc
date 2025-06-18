@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-llvm-openmp
 
 %VERSION%
-20.1.5-1
+20.1.7-1
 
 %BASE%
 mingw-w64-llvm-openmp
@@ -17,16 +17,16 @@ https://openmp.llvm.org/
 any
 
 %BUILDDATE%
-1747403073
+1750156637
 
 %INSTALLDATE%
-1747539646
+1750218174
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/3a5fc4c4/15068113538)
+CI (msys2/msys2-autobuild/c237bc16/15703016808)
 
 %SIZE%
-2330232
+2330282
 
 %GROUPS%
 mingw-w64-clang-aarch64-toolchain

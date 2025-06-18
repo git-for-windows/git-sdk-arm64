@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-polly
 
 %VERSION%
-20.1.5-1
+20.1.7-1
 
 %BASE%
 mingw-w64-polly
@@ -17,16 +17,16 @@ https://polly.llvm.org/
 any
 
 %BUILDDATE%
-1747398884
+1750151613
 
 %INSTALLDATE%
-1747539647
+1750218175
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/3a5fc4c4/15068113538)
+CI (msys2/msys2-autobuild/c237bc16/15703016808)
 
 %SIZE%
-12699712
+12699798
 
 %LICENSE%
 spdx:Apache-2.0 WITH LLVM-exception
