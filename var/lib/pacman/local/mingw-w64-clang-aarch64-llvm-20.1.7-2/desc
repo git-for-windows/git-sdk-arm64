@@ -1,32 +1,35 @@
 %NAME%
-mingw-w64-clang-aarch64-gcc-compat
+mingw-w64-clang-aarch64-llvm
 
 %VERSION%
-20.1.5-2
+20.1.7-2
 
 %BASE%
 mingw-w64-llvm
 
 %DESC%
-GCC compatibility aliases for Clang (mingw-w64)
+Low Level Virtual Machine (mingw-w64)
 
 %URL%
-https://clang.llvm.org/
+https://llvm.org/
 
 %ARCH%
 any
 
 %BUILDDATE%
-1747406339
+1750260552
 
 %INSTALLDATE%
-1747452858
+1750304572
 
 %PACKAGER%
 Johannes Schindelin <johannes.schindelin@gmx.de>
 
 %SIZE%
-550912
+262109351
+
+%GROUPS%
+mingw-w64-clang-aarch64-toolchain
 
 %LICENSE%
 spdx:Apache-2.0 WITH LLVM-exception
@@ -36,13 +39,8 @@ sha256
 pgp
 
 %DEPENDS%
-mingw-w64-clang-aarch64-clang=20.1.5-2
-
-%CONFLICTS%
-mingw-w64-clang-aarch64-gcc
-
-%PROVIDES%
-mingw-w64-clang-aarch64-gcc
+mingw-w64-clang-aarch64-llvm-libs=20.1.7
+mingw-w64-clang-aarch64-llvm-tools=20.1.7
 
 %XDATA%
 pkgtype=split

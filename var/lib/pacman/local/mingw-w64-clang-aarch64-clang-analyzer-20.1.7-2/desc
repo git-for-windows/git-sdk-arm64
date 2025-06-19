@@ -1,32 +1,32 @@
 %NAME%
-mingw-w64-clang-aarch64-llvm
+mingw-w64-clang-aarch64-clang-analyzer
 
 %VERSION%
-20.1.5-2
+20.1.7-2
 
 %BASE%
 mingw-w64-llvm
 
 %DESC%
-Low Level Virtual Machine (mingw-w64)
+A source code analysis framework (mingw-w64)
 
 %URL%
-https://llvm.org/
+https://clang-analyzer.llvm.org/
 
 %ARCH%
 any
 
 %BUILDDATE%
-1747406339
+1750260552
 
 %INSTALLDATE%
-1747452850
+1750304563
 
 %PACKAGER%
 Johannes Schindelin <johannes.schindelin@gmx.de>
 
 %SIZE%
-352838382
+574454
 
 %GROUPS%
 mingw-w64-clang-aarch64-toolchain
@@ -39,7 +39,8 @@ sha256
 pgp
 
 %DEPENDS%
-mingw-w64-clang-aarch64-llvm-libs=20.1.5
+mingw-w64-clang-aarch64-clang=20.1.7
+mingw-w64-clang-aarch64-python
 
 %XDATA%
 pkgtype=split

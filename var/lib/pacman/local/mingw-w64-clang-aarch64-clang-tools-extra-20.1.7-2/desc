@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-clang-tools-extra
 
 %VERSION%
-20.1.5-2
+20.1.7-2
 
 %BASE%
 mingw-w64-llvm
@@ -17,16 +17,16 @@ https://clang.llvm.org/
 any
 
 %BUILDDATE%
-1747406339
+1750260552
 
 %INSTALLDATE%
-1747452858
+1750304566
 
 %PACKAGER%
 Johannes Schindelin <johannes.schindelin@gmx.de>
 
 %SIZE%
-140315192
+140322214
 
 %GROUPS%
 mingw-w64-clang-aarch64-toolchain
@@ -39,7 +39,7 @@ sha256
 pgp
 
 %DEPENDS%
-mingw-w64-clang-aarch64-clang=20.1.5
+mingw-w64-clang-aarch64-clang=20.1.7
 
 %XDATA%
 pkgtype=split

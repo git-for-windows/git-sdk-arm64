@@ -1,35 +1,32 @@
 %NAME%
-mingw-w64-clang-aarch64-clang-analyzer
+mingw-w64-clang-aarch64-gcc-compat
 
 %VERSION%
-20.1.5-2
+20.1.7-2
 
 %BASE%
 mingw-w64-llvm
 
 %DESC%
-A source code analysis framework (mingw-w64)
+GCC compatibility aliases for Clang (mingw-w64)
 
 %URL%
-https://clang-analyzer.llvm.org/
+https://clang.llvm.org/
 
 %ARCH%
 any
 
 %BUILDDATE%
-1747406339
+1750260552
 
 %INSTALLDATE%
-1747452856
+1750304566
 
 %PACKAGER%
 Johannes Schindelin <johannes.schindelin@gmx.de>
 
 %SIZE%
-574454
-
-%GROUPS%
-mingw-w64-clang-aarch64-toolchain
+550912
 
 %LICENSE%
 spdx:Apache-2.0 WITH LLVM-exception
@@ -39,8 +36,13 @@ sha256
 pgp
 
 %DEPENDS%
-mingw-w64-clang-aarch64-clang=20.1.5
-mingw-w64-clang-aarch64-python
+mingw-w64-clang-aarch64-clang=20.1.7-2
+
+%CONFLICTS%
+mingw-w64-clang-aarch64-gcc
+
+%PROVIDES%
+mingw-w64-clang-aarch64-gcc
 
 %XDATA%
 pkgtype=split

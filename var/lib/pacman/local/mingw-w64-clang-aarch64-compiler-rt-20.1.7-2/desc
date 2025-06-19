@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-compiler-rt
 
 %VERSION%
-20.1.5-2
+20.1.7-2
 
 %BASE%
 mingw-w64-llvm
@@ -17,10 +17,10 @@ https://compiler-rt.llvm.org/
 any
 
 %BUILDDATE%
-1747406339
+1750260552
 
 %INSTALLDATE%
-1747452851
+1750304558
 
 %PACKAGER%
 Johannes Schindelin <johannes.schindelin@gmx.de>
