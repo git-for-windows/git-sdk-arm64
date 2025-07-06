@@ -542,6 +542,7 @@ clangarm64/share/zoneinfo/Jamaica
 clangarm64/share/zoneinfo/Japan
 clangarm64/share/zoneinfo/Kwajalein
 clangarm64/share/zoneinfo/leap-seconds.list
+clangarm64/share/zoneinfo/leapseconds
 clangarm64/share/zoneinfo/Libya
 clangarm64/share/zoneinfo/MET
 clangarm64/share/zoneinfo/Mexico/
@@ -1843,8 +1844,10 @@ clangarm64/share/zoneinfo/right/WET
 clangarm64/share/zoneinfo/right/Zulu
 clangarm64/share/zoneinfo/ROC
 clangarm64/share/zoneinfo/ROK
+clangarm64/share/zoneinfo/SECURITY
 clangarm64/share/zoneinfo/Singapore
 clangarm64/share/zoneinfo/Turkey
+clangarm64/share/zoneinfo/tzdata.zi
 clangarm64/share/zoneinfo/UCT
 clangarm64/share/zoneinfo/Universal
 clangarm64/share/zoneinfo/US/
@@ -1865,5 +1868,6 @@ clangarm64/share/zoneinfo/W-SU
 clangarm64/share/zoneinfo/WET
 clangarm64/share/zoneinfo/zone.tab
 clangarm64/share/zoneinfo/zone1970.tab
+clangarm64/share/zoneinfo/zonenow.tab
 clangarm64/share/zoneinfo/Zulu
 
