@@ -6,6 +6,7 @@
 #
 # ::
 #
+#   LIBXML2_FOUND              - True if libxml2 headers and libraries were found
 #   LIBXML2_INCLUDE_DIR        - Directory where LibXml2 headers are located.
 #   LIBXML2_INCLUDE_DIRS       - list of the include directories needed to use LibXml2.
 #   LIBXML2_LIBRARY            - path to the LibXml2 library.
@@ -26,9 +27,9 @@
 get_filename_component(_libxml2_rootdir ${CMAKE_CURRENT_LIST_DIR}/../../../ ABSOLUTE)
 
 set(LIBXML2_VERSION_MAJOR  2)
-set(LIBXML2_VERSION_MINOR  12)
-set(LIBXML2_VERSION_MICRO  10)
-set(LIBXML2_VERSION_STRING "2.12.10")
+set(LIBXML2_VERSION_MINOR  13)
+set(LIBXML2_VERSION_MICRO  8)
+set(LIBXML2_VERSION_STRING "2.13.8")
 set(LIBXML2_DEFINITIONS    "")
 set(LIBXML2_INSTALL_PREFIX ${_libxml2_rootdir})
 set(LIBXML2_INCLUDE_DIR    ${_libxml2_rootdir}/include/libxml2)
@@ -112,14 +113,18 @@ if(UNIX)
 endif()
 
 if(WIN32)
-  list(APPEND LIBXML2_LIBRARIES    ws2_32)
-  list(APPEND LIBXML2_INTERFACE_LINK_LIBRARIES "\$<LINK_ONLY:ws2_32>")
+  list(APPEND LIBXML2_LIBRARIES    ws2_32;Bcrypt)
+  list(APPEND LIBXML2_INTERFACE_LINK_LIBRARIES "\$<LINK_ONLY:ws2_32>;\$<LINK_ONLY:Bcrypt>")
 endif()
 
 # whether libxml2 has dso support
 set(LIBXML2_MODULES 1)
 
 mark_as_advanced(LIBXML2_LIBRARY LIBXML2_XMLCATALOG_EXECUTABLE LIBXML2_XMLLINT_EXECUTABLE)
+
+if(DEFINED LIBXML2_LIBRARY AND DEFINED LIBXML2_INCLUDE_DIRS)
+  set(LIBXML2_FOUND TRUE)
+endif()
 
 if(NOT TARGET LibXml2::LibXml2 AND DEFINED LIBXML2_LIBRARY AND DEFINED LIBXML2_INCLUDE_DIRS)
   add_library(LibXml2::LibXml2 UNKNOWN IMPORTED)

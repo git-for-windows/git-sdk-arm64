@@ -20,4 +20,9 @@ clangarm64/share/doc/7zip/Methods.txt
 clangarm64/share/doc/7zip/readme.txt
 clangarm64/share/doc/7zip/src-history.txt
 clangarm64/share/doc/7zip/unRarLicense.txt
+clangarm64/share/licenses/
+clangarm64/share/licenses/7zip/
+clangarm64/share/licenses/7zip/copying.txt
+clangarm64/share/licenses/7zip/License.txt
+clangarm64/share/licenses/7zip/unRarLicense.txt
 
