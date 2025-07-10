@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-readline
 
 %VERSION%
-8.2.013-1
+8.3.000-1
 
 %BASE%
 mingw-w64-readline
@@ -17,16 +17,16 @@ https://tiswww.case.edu/php/chet/readline/rltop.html
 any
 
 %BUILDDATE%
-1722974156
+1752005770
 
 %INSTALLDATE%
-1723259556
+1752119217
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/00495cb2/10271322989)
+CI (msys2/msys2-autobuild/70dec0bd/16153366359)
 
 %SIZE%
-1418073
+2295268
 
 %REASON%
 1
@@ -39,7 +39,7 @@ sha256
 pgp
 
 %DEPENDS%
-mingw-w64-clang-aarch64-gcc-libs
+mingw-w64-clang-aarch64-cc-libs
 mingw-w64-clang-aarch64-termcap
 
 %XDATA%
