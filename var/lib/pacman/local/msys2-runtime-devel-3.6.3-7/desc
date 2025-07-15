@@ -1,14 +1,14 @@
 %NAME%
-msys2-runtime
+msys2-runtime-devel
 
 %VERSION%
-3.6.3-6
+3.6.3-7
 
 %BASE%
 msys2-runtime
 
 %DESC%
-Posix emulation engine for Windows
+MSYS2 headers and libraries
 
 %URL%
 https://www.cygwin.com/
@@ -17,19 +17,19 @@ https://www.cygwin.com/
 x86_64
 
 %BUILDDATE%
-1751378424
+1752569084
 
 %INSTALLDATE%
-1751427896
+1752570361
 
 %PACKAGER%
 Johannes Schindelin <johannes.schindelin@gmx.de>
 
 %SIZE%
-6570361
+4334051
 
 %GROUPS%
-base
+msys2-devel
 
 %LICENSE%
 GPL
@@ -39,14 +39,15 @@ sha256
 pgp
 
 %REPLACES%
-catgets
-libcatgets
-msys2-runtime-3.4
+libcatgets-devel
+msys2-runtime-3.4-devel
+
+%DEPENDS%
+msys2-runtime=3.6.3
 
 %CONFLICTS%
-catgets
-libcatgets
-msys2-runtime-3.4
+libcatgets-devel
+msys2-runtime-3.4-devel
 
 %XDATA%
 pkgtype=split
