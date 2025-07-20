@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-ca-certificates
 
 %VERSION%
-20241223-1
+20250419-1
 
 %BASE%
 mingw-w64-ca-certificates
@@ -17,16 +17,16 @@ https://www.mozilla.org/en-US/about/governance/policies/security-group/certs/
 any
 
 %BUILDDATE%
-1735979276
+1752959394
 
 %INSTALLDATE%
-1736245081
+1752984063
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/35ff0b71/12608954632)
+CI (msys2/msys2-autobuild/70dec0bd/16392729704)
 
 %SIZE%
-1100463
+1095300
 
 %REASON%
 1
