@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-gettext-tools
 
 %VERSION%
-0.25.1-1
+0.26-1
 
 %BASE%
 mingw-w64-gettext
@@ -17,16 +17,16 @@ https://www.gnu.org/software/gettext/
 any
 
 %BUILDDATE%
-1751790548
+1753251246
 
 %INSTALLDATE%
-1751860183
+1753329344
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/70dec0bd/16097044791)
+CI (msys2/msys2-autobuild/ab3c2437/16462935371)
 
 %SIZE%
-24758834
+24673111
 
 %LICENSE%
 spdx:GPL-3.0-or-later
@@ -48,7 +48,7 @@ mingw-w64-clang-aarch64-libiconv
 mingw-w64-clang-aarch64-gettext<=0.22.4-3
 
 %PROVIDES%
-mingw-w64-clang-aarch64-gettext=0.25.1-1
+mingw-w64-clang-aarch64-gettext=0.26-1
 
 %XDATA%
 pkgtype=split

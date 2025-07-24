@@ -7,6 +7,8 @@ clangarm64/bin/gettext.sh
 clangarm64/bin/libasprintf-0.dll
 clangarm64/bin/libintl-8.dll
 clangarm64/bin/ngettext.exe
+clangarm64/bin/printf_gettext.exe
+clangarm64/bin/printf_ngettext.exe
 clangarm64/include/
 clangarm64/include/autosprintf.h
 clangarm64/include/libintl.h
@@ -50,6 +52,8 @@ clangarm64/share/doc/gettext/javadoc2/serialized-form.html
 clangarm64/share/doc/gettext/javadoc2/stylesheet.css
 clangarm64/share/doc/gettext/ngettext.1.html
 clangarm64/share/doc/gettext/ngettext.3.html
+clangarm64/share/doc/gettext/printf_gettext.1.html
+clangarm64/share/doc/gettext/printf_ngettext.1.html
 clangarm64/share/doc/gettext/textdomain.3.html
 clangarm64/share/doc/libasprintf/
 clangarm64/share/doc/libasprintf/autosprintf_all.html
@@ -197,6 +201,8 @@ clangarm64/share/man/man1/
 clangarm64/share/man/man1/envsubst.1.gz
 clangarm64/share/man/man1/gettext.1.gz
 clangarm64/share/man/man1/ngettext.1.gz
+clangarm64/share/man/man1/printf_gettext.1.gz
+clangarm64/share/man/man1/printf_ngettext.1.gz
 clangarm64/share/man/man3/
 clangarm64/share/man/man3/bind_textdomain_codeset.3.gz
 clangarm64/share/man/man3/bindtextdomain.3.gz
