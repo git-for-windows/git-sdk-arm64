@@ -2,7 +2,7 @@
 libunrar
 
 %VERSION%
-7.1.8-1
+7.1.9-1
 
 %BASE%
 unrar
@@ -17,13 +17,13 @@ https://www.rarlab.com/rar_add.htm
 x86_64
 
 %BUILDDATE%
-1751002477
+1753510210
 
 %INSTALLDATE%
-1751081953
+1753588947
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/54197e6a/15918784145)
+CI (msys2/msys2-autobuild/ab3c2437/16536848907)
 
 %SIZE%
 349382
