@@ -1,0 +1,43 @@
+%NAME%
+mingw-w64-clang-aarch64-7zip
+
+%VERSION%
+25.01-1
+
+%BASE%
+mingw-w64-7zip
+
+%DESC%
+A file archiver with a high compression ratio (mingw-w64)
+
+%URL%
+https://7-zip.org
+
+%ARCH%
+any
+
+%BUILDDATE%
+1754242963
+
+%INSTALLDATE%
+1754366673
+
+%PACKAGER%
+CI (msys2/msys2-autobuild/fd77359a/16706367006)
+
+%SIZE%
+3968632
+
+%LICENSE%
+spdx:LGPL-2.1-or-later AND BSD-3-Clause
+
+%VALIDATION%
+sha256
+pgp
+
+%DEPENDS%
+mingw-w64-clang-aarch64-cc-libs
+
+%XDATA%
+pkgtype=pkg
+
