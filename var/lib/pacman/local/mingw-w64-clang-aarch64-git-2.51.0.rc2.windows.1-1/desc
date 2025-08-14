@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-git
 
 %VERSION%
-2.51.0.rc1.windows.1-1
+2.51.0.rc2.windows.1-1
 
 %BASE%
 mingw-w64-git
@@ -17,10 +17,10 @@ https://git-for-windows.github.io/
 any
 
 %BUILDDATE%
-1754589446
+1755110743
 
 %INSTALLDATE%
-1754625638
+1755143213
 
 %PACKAGER%
 Johannes Schindelin <johannes.schindelin@gmx.de>
