@@ -1,8 +1,8 @@
 %NAME%
-gdbm
+libgdbm
 
 %VERSION%
-1.25-1
+1.26-1
 
 %BASE%
 gdbm
@@ -17,22 +17,22 @@ https://www.gnu.org/software/gdbm/gdbm.html
 x86_64
 
 %BUILDDATE%
-1744875855
+1755761512
 
 %INSTALLDATE%
-1745033299
+1755840731
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/e8d10d7e/14510479628)
+CI (msys2/msys2-autobuild/fd77359a/17120201414)
 
 %SIZE%
-602372
+73840
 
 %REASON%
 1
 
 %GROUPS%
-Database
+libraries
 
 %LICENSE%
 GPL3
@@ -41,7 +41,11 @@ GPL3
 pgp
 
 %DEPENDS%
-libgdbm=1.25
+gcc-libs
+libreadline
+libiconv
+libintl
+ncurses
 
 %XDATA%
 pkgtype=split
