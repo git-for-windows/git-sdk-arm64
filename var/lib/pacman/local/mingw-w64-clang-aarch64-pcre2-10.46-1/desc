@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-pcre2
 
 %VERSION%
-10.45-1
+10.46-1
 
 %BASE%
 mingw-w64-pcre2
@@ -17,16 +17,16 @@ https://pcre.org/
 any
 
 %BUILDDATE%
-1740130777
+1756356545
 
 %INSTALLDATE%
-1740194503
+1756438159
 
 %PACKAGER%
 Johannes Schindelin <johannes.schindelin@gmx.de>
 
 %SIZE%
-7124967
+7109635
 
 %REASON%
 1
