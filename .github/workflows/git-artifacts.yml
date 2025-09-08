@@ -59,7 +59,7 @@ jobs:
 
           mkdir -p build-installers/usr/src &&
           mv build-extra build-installers/usr/src/
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         # needed to run `add-release-note.js` (via `./please.sh mention feature`)
         with:
           node-version: 22.x
