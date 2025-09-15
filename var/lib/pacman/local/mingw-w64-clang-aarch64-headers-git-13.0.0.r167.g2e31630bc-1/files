@@ -1779,6 +1779,8 @@ clangarm64/include/windows.media.h
 clangarm64/include/windows.media.idl
 clangarm64/include/windows.media.mediaproperties.h
 clangarm64/include/windows.media.mediaproperties.idl
+clangarm64/include/windows.media.playback.h
+clangarm64/include/windows.media.playback.idl
 clangarm64/include/windows.media.render.h
 clangarm64/include/windows.media.render.idl
 clangarm64/include/windows.media.speechrecognition.h
@@ -1793,6 +1795,8 @@ clangarm64/include/windows.networking.h
 clangarm64/include/windows.networking.idl
 clangarm64/include/windows.networking.sockets.h
 clangarm64/include/windows.networking.sockets.idl
+clangarm64/include/windows.perception.h
+clangarm64/include/windows.perception.idl
 clangarm64/include/windows.perception.spatial.h
 clangarm64/include/windows.perception.spatial.idl
 clangarm64/include/windows.perception.spatial.surfaces.h
@@ -1805,6 +1809,8 @@ clangarm64/include/windows.security.credentials.h
 clangarm64/include/windows.security.credentials.idl
 clangarm64/include/windows.security.credentials.ui.h
 clangarm64/include/windows.security.credentials.ui.idl
+clangarm64/include/windows.security.cryptography.core.h
+clangarm64/include/windows.security.cryptography.core.idl
 clangarm64/include/windows.security.cryptography.h
 clangarm64/include/windows.security.cryptography.idl
 clangarm64/include/windows.security.enterprisedata.h
