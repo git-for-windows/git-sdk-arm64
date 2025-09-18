@@ -10,7 +10,7 @@
 
 module RbConfig
   RUBY_VERSION.start_with?("3.4.") or
-    raise "ruby lib version (3.4.5) doesn't match executable version (#{RUBY_VERSION})"
+    raise "ruby lib version (3.4.6) doesn't match executable version (#{RUBY_VERSION})"
 
   # Ruby installed directory.
   TOPDIR = File.dirname(__FILE__).chomp!("/lib/ruby/3.4.0/aarch64-mingw-ucrt")
@@ -21,8 +21,8 @@ module RbConfig
   CONFIG["DESTDIR"] = DESTDIR
   CONFIG["MAJOR"] = "3"
   CONFIG["MINOR"] = "4"
-  CONFIG["TEENY"] = "5"
-  CONFIG["PATCHLEVEL"] = "51"
+  CONFIG["TEENY"] = "6"
+  CONFIG["PATCHLEVEL"] = "54"
   CONFIG["INSTALL"] = '/usr/bin/install -c'
   CONFIG["EXEEXT"] = ".exe"
   CONFIG["prefix"] = (TOPDIR || DESTDIR + "/clangarm64")
@@ -45,7 +45,7 @@ module RbConfig
   CONFIG["RUBY_SEARCH_PATH"] = ""
   CONFIG["UNIVERSAL_INTS"] = ""
   CONFIG["UNIVERSAL_ARCHNAMES"] = ""
-  CONFIG["configure_args"] = " '--prefix=/clangarm64' '--build=aarch64-w64-mingw32' '--disable-install-doc' '--with-setjmp-type=setjmp' 'build_alias=aarch64-w64-mingw32' 'CC=clang' 'CXX=clang++' 'CFLAGS=-O2 -pipe -Wp,-D_FORTIFY_SOURCE=2 -fstack-protector-strong -Wp,-D__USE_MINGW_ANSI_STDIO=1 -Wno-dll-attribute-on-redeclaration' 'LDFLAGS= -pthread' 'CPPFLAGS= -pthread' 'CXXFLAGS=-O2 -pipe -Wp,-D_FORTIFY_SOURCE=2 -fstack-protector-strong -Wp,-D__USE_MINGW_ANSI_STDIO=1'"
+  CONFIG["configure_args"] = " '--prefix=/clangarm64' '--disable-install-doc' '--without-baseruby' '--with-setjmp-type=setjmp' 'CC=clang' 'CXX=clang++' 'CFLAGS=-O2 -pipe -Wp,-D_FORTIFY_SOURCE=2 -fstack-protector-strong -Wp,-D__USE_MINGW_ANSI_STDIO=1 -Wno-dll-attribute-on-redeclaration' 'LDFLAGS= -pthread' 'CPPFLAGS= -pthread' 'CXXFLAGS=-O2 -pipe -Wp,-D_FORTIFY_SOURCE=2 -fstack-protector-strong -Wp,-D__USE_MINGW_ANSI_STDIO=1'"
   CONFIG["CONFIGURE"] = "configure"
   CONFIG["vendorarchdir"] = "$(vendorlibdir)/$(sitearch)"
   CONFIG["vendorlibdir"] = "$(vendordir)/$(ruby_version)"
