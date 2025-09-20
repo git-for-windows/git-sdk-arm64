@@ -1,14 +1,14 @@
 %NAME%
-libgpg-error
+libgcrypt
 
 %VERSION%
-1.51-1
+1.11.2-1
 
 %BASE%
-libgpg-error
+libgcrypt
 
 %DESC%
-Support library for libgcrypt
+General purpose cryptographic library based on the code from GnuPG
 
 %URL%
 https://gnupg.org
@@ -17,16 +17,16 @@ https://gnupg.org
 x86_64
 
 %BUILDDATE%
-1739464315
+1755427682
 
 %INSTALLDATE%
-1739503410
+1758338455
 
 %PACKAGER%
-Johannes Schindelin <johannes.schindelin@gmx.de>
+CI (msys2/msys2-autobuild/fd77359a/17020094432)
 
 %SIZE%
-777774
+1162745
 
 %REASON%
 1
@@ -38,13 +38,10 @@ libraries
 LGPL
 
 %VALIDATION%
-sha256
 pgp
 
 %DEPENDS%
-sh
-libiconv
-libintl
+libgpg-error
 
 %XDATA%
 pkgtype=split
