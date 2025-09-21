@@ -11,7 +11,7 @@
 namespace llvm::Intrinsic {
 enum AARCH64Intrinsics : unsigned {
 // Enum values for intrinsics.
-    aarch64_addg = 489,                              // llvm.aarch64.addg
+    aarch64_addg = 507,                              // llvm.aarch64.addg
     aarch64_break,                             // llvm.aarch64.break
     aarch64_chkfeat,                           // llvm.aarch64.chkfeat
     aarch64_clrex,                             // llvm.aarch64.clrex
@@ -385,6 +385,14 @@ enum AARCH64Intrinsics : unsigned {
     aarch64_sme_fp8_fmlall_single_za32_vg4x1,  // llvm.aarch64.sme.fp8.fmlall.single.za32.vg4x1
     aarch64_sme_fp8_fmlall_single_za32_vg4x2,  // llvm.aarch64.sme.fp8.fmlall.single.za32.vg4x2
     aarch64_sme_fp8_fmlall_single_za32_vg4x4,  // llvm.aarch64.sme.fp8.fmlall.single.za32.vg4x4
+    aarch64_sme_fp8_fmop4a_za16_1x1,           // llvm.aarch64.sme.fp8.fmop4a.za16.1x1
+    aarch64_sme_fp8_fmop4a_za16_1x2,           // llvm.aarch64.sme.fp8.fmop4a.za16.1x2
+    aarch64_sme_fp8_fmop4a_za16_2x1,           // llvm.aarch64.sme.fp8.fmop4a.za16.2x1
+    aarch64_sme_fp8_fmop4a_za16_2x2,           // llvm.aarch64.sme.fp8.fmop4a.za16.2x2
+    aarch64_sme_fp8_fmop4a_za32_1x1,           // llvm.aarch64.sme.fp8.fmop4a.za32.1x1
+    aarch64_sme_fp8_fmop4a_za32_1x2,           // llvm.aarch64.sme.fp8.fmop4a.za32.1x2
+    aarch64_sme_fp8_fmop4a_za32_2x1,           // llvm.aarch64.sme.fp8.fmop4a.za32.2x1
+    aarch64_sme_fp8_fmop4a_za32_2x2,           // llvm.aarch64.sme.fp8.fmop4a.za32.2x2
     aarch64_sme_fp8_fmopa_za16,                // llvm.aarch64.sme.fp8.fmopa.za16
     aarch64_sme_fp8_fmopa_za32,                // llvm.aarch64.sme.fp8.fmopa.za32
     aarch64_sme_fp8_fvdot_lane_za16_vg1x2,     // llvm.aarch64.sme.fp8.fvdot.lane.za16.vg1x2
@@ -394,6 +402,8 @@ enum AARCH64Intrinsics : unsigned {
     aarch64_sme_fp8_scale_single_x4,           // llvm.aarch64.sme.fp8.scale.single.x4
     aarch64_sme_fp8_scale_x2,                  // llvm.aarch64.sme.fp8.scale.x2
     aarch64_sme_fp8_scale_x4,                  // llvm.aarch64.sme.fp8.scale.x4
+    aarch64_sme_ftmopa_za16,                   // llvm.aarch64.sme.ftmopa.za16
+    aarch64_sme_ftmopa_za32,                   // llvm.aarch64.sme.ftmopa.za32
     aarch64_sme_fvdot_lane_za32_vg1x2,         // llvm.aarch64.sme.fvdot.lane.za32.vg1x2
     aarch64_sme_get_tpidr2,                    // llvm.aarch64.sme.get.tpidr2
     aarch64_sme_in_streaming_mode,             // llvm.aarch64.sme.in.streaming.mode
@@ -416,6 +426,22 @@ enum AARCH64Intrinsics : unsigned {
     aarch64_sme_luti4_lane_zt_x2,              // llvm.aarch64.sme.luti4.lane.zt.x2
     aarch64_sme_luti4_lane_zt_x4,              // llvm.aarch64.sme.luti4.lane.zt.x4
     aarch64_sme_luti4_zt_x4,                   // llvm.aarch64.sme.luti4.zt.x4
+    aarch64_sme_mop4a_1x1,                     // llvm.aarch64.sme.mop4a.1x1
+    aarch64_sme_mop4a_1x2,                     // llvm.aarch64.sme.mop4a.1x2
+    aarch64_sme_mop4a_2x1,                     // llvm.aarch64.sme.mop4a.2x1
+    aarch64_sme_mop4a_2x2,                     // llvm.aarch64.sme.mop4a.2x2
+    aarch64_sme_mop4a_wide_1x1,                // llvm.aarch64.sme.mop4a.wide.1x1
+    aarch64_sme_mop4a_wide_1x2,                // llvm.aarch64.sme.mop4a.wide.1x2
+    aarch64_sme_mop4a_wide_2x1,                // llvm.aarch64.sme.mop4a.wide.2x1
+    aarch64_sme_mop4a_wide_2x2,                // llvm.aarch64.sme.mop4a.wide.2x2
+    aarch64_sme_mop4s_1x1,                     // llvm.aarch64.sme.mop4s.1x1
+    aarch64_sme_mop4s_1x2,                     // llvm.aarch64.sme.mop4s.1x2
+    aarch64_sme_mop4s_2x1,                     // llvm.aarch64.sme.mop4s.2x1
+    aarch64_sme_mop4s_2x2,                     // llvm.aarch64.sme.mop4s.2x2
+    aarch64_sme_mop4s_wide_1x1,                // llvm.aarch64.sme.mop4s.wide.1x1
+    aarch64_sme_mop4s_wide_1x2,                // llvm.aarch64.sme.mop4s.wide.1x2
+    aarch64_sme_mop4s_wide_2x1,                // llvm.aarch64.sme.mop4s.wide.2x1
+    aarch64_sme_mop4s_wide_2x2,                // llvm.aarch64.sme.mop4s.wide.2x2
     aarch64_sme_mopa,                          // llvm.aarch64.sme.mopa
     aarch64_sme_mopa_nonwide,                  // llvm.aarch64.sme.mopa.nonwide
     aarch64_sme_mopa_wide,                     // llvm.aarch64.sme.mopa.wide
@@ -503,6 +529,22 @@ enum AARCH64Intrinsics : unsigned {
     aarch64_sme_smlsl_single_vg2x4,            // llvm.aarch64.sme.smlsl.single.vg2x4
     aarch64_sme_smlsl_vg2x2,                   // llvm.aarch64.sme.smlsl.vg2x2
     aarch64_sme_smlsl_vg2x4,                   // llvm.aarch64.sme.smlsl.vg2x4
+    aarch64_sme_smop4a_wide_1x1,               // llvm.aarch64.sme.smop4a.wide.1x1
+    aarch64_sme_smop4a_wide_1x2,               // llvm.aarch64.sme.smop4a.wide.1x2
+    aarch64_sme_smop4a_wide_2x1,               // llvm.aarch64.sme.smop4a.wide.2x1
+    aarch64_sme_smop4a_wide_2x2,               // llvm.aarch64.sme.smop4a.wide.2x2
+    aarch64_sme_smop4a_za64_wide_1x1,          // llvm.aarch64.sme.smop4a.za64.wide.1x1
+    aarch64_sme_smop4a_za64_wide_1x2,          // llvm.aarch64.sme.smop4a.za64.wide.1x2
+    aarch64_sme_smop4a_za64_wide_2x1,          // llvm.aarch64.sme.smop4a.za64.wide.2x1
+    aarch64_sme_smop4a_za64_wide_2x2,          // llvm.aarch64.sme.smop4a.za64.wide.2x2
+    aarch64_sme_smop4s_wide_1x1,               // llvm.aarch64.sme.smop4s.wide.1x1
+    aarch64_sme_smop4s_wide_1x2,               // llvm.aarch64.sme.smop4s.wide.1x2
+    aarch64_sme_smop4s_wide_2x1,               // llvm.aarch64.sme.smop4s.wide.2x1
+    aarch64_sme_smop4s_wide_2x2,               // llvm.aarch64.sme.smop4s.wide.2x2
+    aarch64_sme_smop4s_za64_wide_1x1,          // llvm.aarch64.sme.smop4s.za64.wide.1x1
+    aarch64_sme_smop4s_za64_wide_1x2,          // llvm.aarch64.sme.smop4s.za64.wide.1x2
+    aarch64_sme_smop4s_za64_wide_2x1,          // llvm.aarch64.sme.smop4s.za64.wide.2x1
+    aarch64_sme_smop4s_za64_wide_2x2,          // llvm.aarch64.sme.smop4s.za64.wide.2x2
     aarch64_sme_smopa_wide,                    // llvm.aarch64.sme.smopa.wide
     aarch64_sme_smopa_za32,                    // llvm.aarch64.sme.smopa.za32
     aarch64_sme_smops_wide,                    // llvm.aarch64.sme.smops.wide
@@ -517,6 +559,7 @@ enum AARCH64Intrinsics : unsigned {
     aarch64_sme_st1q_vert,                     // llvm.aarch64.sme.st1q.vert
     aarch64_sme_st1w_horiz,                    // llvm.aarch64.sme.st1w.horiz
     aarch64_sme_st1w_vert,                     // llvm.aarch64.sme.st1w.vert
+    aarch64_sme_stmopa_za32,                   // llvm.aarch64.sme.stmopa.za32
     aarch64_sme_str,                           // llvm.aarch64.sme.str
     aarch64_sme_str_zt,                        // llvm.aarch64.sme.str.zt
     aarch64_sme_sub_write_single_za_vg1x2,     // llvm.aarch64.sme.sub.write.single.za.vg1x2
@@ -538,8 +581,25 @@ enum AARCH64Intrinsics : unsigned {
     aarch64_sme_sumla_za32_lane_vg4x4,         // llvm.aarch64.sme.sumla.za32.lane.vg4x4
     aarch64_sme_sumla_za32_single_vg4x2,       // llvm.aarch64.sme.sumla.za32.single.vg4x2
     aarch64_sme_sumla_za32_single_vg4x4,       // llvm.aarch64.sme.sumla.za32.single.vg4x4
+    aarch64_sme_sumop4a_wide_1x1,              // llvm.aarch64.sme.sumop4a.wide.1x1
+    aarch64_sme_sumop4a_wide_1x2,              // llvm.aarch64.sme.sumop4a.wide.1x2
+    aarch64_sme_sumop4a_wide_2x1,              // llvm.aarch64.sme.sumop4a.wide.2x1
+    aarch64_sme_sumop4a_wide_2x2,              // llvm.aarch64.sme.sumop4a.wide.2x2
+    aarch64_sme_sumop4a_za64_wide_1x1,         // llvm.aarch64.sme.sumop4a.za64.wide.1x1
+    aarch64_sme_sumop4a_za64_wide_1x2,         // llvm.aarch64.sme.sumop4a.za64.wide.1x2
+    aarch64_sme_sumop4a_za64_wide_2x1,         // llvm.aarch64.sme.sumop4a.za64.wide.2x1
+    aarch64_sme_sumop4a_za64_wide_2x2,         // llvm.aarch64.sme.sumop4a.za64.wide.2x2
+    aarch64_sme_sumop4s_wide_1x1,              // llvm.aarch64.sme.sumop4s.wide.1x1
+    aarch64_sme_sumop4s_wide_1x2,              // llvm.aarch64.sme.sumop4s.wide.1x2
+    aarch64_sme_sumop4s_wide_2x1,              // llvm.aarch64.sme.sumop4s.wide.2x1
+    aarch64_sme_sumop4s_wide_2x2,              // llvm.aarch64.sme.sumop4s.wide.2x2
+    aarch64_sme_sumop4s_za64_wide_1x1,         // llvm.aarch64.sme.sumop4s.za64.wide.1x1
+    aarch64_sme_sumop4s_za64_wide_1x2,         // llvm.aarch64.sme.sumop4s.za64.wide.1x2
+    aarch64_sme_sumop4s_za64_wide_2x1,         // llvm.aarch64.sme.sumop4s.za64.wide.2x1
+    aarch64_sme_sumop4s_za64_wide_2x2,         // llvm.aarch64.sme.sumop4s.za64.wide.2x2
     aarch64_sme_sumopa_wide,                   // llvm.aarch64.sme.sumopa.wide
     aarch64_sme_sumops_wide,                   // llvm.aarch64.sme.sumops.wide
+    aarch64_sme_sutmopa_za32,                  // llvm.aarch64.sme.sutmopa.za32
     aarch64_sme_suvdot_lane_za32_vg1x4,        // llvm.aarch64.sme.suvdot.lane.za32.vg1x4
     aarch64_sme_svdot_lane_za32_vg1x2,         // llvm.aarch64.sme.svdot.lane.za32.vg1x2
     aarch64_sme_svdot_lane_za32_vg1x4,         // llvm.aarch64.sme.svdot.lane.za32.vg1x4
@@ -604,6 +664,22 @@ enum AARCH64Intrinsics : unsigned {
     aarch64_sme_umlsl_single_vg2x4,            // llvm.aarch64.sme.umlsl.single.vg2x4
     aarch64_sme_umlsl_vg2x2,                   // llvm.aarch64.sme.umlsl.vg2x2
     aarch64_sme_umlsl_vg2x4,                   // llvm.aarch64.sme.umlsl.vg2x4
+    aarch64_sme_umop4a_wide_1x1,               // llvm.aarch64.sme.umop4a.wide.1x1
+    aarch64_sme_umop4a_wide_1x2,               // llvm.aarch64.sme.umop4a.wide.1x2
+    aarch64_sme_umop4a_wide_2x1,               // llvm.aarch64.sme.umop4a.wide.2x1
+    aarch64_sme_umop4a_wide_2x2,               // llvm.aarch64.sme.umop4a.wide.2x2
+    aarch64_sme_umop4a_za64_wide_1x1,          // llvm.aarch64.sme.umop4a.za64.wide.1x1
+    aarch64_sme_umop4a_za64_wide_1x2,          // llvm.aarch64.sme.umop4a.za64.wide.1x2
+    aarch64_sme_umop4a_za64_wide_2x1,          // llvm.aarch64.sme.umop4a.za64.wide.2x1
+    aarch64_sme_umop4a_za64_wide_2x2,          // llvm.aarch64.sme.umop4a.za64.wide.2x2
+    aarch64_sme_umop4s_wide_1x1,               // llvm.aarch64.sme.umop4s.wide.1x1
+    aarch64_sme_umop4s_wide_1x2,               // llvm.aarch64.sme.umop4s.wide.1x2
+    aarch64_sme_umop4s_wide_2x1,               // llvm.aarch64.sme.umop4s.wide.2x1
+    aarch64_sme_umop4s_wide_2x2,               // llvm.aarch64.sme.umop4s.wide.2x2
+    aarch64_sme_umop4s_za64_wide_1x1,          // llvm.aarch64.sme.umop4s.za64.wide.1x1
+    aarch64_sme_umop4s_za64_wide_1x2,          // llvm.aarch64.sme.umop4s.za64.wide.1x2
+    aarch64_sme_umop4s_za64_wide_2x1,          // llvm.aarch64.sme.umop4s.za64.wide.2x1
+    aarch64_sme_umop4s_za64_wide_2x2,          // llvm.aarch64.sme.umop4s.za64.wide.2x2
     aarch64_sme_umopa_wide,                    // llvm.aarch64.sme.umopa.wide
     aarch64_sme_umopa_za32,                    // llvm.aarch64.sme.umopa.za32
     aarch64_sme_umops_wide,                    // llvm.aarch64.sme.umops.wide
@@ -622,9 +698,27 @@ enum AARCH64Intrinsics : unsigned {
     aarch64_sme_usmla_za32_single_vg4x4,       // llvm.aarch64.sme.usmla.za32.single.vg4x4
     aarch64_sme_usmla_za32_vg4x2,              // llvm.aarch64.sme.usmla.za32.vg4x2
     aarch64_sme_usmla_za32_vg4x4,              // llvm.aarch64.sme.usmla.za32.vg4x4
+    aarch64_sme_usmop4a_wide_1x1,              // llvm.aarch64.sme.usmop4a.wide.1x1
+    aarch64_sme_usmop4a_wide_1x2,              // llvm.aarch64.sme.usmop4a.wide.1x2
+    aarch64_sme_usmop4a_wide_2x1,              // llvm.aarch64.sme.usmop4a.wide.2x1
+    aarch64_sme_usmop4a_wide_2x2,              // llvm.aarch64.sme.usmop4a.wide.2x2
+    aarch64_sme_usmop4a_za64_wide_1x1,         // llvm.aarch64.sme.usmop4a.za64.wide.1x1
+    aarch64_sme_usmop4a_za64_wide_1x2,         // llvm.aarch64.sme.usmop4a.za64.wide.1x2
+    aarch64_sme_usmop4a_za64_wide_2x1,         // llvm.aarch64.sme.usmop4a.za64.wide.2x1
+    aarch64_sme_usmop4a_za64_wide_2x2,         // llvm.aarch64.sme.usmop4a.za64.wide.2x2
+    aarch64_sme_usmop4s_wide_1x1,              // llvm.aarch64.sme.usmop4s.wide.1x1
+    aarch64_sme_usmop4s_wide_1x2,              // llvm.aarch64.sme.usmop4s.wide.1x2
+    aarch64_sme_usmop4s_wide_2x1,              // llvm.aarch64.sme.usmop4s.wide.2x1
+    aarch64_sme_usmop4s_wide_2x2,              // llvm.aarch64.sme.usmop4s.wide.2x2
+    aarch64_sme_usmop4s_za64_wide_1x1,         // llvm.aarch64.sme.usmop4s.za64.wide.1x1
+    aarch64_sme_usmop4s_za64_wide_1x2,         // llvm.aarch64.sme.usmop4s.za64.wide.1x2
+    aarch64_sme_usmop4s_za64_wide_2x1,         // llvm.aarch64.sme.usmop4s.za64.wide.2x1
+    aarch64_sme_usmop4s_za64_wide_2x2,         // llvm.aarch64.sme.usmop4s.za64.wide.2x2
     aarch64_sme_usmopa_wide,                   // llvm.aarch64.sme.usmopa.wide
     aarch64_sme_usmops_wide,                   // llvm.aarch64.sme.usmops.wide
+    aarch64_sme_ustmopa_za32,                  // llvm.aarch64.sme.ustmopa.za32
     aarch64_sme_usvdot_lane_za32_vg1x4,        // llvm.aarch64.sme.usvdot.lane.za32.vg1x4
+    aarch64_sme_utmopa_za32,                   // llvm.aarch64.sme.utmopa.za32
     aarch64_sme_uvdot_lane_za32_vg1x2,         // llvm.aarch64.sme.uvdot.lane.za32.vg1x2
     aarch64_sme_uvdot_lane_za32_vg1x4,         // llvm.aarch64.sme.uvdot.lane.za32.vg1x4
     aarch64_sme_uvdot_lane_za64_vg1x4,         // llvm.aarch64.sme.uvdot.lane.za64.vg1x4

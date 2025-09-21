@@ -294,6 +294,16 @@ set_target_properties(LLVMFrontendAtomic PROPERTIES
 list(APPEND _cmake_import_check_targets LLVMFrontendAtomic )
 list(APPEND _cmake_import_check_files_for_LLVMFrontendAtomic "${_IMPORT_PREFIX}/lib/libLLVMFrontendAtomic.a" )
 
+# Import target "LLVMFrontendDirective" for configuration "MinSizeRel"
+set_property(TARGET LLVMFrontendDirective APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
+set_target_properties(LLVMFrontendDirective PROPERTIES
+  IMPORTED_LINK_INTERFACE_LANGUAGES_MINSIZEREL "CXX"
+  IMPORTED_LOCATION_MINSIZEREL "${_IMPORT_PREFIX}/lib/libLLVMFrontendDirective.a"
+  )
+
+list(APPEND _cmake_import_check_targets LLVMFrontendDirective )
+list(APPEND _cmake_import_check_files_for_LLVMFrontendDirective "${_IMPORT_PREFIX}/lib/libLLVMFrontendDirective.a" )
+
 # Import target "LLVMFrontendDriver" for configuration "MinSizeRel"
 set_property(TARGET LLVMFrontendDriver APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
 set_target_properties(LLVMFrontendDriver PROPERTIES
@@ -584,6 +594,16 @@ set_target_properties(LLVMDebuginfod PROPERTIES
 list(APPEND _cmake_import_check_targets LLVMDebuginfod )
 list(APPEND _cmake_import_check_files_for_LLVMDebuginfod "${_IMPORT_PREFIX}/lib/libLLVMDebuginfod.a" )
 
+# Import target "LLVMDebugInfoDWARFLowLevel" for configuration "MinSizeRel"
+set_property(TARGET LLVMDebugInfoDWARFLowLevel APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
+set_target_properties(LLVMDebugInfoDWARFLowLevel PROPERTIES
+  IMPORTED_LINK_INTERFACE_LANGUAGES_MINSIZEREL "CXX"
+  IMPORTED_LOCATION_MINSIZEREL "${_IMPORT_PREFIX}/lib/libLLVMDebugInfoDWARFLowLevel.a"
+  )
+
+list(APPEND _cmake_import_check_targets LLVMDebugInfoDWARFLowLevel )
+list(APPEND _cmake_import_check_files_for_LLVMDebugInfoDWARFLowLevel "${_IMPORT_PREFIX}/lib/libLLVMDebugInfoDWARFLowLevel.a" )
+
 # Import target "LLVMDebugInfoDWARF" for configuration "MinSizeRel"
 set_property(TARGET LLVMDebugInfoDWARF APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
 set_target_properties(LLVMDebugInfoDWARF PROPERTIES
@@ -663,6 +683,16 @@ set_target_properties(LLVMDebugInfoBTF PROPERTIES
 
 list(APPEND _cmake_import_check_targets LLVMDebugInfoBTF )
 list(APPEND _cmake_import_check_files_for_LLVMDebugInfoBTF "${_IMPORT_PREFIX}/lib/libLLVMDebugInfoBTF.a" )
+
+# Import target "LLVMDWARFCFIChecker" for configuration "MinSizeRel"
+set_property(TARGET LLVMDWARFCFIChecker APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
+set_target_properties(LLVMDWARFCFIChecker PROPERTIES
+  IMPORTED_LINK_INTERFACE_LANGUAGES_MINSIZEREL "CXX"
+  IMPORTED_LOCATION_MINSIZEREL "${_IMPORT_PREFIX}/lib/libLLVMDWARFCFIChecker.a"
+  )
+
+list(APPEND _cmake_import_check_targets LLVMDWARFCFIChecker )
+list(APPEND _cmake_import_check_files_for_LLVMDWARFCFIChecker "${_IMPORT_PREFIX}/lib/libLLVMDWARFCFIChecker.a" )
 
 # Import target "LLVMDWP" for configuration "MinSizeRel"
 set_property(TARGET LLVMDWP APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
@@ -1046,6 +1076,15 @@ set_target_properties(split-file PROPERTIES
 
 list(APPEND _cmake_import_check_targets split-file )
 list(APPEND _cmake_import_check_files_for_split-file "${_IMPORT_PREFIX}/bin/split-file.exe" )
+
+# Import target "llvm-test-mustache-spec" for configuration "MinSizeRel"
+set_property(TARGET llvm-test-mustache-spec APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
+set_target_properties(llvm-test-mustache-spec PROPERTIES
+  IMPORTED_LOCATION_MINSIZEREL "${_IMPORT_PREFIX}/bin/llvm-test-mustache-spec.exe"
+  )
+
+list(APPEND _cmake_import_check_targets llvm-test-mustache-spec )
+list(APPEND _cmake_import_check_files_for_llvm-test-mustache-spec "${_IMPORT_PREFIX}/bin/llvm-test-mustache-spec.exe" )
 
 # Import target "LTO" for configuration "MinSizeRel"
 set_property(TARGET LTO APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
@@ -1605,12 +1644,12 @@ list(APPEND _cmake_import_check_files_for_llvm-rtdyld "${_IMPORT_PREFIX}/bin/llv
 # Import target "LLVM" for configuration "MinSizeRel"
 set_property(TARGET LLVM APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
 set_target_properties(LLVM PROPERTIES
-  IMPORTED_IMPLIB_MINSIZEREL "${_IMPORT_PREFIX}/lib/libLLVM-20.dll.a"
-  IMPORTED_LOCATION_MINSIZEREL "${_IMPORT_PREFIX}/bin/libLLVM-20.dll"
+  IMPORTED_IMPLIB_MINSIZEREL "${_IMPORT_PREFIX}/lib/libLLVM-21.dll.a"
+  IMPORTED_LOCATION_MINSIZEREL "${_IMPORT_PREFIX}/bin/libLLVM-21.dll"
   )
 
 list(APPEND _cmake_import_check_targets LLVM )
-list(APPEND _cmake_import_check_files_for_LLVM "${_IMPORT_PREFIX}/lib/libLLVM-20.dll.a" "${_IMPORT_PREFIX}/bin/libLLVM-20.dll" )
+list(APPEND _cmake_import_check_files_for_LLVM "${_IMPORT_PREFIX}/lib/libLLVM-21.dll.a" "${_IMPORT_PREFIX}/bin/libLLVM-21.dll" )
 
 # Import target "llvm-sim" for configuration "MinSizeRel"
 set_property(TARGET llvm-sim APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)

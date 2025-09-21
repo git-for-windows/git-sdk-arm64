@@ -32,11 +32,11 @@ find_package_handle_standard_args(
 endif()
 
 if(zstd_FOUND)
-  if(zstd_LIBRARY MATCHES "${zstd_STATIC_LIBRARY_SUFFIX}$" AND NOT MINGW)
+  if(zstd_LIBRARY MATCHES "${zstd_STATIC_LIBRARY_SUFFIX}$" AND NOT zstd_LIBRARY MATCHES "\\.dll\\.a$")
     set(zstd_STATIC_LIBRARY "${zstd_LIBRARY}")
   elseif (NOT TARGET zstd::libzstd_shared)
     add_library(zstd::libzstd_shared SHARED IMPORTED)
-    if(WIN32)
+    if(WIN32 OR CYGWIN)
       include(GNUInstallDirs) # For CMAKE_INSTALL_LIBDIR and friends.
       # IMPORTED_LOCATION is the path to the DLL and IMPORTED_IMPLIB is the "library".
       get_filename_component(zstd_DIRNAME "${zstd_LIBRARY}" DIRECTORY)

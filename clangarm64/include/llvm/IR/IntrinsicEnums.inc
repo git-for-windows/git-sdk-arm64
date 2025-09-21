@@ -169,6 +169,9 @@
     experimental_vector_compress,              // llvm.experimental.vector.compress
     experimental_vector_extract_last_active,   // llvm.experimental.vector.extract.last.active
     experimental_vector_histogram_add,         // llvm.experimental.vector.histogram.add
+    experimental_vector_histogram_uadd_sat,    // llvm.experimental.vector.histogram.uadd.sat
+    experimental_vector_histogram_umax,        // llvm.experimental.vector.histogram.umax
+    experimental_vector_histogram_umin,        // llvm.experimental.vector.histogram.umin
     experimental_vector_match,                 // llvm.experimental.vector.match
     experimental_vector_partial_reduce_add,    // llvm.experimental.vector.partial.reduce.add
     experimental_vp_reverse,                   // llvm.experimental.vp.reverse
@@ -256,6 +259,7 @@
     minimum,                                   // llvm.minimum
     minimumnum,                                // llvm.minimumnum
     minnum,                                    // llvm.minnum
+    modf,                                      // llvm.modf
     nearbyint,                                 // llvm.nearbyint
     objc_arc_annotation_bottomup_bbend,        // llvm.objc.arc.annotation.bottomup.bbend
     objc_arc_annotation_bottomup_bbstart,      // llvm.objc.arc.annotation.bottomup.bbstart
@@ -265,6 +269,7 @@
     objc_autoreleasePoolPop,                   // llvm.objc.autoreleasePoolPop
     objc_autoreleasePoolPush,                  // llvm.objc.autoreleasePoolPush
     objc_autoreleaseReturnValue,               // llvm.objc.autoreleaseReturnValue
+    objc_claimAutoreleasedReturnValue,         // llvm.objc.claimAutoreleasedReturnValue
     objc_clang_arc_noop_use,                   // llvm.objc.clang.arc.noop.use
     objc_clang_arc_use,                        // llvm.objc.clang.arc.use
     objc_copyWeak,                             // llvm.objc.copyWeak
@@ -333,6 +338,7 @@
     sideeffect,                                // llvm.sideeffect
     sin,                                       // llvm.sin
     sincos,                                    // llvm.sincos
+    sincospi,                                  // llvm.sincospi
     sinh,                                      // llvm.sinh
     smax,                                      // llvm.smax
     smin,                                      // llvm.smin
@@ -383,9 +389,21 @@
     vastart,                                   // llvm.va_start
     var_annotation,                            // llvm.var.annotation
     vector_deinterleave2,                      // llvm.vector.deinterleave2
+    vector_deinterleave3,                      // llvm.vector.deinterleave3
+    vector_deinterleave4,                      // llvm.vector.deinterleave4
+    vector_deinterleave5,                      // llvm.vector.deinterleave5
+    vector_deinterleave6,                      // llvm.vector.deinterleave6
+    vector_deinterleave7,                      // llvm.vector.deinterleave7
+    vector_deinterleave8,                      // llvm.vector.deinterleave8
     vector_extract,                            // llvm.vector.extract
     vector_insert,                             // llvm.vector.insert
     vector_interleave2,                        // llvm.vector.interleave2
+    vector_interleave3,                        // llvm.vector.interleave3
+    vector_interleave4,                        // llvm.vector.interleave4
+    vector_interleave5,                        // llvm.vector.interleave5
+    vector_interleave6,                        // llvm.vector.interleave6
+    vector_interleave7,                        // llvm.vector.interleave7
+    vector_interleave8,                        // llvm.vector.interleave8
     vector_reduce_add,                         // llvm.vector.reduce.add
     vector_reduce_and,                         // llvm.vector.reduce.and
     vector_reduce_fadd,                        // llvm.vector.reduce.fadd
@@ -496,7 +514,7 @@
     write_register,                            // llvm.write_register
     xray_customevent,                          // llvm.xray.customevent
     xray_typedevent,                           // llvm.xray.typedevent
-    num_intrinsics = 14811
+    num_intrinsics = 15151
 #endif
 
 // llvm::Intrinsic::IITDescriptor::ArgKind.

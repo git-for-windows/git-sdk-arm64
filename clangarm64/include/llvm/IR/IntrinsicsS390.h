@@ -11,7 +11,7 @@
 namespace llvm::Intrinsic {
 enum S390Intrinsics : unsigned {
 // Enum values for intrinsics.
-    s390_bdepg = 11288,                                // llvm.s390.bdepg
+    s390_bdepg = 11699,                                // llvm.s390.bdepg
     s390_bextg,                                // llvm.s390.bextg
     s390_efpc,                                 // llvm.s390.efpc
     s390_etnd,                                 // llvm.s390.etnd

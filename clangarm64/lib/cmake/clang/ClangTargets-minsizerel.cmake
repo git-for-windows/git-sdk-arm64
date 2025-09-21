@@ -174,16 +174,6 @@ set_target_properties(clangRewrite PROPERTIES
 list(APPEND _cmake_import_check_targets clangRewrite )
 list(APPEND _cmake_import_check_files_for_clangRewrite "${_IMPORT_PREFIX}/lib/libclangRewrite.a" )
 
-# Import target "clangARCMigrate" for configuration "MinSizeRel"
-set_property(TARGET clangARCMigrate APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
-set_target_properties(clangARCMigrate PROPERTIES
-  IMPORTED_LINK_INTERFACE_LANGUAGES_MINSIZEREL "CXX"
-  IMPORTED_LOCATION_MINSIZEREL "${_IMPORT_PREFIX}/lib/libclangARCMigrate.a"
-  )
-
-list(APPEND _cmake_import_check_targets clangARCMigrate )
-list(APPEND _cmake_import_check_files_for_clangARCMigrate "${_IMPORT_PREFIX}/lib/libclangARCMigrate.a" )
-
 # Import target "clangDriver" for configuration "MinSizeRel"
 set_property(TARGET clangDriver APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
 set_target_properties(clangDriver PROPERTIES
@@ -936,6 +926,16 @@ set_target_properties(clang-change-namespace PROPERTIES
 list(APPEND _cmake_import_check_targets clang-change-namespace )
 list(APPEND _cmake_import_check_files_for_clang-change-namespace "${_IMPORT_PREFIX}/bin/clang-change-namespace.exe" )
 
+# Import target "clangDocSupport" for configuration "MinSizeRel"
+set_property(TARGET clangDocSupport APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
+set_target_properties(clangDocSupport PROPERTIES
+  IMPORTED_LINK_INTERFACE_LANGUAGES_MINSIZEREL "CXX"
+  IMPORTED_LOCATION_MINSIZEREL "${_IMPORT_PREFIX}/lib/libclangDocSupport.a"
+  )
+
+list(APPEND _cmake_import_check_targets clangDocSupport )
+list(APPEND _cmake_import_check_files_for_clangDocSupport "${_IMPORT_PREFIX}/lib/libclangDocSupport.a" )
+
 # Import target "clangDoc" for configuration "MinSizeRel"
 set_property(TARGET clangDoc APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
 set_target_properties(clangDoc PROPERTIES
@@ -1149,23 +1149,14 @@ set_target_properties(libclang_static PROPERTIES
 list(APPEND _cmake_import_check_targets libclang_static )
 list(APPEND _cmake_import_check_files_for_libclang_static "${_IMPORT_PREFIX}/lib/libclang.a" )
 
-# Import target "amdgpu-arch" for configuration "MinSizeRel"
-set_property(TARGET amdgpu-arch APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
-set_target_properties(amdgpu-arch PROPERTIES
-  IMPORTED_LOCATION_MINSIZEREL "${_IMPORT_PREFIX}/bin/amdgpu-arch.exe"
+# Import target "offload-arch" for configuration "MinSizeRel"
+set_property(TARGET offload-arch APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
+set_target_properties(offload-arch PROPERTIES
+  IMPORTED_LOCATION_MINSIZEREL "${_IMPORT_PREFIX}/bin/offload-arch.exe"
   )
 
-list(APPEND _cmake_import_check_targets amdgpu-arch )
-list(APPEND _cmake_import_check_files_for_amdgpu-arch "${_IMPORT_PREFIX}/bin/amdgpu-arch.exe" )
-
-# Import target "nvptx-arch" for configuration "MinSizeRel"
-set_property(TARGET nvptx-arch APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
-set_target_properties(nvptx-arch PROPERTIES
-  IMPORTED_LOCATION_MINSIZEREL "${_IMPORT_PREFIX}/bin/nvptx-arch.exe"
-  )
-
-list(APPEND _cmake_import_check_targets nvptx-arch )
-list(APPEND _cmake_import_check_files_for_nvptx-arch "${_IMPORT_PREFIX}/bin/nvptx-arch.exe" )
+list(APPEND _cmake_import_check_targets offload-arch )
+list(APPEND _cmake_import_check_files_for_offload-arch "${_IMPORT_PREFIX}/bin/offload-arch.exe" )
 
 # Commands beyond this point should not need to know the version.
 set(CMAKE_IMPORT_FILE_VERSION)

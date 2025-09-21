@@ -54,81 +54,6 @@
 /* LLVM name for the native target MCA init function, if available */
 /* #undef LLVM_NATIVE_TARGETMCA */
 
-/* Define if the AArch64 target is built in */
-#define LLVM_HAS_AARCH64_TARGET 1
-
-/* Define if the AMDGPU target is built in */
-#define LLVM_HAS_AMDGPU_TARGET 0
-
-/* Define if the ARC target is built in */
-#define LLVM_HAS_ARC_TARGET 0
-
-/* Define if the ARM target is built in */
-#define LLVM_HAS_ARM_TARGET 0
-
-/* Define if the AVR target is built in */
-#define LLVM_HAS_AVR_TARGET 0
-
-/* Define if the BPF target is built in */
-#define LLVM_HAS_BPF_TARGET 0
-
-/* Define if the CSKY target is built in */
-#define LLVM_HAS_CSKY_TARGET 0
-
-/* Define if the DirectX target is built in */
-#define LLVM_HAS_DIRECTX_TARGET 0
-
-/* Define if the Hexagon target is built in */
-#define LLVM_HAS_HEXAGON_TARGET 0
-
-/* Define if the Lanai target is built in */
-#define LLVM_HAS_LANAI_TARGET 0
-
-/* Define if the LoongArch target is built in */
-#define LLVM_HAS_LOONGARCH_TARGET 0
-
-/* Define if the M68k target is built in */
-#define LLVM_HAS_M68K_TARGET 0
-
-/* Define if the Mips target is built in */
-#define LLVM_HAS_MIPS_TARGET 0
-
-/* Define if the MSP430 target is built in */
-#define LLVM_HAS_MSP430_TARGET 0
-
-/* Define if the NVPTX target is built in */
-#define LLVM_HAS_NVPTX_TARGET 0
-
-/* Define if the PowerPC target is built in */
-#define LLVM_HAS_POWERPC_TARGET 0
-
-/* Define if the RISCV target is built in */
-#define LLVM_HAS_RISCV_TARGET 0
-
-/* Define if the Sparc target is built in */
-#define LLVM_HAS_SPARC_TARGET 0
-
-/* Define if the SPIRV target is built in */
-#define LLVM_HAS_SPIRV_TARGET 0
-
-/* Define if the SystemZ target is built in */
-#define LLVM_HAS_SYSTEMZ_TARGET 0
-
-/* Define if the VE target is built in */
-#define LLVM_HAS_VE_TARGET 0
-
-/* Define if the WebAssembly target is built in */
-#define LLVM_HAS_WEBASSEMBLY_TARGET 0
-
-/* Define if the X86 target is built in */
-#define LLVM_HAS_X86_TARGET 0
-
-/* Define if the XCore target is built in */
-#define LLVM_HAS_XCORE_TARGET 0
-
-/* Define if the Xtensa target is built in */
-#define LLVM_HAS_XTENSA_TARGET 0
-
 /* Define if this is Unixish platform */
 /* #undef LLVM_ON_UNIX */
 
@@ -142,16 +67,16 @@
 #define LLVM_USE_PERF 0
 
 /* Major version of the LLVM API */
-#define LLVM_VERSION_MAJOR 20
+#define LLVM_VERSION_MAJOR 21
 
 /* Minor version of the LLVM API */
 #define LLVM_VERSION_MINOR 1
 
 /* Patch version of the LLVM API */
-#define LLVM_VERSION_PATCH 8
+#define LLVM_VERSION_PATCH 1
 
 /* LLVM version string */
-#define LLVM_VERSION_STRING "20.1.8"
+#define LLVM_VERSION_STRING "21.1.1"
 
 /* Whether LLVM records statistics for use with GetStatistics(),
  * PrintStatistics() or PrintStatisticsJSON()
@@ -185,6 +110,12 @@
 /* Define if building LLVM with BUILD_SHARED_LIBS */
 /* #undef LLVM_BUILD_SHARED_LIBS */
 
+/* Define if exporting LLVM public interface for shared library */
+#define LLVM_ENABLE_LLVM_EXPORT_ANNOTATIONS
+
+/* Define if exporting LLVM-C public interface for shared library */
+#define LLVM_ENABLE_LLVM_C_EXPORT_ANNOTATIONS
+
 /* Define if building LLVM with LLVM_FORCE_USE_OLD_TOOLCHAIN_LIBS */
 /* #undef LLVM_FORCE_USE_OLD_TOOLCHAIN */
 
@@ -200,5 +131,16 @@
 
 /* Define if logf128 is available */
 /* #undef LLVM_HAS_LOGF128 */
+
+/* Define if building LLVM with LLVM_ENABLE_TELEMETRY */
+#define LLVM_ENABLE_TELEMETRY 1
+
+/* Define to 1 to enable expensive checks for debug location coverage checking,
+   and to 0 otherwise. */
+#define LLVM_ENABLE_DEBUGLOC_TRACKING_COVERAGE 0
+
+/* Define to 1 to enable expensive tracking of the origin of debug location
+   coverage bugs, and to 0 otherwise. */
+#define LLVM_ENABLE_DEBUGLOC_TRACKING_ORIGIN 0
 
 #endif

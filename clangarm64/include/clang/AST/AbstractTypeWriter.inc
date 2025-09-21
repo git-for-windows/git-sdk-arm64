@@ -72,6 +72,8 @@ public:
       return writeFunctionProtoType(static_cast<const FunctionProtoType *>(node));
     case Type::HLSLAttributedResource:
       return writeHLSLAttributedResourceType(static_cast<const HLSLAttributedResourceType *>(node));
+    case Type::HLSLInlineSpirv:
+      return writeHLSLInlineSpirvType(static_cast<const HLSLInlineSpirvType *>(node));
     case Type::InjectedClassName:
       return writeInjectedClassNameType(static_cast<const InjectedClassNameType *>(node));
     case Type::MacroQualified:
@@ -177,10 +179,6 @@ public:
   void writeDependentSizedArrayType(const DependentSizedArrayType *node) {
     const Expr* size = ( node->getSizeExpr() );
     W.find("size").writeExprRef(size);
-    SourceLocation leftBracketLoc = ( node->getLBracketLoc() );
-    W.find("leftBracketLoc").writeSourceLocation(leftBracketLoc);
-    SourceLocation rightBracketLoc = ( node->getRBracketLoc() );
-    W.find("rightBracketLoc").writeSourceLocation(rightBracketLoc);
     QualType elementType = ( node->getElementType() );
     W.find("elementType").writeQualType(elementType);
     ArraySizeModifier sizeModifier = ( node->getSizeModifier() );
@@ -199,10 +197,6 @@ public:
   }
 
   void writeVariableArrayType(const VariableArrayType *node) {
-    SourceLocation leftBracketLoc = ( node->getLBracketLoc() );
-    W.find("leftBracketLoc").writeSourceLocation(leftBracketLoc);
-    SourceLocation rightBracketLoc = ( node->getRBracketLoc() );
-    W.find("rightBracketLoc").writeSourceLocation(rightBracketLoc);
     const Expr* size = ( node->getSizeExpr() );
     W.find("size").writeExprRef(size);
     QualType elementType = ( node->getElementType() );
@@ -327,12 +321,6 @@ public:
     W.find("qualifier").writeNestedNameSpecifier(qualifier);
     const IdentifierInfo* name = ( node->getIdentifier() );
     W.find("name").writeIdentifier(name);
-    std::optional<QualType> underlyingType = (
-      node->isCanonicalUnqualified()
-        ? std::nullopt
-        : std::optional<QualType>(node->getCanonicalTypeInternal())
-    );
-    W.find("underlyingType").writeOptional(underlyingType);
   }
 
   void writeDependentSizedExtVectorType(const DependentSizedExtVectorType *node) {
@@ -345,12 +333,22 @@ public:
   }
 
   void writeDependentTemplateSpecializationType(const DependentTemplateSpecializationType *node) {
+    
+    const auto &dtn = node->getDependentTemplateName();
+    auto name = dtn.getName();
+  
+    NestedNameSpecifier * qualifier = ( dtn.getQualifier() );
+    W.find("qualifier").writeNestedNameSpecifier(qualifier);
+    std::optional<const IdentifierInfo*> identifier = ( makeOptionalFromPointer(name.getIdentifier()) );
+    W.find("identifier").writeOptional(identifier);
+    if ( !identifier ) {
+    OverloadedOperatorKind operatorKind = ( name.getOperator() );
+    W.find("operatorKind").writeOverloadedOperatorKind(operatorKind);
+    }
+    bool HasTemplateKeyword = ( dtn.hasTemplateKeyword() );
+    W.find("HasTemplateKeyword").writeBool(HasTemplateKeyword);
     ElaboratedTypeKeyword keyword = ( node->getKeyword() );
     W.find("keyword").writeElaboratedTypeKeyword(keyword);
-    NestedNameSpecifier * qualifier = ( node->getQualifier() );
-    W.find("qualifier").writeNestedNameSpecifier(qualifier);
-    const IdentifierInfo* name = ( node->getIdentifier() );
-    W.find("name").writeIdentifier(name);
     llvm::ArrayRef<TemplateArgument> templateArguments = ( node->template_arguments() );
     W.find("templateArguments").writeArray(templateArguments);
   }
@@ -404,6 +402,8 @@ public:
     W.find("variadic").writeBool(variadic);
     bool trailingReturn = ( node->hasTrailingReturn() );
     W.find("trailingReturn").writeBool(trailingReturn);
+    bool cfiUncheckedCallee = ( node->hasCFIUncheckedCallee() );
+    W.find("cfiUncheckedCallee").writeBool(cfiUncheckedCallee);
     Qualifiers methodQualifiers = ( node->getMethodQuals() );
     W.find("methodQualifiers").writeQualifiers(methodQualifiers);
     RefQualifierKind refQualifier = ( node->getRefQualifier() );
@@ -414,7 +414,7 @@ public:
     W.find("parameters").writeArray(parameters);
     llvm::ArrayRef<FunctionProtoType::ExtParameterInfo> extParameterInfo = ( node->hasExtParameterInfos()
                     ? node->getExtParameterInfos()
-                    : llvm::ArrayRef<FunctionProtoType::ExtParameterInfo>() );
+                    : ArrayRef<FunctionProtoType::ExtParameterInfo>() );
     W.find("extParameterInfo").writeArray(extParameterInfo);
     uint32_t AArch64SMEAttributes = ( node->getAArch64SMEAttributes() );
     W.find("AArch64SMEAttributes").writeUInt32(AArch64SMEAttributes);
@@ -455,6 +455,17 @@ public:
     W.find("containedTy").writeQualType(containedTy);
   }
 
+  void writeHLSLInlineSpirvType(const HLSLInlineSpirvType *node) {
+    uint32_t opcode = ( node->getOpcode() );
+    W.find("opcode").writeUInt32(opcode);
+    uint32_t size = ( node->getSize() );
+    W.find("size").writeUInt32(size);
+    uint32_t alignment = ( node->getAlignment() );
+    W.find("alignment").writeUInt32(alignment);
+    llvm::ArrayRef<SpirvOperand> operands = ( node->getOperands() );
+    W.find("operands").writeArray(operands);
+  }
+
   void writeInjectedClassNameType(const InjectedClassNameType *node) {
     const Decl* declaration = ( node->getDecl()->getCanonicalDecl() );
     W.find("declaration").writeDeclRef(declaration);
@@ -492,8 +503,10 @@ public:
   void writeMemberPointerType(const MemberPointerType *node) {
     QualType pointeeType = ( node->getPointeeType() );
     W.find("pointeeType").writeQualType(pointeeType);
-    QualType baseType = ( QualType(node->getClass(), 0) );
-    W.find("baseType").writeQualType(baseType);
+    NestedNameSpecifier * Qualifier = ( node->getQualifier() );
+    W.find("Qualifier").writeNestedNameSpecifier(Qualifier);
+    const Decl* Cls = ( node->getMostRecentCXXRecordDecl() );
+    W.find("Cls").writeDeclRef(Cls);
   }
 
   void writeObjCObjectPointerType(const ObjCObjectPointerType *node) {
@@ -527,8 +540,8 @@ public:
   void writePackExpansionType(const PackExpansionType *node) {
     QualType pattern = ( node->getPattern() );
     W.find("pattern").writeQualType(pattern);
-    std::optional<uint32_t> numExpansions = ( node->getNumExpansions() );
-    W.find("numExpansions").writeOptional(numExpansions);
+    UnsignedOrNone numExpansions = ( node->getNumExpansions() );
+    W.find("numExpansions").writeUnsignedOrNone(numExpansions);
   }
 
   void writePackIndexingType(const PackIndexingType *node) {
@@ -587,10 +600,10 @@ public:
     W.find("associatedDecl").writeDeclRef(associatedDecl);
     uint32_t Index = ( node->getIndex() );
     W.find("Index").writeUInt32(Index);
-    std::optional<uint32_t> PackIndex = ( node->getPackIndex() );
-    W.find("PackIndex").writeOptional(PackIndex);
-    SubstTemplateTypeParmTypeFlag SubstitutionFlag = ( node->getSubstitutionFlag() );
-    W.find("SubstitutionFlag").writeSubstTemplateTypeParmTypeFlag(SubstitutionFlag);
+    UnsignedOrNone PackIndex = ( node->getPackIndex() );
+    W.find("PackIndex").writeUnsignedOrNone(PackIndex);
+    bool Final = ( node->getFinal() );
+    W.find("Final").writeBool(Final);
   }
 
   void writeEnumType(const EnumType *node) {
@@ -608,20 +621,13 @@ public:
   }
 
   void writeTemplateSpecializationType(const TemplateSpecializationType *node) {
-    bool dependent = ( node->isDependentType() );
-    W.find("dependent").writeBool(dependent);
     TemplateName templateName = ( node->getTemplateName() );
     W.find("templateName").writeTemplateName(templateName);
-    llvm::ArrayRef<TemplateArgument> templateArguments = ( node->template_arguments() );
-    W.find("templateArguments").writeArray(templateArguments);
-    std::optional<QualType> underlyingType = (
-      node->isTypeAlias()
-        ? std::optional<QualType>(node->getAliasedType())
-        : node->isCanonicalUnqualified()
-            ? std::nullopt
-            : std::optional<QualType>(node->getCanonicalTypeInternal())
-    );
-    W.find("underlyingType").writeOptional(underlyingType);
+    llvm::ArrayRef<TemplateArgument> args = ( node->template_arguments() );
+    W.find("args").writeArray(args);
+    QualType UnderlyingType = ( node->isCanonicalUnqualified() ? QualType() :
+                                                   node->desugar() );
+    W.find("UnderlyingType").writeQualType(UnderlyingType);
   }
 
   void writeTemplateTypeParmType(const TemplateTypeParmType *node) {

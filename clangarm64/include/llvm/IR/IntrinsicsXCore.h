@@ -11,7 +11,7 @@
 namespace llvm::Intrinsic {
 enum XCOREIntrinsics : unsigned {
 // Enum values for intrinsics.
-    xcore_bitrev = 14758,                              // llvm.xcore.bitrev
+    xcore_bitrev = 15098,                              // llvm.xcore.bitrev
     xcore_checkevent,                          // llvm.xcore.checkevent
     xcore_chkct,                               // llvm.xcore.chkct
     xcore_clre,                                // llvm.xcore.clre

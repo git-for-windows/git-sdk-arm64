@@ -7,7 +7,7 @@ if(CMAKE_VERSION VERSION_LESS "2.8.12")
    message(FATAL_ERROR "CMake >= 2.8.12 required")
 endif()
 cmake_policy(PUSH)
-cmake_policy(VERSION 2.8.12...3.30)
+cmake_policy(VERSION 2.8.12...3.31)
 #----------------------------------------------------------------
 # Generated CMake target import file.
 #----------------------------------------------------------------
@@ -19,7 +19,7 @@ set(CMAKE_IMPORT_FILE_VERSION 1)
 set(_cmake_targets_defined "")
 set(_cmake_targets_not_defined "")
 set(_cmake_expected_targets "")
-foreach(_cmake_expected_target IN ITEMS clang-tblgen clangBasic clangAPINotes clangLex clangParse clangAST clangDynamicASTMatchers clangASTMatchers clangCrossTU clangSema clangCodeGen clangAnalysis clangAnalysisFlowSensitive clangAnalysisFlowSensitiveModels clangEdit clangExtractAPI clangRewrite clangARCMigrate clangDriver clangSerialization clangRewriteFrontend clangFrontend clangFrontendTool clangToolingCore clangToolingInclusions clangToolingInclusionsStdlib clangToolingRefactoring clangToolingASTDiff clangToolingSyntax clangDependencyScanning clangTransformer clangTooling clangDirectoryWatcher clangIndex clangIndexSerialization clangInstallAPI clangStaticAnalyzerCore clangStaticAnalyzerCheckers clangStaticAnalyzerFrontend clangFormat clangInterpreter clangSupport diagtool clang clang-format clangHandleCXX clangHandleLLVM clang-linker-wrapper clang-nvlink-wrapper clang-offload-packager clang-offload-bundler clang-scan-deps clang-sycl-linker clang-installapi clang-repl clang-refactor clang-cpp clang-check clang-extdef-mapping clangApplyReplacements clang-apply-replacements clangReorderFields clang-reorder-fields modularize clangTidy clangTidyAndroidModule clangTidyAbseilModule clangTidyAlteraModule clangTidyBoostModule clangTidyBugproneModule clangTidyCERTModule clangTidyConcurrencyModule clangTidyCppCoreGuidelinesModule clangTidyDarwinModule clangTidyFuchsiaModule clangTidyGoogleModule clangTidyHICPPModule clangTidyLinuxKernelModule clangTidyLLVMModule clangTidyLLVMLibcModule clangTidyMiscModule clangTidyModernizeModule clangTidyMPIModule clangTidyObjCModule clangTidyOpenMPModule clangTidyPerformanceModule clangTidyPortabilityModule clangTidyReadabilityModule clangTidyZirconModule clangTidyPlugin clangTidyMain clang-tidy clangTidyUtils clangChangeNamespace clang-change-namespace clangDoc clang-doc clangIncludeFixer clangIncludeFixerPlugin clang-include-fixer findAllSymbols find-all-symbols clangMove clang-move clangQuery clang-query clangIncludeCleaner clang-include-cleaner pp-trace clangdSupport clangDaemon clangDaemonTweaks clangdMain clangd clangdRemoteIndex libclang libclang_static amdgpu-arch nvptx-arch)
+foreach(_cmake_expected_target IN ITEMS clang-tblgen clangBasic clangAPINotes clangLex clangParse clangAST clangDynamicASTMatchers clangASTMatchers clangCrossTU clangSema clangCodeGen clangAnalysis clangAnalysisFlowSensitive clangAnalysisFlowSensitiveModels clangEdit clangExtractAPI clangRewrite clangDriver clangSerialization clangRewriteFrontend clangFrontend clangFrontendTool clangToolingCore clangToolingInclusions clangToolingInclusionsStdlib clangToolingRefactoring clangToolingASTDiff clangToolingSyntax clangDependencyScanning clangTransformer clangTooling clangDirectoryWatcher clangIndex clangIndexSerialization clangInstallAPI clangStaticAnalyzerCore clangStaticAnalyzerCheckers clangStaticAnalyzerFrontend clangFormat clangInterpreter clangSupport diagtool clang clang-format clangHandleCXX clangHandleLLVM clang-linker-wrapper clang-nvlink-wrapper clang-offload-packager clang-offload-bundler clang-scan-deps clang-sycl-linker clang-installapi clang-repl clang-refactor clang-cpp clang-check clang-extdef-mapping clangApplyReplacements clang-apply-replacements clangReorderFields clang-reorder-fields modularize clangTidy clangTidyAndroidModule clangTidyAbseilModule clangTidyAlteraModule clangTidyBoostModule clangTidyBugproneModule clangTidyCERTModule clangTidyConcurrencyModule clangTidyCppCoreGuidelinesModule clangTidyDarwinModule clangTidyFuchsiaModule clangTidyGoogleModule clangTidyHICPPModule clangTidyLinuxKernelModule clangTidyLLVMModule clangTidyLLVMLibcModule clangTidyMiscModule clangTidyModernizeModule clangTidyMPIModule clangTidyObjCModule clangTidyOpenMPModule clangTidyPerformanceModule clangTidyPortabilityModule clangTidyReadabilityModule clangTidyZirconModule clangTidyPlugin clangTidyMain clang-tidy clangTidyUtils clangChangeNamespace clang-change-namespace clangDocSupport clangDoc clang-doc clangIncludeFixer clangIncludeFixerPlugin clang-include-fixer findAllSymbols find-all-symbols clangMove clang-move clangQuery clang-query clangIncludeCleaner clang-include-cleaner pp-trace clangdSupport clangDaemon clangDaemonTweaks clangdMain clangd clangdRemoteIndex libclang libclang_static offload-arch)
   list(APPEND _cmake_expected_targets "${_cmake_expected_target}")
   if(TARGET "${_cmake_expected_target}")
     list(APPEND _cmake_targets_defined "${_cmake_expected_target}")
@@ -170,13 +170,6 @@ set_target_properties(clangRewrite PROPERTIES
   INTERFACE_LINK_LIBRARIES "clangBasic;clangLex;LLVM"
 )
 
-# Create imported target clangARCMigrate
-add_library(clangARCMigrate STATIC IMPORTED)
-
-set_target_properties(clangARCMigrate PROPERTIES
-  INTERFACE_LINK_LIBRARIES "clangAST;clangAnalysis;clangBasic;clangEdit;clangFrontend;clangLex;clangRewrite;clangSema;clangSerialization;LLVM"
-)
-
 # Create imported target clangDriver
 add_library(clangDriver STATIC IMPORTED)
 
@@ -209,7 +202,7 @@ set_target_properties(clangFrontend PROPERTIES
 add_library(clangFrontendTool STATIC IMPORTED)
 
 set_target_properties(clangFrontendTool PROPERTIES
-  INTERFACE_LINK_LIBRARIES "clangBasic;clangCodeGen;clangDriver;clangExtractAPI;clangFrontend;clangRewriteFrontend;clangARCMigrate;clangStaticAnalyzerFrontend;LLVM"
+  INTERFACE_LINK_LIBRARIES "clangBasic;clangCodeGen;clangDriver;clangExtractAPI;clangFrontend;clangRewriteFrontend;clangStaticAnalyzerFrontend;LLVM"
 )
 
 # Create imported target clangToolingCore
@@ -286,7 +279,7 @@ set_target_properties(clangDirectoryWatcher PROPERTIES
 add_library(clangIndex STATIC IMPORTED)
 
 set_target_properties(clangIndex PROPERTIES
-  INTERFACE_LINK_LIBRARIES "clangAST;clangBasic;clangFormat;clangFrontend;clangLex;clangSerialization;clangToolingCore;LLVM"
+  INTERFACE_LINK_LIBRARIES "clangAST;clangBasic;clangFormat;clangFrontend;clangLex;clangSema;clangSerialization;clangToolingCore;LLVM"
 )
 
 # Create imported target clangIndexSerialization
@@ -636,11 +629,18 @@ set_target_properties(clangChangeNamespace PROPERTIES
 # Create imported target clang-change-namespace
 add_executable(clang-change-namespace IMPORTED)
 
+# Create imported target clangDocSupport
+add_library(clangDocSupport STATIC IMPORTED)
+
+set_target_properties(clangDocSupport PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVM"
+)
+
 # Create imported target clangDoc
 add_library(clangDoc STATIC IMPORTED)
 
 set_target_properties(clangDoc PROPERTIES
-  INTERFACE_LINK_LIBRARIES "LLVM;\$<LINK_ONLY:clang-cpp>"
+  INTERFACE_LINK_LIBRARIES "LLVM;\$<LINK_ONLY:clang-cpp>;\$<LINK_ONLY:clangDocSupport>"
 )
 
 # Create imported target clang-doc
@@ -756,14 +756,11 @@ add_library(libclang_static STATIC IMPORTED)
 
 set_target_properties(libclang_static PROPERTIES
   INTERFACE_COMPILE_DEFINITIONS "CINDEX_NO_EXPORTS"
-  INTERFACE_LINK_LIBRARIES "clangAST;clangBasic;clangDriver;clangExtractAPI;clangFrontend;clangIndex;clangLex;clangRewrite;clangSema;clangSerialization;clangTooling;clangARCMigrate;LLVM;\$<LINK_ONLY:\$<TARGET_PROPERTY:libclang,LINK_LIBRARIES>>"
+  INTERFACE_LINK_LIBRARIES "clangAST;clangBasic;clangDriver;clangExtractAPI;clangFrontend;clangIndex;clangLex;clangRewrite;clangSema;clangSerialization;clangTooling;LLVM;\$<LINK_ONLY:\$<TARGET_PROPERTY:libclang,LINK_LIBRARIES>>"
 )
 
-# Create imported target amdgpu-arch
-add_executable(amdgpu-arch IMPORTED)
-
-# Create imported target nvptx-arch
-add_executable(nvptx-arch IMPORTED)
+# Create imported target offload-arch
+add_executable(offload-arch IMPORTED)
 
 # Load information for each installed configuration.
 file(GLOB _cmake_config_files "${CMAKE_CURRENT_LIST_DIR}/ClangTargets-*.cmake")

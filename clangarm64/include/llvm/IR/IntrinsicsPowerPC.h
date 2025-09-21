@@ -11,7 +11,7 @@
 namespace llvm::Intrinsic {
 enum PPCIntrinsics : unsigned {
 // Enum values for intrinsics.
-    ppc_addex = 9914,                                 // llvm.ppc.addex
+    ppc_addex = 10264,                                 // llvm.ppc.addex
     ppc_addf128_round_to_odd,                  // llvm.ppc.addf128.round.to.odd
     ppc_addg6s,                                // llvm.ppc.addg6s
     ppc_addg6sd,                               // llvm.ppc.addg6sd
@@ -414,9 +414,13 @@ enum PPCIntrinsics : unsigned {
     ppc_iospace_lwsync,                        // llvm.ppc.iospace.lwsync
     ppc_iospace_sync,                          // llvm.ppc.iospace.sync
     ppc_isync,                                 // llvm.ppc.isync
+    ppc_lbarx,                                 // llvm.ppc.lbarx
+    ppc_ldarx,                                 // llvm.ppc.ldarx
+    ppc_lharx,                                 // llvm.ppc.lharx
     ppc_load2r,                                // llvm.ppc.load2r
     ppc_load4r,                                // llvm.ppc.load4r
     ppc_load8r,                                // llvm.ppc.load8r
+    ppc_lwarx,                                 // llvm.ppc.lwarx
     ppc_lwsync,                                // llvm.ppc.lwsync
     ppc_maddhd,                                // llvm.ppc.maddhd
     ppc_maddhdu,                               // llvm.ppc.maddhdu
@@ -433,6 +437,42 @@ enum PPCIntrinsics : unsigned {
     ppc_minfs,                                 // llvm.ppc.minfs
     ppc_mma_assemble_acc,                      // llvm.ppc.mma.assemble.acc
     ppc_mma_disassemble_acc,                   // llvm.ppc.mma.disassemble.acc
+    ppc_mma_dmmr,                              // llvm.ppc.mma.dmmr
+    ppc_mma_dmsetdmrz,                         // llvm.ppc.mma.dmsetdmrz
+    ppc_mma_dmsha2hash,                        // llvm.ppc.mma.dmsha2hash
+    ppc_mma_dmsha3hash,                        // llvm.ppc.mma.dmsha3hash
+    ppc_mma_dmxor,                             // llvm.ppc.mma.dmxor
+    ppc_mma_dmxvbf16gerx2,                     // llvm.ppc.mma.dmxvbf16gerx2
+    ppc_mma_dmxvbf16gerx2nn,                   // llvm.ppc.mma.dmxvbf16gerx2nn
+    ppc_mma_dmxvbf16gerx2np,                   // llvm.ppc.mma.dmxvbf16gerx2np
+    ppc_mma_dmxvbf16gerx2pn,                   // llvm.ppc.mma.dmxvbf16gerx2pn
+    ppc_mma_dmxvbf16gerx2pp,                   // llvm.ppc.mma.dmxvbf16gerx2pp
+    ppc_mma_dmxvf16gerx2,                      // llvm.ppc.mma.dmxvf16gerx2
+    ppc_mma_dmxvf16gerx2nn,                    // llvm.ppc.mma.dmxvf16gerx2nn
+    ppc_mma_dmxvf16gerx2np,                    // llvm.ppc.mma.dmxvf16gerx2np
+    ppc_mma_dmxvf16gerx2pn,                    // llvm.ppc.mma.dmxvf16gerx2pn
+    ppc_mma_dmxvf16gerx2pp,                    // llvm.ppc.mma.dmxvf16gerx2pp
+    ppc_mma_dmxvi8gerx4,                       // llvm.ppc.mma.dmxvi8gerx4
+    ppc_mma_dmxvi8gerx4pp,                     // llvm.ppc.mma.dmxvi8gerx4pp
+    ppc_mma_dmxvi8gerx4spp,                    // llvm.ppc.mma.dmxvi8gerx4spp
+    ppc_mma_dmxxextfdmr256,                    // llvm.ppc.mma.dmxxextfdmr256
+    ppc_mma_dmxxextfdmr512,                    // llvm.ppc.mma.dmxxextfdmr512
+    ppc_mma_dmxxinstdmr256,                    // llvm.ppc.mma.dmxxinstdmr256
+    ppc_mma_dmxxinstdmr512,                    // llvm.ppc.mma.dmxxinstdmr512
+    ppc_mma_dmxxshapad,                        // llvm.ppc.mma.dmxxshapad
+    ppc_mma_pmdmxvbf16gerx2,                   // llvm.ppc.mma.pmdmxvbf16gerx2
+    ppc_mma_pmdmxvbf16gerx2nn,                 // llvm.ppc.mma.pmdmxvbf16gerx2nn
+    ppc_mma_pmdmxvbf16gerx2np,                 // llvm.ppc.mma.pmdmxvbf16gerx2np
+    ppc_mma_pmdmxvbf16gerx2pn,                 // llvm.ppc.mma.pmdmxvbf16gerx2pn
+    ppc_mma_pmdmxvbf16gerx2pp,                 // llvm.ppc.mma.pmdmxvbf16gerx2pp
+    ppc_mma_pmdmxvf16gerx2,                    // llvm.ppc.mma.pmdmxvf16gerx2
+    ppc_mma_pmdmxvf16gerx2nn,                  // llvm.ppc.mma.pmdmxvf16gerx2nn
+    ppc_mma_pmdmxvf16gerx2np,                  // llvm.ppc.mma.pmdmxvf16gerx2np
+    ppc_mma_pmdmxvf16gerx2pn,                  // llvm.ppc.mma.pmdmxvf16gerx2pn
+    ppc_mma_pmdmxvf16gerx2pp,                  // llvm.ppc.mma.pmdmxvf16gerx2pp
+    ppc_mma_pmdmxvi8gerx4,                     // llvm.ppc.mma.pmdmxvi8gerx4
+    ppc_mma_pmdmxvi8gerx4pp,                   // llvm.ppc.mma.pmdmxvi8gerx4pp
+    ppc_mma_pmdmxvi8gerx4spp,                  // llvm.ppc.mma.pmdmxvi8gerx4spp
     ppc_mma_pmxvbf16ger2,                      // llvm.ppc.mma.pmxvbf16ger2
     ppc_mma_pmxvbf16ger2nn,                    // llvm.ppc.mma.pmxvbf16ger2nn
     ppc_mma_pmxvbf16ger2np,                    // llvm.ppc.mma.pmxvbf16ger2np
@@ -505,7 +545,10 @@ enum PPCIntrinsics : unsigned {
     ppc_mulhdu,                                // llvm.ppc.mulhdu
     ppc_mulhw,                                 // llvm.ppc.mulhw
     ppc_mulhwu,                                // llvm.ppc.mulhwu
+    ppc_national2packed,                       // llvm.ppc.national2packed
     ppc_pack_longdouble,                       // llvm.ppc.pack.longdouble
+    ppc_packed2national,                       // llvm.ppc.packed2national
+    ppc_packed2zoned,                          // llvm.ppc.packed2zoned
     ppc_pdepd,                                 // llvm.ppc.pdepd
     ppc_pextd,                                 // llvm.ppc.pextd
     ppc_popcntb,                               // llvm.ppc.popcntb
@@ -637,6 +680,7 @@ enum PPCIntrinsics : unsigned {
     ppc_vsx_xxinsertw,                         // llvm.ppc.vsx.xxinsertw
     ppc_vsx_xxleqv,                            // llvm.ppc.vsx.xxleqv
     ppc_vsx_xxpermx,                           // llvm.ppc.vsx.xxpermx
+    ppc_zoned2packed,                          // llvm.ppc.zoned2packed
 }; // enum
 } // namespace llvm::Intrinsic
 #endif

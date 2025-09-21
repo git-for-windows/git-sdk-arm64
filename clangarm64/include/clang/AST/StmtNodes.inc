@@ -56,12 +56,6 @@ UNARYOPERATOR(UnaryOperator, Expr)
 UNARYEXPRORTYPETRAITEXPR(UnaryExprOrTypeTraitExpr, Expr)
 #undef UNARYEXPRORTYPETRAITEXPR
 
-#ifndef TYPOEXPR
-#  define TYPOEXPR(Type, Base) EXPR(Type, Base)
-#endif
-TYPOEXPR(TypoExpr, Expr)
-#undef TYPOEXPR
-
 #ifndef TYPETRAITEXPR
 #  define TYPETRAITEXPR(Type, Base) EXPR(Type, Base)
 #endif
@@ -990,6 +984,12 @@ OPENACCEXITDATACONSTRUCT(OpenACCExitDataConstruct, OpenACCConstructStmt)
 OPENACCENTERDATACONSTRUCT(OpenACCEnterDataConstruct, OpenACCConstructStmt)
 #undef OPENACCENTERDATACONSTRUCT
 
+#ifndef OPENACCCACHECONSTRUCT
+#  define OPENACCCACHECONSTRUCT(Type, Base) OPENACCCONSTRUCTSTMT(Type, Base)
+#endif
+OPENACCCACHECONSTRUCT(OpenACCCacheConstruct, OpenACCConstructStmt)
+#undef OPENACCCACHECONSTRUCT
+
 #ifndef OPENACCASSOCIATEDSTMTCONSTRUCT
 #  define OPENACCASSOCIATEDSTMTCONSTRUCT(Type, Base) OPENACCCONSTRUCTSTMT(Type, Base)
 #endif
@@ -1024,11 +1024,17 @@ OPENACCCOMPUTECONSTRUCT(OpenACCComputeConstruct, OpenACCAssociatedStmtConstruct)
 OPENACCCOMBINEDCONSTRUCT(OpenACCCombinedConstruct, OpenACCAssociatedStmtConstruct)
 #undef OPENACCCOMBINEDCONSTRUCT
 
-STMT_RANGE(OpenACCAssociatedStmtConstruct, OpenACCLoopConstruct, OpenACCCombinedConstruct)
+#ifndef OPENACCATOMICCONSTRUCT
+#  define OPENACCATOMICCONSTRUCT(Type, Base) OPENACCASSOCIATEDSTMTCONSTRUCT(Type, Base)
+#endif
+OPENACCATOMICCONSTRUCT(OpenACCAtomicConstruct, OpenACCAssociatedStmtConstruct)
+#undef OPENACCATOMICCONSTRUCT
+
+STMT_RANGE(OpenACCAssociatedStmtConstruct, OpenACCLoopConstruct, OpenACCAtomicConstruct)
 
 #undef OPENACCASSOCIATEDSTMTCONSTRUCT
 
-STMT_RANGE(OpenACCConstructStmt, OpenACCWaitConstruct, OpenACCCombinedConstruct)
+STMT_RANGE(OpenACCConstructStmt, OpenACCWaitConstruct, OpenACCAtomicConstruct)
 
 #undef OPENACCCONSTRUCTSTMT
 
@@ -1253,6 +1259,12 @@ OMPUNROLLDIRECTIVE(OMPUnrollDirective, OMPLoopTransformationDirective)
 #endif
 OMPTILEDIRECTIVE(OMPTileDirective, OMPLoopTransformationDirective)
 #undef OMPTILEDIRECTIVE
+
+#ifndef OMPSTRIPEDIRECTIVE
+#  define OMPSTRIPEDIRECTIVE(Type, Base) OMPLOOPTRANSFORMATIONDIRECTIVE(Type, Base)
+#endif
+OMPSTRIPEDIRECTIVE(OMPStripeDirective, OMPLoopTransformationDirective)
+#undef OMPSTRIPEDIRECTIVE
 
 #ifndef OMPREVERSEDIRECTIVE
 #  define OMPREVERSEDIRECTIVE(Type, Base) OMPLOOPTRANSFORMATIONDIRECTIVE(Type, Base)

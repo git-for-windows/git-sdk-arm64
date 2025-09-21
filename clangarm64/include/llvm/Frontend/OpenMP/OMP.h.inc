@@ -3,11 +3,13 @@
 
 #include "llvm/ADT/ArrayRef.h"
 #include "llvm/ADT/BitmaskEnum.h"
+#include "llvm/ADT/StringRef.h"
+#include "llvm/Frontend/Directive/Spelling.h"
 #include "llvm/Support/Compiler.h"
 #include <cstddef>
+#include <utility>
 
 namespace llvm {
-class StringRef;
 namespace omp {
 
 LLVM_ENABLE_BITMASK_ENUMS_IN_NAMESPACE();
@@ -33,6 +35,14 @@ enum class Category {
 };
 
 static constexpr std::size_t Category_enumSize = 6;
+
+enum class SourceLanguage : uint32_t {
+  C = 1U,
+  Fortran = 2U,
+  LLVM_MARK_AS_BITMASK_ENUM(/*LargestValue=*/Fortran)
+};
+
+static constexpr std::size_t SourceLanguage_enumSize = 2;
 
 enum class Directive {
   OMPD_allocate,
@@ -104,6 +114,7 @@ enum class Directive {
   OMPD_sections,
   OMPD_simd,
   OMPD_single,
+  OMPD_stripe,
   OMPD_target,
   OMPD_target_data,
   OMPD_target_enter_data,
@@ -151,122 +162,123 @@ enum class Directive {
   OMPD_teams_loop,
 };
 
-static constexpr std::size_t Directive_enumSize = 114;
+static constexpr std::size_t Directive_enumSize = 115;
 
-constexpr auto OMPD_allocate = llvm::omp::Directive::OMPD_allocate;
-constexpr auto OMPD_allocators = llvm::omp::Directive::OMPD_allocators;
-constexpr auto OMPD_assume = llvm::omp::Directive::OMPD_assume;
-constexpr auto OMPD_assumes = llvm::omp::Directive::OMPD_assumes;
-constexpr auto OMPD_atomic = llvm::omp::Directive::OMPD_atomic;
-constexpr auto OMPD_barrier = llvm::omp::Directive::OMPD_barrier;
-constexpr auto OMPD_begin_assumes = llvm::omp::Directive::OMPD_begin_assumes;
-constexpr auto OMPD_begin_declare_target = llvm::omp::Directive::OMPD_begin_declare_target;
-constexpr auto OMPD_begin_declare_variant = llvm::omp::Directive::OMPD_begin_declare_variant;
-constexpr auto OMPD_cancel = llvm::omp::Directive::OMPD_cancel;
-constexpr auto OMPD_cancellation_point = llvm::omp::Directive::OMPD_cancellation_point;
-constexpr auto OMPD_critical = llvm::omp::Directive::OMPD_critical;
-constexpr auto OMPD_declare_mapper = llvm::omp::Directive::OMPD_declare_mapper;
-constexpr auto OMPD_declare_reduction = llvm::omp::Directive::OMPD_declare_reduction;
-constexpr auto OMPD_declare_simd = llvm::omp::Directive::OMPD_declare_simd;
-constexpr auto OMPD_declare_target = llvm::omp::Directive::OMPD_declare_target;
-constexpr auto OMPD_declare_variant = llvm::omp::Directive::OMPD_declare_variant;
-constexpr auto OMPD_depobj = llvm::omp::Directive::OMPD_depobj;
-constexpr auto OMPD_distribute = llvm::omp::Directive::OMPD_distribute;
-constexpr auto OMPD_distribute_parallel_do = llvm::omp::Directive::OMPD_distribute_parallel_do;
-constexpr auto OMPD_distribute_parallel_do_simd = llvm::omp::Directive::OMPD_distribute_parallel_do_simd;
-constexpr auto OMPD_distribute_parallel_for = llvm::omp::Directive::OMPD_distribute_parallel_for;
-constexpr auto OMPD_distribute_parallel_for_simd = llvm::omp::Directive::OMPD_distribute_parallel_for_simd;
-constexpr auto OMPD_distribute_simd = llvm::omp::Directive::OMPD_distribute_simd;
-constexpr auto OMPD_do = llvm::omp::Directive::OMPD_do;
-constexpr auto OMPD_do_simd = llvm::omp::Directive::OMPD_do_simd;
-constexpr auto OMPD_end_assumes = llvm::omp::Directive::OMPD_end_assumes;
-constexpr auto OMPD_end_declare_target = llvm::omp::Directive::OMPD_end_declare_target;
-constexpr auto OMPD_end_declare_variant = llvm::omp::Directive::OMPD_end_declare_variant;
-constexpr auto OMPD_end_do = llvm::omp::Directive::OMPD_end_do;
-constexpr auto OMPD_end_do_simd = llvm::omp::Directive::OMPD_end_do_simd;
-constexpr auto OMPD_end_scope = llvm::omp::Directive::OMPD_end_scope;
-constexpr auto OMPD_end_sections = llvm::omp::Directive::OMPD_end_sections;
-constexpr auto OMPD_end_single = llvm::omp::Directive::OMPD_end_single;
-constexpr auto OMPD_end_workshare = llvm::omp::Directive::OMPD_end_workshare;
-constexpr auto OMPD_error = llvm::omp::Directive::OMPD_error;
-constexpr auto OMPD_flush = llvm::omp::Directive::OMPD_flush;
-constexpr auto OMPD_for = llvm::omp::Directive::OMPD_for;
-constexpr auto OMPD_for_simd = llvm::omp::Directive::OMPD_for_simd;
-constexpr auto OMPD_interchange = llvm::omp::Directive::OMPD_interchange;
-constexpr auto OMPD_masked_taskloop = llvm::omp::Directive::OMPD_masked_taskloop;
-constexpr auto OMPD_masked_taskloop_simd = llvm::omp::Directive::OMPD_masked_taskloop_simd;
-constexpr auto OMPD_master = llvm::omp::Directive::OMPD_master;
-constexpr auto OMPD_master_taskloop = llvm::omp::Directive::OMPD_master_taskloop;
-constexpr auto OMPD_master_taskloop_simd = llvm::omp::Directive::OMPD_master_taskloop_simd;
-constexpr auto OMPD_metadirective = llvm::omp::Directive::OMPD_metadirective;
-constexpr auto OMPD_nothing = llvm::omp::Directive::OMPD_nothing;
-constexpr auto OMPD_ordered = llvm::omp::Directive::OMPD_ordered;
-constexpr auto OMPD_parallel = llvm::omp::Directive::OMPD_parallel;
-constexpr auto OMPD_parallel_do = llvm::omp::Directive::OMPD_parallel_do;
-constexpr auto OMPD_parallel_do_simd = llvm::omp::Directive::OMPD_parallel_do_simd;
-constexpr auto OMPD_parallel_for = llvm::omp::Directive::OMPD_parallel_for;
-constexpr auto OMPD_parallel_for_simd = llvm::omp::Directive::OMPD_parallel_for_simd;
-constexpr auto OMPD_parallel_masked = llvm::omp::Directive::OMPD_parallel_masked;
-constexpr auto OMPD_parallel_masked_taskloop = llvm::omp::Directive::OMPD_parallel_masked_taskloop;
-constexpr auto OMPD_parallel_masked_taskloop_simd = llvm::omp::Directive::OMPD_parallel_masked_taskloop_simd;
-constexpr auto OMPD_parallel_master = llvm::omp::Directive::OMPD_parallel_master;
-constexpr auto OMPD_parallel_master_taskloop = llvm::omp::Directive::OMPD_parallel_master_taskloop;
-constexpr auto OMPD_parallel_master_taskloop_simd = llvm::omp::Directive::OMPD_parallel_master_taskloop_simd;
-constexpr auto OMPD_parallel_sections = llvm::omp::Directive::OMPD_parallel_sections;
-constexpr auto OMPD_parallel_workshare = llvm::omp::Directive::OMPD_parallel_workshare;
-constexpr auto OMPD_requires = llvm::omp::Directive::OMPD_requires;
-constexpr auto OMPD_reverse = llvm::omp::Directive::OMPD_reverse;
-constexpr auto OMPD_scan = llvm::omp::Directive::OMPD_scan;
-constexpr auto OMPD_scope = llvm::omp::Directive::OMPD_scope;
-constexpr auto OMPD_section = llvm::omp::Directive::OMPD_section;
-constexpr auto OMPD_sections = llvm::omp::Directive::OMPD_sections;
-constexpr auto OMPD_simd = llvm::omp::Directive::OMPD_simd;
-constexpr auto OMPD_single = llvm::omp::Directive::OMPD_single;
-constexpr auto OMPD_target = llvm::omp::Directive::OMPD_target;
-constexpr auto OMPD_target_data = llvm::omp::Directive::OMPD_target_data;
-constexpr auto OMPD_target_enter_data = llvm::omp::Directive::OMPD_target_enter_data;
-constexpr auto OMPD_target_exit_data = llvm::omp::Directive::OMPD_target_exit_data;
-constexpr auto OMPD_target_parallel = llvm::omp::Directive::OMPD_target_parallel;
-constexpr auto OMPD_target_parallel_do = llvm::omp::Directive::OMPD_target_parallel_do;
-constexpr auto OMPD_target_parallel_do_simd = llvm::omp::Directive::OMPD_target_parallel_do_simd;
-constexpr auto OMPD_target_parallel_for = llvm::omp::Directive::OMPD_target_parallel_for;
-constexpr auto OMPD_target_parallel_for_simd = llvm::omp::Directive::OMPD_target_parallel_for_simd;
-constexpr auto OMPD_target_simd = llvm::omp::Directive::OMPD_target_simd;
-constexpr auto OMPD_target_teams = llvm::omp::Directive::OMPD_target_teams;
-constexpr auto OMPD_target_teams_distribute = llvm::omp::Directive::OMPD_target_teams_distribute;
-constexpr auto OMPD_target_teams_distribute_parallel_do = llvm::omp::Directive::OMPD_target_teams_distribute_parallel_do;
-constexpr auto OMPD_target_teams_distribute_parallel_do_simd = llvm::omp::Directive::OMPD_target_teams_distribute_parallel_do_simd;
-constexpr auto OMPD_target_teams_distribute_parallel_for = llvm::omp::Directive::OMPD_target_teams_distribute_parallel_for;
-constexpr auto OMPD_target_teams_distribute_parallel_for_simd = llvm::omp::Directive::OMPD_target_teams_distribute_parallel_for_simd;
-constexpr auto OMPD_target_teams_distribute_simd = llvm::omp::Directive::OMPD_target_teams_distribute_simd;
-constexpr auto OMPD_target_update = llvm::omp::Directive::OMPD_target_update;
-constexpr auto OMPD_task = llvm::omp::Directive::OMPD_task;
-constexpr auto OMPD_taskgroup = llvm::omp::Directive::OMPD_taskgroup;
-constexpr auto OMPD_taskloop = llvm::omp::Directive::OMPD_taskloop;
-constexpr auto OMPD_taskloop_simd = llvm::omp::Directive::OMPD_taskloop_simd;
-constexpr auto OMPD_taskwait = llvm::omp::Directive::OMPD_taskwait;
-constexpr auto OMPD_taskyield = llvm::omp::Directive::OMPD_taskyield;
-constexpr auto OMPD_teams = llvm::omp::Directive::OMPD_teams;
-constexpr auto OMPD_teams_distribute = llvm::omp::Directive::OMPD_teams_distribute;
-constexpr auto OMPD_teams_distribute_parallel_do = llvm::omp::Directive::OMPD_teams_distribute_parallel_do;
-constexpr auto OMPD_teams_distribute_parallel_do_simd = llvm::omp::Directive::OMPD_teams_distribute_parallel_do_simd;
-constexpr auto OMPD_teams_distribute_parallel_for = llvm::omp::Directive::OMPD_teams_distribute_parallel_for;
-constexpr auto OMPD_teams_distribute_parallel_for_simd = llvm::omp::Directive::OMPD_teams_distribute_parallel_for_simd;
-constexpr auto OMPD_teams_distribute_simd = llvm::omp::Directive::OMPD_teams_distribute_simd;
-constexpr auto OMPD_threadprivate = llvm::omp::Directive::OMPD_threadprivate;
-constexpr auto OMPD_tile = llvm::omp::Directive::OMPD_tile;
-constexpr auto OMPD_unknown = llvm::omp::Directive::OMPD_unknown;
-constexpr auto OMPD_unroll = llvm::omp::Directive::OMPD_unroll;
-constexpr auto OMPD_workshare = llvm::omp::Directive::OMPD_workshare;
-constexpr auto OMPD_dispatch = llvm::omp::Directive::OMPD_dispatch;
-constexpr auto OMPD_interop = llvm::omp::Directive::OMPD_interop;
-constexpr auto OMPD_loop = llvm::omp::Directive::OMPD_loop;
-constexpr auto OMPD_masked = llvm::omp::Directive::OMPD_masked;
-constexpr auto OMPD_parallel_loop = llvm::omp::Directive::OMPD_parallel_loop;
-constexpr auto OMPD_target_loop = llvm::omp::Directive::OMPD_target_loop;
-constexpr auto OMPD_target_parallel_loop = llvm::omp::Directive::OMPD_target_parallel_loop;
-constexpr auto OMPD_target_teams_loop = llvm::omp::Directive::OMPD_target_teams_loop;
-constexpr auto OMPD_teams_loop = llvm::omp::Directive::OMPD_teams_loop;
+constexpr auto OMPD_allocate = Directive::OMPD_allocate;
+constexpr auto OMPD_allocators = Directive::OMPD_allocators;
+constexpr auto OMPD_assume = Directive::OMPD_assume;
+constexpr auto OMPD_assumes = Directive::OMPD_assumes;
+constexpr auto OMPD_atomic = Directive::OMPD_atomic;
+constexpr auto OMPD_barrier = Directive::OMPD_barrier;
+constexpr auto OMPD_begin_assumes = Directive::OMPD_begin_assumes;
+constexpr auto OMPD_begin_declare_target = Directive::OMPD_begin_declare_target;
+constexpr auto OMPD_begin_declare_variant = Directive::OMPD_begin_declare_variant;
+constexpr auto OMPD_cancel = Directive::OMPD_cancel;
+constexpr auto OMPD_cancellation_point = Directive::OMPD_cancellation_point;
+constexpr auto OMPD_critical = Directive::OMPD_critical;
+constexpr auto OMPD_declare_mapper = Directive::OMPD_declare_mapper;
+constexpr auto OMPD_declare_reduction = Directive::OMPD_declare_reduction;
+constexpr auto OMPD_declare_simd = Directive::OMPD_declare_simd;
+constexpr auto OMPD_declare_target = Directive::OMPD_declare_target;
+constexpr auto OMPD_declare_variant = Directive::OMPD_declare_variant;
+constexpr auto OMPD_depobj = Directive::OMPD_depobj;
+constexpr auto OMPD_distribute = Directive::OMPD_distribute;
+constexpr auto OMPD_distribute_parallel_do = Directive::OMPD_distribute_parallel_do;
+constexpr auto OMPD_distribute_parallel_do_simd = Directive::OMPD_distribute_parallel_do_simd;
+constexpr auto OMPD_distribute_parallel_for = Directive::OMPD_distribute_parallel_for;
+constexpr auto OMPD_distribute_parallel_for_simd = Directive::OMPD_distribute_parallel_for_simd;
+constexpr auto OMPD_distribute_simd = Directive::OMPD_distribute_simd;
+constexpr auto OMPD_do = Directive::OMPD_do;
+constexpr auto OMPD_do_simd = Directive::OMPD_do_simd;
+constexpr auto OMPD_end_assumes = Directive::OMPD_end_assumes;
+constexpr auto OMPD_end_declare_target = Directive::OMPD_end_declare_target;
+constexpr auto OMPD_end_declare_variant = Directive::OMPD_end_declare_variant;
+constexpr auto OMPD_end_do = Directive::OMPD_end_do;
+constexpr auto OMPD_end_do_simd = Directive::OMPD_end_do_simd;
+constexpr auto OMPD_end_scope = Directive::OMPD_end_scope;
+constexpr auto OMPD_end_sections = Directive::OMPD_end_sections;
+constexpr auto OMPD_end_single = Directive::OMPD_end_single;
+constexpr auto OMPD_end_workshare = Directive::OMPD_end_workshare;
+constexpr auto OMPD_error = Directive::OMPD_error;
+constexpr auto OMPD_flush = Directive::OMPD_flush;
+constexpr auto OMPD_for = Directive::OMPD_for;
+constexpr auto OMPD_for_simd = Directive::OMPD_for_simd;
+constexpr auto OMPD_interchange = Directive::OMPD_interchange;
+constexpr auto OMPD_masked_taskloop = Directive::OMPD_masked_taskloop;
+constexpr auto OMPD_masked_taskloop_simd = Directive::OMPD_masked_taskloop_simd;
+constexpr auto OMPD_master = Directive::OMPD_master;
+constexpr auto OMPD_master_taskloop = Directive::OMPD_master_taskloop;
+constexpr auto OMPD_master_taskloop_simd = Directive::OMPD_master_taskloop_simd;
+constexpr auto OMPD_metadirective = Directive::OMPD_metadirective;
+constexpr auto OMPD_nothing = Directive::OMPD_nothing;
+constexpr auto OMPD_ordered = Directive::OMPD_ordered;
+constexpr auto OMPD_parallel = Directive::OMPD_parallel;
+constexpr auto OMPD_parallel_do = Directive::OMPD_parallel_do;
+constexpr auto OMPD_parallel_do_simd = Directive::OMPD_parallel_do_simd;
+constexpr auto OMPD_parallel_for = Directive::OMPD_parallel_for;
+constexpr auto OMPD_parallel_for_simd = Directive::OMPD_parallel_for_simd;
+constexpr auto OMPD_parallel_masked = Directive::OMPD_parallel_masked;
+constexpr auto OMPD_parallel_masked_taskloop = Directive::OMPD_parallel_masked_taskloop;
+constexpr auto OMPD_parallel_masked_taskloop_simd = Directive::OMPD_parallel_masked_taskloop_simd;
+constexpr auto OMPD_parallel_master = Directive::OMPD_parallel_master;
+constexpr auto OMPD_parallel_master_taskloop = Directive::OMPD_parallel_master_taskloop;
+constexpr auto OMPD_parallel_master_taskloop_simd = Directive::OMPD_parallel_master_taskloop_simd;
+constexpr auto OMPD_parallel_sections = Directive::OMPD_parallel_sections;
+constexpr auto OMPD_parallel_workshare = Directive::OMPD_parallel_workshare;
+constexpr auto OMPD_requires = Directive::OMPD_requires;
+constexpr auto OMPD_reverse = Directive::OMPD_reverse;
+constexpr auto OMPD_scan = Directive::OMPD_scan;
+constexpr auto OMPD_scope = Directive::OMPD_scope;
+constexpr auto OMPD_section = Directive::OMPD_section;
+constexpr auto OMPD_sections = Directive::OMPD_sections;
+constexpr auto OMPD_simd = Directive::OMPD_simd;
+constexpr auto OMPD_single = Directive::OMPD_single;
+constexpr auto OMPD_stripe = Directive::OMPD_stripe;
+constexpr auto OMPD_target = Directive::OMPD_target;
+constexpr auto OMPD_target_data = Directive::OMPD_target_data;
+constexpr auto OMPD_target_enter_data = Directive::OMPD_target_enter_data;
+constexpr auto OMPD_target_exit_data = Directive::OMPD_target_exit_data;
+constexpr auto OMPD_target_parallel = Directive::OMPD_target_parallel;
+constexpr auto OMPD_target_parallel_do = Directive::OMPD_target_parallel_do;
+constexpr auto OMPD_target_parallel_do_simd = Directive::OMPD_target_parallel_do_simd;
+constexpr auto OMPD_target_parallel_for = Directive::OMPD_target_parallel_for;
+constexpr auto OMPD_target_parallel_for_simd = Directive::OMPD_target_parallel_for_simd;
+constexpr auto OMPD_target_simd = Directive::OMPD_target_simd;
+constexpr auto OMPD_target_teams = Directive::OMPD_target_teams;
+constexpr auto OMPD_target_teams_distribute = Directive::OMPD_target_teams_distribute;
+constexpr auto OMPD_target_teams_distribute_parallel_do = Directive::OMPD_target_teams_distribute_parallel_do;
+constexpr auto OMPD_target_teams_distribute_parallel_do_simd = Directive::OMPD_target_teams_distribute_parallel_do_simd;
+constexpr auto OMPD_target_teams_distribute_parallel_for = Directive::OMPD_target_teams_distribute_parallel_for;
+constexpr auto OMPD_target_teams_distribute_parallel_for_simd = Directive::OMPD_target_teams_distribute_parallel_for_simd;
+constexpr auto OMPD_target_teams_distribute_simd = Directive::OMPD_target_teams_distribute_simd;
+constexpr auto OMPD_target_update = Directive::OMPD_target_update;
+constexpr auto OMPD_task = Directive::OMPD_task;
+constexpr auto OMPD_taskgroup = Directive::OMPD_taskgroup;
+constexpr auto OMPD_taskloop = Directive::OMPD_taskloop;
+constexpr auto OMPD_taskloop_simd = Directive::OMPD_taskloop_simd;
+constexpr auto OMPD_taskwait = Directive::OMPD_taskwait;
+constexpr auto OMPD_taskyield = Directive::OMPD_taskyield;
+constexpr auto OMPD_teams = Directive::OMPD_teams;
+constexpr auto OMPD_teams_distribute = Directive::OMPD_teams_distribute;
+constexpr auto OMPD_teams_distribute_parallel_do = Directive::OMPD_teams_distribute_parallel_do;
+constexpr auto OMPD_teams_distribute_parallel_do_simd = Directive::OMPD_teams_distribute_parallel_do_simd;
+constexpr auto OMPD_teams_distribute_parallel_for = Directive::OMPD_teams_distribute_parallel_for;
+constexpr auto OMPD_teams_distribute_parallel_for_simd = Directive::OMPD_teams_distribute_parallel_for_simd;
+constexpr auto OMPD_teams_distribute_simd = Directive::OMPD_teams_distribute_simd;
+constexpr auto OMPD_threadprivate = Directive::OMPD_threadprivate;
+constexpr auto OMPD_tile = Directive::OMPD_tile;
+constexpr auto OMPD_unknown = Directive::OMPD_unknown;
+constexpr auto OMPD_unroll = Directive::OMPD_unroll;
+constexpr auto OMPD_workshare = Directive::OMPD_workshare;
+constexpr auto OMPD_dispatch = Directive::OMPD_dispatch;
+constexpr auto OMPD_interop = Directive::OMPD_interop;
+constexpr auto OMPD_loop = Directive::OMPD_loop;
+constexpr auto OMPD_masked = Directive::OMPD_masked;
+constexpr auto OMPD_parallel_loop = Directive::OMPD_parallel_loop;
+constexpr auto OMPD_target_loop = Directive::OMPD_target_loop;
+constexpr auto OMPD_target_parallel_loop = Directive::OMPD_target_parallel_loop;
+constexpr auto OMPD_target_teams_loop = Directive::OMPD_target_teams_loop;
+constexpr auto OMPD_teams_loop = Directive::OMPD_teams_loop;
 
 enum class Clause {
   OMPC_absent,
@@ -319,6 +331,7 @@ enum class Clause {
   OMPC_inclusive,
   OMPC_indirect,
   OMPC_init,
+  OMPC_initializer,
   OMPC_is_device_ptr,
   OMPC_lastprivate,
   OMPC_linear,
@@ -330,6 +343,7 @@ enum class Clause {
   OMPC_message,
   OMPC_nogroup,
   OMPC_no_openmp,
+  OMPC_no_openmp_constructs,
   OMPC_no_openmp_routines,
   OMPC_no_parallelism,
   OMPC_nowait,
@@ -345,6 +359,7 @@ enum class Clause {
   OMPC_ompx_dyn_cgroup_mem,
   OMPC_order,
   OMPC_ordered,
+  OMPC_otherwise,
   OMPC_partial,
   OMPC_permutation,
   OMPC_priority,
@@ -357,6 +372,7 @@ enum class Clause {
   OMPC_reverse_offload,
   OMPC_safelen,
   OMPC_schedule,
+  OMPC_self_maps,
   OMPC_seq_cst,
   OMPC_severity,
   OMPC_shared,
@@ -383,120 +399,124 @@ enum class Clause {
   OMPC_write,
 };
 
-static constexpr std::size_t Clause_enumSize = 112;
+static constexpr std::size_t Clause_enumSize = 116;
 
-constexpr auto OMPC_absent = llvm::omp::Clause::OMPC_absent;
-constexpr auto OMPC_acq_rel = llvm::omp::Clause::OMPC_acq_rel;
-constexpr auto OMPC_acquire = llvm::omp::Clause::OMPC_acquire;
-constexpr auto OMPC_adjust_args = llvm::omp::Clause::OMPC_adjust_args;
-constexpr auto OMPC_affinity = llvm::omp::Clause::OMPC_affinity;
-constexpr auto OMPC_align = llvm::omp::Clause::OMPC_align;
-constexpr auto OMPC_aligned = llvm::omp::Clause::OMPC_aligned;
-constexpr auto OMPC_allocate = llvm::omp::Clause::OMPC_allocate;
-constexpr auto OMPC_allocator = llvm::omp::Clause::OMPC_allocator;
-constexpr auto OMPC_append_args = llvm::omp::Clause::OMPC_append_args;
-constexpr auto OMPC_at = llvm::omp::Clause::OMPC_at;
-constexpr auto OMPC_atomic_default_mem_order = llvm::omp::Clause::OMPC_atomic_default_mem_order;
-constexpr auto OMPC_bind = llvm::omp::Clause::OMPC_bind;
-constexpr auto OMPC_cancellation_construct_type = llvm::omp::Clause::OMPC_cancellation_construct_type;
-constexpr auto OMPC_capture = llvm::omp::Clause::OMPC_capture;
-constexpr auto OMPC_collapse = llvm::omp::Clause::OMPC_collapse;
-constexpr auto OMPC_compare = llvm::omp::Clause::OMPC_compare;
-constexpr auto OMPC_contains = llvm::omp::Clause::OMPC_contains;
-constexpr auto OMPC_copyprivate = llvm::omp::Clause::OMPC_copyprivate;
-constexpr auto OMPC_copyin = llvm::omp::Clause::OMPC_copyin;
-constexpr auto OMPC_default = llvm::omp::Clause::OMPC_default;
-constexpr auto OMPC_defaultmap = llvm::omp::Clause::OMPC_defaultmap;
-constexpr auto OMPC_depend = llvm::omp::Clause::OMPC_depend;
-constexpr auto OMPC_depobj = llvm::omp::Clause::OMPC_depobj;
-constexpr auto OMPC_destroy = llvm::omp::Clause::OMPC_destroy;
-constexpr auto OMPC_detach = llvm::omp::Clause::OMPC_detach;
-constexpr auto OMPC_device = llvm::omp::Clause::OMPC_device;
-constexpr auto OMPC_device_type = llvm::omp::Clause::OMPC_device_type;
-constexpr auto OMPC_dist_schedule = llvm::omp::Clause::OMPC_dist_schedule;
-constexpr auto OMPC_doacross = llvm::omp::Clause::OMPC_doacross;
-constexpr auto OMPC_dynamic_allocators = llvm::omp::Clause::OMPC_dynamic_allocators;
-constexpr auto OMPC_enter = llvm::omp::Clause::OMPC_enter;
-constexpr auto OMPC_exclusive = llvm::omp::Clause::OMPC_exclusive;
-constexpr auto OMPC_fail = llvm::omp::Clause::OMPC_fail;
-constexpr auto OMPC_filter = llvm::omp::Clause::OMPC_filter;
-constexpr auto OMPC_final = llvm::omp::Clause::OMPC_final;
-constexpr auto OMPC_firstprivate = llvm::omp::Clause::OMPC_firstprivate;
-constexpr auto OMPC_flush = llvm::omp::Clause::OMPC_flush;
-constexpr auto OMPC_from = llvm::omp::Clause::OMPC_from;
-constexpr auto OMPC_full = llvm::omp::Clause::OMPC_full;
-constexpr auto OMPC_grainsize = llvm::omp::Clause::OMPC_grainsize;
-constexpr auto OMPC_has_device_addr = llvm::omp::Clause::OMPC_has_device_addr;
-constexpr auto OMPC_hint = llvm::omp::Clause::OMPC_hint;
-constexpr auto OMPC_holds = llvm::omp::Clause::OMPC_holds;
-constexpr auto OMPC_if = llvm::omp::Clause::OMPC_if;
-constexpr auto OMPC_in_reduction = llvm::omp::Clause::OMPC_in_reduction;
-constexpr auto OMPC_inbranch = llvm::omp::Clause::OMPC_inbranch;
-constexpr auto OMPC_inclusive = llvm::omp::Clause::OMPC_inclusive;
-constexpr auto OMPC_indirect = llvm::omp::Clause::OMPC_indirect;
-constexpr auto OMPC_init = llvm::omp::Clause::OMPC_init;
-constexpr auto OMPC_is_device_ptr = llvm::omp::Clause::OMPC_is_device_ptr;
-constexpr auto OMPC_lastprivate = llvm::omp::Clause::OMPC_lastprivate;
-constexpr auto OMPC_linear = llvm::omp::Clause::OMPC_linear;
-constexpr auto OMPC_link = llvm::omp::Clause::OMPC_link;
-constexpr auto OMPC_map = llvm::omp::Clause::OMPC_map;
-constexpr auto OMPC_match = llvm::omp::Clause::OMPC_match;
-constexpr auto OMPC_memory_order = llvm::omp::Clause::OMPC_memory_order;
-constexpr auto OMPC_mergeable = llvm::omp::Clause::OMPC_mergeable;
-constexpr auto OMPC_message = llvm::omp::Clause::OMPC_message;
-constexpr auto OMPC_nogroup = llvm::omp::Clause::OMPC_nogroup;
-constexpr auto OMPC_no_openmp = llvm::omp::Clause::OMPC_no_openmp;
-constexpr auto OMPC_no_openmp_routines = llvm::omp::Clause::OMPC_no_openmp_routines;
-constexpr auto OMPC_no_parallelism = llvm::omp::Clause::OMPC_no_parallelism;
-constexpr auto OMPC_nowait = llvm::omp::Clause::OMPC_nowait;
-constexpr auto OMPC_nocontext = llvm::omp::Clause::OMPC_nocontext;
-constexpr auto OMPC_nontemporal = llvm::omp::Clause::OMPC_nontemporal;
-constexpr auto OMPC_notinbranch = llvm::omp::Clause::OMPC_notinbranch;
-constexpr auto OMPC_novariants = llvm::omp::Clause::OMPC_novariants;
-constexpr auto OMPC_num_tasks = llvm::omp::Clause::OMPC_num_tasks;
-constexpr auto OMPC_num_teams = llvm::omp::Clause::OMPC_num_teams;
-constexpr auto OMPC_num_threads = llvm::omp::Clause::OMPC_num_threads;
-constexpr auto OMPC_ompx_attribute = llvm::omp::Clause::OMPC_ompx_attribute;
-constexpr auto OMPC_ompx_bare = llvm::omp::Clause::OMPC_ompx_bare;
-constexpr auto OMPC_ompx_dyn_cgroup_mem = llvm::omp::Clause::OMPC_ompx_dyn_cgroup_mem;
-constexpr auto OMPC_order = llvm::omp::Clause::OMPC_order;
-constexpr auto OMPC_ordered = llvm::omp::Clause::OMPC_ordered;
-constexpr auto OMPC_partial = llvm::omp::Clause::OMPC_partial;
-constexpr auto OMPC_permutation = llvm::omp::Clause::OMPC_permutation;
-constexpr auto OMPC_priority = llvm::omp::Clause::OMPC_priority;
-constexpr auto OMPC_private = llvm::omp::Clause::OMPC_private;
-constexpr auto OMPC_proc_bind = llvm::omp::Clause::OMPC_proc_bind;
-constexpr auto OMPC_read = llvm::omp::Clause::OMPC_read;
-constexpr auto OMPC_reduction = llvm::omp::Clause::OMPC_reduction;
-constexpr auto OMPC_relaxed = llvm::omp::Clause::OMPC_relaxed;
-constexpr auto OMPC_release = llvm::omp::Clause::OMPC_release;
-constexpr auto OMPC_reverse_offload = llvm::omp::Clause::OMPC_reverse_offload;
-constexpr auto OMPC_safelen = llvm::omp::Clause::OMPC_safelen;
-constexpr auto OMPC_schedule = llvm::omp::Clause::OMPC_schedule;
-constexpr auto OMPC_seq_cst = llvm::omp::Clause::OMPC_seq_cst;
-constexpr auto OMPC_severity = llvm::omp::Clause::OMPC_severity;
-constexpr auto OMPC_shared = llvm::omp::Clause::OMPC_shared;
-constexpr auto OMPC_simd = llvm::omp::Clause::OMPC_simd;
-constexpr auto OMPC_simdlen = llvm::omp::Clause::OMPC_simdlen;
-constexpr auto OMPC_sizes = llvm::omp::Clause::OMPC_sizes;
-constexpr auto OMPC_task_reduction = llvm::omp::Clause::OMPC_task_reduction;
-constexpr auto OMPC_thread_limit = llvm::omp::Clause::OMPC_thread_limit;
-constexpr auto OMPC_threadprivate = llvm::omp::Clause::OMPC_threadprivate;
-constexpr auto OMPC_threads = llvm::omp::Clause::OMPC_threads;
-constexpr auto OMPC_to = llvm::omp::Clause::OMPC_to;
-constexpr auto OMPC_unified_address = llvm::omp::Clause::OMPC_unified_address;
-constexpr auto OMPC_unified_shared_memory = llvm::omp::Clause::OMPC_unified_shared_memory;
-constexpr auto OMPC_uniform = llvm::omp::Clause::OMPC_uniform;
-constexpr auto OMPC_unknown = llvm::omp::Clause::OMPC_unknown;
-constexpr auto OMPC_untied = llvm::omp::Clause::OMPC_untied;
-constexpr auto OMPC_update = llvm::omp::Clause::OMPC_update;
-constexpr auto OMPC_use = llvm::omp::Clause::OMPC_use;
-constexpr auto OMPC_use_device_addr = llvm::omp::Clause::OMPC_use_device_addr;
-constexpr auto OMPC_use_device_ptr = llvm::omp::Clause::OMPC_use_device_ptr;
-constexpr auto OMPC_uses_allocators = llvm::omp::Clause::OMPC_uses_allocators;
-constexpr auto OMPC_weak = llvm::omp::Clause::OMPC_weak;
-constexpr auto OMPC_when = llvm::omp::Clause::OMPC_when;
-constexpr auto OMPC_write = llvm::omp::Clause::OMPC_write;
+constexpr auto OMPC_absent = Clause::OMPC_absent;
+constexpr auto OMPC_acq_rel = Clause::OMPC_acq_rel;
+constexpr auto OMPC_acquire = Clause::OMPC_acquire;
+constexpr auto OMPC_adjust_args = Clause::OMPC_adjust_args;
+constexpr auto OMPC_affinity = Clause::OMPC_affinity;
+constexpr auto OMPC_align = Clause::OMPC_align;
+constexpr auto OMPC_aligned = Clause::OMPC_aligned;
+constexpr auto OMPC_allocate = Clause::OMPC_allocate;
+constexpr auto OMPC_allocator = Clause::OMPC_allocator;
+constexpr auto OMPC_append_args = Clause::OMPC_append_args;
+constexpr auto OMPC_at = Clause::OMPC_at;
+constexpr auto OMPC_atomic_default_mem_order = Clause::OMPC_atomic_default_mem_order;
+constexpr auto OMPC_bind = Clause::OMPC_bind;
+constexpr auto OMPC_cancellation_construct_type = Clause::OMPC_cancellation_construct_type;
+constexpr auto OMPC_capture = Clause::OMPC_capture;
+constexpr auto OMPC_collapse = Clause::OMPC_collapse;
+constexpr auto OMPC_compare = Clause::OMPC_compare;
+constexpr auto OMPC_contains = Clause::OMPC_contains;
+constexpr auto OMPC_copyprivate = Clause::OMPC_copyprivate;
+constexpr auto OMPC_copyin = Clause::OMPC_copyin;
+constexpr auto OMPC_default = Clause::OMPC_default;
+constexpr auto OMPC_defaultmap = Clause::OMPC_defaultmap;
+constexpr auto OMPC_depend = Clause::OMPC_depend;
+constexpr auto OMPC_depobj = Clause::OMPC_depobj;
+constexpr auto OMPC_destroy = Clause::OMPC_destroy;
+constexpr auto OMPC_detach = Clause::OMPC_detach;
+constexpr auto OMPC_device = Clause::OMPC_device;
+constexpr auto OMPC_device_type = Clause::OMPC_device_type;
+constexpr auto OMPC_dist_schedule = Clause::OMPC_dist_schedule;
+constexpr auto OMPC_doacross = Clause::OMPC_doacross;
+constexpr auto OMPC_dynamic_allocators = Clause::OMPC_dynamic_allocators;
+constexpr auto OMPC_enter = Clause::OMPC_enter;
+constexpr auto OMPC_exclusive = Clause::OMPC_exclusive;
+constexpr auto OMPC_fail = Clause::OMPC_fail;
+constexpr auto OMPC_filter = Clause::OMPC_filter;
+constexpr auto OMPC_final = Clause::OMPC_final;
+constexpr auto OMPC_firstprivate = Clause::OMPC_firstprivate;
+constexpr auto OMPC_flush = Clause::OMPC_flush;
+constexpr auto OMPC_from = Clause::OMPC_from;
+constexpr auto OMPC_full = Clause::OMPC_full;
+constexpr auto OMPC_grainsize = Clause::OMPC_grainsize;
+constexpr auto OMPC_has_device_addr = Clause::OMPC_has_device_addr;
+constexpr auto OMPC_hint = Clause::OMPC_hint;
+constexpr auto OMPC_holds = Clause::OMPC_holds;
+constexpr auto OMPC_if = Clause::OMPC_if;
+constexpr auto OMPC_in_reduction = Clause::OMPC_in_reduction;
+constexpr auto OMPC_inbranch = Clause::OMPC_inbranch;
+constexpr auto OMPC_inclusive = Clause::OMPC_inclusive;
+constexpr auto OMPC_indirect = Clause::OMPC_indirect;
+constexpr auto OMPC_init = Clause::OMPC_init;
+constexpr auto OMPC_initializer = Clause::OMPC_initializer;
+constexpr auto OMPC_is_device_ptr = Clause::OMPC_is_device_ptr;
+constexpr auto OMPC_lastprivate = Clause::OMPC_lastprivate;
+constexpr auto OMPC_linear = Clause::OMPC_linear;
+constexpr auto OMPC_link = Clause::OMPC_link;
+constexpr auto OMPC_map = Clause::OMPC_map;
+constexpr auto OMPC_match = Clause::OMPC_match;
+constexpr auto OMPC_memory_order = Clause::OMPC_memory_order;
+constexpr auto OMPC_mergeable = Clause::OMPC_mergeable;
+constexpr auto OMPC_message = Clause::OMPC_message;
+constexpr auto OMPC_nogroup = Clause::OMPC_nogroup;
+constexpr auto OMPC_no_openmp = Clause::OMPC_no_openmp;
+constexpr auto OMPC_no_openmp_constructs = Clause::OMPC_no_openmp_constructs;
+constexpr auto OMPC_no_openmp_routines = Clause::OMPC_no_openmp_routines;
+constexpr auto OMPC_no_parallelism = Clause::OMPC_no_parallelism;
+constexpr auto OMPC_nowait = Clause::OMPC_nowait;
+constexpr auto OMPC_nocontext = Clause::OMPC_nocontext;
+constexpr auto OMPC_nontemporal = Clause::OMPC_nontemporal;
+constexpr auto OMPC_notinbranch = Clause::OMPC_notinbranch;
+constexpr auto OMPC_novariants = Clause::OMPC_novariants;
+constexpr auto OMPC_num_tasks = Clause::OMPC_num_tasks;
+constexpr auto OMPC_num_teams = Clause::OMPC_num_teams;
+constexpr auto OMPC_num_threads = Clause::OMPC_num_threads;
+constexpr auto OMPC_ompx_attribute = Clause::OMPC_ompx_attribute;
+constexpr auto OMPC_ompx_bare = Clause::OMPC_ompx_bare;
+constexpr auto OMPC_ompx_dyn_cgroup_mem = Clause::OMPC_ompx_dyn_cgroup_mem;
+constexpr auto OMPC_order = Clause::OMPC_order;
+constexpr auto OMPC_ordered = Clause::OMPC_ordered;
+constexpr auto OMPC_otherwise = Clause::OMPC_otherwise;
+constexpr auto OMPC_partial = Clause::OMPC_partial;
+constexpr auto OMPC_permutation = Clause::OMPC_permutation;
+constexpr auto OMPC_priority = Clause::OMPC_priority;
+constexpr auto OMPC_private = Clause::OMPC_private;
+constexpr auto OMPC_proc_bind = Clause::OMPC_proc_bind;
+constexpr auto OMPC_read = Clause::OMPC_read;
+constexpr auto OMPC_reduction = Clause::OMPC_reduction;
+constexpr auto OMPC_relaxed = Clause::OMPC_relaxed;
+constexpr auto OMPC_release = Clause::OMPC_release;
+constexpr auto OMPC_reverse_offload = Clause::OMPC_reverse_offload;
+constexpr auto OMPC_safelen = Clause::OMPC_safelen;
+constexpr auto OMPC_schedule = Clause::OMPC_schedule;
+constexpr auto OMPC_self_maps = Clause::OMPC_self_maps;
+constexpr auto OMPC_seq_cst = Clause::OMPC_seq_cst;
+constexpr auto OMPC_severity = Clause::OMPC_severity;
+constexpr auto OMPC_shared = Clause::OMPC_shared;
+constexpr auto OMPC_simd = Clause::OMPC_simd;
+constexpr auto OMPC_simdlen = Clause::OMPC_simdlen;
+constexpr auto OMPC_sizes = Clause::OMPC_sizes;
+constexpr auto OMPC_task_reduction = Clause::OMPC_task_reduction;
+constexpr auto OMPC_thread_limit = Clause::OMPC_thread_limit;
+constexpr auto OMPC_threadprivate = Clause::OMPC_threadprivate;
+constexpr auto OMPC_threads = Clause::OMPC_threads;
+constexpr auto OMPC_to = Clause::OMPC_to;
+constexpr auto OMPC_unified_address = Clause::OMPC_unified_address;
+constexpr auto OMPC_unified_shared_memory = Clause::OMPC_unified_shared_memory;
+constexpr auto OMPC_uniform = Clause::OMPC_uniform;
+constexpr auto OMPC_unknown = Clause::OMPC_unknown;
+constexpr auto OMPC_untied = Clause::OMPC_untied;
+constexpr auto OMPC_update = Clause::OMPC_update;
+constexpr auto OMPC_use = Clause::OMPC_use;
+constexpr auto OMPC_use_device_addr = Clause::OMPC_use_device_addr;
+constexpr auto OMPC_use_device_ptr = Clause::OMPC_use_device_ptr;
+constexpr auto OMPC_uses_allocators = Clause::OMPC_uses_allocators;
+constexpr auto OMPC_weak = Clause::OMPC_weak;
+constexpr auto OMPC_when = Clause::OMPC_when;
+constexpr auto OMPC_write = Clause::OMPC_write;
 
 enum class BindKind {
   OMP_BIND_parallel=1,
@@ -504,9 +524,9 @@ enum class BindKind {
   OMP_BIND_thread=3,
 };
 
-constexpr auto OMP_BIND_parallel = llvm::omp::BindKind::OMP_BIND_parallel;
-constexpr auto OMP_BIND_teams = llvm::omp::BindKind::OMP_BIND_teams;
-constexpr auto OMP_BIND_thread = llvm::omp::BindKind::OMP_BIND_thread;
+constexpr auto OMP_BIND_parallel = BindKind::OMP_BIND_parallel;
+constexpr auto OMP_BIND_teams = BindKind::OMP_BIND_teams;
+constexpr auto OMP_BIND_thread = BindKind::OMP_BIND_thread;
 
 enum class CancellationConstructType {
   OMP_CANCELLATION_CONSTRUCT_Parallel=1,
@@ -516,19 +536,19 @@ enum class CancellationConstructType {
   OMP_CANCELLATION_CONSTRUCT_None=5,
 };
 
-constexpr auto OMP_CANCELLATION_CONSTRUCT_Parallel = llvm::omp::CancellationConstructType::OMP_CANCELLATION_CONSTRUCT_Parallel;
-constexpr auto OMP_CANCELLATION_CONSTRUCT_Loop = llvm::omp::CancellationConstructType::OMP_CANCELLATION_CONSTRUCT_Loop;
-constexpr auto OMP_CANCELLATION_CONSTRUCT_Sections = llvm::omp::CancellationConstructType::OMP_CANCELLATION_CONSTRUCT_Sections;
-constexpr auto OMP_CANCELLATION_CONSTRUCT_Taskgroup = llvm::omp::CancellationConstructType::OMP_CANCELLATION_CONSTRUCT_Taskgroup;
-constexpr auto OMP_CANCELLATION_CONSTRUCT_None = llvm::omp::CancellationConstructType::OMP_CANCELLATION_CONSTRUCT_None;
+constexpr auto OMP_CANCELLATION_CONSTRUCT_Parallel = CancellationConstructType::OMP_CANCELLATION_CONSTRUCT_Parallel;
+constexpr auto OMP_CANCELLATION_CONSTRUCT_Loop = CancellationConstructType::OMP_CANCELLATION_CONSTRUCT_Loop;
+constexpr auto OMP_CANCELLATION_CONSTRUCT_Sections = CancellationConstructType::OMP_CANCELLATION_CONSTRUCT_Sections;
+constexpr auto OMP_CANCELLATION_CONSTRUCT_Taskgroup = CancellationConstructType::OMP_CANCELLATION_CONSTRUCT_Taskgroup;
+constexpr auto OMP_CANCELLATION_CONSTRUCT_None = CancellationConstructType::OMP_CANCELLATION_CONSTRUCT_None;
 
 enum class GrainsizeType {
   OMP_GRAINSIZE_Strict=1,
   OMP_GRAINSIZE_Unknown=2,
 };
 
-constexpr auto OMP_GRAINSIZE_Strict = llvm::omp::GrainsizeType::OMP_GRAINSIZE_Strict;
-constexpr auto OMP_GRAINSIZE_Unknown = llvm::omp::GrainsizeType::OMP_GRAINSIZE_Unknown;
+constexpr auto OMP_GRAINSIZE_Strict = GrainsizeType::OMP_GRAINSIZE_Strict;
+constexpr auto OMP_GRAINSIZE_Unknown = GrainsizeType::OMP_GRAINSIZE_Unknown;
 
 enum class MemoryOrderKind {
   OMP_MEMORY_ORDER_SeqCst=1,
@@ -539,28 +559,36 @@ enum class MemoryOrderKind {
   OMP_MEMORY_ORDER_Default=6,
 };
 
-constexpr auto OMP_MEMORY_ORDER_SeqCst = llvm::omp::MemoryOrderKind::OMP_MEMORY_ORDER_SeqCst;
-constexpr auto OMP_MEMORY_ORDER_AcqRel = llvm::omp::MemoryOrderKind::OMP_MEMORY_ORDER_AcqRel;
-constexpr auto OMP_MEMORY_ORDER_Acquire = llvm::omp::MemoryOrderKind::OMP_MEMORY_ORDER_Acquire;
-constexpr auto OMP_MEMORY_ORDER_Release = llvm::omp::MemoryOrderKind::OMP_MEMORY_ORDER_Release;
-constexpr auto OMP_MEMORY_ORDER_Relaxed = llvm::omp::MemoryOrderKind::OMP_MEMORY_ORDER_Relaxed;
-constexpr auto OMP_MEMORY_ORDER_Default = llvm::omp::MemoryOrderKind::OMP_MEMORY_ORDER_Default;
+constexpr auto OMP_MEMORY_ORDER_SeqCst = MemoryOrderKind::OMP_MEMORY_ORDER_SeqCst;
+constexpr auto OMP_MEMORY_ORDER_AcqRel = MemoryOrderKind::OMP_MEMORY_ORDER_AcqRel;
+constexpr auto OMP_MEMORY_ORDER_Acquire = MemoryOrderKind::OMP_MEMORY_ORDER_Acquire;
+constexpr auto OMP_MEMORY_ORDER_Release = MemoryOrderKind::OMP_MEMORY_ORDER_Release;
+constexpr auto OMP_MEMORY_ORDER_Relaxed = MemoryOrderKind::OMP_MEMORY_ORDER_Relaxed;
+constexpr auto OMP_MEMORY_ORDER_Default = MemoryOrderKind::OMP_MEMORY_ORDER_Default;
 
 enum class NumTasksType {
   OMP_NUMTASKS_Strict=1,
   OMP_NUMTASKS_Unknown=2,
 };
 
-constexpr auto OMP_NUMTASKS_Strict = llvm::omp::NumTasksType::OMP_NUMTASKS_Strict;
-constexpr auto OMP_NUMTASKS_Unknown = llvm::omp::NumTasksType::OMP_NUMTASKS_Unknown;
+constexpr auto OMP_NUMTASKS_Strict = NumTasksType::OMP_NUMTASKS_Strict;
+constexpr auto OMP_NUMTASKS_Unknown = NumTasksType::OMP_NUMTASKS_Unknown;
+
+enum class NumThreadsType {
+  OMP_NUMTHREADS_Strict=1,
+  OMP_NUMTHREADS_Unknown=2,
+};
+
+constexpr auto OMP_NUMTHREADS_Strict = NumThreadsType::OMP_NUMTHREADS_Strict;
+constexpr auto OMP_NUMTHREADS_Unknown = NumThreadsType::OMP_NUMTHREADS_Unknown;
 
 enum class OrderKind {
   OMP_ORDER_unknown=2,
   OMP_ORDER_concurrent=1,
 };
 
-constexpr auto OMP_ORDER_unknown = llvm::omp::OrderKind::OMP_ORDER_unknown;
-constexpr auto OMP_ORDER_concurrent = llvm::omp::OrderKind::OMP_ORDER_concurrent;
+constexpr auto OMP_ORDER_unknown = OrderKind::OMP_ORDER_unknown;
+constexpr auto OMP_ORDER_concurrent = OrderKind::OMP_ORDER_concurrent;
 
 enum class ProcBindKind {
   OMP_PROC_BIND_primary=5,
@@ -571,12 +599,12 @@ enum class ProcBindKind {
   OMP_PROC_BIND_unknown=7,
 };
 
-constexpr auto OMP_PROC_BIND_primary = llvm::omp::ProcBindKind::OMP_PROC_BIND_primary;
-constexpr auto OMP_PROC_BIND_master = llvm::omp::ProcBindKind::OMP_PROC_BIND_master;
-constexpr auto OMP_PROC_BIND_close = llvm::omp::ProcBindKind::OMP_PROC_BIND_close;
-constexpr auto OMP_PROC_BIND_spread = llvm::omp::ProcBindKind::OMP_PROC_BIND_spread;
-constexpr auto OMP_PROC_BIND_default = llvm::omp::ProcBindKind::OMP_PROC_BIND_default;
-constexpr auto OMP_PROC_BIND_unknown = llvm::omp::ProcBindKind::OMP_PROC_BIND_unknown;
+constexpr auto OMP_PROC_BIND_primary = ProcBindKind::OMP_PROC_BIND_primary;
+constexpr auto OMP_PROC_BIND_master = ProcBindKind::OMP_PROC_BIND_master;
+constexpr auto OMP_PROC_BIND_close = ProcBindKind::OMP_PROC_BIND_close;
+constexpr auto OMP_PROC_BIND_spread = ProcBindKind::OMP_PROC_BIND_spread;
+constexpr auto OMP_PROC_BIND_default = ProcBindKind::OMP_PROC_BIND_default;
+constexpr auto OMP_PROC_BIND_unknown = ProcBindKind::OMP_PROC_BIND_unknown;
 
 enum class ScheduleKind {
   OMP_SCHEDULE_Static=2,
@@ -587,21 +615,28 @@ enum class ScheduleKind {
   OMP_SCHEDULE_Default=7,
 };
 
-constexpr auto OMP_SCHEDULE_Static = llvm::omp::ScheduleKind::OMP_SCHEDULE_Static;
-constexpr auto OMP_SCHEDULE_Dynamic = llvm::omp::ScheduleKind::OMP_SCHEDULE_Dynamic;
-constexpr auto OMP_SCHEDULE_Guided = llvm::omp::ScheduleKind::OMP_SCHEDULE_Guided;
-constexpr auto OMP_SCHEDULE_Auto = llvm::omp::ScheduleKind::OMP_SCHEDULE_Auto;
-constexpr auto OMP_SCHEDULE_Runtime = llvm::omp::ScheduleKind::OMP_SCHEDULE_Runtime;
-constexpr auto OMP_SCHEDULE_Default = llvm::omp::ScheduleKind::OMP_SCHEDULE_Default;
+constexpr auto OMP_SCHEDULE_Static = ScheduleKind::OMP_SCHEDULE_Static;
+constexpr auto OMP_SCHEDULE_Dynamic = ScheduleKind::OMP_SCHEDULE_Dynamic;
+constexpr auto OMP_SCHEDULE_Guided = ScheduleKind::OMP_SCHEDULE_Guided;
+constexpr auto OMP_SCHEDULE_Auto = ScheduleKind::OMP_SCHEDULE_Auto;
+constexpr auto OMP_SCHEDULE_Runtime = ScheduleKind::OMP_SCHEDULE_Runtime;
+constexpr auto OMP_SCHEDULE_Default = ScheduleKind::OMP_SCHEDULE_Default;
 
 // Enumeration helper functions
-LLVM_ABI Directive getOpenMPDirectiveKind(llvm::StringRef Str);
+LLVM_ABI std::pair<Directive, directive::VersionRange> getOpenMPDirectiveKindAndVersions(StringRef Str);
+inline Directive getOpenMPDirectiveKind(StringRef Str) {
+  return getOpenMPDirectiveKindAndVersions(Str).first;
+}
 
-LLVM_ABI llvm::StringRef getOpenMPDirectiveName(Directive D);
+LLVM_ABI StringRef getOpenMPDirectiveName(Directive D, unsigned Ver = 0);
 
-LLVM_ABI Clause getOpenMPClauseKind(llvm::StringRef Str);
+LLVM_ABI std::pair<Clause, directive::VersionRange> getOpenMPClauseKindAndVersions(StringRef Str);
 
-LLVM_ABI llvm::StringRef getOpenMPClauseName(Clause C);
+inline Clause getOpenMPClauseKind(StringRef Str) {
+  return getOpenMPClauseKindAndVersions(Str).first;
+}
+
+LLVM_ABI StringRef getOpenMPClauseName(Clause C, unsigned Ver = 0);
 
 /// Return true if \p C is a valid clause for \p D in version \p Version.
 LLVM_ABI bool isAllowedClauseForDirective(Directive D, Clause C, unsigned Version);
@@ -609,22 +644,25 @@ LLVM_ABI bool isAllowedClauseForDirective(Directive D, Clause C, unsigned Versio
 constexpr std::size_t getMaxLeafCount() { return 6; }
 LLVM_ABI Association getDirectiveAssociation(Directive D);
 LLVM_ABI Category getDirectiveCategory(Directive D);
-LLVM_ABI BindKind getBindKind(StringRef);
-LLVM_ABI llvm::StringRef getOpenMPBindKindName(BindKind);
-LLVM_ABI CancellationConstructType getCancellationConstructType(StringRef);
-LLVM_ABI llvm::StringRef getOpenMPCancellationConstructTypeName(CancellationConstructType);
-LLVM_ABI GrainsizeType getGrainsizeType(StringRef);
-LLVM_ABI llvm::StringRef getOpenMPGrainsizeTypeName(GrainsizeType);
-LLVM_ABI MemoryOrderKind getMemoryOrderKind(StringRef);
-LLVM_ABI llvm::StringRef getOpenMPMemoryOrderKindName(MemoryOrderKind);
-LLVM_ABI NumTasksType getNumTasksType(StringRef);
-LLVM_ABI llvm::StringRef getOpenMPNumTasksTypeName(NumTasksType);
-LLVM_ABI OrderKind getOrderKind(StringRef);
-LLVM_ABI llvm::StringRef getOpenMPOrderKindName(OrderKind);
-LLVM_ABI ProcBindKind getProcBindKind(StringRef);
-LLVM_ABI llvm::StringRef getOpenMPProcBindKindName(ProcBindKind);
-LLVM_ABI ScheduleKind getScheduleKind(StringRef);
-LLVM_ABI llvm::StringRef getOpenMPScheduleKindName(ScheduleKind);
+LLVM_ABI SourceLanguage getDirectiveLanguages(Directive D);
+LLVM_ABI BindKind getBindKind(StringRef Str);
+LLVM_ABI StringRef getOpenMPBindKindName(BindKind x);
+LLVM_ABI CancellationConstructType getCancellationConstructType(StringRef Str);
+LLVM_ABI StringRef getOpenMPCancellationConstructTypeName(CancellationConstructType x);
+LLVM_ABI GrainsizeType getGrainsizeType(StringRef Str);
+LLVM_ABI StringRef getOpenMPGrainsizeTypeName(GrainsizeType x);
+LLVM_ABI MemoryOrderKind getMemoryOrderKind(StringRef Str);
+LLVM_ABI StringRef getOpenMPMemoryOrderKindName(MemoryOrderKind x);
+LLVM_ABI NumTasksType getNumTasksType(StringRef Str);
+LLVM_ABI StringRef getOpenMPNumTasksTypeName(NumTasksType x);
+LLVM_ABI NumThreadsType getNumThreadsType(StringRef Str);
+LLVM_ABI StringRef getOpenMPNumThreadsTypeName(NumThreadsType x);
+LLVM_ABI OrderKind getOrderKind(StringRef Str);
+LLVM_ABI StringRef getOpenMPOrderKindName(OrderKind x);
+LLVM_ABI ProcBindKind getProcBindKind(StringRef Str);
+LLVM_ABI StringRef getOpenMPProcBindKindName(ProcBindKind x);
+LLVM_ABI ScheduleKind getScheduleKind(StringRef Str);
+LLVM_ABI StringRef getOpenMPScheduleKindName(ScheduleKind x);
 
 } // namespace omp
 } // namespace llvm

@@ -11,7 +11,7 @@
 namespace llvm::Intrinsic {
 enum X86Intrinsics : unsigned {
 // Enum values for intrinsics.
-    x86_aadd32 = 12956,                                // llvm.x86.aadd32
+    x86_aadd32 = 13385,                                // llvm.x86.aadd32
     x86_aadd64,                                // llvm.x86.aadd64
     x86_aand32,                                // llvm.x86.aand32
     x86_aand64,                                // llvm.x86.aand64
@@ -132,9 +132,6 @@ enum X86Intrinsics : unsigned {
     x86_avx10_mask_scalef_bf16_128,            // llvm.x86.avx10.mask.scalef.bf16.128
     x86_avx10_mask_scalef_bf16_256,            // llvm.x86.avx10.mask.scalef.bf16.256
     x86_avx10_mask_scalef_bf16_512,            // llvm.x86.avx10.mask.scalef.bf16.512
-    x86_avx10_mask_vcmppd256,                  // llvm.x86.avx10.mask.vcmppd256
-    x86_avx10_mask_vcmpph256,                  // llvm.x86.avx10.mask.vcmpph256
-    x86_avx10_mask_vcmpps256,                  // llvm.x86.avx10.mask.vcmpps256
     x86_avx10_mask_vcvt2ps2phx_128,            // llvm.x86.avx10.mask.vcvt2ps2phx.128
     x86_avx10_mask_vcvt2ps2phx_256,            // llvm.x86.avx10.mask.vcvt2ps2phx.256
     x86_avx10_mask_vcvt2ps2phx_512,            // llvm.x86.avx10.mask.vcvt2ps2phx.512
@@ -153,19 +150,12 @@ enum X86Intrinsics : unsigned {
     x86_avx10_mask_vcvthf82ph128,              // llvm.x86.avx10.mask.vcvthf82ph128
     x86_avx10_mask_vcvthf82ph256,              // llvm.x86.avx10.mask.vcvthf82ph256
     x86_avx10_mask_vcvthf82ph512,              // llvm.x86.avx10.mask.vcvthf82ph512
-    x86_avx10_mask_vcvtpd2dq256,               // llvm.x86.avx10.mask.vcvtpd2dq256
-    x86_avx10_mask_vcvtpd2ph256,               // llvm.x86.avx10.mask.vcvtpd2ph256
-    x86_avx10_mask_vcvtpd2ps256,               // llvm.x86.avx10.mask.vcvtpd2ps256
-    x86_avx10_mask_vcvtpd2qq256,               // llvm.x86.avx10.mask.vcvtpd2qq256
-    x86_avx10_mask_vcvtpd2udq256,              // llvm.x86.avx10.mask.vcvtpd2udq256
-    x86_avx10_mask_vcvtpd2uqq256,              // llvm.x86.avx10.mask.vcvtpd2uqq256
     x86_avx10_mask_vcvtph2bf8128,              // llvm.x86.avx10.mask.vcvtph2bf8128
     x86_avx10_mask_vcvtph2bf8256,              // llvm.x86.avx10.mask.vcvtph2bf8256
     x86_avx10_mask_vcvtph2bf8512,              // llvm.x86.avx10.mask.vcvtph2bf8512
     x86_avx10_mask_vcvtph2bf8s128,             // llvm.x86.avx10.mask.vcvtph2bf8s128
     x86_avx10_mask_vcvtph2bf8s256,             // llvm.x86.avx10.mask.vcvtph2bf8s256
     x86_avx10_mask_vcvtph2bf8s512,             // llvm.x86.avx10.mask.vcvtph2bf8s512
-    x86_avx10_mask_vcvtph2dq256,               // llvm.x86.avx10.mask.vcvtph2dq256
     x86_avx10_mask_vcvtph2hf8128,              // llvm.x86.avx10.mask.vcvtph2hf8128
     x86_avx10_mask_vcvtph2hf8256,              // llvm.x86.avx10.mask.vcvtph2hf8256
     x86_avx10_mask_vcvtph2hf8512,              // llvm.x86.avx10.mask.vcvtph2hf8512
@@ -178,57 +168,32 @@ enum X86Intrinsics : unsigned {
     x86_avx10_mask_vcvtph2iubs128,             // llvm.x86.avx10.mask.vcvtph2iubs128
     x86_avx10_mask_vcvtph2iubs256,             // llvm.x86.avx10.mask.vcvtph2iubs256
     x86_avx10_mask_vcvtph2iubs512,             // llvm.x86.avx10.mask.vcvtph2iubs512
-    x86_avx10_mask_vcvtph2pd256,               // llvm.x86.avx10.mask.vcvtph2pd256
-    x86_avx10_mask_vcvtph2psx256,              // llvm.x86.avx10.mask.vcvtph2psx256
-    x86_avx10_mask_vcvtph2qq256,               // llvm.x86.avx10.mask.vcvtph2qq256
-    x86_avx10_mask_vcvtph2udq256,              // llvm.x86.avx10.mask.vcvtph2udq256
-    x86_avx10_mask_vcvtph2uqq256,              // llvm.x86.avx10.mask.vcvtph2uqq256
-    x86_avx10_mask_vcvtph2uw256,               // llvm.x86.avx10.mask.vcvtph2uw256
-    x86_avx10_mask_vcvtph2w256,                // llvm.x86.avx10.mask.vcvtph2w256
-    x86_avx10_mask_vcvtps2dq256,               // llvm.x86.avx10.mask.vcvtps2dq256
     x86_avx10_mask_vcvtps2ibs128,              // llvm.x86.avx10.mask.vcvtps2ibs128
     x86_avx10_mask_vcvtps2ibs256,              // llvm.x86.avx10.mask.vcvtps2ibs256
     x86_avx10_mask_vcvtps2ibs512,              // llvm.x86.avx10.mask.vcvtps2ibs512
     x86_avx10_mask_vcvtps2iubs128,             // llvm.x86.avx10.mask.vcvtps2iubs128
     x86_avx10_mask_vcvtps2iubs256,             // llvm.x86.avx10.mask.vcvtps2iubs256
     x86_avx10_mask_vcvtps2iubs512,             // llvm.x86.avx10.mask.vcvtps2iubs512
-    x86_avx10_mask_vcvtps2pd256,               // llvm.x86.avx10.mask.vcvtps2pd256
-    x86_avx10_mask_vcvtps2ph256,               // llvm.x86.avx10.mask.vcvtps2ph256
-    x86_avx10_mask_vcvtps2phx256,              // llvm.x86.avx10.mask.vcvtps2phx256
-    x86_avx10_mask_vcvtps2qq256,               // llvm.x86.avx10.mask.vcvtps2qq256
-    x86_avx10_mask_vcvtps2udq256,              // llvm.x86.avx10.mask.vcvtps2udq256
-    x86_avx10_mask_vcvtps2uqq256,              // llvm.x86.avx10.mask.vcvtps2uqq256
-    x86_avx10_mask_vcvttpd2dq256,              // llvm.x86.avx10.mask.vcvttpd2dq256
     x86_avx10_mask_vcvttpd2dqs_128,            // llvm.x86.avx10.mask.vcvttpd2dqs.128
-    x86_avx10_mask_vcvttpd2dqs_round_256,      // llvm.x86.avx10.mask.vcvttpd2dqs.round.256
+    x86_avx10_mask_vcvttpd2dqs_256,            // llvm.x86.avx10.mask.vcvttpd2dqs.256
     x86_avx10_mask_vcvttpd2dqs_round_512,      // llvm.x86.avx10.mask.vcvttpd2dqs.round.512
-    x86_avx10_mask_vcvttpd2qq256,              // llvm.x86.avx10.mask.vcvttpd2qq256
     x86_avx10_mask_vcvttpd2qqs_128,            // llvm.x86.avx10.mask.vcvttpd2qqs.128
-    x86_avx10_mask_vcvttpd2qqs_round_256,      // llvm.x86.avx10.mask.vcvttpd2qqs.round.256
+    x86_avx10_mask_vcvttpd2qqs_256,            // llvm.x86.avx10.mask.vcvttpd2qqs.256
     x86_avx10_mask_vcvttpd2qqs_round_512,      // llvm.x86.avx10.mask.vcvttpd2qqs.round.512
-    x86_avx10_mask_vcvttpd2udq256,             // llvm.x86.avx10.mask.vcvttpd2udq256
     x86_avx10_mask_vcvttpd2udqs_128,           // llvm.x86.avx10.mask.vcvttpd2udqs.128
-    x86_avx10_mask_vcvttpd2udqs_round_256,     // llvm.x86.avx10.mask.vcvttpd2udqs.round.256
+    x86_avx10_mask_vcvttpd2udqs_256,           // llvm.x86.avx10.mask.vcvttpd2udqs.256
     x86_avx10_mask_vcvttpd2udqs_round_512,     // llvm.x86.avx10.mask.vcvttpd2udqs.round.512
-    x86_avx10_mask_vcvttpd2uqq256,             // llvm.x86.avx10.mask.vcvttpd2uqq256
     x86_avx10_mask_vcvttpd2uqqs_128,           // llvm.x86.avx10.mask.vcvttpd2uqqs.128
-    x86_avx10_mask_vcvttpd2uqqs_round_256,     // llvm.x86.avx10.mask.vcvttpd2uqqs.round.256
+    x86_avx10_mask_vcvttpd2uqqs_256,           // llvm.x86.avx10.mask.vcvttpd2uqqs.256
     x86_avx10_mask_vcvttpd2uqqs_round_512,     // llvm.x86.avx10.mask.vcvttpd2uqqs.round.512
-    x86_avx10_mask_vcvttph2dq256,              // llvm.x86.avx10.mask.vcvttph2dq256
     x86_avx10_mask_vcvttph2ibs128,             // llvm.x86.avx10.mask.vcvttph2ibs128
     x86_avx10_mask_vcvttph2ibs256,             // llvm.x86.avx10.mask.vcvttph2ibs256
     x86_avx10_mask_vcvttph2ibs512,             // llvm.x86.avx10.mask.vcvttph2ibs512
     x86_avx10_mask_vcvttph2iubs128,            // llvm.x86.avx10.mask.vcvttph2iubs128
     x86_avx10_mask_vcvttph2iubs256,            // llvm.x86.avx10.mask.vcvttph2iubs256
     x86_avx10_mask_vcvttph2iubs512,            // llvm.x86.avx10.mask.vcvttph2iubs512
-    x86_avx10_mask_vcvttph2qq256,              // llvm.x86.avx10.mask.vcvttph2qq256
-    x86_avx10_mask_vcvttph2udq256,             // llvm.x86.avx10.mask.vcvttph2udq256
-    x86_avx10_mask_vcvttph2uqq256,             // llvm.x86.avx10.mask.vcvttph2uqq256
-    x86_avx10_mask_vcvttph2uw256,              // llvm.x86.avx10.mask.vcvttph2uw256
-    x86_avx10_mask_vcvttph2w256,               // llvm.x86.avx10.mask.vcvttph2w256
-    x86_avx10_mask_vcvttps2dq256,              // llvm.x86.avx10.mask.vcvttps2dq256
     x86_avx10_mask_vcvttps2dqs_128,            // llvm.x86.avx10.mask.vcvttps2dqs.128
-    x86_avx10_mask_vcvttps2dqs_round_256,      // llvm.x86.avx10.mask.vcvttps2dqs.round.256
+    x86_avx10_mask_vcvttps2dqs_256,            // llvm.x86.avx10.mask.vcvttps2dqs.256
     x86_avx10_mask_vcvttps2dqs_round_512,      // llvm.x86.avx10.mask.vcvttps2dqs.round.512
     x86_avx10_mask_vcvttps2ibs128,             // llvm.x86.avx10.mask.vcvttps2ibs128
     x86_avx10_mask_vcvttps2ibs256,             // llvm.x86.avx10.mask.vcvttps2ibs256
@@ -236,57 +201,27 @@ enum X86Intrinsics : unsigned {
     x86_avx10_mask_vcvttps2iubs128,            // llvm.x86.avx10.mask.vcvttps2iubs128
     x86_avx10_mask_vcvttps2iubs256,            // llvm.x86.avx10.mask.vcvttps2iubs256
     x86_avx10_mask_vcvttps2iubs512,            // llvm.x86.avx10.mask.vcvttps2iubs512
-    x86_avx10_mask_vcvttps2qq256,              // llvm.x86.avx10.mask.vcvttps2qq256
     x86_avx10_mask_vcvttps2qqs_128,            // llvm.x86.avx10.mask.vcvttps2qqs.128
-    x86_avx10_mask_vcvttps2qqs_round_256,      // llvm.x86.avx10.mask.vcvttps2qqs.round.256
+    x86_avx10_mask_vcvttps2qqs_256,            // llvm.x86.avx10.mask.vcvttps2qqs.256
     x86_avx10_mask_vcvttps2qqs_round_512,      // llvm.x86.avx10.mask.vcvttps2qqs.round.512
-    x86_avx10_mask_vcvttps2udq256,             // llvm.x86.avx10.mask.vcvttps2udq256
     x86_avx10_mask_vcvttps2udqs_128,           // llvm.x86.avx10.mask.vcvttps2udqs.128
-    x86_avx10_mask_vcvttps2udqs_round_256,     // llvm.x86.avx10.mask.vcvttps2udqs.round.256
+    x86_avx10_mask_vcvttps2udqs_256,           // llvm.x86.avx10.mask.vcvttps2udqs.256
     x86_avx10_mask_vcvttps2udqs_round_512,     // llvm.x86.avx10.mask.vcvttps2udqs.round.512
-    x86_avx10_mask_vcvttps2uqq256,             // llvm.x86.avx10.mask.vcvttps2uqq256
     x86_avx10_mask_vcvttps2uqqs_128,           // llvm.x86.avx10.mask.vcvttps2uqqs.128
-    x86_avx10_mask_vcvttps2uqqs_round_256,     // llvm.x86.avx10.mask.vcvttps2uqqs.round.256
+    x86_avx10_mask_vcvttps2uqqs_256,           // llvm.x86.avx10.mask.vcvttps2uqqs.256
     x86_avx10_mask_vcvttps2uqqs_round_512,     // llvm.x86.avx10.mask.vcvttps2uqqs.round.512
-    x86_avx10_mask_vfcmaddcph256,              // llvm.x86.avx10.mask.vfcmaddcph256
-    x86_avx10_mask_vfcmulcph256,               // llvm.x86.avx10.mask.vfcmulcph256
-    x86_avx10_mask_vfixupimmpd256,             // llvm.x86.avx10.mask.vfixupimmpd256
-    x86_avx10_mask_vfixupimmps256,             // llvm.x86.avx10.mask.vfixupimmps256
-    x86_avx10_mask_vfmaddcph256,               // llvm.x86.avx10.mask.vfmaddcph256
-    x86_avx10_mask_vfmulcph256,                // llvm.x86.avx10.mask.vfmulcph256
-    x86_avx10_mask_vgetexppd256,               // llvm.x86.avx10.mask.vgetexppd256
-    x86_avx10_mask_vgetexpph256,               // llvm.x86.avx10.mask.vgetexpph256
-    x86_avx10_mask_vgetexpps256,               // llvm.x86.avx10.mask.vgetexpps256
-    x86_avx10_mask_vgetmantpd256,              // llvm.x86.avx10.mask.vgetmantpd256
-    x86_avx10_mask_vgetmantph256,              // llvm.x86.avx10.mask.vgetmantph256
-    x86_avx10_mask_vgetmantps256,              // llvm.x86.avx10.mask.vgetmantps256
     x86_avx10_mask_vminmaxpd_round,            // llvm.x86.avx10.mask.vminmaxpd.round
     x86_avx10_mask_vminmaxpd128,               // llvm.x86.avx10.mask.vminmaxpd128
-    x86_avx10_mask_vminmaxpd256_round,         // llvm.x86.avx10.mask.vminmaxpd256.round
+    x86_avx10_mask_vminmaxpd256,               // llvm.x86.avx10.mask.vminmaxpd256
     x86_avx10_mask_vminmaxph_round,            // llvm.x86.avx10.mask.vminmaxph.round
     x86_avx10_mask_vminmaxph128,               // llvm.x86.avx10.mask.vminmaxph128
-    x86_avx10_mask_vminmaxph256_round,         // llvm.x86.avx10.mask.vminmaxph256.round
+    x86_avx10_mask_vminmaxph256,               // llvm.x86.avx10.mask.vminmaxph256
     x86_avx10_mask_vminmaxps_round,            // llvm.x86.avx10.mask.vminmaxps.round
     x86_avx10_mask_vminmaxps128,               // llvm.x86.avx10.mask.vminmaxps128
-    x86_avx10_mask_vminmaxps256_round,         // llvm.x86.avx10.mask.vminmaxps256.round
+    x86_avx10_mask_vminmaxps256,               // llvm.x86.avx10.mask.vminmaxps256
     x86_avx10_mask_vminmaxsd_round,            // llvm.x86.avx10.mask.vminmaxsd.round
     x86_avx10_mask_vminmaxsh_round,            // llvm.x86.avx10.mask.vminmaxsh.round
     x86_avx10_mask_vminmaxss_round,            // llvm.x86.avx10.mask.vminmaxss.round
-    x86_avx10_mask_vrangepd256,                // llvm.x86.avx10.mask.vrangepd256
-    x86_avx10_mask_vrangeps256,                // llvm.x86.avx10.mask.vrangeps256
-    x86_avx10_mask_vreducepd256,               // llvm.x86.avx10.mask.vreducepd256
-    x86_avx10_mask_vreduceph256,               // llvm.x86.avx10.mask.vreduceph256
-    x86_avx10_mask_vreduceps256,               // llvm.x86.avx10.mask.vreduceps256
-    x86_avx10_mask_vrndscalepd256,             // llvm.x86.avx10.mask.vrndscalepd256
-    x86_avx10_mask_vrndscaleph256,             // llvm.x86.avx10.mask.vrndscaleph256
-    x86_avx10_mask_vrndscaleps256,             // llvm.x86.avx10.mask.vrndscaleps256
-    x86_avx10_mask_vscalefpd256,               // llvm.x86.avx10.mask.vscalefpd256
-    x86_avx10_mask_vscalefph256,               // llvm.x86.avx10.mask.vscalefph256
-    x86_avx10_mask_vscalefps256,               // llvm.x86.avx10.mask.vscalefps256
-    x86_avx10_maskz_vfcmaddcph256,             // llvm.x86.avx10.maskz.vfcmaddcph256
-    x86_avx10_maskz_vfixupimmpd256,            // llvm.x86.avx10.maskz.vfixupimmpd256
-    x86_avx10_maskz_vfixupimmps256,            // llvm.x86.avx10.maskz.vfixupimmps256
-    x86_avx10_maskz_vfmaddcph256,              // llvm.x86.avx10.maskz.vfmaddcph256
     x86_avx10_vaddbf16128,                     // llvm.x86.avx10.vaddbf16128
     x86_avx10_vaddbf16256,                     // llvm.x86.avx10.vaddbf16256
     x86_avx10_vaddbf16512,                     // llvm.x86.avx10.vaddbf16512
@@ -334,9 +269,6 @@ enum X86Intrinsics : unsigned {
     x86_avx10_vdivbf16128,                     // llvm.x86.avx10.vdivbf16128
     x86_avx10_vdivbf16256,                     // llvm.x86.avx10.vdivbf16256
     x86_avx10_vdivbf16512,                     // llvm.x86.avx10.vdivbf16512
-    x86_avx10_vdivpd256,                       // llvm.x86.avx10.vdivpd256
-    x86_avx10_vdivph256,                       // llvm.x86.avx10.vdivph256
-    x86_avx10_vdivps256,                       // llvm.x86.avx10.vdivps256
     x86_avx10_vdpphps_128,                     // llvm.x86.avx10.vdpphps.128
     x86_avx10_vdpphps_256,                     // llvm.x86.avx10.vdpphps.256
     x86_avx10_vdpphps_512,                     // llvm.x86.avx10.vdpphps.512
@@ -348,12 +280,6 @@ enum X86Intrinsics : unsigned {
     x86_avx10_vfmadd231bf16128,                // llvm.x86.avx10.vfmadd231bf16128
     x86_avx10_vfmadd231bf16256,                // llvm.x86.avx10.vfmadd231bf16256
     x86_avx10_vfmadd231bf16512,                // llvm.x86.avx10.vfmadd231bf16512
-    x86_avx10_vfmaddpd256,                     // llvm.x86.avx10.vfmaddpd256
-    x86_avx10_vfmaddph256,                     // llvm.x86.avx10.vfmaddph256
-    x86_avx10_vfmaddps256,                     // llvm.x86.avx10.vfmaddps256
-    x86_avx10_vfmaddsubpd256,                  // llvm.x86.avx10.vfmaddsubpd256
-    x86_avx10_vfmaddsubph256,                  // llvm.x86.avx10.vfmaddsubph256
-    x86_avx10_vfmaddsubps256,                  // llvm.x86.avx10.vfmaddsubps256
     x86_avx10_vfmsub132bf16128,                // llvm.x86.avx10.vfmsub132bf16128
     x86_avx10_vfmsub132bf16256,                // llvm.x86.avx10.vfmsub132bf16256
     x86_avx10_vfmsub132bf16512,                // llvm.x86.avx10.vfmsub132bf16512
@@ -384,9 +310,6 @@ enum X86Intrinsics : unsigned {
     x86_avx10_vmaxbf16128,                     // llvm.x86.avx10.vmaxbf16128
     x86_avx10_vmaxbf16256,                     // llvm.x86.avx10.vmaxbf16256
     x86_avx10_vmaxbf16512,                     // llvm.x86.avx10.vmaxbf16512
-    x86_avx10_vmaxpd256,                       // llvm.x86.avx10.vmaxpd256
-    x86_avx10_vmaxph256,                       // llvm.x86.avx10.vmaxph256
-    x86_avx10_vmaxps256,                       // llvm.x86.avx10.vmaxps256
     x86_avx10_vminbf16128,                     // llvm.x86.avx10.vminbf16128
     x86_avx10_vminbf16256,                     // llvm.x86.avx10.vminbf16256
     x86_avx10_vminbf16512,                     // llvm.x86.avx10.vminbf16512
@@ -399,9 +322,6 @@ enum X86Intrinsics : unsigned {
     x86_avx10_vminmaxph256,                    // llvm.x86.avx10.vminmaxph256
     x86_avx10_vminmaxps128,                    // llvm.x86.avx10.vminmaxps128
     x86_avx10_vminmaxps256,                    // llvm.x86.avx10.vminmaxps256
-    x86_avx10_vminpd256,                       // llvm.x86.avx10.vminpd256
-    x86_avx10_vminph256,                       // llvm.x86.avx10.vminph256
-    x86_avx10_vminps256,                       // llvm.x86.avx10.vminps256
     x86_avx10_vmovrsb128,                      // llvm.x86.avx10.vmovrsb128
     x86_avx10_vmovrsb256,                      // llvm.x86.avx10.vmovrsb256
     x86_avx10_vmovrsb512,                      // llvm.x86.avx10.vmovrsb512
@@ -418,9 +338,6 @@ enum X86Intrinsics : unsigned {
     x86_avx10_vmulbf16128,                     // llvm.x86.avx10.vmulbf16128
     x86_avx10_vmulbf16256,                     // llvm.x86.avx10.vmulbf16256
     x86_avx10_vmulbf16512,                     // llvm.x86.avx10.vmulbf16512
-    x86_avx10_vmulpd256,                       // llvm.x86.avx10.vmulpd256
-    x86_avx10_vmulph256,                       // llvm.x86.avx10.vmulph256
-    x86_avx10_vmulps256,                       // llvm.x86.avx10.vmulps256
     x86_avx10_vpdpbssd_512,                    // llvm.x86.avx10.vpdpbssd.512
     x86_avx10_vpdpbssds_512,                   // llvm.x86.avx10.vpdpbssds.512
     x86_avx10_vpdpbsud_512,                    // llvm.x86.avx10.vpdpbsud.512
@@ -433,15 +350,9 @@ enum X86Intrinsics : unsigned {
     x86_avx10_vpdpwusds_512,                   // llvm.x86.avx10.vpdpwusds.512
     x86_avx10_vpdpwuud_512,                    // llvm.x86.avx10.vpdpwuud.512
     x86_avx10_vpdpwuuds_512,                   // llvm.x86.avx10.vpdpwuuds.512
-    x86_avx10_vsqrtpd256,                      // llvm.x86.avx10.vsqrtpd256
-    x86_avx10_vsqrtph256,                      // llvm.x86.avx10.vsqrtph256
-    x86_avx10_vsqrtps256,                      // llvm.x86.avx10.vsqrtps256
     x86_avx10_vsubbf16128,                     // llvm.x86.avx10.vsubbf16128
     x86_avx10_vsubbf16256,                     // llvm.x86.avx10.vsubbf16256
     x86_avx10_vsubbf16512,                     // llvm.x86.avx10.vsubbf16512
-    x86_avx10_vsubpd256,                       // llvm.x86.avx10.vsubpd256
-    x86_avx10_vsubph256,                       // llvm.x86.avx10.vsubph256
-    x86_avx10_vsubps256,                       // llvm.x86.avx10.vsubps256
     x86_avx2_gather_d_d,                       // llvm.x86.avx2.gather.d.d
     x86_avx2_gather_d_d_256,                   // llvm.x86.avx2.gather.d.d.256
     x86_avx2_gather_d_pd,                      // llvm.x86.avx2.gather.d.pd

@@ -11,11 +11,13 @@
 namespace llvm::Intrinsic {
 enum SPVIntrinsics : unsigned {
 // Enum values for intrinsics.
-    spv_all = 11546,                                   // llvm.spv.all
+    spv_all = 11957,                                   // llvm.spv.all
     spv_alloca,                                // llvm.spv.alloca
     spv_alloca_array,                          // llvm.spv.alloca.array
     spv_any,                                   // llvm.spv.any
+    spv_assign_aliasing_decoration,            // llvm.spv.assign.aliasing.decoration
     spv_assign_decoration,                     // llvm.spv.assign.decoration
+    spv_assign_fpmaxerror_decoration,          // llvm.spv.assign.fpmaxerror.decoration
     spv_assign_name,                           // llvm.spv.assign.name
     spv_assign_ptr_type,                       // llvm.spv.assign.ptr.type
     spv_assign_type,                           // llvm.spv.assign.type
@@ -32,12 +34,17 @@ enum SPVIntrinsics : unsigned {
     spv_expect,                                // llvm.spv.expect
     spv_extractelt,                            // llvm.spv.extractelt
     spv_extractv,                              // llvm.spv.extractv
+    spv_faceforward,                           // llvm.spv.faceforward
     spv_fdot,                                  // llvm.spv.fdot
     spv_firstbitlow,                           // llvm.spv.firstbitlow
     spv_firstbitshigh,                         // llvm.spv.firstbitshigh
     spv_firstbituhigh,                         // llvm.spv.firstbituhigh
+    spv_flattened_thread_id_in_group,          // llvm.spv.flattened.thread.id.in.group
     spv_frac,                                  // llvm.spv.frac
+    spv_generic_cast_to_ptr_explicit,          // llvm.spv.generic.cast.to.ptr.explicit
     spv_gep,                                   // llvm.spv.gep
+    spv_global_offset,                         // llvm.spv.global.offset
+    spv_global_size,                           // llvm.spv.global.size
     spv_group_id,                              // llvm.spv.group.id
     spv_group_memory_barrier_with_group_sync,  // llvm.spv.group.memory.barrier.with.group.sync
     spv_init_global,                           // llvm.spv.init.global
@@ -52,10 +59,14 @@ enum SPVIntrinsics : unsigned {
     spv_loop_merge,                            // llvm.spv.loop.merge
     spv_nclamp,                                // llvm.spv.nclamp
     spv_normalize,                             // llvm.spv.normalize
+    spv_num_subgroups,                         // llvm.spv.num.subgroups
+    spv_num_workgroups,                        // llvm.spv.num.workgroups
     spv_ptrcast,                               // llvm.spv.ptrcast
     spv_radians,                               // llvm.spv.radians
+    spv_reflect,                               // llvm.spv.reflect
     spv_resource_getpointer,                   // llvm.spv.resource.getpointer
     spv_resource_handlefrombinding,            // llvm.spv.resource.handlefrombinding
+    spv_resource_handlefromimplicitbinding,    // llvm.spv.resource.handlefromimplicitbinding
     spv_resource_load_typedbuffer,             // llvm.spv.resource.load.typedbuffer
     spv_resource_store_typedbuffer,            // llvm.spv.resource.store.typedbuffer
     spv_resource_updatecounter,                // llvm.spv.resource.updatecounter
@@ -65,8 +76,13 @@ enum SPVIntrinsics : unsigned {
     spv_sdot,                                  // llvm.spv.sdot
     spv_selection_merge,                       // llvm.spv.selection.merge
     spv_sign,                                  // llvm.spv.sign
+    spv_smoothstep,                            // llvm.spv.smoothstep
     spv_step,                                  // llvm.spv.step
     spv_store,                                 // llvm.spv.store
+    spv_subgroup_id,                           // llvm.spv.subgroup.id
+    spv_subgroup_local_invocation_id,          // llvm.spv.subgroup.local.invocation.id
+    spv_subgroup_max_size,                     // llvm.spv.subgroup.max.size
+    spv_subgroup_size,                         // llvm.spv.subgroup.size
     spv_switch,                                // llvm.spv.switch
     spv_thread_id,                             // llvm.spv.thread.id
     spv_thread_id_in_group,                    // llvm.spv.thread.id.in.group
@@ -80,11 +96,13 @@ enum SPVIntrinsics : unsigned {
     spv_wave_active_countbits,                 // llvm.spv.wave.active.countbits
     spv_wave_all,                              // llvm.spv.wave.all
     spv_wave_any,                              // llvm.spv.wave.any
+    spv_wave_get_lane_count,                   // llvm.spv.wave.get.lane.count
     spv_wave_is_first_lane,                    // llvm.spv.wave.is.first.lane
     spv_wave_readlane,                         // llvm.spv.wave.readlane
     spv_wave_reduce_max,                       // llvm.spv.wave.reduce.max
     spv_wave_reduce_sum,                       // llvm.spv.wave.reduce.sum
     spv_wave_reduce_umax,                      // llvm.spv.wave.reduce.umax
+    spv_workgroup_size,                        // llvm.spv.workgroup.size
 }; // enum
 } // namespace llvm::Intrinsic
 #endif

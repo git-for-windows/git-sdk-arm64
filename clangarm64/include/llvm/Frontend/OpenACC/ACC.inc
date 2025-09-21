@@ -4,516 +4,517 @@
 namespace llvm {
 namespace acc {
 
-  // Sets for atomic
+// Sets for atomic
 
-  static AccClauseSet allowedClauses_ACCD_atomic {
-  };
+static AccClauseSet allowedClauses_ACCD_atomic {
+};
 
-  static AccClauseSet allowedOnceClauses_ACCD_atomic {
-  };
+static AccClauseSet allowedOnceClauses_ACCD_atomic {
+  Clause::ACCC_if,
+};
 
-  static AccClauseSet allowedExclusiveClauses_ACCD_atomic {
-  };
+static AccClauseSet allowedExclusiveClauses_ACCD_atomic {
+};
 
-  static AccClauseSet requiredClauses_ACCD_atomic {
-  };
+static AccClauseSet requiredClauses_ACCD_atomic {
+};
 
-  // Sets for cache
+// Sets for cache
 
-  static AccClauseSet allowedClauses_ACCD_cache {
-  };
-
-  static AccClauseSet allowedOnceClauses_ACCD_cache {
-  };
+static AccClauseSet allowedClauses_ACCD_cache {
+};
+
+static AccClauseSet allowedOnceClauses_ACCD_cache {
+};
 
-  static AccClauseSet allowedExclusiveClauses_ACCD_cache {
-  };
+static AccClauseSet allowedExclusiveClauses_ACCD_cache {
+};
+
+static AccClauseSet requiredClauses_ACCD_cache {
+};
 
-  static AccClauseSet requiredClauses_ACCD_cache {
-  };
+// Sets for data
 
-  // Sets for data
+static AccClauseSet allowedClauses_ACCD_data {
+  Clause::ACCC_async,
+  Clause::ACCC_device_type,
+  Clause::ACCC_wait,
+};
 
-  static AccClauseSet allowedClauses_ACCD_data {
-    llvm::acc::Clause::ACCC_device_type,
-    llvm::acc::Clause::ACCC_wait,
-  };
+static AccClauseSet allowedOnceClauses_ACCD_data {
+  Clause::ACCC_if,
+  Clause::ACCC_default,
+};
 
-  static AccClauseSet allowedOnceClauses_ACCD_data {
-    llvm::acc::Clause::ACCC_async,
-    llvm::acc::Clause::ACCC_if,
-    llvm::acc::Clause::ACCC_default,
-  };
+static AccClauseSet allowedExclusiveClauses_ACCD_data {
+};
 
-  static AccClauseSet allowedExclusiveClauses_ACCD_data {
-  };
+static AccClauseSet requiredClauses_ACCD_data {
+  Clause::ACCC_attach,
+  Clause::ACCC_copy,
+  Clause::ACCC_copyin,
+  Clause::ACCC_copyout,
+  Clause::ACCC_create,
+  Clause::ACCC_default,
+  Clause::ACCC_deviceptr,
+  Clause::ACCC_no_create,
+  Clause::ACCC_present,
+};
 
-  static AccClauseSet requiredClauses_ACCD_data {
-    llvm::acc::Clause::ACCC_attach,
-    llvm::acc::Clause::ACCC_copy,
-    llvm::acc::Clause::ACCC_copyin,
-    llvm::acc::Clause::ACCC_copyout,
-    llvm::acc::Clause::ACCC_create,
-    llvm::acc::Clause::ACCC_default,
-    llvm::acc::Clause::ACCC_deviceptr,
-    llvm::acc::Clause::ACCC_no_create,
-    llvm::acc::Clause::ACCC_present,
-  };
+// Sets for declare
 
-  // Sets for declare
-
-  static AccClauseSet allowedClauses_ACCD_declare {
-    llvm::acc::Clause::ACCC_copy,
-    llvm::acc::Clause::ACCC_copyin,
-    llvm::acc::Clause::ACCC_copyout,
-    llvm::acc::Clause::ACCC_create,
-    llvm::acc::Clause::ACCC_present,
-    llvm::acc::Clause::ACCC_deviceptr,
-    llvm::acc::Clause::ACCC_device_resident,
-    llvm::acc::Clause::ACCC_link,
-  };
-
-  static AccClauseSet allowedOnceClauses_ACCD_declare {
-  };
-
-  static AccClauseSet allowedExclusiveClauses_ACCD_declare {
-  };
-
-  static AccClauseSet requiredClauses_ACCD_declare {
-  };
-
-  // Sets for enter data
-
-  static AccClauseSet allowedClauses_ACCD_enter_data {
-    llvm::acc::Clause::ACCC_wait,
-  };
-
-  static AccClauseSet allowedOnceClauses_ACCD_enter_data {
-    llvm::acc::Clause::ACCC_async,
-    llvm::acc::Clause::ACCC_if,
-  };
-
-  static AccClauseSet allowedExclusiveClauses_ACCD_enter_data {
-  };
-
-  static AccClauseSet requiredClauses_ACCD_enter_data {
-    llvm::acc::Clause::ACCC_attach,
-    llvm::acc::Clause::ACCC_create,
-    llvm::acc::Clause::ACCC_copyin,
-  };
-
-  // Sets for exit data
-
-  static AccClauseSet allowedClauses_ACCD_exit_data {
-    llvm::acc::Clause::ACCC_wait,
-  };
-
-  static AccClauseSet allowedOnceClauses_ACCD_exit_data {
-    llvm::acc::Clause::ACCC_async,
-    llvm::acc::Clause::ACCC_if,
-    llvm::acc::Clause::ACCC_finalize,
-  };
-
-  static AccClauseSet allowedExclusiveClauses_ACCD_exit_data {
-  };
-
-  static AccClauseSet requiredClauses_ACCD_exit_data {
-    llvm::acc::Clause::ACCC_copyout,
-    llvm::acc::Clause::ACCC_delete,
-    llvm::acc::Clause::ACCC_detach,
-  };
-
-  // Sets for host_data
-
-  static AccClauseSet allowedClauses_ACCD_host_data {
-  };
-
-  static AccClauseSet allowedOnceClauses_ACCD_host_data {
-    llvm::acc::Clause::ACCC_if,
-    llvm::acc::Clause::ACCC_if_present,
-  };
-
-  static AccClauseSet allowedExclusiveClauses_ACCD_host_data {
-  };
-
-  static AccClauseSet requiredClauses_ACCD_host_data {
-    llvm::acc::Clause::ACCC_use_device,
-  };
-
-  // Sets for init
-
-  static AccClauseSet allowedClauses_ACCD_init {
-  };
-
-  static AccClauseSet allowedOnceClauses_ACCD_init {
-    llvm::acc::Clause::ACCC_device_num,
-    llvm::acc::Clause::ACCC_device_type,
-    llvm::acc::Clause::ACCC_if,
-  };
-
-  static AccClauseSet allowedExclusiveClauses_ACCD_init {
-  };
-
-  static AccClauseSet requiredClauses_ACCD_init {
-  };
-
-  // Sets for kernels
-
-  static AccClauseSet allowedClauses_ACCD_kernels {
-    llvm::acc::Clause::ACCC_attach,
-    llvm::acc::Clause::ACCC_copy,
-    llvm::acc::Clause::ACCC_copyin,
-    llvm::acc::Clause::ACCC_copyout,
-    llvm::acc::Clause::ACCC_create,
-    llvm::acc::Clause::ACCC_device_type,
-    llvm::acc::Clause::ACCC_no_create,
-    llvm::acc::Clause::ACCC_present,
-    llvm::acc::Clause::ACCC_deviceptr,
-    llvm::acc::Clause::ACCC_wait,
-  };
-
-  static AccClauseSet allowedOnceClauses_ACCD_kernels {
-    llvm::acc::Clause::ACCC_async,
-    llvm::acc::Clause::ACCC_default,
-    llvm::acc::Clause::ACCC_if,
-    llvm::acc::Clause::ACCC_num_gangs,
-    llvm::acc::Clause::ACCC_num_workers,
-    llvm::acc::Clause::ACCC_self,
-    llvm::acc::Clause::ACCC_vector_length,
-  };
-
-  static AccClauseSet allowedExclusiveClauses_ACCD_kernels {
-  };
-
-  static AccClauseSet requiredClauses_ACCD_kernels {
-  };
-
-  // Sets for kernels loop
-
-  static AccClauseSet allowedClauses_ACCD_kernels_loop {
-    llvm::acc::Clause::ACCC_attach,
-    llvm::acc::Clause::ACCC_collapse,
-    llvm::acc::Clause::ACCC_copy,
-    llvm::acc::Clause::ACCC_copyin,
-    llvm::acc::Clause::ACCC_copyout,
-    llvm::acc::Clause::ACCC_create,
-    llvm::acc::Clause::ACCC_deviceptr,
-    llvm::acc::Clause::ACCC_device_type,
-    llvm::acc::Clause::ACCC_gang,
-    llvm::acc::Clause::ACCC_no_create,
-    llvm::acc::Clause::ACCC_num_gangs,
-    llvm::acc::Clause::ACCC_num_workers,
-    llvm::acc::Clause::ACCC_present,
-    llvm::acc::Clause::ACCC_private,
-    llvm::acc::Clause::ACCC_reduction,
-    llvm::acc::Clause::ACCC_shortloop,
-    llvm::acc::Clause::ACCC_tile,
-    llvm::acc::Clause::ACCC_vector,
-    llvm::acc::Clause::ACCC_vector_length,
-    llvm::acc::Clause::ACCC_wait,
-    llvm::acc::Clause::ACCC_worker,
-  };
-
-  static AccClauseSet allowedOnceClauses_ACCD_kernels_loop {
-    llvm::acc::Clause::ACCC_async,
-    llvm::acc::Clause::ACCC_default,
-    llvm::acc::Clause::ACCC_if,
-    llvm::acc::Clause::ACCC_self,
-  };
-
-  static AccClauseSet allowedExclusiveClauses_ACCD_kernels_loop {
-    llvm::acc::Clause::ACCC_auto,
-    llvm::acc::Clause::ACCC_independent,
-    llvm::acc::Clause::ACCC_seq,
-  };
-
-  static AccClauseSet requiredClauses_ACCD_kernels_loop {
-  };
-
-  // Sets for loop
-
-  static AccClauseSet allowedClauses_ACCD_loop {
-    llvm::acc::Clause::ACCC_device_type,
-    llvm::acc::Clause::ACCC_private,
-    llvm::acc::Clause::ACCC_reduction,
-    llvm::acc::Clause::ACCC_collapse,
-    llvm::acc::Clause::ACCC_gang,
-    llvm::acc::Clause::ACCC_shortloop,
-    llvm::acc::Clause::ACCC_tile,
-    llvm::acc::Clause::ACCC_vector,
-    llvm::acc::Clause::ACCC_worker,
-  };
-
-  static AccClauseSet allowedOnceClauses_ACCD_loop {
-  };
-
-  static AccClauseSet allowedExclusiveClauses_ACCD_loop {
-    llvm::acc::Clause::ACCC_auto,
-    llvm::acc::Clause::ACCC_independent,
-    llvm::acc::Clause::ACCC_seq,
-  };
-
-  static AccClauseSet requiredClauses_ACCD_loop {
-  };
-
-  // Sets for parallel
-
-  static AccClauseSet allowedClauses_ACCD_parallel {
-    llvm::acc::Clause::ACCC_attach,
-    llvm::acc::Clause::ACCC_async,
-    llvm::acc::Clause::ACCC_copy,
-    llvm::acc::Clause::ACCC_copyin,
-    llvm::acc::Clause::ACCC_copyout,
-    llvm::acc::Clause::ACCC_create,
-    llvm::acc::Clause::ACCC_deviceptr,
-    llvm::acc::Clause::ACCC_device_type,
-    llvm::acc::Clause::ACCC_no_create,
-    llvm::acc::Clause::ACCC_num_gangs,
-    llvm::acc::Clause::ACCC_num_workers,
-    llvm::acc::Clause::ACCC_present,
-    llvm::acc::Clause::ACCC_private,
-    llvm::acc::Clause::ACCC_firstprivate,
-    llvm::acc::Clause::ACCC_reduction,
-    llvm::acc::Clause::ACCC_wait,
-    llvm::acc::Clause::ACCC_vector_length,
-  };
-
-  static AccClauseSet allowedOnceClauses_ACCD_parallel {
-    llvm::acc::Clause::ACCC_default,
-    llvm::acc::Clause::ACCC_if,
-    llvm::acc::Clause::ACCC_self,
-  };
-
-  static AccClauseSet allowedExclusiveClauses_ACCD_parallel {
-  };
-
-  static AccClauseSet requiredClauses_ACCD_parallel {
-  };
-
-  // Sets for parallel loop
-
-  static AccClauseSet allowedClauses_ACCD_parallel_loop {
-    llvm::acc::Clause::ACCC_attach,
-    llvm::acc::Clause::ACCC_collapse,
-    llvm::acc::Clause::ACCC_copy,
-    llvm::acc::Clause::ACCC_copyin,
-    llvm::acc::Clause::ACCC_copyout,
-    llvm::acc::Clause::ACCC_create,
-    llvm::acc::Clause::ACCC_deviceptr,
-    llvm::acc::Clause::ACCC_device_type,
-    llvm::acc::Clause::ACCC_firstprivate,
-    llvm::acc::Clause::ACCC_gang,
-    llvm::acc::Clause::ACCC_no_create,
-    llvm::acc::Clause::ACCC_num_gangs,
-    llvm::acc::Clause::ACCC_num_workers,
-    llvm::acc::Clause::ACCC_present,
-    llvm::acc::Clause::ACCC_private,
-    llvm::acc::Clause::ACCC_reduction,
-    llvm::acc::Clause::ACCC_shortloop,
-    llvm::acc::Clause::ACCC_tile,
-    llvm::acc::Clause::ACCC_vector,
-    llvm::acc::Clause::ACCC_vector_length,
-    llvm::acc::Clause::ACCC_wait,
-    llvm::acc::Clause::ACCC_worker,
-  };
-
-  static AccClauseSet allowedOnceClauses_ACCD_parallel_loop {
-    llvm::acc::Clause::ACCC_async,
-    llvm::acc::Clause::ACCC_default,
-    llvm::acc::Clause::ACCC_if,
-    llvm::acc::Clause::ACCC_self,
-  };
-
-  static AccClauseSet allowedExclusiveClauses_ACCD_parallel_loop {
-    llvm::acc::Clause::ACCC_auto,
-    llvm::acc::Clause::ACCC_independent,
-    llvm::acc::Clause::ACCC_seq,
-  };
-
-  static AccClauseSet requiredClauses_ACCD_parallel_loop {
-  };
-
-  // Sets for routine
-
-  static AccClauseSet allowedClauses_ACCD_routine {
-    llvm::acc::Clause::ACCC_bind,
-    llvm::acc::Clause::ACCC_device_type,
-    llvm::acc::Clause::ACCC_gang,
-    llvm::acc::Clause::ACCC_seq,
-    llvm::acc::Clause::ACCC_vector,
-    llvm::acc::Clause::ACCC_worker,
-  };
-
-  static AccClauseSet allowedOnceClauses_ACCD_routine {
-    llvm::acc::Clause::ACCC_nohost,
-  };
-
-  static AccClauseSet allowedExclusiveClauses_ACCD_routine {
-  };
-
-  static AccClauseSet requiredClauses_ACCD_routine {
-  };
-
-  // Sets for serial
-
-  static AccClauseSet allowedClauses_ACCD_serial {
-    llvm::acc::Clause::ACCC_attach,
-    llvm::acc::Clause::ACCC_copy,
-    llvm::acc::Clause::ACCC_copyin,
-    llvm::acc::Clause::ACCC_copyout,
-    llvm::acc::Clause::ACCC_create,
-    llvm::acc::Clause::ACCC_deviceptr,
-    llvm::acc::Clause::ACCC_device_type,
-    llvm::acc::Clause::ACCC_no_create,
-    llvm::acc::Clause::ACCC_present,
-    llvm::acc::Clause::ACCC_private,
-    llvm::acc::Clause::ACCC_firstprivate,
-    llvm::acc::Clause::ACCC_reduction,
-    llvm::acc::Clause::ACCC_wait,
-  };
-
-  static AccClauseSet allowedOnceClauses_ACCD_serial {
-    llvm::acc::Clause::ACCC_async,
-    llvm::acc::Clause::ACCC_default,
-    llvm::acc::Clause::ACCC_if,
-    llvm::acc::Clause::ACCC_self,
-  };
-
-  static AccClauseSet allowedExclusiveClauses_ACCD_serial {
-  };
-
-  static AccClauseSet requiredClauses_ACCD_serial {
-  };
-
-  // Sets for serial loop
-
-  static AccClauseSet allowedClauses_ACCD_serial_loop {
-    llvm::acc::Clause::ACCC_attach,
-    llvm::acc::Clause::ACCC_collapse,
-    llvm::acc::Clause::ACCC_copy,
-    llvm::acc::Clause::ACCC_copyin,
-    llvm::acc::Clause::ACCC_copyout,
-    llvm::acc::Clause::ACCC_create,
-    llvm::acc::Clause::ACCC_deviceptr,
-    llvm::acc::Clause::ACCC_device_type,
-    llvm::acc::Clause::ACCC_firstprivate,
-    llvm::acc::Clause::ACCC_gang,
-    llvm::acc::Clause::ACCC_no_create,
-    llvm::acc::Clause::ACCC_present,
-    llvm::acc::Clause::ACCC_private,
-    llvm::acc::Clause::ACCC_reduction,
-    llvm::acc::Clause::ACCC_shortloop,
-    llvm::acc::Clause::ACCC_tile,
-    llvm::acc::Clause::ACCC_vector,
-    llvm::acc::Clause::ACCC_wait,
-    llvm::acc::Clause::ACCC_worker,
-  };
-
-  static AccClauseSet allowedOnceClauses_ACCD_serial_loop {
-    llvm::acc::Clause::ACCC_async,
-    llvm::acc::Clause::ACCC_default,
-    llvm::acc::Clause::ACCC_if,
-    llvm::acc::Clause::ACCC_self,
-  };
-
-  static AccClauseSet allowedExclusiveClauses_ACCD_serial_loop {
-    llvm::acc::Clause::ACCC_auto,
-    llvm::acc::Clause::ACCC_independent,
-    llvm::acc::Clause::ACCC_seq,
-  };
-
-  static AccClauseSet requiredClauses_ACCD_serial_loop {
-  };
-
-  // Sets for set
-
-  static AccClauseSet allowedClauses_ACCD_set {
-  };
-
-  static AccClauseSet allowedOnceClauses_ACCD_set {
-    llvm::acc::Clause::ACCC_default_async,
-    llvm::acc::Clause::ACCC_device_num,
-    llvm::acc::Clause::ACCC_device_type,
-    llvm::acc::Clause::ACCC_if,
-  };
-
-  static AccClauseSet allowedExclusiveClauses_ACCD_set {
-  };
-
-  static AccClauseSet requiredClauses_ACCD_set {
-    llvm::acc::Clause::ACCC_default_async,
-    llvm::acc::Clause::ACCC_device_num,
-    llvm::acc::Clause::ACCC_device_type,
-  };
-
-  // Sets for shutdown
-
-  static AccClauseSet allowedClauses_ACCD_shutdown {
-  };
-
-  static AccClauseSet allowedOnceClauses_ACCD_shutdown {
-    llvm::acc::Clause::ACCC_device_num,
-    llvm::acc::Clause::ACCC_device_type,
-    llvm::acc::Clause::ACCC_if,
-  };
-
-  static AccClauseSet allowedExclusiveClauses_ACCD_shutdown {
-  };
-
-  static AccClauseSet requiredClauses_ACCD_shutdown {
-  };
-
-  // Sets for unknown
-
-  static AccClauseSet allowedClauses_ACCD_unknown {
-  };
-
-  static AccClauseSet allowedOnceClauses_ACCD_unknown {
-  };
-
-  static AccClauseSet allowedExclusiveClauses_ACCD_unknown {
-  };
-
-  static AccClauseSet requiredClauses_ACCD_unknown {
-  };
-
-  // Sets for update
-
-  static AccClauseSet allowedClauses_ACCD_update {
-    llvm::acc::Clause::ACCC_device_type,
-    llvm::acc::Clause::ACCC_wait,
-  };
-
-  static AccClauseSet allowedOnceClauses_ACCD_update {
-    llvm::acc::Clause::ACCC_async,
-    llvm::acc::Clause::ACCC_if,
-    llvm::acc::Clause::ACCC_if_present,
-  };
-
-  static AccClauseSet allowedExclusiveClauses_ACCD_update {
-  };
-
-  static AccClauseSet requiredClauses_ACCD_update {
-    llvm::acc::Clause::ACCC_device,
-    llvm::acc::Clause::ACCC_host,
-    llvm::acc::Clause::ACCC_self,
-  };
-
-  // Sets for wait
-
-  static AccClauseSet allowedClauses_ACCD_wait {
-  };
-
-  static AccClauseSet allowedOnceClauses_ACCD_wait {
-    llvm::acc::Clause::ACCC_async,
-    llvm::acc::Clause::ACCC_if,
-  };
-
-  static AccClauseSet allowedExclusiveClauses_ACCD_wait {
-  };
-
-  static AccClauseSet requiredClauses_ACCD_wait {
-  };
+static AccClauseSet allowedClauses_ACCD_declare {
+  Clause::ACCC_copy,
+  Clause::ACCC_copyin,
+  Clause::ACCC_copyout,
+  Clause::ACCC_create,
+  Clause::ACCC_present,
+  Clause::ACCC_deviceptr,
+  Clause::ACCC_device_resident,
+  Clause::ACCC_link,
+};
+
+static AccClauseSet allowedOnceClauses_ACCD_declare {
+};
+
+static AccClauseSet allowedExclusiveClauses_ACCD_declare {
+};
+
+static AccClauseSet requiredClauses_ACCD_declare {
+};
+
+// Sets for enter data
+
+static AccClauseSet allowedClauses_ACCD_enter_data {
+  Clause::ACCC_wait,
+};
+
+static AccClauseSet allowedOnceClauses_ACCD_enter_data {
+  Clause::ACCC_async,
+  Clause::ACCC_if,
+};
+
+static AccClauseSet allowedExclusiveClauses_ACCD_enter_data {
+};
+
+static AccClauseSet requiredClauses_ACCD_enter_data {
+  Clause::ACCC_attach,
+  Clause::ACCC_create,
+  Clause::ACCC_copyin,
+};
+
+// Sets for exit data
+
+static AccClauseSet allowedClauses_ACCD_exit_data {
+  Clause::ACCC_finalize,
+  Clause::ACCC_wait,
+};
+
+static AccClauseSet allowedOnceClauses_ACCD_exit_data {
+  Clause::ACCC_async,
+  Clause::ACCC_if,
+};
+
+static AccClauseSet allowedExclusiveClauses_ACCD_exit_data {
+};
+
+static AccClauseSet requiredClauses_ACCD_exit_data {
+  Clause::ACCC_copyout,
+  Clause::ACCC_delete,
+  Clause::ACCC_detach,
+};
+
+// Sets for host_data
+
+static AccClauseSet allowedClauses_ACCD_host_data {
+  Clause::ACCC_if_present,
+};
+
+static AccClauseSet allowedOnceClauses_ACCD_host_data {
+  Clause::ACCC_if,
+};
+
+static AccClauseSet allowedExclusiveClauses_ACCD_host_data {
+};
+
+static AccClauseSet requiredClauses_ACCD_host_data {
+  Clause::ACCC_use_device,
+};
+
+// Sets for init
+
+static AccClauseSet allowedClauses_ACCD_init {
+  Clause::ACCC_device_type,
+};
+
+static AccClauseSet allowedOnceClauses_ACCD_init {
+  Clause::ACCC_device_num,
+  Clause::ACCC_if,
+};
+
+static AccClauseSet allowedExclusiveClauses_ACCD_init {
+};
+
+static AccClauseSet requiredClauses_ACCD_init {
+};
+
+// Sets for kernels
+
+static AccClauseSet allowedClauses_ACCD_kernels {
+  Clause::ACCC_async,
+  Clause::ACCC_attach,
+  Clause::ACCC_copy,
+  Clause::ACCC_copyin,
+  Clause::ACCC_copyout,
+  Clause::ACCC_create,
+  Clause::ACCC_device_type,
+  Clause::ACCC_no_create,
+  Clause::ACCC_num_gangs,
+  Clause::ACCC_num_workers,
+  Clause::ACCC_present,
+  Clause::ACCC_deviceptr,
+  Clause::ACCC_vector_length,
+  Clause::ACCC_wait,
+};
+
+static AccClauseSet allowedOnceClauses_ACCD_kernels {
+  Clause::ACCC_default,
+  Clause::ACCC_if,
+  Clause::ACCC_self,
+};
+
+static AccClauseSet allowedExclusiveClauses_ACCD_kernels {
+};
+
+static AccClauseSet requiredClauses_ACCD_kernels {
+};
+
+// Sets for kernels loop
+
+static AccClauseSet allowedClauses_ACCD_kernels_loop {
+  Clause::ACCC_async,
+  Clause::ACCC_attach,
+  Clause::ACCC_collapse,
+  Clause::ACCC_copy,
+  Clause::ACCC_copyin,
+  Clause::ACCC_copyout,
+  Clause::ACCC_create,
+  Clause::ACCC_deviceptr,
+  Clause::ACCC_device_type,
+  Clause::ACCC_gang,
+  Clause::ACCC_no_create,
+  Clause::ACCC_num_gangs,
+  Clause::ACCC_num_workers,
+  Clause::ACCC_present,
+  Clause::ACCC_private,
+  Clause::ACCC_reduction,
+  Clause::ACCC_shortloop,
+  Clause::ACCC_tile,
+  Clause::ACCC_vector,
+  Clause::ACCC_vector_length,
+  Clause::ACCC_wait,
+  Clause::ACCC_worker,
+};
+
+static AccClauseSet allowedOnceClauses_ACCD_kernels_loop {
+  Clause::ACCC_default,
+  Clause::ACCC_if,
+  Clause::ACCC_self,
+};
+
+static AccClauseSet allowedExclusiveClauses_ACCD_kernels_loop {
+  Clause::ACCC_auto,
+  Clause::ACCC_independent,
+  Clause::ACCC_seq,
+};
+
+static AccClauseSet requiredClauses_ACCD_kernels_loop {
+};
+
+// Sets for loop
+
+static AccClauseSet allowedClauses_ACCD_loop {
+  Clause::ACCC_device_type,
+  Clause::ACCC_private,
+  Clause::ACCC_reduction,
+  Clause::ACCC_collapse,
+  Clause::ACCC_gang,
+  Clause::ACCC_shortloop,
+  Clause::ACCC_tile,
+  Clause::ACCC_vector,
+  Clause::ACCC_worker,
+};
+
+static AccClauseSet allowedOnceClauses_ACCD_loop {
+};
+
+static AccClauseSet allowedExclusiveClauses_ACCD_loop {
+  Clause::ACCC_auto,
+  Clause::ACCC_independent,
+  Clause::ACCC_seq,
+};
+
+static AccClauseSet requiredClauses_ACCD_loop {
+};
+
+// Sets for parallel
+
+static AccClauseSet allowedClauses_ACCD_parallel {
+  Clause::ACCC_attach,
+  Clause::ACCC_async,
+  Clause::ACCC_copy,
+  Clause::ACCC_copyin,
+  Clause::ACCC_copyout,
+  Clause::ACCC_create,
+  Clause::ACCC_deviceptr,
+  Clause::ACCC_device_type,
+  Clause::ACCC_no_create,
+  Clause::ACCC_num_gangs,
+  Clause::ACCC_num_workers,
+  Clause::ACCC_present,
+  Clause::ACCC_private,
+  Clause::ACCC_firstprivate,
+  Clause::ACCC_reduction,
+  Clause::ACCC_wait,
+  Clause::ACCC_vector_length,
+};
+
+static AccClauseSet allowedOnceClauses_ACCD_parallel {
+  Clause::ACCC_default,
+  Clause::ACCC_if,
+  Clause::ACCC_self,
+};
+
+static AccClauseSet allowedExclusiveClauses_ACCD_parallel {
+};
+
+static AccClauseSet requiredClauses_ACCD_parallel {
+};
+
+// Sets for parallel loop
+
+static AccClauseSet allowedClauses_ACCD_parallel_loop {
+  Clause::ACCC_async,
+  Clause::ACCC_attach,
+  Clause::ACCC_collapse,
+  Clause::ACCC_copy,
+  Clause::ACCC_copyin,
+  Clause::ACCC_copyout,
+  Clause::ACCC_create,
+  Clause::ACCC_deviceptr,
+  Clause::ACCC_device_type,
+  Clause::ACCC_firstprivate,
+  Clause::ACCC_gang,
+  Clause::ACCC_no_create,
+  Clause::ACCC_num_gangs,
+  Clause::ACCC_num_workers,
+  Clause::ACCC_present,
+  Clause::ACCC_private,
+  Clause::ACCC_reduction,
+  Clause::ACCC_shortloop,
+  Clause::ACCC_tile,
+  Clause::ACCC_vector,
+  Clause::ACCC_vector_length,
+  Clause::ACCC_wait,
+  Clause::ACCC_worker,
+};
+
+static AccClauseSet allowedOnceClauses_ACCD_parallel_loop {
+  Clause::ACCC_default,
+  Clause::ACCC_if,
+  Clause::ACCC_self,
+};
+
+static AccClauseSet allowedExclusiveClauses_ACCD_parallel_loop {
+  Clause::ACCC_auto,
+  Clause::ACCC_independent,
+  Clause::ACCC_seq,
+};
+
+static AccClauseSet requiredClauses_ACCD_parallel_loop {
+};
+
+// Sets for routine
+
+static AccClauseSet allowedClauses_ACCD_routine {
+  Clause::ACCC_bind,
+  Clause::ACCC_device_type,
+  Clause::ACCC_gang,
+  Clause::ACCC_seq,
+  Clause::ACCC_vector,
+  Clause::ACCC_worker,
+};
+
+static AccClauseSet allowedOnceClauses_ACCD_routine {
+  Clause::ACCC_nohost,
+};
+
+static AccClauseSet allowedExclusiveClauses_ACCD_routine {
+};
+
+static AccClauseSet requiredClauses_ACCD_routine {
+};
+
+// Sets for serial
+
+static AccClauseSet allowedClauses_ACCD_serial {
+  Clause::ACCC_async,
+  Clause::ACCC_attach,
+  Clause::ACCC_copy,
+  Clause::ACCC_copyin,
+  Clause::ACCC_copyout,
+  Clause::ACCC_create,
+  Clause::ACCC_deviceptr,
+  Clause::ACCC_device_type,
+  Clause::ACCC_no_create,
+  Clause::ACCC_present,
+  Clause::ACCC_private,
+  Clause::ACCC_firstprivate,
+  Clause::ACCC_reduction,
+  Clause::ACCC_wait,
+};
+
+static AccClauseSet allowedOnceClauses_ACCD_serial {
+  Clause::ACCC_default,
+  Clause::ACCC_if,
+  Clause::ACCC_self,
+};
+
+static AccClauseSet allowedExclusiveClauses_ACCD_serial {
+};
+
+static AccClauseSet requiredClauses_ACCD_serial {
+};
+
+// Sets for serial loop
+
+static AccClauseSet allowedClauses_ACCD_serial_loop {
+  Clause::ACCC_async,
+  Clause::ACCC_attach,
+  Clause::ACCC_collapse,
+  Clause::ACCC_copy,
+  Clause::ACCC_copyin,
+  Clause::ACCC_copyout,
+  Clause::ACCC_create,
+  Clause::ACCC_deviceptr,
+  Clause::ACCC_device_type,
+  Clause::ACCC_firstprivate,
+  Clause::ACCC_gang,
+  Clause::ACCC_no_create,
+  Clause::ACCC_present,
+  Clause::ACCC_private,
+  Clause::ACCC_reduction,
+  Clause::ACCC_shortloop,
+  Clause::ACCC_tile,
+  Clause::ACCC_vector,
+  Clause::ACCC_wait,
+  Clause::ACCC_worker,
+};
+
+static AccClauseSet allowedOnceClauses_ACCD_serial_loop {
+  Clause::ACCC_default,
+  Clause::ACCC_if,
+  Clause::ACCC_self,
+};
+
+static AccClauseSet allowedExclusiveClauses_ACCD_serial_loop {
+  Clause::ACCC_auto,
+  Clause::ACCC_independent,
+  Clause::ACCC_seq,
+};
+
+static AccClauseSet requiredClauses_ACCD_serial_loop {
+};
+
+// Sets for set
+
+static AccClauseSet allowedClauses_ACCD_set {
+};
+
+static AccClauseSet allowedOnceClauses_ACCD_set {
+  Clause::ACCC_default_async,
+  Clause::ACCC_device_num,
+  Clause::ACCC_device_type,
+  Clause::ACCC_if,
+};
+
+static AccClauseSet allowedExclusiveClauses_ACCD_set {
+};
+
+static AccClauseSet requiredClauses_ACCD_set {
+  Clause::ACCC_default_async,
+  Clause::ACCC_device_num,
+  Clause::ACCC_device_type,
+};
+
+// Sets for shutdown
+
+static AccClauseSet allowedClauses_ACCD_shutdown {
+  Clause::ACCC_device_type,
+};
+
+static AccClauseSet allowedOnceClauses_ACCD_shutdown {
+  Clause::ACCC_device_num,
+  Clause::ACCC_if,
+};
+
+static AccClauseSet allowedExclusiveClauses_ACCD_shutdown {
+};
+
+static AccClauseSet requiredClauses_ACCD_shutdown {
+};
+
+// Sets for unknown
+
+static AccClauseSet allowedClauses_ACCD_unknown {
+};
+
+static AccClauseSet allowedOnceClauses_ACCD_unknown {
+};
+
+static AccClauseSet allowedExclusiveClauses_ACCD_unknown {
+};
+
+static AccClauseSet requiredClauses_ACCD_unknown {
+};
+
+// Sets for update
+
+static AccClauseSet allowedClauses_ACCD_update {
+  Clause::ACCC_device_type,
+  Clause::ACCC_if_present,
+  Clause::ACCC_wait,
+};
+
+static AccClauseSet allowedOnceClauses_ACCD_update {
+  Clause::ACCC_async,
+  Clause::ACCC_if,
+};
+
+static AccClauseSet allowedExclusiveClauses_ACCD_update {
+};
+
+static AccClauseSet requiredClauses_ACCD_update {
+  Clause::ACCC_device,
+  Clause::ACCC_host,
+  Clause::ACCC_self,
+};
+
+// Sets for wait
+
+static AccClauseSet allowedClauses_ACCD_wait {
+};
+
+static AccClauseSet allowedOnceClauses_ACCD_wait {
+  Clause::ACCC_async,
+  Clause::ACCC_if,
+};
+
+static AccClauseSet allowedExclusiveClauses_ACCD_wait {
+};
+
+static AccClauseSet requiredClauses_ACCD_wait {
+};
 } // namespace acc
 } // namespace llvm
 
@@ -1235,7 +1236,15 @@ TYPE_PARSER(
   "reduction" >> construct<AccClause>(construct<AccClause::Reduction>(parenthesized(Parser<AccObjectListWithReduction>{}))) ||
   "read" >> construct<AccClause>(construct<AccClause::Read>()) ||
   "private" >> construct<AccClause>(construct<AccClause::Private>(parenthesized(Parser<AccObjectList>{}))) ||
+  "present_or_create" >> construct<AccClause>(construct<AccClause::Create>(parenthesized(Parser<AccObjectListWithModifier>{}))) ||
+  "present_or_copyout" >> construct<AccClause>(construct<AccClause::Copyout>(parenthesized(Parser<AccObjectListWithModifier>{}))) ||
+  "present_or_copyin" >> construct<AccClause>(construct<AccClause::Copyin>(parenthesized(Parser<AccObjectListWithModifier>{}))) ||
+  "present_or_copy" >> construct<AccClause>(construct<AccClause::Copy>(parenthesized(Parser<AccObjectList>{}))) ||
   "present" >> construct<AccClause>(construct<AccClause::Present>(parenthesized(Parser<AccObjectList>{}))) ||
+  "pcreate" >> construct<AccClause>(construct<AccClause::Create>(parenthesized(Parser<AccObjectListWithModifier>{}))) ||
+  "pcopyout" >> construct<AccClause>(construct<AccClause::Copyout>(parenthesized(Parser<AccObjectListWithModifier>{}))) ||
+  "pcopyin" >> construct<AccClause>(construct<AccClause::Copyin>(parenthesized(Parser<AccObjectListWithModifier>{}))) ||
+  "pcopy" >> construct<AccClause>(construct<AccClause::Copy>(parenthesized(Parser<AccObjectList>{}))) ||
   "num_workers" >> construct<AccClause>(construct<AccClause::NumWorkers>(parenthesized(scalarIntExpr))) ||
   "num_gangs" >> construct<AccClause>(construct<AccClause::NumGangs>(parenthesized(nonemptyList(scalarIntExpr)))) ||
   "nohost" >> construct<AccClause>(construct<AccClause::Nohost>()) ||
@@ -1248,8 +1257,9 @@ TYPE_PARSER(
   "gang" >> construct<AccClause>(construct<AccClause::Gang>(maybe(parenthesized(Parser<AccGangArgList>{})))) ||
   "firstprivate" >> construct<AccClause>(construct<AccClause::Firstprivate>(parenthesized(Parser<AccObjectList>{}))) ||
   "finalize" >> construct<AccClause>(construct<AccClause::Finalize>()) ||
+  "dtype" >> construct<AccClause>(construct<AccClause::DeviceType>(parenthesized(Parser<AccDeviceTypeExprList>{}))) ||
   "deviceptr" >> construct<AccClause>(construct<AccClause::Deviceptr>(parenthesized(Parser<AccObjectList>{}))) ||
-  ("device_type"_tok || "dtype"_tok) >> construct<AccClause>(construct<AccClause::DeviceType>(parenthesized(Parser<AccDeviceTypeExprList>{}))) ||
+  "device_type" >> construct<AccClause>(construct<AccClause::DeviceType>(parenthesized(Parser<AccDeviceTypeExprList>{}))) ||
   "device_resident" >> construct<AccClause>(construct<AccClause::DeviceResident>(parenthesized(Parser<AccObjectList>{}))) ||
   "device_num" >> construct<AccClause>(construct<AccClause::DeviceNum>(parenthesized(scalarIntExpr))) ||
   "device" >> construct<AccClause>(construct<AccClause::Device>(parenthesized(Parser<AccObjectList>{}))) ||
@@ -1257,10 +1267,10 @@ TYPE_PARSER(
   "delete" >> construct<AccClause>(construct<AccClause::Delete>(parenthesized(Parser<AccObjectList>{}))) ||
   "default_async" >> construct<AccClause>(construct<AccClause::DefaultAsync>(parenthesized(scalarIntExpr))) ||
   "default" >> construct<AccClause>(construct<AccClause::Default>(parenthesized(Parser<AccDefaultClause>{}))) ||
-  ("create"_tok || "present_or_create"_tok || "pcreate"_tok) >> construct<AccClause>(construct<AccClause::Create>(parenthesized(Parser<AccObjectListWithModifier>{}))) ||
-  ("copyout"_tok || "present_or_copyout"_tok || "pcopyout"_tok) >> construct<AccClause>(construct<AccClause::Copyout>(parenthesized(Parser<AccObjectListWithModifier>{}))) ||
-  ("copyin"_tok || "present_or_copyin"_tok || "pcopyin"_tok) >> construct<AccClause>(construct<AccClause::Copyin>(parenthesized(Parser<AccObjectListWithModifier>{}))) ||
-  ("copy"_tok || "present_or_copy"_tok || "pcopy"_tok) >> construct<AccClause>(construct<AccClause::Copy>(parenthesized(Parser<AccObjectList>{}))) ||
+  "create" >> construct<AccClause>(construct<AccClause::Create>(parenthesized(Parser<AccObjectListWithModifier>{}))) ||
+  "copyout" >> construct<AccClause>(construct<AccClause::Copyout>(parenthesized(Parser<AccObjectListWithModifier>{}))) ||
+  "copyin" >> construct<AccClause>(construct<AccClause::Copyin>(parenthesized(Parser<AccObjectListWithModifier>{}))) ||
+  "copy" >> construct<AccClause>(construct<AccClause::Copy>(parenthesized(Parser<AccObjectList>{}))) ||
   "collapse" >> construct<AccClause>(construct<AccClause::Collapse>(parenthesized(Parser<AccCollapseArg>{}))) ||
   "capture" >> construct<AccClause>(construct<AccClause::Capture>()) ||
   "bind" >> construct<AccClause>(construct<AccClause::Bind>(parenthesized(Parser<AccBindClause>{}))) ||
@@ -1270,6 +1280,704 @@ TYPE_PARSER(
 )
 
 #endif // GEN_FLANG_CLAUSES_PARSER
+
+#ifdef GEN_CLANG_DIRECTIVE_CLAUSE_SETS
+#undef GEN_CLANG_DIRECTIVE_CLAUSE_SETS
+
+namespace clang {
+namespace acc {
+
+// Sets for atomic
+
+static AccClauseSet allowedClauses_ACCD_atomic {
+};
+
+static AccClauseSet allowedOnceClauses_ACCD_atomic {
+  OpenACCClauseKind::If,
+};
+
+static AccClauseSet allowedExclusiveClauses_ACCD_atomic {
+};
+
+static AccClauseSet requiredClauses_ACCD_atomic {
+};
+
+// Sets for cache
+
+static AccClauseSet allowedClauses_ACCD_cache {
+};
+
+static AccClauseSet allowedOnceClauses_ACCD_cache {
+};
+
+static AccClauseSet allowedExclusiveClauses_ACCD_cache {
+};
+
+static AccClauseSet requiredClauses_ACCD_cache {
+};
+
+// Sets for data
+
+static AccClauseSet allowedClauses_ACCD_data {
+  OpenACCClauseKind::Async,
+  OpenACCClauseKind::DeviceType,
+  OpenACCClauseKind::Wait,
+};
+
+static AccClauseSet allowedOnceClauses_ACCD_data {
+  OpenACCClauseKind::If,
+  OpenACCClauseKind::Default,
+};
+
+static AccClauseSet allowedExclusiveClauses_ACCD_data {
+};
+
+static AccClauseSet requiredClauses_ACCD_data {
+  OpenACCClauseKind::Attach,
+  OpenACCClauseKind::Copy,
+  OpenACCClauseKind::CopyIn,
+  OpenACCClauseKind::CopyOut,
+  OpenACCClauseKind::Create,
+  OpenACCClauseKind::Default,
+  OpenACCClauseKind::DevicePtr,
+  OpenACCClauseKind::NoCreate,
+  OpenACCClauseKind::Present,
+};
+
+// Sets for declare
+
+static AccClauseSet allowedClauses_ACCD_declare {
+  OpenACCClauseKind::Copy,
+  OpenACCClauseKind::CopyIn,
+  OpenACCClauseKind::CopyOut,
+  OpenACCClauseKind::Create,
+  OpenACCClauseKind::Present,
+  OpenACCClauseKind::DevicePtr,
+  OpenACCClauseKind::DeviceResident,
+  OpenACCClauseKind::Link,
+};
+
+static AccClauseSet allowedOnceClauses_ACCD_declare {
+};
+
+static AccClauseSet allowedExclusiveClauses_ACCD_declare {
+};
+
+static AccClauseSet requiredClauses_ACCD_declare {
+};
+
+// Sets for enter data
+
+static AccClauseSet allowedClauses_ACCD_enter_data {
+  OpenACCClauseKind::Wait,
+};
+
+static AccClauseSet allowedOnceClauses_ACCD_enter_data {
+  OpenACCClauseKind::Async,
+  OpenACCClauseKind::If,
+};
+
+static AccClauseSet allowedExclusiveClauses_ACCD_enter_data {
+};
+
+static AccClauseSet requiredClauses_ACCD_enter_data {
+  OpenACCClauseKind::Attach,
+  OpenACCClauseKind::Create,
+  OpenACCClauseKind::CopyIn,
+};
+
+// Sets for exit data
+
+static AccClauseSet allowedClauses_ACCD_exit_data {
+  OpenACCClauseKind::Finalize,
+  OpenACCClauseKind::Wait,
+};
+
+static AccClauseSet allowedOnceClauses_ACCD_exit_data {
+  OpenACCClauseKind::Async,
+  OpenACCClauseKind::If,
+};
+
+static AccClauseSet allowedExclusiveClauses_ACCD_exit_data {
+};
+
+static AccClauseSet requiredClauses_ACCD_exit_data {
+  OpenACCClauseKind::CopyOut,
+  OpenACCClauseKind::Delete,
+  OpenACCClauseKind::Detach,
+};
+
+// Sets for host_data
+
+static AccClauseSet allowedClauses_ACCD_host_data {
+  OpenACCClauseKind::IfPresent,
+};
+
+static AccClauseSet allowedOnceClauses_ACCD_host_data {
+  OpenACCClauseKind::If,
+};
+
+static AccClauseSet allowedExclusiveClauses_ACCD_host_data {
+};
+
+static AccClauseSet requiredClauses_ACCD_host_data {
+  OpenACCClauseKind::UseDevice,
+};
+
+// Sets for init
+
+static AccClauseSet allowedClauses_ACCD_init {
+  OpenACCClauseKind::DeviceType,
+};
+
+static AccClauseSet allowedOnceClauses_ACCD_init {
+  OpenACCClauseKind::DeviceNum,
+  OpenACCClauseKind::If,
+};
+
+static AccClauseSet allowedExclusiveClauses_ACCD_init {
+};
+
+static AccClauseSet requiredClauses_ACCD_init {
+};
+
+// Sets for kernels
+
+static AccClauseSet allowedClauses_ACCD_kernels {
+  OpenACCClauseKind::Async,
+  OpenACCClauseKind::Attach,
+  OpenACCClauseKind::Copy,
+  OpenACCClauseKind::CopyIn,
+  OpenACCClauseKind::CopyOut,
+  OpenACCClauseKind::Create,
+  OpenACCClauseKind::DeviceType,
+  OpenACCClauseKind::NoCreate,
+  OpenACCClauseKind::NumGangs,
+  OpenACCClauseKind::NumWorkers,
+  OpenACCClauseKind::Present,
+  OpenACCClauseKind::DevicePtr,
+  OpenACCClauseKind::VectorLength,
+  OpenACCClauseKind::Wait,
+};
+
+static AccClauseSet allowedOnceClauses_ACCD_kernels {
+  OpenACCClauseKind::Default,
+  OpenACCClauseKind::If,
+  OpenACCClauseKind::Self,
+};
+
+static AccClauseSet allowedExclusiveClauses_ACCD_kernels {
+};
+
+static AccClauseSet requiredClauses_ACCD_kernels {
+};
+
+// Sets for kernels loop
+
+static AccClauseSet allowedClauses_ACCD_kernels_loop {
+  OpenACCClauseKind::Async,
+  OpenACCClauseKind::Attach,
+  OpenACCClauseKind::Collapse,
+  OpenACCClauseKind::Copy,
+  OpenACCClauseKind::CopyIn,
+  OpenACCClauseKind::CopyOut,
+  OpenACCClauseKind::Create,
+  OpenACCClauseKind::DevicePtr,
+  OpenACCClauseKind::DeviceType,
+  OpenACCClauseKind::Gang,
+  OpenACCClauseKind::NoCreate,
+  OpenACCClauseKind::NumGangs,
+  OpenACCClauseKind::NumWorkers,
+  OpenACCClauseKind::Present,
+  OpenACCClauseKind::Private,
+  OpenACCClauseKind::Reduction,
+  OpenACCClauseKind::Shortloop,
+  OpenACCClauseKind::Tile,
+  OpenACCClauseKind::Vector,
+  OpenACCClauseKind::VectorLength,
+  OpenACCClauseKind::Wait,
+  OpenACCClauseKind::Worker,
+};
+
+static AccClauseSet allowedOnceClauses_ACCD_kernels_loop {
+  OpenACCClauseKind::Default,
+  OpenACCClauseKind::If,
+  OpenACCClauseKind::Self,
+};
+
+static AccClauseSet allowedExclusiveClauses_ACCD_kernels_loop {
+  OpenACCClauseKind::Auto,
+  OpenACCClauseKind::Independent,
+  OpenACCClauseKind::Seq,
+};
+
+static AccClauseSet requiredClauses_ACCD_kernels_loop {
+};
+
+// Sets for loop
+
+static AccClauseSet allowedClauses_ACCD_loop {
+  OpenACCClauseKind::DeviceType,
+  OpenACCClauseKind::Private,
+  OpenACCClauseKind::Reduction,
+  OpenACCClauseKind::Collapse,
+  OpenACCClauseKind::Gang,
+  OpenACCClauseKind::Shortloop,
+  OpenACCClauseKind::Tile,
+  OpenACCClauseKind::Vector,
+  OpenACCClauseKind::Worker,
+};
+
+static AccClauseSet allowedOnceClauses_ACCD_loop {
+};
+
+static AccClauseSet allowedExclusiveClauses_ACCD_loop {
+  OpenACCClauseKind::Auto,
+  OpenACCClauseKind::Independent,
+  OpenACCClauseKind::Seq,
+};
+
+static AccClauseSet requiredClauses_ACCD_loop {
+};
+
+// Sets for parallel
+
+static AccClauseSet allowedClauses_ACCD_parallel {
+  OpenACCClauseKind::Attach,
+  OpenACCClauseKind::Async,
+  OpenACCClauseKind::Copy,
+  OpenACCClauseKind::CopyIn,
+  OpenACCClauseKind::CopyOut,
+  OpenACCClauseKind::Create,
+  OpenACCClauseKind::DevicePtr,
+  OpenACCClauseKind::DeviceType,
+  OpenACCClauseKind::NoCreate,
+  OpenACCClauseKind::NumGangs,
+  OpenACCClauseKind::NumWorkers,
+  OpenACCClauseKind::Present,
+  OpenACCClauseKind::Private,
+  OpenACCClauseKind::FirstPrivate,
+  OpenACCClauseKind::Reduction,
+  OpenACCClauseKind::Wait,
+  OpenACCClauseKind::VectorLength,
+};
+
+static AccClauseSet allowedOnceClauses_ACCD_parallel {
+  OpenACCClauseKind::Default,
+  OpenACCClauseKind::If,
+  OpenACCClauseKind::Self,
+};
+
+static AccClauseSet allowedExclusiveClauses_ACCD_parallel {
+};
+
+static AccClauseSet requiredClauses_ACCD_parallel {
+};
+
+// Sets for parallel loop
+
+static AccClauseSet allowedClauses_ACCD_parallel_loop {
+  OpenACCClauseKind::Async,
+  OpenACCClauseKind::Attach,
+  OpenACCClauseKind::Collapse,
+  OpenACCClauseKind::Copy,
+  OpenACCClauseKind::CopyIn,
+  OpenACCClauseKind::CopyOut,
+  OpenACCClauseKind::Create,
+  OpenACCClauseKind::DevicePtr,
+  OpenACCClauseKind::DeviceType,
+  OpenACCClauseKind::FirstPrivate,
+  OpenACCClauseKind::Gang,
+  OpenACCClauseKind::NoCreate,
+  OpenACCClauseKind::NumGangs,
+  OpenACCClauseKind::NumWorkers,
+  OpenACCClauseKind::Present,
+  OpenACCClauseKind::Private,
+  OpenACCClauseKind::Reduction,
+  OpenACCClauseKind::Shortloop,
+  OpenACCClauseKind::Tile,
+  OpenACCClauseKind::Vector,
+  OpenACCClauseKind::VectorLength,
+  OpenACCClauseKind::Wait,
+  OpenACCClauseKind::Worker,
+};
+
+static AccClauseSet allowedOnceClauses_ACCD_parallel_loop {
+  OpenACCClauseKind::Default,
+  OpenACCClauseKind::If,
+  OpenACCClauseKind::Self,
+};
+
+static AccClauseSet allowedExclusiveClauses_ACCD_parallel_loop {
+  OpenACCClauseKind::Auto,
+  OpenACCClauseKind::Independent,
+  OpenACCClauseKind::Seq,
+};
+
+static AccClauseSet requiredClauses_ACCD_parallel_loop {
+};
+
+// Sets for routine
+
+static AccClauseSet allowedClauses_ACCD_routine {
+  OpenACCClauseKind::Bind,
+  OpenACCClauseKind::DeviceType,
+  OpenACCClauseKind::Gang,
+  OpenACCClauseKind::Seq,
+  OpenACCClauseKind::Vector,
+  OpenACCClauseKind::Worker,
+};
+
+static AccClauseSet allowedOnceClauses_ACCD_routine {
+  OpenACCClauseKind::NoHost,
+};
+
+static AccClauseSet allowedExclusiveClauses_ACCD_routine {
+};
+
+static AccClauseSet requiredClauses_ACCD_routine {
+};
+
+// Sets for serial
+
+static AccClauseSet allowedClauses_ACCD_serial {
+  OpenACCClauseKind::Async,
+  OpenACCClauseKind::Attach,
+  OpenACCClauseKind::Copy,
+  OpenACCClauseKind::CopyIn,
+  OpenACCClauseKind::CopyOut,
+  OpenACCClauseKind::Create,
+  OpenACCClauseKind::DevicePtr,
+  OpenACCClauseKind::DeviceType,
+  OpenACCClauseKind::NoCreate,
+  OpenACCClauseKind::Present,
+  OpenACCClauseKind::Private,
+  OpenACCClauseKind::FirstPrivate,
+  OpenACCClauseKind::Reduction,
+  OpenACCClauseKind::Wait,
+};
+
+static AccClauseSet allowedOnceClauses_ACCD_serial {
+  OpenACCClauseKind::Default,
+  OpenACCClauseKind::If,
+  OpenACCClauseKind::Self,
+};
+
+static AccClauseSet allowedExclusiveClauses_ACCD_serial {
+};
+
+static AccClauseSet requiredClauses_ACCD_serial {
+};
+
+// Sets for serial loop
+
+static AccClauseSet allowedClauses_ACCD_serial_loop {
+  OpenACCClauseKind::Async,
+  OpenACCClauseKind::Attach,
+  OpenACCClauseKind::Collapse,
+  OpenACCClauseKind::Copy,
+  OpenACCClauseKind::CopyIn,
+  OpenACCClauseKind::CopyOut,
+  OpenACCClauseKind::Create,
+  OpenACCClauseKind::DevicePtr,
+  OpenACCClauseKind::DeviceType,
+  OpenACCClauseKind::FirstPrivate,
+  OpenACCClauseKind::Gang,
+  OpenACCClauseKind::NoCreate,
+  OpenACCClauseKind::Present,
+  OpenACCClauseKind::Private,
+  OpenACCClauseKind::Reduction,
+  OpenACCClauseKind::Shortloop,
+  OpenACCClauseKind::Tile,
+  OpenACCClauseKind::Vector,
+  OpenACCClauseKind::Wait,
+  OpenACCClauseKind::Worker,
+};
+
+static AccClauseSet allowedOnceClauses_ACCD_serial_loop {
+  OpenACCClauseKind::Default,
+  OpenACCClauseKind::If,
+  OpenACCClauseKind::Self,
+};
+
+static AccClauseSet allowedExclusiveClauses_ACCD_serial_loop {
+  OpenACCClauseKind::Auto,
+  OpenACCClauseKind::Independent,
+  OpenACCClauseKind::Seq,
+};
+
+static AccClauseSet requiredClauses_ACCD_serial_loop {
+};
+
+// Sets for set
+
+static AccClauseSet allowedClauses_ACCD_set {
+};
+
+static AccClauseSet allowedOnceClauses_ACCD_set {
+  OpenACCClauseKind::DefaultAsync,
+  OpenACCClauseKind::DeviceNum,
+  OpenACCClauseKind::DeviceType,
+  OpenACCClauseKind::If,
+};
+
+static AccClauseSet allowedExclusiveClauses_ACCD_set {
+};
+
+static AccClauseSet requiredClauses_ACCD_set {
+  OpenACCClauseKind::DefaultAsync,
+  OpenACCClauseKind::DeviceNum,
+  OpenACCClauseKind::DeviceType,
+};
+
+// Sets for shutdown
+
+static AccClauseSet allowedClauses_ACCD_shutdown {
+  OpenACCClauseKind::DeviceType,
+};
+
+static AccClauseSet allowedOnceClauses_ACCD_shutdown {
+  OpenACCClauseKind::DeviceNum,
+  OpenACCClauseKind::If,
+};
+
+static AccClauseSet allowedExclusiveClauses_ACCD_shutdown {
+};
+
+static AccClauseSet requiredClauses_ACCD_shutdown {
+};
+
+// Sets for unknown
+
+static AccClauseSet allowedClauses_ACCD_unknown {
+};
+
+static AccClauseSet allowedOnceClauses_ACCD_unknown {
+};
+
+static AccClauseSet allowedExclusiveClauses_ACCD_unknown {
+};
+
+static AccClauseSet requiredClauses_ACCD_unknown {
+};
+
+// Sets for update
+
+static AccClauseSet allowedClauses_ACCD_update {
+  OpenACCClauseKind::DeviceType,
+  OpenACCClauseKind::IfPresent,
+  OpenACCClauseKind::Wait,
+};
+
+static AccClauseSet allowedOnceClauses_ACCD_update {
+  OpenACCClauseKind::Async,
+  OpenACCClauseKind::If,
+};
+
+static AccClauseSet allowedExclusiveClauses_ACCD_update {
+};
+
+static AccClauseSet requiredClauses_ACCD_update {
+  OpenACCClauseKind::Device,
+  OpenACCClauseKind::Host,
+  OpenACCClauseKind::Self,
+};
+
+// Sets for wait
+
+static AccClauseSet allowedClauses_ACCD_wait {
+};
+
+static AccClauseSet allowedOnceClauses_ACCD_wait {
+  OpenACCClauseKind::Async,
+  OpenACCClauseKind::If,
+};
+
+static AccClauseSet allowedExclusiveClauses_ACCD_wait {
+};
+
+static AccClauseSet requiredClauses_ACCD_wait {
+};
+} // namespace acc
+} // namespace clang
+
+#endif // GEN_CLANG_DIRECTIVE_CLAUSE_SETS
+
+#ifdef GEN_CLANG_DIRECTIVE_CLAUSE_MAP
+#undef GEN_CLANG_DIRECTIVE_CLAUSE_MAP
+
+{
+  {clang::OpenACCDirectiveKind::Atomic,
+    {
+      clang::acc::allowedClauses_ACCD_atomic,
+      clang::acc::allowedOnceClauses_ACCD_atomic,
+      clang::acc::allowedExclusiveClauses_ACCD_atomic,
+      clang::acc::requiredClauses_ACCD_atomic,
+    }
+  },
+  {clang::OpenACCDirectiveKind::Cache,
+    {
+      clang::acc::allowedClauses_ACCD_cache,
+      clang::acc::allowedOnceClauses_ACCD_cache,
+      clang::acc::allowedExclusiveClauses_ACCD_cache,
+      clang::acc::requiredClauses_ACCD_cache,
+    }
+  },
+  {clang::OpenACCDirectiveKind::Data,
+    {
+      clang::acc::allowedClauses_ACCD_data,
+      clang::acc::allowedOnceClauses_ACCD_data,
+      clang::acc::allowedExclusiveClauses_ACCD_data,
+      clang::acc::requiredClauses_ACCD_data,
+    }
+  },
+  {clang::OpenACCDirectiveKind::Declare,
+    {
+      clang::acc::allowedClauses_ACCD_declare,
+      clang::acc::allowedOnceClauses_ACCD_declare,
+      clang::acc::allowedExclusiveClauses_ACCD_declare,
+      clang::acc::requiredClauses_ACCD_declare,
+    }
+  },
+  {clang::OpenACCDirectiveKind::EnterData,
+    {
+      clang::acc::allowedClauses_ACCD_enter_data,
+      clang::acc::allowedOnceClauses_ACCD_enter_data,
+      clang::acc::allowedExclusiveClauses_ACCD_enter_data,
+      clang::acc::requiredClauses_ACCD_enter_data,
+    }
+  },
+  {clang::OpenACCDirectiveKind::ExitData,
+    {
+      clang::acc::allowedClauses_ACCD_exit_data,
+      clang::acc::allowedOnceClauses_ACCD_exit_data,
+      clang::acc::allowedExclusiveClauses_ACCD_exit_data,
+      clang::acc::requiredClauses_ACCD_exit_data,
+    }
+  },
+  {clang::OpenACCDirectiveKind::HostData,
+    {
+      clang::acc::allowedClauses_ACCD_host_data,
+      clang::acc::allowedOnceClauses_ACCD_host_data,
+      clang::acc::allowedExclusiveClauses_ACCD_host_data,
+      clang::acc::requiredClauses_ACCD_host_data,
+    }
+  },
+  {clang::OpenACCDirectiveKind::Init,
+    {
+      clang::acc::allowedClauses_ACCD_init,
+      clang::acc::allowedOnceClauses_ACCD_init,
+      clang::acc::allowedExclusiveClauses_ACCD_init,
+      clang::acc::requiredClauses_ACCD_init,
+    }
+  },
+  {clang::OpenACCDirectiveKind::Kernels,
+    {
+      clang::acc::allowedClauses_ACCD_kernels,
+      clang::acc::allowedOnceClauses_ACCD_kernels,
+      clang::acc::allowedExclusiveClauses_ACCD_kernels,
+      clang::acc::requiredClauses_ACCD_kernels,
+    }
+  },
+  {clang::OpenACCDirectiveKind::KernelsLoop,
+    {
+      clang::acc::allowedClauses_ACCD_kernels_loop,
+      clang::acc::allowedOnceClauses_ACCD_kernels_loop,
+      clang::acc::allowedExclusiveClauses_ACCD_kernels_loop,
+      clang::acc::requiredClauses_ACCD_kernels_loop,
+    }
+  },
+  {clang::OpenACCDirectiveKind::Loop,
+    {
+      clang::acc::allowedClauses_ACCD_loop,
+      clang::acc::allowedOnceClauses_ACCD_loop,
+      clang::acc::allowedExclusiveClauses_ACCD_loop,
+      clang::acc::requiredClauses_ACCD_loop,
+    }
+  },
+  {clang::OpenACCDirectiveKind::Parallel,
+    {
+      clang::acc::allowedClauses_ACCD_parallel,
+      clang::acc::allowedOnceClauses_ACCD_parallel,
+      clang::acc::allowedExclusiveClauses_ACCD_parallel,
+      clang::acc::requiredClauses_ACCD_parallel,
+    }
+  },
+  {clang::OpenACCDirectiveKind::ParallelLoop,
+    {
+      clang::acc::allowedClauses_ACCD_parallel_loop,
+      clang::acc::allowedOnceClauses_ACCD_parallel_loop,
+      clang::acc::allowedExclusiveClauses_ACCD_parallel_loop,
+      clang::acc::requiredClauses_ACCD_parallel_loop,
+    }
+  },
+  {clang::OpenACCDirectiveKind::Routine,
+    {
+      clang::acc::allowedClauses_ACCD_routine,
+      clang::acc::allowedOnceClauses_ACCD_routine,
+      clang::acc::allowedExclusiveClauses_ACCD_routine,
+      clang::acc::requiredClauses_ACCD_routine,
+    }
+  },
+  {clang::OpenACCDirectiveKind::Serial,
+    {
+      clang::acc::allowedClauses_ACCD_serial,
+      clang::acc::allowedOnceClauses_ACCD_serial,
+      clang::acc::allowedExclusiveClauses_ACCD_serial,
+      clang::acc::requiredClauses_ACCD_serial,
+    }
+  },
+  {clang::OpenACCDirectiveKind::SerialLoop,
+    {
+      clang::acc::allowedClauses_ACCD_serial_loop,
+      clang::acc::allowedOnceClauses_ACCD_serial_loop,
+      clang::acc::allowedExclusiveClauses_ACCD_serial_loop,
+      clang::acc::requiredClauses_ACCD_serial_loop,
+    }
+  },
+  {clang::OpenACCDirectiveKind::Set,
+    {
+      clang::acc::allowedClauses_ACCD_set,
+      clang::acc::allowedOnceClauses_ACCD_set,
+      clang::acc::allowedExclusiveClauses_ACCD_set,
+      clang::acc::requiredClauses_ACCD_set,
+    }
+  },
+  {clang::OpenACCDirectiveKind::Shutdown,
+    {
+      clang::acc::allowedClauses_ACCD_shutdown,
+      clang::acc::allowedOnceClauses_ACCD_shutdown,
+      clang::acc::allowedExclusiveClauses_ACCD_shutdown,
+      clang::acc::requiredClauses_ACCD_shutdown,
+    }
+  },
+  {clang::OpenACCDirectiveKind::Invalid,
+    {
+      clang::acc::allowedClauses_ACCD_unknown,
+      clang::acc::allowedOnceClauses_ACCD_unknown,
+      clang::acc::allowedExclusiveClauses_ACCD_unknown,
+      clang::acc::requiredClauses_ACCD_unknown,
+    }
+  },
+  {clang::OpenACCDirectiveKind::Update,
+    {
+      clang::acc::allowedClauses_ACCD_update,
+      clang::acc::allowedOnceClauses_ACCD_update,
+      clang::acc::allowedExclusiveClauses_ACCD_update,
+      clang::acc::requiredClauses_ACCD_update,
+    }
+  },
+  {clang::OpenACCDirectiveKind::Wait,
+    {
+      clang::acc::allowedClauses_ACCD_wait,
+      clang::acc::allowedOnceClauses_ACCD_wait,
+      clang::acc::allowedExclusiveClauses_ACCD_wait,
+      clang::acc::requiredClauses_ACCD_wait,
+    }
+  },
+}
+
+#endif // GEN_CLANG_DIRECTIVE_CLAUSE_MAP
 
 #ifdef GEN_CLANG_CLAUSE_CLASS
 #undef GEN_CLANG_CLAUSE_CLASS
@@ -1357,35 +2065,38 @@ __CLAUSE_NO_CLASS(write)
 #ifdef GEN_DIRECTIVES_IMPL
 #undef GEN_DIRECTIVES_IMPL
 
+#include "llvm/Frontend/Directive/Spelling.h"
 #include "llvm/Support/ErrorHandling.h"
+#include <utility>
 
-Directive llvm::acc::getOpenACCDirectiveKind(llvm::StringRef Str) {
-  return llvm::StringSwitch<Directive>(Str)
-    .Case("atomic",ACCD_atomic)
-    .Case("cache",ACCD_cache)
-    .Case("data",ACCD_data)
-    .Case("declare",ACCD_declare)
-    .Case("enter data",ACCD_enter_data)
-    .Case("exit data",ACCD_exit_data)
-    .Case("host_data",ACCD_host_data)
-    .Case("init",ACCD_init)
-    .Case("kernels",ACCD_kernels)
-    .Case("kernels loop",ACCD_kernels_loop)
-    .Case("loop",ACCD_loop)
-    .Case("parallel",ACCD_parallel)
-    .Case("parallel loop",ACCD_parallel_loop)
-    .Case("routine",ACCD_routine)
-    .Case("serial",ACCD_serial)
-    .Case("serial loop",ACCD_serial_loop)
-    .Case("set",ACCD_set)
-    .Case("shutdown",ACCD_shutdown)
-    .Case("unknown",ACCD_unknown)
-    .Case("update",ACCD_update)
-    .Case("wait",ACCD_wait)
-    .Default(ACCD_unknown);
+std::pair<llvm::acc::Directive, llvm::directive::VersionRange> llvm::acc::getOpenACCDirectiveKindAndVersions(llvm::StringRef Str) {
+  directive::VersionRange All; // Default-initialized to "all versions"
+  return StringSwitch<std::pair<Directive, directive::VersionRange>>(Str)
+    .Case("atomic", {ACCD_atomic, All})
+    .Case("cache", {ACCD_cache, All})
+    .Case("data", {ACCD_data, All})
+    .Case("declare", {ACCD_declare, All})
+    .Case("enter data", {ACCD_enter_data, All})
+    .Case("exit data", {ACCD_exit_data, All})
+    .Case("host_data", {ACCD_host_data, All})
+    .Case("init", {ACCD_init, All})
+    .Case("kernels", {ACCD_kernels, All})
+    .Case("kernels loop", {ACCD_kernels_loop, All})
+    .Case("loop", {ACCD_loop, All})
+    .Case("parallel", {ACCD_parallel, All})
+    .Case("parallel loop", {ACCD_parallel_loop, All})
+    .Case("routine", {ACCD_routine, All})
+    .Case("serial", {ACCD_serial, All})
+    .Case("serial loop", {ACCD_serial_loop, All})
+    .Case("set", {ACCD_set, All})
+    .Case("shutdown", {ACCD_shutdown, All})
+    .Case("unknown", {ACCD_unknown, All})
+    .Case("update", {ACCD_update, All})
+    .Case("wait", {ACCD_wait, All})
+    .Default({ACCD_unknown, All});
 }
 
-llvm::StringRef llvm::acc::getOpenACCDirectiveName(Directive Kind) {
+llvm::StringRef llvm::acc::getOpenACCDirectiveName(llvm::acc::Directive Kind, unsigned Version) {
   switch (Kind) {
     case ACCD_atomic:
       return "atomic";
@@ -1433,58 +2144,68 @@ llvm::StringRef llvm::acc::getOpenACCDirectiveName(Directive Kind) {
   llvm_unreachable("Invalid OpenACC Directive kind");
 }
 
-Clause llvm::acc::getOpenACCClauseKind(llvm::StringRef Str) {
-  return llvm::StringSwitch<Clause>(Str)
-    .Case("async",ACCC_async)
-    .Case("attach",ACCC_attach)
-    .Case("auto",ACCC_auto)
-    .Case("bind",ACCC_bind)
-    .Case("capture",ACCC_capture)
-    .Case("collapse",ACCC_collapse)
-    .Case("copy",ACCC_copy)
-    .Case("copyin",ACCC_copyin)
-    .Case("copyout",ACCC_copyout)
-    .Case("create",ACCC_create)
-    .Case("default",ACCC_default)
-    .Case("default_async",ACCC_default_async)
-    .Case("delete",ACCC_delete)
-    .Case("detach",ACCC_detach)
-    .Case("device",ACCC_device)
-    .Case("device_num",ACCC_device_num)
-    .Case("deviceptr",ACCC_deviceptr)
-    .Case("device_resident",ACCC_device_resident)
-    .Case("device_type",ACCC_device_type)
-    .Case("finalize",ACCC_finalize)
-    .Case("firstprivate",ACCC_firstprivate)
-    .Case("gang",ACCC_gang)
-    .Case("host",ACCC_host)
-    .Case("if",ACCC_if)
-    .Case("if_present",ACCC_if_present)
-    .Case("independent",ACCC_independent)
-    .Case("link",ACCC_link)
-    .Case("no_create",ACCC_no_create)
-    .Case("nohost",ACCC_nohost)
-    .Case("num_gangs",ACCC_num_gangs)
-    .Case("num_workers",ACCC_num_workers)
-    .Case("present",ACCC_present)
-    .Case("private",ACCC_private)
-    .Case("read",ACCC_read)
-    .Case("reduction",ACCC_reduction)
-    .Case("self",ACCC_self)
-    .Case("seq",ACCC_seq)
-    .Case("shortloop",ACCC_shortloop)
-    .Case("tile",ACCC_tile)
-    .Case("unknown",ACCC_unknown)
-    .Case("use_device",ACCC_use_device)
-    .Case("vector",ACCC_vector)
-    .Case("vector_length",ACCC_vector_length)
-    .Case("wait",ACCC_wait)
-    .Case("worker",ACCC_worker)
-    .Case("write",ACCC_write)
-    .Default(ACCC_unknown);
+std::pair<llvm::acc::Clause, llvm::directive::VersionRange> llvm::acc::getOpenACCClauseKindAndVersions(llvm::StringRef Str) {
+  directive::VersionRange All; // Default-initialized to "all versions"
+  return StringSwitch<std::pair<Clause, directive::VersionRange>>(Str)
+    .Case("async", {ACCC_async, All})
+    .Case("attach", {ACCC_attach, All})
+    .Case("auto", {ACCC_auto, All})
+    .Case("bind", {ACCC_bind, All})
+    .Case("capture", {ACCC_capture, All})
+    .Case("collapse", {ACCC_collapse, All})
+    .Case("copy", {ACCC_copy, All})
+    .Case("present_or_copy", {ACCC_copy, All})
+    .Case("pcopy", {ACCC_copy, All})
+    .Case("copyin", {ACCC_copyin, All})
+    .Case("present_or_copyin", {ACCC_copyin, All})
+    .Case("pcopyin", {ACCC_copyin, All})
+    .Case("copyout", {ACCC_copyout, All})
+    .Case("present_or_copyout", {ACCC_copyout, All})
+    .Case("pcopyout", {ACCC_copyout, All})
+    .Case("create", {ACCC_create, All})
+    .Case("present_or_create", {ACCC_create, All})
+    .Case("pcreate", {ACCC_create, All})
+    .Case("default", {ACCC_default, All})
+    .Case("default_async", {ACCC_default_async, All})
+    .Case("delete", {ACCC_delete, All})
+    .Case("detach", {ACCC_detach, All})
+    .Case("device", {ACCC_device, All})
+    .Case("device_num", {ACCC_device_num, All})
+    .Case("deviceptr", {ACCC_deviceptr, All})
+    .Case("device_resident", {ACCC_device_resident, All})
+    .Case("device_type", {ACCC_device_type, All})
+    .Case("dtype", {ACCC_device_type, All})
+    .Case("finalize", {ACCC_finalize, All})
+    .Case("firstprivate", {ACCC_firstprivate, All})
+    .Case("gang", {ACCC_gang, All})
+    .Case("host", {ACCC_host, All})
+    .Case("if", {ACCC_if, All})
+    .Case("if_present", {ACCC_if_present, All})
+    .Case("independent", {ACCC_independent, All})
+    .Case("link", {ACCC_link, All})
+    .Case("no_create", {ACCC_no_create, All})
+    .Case("nohost", {ACCC_nohost, All})
+    .Case("num_gangs", {ACCC_num_gangs, All})
+    .Case("num_workers", {ACCC_num_workers, All})
+    .Case("present", {ACCC_present, All})
+    .Case("private", {ACCC_private, All})
+    .Case("read", {ACCC_read, All})
+    .Case("reduction", {ACCC_reduction, All})
+    .Case("self", {ACCC_self, All})
+    .Case("seq", {ACCC_seq, All})
+    .Case("shortloop", {ACCC_shortloop, All})
+    .Case("tile", {ACCC_tile, All})
+    .Case("unknown", {ACCC_unknown, All})
+    .Case("use_device", {ACCC_use_device, All})
+    .Case("vector", {ACCC_vector, All})
+    .Case("vector_length", {ACCC_vector_length, All})
+    .Case("wait", {ACCC_wait, All})
+    .Case("worker", {ACCC_worker, All})
+    .Case("write", {ACCC_write, All})
+    .Default({ACCC_unknown, All});
 }
 
-llvm::StringRef llvm::acc::getOpenACCClauseName(Clause Kind) {
+llvm::StringRef llvm::acc::getOpenACCClauseName(llvm::acc::Clause Kind, unsigned Version) {
   switch (Kind) {
     case ACCC_async:
       return "async";
@@ -1498,14 +2219,38 @@ llvm::StringRef llvm::acc::getOpenACCClauseName(Clause Kind) {
       return "capture";
     case ACCC_collapse:
       return "collapse";
-    case ACCC_copy:
-      return "copy";
-    case ACCC_copyin:
-      return "copyin";
-    case ACCC_copyout:
-      return "copyout";
-    case ACCC_create:
-      return "create";
+    case ACCC_copy: {
+      static constexpr llvm::directive::Spelling ACCC_copy_spellings[] = {
+          {"copy", {0, 2147483647}},
+          {"present_or_copy", {0, 2147483647}},
+          {"pcopy", {0, 2147483647}},
+      };
+      return llvm::directive::FindName(ACCC_copy_spellings, Version);
+    }
+    case ACCC_copyin: {
+      static constexpr llvm::directive::Spelling ACCC_copyin_spellings[] = {
+          {"copyin", {0, 2147483647}},
+          {"present_or_copyin", {0, 2147483647}},
+          {"pcopyin", {0, 2147483647}},
+      };
+      return llvm::directive::FindName(ACCC_copyin_spellings, Version);
+    }
+    case ACCC_copyout: {
+      static constexpr llvm::directive::Spelling ACCC_copyout_spellings[] = {
+          {"copyout", {0, 2147483647}},
+          {"present_or_copyout", {0, 2147483647}},
+          {"pcopyout", {0, 2147483647}},
+      };
+      return llvm::directive::FindName(ACCC_copyout_spellings, Version);
+    }
+    case ACCC_create: {
+      static constexpr llvm::directive::Spelling ACCC_create_spellings[] = {
+          {"create", {0, 2147483647}},
+          {"present_or_create", {0, 2147483647}},
+          {"pcreate", {0, 2147483647}},
+      };
+      return llvm::directive::FindName(ACCC_create_spellings, Version);
+    }
     case ACCC_default:
       return "default";
     case ACCC_default_async:
@@ -1522,8 +2267,13 @@ llvm::StringRef llvm::acc::getOpenACCClauseName(Clause Kind) {
       return "deviceptr";
     case ACCC_device_resident:
       return "device_resident";
-    case ACCC_device_type:
-      return "device_type";
+    case ACCC_device_type: {
+      static constexpr llvm::directive::Spelling ACCC_device_type_spellings[] = {
+          {"device_type", {0, 2147483647}},
+          {"dtype", {0, 2147483647}},
+      };
+      return llvm::directive::FindName(ACCC_device_type_spellings, Version);
+    }
     case ACCC_finalize:
       return "finalize";
     case ACCC_firstprivate:
@@ -1582,8 +2332,8 @@ llvm::StringRef llvm::acc::getOpenACCClauseName(Clause Kind) {
   llvm_unreachable("Invalid OpenACC Clause kind");
 }
 
-DefaultValue llvm::acc::getDefaultValue(llvm::StringRef Str) {
-  return llvm::StringSwitch<DefaultValue>(Str)
+llvm::acc::DefaultValue llvm::acc::getDefaultValue(llvm::StringRef Str) {
+  return StringSwitch<DefaultValue>(Str)
     .Case("present",ACC_Default_present)
     .Case("none",ACC_Default_none)
     .Default(ACC_Default_none);
@@ -1599,23 +2349,28 @@ llvm::StringRef llvm::acc::getOpenACCDefaultValueName(llvm::acc::DefaultValue x)
   llvm_unreachable("Invalid OpenACC DefaultValue kind");
 }
 
-bool llvm::acc::isAllowedClauseForDirective(Directive D, Clause C, unsigned Version) {
-  assert(unsigned(D) <= llvm::acc::Directive_enumSize);
-  assert(unsigned(C) <= llvm::acc::Clause_enumSize);
+bool llvm::acc::isAllowedClauseForDirective(llvm::acc::Directive D, llvm::acc::Clause C, unsigned Version) {
+  assert(unsigned(D) <= Directive_enumSize);
+  assert(unsigned(C) <= Clause_enumSize);
   switch (D) {
     case ACCD_atomic:
-      return false;
+      switch (C) {
+        case ACCC_if:
+          return 34 <= Version && 2147483647 >= Version;
+        default:
+          return false;
+      }
       break;
     case ACCD_cache:
       return false;
       break;
     case ACCD_data:
       switch (C) {
+        case ACCC_async:
+          return 32 <= Version && 2147483647 >= Version;
         case ACCC_device_type:
           return 32 <= Version && 2147483647 >= Version;
         case ACCC_wait:
-          return 32 <= Version && 2147483647 >= Version;
-        case ACCC_async:
           return 32 <= Version && 2147483647 >= Version;
         case ACCC_if:
           return 1 <= Version && 2147483647 >= Version;
@@ -1683,13 +2438,13 @@ bool llvm::acc::isAllowedClauseForDirective(Directive D, Clause C, unsigned Vers
       break;
     case ACCD_exit_data:
       switch (C) {
+        case ACCC_finalize:
+          return 1 <= Version && 2147483647 >= Version;
         case ACCC_wait:
           return 1 <= Version && 2147483647 >= Version;
         case ACCC_async:
           return 1 <= Version && 2147483647 >= Version;
         case ACCC_if:
-          return 1 <= Version && 2147483647 >= Version;
-        case ACCC_finalize:
           return 1 <= Version && 2147483647 >= Version;
         case ACCC_copyout:
           return 1 <= Version && 2147483647 >= Version;
@@ -1703,9 +2458,9 @@ bool llvm::acc::isAllowedClauseForDirective(Directive D, Clause C, unsigned Vers
       break;
     case ACCD_host_data:
       switch (C) {
-        case ACCC_if:
-          return 1 <= Version && 2147483647 >= Version;
         case ACCC_if_present:
+          return 1 <= Version && 2147483647 >= Version;
+        case ACCC_if:
           return 1 <= Version && 2147483647 >= Version;
         case ACCC_use_device:
           return 1 <= Version && 2147483647 >= Version;
@@ -1715,9 +2470,9 @@ bool llvm::acc::isAllowedClauseForDirective(Directive D, Clause C, unsigned Vers
       break;
     case ACCD_init:
       switch (C) {
-        case ACCC_device_num:
-          return 1 <= Version && 2147483647 >= Version;
         case ACCC_device_type:
+          return 1 <= Version && 2147483647 >= Version;
+        case ACCC_device_num:
           return 1 <= Version && 2147483647 >= Version;
         case ACCC_if:
           return 1 <= Version && 2147483647 >= Version;
@@ -1727,6 +2482,8 @@ bool llvm::acc::isAllowedClauseForDirective(Directive D, Clause C, unsigned Vers
       break;
     case ACCD_kernels:
       switch (C) {
+        case ACCC_async:
+          return 1 <= Version && 2147483647 >= Version;
         case ACCC_attach:
           return 1 <= Version && 2147483647 >= Version;
         case ACCC_copy:
@@ -1741,25 +2498,23 @@ bool llvm::acc::isAllowedClauseForDirective(Directive D, Clause C, unsigned Vers
           return 1 <= Version && 2147483647 >= Version;
         case ACCC_no_create:
           return 1 <= Version && 2147483647 >= Version;
+        case ACCC_num_gangs:
+          return 1 <= Version && 2147483647 >= Version;
+        case ACCC_num_workers:
+          return 1 <= Version && 2147483647 >= Version;
         case ACCC_present:
           return 1 <= Version && 2147483647 >= Version;
         case ACCC_deviceptr:
           return 1 <= Version && 2147483647 >= Version;
-        case ACCC_wait:
+        case ACCC_vector_length:
           return 1 <= Version && 2147483647 >= Version;
-        case ACCC_async:
+        case ACCC_wait:
           return 1 <= Version && 2147483647 >= Version;
         case ACCC_default:
           return 1 <= Version && 2147483647 >= Version;
         case ACCC_if:
           return 1 <= Version && 2147483647 >= Version;
-        case ACCC_num_gangs:
-          return 1 <= Version && 2147483647 >= Version;
-        case ACCC_num_workers:
-          return 1 <= Version && 2147483647 >= Version;
         case ACCC_self:
-          return 1 <= Version && 2147483647 >= Version;
-        case ACCC_vector_length:
           return 1 <= Version && 2147483647 >= Version;
         default:
           return false;
@@ -1767,6 +2522,8 @@ bool llvm::acc::isAllowedClauseForDirective(Directive D, Clause C, unsigned Vers
       break;
     case ACCD_kernels_loop:
       switch (C) {
+        case ACCC_async:
+          return 1 <= Version && 2147483647 >= Version;
         case ACCC_attach:
           return 1 <= Version && 2147483647 >= Version;
         case ACCC_collapse:
@@ -1808,8 +2565,6 @@ bool llvm::acc::isAllowedClauseForDirective(Directive D, Clause C, unsigned Vers
         case ACCC_wait:
           return 1 <= Version && 2147483647 >= Version;
         case ACCC_worker:
-          return 1 <= Version && 2147483647 >= Version;
-        case ACCC_async:
           return 1 <= Version && 2147483647 >= Version;
         case ACCC_default:
           return 1 <= Version && 2147483647 >= Version;
@@ -1905,6 +2660,8 @@ bool llvm::acc::isAllowedClauseForDirective(Directive D, Clause C, unsigned Vers
       break;
     case ACCD_parallel_loop:
       switch (C) {
+        case ACCC_async:
+          return 1 <= Version && 2147483647 >= Version;
         case ACCC_attach:
           return 1 <= Version && 2147483647 >= Version;
         case ACCC_collapse:
@@ -1949,8 +2706,6 @@ bool llvm::acc::isAllowedClauseForDirective(Directive D, Clause C, unsigned Vers
           return 1 <= Version && 2147483647 >= Version;
         case ACCC_worker:
           return 1 <= Version && 2147483647 >= Version;
-        case ACCC_async:
-          return 1 <= Version && 2147483647 >= Version;
         case ACCC_default:
           return 1 <= Version && 2147483647 >= Version;
         case ACCC_if:
@@ -1989,6 +2744,8 @@ bool llvm::acc::isAllowedClauseForDirective(Directive D, Clause C, unsigned Vers
       break;
     case ACCD_serial:
       switch (C) {
+        case ACCC_async:
+          return 1 <= Version && 2147483647 >= Version;
         case ACCC_attach:
           return 1 <= Version && 2147483647 >= Version;
         case ACCC_copy:
@@ -2015,8 +2772,6 @@ bool llvm::acc::isAllowedClauseForDirective(Directive D, Clause C, unsigned Vers
           return 1 <= Version && 2147483647 >= Version;
         case ACCC_wait:
           return 1 <= Version && 2147483647 >= Version;
-        case ACCC_async:
-          return 1 <= Version && 2147483647 >= Version;
         case ACCC_default:
           return 1 <= Version && 2147483647 >= Version;
         case ACCC_if:
@@ -2029,6 +2784,8 @@ bool llvm::acc::isAllowedClauseForDirective(Directive D, Clause C, unsigned Vers
       break;
     case ACCD_serial_loop:
       switch (C) {
+        case ACCC_async:
+          return 1 <= Version && 2147483647 >= Version;
         case ACCC_attach:
           return 1 <= Version && 2147483647 >= Version;
         case ACCC_collapse:
@@ -2067,8 +2824,6 @@ bool llvm::acc::isAllowedClauseForDirective(Directive D, Clause C, unsigned Vers
           return 1 <= Version && 2147483647 >= Version;
         case ACCC_worker:
           return 1 <= Version && 2147483647 >= Version;
-        case ACCC_async:
-          return 1 <= Version && 2147483647 >= Version;
         case ACCC_default:
           return 1 <= Version && 2147483647 >= Version;
         case ACCC_if:
@@ -2101,9 +2856,9 @@ bool llvm::acc::isAllowedClauseForDirective(Directive D, Clause C, unsigned Vers
       break;
     case ACCD_shutdown:
       switch (C) {
-        case ACCC_device_num:
-          return 1 <= Version && 2147483647 >= Version;
         case ACCC_device_type:
+          return 1 <= Version && 2147483647 >= Version;
+        case ACCC_device_num:
           return 1 <= Version && 2147483647 >= Version;
         case ACCC_if:
           return 1 <= Version && 2147483647 >= Version;
@@ -2118,13 +2873,13 @@ bool llvm::acc::isAllowedClauseForDirective(Directive D, Clause C, unsigned Vers
       switch (C) {
         case ACCC_device_type:
           return 1 <= Version && 2147483647 >= Version;
+        case ACCC_if_present:
+          return 1 <= Version && 2147483647 >= Version;
         case ACCC_wait:
           return 1 <= Version && 2147483647 >= Version;
         case ACCC_async:
           return 1 <= Version && 2147483647 >= Version;
         case ACCC_if:
-          return 1 <= Version && 2147483647 >= Version;
-        case ACCC_if_present:
           return 1 <= Version && 2147483647 >= Version;
         case ACCC_device:
           return 1 <= Version && 2147483647 >= Version;
@@ -2152,97 +2907,145 @@ bool llvm::acc::isAllowedClauseForDirective(Directive D, Clause C, unsigned Vers
 
 llvm::acc::Association llvm::acc::getDirectiveAssociation(llvm::acc::Directive Dir) {
   switch (Dir) {
-  case llvm::acc::Directive::ACCD_atomic:
-    return llvm::acc::Association::Block;
-  case llvm::acc::Directive::ACCD_cache:
-    return llvm::acc::Association::None;
-  case llvm::acc::Directive::ACCD_data:
-    return llvm::acc::Association::Block;
-  case llvm::acc::Directive::ACCD_declare:
-    return llvm::acc::Association::None;
-  case llvm::acc::Directive::ACCD_enter_data:
-    return llvm::acc::Association::None;
-  case llvm::acc::Directive::ACCD_exit_data:
-    return llvm::acc::Association::None;
-  case llvm::acc::Directive::ACCD_host_data:
-    return llvm::acc::Association::Block;
-  case llvm::acc::Directive::ACCD_init:
-    return llvm::acc::Association::None;
-  case llvm::acc::Directive::ACCD_kernels:
-    return llvm::acc::Association::Block;
-  case llvm::acc::Directive::ACCD_kernels_loop:
-    return llvm::acc::Association::Loop;
-  case llvm::acc::Directive::ACCD_loop:
-    return llvm::acc::Association::Loop;
-  case llvm::acc::Directive::ACCD_parallel:
-    return llvm::acc::Association::Block;
-  case llvm::acc::Directive::ACCD_parallel_loop:
-    return llvm::acc::Association::Loop;
-  case llvm::acc::Directive::ACCD_routine:
-    return llvm::acc::Association::Declaration;
-  case llvm::acc::Directive::ACCD_serial:
-    return llvm::acc::Association::Block;
-  case llvm::acc::Directive::ACCD_serial_loop:
-    return llvm::acc::Association::Loop;
-  case llvm::acc::Directive::ACCD_set:
-    return llvm::acc::Association::None;
-  case llvm::acc::Directive::ACCD_shutdown:
-    return llvm::acc::Association::None;
-  case llvm::acc::Directive::ACCD_unknown:
-    return llvm::acc::Association::None;
-  case llvm::acc::Directive::ACCD_update:
-    return llvm::acc::Association::None;
-  case llvm::acc::Directive::ACCD_wait:
-    return llvm::acc::Association::None;
+  case ACCD_atomic:
+    return Association::Block;
+  case ACCD_cache:
+    return Association::None;
+  case ACCD_data:
+    return Association::Block;
+  case ACCD_declare:
+    return Association::None;
+  case ACCD_enter_data:
+    return Association::None;
+  case ACCD_exit_data:
+    return Association::None;
+  case ACCD_host_data:
+    return Association::Block;
+  case ACCD_init:
+    return Association::None;
+  case ACCD_kernels:
+    return Association::Block;
+  case ACCD_kernels_loop:
+    return Association::Loop;
+  case ACCD_loop:
+    return Association::Loop;
+  case ACCD_parallel:
+    return Association::Block;
+  case ACCD_parallel_loop:
+    return Association::Loop;
+  case ACCD_routine:
+    return Association::Declaration;
+  case ACCD_serial:
+    return Association::Block;
+  case ACCD_serial_loop:
+    return Association::Loop;
+  case ACCD_set:
+    return Association::None;
+  case ACCD_shutdown:
+    return Association::None;
+  case ACCD_unknown:
+    return Association::None;
+  case ACCD_update:
+    return Association::None;
+  case ACCD_wait:
+    return Association::None;
   } // switch (Dir)
   llvm_unreachable("Unexpected directive");
 }
 
 llvm::acc::Category llvm::acc::getDirectiveCategory(llvm::acc::Directive Dir) {
   switch (Dir) {
-  case llvm::acc::ACCD_atomic:
-    return llvm::acc::Category::Executable;
-  case llvm::acc::ACCD_cache:
-    return llvm::acc::Category::Executable;
-  case llvm::acc::ACCD_data:
-    return llvm::acc::Category::Executable;
-  case llvm::acc::ACCD_declare:
-    return llvm::acc::Category::Declarative;
-  case llvm::acc::ACCD_enter_data:
-    return llvm::acc::Category::Executable;
-  case llvm::acc::ACCD_exit_data:
-    return llvm::acc::Category::Executable;
-  case llvm::acc::ACCD_host_data:
-    return llvm::acc::Category::Executable;
-  case llvm::acc::ACCD_init:
-    return llvm::acc::Category::Executable;
-  case llvm::acc::ACCD_kernels:
-    return llvm::acc::Category::Executable;
-  case llvm::acc::ACCD_kernels_loop:
-    return llvm::acc::Category::Executable;
-  case llvm::acc::ACCD_loop:
-    return llvm::acc::Category::Executable;
-  case llvm::acc::ACCD_parallel:
-    return llvm::acc::Category::Executable;
-  case llvm::acc::ACCD_parallel_loop:
-    return llvm::acc::Category::Executable;
-  case llvm::acc::ACCD_routine:
-    return llvm::acc::Category::Declarative;
-  case llvm::acc::ACCD_serial:
-    return llvm::acc::Category::Executable;
-  case llvm::acc::ACCD_serial_loop:
-    return llvm::acc::Category::Executable;
-  case llvm::acc::ACCD_set:
-    return llvm::acc::Category::Executable;
-  case llvm::acc::ACCD_shutdown:
-    return llvm::acc::Category::Executable;
-  case llvm::acc::ACCD_unknown:
-    return llvm::acc::Category::Utility;
-  case llvm::acc::ACCD_update:
-    return llvm::acc::Category::Executable;
-  case llvm::acc::ACCD_wait:
-    return llvm::acc::Category::Executable;
+  case ACCD_atomic:
+    return Category::Executable;
+  case ACCD_cache:
+    return Category::Executable;
+  case ACCD_data:
+    return Category::Executable;
+  case ACCD_declare:
+    return Category::Declarative;
+  case ACCD_enter_data:
+    return Category::Executable;
+  case ACCD_exit_data:
+    return Category::Executable;
+  case ACCD_host_data:
+    return Category::Executable;
+  case ACCD_init:
+    return Category::Executable;
+  case ACCD_kernels:
+    return Category::Executable;
+  case ACCD_kernels_loop:
+    return Category::Executable;
+  case ACCD_loop:
+    return Category::Executable;
+  case ACCD_parallel:
+    return Category::Executable;
+  case ACCD_parallel_loop:
+    return Category::Executable;
+  case ACCD_routine:
+    return Category::Declarative;
+  case ACCD_serial:
+    return Category::Executable;
+  case ACCD_serial_loop:
+    return Category::Executable;
+  case ACCD_set:
+    return Category::Executable;
+  case ACCD_shutdown:
+    return Category::Executable;
+  case ACCD_unknown:
+    return Category::Utility;
+  case ACCD_update:
+    return Category::Executable;
+  case ACCD_wait:
+    return Category::Executable;
   } // switch (Dir)
+  llvm_unreachable("Unexpected directive");
+}
+
+llvm::acc::SourceLanguage llvm::acc::getDirectiveLanguages(llvm::acc::Directive D) {
+  switch (D) {
+  case ACCD_atomic:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case ACCD_cache:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case ACCD_data:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case ACCD_declare:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case ACCD_enter_data:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case ACCD_exit_data:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case ACCD_host_data:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case ACCD_init:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case ACCD_kernels:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case ACCD_kernels_loop:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case ACCD_loop:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case ACCD_parallel:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case ACCD_parallel_loop:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case ACCD_routine:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case ACCD_serial:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case ACCD_serial_loop:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case ACCD_set:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case ACCD_shutdown:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case ACCD_unknown:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case ACCD_update:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case ACCD_wait:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  } // switch(D)
   llvm_unreachable("Unexpected directive");
 }
 

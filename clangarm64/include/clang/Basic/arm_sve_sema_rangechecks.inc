@@ -370,6 +370,9 @@ ImmChecks.emplace_back(1, 14, 0);
 case SVE::BI__builtin_sve_svget2_f64:
 ImmChecks.emplace_back(1, 14, 0);
   break;
+case SVE::BI__builtin_sve_svget2_mf8:
+ImmChecks.emplace_back(1, 14, 0);
+  break;
 case SVE::BI__builtin_sve_svget2_s16:
 ImmChecks.emplace_back(1, 14, 0);
   break;
@@ -404,6 +407,9 @@ case SVE::BI__builtin_sve_svget3_f32:
 ImmChecks.emplace_back(1, 15, 0);
   break;
 case SVE::BI__builtin_sve_svget3_f64:
+ImmChecks.emplace_back(1, 15, 0);
+  break;
+case SVE::BI__builtin_sve_svget3_mf8:
 ImmChecks.emplace_back(1, 15, 0);
   break;
 case SVE::BI__builtin_sve_svget3_s16:
@@ -443,6 +449,9 @@ case SVE::BI__builtin_sve_svget4_f32:
 ImmChecks.emplace_back(1, 16, 0);
   break;
 case SVE::BI__builtin_sve_svget4_f64:
+ImmChecks.emplace_back(1, 16, 0);
+  break;
+case SVE::BI__builtin_sve_svget4_mf8:
 ImmChecks.emplace_back(1, 16, 0);
   break;
 case SVE::BI__builtin_sve_svget4_s16:
@@ -1664,6 +1673,9 @@ ImmChecks.emplace_back(1, 14, 0);
 case SVE::BI__builtin_sve_svset2_f64:
 ImmChecks.emplace_back(1, 14, 0);
   break;
+case SVE::BI__builtin_sve_svset2_mf8:
+ImmChecks.emplace_back(1, 14, 0);
+  break;
 case SVE::BI__builtin_sve_svset2_s16:
 ImmChecks.emplace_back(1, 14, 0);
   break;
@@ -1698,6 +1710,9 @@ case SVE::BI__builtin_sve_svset3_f32:
 ImmChecks.emplace_back(1, 15, 0);
   break;
 case SVE::BI__builtin_sve_svset3_f64:
+ImmChecks.emplace_back(1, 15, 0);
+  break;
+case SVE::BI__builtin_sve_svset3_mf8:
 ImmChecks.emplace_back(1, 15, 0);
   break;
 case SVE::BI__builtin_sve_svset3_s16:
@@ -1737,6 +1752,9 @@ case SVE::BI__builtin_sve_svset4_f32:
 ImmChecks.emplace_back(1, 16, 0);
   break;
 case SVE::BI__builtin_sve_svset4_f64:
+ImmChecks.emplace_back(1, 16, 0);
+  break;
+case SVE::BI__builtin_sve_svset4_mf8:
 ImmChecks.emplace_back(1, 16, 0);
   break;
 case SVE::BI__builtin_sve_svset4_s16:

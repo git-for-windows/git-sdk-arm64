@@ -11,7 +11,7 @@
 namespace llvm::Intrinsic {
 enum ARMIntrinsics : unsigned {
 // Enum values for intrinsics.
-    arm_cde_cx1 = 3323,                               // llvm.arm.cde.cx1
+    arm_cde_cx1 = 3470,                               // llvm.arm.cde.cx1
     arm_cde_cx1a,                              // llvm.arm.cde.cx1a
     arm_cde_cx1d,                              // llvm.arm.cde.cx1d
     arm_cde_cx1da,                             // llvm.arm.cde.cx1da
@@ -238,7 +238,6 @@ enum ARMIntrinsics : unsigned {
     arm_mve_vrhadd,                            // llvm.arm.mve.vrhadd
     arm_mve_vrinta_predicated,                 // llvm.arm.mve.vrinta.predicated
     arm_mve_vrintm_predicated,                 // llvm.arm.mve.vrintm.predicated
-    arm_mve_vrintn,                            // llvm.arm.mve.vrintn
     arm_mve_vrintn_predicated,                 // llvm.arm.mve.vrintn.predicated
     arm_mve_vrintp_predicated,                 // llvm.arm.mve.vrintp.predicated
     arm_mve_vrintx_predicated,                 // llvm.arm.mve.vrintx.predicated
@@ -383,12 +382,6 @@ enum ARMIntrinsics : unsigned {
     arm_neon_vrecps,                           // llvm.arm.neon.vrecps
     arm_neon_vrhadds,                          // llvm.arm.neon.vrhadds
     arm_neon_vrhaddu,                          // llvm.arm.neon.vrhaddu
-    arm_neon_vrinta,                           // llvm.arm.neon.vrinta
-    arm_neon_vrintm,                           // llvm.arm.neon.vrintm
-    arm_neon_vrintn,                           // llvm.arm.neon.vrintn
-    arm_neon_vrintp,                           // llvm.arm.neon.vrintp
-    arm_neon_vrintx,                           // llvm.arm.neon.vrintx
-    arm_neon_vrintz,                           // llvm.arm.neon.vrintz
     arm_neon_vrshiftn,                         // llvm.arm.neon.vrshiftn
     arm_neon_vrshifts,                         // llvm.arm.neon.vrshifts
     arm_neon_vrshiftu,                         // llvm.arm.neon.vrshiftu

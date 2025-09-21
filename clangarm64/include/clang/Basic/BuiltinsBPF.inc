@@ -7,35 +7,53 @@
 \*===----------------------------------------------------------------------===*/
 
 
-#if defined(BUILTIN) && !defined(LIBBUILTIN)
-#  define LIBBUILTIN(ID, TYPE, ATTRS, HEADER, BUILTIN_LANG) BUILTIN(ID, TYPE, ATTRS)
+#ifdef GET_BUILTIN_ENUMERATORS
+    BI__builtin_btf_type_id,
+    BI__builtin_preserve_enum_value,
+    BI__builtin_preserve_field_info,
+    BI__builtin_preserve_type_info,
+
+#endif // GET_BUILTIN_ENUMERATORS
+
+#ifdef GET_BUILTIN_STR_TABLE
+
+#ifdef __GNUC__
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Woverlength-strings"
+#endif
+static constexpr char BuiltinStringsStorage[] = 
+  "\0"
+  "__builtin_btf_type_id\0"
+  "LUi.\0"
+  "t\0"
+  "__builtin_preserve_enum_value\0"
+  "Li.\0"
+  "__builtin_preserve_field_info\0"
+  "Ui.\0"
+  "__builtin_preserve_type_info\0"
+  ;
+#ifdef __GNUC__
+#pragma GCC diagnostic pop
 #endif
 
-#if defined(BUILTIN) && !defined(LANGBUILTIN)
-#  define LANGBUILTIN(ID, TYPE, ATTRS, BUILTIN_LANG) BUILTIN(ID, TYPE, ATTRS)
-#endif
+static constexpr llvm::StringTable
+BuiltinStrings = BuiltinStringsStorage;
 
-// Some of our atomics builtins are handled by AtomicExpr rather than
-// as normal builtin CallExprs. This macro is used for such builtins.
-#ifndef ATOMIC_BUILTIN
-#  define ATOMIC_BUILTIN(ID, TYPE, ATTRS) BUILTIN(ID, TYPE, ATTRS)
-#endif
+#endif // GET_BUILTIN_STR_TABLE
 
-#if defined(BUILTIN) && !defined(TARGET_BUILTIN)
-#  define TARGET_BUILTIN(ID, TYPE, ATTRS, FEATURE) BUILTIN(ID, TYPE, ATTRS)
-#endif
+#ifdef GET_BUILTIN_INFOS
+    Builtin::Info{Builtin::Info::StrOffsets{1 /* __builtin_btf_type_id */, 23 /* LUi. */, 28 /* t */, 0 /*  */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{30 /* __builtin_preserve_enum_value */, 60 /* Li. */, 28 /* t */, 0 /*  */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{64 /* __builtin_preserve_field_info */, 94 /* Ui. */, 28 /* t */, 0 /*  */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{98 /* __builtin_preserve_type_info */, 23 /* LUi. */, 28 /* t */, 0 /*  */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
 
-#if defined(BUILTIN) && !defined(TARGET_HEADER_BUILTIN)
-#  define TARGET_HEADER_BUILTIN(ID, TYPE, ATTRS, HEADER, LANG, FEATURE) BUILTIN(ID, TYPE, ATTRS)
-#endif
-TARGET_BUILTIN(__builtin_btf_type_id, "LUi.", "t", "")
-TARGET_BUILTIN(__builtin_preserve_enum_value, "Li.", "t", "")
-TARGET_BUILTIN(__builtin_preserve_field_info, "Ui.", "t", "")
-TARGET_BUILTIN(__builtin_preserve_type_info, "LUi.", "t", "")
+#endif // GET_BUILTIN_INFOS
 
+#ifdef GET_BUILTIN_PREFIXED_INFOS
+
+#endif // GET_BUILTIN_PREFIXED_INFOS
+
+#ifdef ATOMIC_BUILTIN
+
+#endif // ATOMIC_BUILTIN
 #undef ATOMIC_BUILTIN
-#undef BUILTIN
-#undef LIBBUILTIN
-#undef LANGBUILTIN
-#undef TARGET_BUILTIN
-#undef TARGET_HEADER_BUILTIN

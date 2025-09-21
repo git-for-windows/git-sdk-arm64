@@ -11,7 +11,7 @@
 namespace llvm::Intrinsic {
 enum R600Intrinsics : unsigned {
 // Enum values for intrinsics.
-    r600_cube = 10540,                                 // llvm.r600.cube
+    r600_cube = 10934,                                 // llvm.r600.cube
     r600_ddx,                                  // llvm.r600.ddx
     r600_ddy,                                  // llvm.r600.ddy
     r600_dot4,                                 // llvm.r600.dot4

@@ -16,6 +16,7 @@ ATTRIBUTE_ENUM(Cold,cold)
 ATTRIBUTE_ENUM(Convergent,convergent)
 ATTRIBUTE_ENUM(CoroDestroyOnlyWhenComplete,coro_only_destroy_when_complete)
 ATTRIBUTE_ENUM(CoroElideSafe,coro_elide_safe)
+ATTRIBUTE_ENUM(DeadOnReturn,dead_on_return)
 ATTRIBUTE_ENUM(DeadOnUnwind,dead_on_unwind)
 ATTRIBUTE_ENUM(DisableSanitizerInstrumentation,disable_sanitizer_instrumentation)
 ATTRIBUTE_ENUM(FnRetThunkExtern,fn_ret_thunk_extern)
@@ -32,7 +33,6 @@ ATTRIBUTE_ENUM(Nest,nest)
 ATTRIBUTE_ENUM(NoAlias,noalias)
 ATTRIBUTE_ENUM(NoBuiltin,nobuiltin)
 ATTRIBUTE_ENUM(NoCallback,nocallback)
-ATTRIBUTE_ENUM(NoCapture,nocapture)
 ATTRIBUTE_ENUM(NoCfCheck,nocf_check)
 ATTRIBUTE_ENUM(NoDivergenceSource,nodivergencesource)
 ATTRIBUTE_ENUM(NoDuplicate,noduplicate)
@@ -113,8 +113,11 @@ ATTRIBUTE_ENUM(Initializes,initializes)
 #define ATTRIBUTE_STRBOOL(FIRST, SECOND) ATTRIBUTE_ALL(FIRST, SECOND)
 #endif
 
+ATTRIBUTE_STRBOOL(AllowDirectAccessInHotPatchFunction,allow_direct_access_in_hot_patch_function)
 ATTRIBUTE_STRBOOL(ApproxFuncFPMath,approx-func-fp-math)
 ATTRIBUTE_STRBOOL(LessPreciseFPMAD,less-precise-fpmad)
+ATTRIBUTE_STRBOOL(LoaderReplaceable,loader-replaceable)
+ATTRIBUTE_STRBOOL(MarkedForWindowsSecureHotPatching,marked_for_windows_hot_patching)
 ATTRIBUTE_STRBOOL(NoInfsFPMath,no-infs-fp-math)
 ATTRIBUTE_STRBOOL(NoInlineLineTables,no-inline-line-tables)
 ATTRIBUTE_STRBOOL(NoJumpTables,no-jump-tables)
@@ -147,23 +150,23 @@ Cold = 5,
 Convergent = 6,
 CoroDestroyOnlyWhenComplete = 7,
 CoroElideSafe = 8,
-DeadOnUnwind = 9,
-DisableSanitizerInstrumentation = 10,
-FnRetThunkExtern = 11,
-Hot = 12,
-HybridPatchable = 13,
-ImmArg = 14,
-InReg = 15,
-InlineHint = 16,
-JumpTable = 17,
-MinSize = 18,
-MustProgress = 19,
-Naked = 20,
-Nest = 21,
-NoAlias = 22,
-NoBuiltin = 23,
-NoCallback = 24,
-NoCapture = 25,
+DeadOnReturn = 9,
+DeadOnUnwind = 10,
+DisableSanitizerInstrumentation = 11,
+FnRetThunkExtern = 12,
+Hot = 13,
+HybridPatchable = 14,
+ImmArg = 15,
+InReg = 16,
+InlineHint = 17,
+JumpTable = 18,
+MinSize = 19,
+MustProgress = 20,
+Naked = 21,
+Nest = 22,
+NoAlias = 23,
+NoBuiltin = 24,
+NoCallback = 25,
 NoCfCheck = 26,
 NoDivergenceSource = 27,
 NoDuplicate = 28,
@@ -310,6 +313,7 @@ static const uint8_t AttrPropTable[] = {
 0 | AttributeProperty::FnAttr | AttributeProperty::IntersectPreserve,
 0 | AttributeProperty::FnAttr | AttributeProperty::IntersectPreserve,
 0 | AttributeProperty::ParamAttr | AttributeProperty::IntersectAnd,
+0 | AttributeProperty::ParamAttr | AttributeProperty::IntersectAnd,
 0 | AttributeProperty::FnAttr | AttributeProperty::IntersectPreserve,
 0 | AttributeProperty::FnAttr | AttributeProperty::IntersectPreserve,
 0 | AttributeProperty::FnAttr | AttributeProperty::IntersectAnd,
@@ -325,7 +329,6 @@ static const uint8_t AttrPropTable[] = {
 0 | AttributeProperty::ParamAttr | AttributeProperty::RetAttr | AttributeProperty::IntersectAnd,
 0 | AttributeProperty::FnAttr | AttributeProperty::IntersectPreserve,
 0 | AttributeProperty::FnAttr | AttributeProperty::IntersectAnd,
-0 | AttributeProperty::ParamAttr | AttributeProperty::IntersectAnd,
 0 | AttributeProperty::FnAttr | AttributeProperty::IntersectPreserve,
 0 | AttributeProperty::FnAttr | AttributeProperty::IntersectAnd,
 0 | AttributeProperty::FnAttr | AttributeProperty::IntersectPreserve,
@@ -395,7 +398,7 @@ static const uint8_t AttrPropTable[] = {
 0 | AttributeProperty::ParamAttr | AttributeProperty::RetAttr | AttributeProperty::IntersectMin,
 0 | AttributeProperty::FnAttr | AttributeProperty::IntersectCustom,
 0 | AttributeProperty::ParamAttr | AttributeProperty::RetAttr | AttributeProperty::IntersectCustom,
-0 | AttributeProperty::FnAttr | AttributeProperty::ParamAttr | AttributeProperty::IntersectPreserve,
+0 | AttributeProperty::FnAttr | AttributeProperty::ParamAttr | AttributeProperty::RetAttr | AttributeProperty::IntersectPreserve,
 0 | AttributeProperty::FnAttr | AttributeProperty::IntersectPreserve,
 0 | AttributeProperty::FnAttr | AttributeProperty::IntersectPreserve,
 0 | AttributeProperty::ParamAttr | AttributeProperty::RetAttr | AttributeProperty::IntersectCustom,

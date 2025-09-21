@@ -220,6 +220,13 @@ struct WriteDispatcher<FunctionEffect> {
   }
 };
 template <>
+struct WriteDispatcher<SpirvOperand> {
+  template <class BasicWriter, class... Args>
+  static void write(BasicWriter &W, Args &&... args) {
+    return W.writeHLSLSpirvOperand(std::forward<Args>(args)...);
+  }
+};
+template <>
 struct WriteDispatcher<IdentifierInfo*> {
   template <class BasicWriter, class... Args>
   static void write(BasicWriter &W, Args &&... args) {
@@ -388,13 +395,6 @@ struct WriteDispatcher<const Stmt*> {
   }
 };
 template <>
-struct WriteDispatcher<SubstTemplateTypeParmTypeFlag> {
-  template <class BasicWriter, class... Args>
-  static void write(BasicWriter &W, Args &&... args) {
-    return W.writeSubstTemplateTypeParmTypeFlag(std::forward<Args>(args)...);
-  }
-};
-template <>
 struct WriteDispatcher<TagDecl*> {
   template <class BasicWriter, class... Args>
   static void write(BasicWriter &W, Args &&... args) {
@@ -511,6 +511,13 @@ struct WriteDispatcher<UnaryTransformType::UTTKind> {
   template <class BasicWriter, class... Args>
   static void write(BasicWriter &W, Args &&... args) {
     return W.writeUnaryTypeTransformKind(std::forward<Args>(args)...);
+  }
+};
+template <>
+struct WriteDispatcher<UnsignedOrNone> {
+  template <class BasicWriter, class... Args>
+  static void write(BasicWriter &W, Args &&... args) {
+    return W.writeUnsignedOrNone(std::forward<Args>(args)...);
   }
 };
 template <>
@@ -1165,9 +1172,6 @@ public:
   void writeRefQualifierKind(RefQualifierKind value) {
     asImpl().writeEnum(value);
   }
-  void writeSubstTemplateTypeParmTypeFlag(SubstTemplateTypeParmTypeFlag value) {
-    asImpl().writeEnum(value);
-  }
   void writeTagDeclRef(const TagDecl* value) {
     asImpl().writeDeclRef(value);
   }
@@ -1237,12 +1241,10 @@ public:
     case TemplateArgument::TemplateExpansion: {
     TemplateName name = ( node.getAsTemplateOrTemplatePattern() );
     subW.find("name").writeTemplateName(name);
-    std::optional<uint32_t> numExpansions = (
-      // Translate unsigned -> uint32_t just in case.
-      llvm::transformOptional(node.getNumTemplateExpansions(),
-                              [](unsigned i) { return uint32_t(i); })
+    UnsignedOrNone numExpansions = (
+      node.getNumTemplateExpansions()
     );
-    subW.find("numExpansions").writeOptional(numExpansions);
+    subW.find("numExpansions").writeUnsignedOrNone(numExpansions);
     bool isDefaulted = ( node.getIsDefaulted() );
     subW.find("isDefaulted").writeBool(isDefaulted);
     return;
@@ -1251,6 +1253,8 @@ public:
     case TemplateArgument::Expression: {
     const Expr* expression = ( node.getAsExpr() );
     subW.find("expression").writeExprRef(expression);
+    bool IsCanonical = ( node.isCanonicalExpr() );
+    subW.find("IsCanonical").writeBool(IsCanonical);
     bool isDefaulted = ( node.getIsDefaulted() );
     subW.find("isDefaulted").writeBool(isDefaulted);
     return;
@@ -1316,18 +1320,18 @@ public:
     case TemplateName::DependentTemplate: {
     
     auto dtn = node.getAsDependentTemplateName();
+    auto name = dtn->getName();
   
     NestedNameSpecifier * qualifier = ( dtn->getQualifier() );
     subW.find("qualifier").writeNestedNameSpecifier(qualifier);
-    std::optional<const IdentifierInfo*> identifier = ( makeOptionalFromPointer(
-                    dtn->isIdentifier()
-                      ? dtn->getIdentifier()
-                      : nullptr) );
+    std::optional<const IdentifierInfo*> identifier = ( makeOptionalFromPointer(name.getIdentifier()) );
     subW.find("identifier").writeOptional(identifier);
     if ( !identifier ) {
-    OverloadedOperatorKind operatorKind = ( dtn->getOperator() );
+    OverloadedOperatorKind operatorKind = ( name.getOperator() );
     subW.find("operatorKind").writeOverloadedOperatorKind(operatorKind);
     }
+    bool HasTemplateKeyword = ( dtn->hasTemplateKeyword() );
+    subW.find("HasTemplateKeyword").writeBool(HasTemplateKeyword);
     return;
     }
 
@@ -1341,8 +1345,10 @@ public:
     subW.find("associatedDecl").writeDeclRef(associatedDecl);
     uint32_t index = ( parm->getIndex() );
     subW.find("index").writeUInt32(index);
-    std::optional<uint32_t> packIndex = ( parm->getPackIndex() );
-    subW.find("packIndex").writeOptional(packIndex);
+    UnsignedOrNone packIndex = ( parm->getPackIndex() );
+    subW.find("packIndex").writeUnsignedOrNone(packIndex);
+    bool final = ( parm->getFinal() );
+    subW.find("final").writeBool(final);
     return;
     }
 
