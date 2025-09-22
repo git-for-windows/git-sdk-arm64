@@ -26,10 +26,9 @@
 // LLDB version
 //
 // A build script phase can modify this version number if needed.
-//#define LLDB_VERSION
-//#define LLDB_REVISION
-//#define LLDB_VERSION_STRING
-
+#define LLDB_VERSION 21
+#define LLDB_REVISION 1
+#define LLDB_VERSION_STRING "21.1.1"
 // LLDB defines
 #define LLDB_GENERIC_ERROR UINT32_MAX
 

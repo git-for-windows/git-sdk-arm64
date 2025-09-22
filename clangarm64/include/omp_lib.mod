@@ -1,5 +1,5 @@
-﻿!mod$ v1 sum:92a3b05fcfe01ed4
-!need$ f5aadb670ed024bd n omp_lib_kinds
+﻿!mod$ v1 sum:d7ddf53aef599981
+!need$ b484dd88bb76aa03 n omp_lib_kinds
 module omp_lib
 use omp_lib_kinds,only:omp_integer_kind
 use omp_lib_kinds,only:omp_logical_kind
@@ -77,6 +77,12 @@ integer(4),parameter::omp_atk_fallback=5_4
 integer(4),parameter::omp_atk_fb_data=6_4
 integer(4),parameter::omp_atk_pinned=7_4
 integer(4),parameter::omp_atk_partition=8_4
+integer(4),parameter::omp_atk_pin_device=9_4
+integer(4),parameter::omp_atk_preferred_device=10_4
+integer(4),parameter::omp_atk_device_access=11_4
+integer(4),parameter::omp_atk_target_access=12_4
+integer(4),parameter::omp_atk_atomic_scope=13_4
+integer(4),parameter::omp_atk_part_size=14_4
 integer(8),parameter::omp_atv_default=-1_8
 integer(8),parameter::omp_atv_false=0_8
 integer(8),parameter::omp_atv_true=1_8
@@ -85,7 +91,7 @@ integer(8),parameter::omp_atv_uncontended=4_8
 integer(8),parameter::omp_atv_serialized=5_8
 integer(8),parameter::omp_atv_sequential=5_8
 integer(8),parameter::omp_atv_private=6_8
-integer(8),parameter::omp_atv_all=7_8
+integer(8),parameter::omp_atv_device=7_8
 integer(8),parameter::omp_atv_thread=8_8
 integer(8),parameter::omp_atv_pteam=9_8
 integer(8),parameter::omp_atv_cgroup=10_8
@@ -97,6 +103,10 @@ integer(8),parameter::omp_atv_environment=15_8
 integer(8),parameter::omp_atv_nearest=16_8
 integer(8),parameter::omp_atv_blocked=17_8
 integer(8),parameter::omp_atv_interleaved=18_8
+integer(8),parameter::omp_atv_all=19_8
+integer(8),parameter::omp_atv_single=20_8
+integer(8),parameter::omp_atv_multiple=21_8
+integer(8),parameter::omp_atv_memspace=22_8
 integer(8),parameter::omp_null_allocator=0_8
 integer(8),parameter::omp_default_mem_alloc=1_8
 integer(8),parameter::omp_large_cap_mem_alloc=2_8
@@ -109,7 +119,8 @@ integer(8),parameter::omp_thread_mem_alloc=8_8
 integer(8),parameter::llvm_omp_target_host_mem_alloc=100_8
 integer(8),parameter::llvm_omp_target_shared_mem_alloc=101_8
 integer(8),parameter::llvm_omp_target_device_mem_alloc=102_8
-integer(8),parameter::omp_default_mem_space=0_8
+integer(8),parameter::omp_null_mem_space=0_8
+integer(8),parameter::omp_default_mem_space=99_8
 integer(8),parameter::omp_large_cap_mem_space=1_8
 integer(8),parameter::omp_const_mem_space=2_8
 integer(8),parameter::omp_high_bw_mem_space=3_8
@@ -307,7 +318,7 @@ end
 end interface
 interface
 function omp_get_cancellation() bind(c)
-integer(4)::omp_get_cancellation
+logical(4)::omp_get_cancellation
 end
 end interface
 interface
@@ -698,6 +709,104 @@ end interface
 interface
 function omp_in_explicit_task() bind(c)
 logical(4)::omp_in_explicit_task
+end
+end interface
+private::omp_get_devices_memspace
+interface
+function omp_get_devices_memspace(ndevs,devs,memspace)
+integer(4),intent(in)::ndevs
+integer(4),intent(in)::devs(1_8:*)
+integer(8),intent(in)::memspace
+integer(8)::omp_get_devices_memspace
+end
+end interface
+private::omp_get_device_memspace
+interface
+function omp_get_device_memspace(dev,memspace)
+integer(4),intent(in)::dev
+integer(8),intent(in)::memspace
+integer(8)::omp_get_device_memspace
+end
+end interface
+private::omp_get_devices_and_host_memspace
+interface
+function omp_get_devices_and_host_memspace(ndevs,devs,memspace)
+integer(4),intent(in)::ndevs
+integer(4),intent(in)::devs(1_8:*)
+integer(8),intent(in)::memspace
+integer(8)::omp_get_devices_and_host_memspace
+end
+end interface
+private::omp_get_device_and_host_memspace
+interface
+function omp_get_device_and_host_memspace(dev,memspace)
+integer(4),intent(in)::dev
+integer(8),intent(in)::memspace
+integer(8)::omp_get_device_and_host_memspace
+end
+end interface
+private::omp_get_devices_all_memspace
+interface
+function omp_get_devices_all_memspace(memspace)
+integer(8),intent(in)::memspace
+integer(8)::omp_get_devices_all_memspace
+end
+end interface
+private::omp_get_devices_allocator
+interface
+function omp_get_devices_allocator(ndevs,devs,memspace)
+integer(4),intent(in)::ndevs
+integer(4),intent(in)::devs(1_8:*)
+integer(8),intent(in)::memspace
+integer(8)::omp_get_devices_allocator
+end
+end interface
+private::omp_get_device_allocator
+interface
+function omp_get_device_allocator(dev,memspace)
+integer(4),intent(in)::dev
+integer(8),intent(in)::memspace
+integer(8)::omp_get_device_allocator
+end
+end interface
+private::omp_get_devices_and_host_allocator
+interface
+function omp_get_devices_and_host_allocator(ndevs,devs,memspace)
+integer(4),intent(in)::ndevs
+integer(4),intent(in)::devs(1_8:*)
+integer(8),intent(in)::memspace
+integer(8)::omp_get_devices_and_host_allocator
+end
+end interface
+private::omp_get_device_and_host_allocator
+interface
+function omp_get_device_and_host_allocator(dev,memspace)
+integer(4),intent(in)::dev
+integer(8),intent(in)::memspace
+integer(8)::omp_get_device_and_host_allocator
+end
+end interface
+private::omp_get_devices_all_allocator
+interface
+function omp_get_devices_all_allocator(memspace)
+integer(8),intent(in)::memspace
+integer(8)::omp_get_devices_all_allocator
+end
+end interface
+private::omp_get_memspace_num_resources
+interface
+function omp_get_memspace_num_resources(memspace)
+integer(8),intent(in)::memspace
+integer(4)::omp_get_memspace_num_resources
+end
+end interface
+private::omp_get_submemspace
+interface
+function omp_get_submemspace(memspace,num_resources,resources)
+integer(8),intent(in)::memspace
+integer(4),intent(in)::num_resources
+integer(4),intent(in)::resources(1_8:*)
+integer(8)::omp_get_submemspace
 end
 end interface
 interface

@@ -1,12 +1,13 @@
 # This file allows users to call find_package(Polly) and pick up our targets.
 
 # Compute the installation prefix from this LLVMConfig.cmake file location.
-get_filename_component(POLLY_INSTALL_PREFIX "${CMAKE_CURRENT_LIST_FILE}" PATH)
+get_filename_component(POLLY_INSTALL_PREFIX "${CMAKE_CURRENT_LIST_FILE}" REALPATH)
+get_filename_component(POLLY_INSTALL_PREFIX "${POLLY_INSTALL_PREFIX}" PATH)
 get_filename_component(POLLY_INSTALL_PREFIX "${POLLY_INSTALL_PREFIX}" PATH)
 get_filename_component(POLLY_INSTALL_PREFIX "${POLLY_INSTALL_PREFIX}" PATH)
 get_filename_component(POLLY_INSTALL_PREFIX "${POLLY_INSTALL_PREFIX}" PATH)
 
-set(LLVM_VERSION 20.1.8)
+set(LLVM_VERSION 21.1.1)
 find_package(LLVM ${LLVM_VERSION} EXACT REQUIRED CONFIG
              HINTS "${POLLY_INSTALL_PREFIX}/lib/cmake/llvm")
 
