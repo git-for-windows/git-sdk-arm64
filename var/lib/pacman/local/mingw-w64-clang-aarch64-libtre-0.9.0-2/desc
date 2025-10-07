@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-libtre
 
 %VERSION%
-0.9.0-1
+0.9.0-2
 
 %BASE%
 mingw-w64-libtre
@@ -17,16 +17,16 @@ https://github.com/laurikari/tre
 any
 
 %BUILDDATE%
-1729070085
+1759590621
 
 %INSTALLDATE%
-1729165327
+1759807512
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/7c56a1d7/11362574208)
+CI (msys2/msys2-autobuild/c6213b4d/18245774916)
 
 %SIZE%
-227631
+232117
 
 %REASON%
 1
@@ -38,18 +38,8 @@ BSD
 sha256
 pgp
 
-%REPLACES%
-mingw-w64-clang-aarch64-libtre-git
-
 %DEPENDS%
-mingw-w64-clang-aarch64-gcc-libs
 mingw-w64-clang-aarch64-gettext-runtime
-
-%CONFLICTS%
-mingw-w64-clang-aarch64-libtre-git
-
-%PROVIDES%
-mingw-w64-clang-aarch64-libtre-git
 
 %XDATA%
 pkgtype=pkg
