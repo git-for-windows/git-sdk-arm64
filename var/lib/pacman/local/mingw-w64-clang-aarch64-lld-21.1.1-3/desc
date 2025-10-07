@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-lld
 
 %VERSION%
-21.1.1-2
+21.1.1-3
 
 %BASE%
 mingw-w64-llvm
@@ -17,16 +17,16 @@ https://lld.llvm.org/
 any
 
 %BUILDDATE%
-1758378456
+1759836301
 
 %INSTALLDATE%
-1758425574
+1759848415
 
 %PACKAGER%
 Johannes Schindelin <johannes.schindelin@gmx.de>
 
 %SIZE%
-48157343
+49635237
 
 %GROUPS%
 mingw-w64-clang-aarch64-toolchain
