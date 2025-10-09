@@ -1,8 +1,8 @@
 %NAME%
-mingw-w64-clang-aarch64-libwinpthread
+mingw-w64-clang-aarch64-winpthreads
 
 %VERSION%
-13.0.0.r179.g8181947cc-1
+13.0.0.r219.ga0fd21158-1
 
 %BASE%
 mingw-w64-winpthreads
@@ -17,16 +17,16 @@ https://www.mingw-w64.org/
 any
 
 %BUILDDATE%
-1758466996
+1759867032
 
 %INSTALLDATE%
-1758597946
+1759980419
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/ecd1d51f/17895045862)
+CI (msys2/msys2-autobuild/55384653/18324194810)
 
 %SIZE%
-92483
+319473
 
 %GROUPS%
 mingw-w64-clang-aarch64-toolchain
@@ -39,13 +39,17 @@ sha256
 pgp
 
 %REPLACES%
-mingw-w64-clang-aarch64-libwinpthread-git
+mingw-w64-clang-aarch64-winpthreads-git
+
+%DEPENDS%
+mingw-w64-clang-aarch64-crt-git
+mingw-w64-clang-aarch64-libwinpthread=13.0.0.r219.ga0fd21158
 
 %CONFLICTS%
-mingw-w64-clang-aarch64-libwinpthread-git
+mingw-w64-clang-aarch64-winpthreads-git
 
 %PROVIDES%
-mingw-w64-clang-aarch64-libwinpthread-git
+mingw-w64-clang-aarch64-winpthreads-git
 
 %XDATA%
 pkgtype=split
