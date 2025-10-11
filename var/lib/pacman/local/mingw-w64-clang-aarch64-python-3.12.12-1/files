@@ -2738,11 +2738,11 @@ clangarm64/lib/python3.12/lib2to3/fixes/fix_xrange.py
 clangarm64/lib/python3.12/lib2to3/fixes/fix_xreadlines.py
 clangarm64/lib/python3.12/lib2to3/fixes/fix_zip.py
 clangarm64/lib/python3.12/lib2to3/Grammar.txt
-clangarm64/lib/python3.12/lib2to3/Grammar3.12.11.final.0.pickle
+clangarm64/lib/python3.12/lib2to3/Grammar3.12.12.final.0.pickle
 clangarm64/lib/python3.12/lib2to3/main.py
 clangarm64/lib/python3.12/lib2to3/patcomp.py
 clangarm64/lib/python3.12/lib2to3/PatternGrammar.txt
-clangarm64/lib/python3.12/lib2to3/PatternGrammar3.12.11.final.0.pickle
+clangarm64/lib/python3.12/lib2to3/PatternGrammar3.12.12.final.0.pickle
 clangarm64/lib/python3.12/lib2to3/pgen2/
 clangarm64/lib/python3.12/lib2to3/pgen2/__init__.py
 clangarm64/lib/python3.12/lib2to3/pgen2/__pycache__/
@@ -7849,7 +7849,7 @@ clangarm64/lib/python3.12/test/typinganndata/ann_module8.py
 clangarm64/lib/python3.12/test/typinganndata/ann_module9.py
 clangarm64/lib/python3.12/test/typinganndata/mod_generics_cache.py
 clangarm64/lib/python3.12/test/wheeldata/
-clangarm64/lib/python3.12/test/wheeldata/setuptools-67.6.1-py3-none-any.whl
+clangarm64/lib/python3.12/test/wheeldata/setuptools-79.0.1-py3-none-any.whl
 clangarm64/lib/python3.12/test/wheeldata/wheel-0.40.0-py3-none-any.whl
 clangarm64/lib/python3.12/test/win_console_handler.py
 clangarm64/lib/python3.12/test/xmltestdata/

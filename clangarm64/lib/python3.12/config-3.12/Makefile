@@ -29,9 +29,9 @@ MODLIBS=           $(LOCALMODLIBS) $(BASEMODLIBS)
 
 # === Variables set by configure
 VERSION=	3.12
-srcdir=		../Python-3.12.11
-VPATH=		../Python-3.12.11
-abs_srcdir=	/c/W/B/src/build-CLANGARM64/../Python-3.12.11
+srcdir=		../Python-3.12.12
+VPATH=		../Python-3.12.12
+abs_srcdir=	/c/W/B/src/build-CLANGARM64/../Python-3.12.12
 abs_builddir=	/c/W/B/src/build-CLANGARM64
 
 
@@ -126,7 +126,7 @@ PY_CORE_CFLAGS=	$(PY_STDMODULE_CFLAGS) -DPy_BUILD_CORE
 PY_CORE_LDFLAGS=$(PY_LDFLAGS) $(PY_LDFLAGS_NODIST)
 # Strict or non-strict aliasing flags used to compile dtoa.c, see above
 CFLAGS_ALIASING=-fno-strict-aliasing
-RCFLAGS= -DFIELD3=11150 -O COFF
+RCFLAGS= -DFIELD3=12150 -O COFF
 
 
 # Machine-dependent subdirectories
@@ -146,8 +146,8 @@ exec_prefix=	${prefix}
 datarootdir=    ${prefix}/share
 
 # Locations needed for semi-native fixup of sysconfig.
-srcdir_b2h=		C:/W/B/src/Python-3.12.11
-abs_srcdir_b2h=		C:/W/B/src/Python-3.12.11
+srcdir_b2h=		C:/W/B/src/Python-3.12.12
+abs_srcdir_b2h=		C:/W/B/src/Python-3.12.12
 abs_builddir_b2h=	C:/W/B/src/build-CLANGARM64
 prefix_b2h=		C:/M/msys64/clangarm64
 
