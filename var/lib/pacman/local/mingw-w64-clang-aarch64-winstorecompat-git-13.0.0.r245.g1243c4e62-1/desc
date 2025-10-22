@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-winstorecompat-git
 
 %VERSION%
-13.0.0.r223.gf82613935-1
+13.0.0.r245.g1243c4e62-1
 
 %BASE%
 mingw-w64-winstorecompat-git
@@ -17,13 +17,13 @@ https://www.mingw-w64.org/
 any
 
 %BUILDDATE%
-1760143633
+1760949406
 
 %INSTALLDATE%
-1760239746
+1761104437
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/55384653/18421524033)
+CI (msys2/msys2-autobuild/55384653/18645737865)
 
 %SIZE%
 192656
