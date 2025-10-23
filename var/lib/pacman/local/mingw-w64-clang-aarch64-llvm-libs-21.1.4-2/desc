@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-llvm-libs
 
 %VERSION%
-21.1.1-3
+21.1.4-2
 
 %BASE%
 mingw-w64-llvm
@@ -17,16 +17,16 @@ https://llvm.org/
 any
 
 %BUILDDATE%
-1759836301
+1761148128
 
 %INSTALLDATE%
-1759848413
+1761190342
 
 %PACKAGER%
 Johannes Schindelin <johannes.schindelin@gmx.de>
 
 %SIZE%
-61408037
+61441829
 
 %REASON%
 1
