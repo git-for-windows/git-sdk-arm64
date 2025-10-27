@@ -2,7 +2,7 @@
 libnghttp2
 
 %VERSION%
-1.67.1-1
+1.68.0-1
 
 %BASE%
 nghttp2
@@ -17,16 +17,16 @@ https://nghttp2.org/
 x86_64
 
 %BUILDDATE%
-1757982400
+1761495175
 
 %INSTALLDATE%
-1758165859
+1761536824
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/59740a3f/17750462559)
+CI (msys2/msys2-autobuild/55384653/18820390374)
 
 %SIZE%
-169623
+169111
 
 %REASON%
 1
