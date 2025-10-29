@@ -2,7 +2,7 @@
 git
 
 %VERSION%
-2.51.1-1
+2.51.2-1
 
 %BASE%
 git
@@ -17,16 +17,16 @@ https://git-scm.com/
 x86_64
 
 %BUILDDATE%
-1760908309
+1761592997
 
 %INSTALLDATE%
-1761017677
+1761709391
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/55384653/18636073521)
+CI (msys2/msys2-autobuild/db1199d2/18853272998)
 
 %SIZE%
-40931237
+40933292
 
 %GROUPS%
 VCS
