@@ -30,6 +30,7 @@ clangarm64/share/doc/git-doc/docbook-xsl.css
 clangarm64/share/doc/git-doc/docinfo.html
 clangarm64/share/doc/git-doc/everyday.html
 clangarm64/share/doc/git-doc/fetch-options.adoc
+clangarm64/share/doc/git-doc/for-each-ref-options.adoc
 clangarm64/share/doc/git-doc/fsck-msgids.adoc
 clangarm64/share/doc/git-doc/git-add.adoc
 clangarm64/share/doc/git-doc/git-add.html
@@ -181,6 +182,8 @@ clangarm64/share/doc/git-doc/git-instaweb.adoc
 clangarm64/share/doc/git-doc/git-instaweb.html
 clangarm64/share/doc/git-doc/git-interpret-trailers.adoc
 clangarm64/share/doc/git-doc/git-interpret-trailers.html
+clangarm64/share/doc/git-doc/git-last-modified.adoc
+clangarm64/share/doc/git-doc/git-last-modified.html
 clangarm64/share/doc/git-doc/git-log.adoc
 clangarm64/share/doc/git-doc/git-log.html
 clangarm64/share/doc/git-doc/git-ls-files.adoc
@@ -268,6 +271,8 @@ clangarm64/share/doc/git-doc/git-replace.adoc
 clangarm64/share/doc/git-doc/git-replace.html
 clangarm64/share/doc/git-doc/git-replay.adoc
 clangarm64/share/doc/git-doc/git-replay.html
+clangarm64/share/doc/git-doc/git-repo.adoc
+clangarm64/share/doc/git-doc/git-repo.html
 clangarm64/share/doc/git-doc/git-request-pull.adoc
 clangarm64/share/doc/git-doc/git-request-pull.html
 clangarm64/share/doc/git-doc/git-rerere.adoc
@@ -389,6 +394,8 @@ clangarm64/share/doc/git-doc/gitformat-commit-graph.adoc
 clangarm64/share/doc/git-doc/gitformat-commit-graph.html
 clangarm64/share/doc/git-doc/gitformat-index.adoc
 clangarm64/share/doc/git-doc/gitformat-index.html
+clangarm64/share/doc/git-doc/gitformat-loose.adoc
+clangarm64/share/doc/git-doc/gitformat-loose.html
 clangarm64/share/doc/git-doc/gitformat-pack.adoc
 clangarm64/share/doc/git-doc/gitformat-pack.html
 clangarm64/share/doc/git-doc/gitformat-signature.adoc
@@ -486,6 +493,7 @@ clangarm64/share/doc/git-doc/MyFirstContribution.html
 clangarm64/share/doc/git-doc/MyFirstObjectWalk.adoc
 clangarm64/share/doc/git-doc/MyFirstObjectWalk.html
 clangarm64/share/doc/git-doc/object-format-disclaimer.adoc
+clangarm64/share/doc/git-doc/pack-refs-options.adoc
 clangarm64/share/doc/git-doc/pretty-formats.adoc
 clangarm64/share/doc/git-doc/pretty-options.adoc
 clangarm64/share/doc/git-doc/pull-fetch-param.adoc
@@ -1000,6 +1008,7 @@ clangarm64/share/doc/git-doc/RelNotes/2.50.1.adoc
 clangarm64/share/doc/git-doc/RelNotes/2.51.0.adoc
 clangarm64/share/doc/git-doc/RelNotes/2.51.1.adoc
 clangarm64/share/doc/git-doc/RelNotes/2.51.2.adoc
+clangarm64/share/doc/git-doc/RelNotes/2.52.0.adoc
 clangarm64/share/doc/git-doc/RelNotes/2.6.0.adoc
 clangarm64/share/doc/git-doc/RelNotes/2.6.1.adoc
 clangarm64/share/doc/git-doc/RelNotes/2.6.2.adoc
@@ -1063,10 +1072,13 @@ clangarm64/share/doc/git-doc/technical/build-systems.html
 clangarm64/share/doc/git-doc/technical/bundle-uri.adoc
 clangarm64/share/doc/git-doc/technical/bundle-uri.html
 clangarm64/share/doc/git-doc/technical/commit-graph.adoc
+clangarm64/share/doc/git-doc/technical/commit-graph.html
 clangarm64/share/doc/git-doc/technical/directory-rename-detection.adoc
+clangarm64/share/doc/git-doc/technical/directory-rename-detection.html
 clangarm64/share/doc/git-doc/technical/hash-function-transition.adoc
 clangarm64/share/doc/git-doc/technical/hash-function-transition.html
 clangarm64/share/doc/git-doc/technical/large-object-promisors.adoc
+clangarm64/share/doc/git-doc/technical/large-object-promisors.html
 clangarm64/share/doc/git-doc/technical/long-running-process-protocol.adoc
 clangarm64/share/doc/git-doc/technical/long-running-process-protocol.html
 clangarm64/share/doc/git-doc/technical/multi-pack-index.adoc
@@ -1074,6 +1086,7 @@ clangarm64/share/doc/git-doc/technical/multi-pack-index.html
 clangarm64/share/doc/git-doc/technical/pack-heuristics.adoc
 clangarm64/share/doc/git-doc/technical/pack-heuristics.html
 clangarm64/share/doc/git-doc/technical/packfile-uri.adoc
+clangarm64/share/doc/git-doc/technical/packfile-uri.html
 clangarm64/share/doc/git-doc/technical/parallel-checkout.adoc
 clangarm64/share/doc/git-doc/technical/parallel-checkout.html
 clangarm64/share/doc/git-doc/technical/partial-clone.adoc
@@ -1085,8 +1098,11 @@ clangarm64/share/doc/git-doc/technical/racy-git.html
 clangarm64/share/doc/git-doc/technical/reftable.adoc
 clangarm64/share/doc/git-doc/technical/reftable.html
 clangarm64/share/doc/git-doc/technical/remembering-renames.adoc
+clangarm64/share/doc/git-doc/technical/remembering-renames.html
 clangarm64/share/doc/git-doc/technical/repository-version.adoc
+clangarm64/share/doc/git-doc/technical/repository-version.html
 clangarm64/share/doc/git-doc/technical/rerere.adoc
+clangarm64/share/doc/git-doc/technical/rerere.html
 clangarm64/share/doc/git-doc/technical/scalar.adoc
 clangarm64/share/doc/git-doc/technical/scalar.html
 clangarm64/share/doc/git-doc/technical/send-pack-pipeline.adoc
@@ -1094,7 +1110,9 @@ clangarm64/share/doc/git-doc/technical/send-pack-pipeline.html
 clangarm64/share/doc/git-doc/technical/shallow.adoc
 clangarm64/share/doc/git-doc/technical/shallow.html
 clangarm64/share/doc/git-doc/technical/sparse-checkout.adoc
+clangarm64/share/doc/git-doc/technical/sparse-checkout.html
 clangarm64/share/doc/git-doc/technical/sparse-index.adoc
+clangarm64/share/doc/git-doc/technical/sparse-index.html
 clangarm64/share/doc/git-doc/technical/trivial-merge.adoc
 clangarm64/share/doc/git-doc/technical/trivial-merge.html
 clangarm64/share/doc/git-doc/technical/unit-tests.adoc
