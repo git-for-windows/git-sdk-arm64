@@ -15,7 +15,7 @@ TCL_DLL_FILE="tcl86.dll"
 TCL_VERSION='8.6'
 TCL_MAJOR_VERSION='8'
 TCL_MINOR_VERSION='6'
-TCL_PATCH_LEVEL='.16'
+TCL_PATCH_LEVEL='.17'
 
 # C compiler to use for compilation.
 TCL_CC='clang'
@@ -177,4 +177,4 @@ TCL_STUB_LIB_PATH='/clangarm64/lib/libtclstub86.a'
 TCL_THREADS=1
 
 # Name of the zlib library that extensions should use
-TCL_ZLIB_LIB_NAME='zdll.lib'
+TCL_ZLIB_LIB_NAME='libz.dll.a'

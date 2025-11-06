@@ -1,2 +1,2 @@
-#define LLVM_REVISION "e4b8745ca6539506650ab0f1ae0fefe6e089a747"
+#define LLVM_REVISION "9397346f3e5d317541c33e36c98cb0f1ef0e7423"
 #define LLVM_REPOSITORY "https://github.com/git-for-windows/MINGW-packages"
