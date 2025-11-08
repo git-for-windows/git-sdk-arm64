@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-tk
 
 %VERSION%
-8.6.17-1
+8.6.17-2
 
 %BASE%
 mingw-w64-tk
@@ -17,13 +17,13 @@ https://tcl-lang.org/
 any
 
 %BUILDDATE%
-1762242049
+1762538958
 
 %INSTALLDATE%
-1762400563
+1762591230
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/db1199d2/19060932420)
+CI (msys2/msys2-autobuild/db1199d2/19176846361)
 
 %SIZE%
 5618765
