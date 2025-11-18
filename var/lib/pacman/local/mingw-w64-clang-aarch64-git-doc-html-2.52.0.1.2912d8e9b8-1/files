@@ -46,6 +46,8 @@ clangarm64/share/doc/git-doc/git-archive.adoc
 clangarm64/share/doc/git-doc/git-archive.html
 clangarm64/share/doc/git-doc/git-backfill.adoc
 clangarm64/share/doc/git-doc/git-backfill.html
+clangarm64/share/doc/git-doc/git-bash.adoc
+clangarm64/share/doc/git-doc/git-bash.html
 clangarm64/share/doc/git-doc/git-bisect-lk2009.adoc
 clangarm64/share/doc/git-doc/git-bisect-lk2009.html
 clangarm64/share/doc/git-doc/git-bisect.adoc
