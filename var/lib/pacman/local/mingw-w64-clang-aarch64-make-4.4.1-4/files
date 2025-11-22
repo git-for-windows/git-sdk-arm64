@@ -6,4 +6,8 @@ clangarm64/include/
 clangarm64/include/gnumake.h
 clangarm64/lib/
 clangarm64/lib/libgnumake-1.dll.a
+clangarm64/share/
+clangarm64/share/licenses/
+clangarm64/share/licenses/make/
+clangarm64/share/licenses/make/COPYING
 
