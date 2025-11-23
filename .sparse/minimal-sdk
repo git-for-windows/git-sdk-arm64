@@ -238,4 +238,4 @@
 /usr/bin/zipinfo.exe
 
 # To accommodate Rust
-/mingw64/lib/libuserenv.a
+/clangarm64/lib/libuserenv.a
