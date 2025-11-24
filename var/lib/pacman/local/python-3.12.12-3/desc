@@ -2,7 +2,7 @@
 python
 
 %VERSION%
-3.12.12-2
+3.12.12-3
 
 %BASE%
 python
@@ -17,13 +17,13 @@ https://www.python.org/
 x86_64
 
 %BUILDDATE%
-1761725687
+1763908239
 
 %INSTALLDATE%
-1761881993
+1763956338
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/db1199d2/18901266044)
+CI (msys2/msys2-autobuild/8cbb808c/19612632217)
 
 %SIZE%
 193554063
@@ -49,6 +49,7 @@ mpdecimal
 libsqlite
 zlib
 libxcrypt
+binutils
 
 %PROVIDES%
 python3
