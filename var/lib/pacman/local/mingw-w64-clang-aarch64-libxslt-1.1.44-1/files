@@ -25,6 +25,7 @@ clangarm64/include/libxslt/preproc.h
 clangarm64/include/libxslt/security.h
 clangarm64/include/libxslt/templates.h
 clangarm64/include/libxslt/transform.h
+clangarm64/include/libxslt/transformInternals.h
 clangarm64/include/libxslt/variables.h
 clangarm64/include/libxslt/xslt.h
 clangarm64/include/libxslt/xsltconfig.h
