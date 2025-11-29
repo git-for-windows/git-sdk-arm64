@@ -62,6 +62,17 @@ clangarm64/lib/libxml2.a
 clangarm64/lib/libxml2.dll.a
 clangarm64/lib/pkgconfig/
 clangarm64/lib/pkgconfig/libxml-2.0.pc
+clangarm64/lib/python3.12/
+clangarm64/lib/python3.12/site-packages/
+clangarm64/lib/python3.12/site-packages/__pycache__/
+clangarm64/lib/python3.12/site-packages/__pycache__/drv_libxml2.cpython-312.opt-1.pyc
+clangarm64/lib/python3.12/site-packages/__pycache__/drv_libxml2.cpython-312.pyc
+clangarm64/lib/python3.12/site-packages/__pycache__/libxml2.cpython-312.opt-1.pyc
+clangarm64/lib/python3.12/site-packages/__pycache__/libxml2.cpython-312.pyc
+clangarm64/lib/python3.12/site-packages/drv_libxml2.py
+clangarm64/lib/python3.12/site-packages/libxml2.py
+clangarm64/lib/python3.12/site-packages/libxml2mod.cp312-mingw_aarch64_ucrt_llvm.pyd
+clangarm64/lib/python3.12/site-packages/libxml2mod.dll.a
 clangarm64/share/
 clangarm64/share/licenses/
 clangarm64/share/licenses/libxml2/

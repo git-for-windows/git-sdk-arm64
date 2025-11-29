@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-libxml2
 
 %VERSION%
-2.15.1-1
+2.15.1-2
 
 %BASE%
 mingw-w64-libxml2
@@ -17,16 +17,16 @@ https://gitlab.gnome.org/GNOME/libxml2/-/wikis/home
 any
 
 %BUILDDATE%
-1762851154
+1764363911
 
 %INSTALLDATE%
-1762918831
+1764387610
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/db1199d2/19256734156)
+CI (msys2/msys2-autobuild/8cbb808c/19773683243)
 
 %SIZE%
-3765517
+5218365
 
 %REASON%
 1
@@ -41,6 +41,9 @@ pgp
 %DEPENDS%
 mingw-w64-clang-aarch64-libiconv
 mingw-w64-clang-aarch64-zlib
+
+%OPTDEPENDS%
+mingw-w64-clang-aarch64-python: Python bindings
 
 %XDATA%
 pkgtype=split
