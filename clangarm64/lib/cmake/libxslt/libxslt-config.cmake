@@ -33,10 +33,10 @@
 #   LibXslt::LibExslt           - the libexslt library
 #   LibXslt::xsltproc           - the xsltproc command-line executable
 
-set(LIBXSLT_VERSION "1.1.44")
+set(LIBXSLT_VERSION "1.1.45")
 set(LIBXSLT_VERSION_MAJOR "1")
 set(LIBXSLT_VERSION_MINOR "1")
-set(LIBXSLT_VERSION_PATCH "44")
+set(LIBXSLT_VERSION_PATCH "45")
 
 set(LIBEXSLT_VERSION "0.8.25")
 set(LIBEXSLT_VERSION_MAJOR "0")
