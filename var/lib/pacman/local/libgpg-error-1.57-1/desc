@@ -2,7 +2,7 @@
 libgpg-error
 
 %VERSION%
-1.56-1
+1.57-1
 
 %BASE%
 libgpg-error
@@ -17,16 +17,16 @@ https://gnupg.org
 x86_64
 
 %BUILDDATE%
-1760043508
+1765530000
 
 %INSTALLDATE%
-1760931794
+1765684565
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/55384653/18388925101)
+CI (msys2/msys2-autobuild/8cbb808c/20161559701)
 
 %SIZE%
-810368
+828016
 
 %REASON%
 1
