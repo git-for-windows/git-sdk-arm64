@@ -85,7 +85,7 @@ jobs:
           sh -x /usr/src/build-extra/please.sh mention feature "Snapshot of $(git show -s  --pretty='tformat:%h (%s, %ad)' --date=short FETCH_HEAD)" &&
           git -C /usr/src/build-extra bundle create "$PWD/bundle-artifacts/build-extra.bundle" origin/main..main
       - name: 'Publish bundle-artifacts'
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: bundle-artifacts
           path: bundle-artifacts
@@ -119,7 +119,7 @@ jobs:
           git commit -s -m "mingw-w64-git: new version ($version)" PKGBUILD &&
           git bundle create "$b"/MINGW-packages.bundle origin/main..main)
       - name: Publish ${{env.MINGW_PACKAGE_PREFIX}}-git
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: pkg-${{env.ARCHITECTURE}}
           path: artifacts
@@ -130,7 +130,7 @@ jobs:
         run: |
           tar czf build-installers.tgz build-installers/
       - name: Publish build-installers.tgz
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: build-installers.tgz
           path: build-installers.tgz
@@ -187,7 +187,7 @@ jobs:
           cp "$p"/*-pdb* cached-source-packages/ &&
           GIT_CONFIG_PARAMETERS="'windows.sdk${{env.SDK_REPO_ARCH}}.path='" ./please.sh bundle_pdbs --arch=${{env.ARCHITECTURE}} --directory="$a" installer/package-versions.txt)
       - name: Publish ${{matrix.artifact}}-${{env.ARCHITECTURE}}
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: ${{matrix.artifact}}-${{env.ARCHITECTURE}}
           path: artifacts
@@ -208,7 +208,7 @@ jobs:
           "$env:ProgramFiles\Git\${{env.MINGW_PREFIX}}\bin" | Out-File -Encoding ascii -Append $env:GITHUB_PATH
       - name: Publish installer log
         if: matrix.artifact == 'installer' && (failure() || success())
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: installer.log
           path: installer.log
