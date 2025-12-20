@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-tools-git
 
 %VERSION%
-13.0.0.r354.g40ab95d18-1
+13.0.0.r380.gb83511db8-1
 
 %BASE%
 mingw-w64-tools-git
@@ -17,13 +17,13 @@ https://www.mingw-w64.org/
 any
 
 %BUILDDATE%
-1765443626
+1766145691
 
 %INSTALLDATE%
-1765684569
+1766202243
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/8cbb808c/20126842689)
+CI (msys2/msys2-autobuild/9963aa3e/20368599861)
 
 %SIZE%
 956385
