@@ -1,32 +1,32 @@
 %NAME%
-mingw-w64-clang-aarch64-lld
+mingw-w64-clang-aarch64-clang-analyzer
 
 %VERSION%
-21.1.5-2
+21.1.8-2
 
 %BASE%
 mingw-w64-llvm
 
 %DESC%
-Linker tools for LLVM (mingw-w64)
+A source code analysis framework (mingw-w64)
 
 %URL%
-https://lld.llvm.org/
+https://clang-analyzer.llvm.org/
 
 %ARCH%
 any
 
 %BUILDDATE%
-1762360248
+1766598352
 
 %INSTALLDATE%
-1762400550
+1766634947
 
 %PACKAGER%
 Johannes Schindelin <johannes.schindelin@gmx.de>
 
 %SIZE%
-49641655
+574142
 
 %GROUPS%
 mingw-w64-clang-aarch64-toolchain
@@ -39,13 +39,8 @@ sha256
 pgp
 
 %DEPENDS%
-mingw-w64-clang-aarch64-cc-libs
-mingw-w64-clang-aarch64-llvm-libs=21.1.5
-mingw-w64-clang-aarch64-zlib
-mingw-w64-clang-aarch64-zstd
-
-%PROVIDES%
-mingw-w64-clang-aarch64-binutils
+mingw-w64-clang-aarch64-clang=21.1.8
+mingw-w64-clang-aarch64-python
 
 %XDATA%
 pkgtype=split

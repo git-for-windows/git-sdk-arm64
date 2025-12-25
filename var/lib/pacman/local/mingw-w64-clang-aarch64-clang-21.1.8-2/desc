@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-clang
 
 %VERSION%
-21.1.5-2
+21.1.8-2
 
 %BASE%
 mingw-w64-llvm
@@ -17,16 +17,16 @@ https://clang.llvm.org/
 any
 
 %BUILDDATE%
-1762360248
+1766598352
 
 %INSTALLDATE%
-1762400555
+1766634947
 
 %PACKAGER%
 Johannes Schindelin <johannes.schindelin@gmx.de>
 
 %SIZE%
-319265159
+319172084
 
 %GROUPS%
 mingw-w64-clang-aarch64-toolchain
@@ -39,16 +39,16 @@ sha256
 pgp
 
 %DEPENDS%
-mingw-w64-clang-aarch64-clang-libs=21.1.5
-mingw-w64-clang-aarch64-compiler-rt=21.1.5
-mingw-w64-clang-aarch64-llvm-tools=21.1.5
+mingw-w64-clang-aarch64-clang-libs=21.1.8
+mingw-w64-clang-aarch64-compiler-rt=21.1.8
+mingw-w64-clang-aarch64-llvm-tools=21.1.8
 mingw-w64-clang-aarch64-crt
 mingw-w64-clang-aarch64-headers
-mingw-w64-clang-aarch64-lld=21.1.5
+mingw-w64-clang-aarch64-lld=21.1.8
 mingw-w64-clang-aarch64-winpthreads
 
 %OPTDEPENDS%
-mingw-w64-clang-aarch64-llvm=21.1.5
+mingw-w64-clang-aarch64-llvm=21.1.8
 
 %PROVIDES%
 mingw-w64-clang-aarch64-cc

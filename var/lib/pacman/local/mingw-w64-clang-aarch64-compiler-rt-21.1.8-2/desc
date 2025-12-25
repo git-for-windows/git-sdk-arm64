@@ -1,35 +1,32 @@
 %NAME%
-mingw-w64-clang-aarch64-clang-libs
+mingw-w64-clang-aarch64-compiler-rt
 
 %VERSION%
-21.1.5-2
+21.1.8-2
 
 %BASE%
 mingw-w64-llvm
 
 %DESC%
-Clang runtime libraries (mingw-w64)
+Runtime libraries for Clang and LLVM (mingw-w64)
 
 %URL%
-https://clang.llvm.org/
+https://compiler-rt.llvm.org/
 
 %ARCH%
 any
 
 %BUILDDATE%
-1762360248
+1766598352
 
 %INSTALLDATE%
-1762400549
+1766634942
 
 %PACKAGER%
 Johannes Schindelin <johannes.schindelin@gmx.de>
 
 %SIZE%
-83756836
-
-%REASON%
-1
+467899
 
 %GROUPS%
 mingw-w64-clang-aarch64-toolchain
@@ -40,13 +37,6 @@ spdx:Apache-2.0 WITH LLVM-exception
 %VALIDATION%
 sha256
 pgp
-
-%DEPENDS%
-mingw-w64-clang-aarch64-cc-libs
-mingw-w64-clang-aarch64-llvm-libs=21.1.5
-
-%CONFLICTS%
-mingw-w64-clang-aarch64-clang<17.0.6
 
 %XDATA%
 pkgtype=split

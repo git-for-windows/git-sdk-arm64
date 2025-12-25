@@ -1,14 +1,14 @@
 %NAME%
-mingw-w64-clang-aarch64-llvm-tools
+mingw-w64-clang-aarch64-llvm-libs
 
 %VERSION%
-21.1.5-2
+21.1.8-2
 
 %BASE%
 mingw-w64-llvm
 
 %DESC%
-Low Level Virtual Machine - Tools (mingw-w64)
+Low Level Virtual Machine Runtime Libraries (mingw-w64)
 
 %URL%
 https://llvm.org/
@@ -17,16 +17,16 @@ https://llvm.org/
 any
 
 %BUILDDATE%
-1762360248
+1766598352
 
 %INSTALLDATE%
-1762400550
+1766634941
 
 %PACKAGER%
 Johannes Schindelin <johannes.schindelin@gmx.de>
 
 %SIZE%
-91144052
+61415205
 
 %REASON%
 1
@@ -42,10 +42,14 @@ sha256
 pgp
 
 %DEPENDS%
-mingw-w64-clang-aarch64-llvm-libs=21.1.5
+mingw-w64-clang-aarch64-cc-libs
+mingw-w64-clang-aarch64-libffi
+mingw-w64-clang-aarch64-libxml2
+mingw-w64-clang-aarch64-zlib
+mingw-w64-clang-aarch64-zstd
 
 %CONFLICTS%
-mingw-w64-clang-aarch64-llvm<20.1.5-2
+mingw-w64-clang-aarch64-llvm<16.0.2-2
 
 %XDATA%
 pkgtype=split
