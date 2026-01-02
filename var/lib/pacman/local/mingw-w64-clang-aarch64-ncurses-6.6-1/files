@@ -33,7 +33,6 @@ clangarm64/include/ncurses/menu.h
 clangarm64/include/ncurses/nc_win32.h
 clangarm64/include/ncurses/ncurses.h
 clangarm64/include/ncurses/ncurses_dll.h
-clangarm64/include/ncurses/ncurses_mingw.h
 clangarm64/include/ncurses/panel.h
 clangarm64/include/ncurses/term.h
 clangarm64/include/ncurses/term_entry.h
@@ -54,7 +53,6 @@ clangarm64/include/ncursesw/menu.h
 clangarm64/include/ncursesw/nc_win32.h
 clangarm64/include/ncursesw/ncurses.h
 clangarm64/include/ncursesw/ncurses_dll.h
-clangarm64/include/ncursesw/ncurses_mingw.h
 clangarm64/include/ncursesw/panel.h
 clangarm64/include/ncursesw/term.h
 clangarm64/include/ncursesw/term_entry.h
@@ -63,20 +61,15 @@ clangarm64/include/ncursesw/unctrl.h
 clangarm64/lib/
 clangarm64/lib/libformw.a
 clangarm64/lib/libformw.dll.a
-clangarm64/lib/libformw_g.a
 clangarm64/lib/libmenuw.a
 clangarm64/lib/libmenuw.dll.a
-clangarm64/lib/libmenuw_g.a
 clangarm64/lib/libncurses++w.a
 clangarm64/lib/libncurses++w.dll.a
-clangarm64/lib/libncurses++w_g.a
 clangarm64/lib/libncurses.a
 clangarm64/lib/libncursesw.a
 clangarm64/lib/libncursesw.dll.a
-clangarm64/lib/libncursesw_g.a
 clangarm64/lib/libpanelw.a
 clangarm64/lib/libpanelw.dll.a
-clangarm64/lib/libpanelw_g.a
 clangarm64/lib/pkgconfig/
 clangarm64/lib/pkgconfig/formw.pc
 clangarm64/lib/pkgconfig/menuw.pc
@@ -3023,6 +3016,9 @@ clangarm64/lib/terminfo/7a/ztx
 clangarm64/lib/terminfo/7a/ztx-1-a
 clangarm64/lib/terminfo/7a/ztx11
 clangarm64/share/
+clangarm64/share/licenses/
+clangarm64/share/licenses/ncurses/
+clangarm64/share/licenses/ncurses/LICENSE
 clangarm64/share/man/
 clangarm64/share/man/man1/
 clangarm64/share/man/man1/aarch64-w64-mingw32-aarch64-w64-mingw32-captoinfo.1m.gz
