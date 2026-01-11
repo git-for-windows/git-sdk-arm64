@@ -1,0 +1,16 @@
+%FILES%
+clangarm64/
+clangarm64/bin/
+clangarm64/bin/libb2-1.dll
+clangarm64/include/
+clangarm64/include/blake2.h
+clangarm64/lib/
+clangarm64/lib/libb2.a
+clangarm64/lib/libb2.dll.a
+clangarm64/lib/pkgconfig/
+clangarm64/lib/pkgconfig/libb2.pc
+clangarm64/share/
+clangarm64/share/licenses/
+clangarm64/share/licenses/libb2/
+clangarm64/share/licenses/libb2/LICENSE
+
