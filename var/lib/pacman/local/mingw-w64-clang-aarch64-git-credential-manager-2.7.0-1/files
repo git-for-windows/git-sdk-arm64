@@ -34,6 +34,8 @@ clangarm64/bin/Microsoft.Identity.Client.dll
 clangarm64/bin/Microsoft.Identity.Client.Extensions.Msal.dll
 clangarm64/bin/Microsoft.Identity.Client.NativeInterop.dll
 clangarm64/bin/Microsoft.IdentityModel.Abstractions.dll
+clangarm64/bin/msalruntime.dll
+clangarm64/bin/msalruntime_arm64.dll
 clangarm64/bin/msalruntime_x86.dll
 clangarm64/bin/SkiaSharp.dll
 clangarm64/bin/System.Buffers.dll
