@@ -2,7 +2,7 @@
 msys2-runtime
 
 %VERSION%
-3.6.5-2
+3.6.6-1
 
 %BASE%
 msys2-runtime
@@ -17,16 +17,16 @@ https://www.cygwin.com/
 x86_64
 
 %BUILDDATE%
-1767518896
+1768515635
 
 %INSTALLDATE%
-1767586368
+1768516881
 
 %PACKAGER%
 Johannes Schindelin <johannes.schindelin@gmx.de>
 
 %SIZE%
-8682242
+8684339
 
 %LICENSE%
 GPL
