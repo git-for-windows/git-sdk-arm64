@@ -1,0 +1,6 @@
+%FILES%
+clangarm64/
+clangarm64/libexec/
+clangarm64/libexec/git-core/
+clangarm64/libexec/git-core/git-credential-wincred.exe
+

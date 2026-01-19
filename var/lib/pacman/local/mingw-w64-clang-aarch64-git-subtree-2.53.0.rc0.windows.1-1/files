@@ -1,0 +1,13 @@
+%FILES%
+clangarm64/
+clangarm64/libexec/
+clangarm64/libexec/git-core/
+clangarm64/libexec/git-core/git-subtree
+clangarm64/share/
+clangarm64/share/doc/
+clangarm64/share/doc/git-doc/
+clangarm64/share/doc/git-doc/git-subtree.html
+clangarm64/share/man/
+clangarm64/share/man/man1/
+clangarm64/share/man/man1/git-subtree.1.gz
+
