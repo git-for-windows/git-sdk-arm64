@@ -2,7 +2,7 @@
 libopenssl
 
 %VERSION%
-3.5.4-1
+3.5.5-1
 
 %BASE%
 openssl
@@ -17,16 +17,16 @@ https://www.openssl.org
 x86_64
 
 %BUILDDATE%
-1759249389
+1769533138
 
 %INSTALLDATE%
-1759289919
+1769572977
 
 %PACKAGER%
 Johannes Schindelin <johannes.schindelin@gmx.de>
 
 %SIZE%
-5056778
+5059850
 
 %REASON%
 1
