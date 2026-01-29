@@ -1,4 +1,4 @@
-#!/clangarm64/bin/python3.13.exe
+#!/clangarm64/bin/python3.14.exe
 # -*- python -*-
 
 # Keep this script in sync with python-config.sh.in
