@@ -171,7 +171,7 @@ module RbConfig
   CONFIG["WINDRES"] = "windres"
   CONFIG["ARFLAGS"] = "rcD "
   CONFIG["try_header"] = ""
-  CONFIG["CC_VERSION_MESSAGE"] = "clang version 20.1.8\nTarget: aarch64-w64-windows-gnu\nThread model: posix\nInstalledDir: C:/M/msys64/clangarm64/bin"
+  CONFIG["CC_VERSION_MESSAGE"] = "clang version 21.1.8\nTarget: aarch64-w64-windows-gnu\nThread model: posix\nInstalledDir: C:/M/msys64/clangarm64/bin"
   CONFIG["CC_VERSION"] = "$(CC) --version"
   CONFIG["CSRCFLAG"] = ""
   CONFIG["COUTFLAG"] = "-o "
