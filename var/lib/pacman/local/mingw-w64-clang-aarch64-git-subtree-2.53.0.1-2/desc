@@ -1,14 +1,14 @@
 %NAME%
-mingw-w64-clang-aarch64-git-perl
+mingw-w64-clang-aarch64-git-subtree
 
 %VERSION%
-2.53.0.rc2.windows.1-1
+2.53.0.1-2
 
 %BASE%
 mingw-w64-git
 
 %DESC%
-Perl module for Git (mingw-w64)
+Subtree support for Git (mingw-w64)
 
 %URL%
 https://gitforwindows.org/
@@ -17,16 +17,16 @@ https://gitforwindows.org/
 any
 
 %BUILDDATE%
-1769608153
+1770130146
 
 %INSTALLDATE%
-1769660657
+1770179140
 
 %PACKAGER%
 Johannes Schindelin <johannes.schindelin@gmx.de>
 
 %SIZE%
-91949
+81553
 
 %REASON%
 1
@@ -39,11 +39,7 @@ sha256
 pgp
 
 %DEPENDS%
-mingw-w64-clang-aarch64-git=2.53.0.rc2.windows.1
-perl>=5.14.0
-perl-Error
-perl-libwww
-perl-TermReadKey
+mingw-w64-clang-aarch64-git=2.53.0.1
 
 %XDATA%
 pkgtype=split

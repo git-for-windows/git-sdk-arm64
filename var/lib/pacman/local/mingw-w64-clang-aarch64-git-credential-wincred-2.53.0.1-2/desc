@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-git-credential-wincred
 
 %VERSION%
-2.53.0.rc2.windows.1-1
+2.53.0.1-2
 
 %BASE%
 mingw-w64-git
@@ -17,16 +17,16 @@ https://gitforwindows.org/
 any
 
 %BUILDDATE%
-1769608153
+1770130146
 
 %INSTALLDATE%
-1769660652
+1770179135
 
 %PACKAGER%
 Johannes Schindelin <johannes.schindelin@gmx.de>
 
 %SIZE%
-54016
+49664
 
 %REASON%
 1
@@ -39,7 +39,7 @@ sha256
 pgp
 
 %DEPENDS%
-mingw-w64-clang-aarch64-git=2.53.0.rc2.windows.1
+mingw-w64-clang-aarch64-git=2.53.0.1
 
 %XDATA%
 pkgtype=split

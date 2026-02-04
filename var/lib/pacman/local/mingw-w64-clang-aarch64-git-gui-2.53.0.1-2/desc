@@ -1,14 +1,14 @@
 %NAME%
-mingw-w64-clang-aarch64-git-svn
+mingw-w64-clang-aarch64-git-gui
 
 %VERSION%
-2.53.0.rc2.windows.1-1
+2.53.0.1-2
 
 %BASE%
 mingw-w64-git
 
 %DESC%
-Subversion support for Git (mingw-w64)
+Git GUI tool (mingw-w64)
 
 %URL%
 https://gitforwindows.org/
@@ -17,16 +17,16 @@ https://gitforwindows.org/
 any
 
 %BUILDDATE%
-1769608153
+1770130146
 
 %INSTALLDATE%
-1769660658
+1770179144
 
 %PACKAGER%
 Johannes Schindelin <johannes.schindelin@gmx.de>
 
 %SIZE%
-377980
+1442186
 
 %REASON%
 1
@@ -39,9 +39,9 @@ sha256
 pgp
 
 %DEPENDS%
-mingw-w64-clang-aarch64-git=2.53.0.rc2.windows.1
-mingw-w64-clang-aarch64-git-perl=2.53.0.rc2.windows.1
-subversion
+mingw-w64-clang-aarch64-git=2.53.0.1
+mingw-w64-clang-aarch64-tcl
+mingw-w64-clang-aarch64-tk
 
 %XDATA%
 pkgtype=split

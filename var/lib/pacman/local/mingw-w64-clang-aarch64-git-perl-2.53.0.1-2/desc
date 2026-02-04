@@ -1,14 +1,14 @@
 %NAME%
-mingw-w64-clang-aarch64-gitk
+mingw-w64-clang-aarch64-git-perl
 
 %VERSION%
-2.53.0.rc2.windows.1-1
+2.53.0.1-2
 
 %BASE%
 mingw-w64-git
 
 %DESC%
-Git repository browser (mingw-w64)
+Perl module for Git (mingw-w64)
 
 %URL%
 https://gitforwindows.org/
@@ -17,16 +17,16 @@ https://gitforwindows.org/
 any
 
 %BUILDDATE%
-1769608153
+1770130146
 
 %INSTALLDATE%
-1769660659
+1770179141
 
 %PACKAGER%
 Johannes Schindelin <johannes.schindelin@gmx.de>
 
 %SIZE%
-956427
+91949
 
 %REASON%
 1
@@ -39,9 +39,11 @@ sha256
 pgp
 
 %DEPENDS%
-mingw-w64-clang-aarch64-git=2.53.0.rc2.windows.1
-mingw-w64-clang-aarch64-tcl
-mingw-w64-clang-aarch64-tk
+mingw-w64-clang-aarch64-git=2.53.0.1
+perl>=5.14.0
+perl-Error
+perl-libwww
+perl-TermReadKey
 
 %XDATA%
 pkgtype=split
