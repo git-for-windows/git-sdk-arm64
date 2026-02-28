@@ -1351,8 +1351,6 @@ clangarm64/include/scrnsave.h
 clangarm64/include/scrptids.h
 clangarm64/include/sddl.h
 clangarm64/include/sdkddkver.h
-clangarm64/include/sdks/
-clangarm64/include/sdks/_mingw_ddk.h
 clangarm64/include/sdoias.h
 clangarm64/include/sdpblb.h
 clangarm64/include/sdperr.h

@@ -2,7 +2,7 @@
 libgcrypt
 
 %VERSION%
-1.12.0-1
+1.12.1-1
 
 %BASE%
 libgcrypt
@@ -17,16 +17,16 @@ https://gnupg.org
 x86_64
 
 %BUILDDATE%
-1769787935
+1771958879
 
 %INSTALLDATE%
-1769921710
+1772251940
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/59a03c95/21521521262)
+CI (msys2/msys2-autobuild/ad23bc5d/22365153800)
 
 %SIZE%
-1200154
+1200152
 
 %REASON%
 1

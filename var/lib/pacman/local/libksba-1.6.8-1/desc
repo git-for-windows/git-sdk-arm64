@@ -2,7 +2,7 @@
 libksba
 
 %VERSION%
-1.6.7-1
+1.6.8-1
 
 %BASE%
 libksba
@@ -17,16 +17,16 @@ https://www.gnupg.org/related_software/libksba/
 x86_64
 
 %BUILDDATE%
-1719814778
+1771959132
 
 %INSTALLDATE%
-1719889945
+1772251940
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/00495cb2/9739154571)
+CI (msys2/msys2-autobuild/ad23bc5d/22365153800)
 
 %SIZE%
-276190
+294589
 
 %REASON%
 1
