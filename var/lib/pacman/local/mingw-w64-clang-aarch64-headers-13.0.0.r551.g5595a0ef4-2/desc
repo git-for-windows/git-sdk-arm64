@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-headers
 
 %VERSION%
-13.0.0.r545.gc39000898-1
+13.0.0.r551.g5595a0ef4-2
 
 %BASE%
 mingw-w64-headers
@@ -17,16 +17,16 @@ https://www.mingw-w64.org/
 any
 
 %BUILDDATE%
-1772093747
+1772290860
 
 %INSTALLDATE%
-1772251943
+1772598417
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/ad23bc5d/22433469761)
+CI (msys2/msys2-autobuild/ad23bc5d/22523044026)
 
 %SIZE%
-95043282
+95045400
 
 %GROUPS%
 mingw-w64-clang-aarch64-toolchain
@@ -45,7 +45,7 @@ mingw-w64-clang-aarch64-headers-git
 mingw-w64-clang-aarch64-headers-git
 
 %PROVIDES%
-mingw-w64-clang-aarch64-headers-git=13.0.0.r545.gc39000898
+mingw-w64-clang-aarch64-headers-git=13.0.0.r551.g5595a0ef4
 
 %XDATA%
 pkgtype=pkg
