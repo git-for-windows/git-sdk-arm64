@@ -23,9 +23,9 @@
 # mailer.py: send email describing a commit
 #
 # $HeadURL: https://svn.apache.org/repos/asf/subversion/branches/1.14.x/tools/hook-scripts/mailer/mailer.py $
-# $LastChangedDate: 2021-01-23 04:00:51 +0000 (Sat, 23 Jan 2021) $
+# $LastChangedDate: 2024-01-20 04:00:02 +0000 (Sat, 20 Jan 2024) $
 # $LastChangedBy: svn-role $
-# $LastChangedRevision: 1885829 $
+# $LastChangedRevision: 1915337 $
 #
 # USAGE: mailer.py commit      REPOS REVISION [CONFIG-FILE]
 #        mailer.py propchange  REPOS REVISION AUTHOR REVPROPNAME [CONFIG-FILE]
@@ -473,7 +473,7 @@ class Commit(Messenger):
     # collect the set of groups and the unique sets of params for the options
     self.groups = { }
     for path, change in self.changelist:
-      for (group, params) in self.cfg.which_groups(path, log):
+      for (group, params) in self.cfg.which_groups(to_str(path), log):
         # turn the params into a hashable object and stash it away
         param_list = sorted(params.items())
         # collect the set of paths belonging to this group
@@ -1475,9 +1475,9 @@ class Config:
     "Return the path's associated groups."
     groups = []
     for group, pattern, exclude_pattern, repos_params, search_logmsg_re in self._group_re:
-      match = pattern.match(to_str(path))
+      match = pattern.match(path)
       if match:
-        if exclude_pattern and exclude_pattern.match(to_str(path)):
+        if exclude_pattern and exclude_pattern.match(path):
           continue
         params = repos_params.copy()
         params.update(match.groupdict())

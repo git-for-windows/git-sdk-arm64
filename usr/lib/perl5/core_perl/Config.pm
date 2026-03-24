@@ -10,7 +10,7 @@ use strict;
 use warnings;
 our ( %Config, $VERSION );
 
-$VERSION = "5.038002";
+$VERSION = "5.040003";
 
 # Skip @Config::EXPORT because it only contains %Config, which we special
 # case below as it's not a function. @Config::EXPORT won't change in the
@@ -56,11 +56,11 @@ sub import {
     return;
 }
 
-die "$0: Perl lib version (5.38.2) doesn't match executable '$^X' version ($])"
+die "$0: Perl lib version (5.40.3) doesn't match executable '$^X' version ($])"
     unless $^V;
 
-$^V eq 5.38.2
-    or die sprintf "%s: Perl lib version (5.38.2) doesn't match executable '$^X' version (%vd)", $0, $^V;
+$^V eq 5.40.3
+    or die sprintf "%s: Perl lib version (5.40.3) doesn't match executable '$^X' version (%vd)", $0, $^V;
 
 
 sub FETCH {
@@ -85,7 +85,7 @@ sub AUTOLOAD {
 # tie returns the object, so the value returned to require will be true.
 tie %Config, 'Config', {
     archlibexp => '/usr/lib/perl5/core_perl',
-    archname => 'x86_64-msys-thread-multi',
+    archname => 'x86_64-cygwin-thread-multi',
     cc => 'gcc',
     d_readlink => undef,
     d_symlink => 'define',
@@ -97,8 +97,8 @@ tie %Config, 'Config', {
     intsize => '4',
     ldlibpthname => 'PATH',
     libpth => '/usr/lib',
-    osname => 'msys',
-    osvers => '3.5.7-882031da.x86_64',
+    osname => 'cygwin',
+    osvers => '3.6.4-23a25d49.x86_64',
     path_sep => ':',
     privlibexp => '/usr/share/perl5/core_perl',
     scriptdir => '/usr/bin/core_perl',
@@ -107,5 +107,5 @@ tie %Config, 'Config', {
     so => 'dll',
     useithreads => 'define',
     usevendorprefix => 'define',
-    version => '5.38.2',
+    version => '5.40.3',
 };

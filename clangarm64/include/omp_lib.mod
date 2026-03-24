@@ -1,5 +1,6 @@
-﻿!mod$ v1 sum:d7ddf53aef599981
-!need$ b484dd88bb76aa03 n omp_lib_kinds
+﻿!mod$ v1 sum:2ce677708ccf05fd
+!need$ 491c0cb73893b755 i iso_c_binding
+!need$ 469cc840febd85e4 n omp_lib_kinds
 module omp_lib
 use omp_lib_kinds,only:omp_integer_kind
 use omp_lib_kinds,only:omp_logical_kind
@@ -842,8 +843,8 @@ integer(4),value::libnum
 end
 end interface
 interface
-subroutine kmp_set_defaults(string) bind(c)
-character(1_8,1)::string(1_8:*)
+subroutine kmp_set_defaults(string)
+character(*,1)::string
 end
 end interface
 interface
