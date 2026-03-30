@@ -2,7 +2,7 @@
 msys2-w32api-runtime
 
 %VERSION%
-13.0.0.r0.gde62c283f-1
+14.0.0.r0.g9b3dd0125-1
 
 %BASE%
 msys2-w32api-runtime
@@ -17,16 +17,16 @@ https://mingw-w64.sourceforge.io/
 x86_64
 
 %BUILDDATE%
-1749725182
+1774642221
 
 %INSTALLDATE%
-1749786195
+1774847764
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/5f5d7aaf/15608333710)
+CI (msys2/msys2-autobuild/b28ef76c/23665245673)
 
 %SIZE%
-101976915
+101979313
 
 %LICENSE%
 custom

@@ -2,7 +2,7 @@
 perl-Clone
 
 %VERSION%
-0.48-1
+0.50-1
 
 %BASE%
 perl-Clone
@@ -17,16 +17,16 @@ https://github.com/garu/Clone
 x86_64
 
 %BUILDDATE%
-1772570042
+1774742509
 
 %INSTALLDATE%
-1774389583
+1774847764
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/ad23bc5d/22641365889)
+CI (msys2/msys2-autobuild/b28ef76c/23697233412)
 
 %SIZE%
-27740
+29426
 
 %REASON%
 1

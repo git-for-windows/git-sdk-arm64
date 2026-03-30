@@ -2,7 +2,7 @@
 msys2-w32api-headers
 
 %VERSION%
-13.0.0.r0.gde62c283f-1
+14.0.0.r0.g9b3dd0125-1
 
 %BASE%
 msys2-w32api-headers
@@ -17,16 +17,16 @@ https://mingw-w64.sourceforge.io/
 x86_64
 
 %BUILDDATE%
-1749725010
+1774642059
 
 %INSTALLDATE%
-1749786193
+1774847762
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/5f5d7aaf/15608333710)
+CI (msys2/msys2-autobuild/b28ef76c/23665245673)
 
 %SIZE%
-79222595
+83773379
 
 %LICENSE%
 custom
