@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-ncurses
 
 %VERSION%
-6.6-2
+6.6-3
 
 %BASE%
 mingw-w64-ncurses
@@ -17,16 +17,16 @@ https://www.gnu.org/software/ncurses/
 any
 
 %BUILDDATE%
-1771177763
+1774984315
 
 %INSTALLDATE%
-1771303608
+1775154345
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/ad23bc5d/22040206341)
+CI (msys2/msys2-autobuild/b28ef76c/23814769978)
 
 %SIZE%
-14747904
+14747344
 
 %REASON%
 1
@@ -40,7 +40,7 @@ pgp
 
 %DEPENDS%
 mingw-w64-clang-aarch64-cc-libs
-mingw-w64-clang-aarch64-libsystre
+mingw-w64-clang-aarch64-pcre2
 
 %XDATA%
 pkgtype=pkg

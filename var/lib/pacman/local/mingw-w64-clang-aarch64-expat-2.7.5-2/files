@@ -12,7 +12,7 @@ clangarm64/lib/cmake/
 clangarm64/lib/cmake/expat-2.7.5/
 clangarm64/lib/cmake/expat-2.7.5/expat-config-version.cmake
 clangarm64/lib/cmake/expat-2.7.5/expat-config.cmake
-clangarm64/lib/cmake/expat-2.7.5/expat-noconfig.cmake
+clangarm64/lib/cmake/expat-2.7.5/expat-release.cmake
 clangarm64/lib/cmake/expat-2.7.5/expat.cmake
 clangarm64/lib/libexpat.a
 clangarm64/lib/libexpat.dll.a
