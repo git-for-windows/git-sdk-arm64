@@ -2,7 +2,7 @@
 perl-JSON
 
 %VERSION%
-4.10-1
+4.11-1
 
 %BASE%
 perl-JSON
@@ -17,27 +17,30 @@ https://metacpan.org/release/JSON
 any
 
 %BUILDDATE%
-1677850634
+1775340012
 
 %INSTALLDATE%
-1677986932
+1775452525
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/91ab3435/4323861436)
+CI (msys2/msys2-autobuild/ce84121b/23988432914)
 
 %SIZE%
-217373
+213067
 
 %GROUPS%
 perl-modules
 
 %LICENSE%
-GPL
-PerlArtistic
+spdx:GPL-1.0-or-later
+spdx:Artistic-1.0-Perl
 
 %VALIDATION%
 pgp
 
 %DEPENDS%
 perl>=5.10.0
+
+%XDATA%
+pkgtype=pkg
 
