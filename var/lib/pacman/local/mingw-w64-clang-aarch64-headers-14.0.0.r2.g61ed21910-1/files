@@ -1751,6 +1751,8 @@ clangarm64/include/windows.graphics.capture.interop.h
 clangarm64/include/windows.graphics.capture.interop.idl
 clangarm64/include/windows.graphics.directx.direct3d11.h
 clangarm64/include/windows.graphics.directx.direct3d11.idl
+clangarm64/include/windows.graphics.directx.direct3d11.interop.h
+clangarm64/include/windows.graphics.directx.direct3d11.interop.idl
 clangarm64/include/windows.graphics.directx.h
 clangarm64/include/windows.graphics.directx.idl
 clangarm64/include/windows.graphics.display.h
