@@ -16,7 +16,7 @@ use Carp;
 
 BEGIN {
     require XML::Parser::Expat;
-    $VERSION = '2.51';
+    $VERSION = '2.56';
     die "Parser.pm and Expat.pm versions don't match"
       unless $VERSION eq $XML::Parser::Expat::VERSION;
 }
@@ -321,6 +321,8 @@ sub file_ext_ent_cleanup {
 1;
 
 __END__
+
+=for markdown [![Build Status](https://github.com/cpan-authors/XML-Parser/actions/workflows/testsuite.yml/badge.svg)](https://github.com/cpan-authors/XML-Parser/actions/workflows/testsuite.yml)
 
 =head1 NAME
 
@@ -713,8 +715,8 @@ including any internal or external DTD declarations.
 
 This handler is called for xml declarations. Version is a string containing
 the version. Encoding is either undefined or contains an encoding string.
-Standalone will be either the string C<"yes">, C<"no">, or undefined if the
-standalone attribute is yes, no, or not made respectively.
+Standalone will be either true, false, or undefined if the standalone attribute
+is yes, no, or not made respectively.
 
 =head1 STYLES
 
@@ -876,6 +878,12 @@ Clark Cooper <F<coopercc@netheaven.com>> picked up support, changed the API
 for this version (2.x), provided documentation,
 and added some standard package features.
 
-Matt Sergeant <F<matt@sergeant.org>> is now maintaining XML::Parser
+Matt Sergeant <F<matt@sergeant.org>> was maintaining XML::Parser from 2003 to 2007.
+
+Alexandr Ciornii <F<alexchorny@gmail.com>> was maintaining XML::Parser from 2007 to 2013.
+
+Todd Rinaldo <F<toddr@cpan.org>> has been maintaining XML::Parser since 2013.
+
+The project started making use of Claude Code <F<https://claude.ai/code>> in January 2026.
 
 =cut

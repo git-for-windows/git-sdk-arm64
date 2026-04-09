@@ -8,9 +8,9 @@ use strict;
 use XSLoader;
 use Carp;
 
-our $VERSION = '2.51';
+our $VERSION = '2.56';
 
-our ( %Encoding_Table, @Encoding_Path, $have_File_Spec );
+our ( %Encoding_Table, @Encoding_Path );
 
 use File::Spec ();
 use File::ShareDir ();
@@ -549,10 +549,6 @@ sub parse {
         if ( ref($arg) and UNIVERSAL::isa( $arg, 'IO::Handle' ) ) {
             $ioref = $arg;
         }
-        elsif ( $] < 5.008 and defined tied($arg) ) {
-            require IO::Handle;
-            $ioref = $arg;
-        }
         else {
             require IO::Handle;
             eval {
@@ -560,6 +556,12 @@ sub parse {
                 if ( ref $arg eq 'GLOB' ) {
 
                     # Glob reference not recognized as IO::Handle
+                    $ioref = *{$arg}{IO};
+                }
+                elsif ( ref \$arg eq 'GLOB' ) {
+
+                    # Bare glob (*FH) — not a reference, but taking a
+                    # reference of it yields a GLOB ref. (GH#201)
                     $ioref = *{$arg}{IO};
                 }
                 elsif ( $arg =~ /\A[^\W\d]\w*(?:::\w+)*\z/
@@ -1111,9 +1113,9 @@ including any internal or external DTD declarations.
 
 This handler is called for XML declarations. Version is a string containing
 the version. Encoding is either undefined or contains an encoding string.
-Standalone is either undefined, or the string C<"yes"> or C<"no">.
-Undefined indicates that no standalone parameter was given in the XML
-declaration.
+Standalone is either undefined, or true or false. Undefined indicates
+that no standalone parameter was given in the XML declaration. True or
+false indicates "yes" or "no" respectively.
 
 =back
 
@@ -1490,5 +1492,13 @@ Larry Wall <F<larry@wall.org>> wrote version 1.0.
 Clark Cooper <F<coopercc@netheaven.com>> picked up support, changed the API
 for this version (2.x), provided documentation, and added some standard
 package features.
+
+Matt Sergeant <F<matt@sergeant.org>> was maintaining XML::Parser from 2003 to 2007.
+
+Alexandr Ciornii <F<alexchorny@gmail.com>> was maintaining XML::Parser from 2007 to 2013.
+
+Todd Rinaldo <F<toddr@cpan.org>> has been maintaining XML::Parser since 2013.
+
+The project started making use of Claude Code <F<https://claude.ai/code>> in January 2026.
 
 =cut
