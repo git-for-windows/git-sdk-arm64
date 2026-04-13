@@ -29,9 +29,9 @@ MODLIBS=           $(LOCALMODLIBS) $(BASEMODLIBS)
 
 # === Variables set by configure
 VERSION=	3.14
-srcdir=		../Python-3.14.3
-VPATH=		../Python-3.14.3
-abs_srcdir=	/c/W/B/src/build-CLANGARM64/../Python-3.14.3
+srcdir=		../Python-3.14.4
+VPATH=		../Python-3.14.4
+abs_srcdir=	/c/W/B/src/build-CLANGARM64/../Python-3.14.4
 abs_builddir=	/c/W/B/src/build-CLANGARM64
 
 
@@ -86,7 +86,7 @@ MAKESETUP=      $(srcdir)/Modules/makesetup
 OPT=		-DNDEBUG -g -O3 -Wall
 BASECFLAGS=	 -fno-strict-overflow -Wsign-compare -Wunreachable-code
 BASECPPFLAGS=	-IObjects -IInclude -IPython
-CONFIGURE_CFLAGS=	-O2 -pipe -Wp,-D_FORTIFY_SOURCE=2 -fstack-protector-strong -Wp,-D__USE_MINGW_ANSI_STDIO=1 -O3
+CONFIGURE_CFLAGS=	-march=armv8.1-a -O2 -pipe -Wp,-D_FORTIFY_SOURCE=2 -fstack-protector-strong -Wp,-D__USE_MINGW_ANSI_STDIO=1 -O3
 # CFLAGS_NODIST is used for building the interpreter and stdlib C extensions.
 # Use it when a compiler flag should _not_ be part of the distutils CFLAGS
 # once Python is installed (Issue #21121).
@@ -131,7 +131,7 @@ PY_CORE_CFLAGS=	$(PY_STDMODULE_CFLAGS) -DPy_BUILD_CORE
 PY_CORE_LDFLAGS=$(PY_LDFLAGS) $(PY_LDFLAGS_NODIST)
 # Strict or non-strict aliasing flags used to compile dtoa.c, see above
 CFLAGS_ALIASING=
-RCFLAGS= -DFIELD3=3150 -O COFF
+RCFLAGS= -DFIELD3=4150 -O COFF
 
 
 # Machine-dependent subdirectories
@@ -158,8 +158,8 @@ host_exec_prefix= 	${exec_prefix}
 datarootdir=    ${prefix}/share
 
 # Locations needed for semi-native fixup of sysconfig.
-srcdir_b2h=		C:/W/B/src/Python-3.14.3
-abs_srcdir_b2h=		C:/W/B/src/Python-3.14.3
+srcdir_b2h=		C:/W/B/src/Python-3.14.4
+abs_srcdir_b2h=		C:/W/B/src/Python-3.14.4
 abs_builddir_b2h=	C:/W/B/src/build-CLANGARM64
 prefix_b2h=		C:/M/msys64/clangarm64
 
@@ -341,11 +341,11 @@ MODULE__CTYPES_CFLAGS=-fno-strict-overflow
 MODULE__CTYPES_LDFLAGS=-lffi -lole32 -loleaut32 -luuid
 MODULE__CURSES_STATE=yes
 MODULE__CURSES_CFLAGS=-DNCURSES_WIDECHAR -IC:/M/msys64/clangarm64/include/ncursesw
-MODULE__CURSES_LDFLAGS=-lncursesw -lsystre -ltre -lintl -liconv
+MODULE__CURSES_LDFLAGS=-lncursesw -lsystre -ltre -lintl -liconv -lpcre2-posix
 
 MODULE__CURSES_PANEL_STATE=yes
 MODULE__CURSES_PANEL_CFLAGS=-IC:/M/msys64/clangarm64/include/ncursesw -DNCURSES_WIDECHAR -DNCURSES_WIDECHAR -IC:/M/msys64/clangarm64/include/ncursesw
-MODULE__CURSES_PANEL_LDFLAGS=-lpanelw -lncursesw -lsystre -ltre -lintl -liconv
+MODULE__CURSES_PANEL_LDFLAGS=-lpanelw -lncursesw -lsystre -ltre -lintl -liconv -lpcre2-posix
 
 MODULE__DECIMAL_STATE=yes
 MODULE__DECIMAL_CFLAGS=
@@ -425,7 +425,7 @@ EXEMODE=	755
 FILEMODE=	644
 
 # configure script arguments
-CONFIG_ARGS=	 '--prefix=/clangarm64' '--host=aarch64-w64-mingw32' '--build=aarch64-w64-mingw32' '--enable-shared' '--with-system-expat' '--with-system-ffi' '--with-system-libmpdec' '--without-ensurepip' '--enable-loadable-sqlite-extensions' '--with-tzpath=/clangarm64/share/zoneinfo' '--enable-optimizations' '--with-lto=full' 'build_alias=aarch64-w64-mingw32' 'host_alias=aarch64-w64-mingw32' 'PKG_CONFIG_PATH=/clangarm64/lib/pkgconfig:/clangarm64/share/pkgconfig' 'CC=clang' 'CFLAGS=-O2 -pipe -Wp,-D_FORTIFY_SOURCE=2 -fstack-protector-strong -Wp,-D__USE_MINGW_ANSI_STDIO=1 -O3' 'LDFLAGS=' 'CPPFLAGS='
+CONFIG_ARGS=	 '--prefix=/clangarm64' '--host=aarch64-w64-mingw32' '--build=aarch64-w64-mingw32' '--enable-shared' '--with-system-expat' '--with-system-ffi' '--with-system-libmpdec' '--without-ensurepip' '--enable-loadable-sqlite-extensions' '--with-tzpath=/clangarm64/share/zoneinfo' '--enable-optimizations' '--with-lto=full' 'build_alias=aarch64-w64-mingw32' 'host_alias=aarch64-w64-mingw32' 'PKG_CONFIG_PATH=/clangarm64/lib/pkgconfig:/clangarm64/share/pkgconfig' 'CC=clang' 'CFLAGS=-march=armv8.1-a -O2 -pipe -Wp,-D_FORTIFY_SOURCE=2 -fstack-protector-strong -Wp,-D__USE_MINGW_ANSI_STDIO=1 -O3' 'LDFLAGS=' 'CPPFLAGS='
 
 
 # Subdirectories with code
@@ -1310,7 +1310,7 @@ $(ABI3DLLLIBRARY) $(ABI3LDLIBRARY): python3dll_nt.o $(srcdir)/PC/launcher.c
 
 # wasm32-emscripten browser web example
 
-EMSCRIPTEN_DIR=$(srcdir)/Tools/wasm/emscripten
+EMSCRIPTEN_DIR=$(srcdir)/Platforms/emscripten
 WEBEX_DIR=$(EMSCRIPTEN_DIR)/web_example/
 
 ZIP_STDLIB=python$(VERSION)$(ABI_THREAD).zip
@@ -3346,7 +3346,7 @@ Python/emscripten_trampoline_inner.wasm: $(srcdir)/Python/emscripten_trampoline_
 	$$(dirname $$(dirname $(CC)))/bin/clang -o $@ $< -mgc -O2 -Wl,--no-entry -Wl,--import-table -Wl,--import-memory -target wasm32-unknown-unknown -nostdlib
 
 Python/emscripten_trampoline_wasm.c: Python/emscripten_trampoline_inner.wasm
-	$(PYTHON_FOR_REGEN) $(srcdir)/Tools/wasm/emscripten/prepare_external_wasm.py $< $@ getWasmTrampolineModule
+	$(PYTHON_FOR_REGEN) $(srcdir)/Platforms/emscripten/prepare_external_wasm.py $< $@ getWasmTrampolineModule
 
 JIT_DEPS = \
 		$(srcdir)/Tools/jit/*.c \
