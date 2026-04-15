@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-git-send-email
 
 %VERSION%
-2.54.0.rc1.windows.1-1
+2.54.0.rc2.windows.1-1
 
 %BASE%
 mingw-w64-git
@@ -17,10 +17,10 @@ https://gitforwindows.org/
 any
 
 %BUILDDATE%
-1775716013
+1776194502
 
 %INSTALLDATE%
-1775798232
+1776230132
 
 %PACKAGER%
 Johannes Schindelin <johannes.schindelin@gmx.de>
@@ -39,8 +39,8 @@ sha256
 pgp
 
 %DEPENDS%
-mingw-w64-clang-aarch64-git=2.54.0.rc1.windows.1
-mingw-w64-clang-aarch64-git-perl=2.54.0.rc1.windows.1
+mingw-w64-clang-aarch64-git=2.54.0.rc2.windows.1
+mingw-w64-clang-aarch64-git-perl=2.54.0.rc2.windows.1
 perl-Authen-SASL
 perl-MIME-tools
 perl-Net-SMTP-SSL
