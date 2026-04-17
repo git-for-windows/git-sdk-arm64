@@ -1,4 +1,4 @@
-*version9.txt*	For Vim version 9.2.  Last change: 2026 Apr 07
+*version9.txt*	For Vim version 9.2.  Last change: 2026 Apr 15
 
 
 		  VIM REFERENCE MANUAL	  by Bram Moolenaar
@@ -52613,6 +52613,9 @@ Other ~
   pairs individually (e.g. 'listchars', 'fillchars', 'diffopt').
 - |system()| and |systemlist()| functions accept a list as first argument,
   bypassing the shell completely.
+- Allow mouse clickable regions in the |status-line| using the
+  |stl-%[FuncName]| atom.
+- Enable reflow support in the |:terminal|.
 
 Platform specific ~
 -----------------
@@ -52631,6 +52634,8 @@ Changed ~
 - |js_decode()| rejects lone surrogates
 - virtual text properties on lines deleted by a multi-line substitute
   are moved to the resulting joined line instead of being dropped.
+- Only a few whitelisted options are allowed to be set by a modeline to
+  improve overall security, see for details: 'modelinestrict'
 
 							*added-9.3*
 Added ~
@@ -52647,7 +52652,9 @@ Autocommands: ~
 
 Options: ~
 
+'modelinestrict'	Only allow safe options to be set from a modeline.
 'pumopt'		Additional options for the popup menu
+'scrolloffpad'		Keep 'scrolloff' context at end of file
 'statuslineopt'		Extra window-local options for the 'statusline', to
 			configure the height.
 't_BS'			Begin synchronized update.
@@ -52655,6 +52662,10 @@ Options: ~
 'termresize'		Method for handling terminal resize events.
 'termsync'		Enable support for terminal DEC 2026 sync mode.
 'winhighlight'		Window-local highlight group mappings.
+
+Highlighting: ~
+
+|hl-VertSplitNC|	Column separator of non-current window.
 
 ==============================================================================
 PATCHES						*patches-9.3* *bug-fixes-9.3*

@@ -2,7 +2,7 @@
 time
 
 %VERSION%
-1.9-3
+1.10-1
 
 %BASE%
 time
@@ -17,20 +17,23 @@ https://www.gnu.org/directory/time.html
 x86_64
 
 %BUILDDATE%
-1652563501
+1776297321
 
 %INSTALLDATE%
-1652671849
+1776403301
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/745e5e2c/2325205506)
+CI (msys2/msys2-autobuild/d772bf5f/24484251526)
 
 %SIZE%
-35979
+39788
 
 %LICENSE%
-GPL
+spdx:GPL-3.0-or-later
 
 %VALIDATION%
 pgp
+
+%XDATA%
+pkgtype=pkg
 

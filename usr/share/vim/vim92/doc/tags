@@ -531,6 +531,7 @@ $quote	eval.txt	/*$quote*
 'ml'	options.txt	/*'ml'*
 'mle'	options.txt	/*'mle'*
 'mls'	options.txt	/*'mls'*
+'mlst'	options.txt	/*'mlst'*
 'mm'	options.txt	/*'mm'*
 'mmd'	options.txt	/*'mmd'*
 'mmp'	options.txt	/*'mmp'*
@@ -539,6 +540,7 @@ $quote	eval.txt	/*$quote*
 'modeline'	options.txt	/*'modeline'*
 'modelineexpr'	options.txt	/*'modelineexpr'*
 'modelines'	options.txt	/*'modelines'*
+'modelinestrict'	options.txt	/*'modelinestrict'*
 'modifiable'	options.txt	/*'modifiable'*
 'modified'	options.txt	/*'modified'*
 'mopt'	options.txt	/*'mopt'*
@@ -706,9 +708,11 @@ $quote	eval.txt	/*$quote*
 'nomh'	options.txt	/*'nomh'*
 'noml'	options.txt	/*'noml'*
 'nomle'	options.txt	/*'nomle'*
+'nomlst'	options.txt	/*'nomlst'*
 'nomod'	options.txt	/*'nomod'*
 'nomodeline'	options.txt	/*'nomodeline'*
 'nomodelineexpr'	options.txt	/*'nomodelineexpr'*
+'nomodelinestrict'	options.txt	/*'nomodelinestrict'*
 'nomodifiable'	options.txt	/*'nomodifiable'*
 'nomodified'	options.txt	/*'nomodified'*
 'nomore'	options.txt	/*'nomore'*
@@ -949,6 +953,7 @@ $quote	eval.txt	/*$quote*
 'scrollfocus'	options.txt	/*'scrollfocus'*
 'scrolljump'	options.txt	/*'scrolljump'*
 'scrolloff'	options.txt	/*'scrolloff'*
+'scrolloffpad'	options.txt	/*'scrolloffpad'*
 'scrollopt'	options.txt	/*'scrollopt'*
 'scs'	options.txt	/*'scs'*
 'sect'	options.txt	/*'sect'*
@@ -1007,6 +1012,7 @@ $quote	eval.txt	/*$quote*
 'so'	options.txt	/*'so'*
 'softtabstop'	options.txt	/*'softtabstop'*
 'sol'	options.txt	/*'sol'*
+'sop'	options.txt	/*'sop'*
 'sourceany'	vi_diff.txt	/*'sourceany'*
 'sp'	options.txt	/*'sp'*
 'spc'	options.txt	/*'spc'*
@@ -8487,6 +8493,7 @@ hl-User1	syntax.txt	/*hl-User1*
 hl-User1..9	syntax.txt	/*hl-User1..9*
 hl-User9	syntax.txt	/*hl-User9*
 hl-VertSplit	syntax.txt	/*hl-VertSplit*
+hl-VertSplitNC	syntax.txt	/*hl-VertSplitNC*
 hl-Visual	syntax.txt	/*hl-Visual*
 hl-VisualNOS	syntax.txt	/*hl-VisualNOS*
 hl-WarningMsg	syntax.txt	/*hl-WarningMsg*
@@ -10547,6 +10554,7 @@ status-line	windows.txt	/*status-line*
 statusmsg-variable	eval.txt	/*statusmsg-variable*
 stl-%!	options.txt	/*stl-%!*
 stl-%@	options.txt	/*stl-%@*
+stl-%[FuncName]	options.txt	/*stl-%[FuncName]*
 stl-%{	options.txt	/*stl-%{*
 str2blob()	builtin.txt	/*str2blob()*
 str2float()	builtin.txt	/*str2float()*

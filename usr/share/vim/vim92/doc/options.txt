@@ -1,4 +1,4 @@
-*options.txt*	For Vim version 9.2.  Last change: 2026 Apr 07
+*options.txt*	For Vim version 9.2.  Last change: 2026 Apr 15
 
 
 		  VIM REFERENCE MANUAL	  by Bram Moolenaar
@@ -4757,7 +4757,8 @@ A jump table for the options with a short description can be found at |Q_op|.
 				     l:Search,m:MoreMsg,M:ModeMsg,n:LineNr,
 				     a:LineNrAbove,b:LineNrBelow,
 				     N:CursorLineNr,r:Question,s:StatusLine,
-				     S:StatusLineNC,c:VertSplit,t:Title,
+				     S:StatusLineNC,c:VertSplit,
+				     |:VertSplitNC,t:Title,
 				     v:Visual,V:VisualNOS,w:WarningMsg,
 				     W:WildMenu,f:Folded,F:FoldColumn,
 				     A:DiffAdd,C:DiffChange,D:DiffDelete,
@@ -4805,6 +4806,8 @@ A jump table for the options with a short description can be found at |Q_op|.
 	|hl-StatusLineNC|  S  status lines of not-current windows
 	|hl-Title|	 t  Titles for output from ":set all", ":autocmd" etc.
 	|hl-VertSplit|	 c  column used to separate vertically split windows
+	|hl-VertSplitNC| |  column separating non-current vertically split
+			    windows
 	|hl-Visual|	 v  Visual mode
 	|hl-VisualNOS|	 V  Visual mode when Vim is "Not Owning the
 			    Selection" Only X11 Gui's |gui-x11|,
@@ -6196,6 +6199,48 @@ A jump table for the options with a short description can be found at |Q_op|.
 	NOTE: 'modeline' is set to the Vi default value when 'compatible' is
 	set and to the Vim default value when 'compatible' is reset.
 
+		    *'modelinestrict'* *'mlst'* *'nomodelinestrict'* *'nomlst'*
+'modelinestrict' 'mlst'	boolean (default: on)
+			global
+	When on, only a safe subset of options can be set from a |modeline|.
+	The following options are allowed:
+		'autoindent'
+		'cindent'
+		'commentstring'
+		'expandtab'
+		'filetype'
+		'foldcolumn'
+		'foldenable'
+		'foldmethod'
+		'modifiable'
+		'readonly'
+		'rightleft'
+		'shiftwidth'
+		'smartindent'
+		'softtabstop'
+		'spell'
+		'spelllang'
+		'tabstop'
+		'textwidth'
+		'varsofttabstop'
+		'vartabstop'
+
+	Any other option set from a modeline will be silently ignored.
+	This option cannot be set from a |modeline| or in the |sandbox|, for
+	security reasons.
+
+	The behaviour of 'modeline', 'modelinestrict' and 'modelineexpr' is
+	as follows:
+
+	'modeline'| 'modelinestrict'| 'modelineexpr' | Meaning
+	----------+-----------------+-------------------+--------~
+	   on     |    off          |   on           | All options can be set
+	   on     |    on           |   any          | Only whitelisted
+		  |                 |                | options can be set
+	   on     |    off          |   off          | All options except for
+		  |                 |                | expr options can be set
+	   off    |    any          |   any          | No options can be set
+
 				*'modifiable'* *'ma'* *'nomodifiable'* *'noma'*
 				*E21*
 'modifiable' 'ma'	boolean	(default on)
@@ -6886,7 +6931,7 @@ A jump table for the options with a short description can be found at |Q_op|.
 			global
 	Defines a border and optional decorations for the popup menu in
 	completion.  The value is a comma-separated list of keywords.
-	See |'pumopt'| for a consolidated alternative.
+	See 'pumopt' for a consolidated alternative.
 
 	Border styles (at most one):
 	"single"	use thin box-drawing characters
@@ -6922,7 +6967,7 @@ A jump table for the options with a short description can be found at |Q_op|.
 	Determines the maximum number of items to show in the popup menu for
 	Insert mode completion.  When zero as much space as available is used.
 	|ins-completion-menu|.
-	See |'pumopt'| for a consolidated alternative.
+	See 'pumopt' for a consolidated alternative.
 
 						*'pummaxwidth'* *'pmw'*
 'pummaxwidth' 'pmw'	number	(default 0)
@@ -6934,13 +6979,13 @@ A jump table for the options with a short description can be found at |Q_op|.
 
 	This option takes precedence over 'pumwidth'.
 	|ins-completion-menu|.
-	See |'pumopt'| for a consolidated alternative.
+	See 'pumopt' for a consolidated alternative.
 
 						*'pumopt'*
 'pumopt'		string	(default "")
 			global
 	Configures the popup menu used for Insert mode completion.
-	The value is a comma-separated list of key:value pairs and flags.
+	The value is a comma-separated list of "key:value" pairs and flags.
 
 	Keys with values:
 	  border:{style}	set a border style (at most one):
@@ -6970,8 +7015,8 @@ A jump table for the options with a short description can be found at |Q_op|.
 	  shadow		draws a shadow at the right and bottom edges.
 
 	Border styles using box-drawing characters ("single", "double",
-	"round") are only available when 'encoding' is "utf-8" and
-	'ambiwidth' is "single".
+	"round") are only available when 'encoding' is "utf-8" and 'ambiwidth'
+	is "single".
 
 	Highlight groups:
 	|hl-PmenuBorder|	used for the border characters
@@ -6994,7 +7039,7 @@ A jump table for the options with a short description can be found at |Q_op|.
 			global
 	Determines the minimum width to use for the popup menu for Insert mode
 	completion.  |ins-completion-menu|.
-	See |'pumopt'| for a consolidated alternative.
+	See 'pumopt' for a consolidated alternative.
 
 						*'pythondll'*
 'pythondll'		string	(default depends on the build)
@@ -7532,8 +7577,8 @@ A jump table for the options with a short description can be found at |Q_op|.
 	Minimal number of screen lines to keep above and below the cursor.
 	This will make some context visible around where you are working.  If
 	you set it to a very large value (999) the cursor line will always be
-	in the middle of the window (except at the start or end of the file or
-	when long lines wrap).
+	in the middle of the window (except at the start or end of the file,
+	see 'scrolloffpad', or when long lines wrap).
 	After using the local value, go back the global value with one of
 	these two: >
 		setlocal scrolloff<
@@ -7541,7 +7586,24 @@ A jump table for the options with a short description can be found at |Q_op|.
 <	For scrolling horizontally see 'sidescrolloff'.
 	NOTE: This option is set to 0 when 'compatible' is set.
 
-						*'scrollopt'* *'sbo'*
+						*'scrolloffpad'* *'sop'*
+'scrolloffpad' 'sop'	number	(default 0)
+			global or local to window |global-local|
+	When 'scrolloff' and 'scrolloffpad' are greater than zero, allow
+	the cursor to remain centered when at the end of the file.
+	Normally, 'scrolloff' will not keep the cursor centered at the
+	end of the file.
+
+	A value of 0 disables this feature.  Any value above 0 enables it.
+	For a window-local value, -1 means to use the global value.
+	Values below -1 are invalid.
+
+	After using the local value, go back the global value with one of
+	these two: >
+		setlocal scrolloffpad<
+		setlocal scrolloffpad=-1
+
+<						*'scrollopt'* *'sbo'*
 'scrollopt' 'sbo'	string	(default "ver,jump")
 			global
 	This is a comma-separated list of words that specifies how
@@ -8620,10 +8682,62 @@ A jump table for the options with a short description can be found at |Q_op|.
 	      applied to StatusLineNC for the statusline of non-current
 	      windows.
 	      The number N must be between 1 and 9.  See |hl-User1..9|
-								*stl-%@*
+							*stl-%@*
 	@ -   Inserts a newline.  This only takes effect when the "maxheight"
 	      value of 'statuslineopt' is greater than 1, or for |tabpanel|.
 
+							*stl-%[FuncName]*
+	%[ defines clickable regions in the statusline.  When the user clicks
+	on a region with the mouse, the specified function is called.  The
+	same syntax can also be used in 'tabline'.
+
+	  %[FuncName]	Start of a clickable region.  "FuncName" is the name
+			of a Vim function to call when the region is clicked.
+	  %[]		End of the clickable region.  If omitted, the region
+			extends to the end of the statusline or to the start
+			of the next clickable region.
+
+	A {minwid} value can be used to pass an identifier to the callback:
+	  %3[FuncName]	Starts a clickable region with minwid 3.
+
+	The function receives a single |Dictionary| argument with these
+	entries:
+	  "minwid"	The minwid value from %N[Func] (0 if not specified).
+	  "nclicks"	Number of clicks: 1, 2, or 3.
+	  "button"	Mouse button: "l" (left), "m" (middle), "r" (right).
+	  "mods"	Modifier keys: combination of "s" (shift), "c" (ctrl),
+			"a" (alt).  Empty string if no modifiers.
+	  "winid"	|window-ID| of the window whose statusline was clicked,
+			or 0 when the click was in 'tabline'.
+	  "area"	"statusline" or "tabline".  Indicates which option the
+			clicked region belongs to.  Useful when a single
+			callback is shared between 'statusline' and 'tabline'.
+
+	If the function returns non-zero, the statusline is redrawn.
+	Dragging the statusline to resize the window still works even when
+	click handlers are defined.  When used in 'tabline', clicks in
+	%[FuncName] regions are dispatched to the callback instead of the
+	default tab page selection behavior.
+
+	Example: >
+	    func! ClickFile(info)
+		if a:info.button ==# 'l' && a:info.nclicks == 2
+		    browse edit
+		endif
+		return 0
+	    endfunc
+	    set statusline=%[ClickFile]%f%[]\ %l:%c
+<	This makes the filename in the statusline clickable.  Double-clicking
+	it opens the file browser.
+
+	Use `has('statusline_click')` to check if this feature is available.
+	This is useful for backward compatibility: >
+	    if has('statusline_click')
+		set statusline=%[ClickFile]%f%[]\ %l:%c
+	    else
+		set statusline=%f\ %l:%c
+	    endif
+<
 	When displaying a flag, Vim removes the leading comma, if any, when
 	that flag comes right after plaintext.  This will make a nice display
 	when flags are used like in the examples below.

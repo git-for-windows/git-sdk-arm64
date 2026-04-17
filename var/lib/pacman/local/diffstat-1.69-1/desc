@@ -2,7 +2,7 @@
 diffstat
 
 %VERSION%
-1.68-1
+1.69-1
 
 %BASE%
 diffstat
@@ -17,16 +17,16 @@ https://invisible-island.net/diffstat
 x86_64
 
 %BUILDDATE%
-1745643621
+1776296994
 
 %INSTALLDATE%
-1745811650
+1776403301
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/e8d10d7e/14677897713)
+CI (msys2/msys2-autobuild/d772bf5f/24484251526)
 
 %SIZE%
-56862
+56555
 
 %LICENSE%
 spdx:MIT
