@@ -70,7 +70,7 @@ jobs:
         run: |
           cd .. &&
           echo "result=$(pwd)" >>$GITHUB_OUTPUT
-      - name: create zip and 7z SFX variants of the minimal SDK
+      - name: create zip, zstd and 7z SFX variants of the minimal SDK
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         shell: bash
         run: |
@@ -79,6 +79,8 @@ jobs:
             git --git-dir=git-sdk-arm64.git show HEAD:$path >${path##*/}
           done &&
           mkdir minimal-sdk-extra &&
+          (cd minimal-sdk && /c/Windows/system32/tar.exe --zstd --options=zstd:compression-level=10 \
+            -cf ../minimal-sdk-extra/git-sdk-aarch64-minimal.tar.zst * .[0-9A-Za-z]*) &&
           (cd minimal-sdk && ../7z.exe a -mmt=on -mx9 ../minimal-sdk-extra/git-sdk-aarch64-minimal.zip * .?*) &&
           (cd minimal-sdk && ../7z.exe a -t7z -mmt=on -m0=lzma -mqs -mlc=8 -mx=9 -md=256M -mfb=273 -ms=256M -sfx../7zCon.sfx \
             ../minimal-sdk-extra/git-sdk-aarch64-minimal.7z.exe * .?*)
@@ -144,6 +146,7 @@ jobs:
             const fs = require('fs')
             for (const fileName of [
               'git-sdk-aarch64-minimal.tar.gz',
+              'git-sdk-aarch64-minimal.tar.zst',
               'git-sdk-aarch64-minimal.zip',
               'git-sdk-aarch64-minimal.7z.exe',
             ]) {
