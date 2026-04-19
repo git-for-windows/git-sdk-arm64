@@ -2,7 +2,7 @@
 mpc
 
 %VERSION%
-1.4.0-1
+1.4.1-1
 
 %BASE%
 mpc
@@ -17,16 +17,16 @@ https://www.multiprecision.org/
 x86_64
 
 %BUILDDATE%
-1774191330
+1776468466
 
 %INSTALLDATE%
-1774389578
+1776576039
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/5687451b/23405555280)
+CI (msys2/msys2-autobuild/actions/runs/24591051928/job/71911735992)
 
 %SIZE%
-162698
+162697
 
 %REASON%
 1
