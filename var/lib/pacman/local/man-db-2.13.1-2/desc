@@ -2,7 +2,7 @@
 man-db
 
 %VERSION%
-2.13.1-1
+2.13.1-2
 
 %BASE%
 man-db
@@ -17,16 +17,16 @@ https://man-db.gitlab.io/man-db/
 x86_64
 
 %BUILDDATE%
-1746420682
+1776720142
 
 %INSTALLDATE%
-1746502487
+1776835068
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/3a5fc4c4/14829192582)
+CI (msys2/msys2-autobuild/actions/runs/24690984625/job/72212585663)
 
 %SIZE%
-4589366
+4690286
 
 %LICENSE%
 GPL

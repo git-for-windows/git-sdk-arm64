@@ -2,7 +2,7 @@
 m4
 
 %VERSION%
-1.4.19-2
+1.4.21-1
 
 %BASE%
 m4
@@ -17,16 +17,16 @@ https://www.gnu.org/software/m4
 x86_64
 
 %BUILDDATE%
-1640770856
+1776709689
 
 %INSTALLDATE%
-1640919893
+1776835068
 
 %PACKAGER%
-CI (msys2-autobuild/f49b8afb/1633429835)
+CI (msys2/msys2-autobuild/actions/runs/24683288926/job/72186019025)
 
 %SIZE%
-405223
+442390
 
 %REASON%
 1
@@ -41,4 +41,7 @@ pgp
 bash
 gcc-libs
 libiconv
+
+%XDATA%
+pkgtype=pkg
 
