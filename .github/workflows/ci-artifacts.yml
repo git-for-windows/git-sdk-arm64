@@ -70,7 +70,7 @@ jobs:
         run: |
           cd .. &&
           echo "result=$(pwd)" >>$GITHUB_OUTPUT
-      - name: create zip and 7z SFX variants of the minimal SDK
+      - name: create zip, zstd and 7z SFX variants of the minimal SDK
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         shell: bash
         run: |
@@ -79,6 +79,8 @@ jobs:
             git --git-dir=git-sdk-arm64.git show HEAD:$path >${path##*/}
           done &&
           mkdir minimal-sdk-extra &&
+          (cd minimal-sdk && /c/Windows/system32/tar.exe --zstd --options=zstd:compression-level=10 \
+            -cf ../minimal-sdk-extra/git-sdk-aarch64-minimal.tar.zst * .[0-9A-Za-z]*) &&
           (cd minimal-sdk && ../7z.exe a -mmt=on -mx9 ../minimal-sdk-extra/git-sdk-aarch64-minimal.zip * .?*) &&
           (cd minimal-sdk && ../7z.exe a -t7z -mmt=on -m0=lzma -mqs -mlc=8 -mx=9 -md=256M -mfb=273 -ms=256M -sfx../7zCon.sfx \
             ../minimal-sdk-extra/git-sdk-aarch64-minimal.7z.exe * .?*)
@@ -88,6 +90,35 @@ jobs:
         with:
           name: minimal-sdk-extra
           path: minimal-sdk-extra
+
+  build-installers-artifact:
+    if: github.repository_owner == 'git-for-windows' && github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: windows-11-arm
+    steps:
+      - name: clone git-sdk-arm64
+        run: |
+          git init --bare git-sdk-arm64.git &&
+          git --git-dir=git-sdk-arm64.git remote add origin https://github.com/${{github.repository}} &&
+          git --git-dir=git-sdk-arm64.git config remote.origin.promisor true &&
+          git --git-dir=git-sdk-arm64.git config remote.origin.partialCloneFilter blob:none &&
+          git --git-dir=git-sdk-arm64.git fetch --depth=1 origin ${{github.sha}} &&
+          git --git-dir=git-sdk-arm64.git update-ref --no-deref HEAD ${{github.sha}}
+      - name: clone build-extra
+        run: git clone --depth=1 --single-branch -b main https://github.com/git-for-windows/build-extra
+      - name: build git-sdk-arm64-build-installers
+        shell: bash
+        run: sh -x ./build-extra/please.sh create-sdk-artifact --sdk=git-sdk-arm64.git build-installers
+      - name: compress artifact
+        shell: bash
+        run: |
+          mkdir build-installers-artifacts &&
+          (cd build-installers && /c/Windows/system32/tar.exe --zstd --options=zstd:compression-level=10 \
+            -cf ../build-installers-artifacts/git-sdk-aarch64-build-installers.tar.zst * .[0-9A-Za-z]*)
+      - name: upload build-installers artifacts
+        uses: actions/upload-artifact@v6
+        with:
+          name: build-installers
+          path: build-installers-artifacts
 
   test-minimal-sdk:
     needs: minimal-sdk-artifact
@@ -100,7 +131,9 @@ jobs:
   publish-release-assets:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    needs: test-minimal-sdk
+    needs:
+      - test-minimal-sdk
+      - build-installers-artifact
     steps:
       - name: download minimal-sdk artifact
         uses: actions/download-artifact@v5
@@ -111,6 +144,11 @@ jobs:
         uses: actions/download-artifact@v5
         with:
           name: minimal-sdk-extra
+          path: ${{github.workspace}}
+      - name: download build-installers artifacts
+        uses: actions/download-artifact@v5
+        with:
+          name: build-installers
           path: ${{github.workspace}}
       - name: publish release assets
         uses: actions/github-script@v8
@@ -144,8 +182,10 @@ jobs:
             const fs = require('fs')
             for (const fileName of [
               'git-sdk-aarch64-minimal.tar.gz',
+              'git-sdk-aarch64-minimal.tar.zst',
               'git-sdk-aarch64-minimal.zip',
               'git-sdk-aarch64-minimal.7z.exe',
+              'git-sdk-aarch64-build-installers.tar.zst',
             ]) {
               console.log(`Uploading ${fileName}`)
               const uploadReq = {
