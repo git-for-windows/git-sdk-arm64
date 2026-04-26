@@ -2,7 +2,7 @@
 msys2-runtime-devel
 
 %VERSION%
-3.6.7-4
+3.6.9-1
 
 %BASE%
 msys2-runtime
@@ -17,16 +17,16 @@ https://www.cygwin.com/
 x86_64
 
 %BUILDDATE%
-1774784681
+1777112298
 
 %INSTALLDATE%
-1774847750
+1777181480
 
 %PACKAGER%
 Johannes Schindelin <johannes.schindelin@gmx.de>
 
 %SIZE%
-6745804
+6745954
 
 %LICENSE%
 GPL
@@ -40,7 +40,7 @@ libcatgets-devel
 msys2-runtime-3.6-devel
 
 %DEPENDS%
-msys2-runtime=3.6.7
+msys2-runtime=3.6.9
 
 %CONFLICTS%
 libcatgets-devel
