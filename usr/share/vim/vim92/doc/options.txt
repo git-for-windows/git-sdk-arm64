@@ -1,4 +1,4 @@
-*options.txt*	For Vim version 9.2.  Last change: 2026 Apr 15
+*options.txt*	For Vim version 9.2.  Last change: 2026 Apr 21
 
 
 		  VIM REFERENCE MANUAL	  by Bram Moolenaar
@@ -324,12 +324,12 @@ that was last closed are used again.  If this buffer has been edited in this
 window, the values from back then are used.  Otherwise the values from the
 last closed window where the buffer was edited last are used.
 
-It's possible to set a local window option specifically for a type of buffer.
-When you edit another buffer in the same window, you don't want to keep
-using these local window options.  Therefore Vim keeps a global value of the
-local window options, which is used when editing another buffer.  Each window
-has its own copy of these values.  Thus these are local to the window, but
-global to all buffers in the window.  With this you can do: >
+":setlocal" can be used to set a local window option specifically for a type
+of buffer.  When you edit another buffer in the same window, you don't want to
+keep using these local window options.  Meanwhile ":set" also sets a global
+value of a local window option, which is used when editing another buffer.
+Each window has its own copy of these global values, making them local to the
+window, but global to all buffers in the window.  With this you can do: >
 	:e one
 	:set list
 	:e two
@@ -8689,7 +8689,7 @@ A jump table for the options with a short description can be found at |Q_op|.
 							*stl-%[FuncName]*
 	%[ defines clickable regions in the statusline.  When the user clicks
 	on a region with the mouse, the specified function is called.  The
-	same syntax can also be used in 'tabline'.
+	same syntax can also be used in 'tabline' and 'tabpanel'.
 
 	  %[FuncName]	Start of a clickable region.  "FuncName" is the name
 			of a Vim function to call when the region is clicked.
@@ -8708,16 +8708,16 @@ A jump table for the options with a short description can be found at |Q_op|.
 	  "mods"	Modifier keys: combination of "s" (shift), "c" (ctrl),
 			"a" (alt).  Empty string if no modifiers.
 	  "winid"	|window-ID| of the window whose statusline was clicked,
-			or 0 when the click was in 'tabline'.
-	  "area"	"statusline" or "tabline".  Indicates which option the
-			clicked region belongs to.  Useful when a single
-			callback is shared between 'statusline' and 'tabline'.
+			or 0 when the click was in 'tabline' or 'tabpanel'.
+	  "area"	"statusline", "tabline", or "tabpanel".  Indicates
+			which option the clicked region belongs to.
+	  "tabnr"	(tabpanel only) Tab page number of the clicked label.
 
 	If the function returns non-zero, the statusline is redrawn.
 	Dragging the statusline to resize the window still works even when
-	click handlers are defined.  When used in 'tabline', clicks in
-	%[FuncName] regions are dispatched to the callback instead of the
-	default tab page selection behavior.
+	click handlers are defined.  When used in 'tabline' or 'tabpanel',
+	clicks in %[FuncName] regions are dispatched to the callback
+	instead of the default tab-selection behavior.
 
 	Example: >
 	    func! ClickFile(info)
@@ -9064,6 +9064,23 @@ A jump table for the options with a short description can be found at |Q_op|.
 				If this value is 0 or less than 'columns', the
 				tab panel will not be displayed.
 				(default 20)
+
+		scroll		Enable mouse wheel scrolling over the tabpanel
+				area when the tab list exceeds the visible
+				screen height.  The scroll step is controlled
+				by 'mousescroll'.  When disabled (the default),
+				the tabpanel shows the page containing the
+				current tab, with no way to view tabs outside
+				that page.
+
+		scrollbar	Reserve a one-column scrollbar in the tabpanel
+				showing the current scroll position.  The
+				scrollbar uses the |hl-PmenuSbar| and
+				|hl-PmenuThumb| highlight groups for the track
+				and thumb respectively.  Clicking on the
+				scrollbar column jumps the thumb to that
+				position; the thumb can also be dragged.
+				Implies "scroll".
 
 		vert		Use a vertical separator for tabpanel.
 				The vertical separator character is taken from
@@ -10669,11 +10686,10 @@ A jump table for the options with a short description can be found at |Q_op|.
 				*'wlsteal'* *'wst'* *'nowlsteal'* *'nowst'*
 'wlsteal' 'wst'		boolean  (default off)
 			global
-			{only when the |+wayland_focus_steal| feature is
-			included}
+	DEPRECATED: This option is no longer used; changing it has no effect.
+
 	When enabled, then allow Vim to steal focus by creating a temporary
-	surface, in order to access the clipboard.  For more information see
-	|wayland-focus-steal|.
+	surface, in order to access the clipboard.
 
 						*'wltimeoutlen'* *'wtm'*
 'wltimeoutlen' 'wtm'	number	(default 500)
@@ -10685,9 +10701,6 @@ A jump table for the options with a short description can be found at |Q_op|.
 	setting this to a lower value may make Vim feel more responsive in
 	some cases.  On the other hand, it may also mean you receive errors
 	when the compositor takes more time to respond than usual.
-
-	Additionally, this option is also used as the maximum timeout when
-	waiting for a surface to gain focus, see |wayland-focus-steal|.
 
 						*'wrap'* *'nowrap'*
 'wrap'			boolean	(default on)
