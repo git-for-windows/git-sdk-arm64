@@ -1,0 +1,9 @@
+%FILES%
+usr/
+usr/bin/
+usr/bin/tmate.exe
+usr/share/
+usr/share/man/
+usr/share/man/man1/
+usr/share/man/man1/tmate.1.gz
+

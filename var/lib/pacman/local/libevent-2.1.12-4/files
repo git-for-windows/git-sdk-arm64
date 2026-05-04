@@ -1,0 +1,14 @@
+%FILES%
+usr/
+usr/bin/
+usr/bin/event_rpcgen.py
+usr/bin/msys-event-2-1-7.dll
+usr/bin/msys-event_core-2-1-7.dll
+usr/bin/msys-event_extra-2-1-7.dll
+usr/bin/msys-event_openssl-2-1-7.dll
+usr/bin/msys-event_pthreads-2-1-7.dll
+usr/share/
+usr/share/licenses/
+usr/share/licenses/libevent/
+usr/share/licenses/libevent/LICENSE
+

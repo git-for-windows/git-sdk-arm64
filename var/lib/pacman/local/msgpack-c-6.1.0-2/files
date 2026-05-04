@@ -1,0 +1,10 @@
+%FILES%
+usr/
+usr/bin/
+usr/bin/msys-msgpack-c-2.dll
+usr/share/
+usr/share/licenses/
+usr/share/licenses/msgpack-c/
+usr/share/licenses/msgpack-c/COPYING
+usr/share/licenses/msgpack-c/LICENSE_1_0.txt
+
