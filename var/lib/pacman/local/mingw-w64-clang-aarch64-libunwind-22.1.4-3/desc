@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-libunwind
 
 %VERSION%
-22.1.4-2
+22.1.4-3
 
 %BASE%
 mingw-w64-libc++
@@ -17,13 +17,13 @@ https://llvm.org/
 any
 
 %BUILDDATE%
-1777925753
+1778334951
 
 %INSTALLDATE%
-1778217774
+1778565502
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/actions/runs/25340823639/job/74297345354)
+CI (msys2/msys2-autobuild/actions/runs/25602569573/job/75158903300)
 
 %SIZE%
 270487

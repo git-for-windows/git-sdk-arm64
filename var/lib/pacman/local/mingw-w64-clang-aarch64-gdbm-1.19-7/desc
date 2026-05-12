@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-gdbm
 
 %VERSION%
-1.19-6
+1.19-7
 
 %BASE%
 mingw-w64-gdbm
@@ -17,13 +17,13 @@ https://www.gnu.org/software/gdbm/gdbm.html
 any
 
 %BUILDDATE%
-1777930716
+1778338569
 
 %INSTALLDATE%
-1778217779
+1778565505
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/actions/runs/25340823639/job/74297345354)
+CI (msys2/msys2-autobuild/actions/runs/25602569573/job/75158903300)
 
 %SIZE%
 736405

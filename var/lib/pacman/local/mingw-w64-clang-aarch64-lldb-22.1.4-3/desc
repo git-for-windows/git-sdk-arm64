@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-lldb
 
 %VERSION%
-22.1.4-2
+22.1.4-3
 
 %BASE%
 mingw-w64-lldb
@@ -17,16 +17,16 @@ https://lldb.llvm.org/
 any
 
 %BUILDDATE%
-1777714395
+1778354466
 
 %INSTALLDATE%
-1777959268
+1778565533
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/actions/runs/25248917792/job/74037782318)
+CI (msys2/msys2-autobuild/actions/runs/25608534894/job/75174541193)
 
 %SIZE%
-52384970
+52382922
 
 %GROUPS%
 mingw-w64-clang-aarch64-toolchain

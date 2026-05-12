@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-mpdecimal
 
 %VERSION%
-4.0.1-2
+4.0.1-3
 
 %BASE%
 mingw-w64-mpdecimal
@@ -17,13 +17,13 @@ https://www.bytereef.org/mpdecimal/index.html
 any
 
 %BUILDDATE%
-1777932366
+1778343645
 
 %INSTALLDATE%
-1778217780
+1778565505
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/actions/runs/25344503722/job/74310041674)
+CI (msys2/msys2-autobuild/actions/runs/25604436836/job/75163795652)
 
 %SIZE%
 838871
