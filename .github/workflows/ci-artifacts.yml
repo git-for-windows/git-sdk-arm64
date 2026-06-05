@@ -146,7 +146,7 @@ jobs:
           name: minimal-sdk-extra
           path: ${{github.workspace}}
       - name: download build-installers artifacts
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: build-installers
           path: ${{github.workspace}}
