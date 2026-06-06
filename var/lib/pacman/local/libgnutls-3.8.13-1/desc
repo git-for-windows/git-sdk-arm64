@@ -2,7 +2,7 @@
 libgnutls
 
 %VERSION%
-3.8.4-2
+3.8.13-1
 
 %BASE%
 gnutls
@@ -17,16 +17,16 @@ https://www.gnutls.org/
 x86_64
 
 %BUILDDATE%
-1739521134
+1777760569
 
 %INSTALLDATE%
-1739589724
+1780726831
 
 %PACKAGER%
-Johannes Schindelin <johannes.schindelin@gmx.de>
+CI (msys2/msys2-autobuild/actions/runs/25263104734/job/74073469205)
 
 %SIZE%
-3065917
+3287931
 
 %REASON%
 1
@@ -35,11 +35,10 @@ Johannes Schindelin <johannes.schindelin@gmx.de>
 libraries
 
 %LICENSE%
-GPL3
-LGPL2.1
+spdx:GPL-3.0-or-later
+spdx:LGPL-2.1-or-later
 
 %VALIDATION%
-sha256
 pgp
 
 %DEPENDS%
