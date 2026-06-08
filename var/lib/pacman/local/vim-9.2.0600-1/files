@@ -2453,6 +2453,7 @@ usr/share/vim/vim92/syntax/sensors.vim
 usr/share/vim/vim92/syntax/services.vim
 usr/share/vim/vim92/syntax/setserial.vim
 usr/share/vim/vim92/syntax/sexplib.vim
+usr/share/vim/vim92/syntax/sgf.vim
 usr/share/vim/vim92/syntax/sgml.vim
 usr/share/vim/vim92/syntax/sgmldecl.vim
 usr/share/vim/vim92/syntax/sgmllnx.vim
