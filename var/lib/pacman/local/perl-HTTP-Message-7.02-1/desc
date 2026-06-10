@@ -2,7 +2,7 @@
 perl-HTTP-Message
 
 %VERSION%
-7.01-1
+7.02-1
 
 %BASE%
 perl-HTTP-Message
@@ -17,16 +17,16 @@ https://metacpan.org/release/HTTP-Message
 any
 
 %BUILDDATE%
-1761713470
+1780784148
 
 %INSTALLDATE%
-1761881977
+1781074612
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/db1199d2/18897416780)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/27075344677/job/79911662666)
 
 %SIZE%
-172658
+173211
 
 %REASON%
 1
