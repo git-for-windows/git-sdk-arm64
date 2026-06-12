@@ -1911,7 +1911,7 @@ clangarm64/lib/python3.14/ensurepip/__pycache__/_uninstall.cpython-314.opt-1.pyc
 clangarm64/lib/python3.14/ensurepip/__pycache__/_uninstall.cpython-314.opt-2.pyc
 clangarm64/lib/python3.14/ensurepip/__pycache__/_uninstall.cpython-314.pyc
 clangarm64/lib/python3.14/ensurepip/_bundled/
-clangarm64/lib/python3.14/ensurepip/_bundled/pip-26.1.1-py3-none-any.whl
+clangarm64/lib/python3.14/ensurepip/_bundled/pip-26.1.2-py3-none-any.whl
 clangarm64/lib/python3.14/ensurepip/_uninstall.py
 clangarm64/lib/python3.14/enum.py
 clangarm64/lib/python3.14/EXTERNALLY-MANAGED
@@ -5303,6 +5303,9 @@ clangarm64/lib/python3.14/test/test_capi/__pycache__/test_unicode.cpython-314.py
 clangarm64/lib/python3.14/test/test_capi/__pycache__/test_watchers.cpython-314.opt-1.pyc
 clangarm64/lib/python3.14/test/test_capi/__pycache__/test_watchers.cpython-314.opt-2.pyc
 clangarm64/lib/python3.14/test/test_capi/__pycache__/test_watchers.cpython-314.pyc
+clangarm64/lib/python3.14/test/test_capi/__pycache__/test_weakref.cpython-314.opt-1.pyc
+clangarm64/lib/python3.14/test/test_capi/__pycache__/test_weakref.cpython-314.opt-2.pyc
+clangarm64/lib/python3.14/test/test_capi/__pycache__/test_weakref.cpython-314.pyc
 clangarm64/lib/python3.14/test/test_capi/check_config.py
 clangarm64/lib/python3.14/test/test_capi/test_abstract.py
 clangarm64/lib/python3.14/test/test_capi/test_bytearray.py
@@ -5340,6 +5343,7 @@ clangarm64/lib/python3.14/test/test_capi/test_tuple.py
 clangarm64/lib/python3.14/test/test_capi/test_type.py
 clangarm64/lib/python3.14/test/test_capi/test_unicode.py
 clangarm64/lib/python3.14/test/test_capi/test_watchers.py
+clangarm64/lib/python3.14/test/test_capi/test_weakref.py
 clangarm64/lib/python3.14/test/test_cext/
 clangarm64/lib/python3.14/test/test_cext/__init__.py
 clangarm64/lib/python3.14/test/test_cext/__pycache__/
@@ -6000,6 +6004,9 @@ clangarm64/lib/python3.14/test/test_free_threading/__pycache__/test_dbm_gnu.cpyt
 clangarm64/lib/python3.14/test/test_free_threading/__pycache__/test_dict.cpython-314.opt-1.pyc
 clangarm64/lib/python3.14/test/test_free_threading/__pycache__/test_dict.cpython-314.opt-2.pyc
 clangarm64/lib/python3.14/test/test_free_threading/__pycache__/test_dict.cpython-314.pyc
+clangarm64/lib/python3.14/test/test_free_threading/__pycache__/test_dict_watcher.cpython-314.opt-1.pyc
+clangarm64/lib/python3.14/test/test_free_threading/__pycache__/test_dict_watcher.cpython-314.opt-2.pyc
+clangarm64/lib/python3.14/test/test_free_threading/__pycache__/test_dict_watcher.cpython-314.pyc
 clangarm64/lib/python3.14/test/test_free_threading/__pycache__/test_enumerate.cpython-314.opt-1.pyc
 clangarm64/lib/python3.14/test/test_free_threading/__pycache__/test_enumerate.cpython-314.opt-2.pyc
 clangarm64/lib/python3.14/test/test_free_threading/__pycache__/test_enumerate.cpython-314.pyc
@@ -6042,6 +6049,9 @@ clangarm64/lib/python3.14/test/test_free_threading/__pycache__/test_mmap.cpython
 clangarm64/lib/python3.14/test/test_free_threading/__pycache__/test_monitoring.cpython-314.opt-1.pyc
 clangarm64/lib/python3.14/test/test_free_threading/__pycache__/test_monitoring.cpython-314.opt-2.pyc
 clangarm64/lib/python3.14/test/test_free_threading/__pycache__/test_monitoring.cpython-314.pyc
+clangarm64/lib/python3.14/test/test_free_threading/__pycache__/test_pickle.cpython-314.opt-1.pyc
+clangarm64/lib/python3.14/test/test_free_threading/__pycache__/test_pickle.cpython-314.opt-2.pyc
+clangarm64/lib/python3.14/test/test_free_threading/__pycache__/test_pickle.cpython-314.pyc
 clangarm64/lib/python3.14/test/test_free_threading/__pycache__/test_races.cpython-314.opt-1.pyc
 clangarm64/lib/python3.14/test/test_free_threading/__pycache__/test_races.cpython-314.opt-2.pyc
 clangarm64/lib/python3.14/test/test_free_threading/__pycache__/test_races.cpython-314.pyc
@@ -6083,6 +6093,7 @@ clangarm64/lib/python3.14/test/test_free_threading/test_cprofile.py
 clangarm64/lib/python3.14/test/test_free_threading/test_csv.py
 clangarm64/lib/python3.14/test/test_free_threading/test_dbm_gnu.py
 clangarm64/lib/python3.14/test/test_free_threading/test_dict.py
+clangarm64/lib/python3.14/test/test_free_threading/test_dict_watcher.py
 clangarm64/lib/python3.14/test/test_free_threading/test_enumerate.py
 clangarm64/lib/python3.14/test/test_free_threading/test_frame.py
 clangarm64/lib/python3.14/test/test_free_threading/test_func_annotations.py
@@ -6097,6 +6108,7 @@ clangarm64/lib/python3.14/test/test_free_threading/test_list.py
 clangarm64/lib/python3.14/test/test_free_threading/test_methodcaller.py
 clangarm64/lib/python3.14/test/test_free_threading/test_mmap.py
 clangarm64/lib/python3.14/test/test_free_threading/test_monitoring.py
+clangarm64/lib/python3.14/test/test_free_threading/test_pickle.py
 clangarm64/lib/python3.14/test/test_free_threading/test_races.py
 clangarm64/lib/python3.14/test/test_free_threading/test_re.py
 clangarm64/lib/python3.14/test/test_free_threading/test_resource.py
