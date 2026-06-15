@@ -19,6 +19,11 @@ env:
   MINGW_PACKAGE_PREFIX: mingw-w64-clang-aarch64
   SDK_REPO_ARCH: arm64
 
+  # As of Git v2.55, Rust is opt-out; Git for Windows needs to drop
+  # support for Windows 8.1 before including the Rust bits, see
+  # https://github.com/git-for-windows/git/issues/6276 for details.
+  NO_RUST: ForNow
+
 jobs:
   build:
     if: github.repository_owner == 'git-for-windows'
