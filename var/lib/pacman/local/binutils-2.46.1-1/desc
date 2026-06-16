@@ -2,7 +2,7 @@
 binutils
 
 %VERSION%
-2.46-2
+2.46.1-1
 
 %BASE%
 binutils
@@ -17,16 +17,16 @@ https://www.gnu.org/software/binutils/
 x86_64
 
 %BUILDDATE%
-1777487700
+1781462406
 
 %INSTALLDATE%
-1777959266
+1781599061
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/actions/runs/25126529648/job/73640945415)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/27508311424/job/81303538753)
 
 %SIZE%
-44994684
+46013475
 
 %LICENSE%
 GPL
