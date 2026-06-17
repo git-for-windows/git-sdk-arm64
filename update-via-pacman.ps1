@@ -182,5 +182,19 @@ if (!(Test-Path cmd\git.exe -PathType Leaf)) {
   if (!$?) { die "Could not install mingw-w64-git-for-windows-addons" }
 }
 
+# Ensure that libcrypto is kept up to date under the new name (on which MSYS2's binaries depend)
+@(
+  ,@('clangarm64/bin/libcrypto-3.dll', 'clangarm64/bin/libcrypto-3-arm64.dll')
+ ) | ForEach-Object {
+  if (
+    (Test-Path $_[0]) -and (
+      -not (Test-Path $_[1]) -or
+      (Get-FileHash $_[0]).Hash -ne (Get-FileHash $_[1]).Hash
+    )
+  ) {
+    Copy-Item $_[0] $_[1] -Force
+  }
+}
+
 # Wrapping up: re-install mingw-w64-git-extra
 bash -lc "pacman --debug -S --overwrite=\* --noconfirm mingw-w64-clang-aarch64-git-extra"

@@ -134,23 +134,6 @@ jobs:
       - name: prepare build-installers for uploading
         shell: bash
         run: |
-          # Provide an arch-suffixed alias for libcrypto-3.dll so MSYS2-
-          # built consumers such as cmake (which expect the suffixed
-          # naming convention from msys2/MINGW-packages#27579) can
-          # resolve the DLL. A hard link is used rather than a symlink
-          # because Git-for-Windows' bundled tar cannot extract a
-          # symlink whose target has not yet been written, and its
-          # MSYS=winsymlinks:native fallback produces a Cygwin/WSL-style
-          # reparse point that the Windows DLL loader refuses with
-          # ERROR_CANT_ACCESS_FILE. GNU tar packs the hard link as a
-          # `hardlink' reference (so the artifact stays small) and
-          # extraction calls link(2) for the second name, which
-          # succeeds because the target file is already on disk by
-          # then. The alias is created here rather than carried in the
-          # repository because git tree objects cannot represent hard
-          # links.
-          ln build-installers/clangarm64/bin/libcrypto-3.dll \
-             build-installers/clangarm64/bin/libcrypto-3-arm64.dll &&
           tar czf build-installers.tgz build-installers/
       - name: Publish build-installers.tgz
         uses: actions/upload-artifact@v7
