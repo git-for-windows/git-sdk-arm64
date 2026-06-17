@@ -189,7 +189,7 @@ if (!(Test-Path cmd\git.exe -PathType Leaf)) {
   if (
     (Test-Path $_[0]) -and (
       -not (Test-Path $_[1]) -or
-      (Get-Item $_[1]).LastWriteTime -lt (Get-Item $_[0]).LastWriteTime
+      (Get-FileHash $_[0]).Hash -ne (Get-FileHash $_[1]).Hash
     )
   ) {
     Copy-Item $_[0] $_[1] -Force
