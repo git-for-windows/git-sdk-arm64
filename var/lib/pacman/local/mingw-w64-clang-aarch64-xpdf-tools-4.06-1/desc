@@ -1,0 +1,43 @@
+%NAME%
+mingw-w64-clang-aarch64-xpdf-tools
+
+%VERSION%
+4.06-1
+
+%BASE%
+mingw-w64-xpdf-tools
+
+%DESC%
+Utilities for PDF files (mingw-w64)
+
+%URL%
+https://www.xpdfreader.com/
+
+%ARCH%
+any
+
+%BUILDDATE%
+1781693066
+
+%INSTALLDATE%
+1781767471
+
+%PACKAGER%
+Johannes Schindelin <johannes.schindelin@gmx.de>
+
+%SIZE%
+11164145
+
+%LICENSE%
+spdx:GPL-2.0-only OR GPL-3.0-only
+
+%VALIDATION%
+sha256
+pgp
+
+%DEPENDS%
+mingw-w64-clang-aarch64-cc-libs
+
+%XDATA%
+pkgtype=pkg
+
