@@ -1,14 +1,14 @@
 %NAME%
-mingw-w64-clang-aarch64-git-doc-html
+mingw-w64-clang-aarch64-git-subtree
 
 %VERSION%
-2.55.0.rc2.windows.1-1
+2.55.0.1-1
 
 %BASE%
 mingw-w64-git
 
 %DESC%
-The fast distributed version control system (mingw-w64)
+Subtree support for Git (mingw-w64)
 
 %URL%
 https://gitforwindows.org/
@@ -17,16 +17,19 @@ https://gitforwindows.org/
 any
 
 %BUILDDATE%
-1782292584
+1782755845
 
 %INSTALLDATE%
-1782369544
+1782801859
 
 %PACKAGER%
 Johannes Schindelin <johannes.schindelin@gmx.de>
 
 %SIZE%
-18571217
+80883
+
+%REASON%
+1
 
 %LICENSE%
 GPL2
@@ -34,6 +37,9 @@ GPL2
 %VALIDATION%
 sha256
 pgp
+
+%DEPENDS%
+mingw-w64-clang-aarch64-git=2.55.0.1
 
 %XDATA%
 pkgtype=split
