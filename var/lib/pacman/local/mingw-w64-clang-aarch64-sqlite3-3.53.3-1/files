@@ -18,9 +18,9 @@ clangarm64/lib/libsqlite3.a
 clangarm64/lib/libsqlite3.dll.a
 clangarm64/lib/pkgconfig/
 clangarm64/lib/pkgconfig/sqlite3.pc
-clangarm64/lib/sqlite3.53.2/
-clangarm64/lib/sqlite3.53.2/libsqlite3.53.1.dll
-clangarm64/lib/sqlite3.53.2/pkgIndex.tcl
+clangarm64/lib/sqlite3.53.3/
+clangarm64/lib/sqlite3.53.3/libsqlite3.53.3.dll
+clangarm64/lib/sqlite3.53.3/pkgIndex.tcl
 clangarm64/share/
 clangarm64/share/licenses/
 clangarm64/share/licenses/sqlite3/
@@ -95,8 +95,6 @@ clangarm64/share/sqlite/extensions/remember.c
 clangarm64/share/sqlite/extensions/remember.dll
 clangarm64/share/sqlite/extensions/rot13.c
 clangarm64/share/sqlite/extensions/rot13.dll
-clangarm64/share/sqlite/extensions/scrub.c
-clangarm64/share/sqlite/extensions/scrub.dll
 clangarm64/share/sqlite/extensions/series.c
 clangarm64/share/sqlite/extensions/series.dll
 clangarm64/share/sqlite/extensions/sha1.c

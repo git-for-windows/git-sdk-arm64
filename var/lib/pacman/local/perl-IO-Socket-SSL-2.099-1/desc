@@ -2,7 +2,7 @@
 perl-IO-Socket-SSL
 
 %VERSION%
-2.098-1
+2.099-1
 
 %BASE%
 perl-IO-Socket-SSL
@@ -17,16 +17,16 @@ https://metacpan.org/dist/IO-Socket-SSL
 any
 
 %BUILDDATE%
-1768073107
+1782695148
 
 %INSTALLDATE%
-1768190859
+1782889336
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/a72b8c90/20883204535)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/28342286568/job/83958909615)
 
 %SIZE%
-537525
+539914
 
 %REASON%
 1
@@ -35,8 +35,7 @@ CI (msys2/msys2-autobuild/a72b8c90/20883204535)
 perl-modules
 
 %LICENSE%
-spdx:Artistic-1.0-Perl,
-spdx:GPL-1.0-or-later
+spdx:Artistic-1.0-Perl OR GPL-1.0-or-later
 
 %VALIDATION%
 pgp

@@ -68,6 +68,7 @@ usr/lib/git-core/git-fmt-merge-msg.exe
 usr/lib/git-core/git-for-each-ref.exe
 usr/lib/git-core/git-for-each-repo.exe
 usr/lib/git-core/git-format-patch.exe
+usr/lib/git-core/git-format-rev.exe
 usr/lib/git-core/git-fsck-objects.exe
 usr/lib/git-core/git-fsck.exe
 usr/lib/git-core/git-fsmonitor--daemon.exe
@@ -182,6 +183,7 @@ usr/lib/git-core/git-update-ref.exe
 usr/lib/git-core/git-update-server-info.exe
 usr/lib/git-core/git-upload-archive.exe
 usr/lib/git-core/git-upload-pack.exe
+usr/lib/git-core/git-url-parse.exe
 usr/lib/git-core/git-var.exe
 usr/lib/git-core/git-verify-commit.exe
 usr/lib/git-core/git-verify-pack.exe
@@ -561,6 +563,7 @@ usr/share/man/man1/git-fmt-merge-msg.1.gz
 usr/share/man/man1/git-for-each-ref.1.gz
 usr/share/man/man1/git-for-each-repo.1.gz
 usr/share/man/man1/git-format-patch.1.gz
+usr/share/man/man1/git-format-rev.1.gz
 usr/share/man/man1/git-fsck-objects.1.gz
 usr/share/man/man1/git-fsck.1.gz
 usr/share/man/man1/git-fsmonitor--daemon.1.gz
@@ -662,6 +665,7 @@ usr/share/man/man1/git-update-ref.1.gz
 usr/share/man/man1/git-update-server-info.1.gz
 usr/share/man/man1/git-upload-archive.1.gz
 usr/share/man/man1/git-upload-pack.1.gz
+usr/share/man/man1/git-url-parse.1.gz
 usr/share/man/man1/git-var.1.gz
 usr/share/man/man1/git-verify-commit.1.gz
 usr/share/man/man1/git-verify-pack.1.gz

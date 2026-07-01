@@ -2,7 +2,7 @@
 git
 
 %VERSION%
-2.54.0-1
+2.55.0-1
 
 %BASE%
 git
@@ -17,22 +17,22 @@ https://git-scm.com/
 x86_64
 
 %BUILDDATE%
-1776715760
+1782762420
 
 %INSTALLDATE%
-1776835068
+1782889337
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/actions/runs/24687769705/job/72201549491)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/28398201941/job/84142390897)
 
 %SIZE%
-42045074
+42478135
 
 %GROUPS%
 VCS
 
 %LICENSE%
-GPL2
+spdx:GPL-2.0-only
 
 %VALIDATION%
 pgp

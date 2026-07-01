@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-7zip
 
 %VERSION%
-26.01-1
+26.02-1
 
 %BASE%
 mingw-w64-7zip
@@ -17,16 +17,16 @@ https://7-zip.org
 any
 
 %BUILDDATE%
-1777330470
+1782830453
 
 %INSTALLDATE%
-1777398826
+1782889337
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/actions/runs/25020434797/job/73279304379)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/28452613768/job/84318687954)
 
 %SIZE%
-3962389
+3957884
 
 %LICENSE%
 spdx:LGPL-2.1-or-later AND BSD-3-Clause
