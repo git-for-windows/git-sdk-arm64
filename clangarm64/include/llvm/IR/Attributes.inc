@@ -34,6 +34,7 @@ ATTRIBUTE_ENUM(NoAlias,noalias)
 ATTRIBUTE_ENUM(NoBuiltin,nobuiltin)
 ATTRIBUTE_ENUM(NoCallback,nocallback)
 ATTRIBUTE_ENUM(NoCfCheck,nocf_check)
+ATTRIBUTE_ENUM(NoCreateUndefOrPoison,nocreateundeforpoison)
 ATTRIBUTE_ENUM(NoDivergenceSource,nodivergencesource)
 ATTRIBUTE_ENUM(NoDuplicate,noduplicate)
 ATTRIBUTE_ENUM(NoExt,noext)
@@ -65,6 +66,7 @@ ATTRIBUTE_ENUM(ReturnsTwice,returns_twice)
 ATTRIBUTE_ENUM(SExt,signext)
 ATTRIBUTE_ENUM(SafeStack,safestack)
 ATTRIBUTE_ENUM(SanitizeAddress,sanitize_address)
+ATTRIBUTE_ENUM(SanitizeAllocToken,sanitize_alloc_token)
 ATTRIBUTE_ENUM(SanitizeHWAddress,sanitize_hwaddress)
 ATTRIBUTE_ENUM(SanitizeMemTag,sanitize_memtag)
 ATTRIBUTE_ENUM(SanitizeMemory,sanitize_memory)
@@ -114,7 +116,6 @@ ATTRIBUTE_ENUM(Initializes,initializes)
 #endif
 
 ATTRIBUTE_STRBOOL(AllowDirectAccessInHotPatchFunction,allow_direct_access_in_hot_patch_function)
-ATTRIBUTE_STRBOOL(ApproxFuncFPMath,approx-func-fp-math)
 ATTRIBUTE_STRBOOL(LessPreciseFPMAD,less-precise-fpmad)
 ATTRIBUTE_STRBOOL(LoaderReplaceable,loader-replaceable)
 ATTRIBUTE_STRBOOL(MarkedForWindowsSecureHotPatching,marked_for_windows_hot_patching)
@@ -124,7 +125,6 @@ ATTRIBUTE_STRBOOL(NoJumpTables,no-jump-tables)
 ATTRIBUTE_STRBOOL(NoNansFPMath,no-nans-fp-math)
 ATTRIBUTE_STRBOOL(NoSignedZerosFPMath,no-signed-zeros-fp-math)
 ATTRIBUTE_STRBOOL(ProfileSampleAccurate,profile-sample-accurate)
-ATTRIBUTE_STRBOOL(UnsafeFPMath,unsafe-fp-math)
 ATTRIBUTE_STRBOOL(UseSampleProfile,use-sample-profile)
 #undef ATTRIBUTE_STRBOOL
 
@@ -168,88 +168,90 @@ NoAlias = 23,
 NoBuiltin = 24,
 NoCallback = 25,
 NoCfCheck = 26,
-NoDivergenceSource = 27,
-NoDuplicate = 28,
-NoExt = 29,
-NoFree = 30,
-NoImplicitFloat = 31,
-NoInline = 32,
-NoMerge = 33,
-NoProfile = 34,
-NoRecurse = 35,
-NoRedZone = 36,
-NoReturn = 37,
-NoSanitizeBounds = 38,
-NoSanitizeCoverage = 39,
-NoSync = 40,
-NoUndef = 41,
-NoUnwind = 42,
-NonLazyBind = 43,
-NonNull = 44,
-NullPointerIsValid = 45,
-OptForFuzzing = 46,
-OptimizeForDebugging = 47,
-OptimizeForSize = 48,
-OptimizeNone = 49,
-PresplitCoroutine = 50,
-ReadNone = 51,
-ReadOnly = 52,
-Returned = 53,
-ReturnsTwice = 54,
-SExt = 55,
-SafeStack = 56,
-SanitizeAddress = 57,
-SanitizeHWAddress = 58,
-SanitizeMemTag = 59,
-SanitizeMemory = 60,
-SanitizeNumericalStability = 61,
-SanitizeRealtime = 62,
-SanitizeRealtimeBlocking = 63,
-SanitizeThread = 64,
-SanitizeType = 65,
-ShadowCallStack = 66,
-SkipProfile = 67,
-Speculatable = 68,
-SpeculativeLoadHardening = 69,
-StackProtect = 70,
-StackProtectReq = 71,
-StackProtectStrong = 72,
-StrictFP = 73,
-SwiftAsync = 74,
-SwiftError = 75,
-SwiftSelf = 76,
-WillReturn = 77,
-Writable = 78,
-WriteOnly = 79,
-ZExt = 80,
-LastEnumAttr = 80,
-FirstTypeAttr = 81,
-ByRef = 81,
-ByVal = 82,
-ElementType = 83,
-InAlloca = 84,
-Preallocated = 85,
-StructRet = 86,
-LastTypeAttr = 86,
-FirstIntAttr = 87,
-Alignment = 87,
-AllocKind = 88,
-AllocSize = 89,
-Captures = 90,
-Dereferenceable = 91,
-DereferenceableOrNull = 92,
-Memory = 93,
-NoFPClass = 94,
-StackAlignment = 95,
-UWTable = 96,
-VScaleRange = 97,
-LastIntAttr = 97,
-FirstConstantRangeAttr = 98,
-Range = 98,
-LastConstantRangeAttr = 98,
-FirstConstantRangeListAttr = 99,
-Initializes = 99,
-LastConstantRangeListAttr = 99,
+NoCreateUndefOrPoison = 27,
+NoDivergenceSource = 28,
+NoDuplicate = 29,
+NoExt = 30,
+NoFree = 31,
+NoImplicitFloat = 32,
+NoInline = 33,
+NoMerge = 34,
+NoProfile = 35,
+NoRecurse = 36,
+NoRedZone = 37,
+NoReturn = 38,
+NoSanitizeBounds = 39,
+NoSanitizeCoverage = 40,
+NoSync = 41,
+NoUndef = 42,
+NoUnwind = 43,
+NonLazyBind = 44,
+NonNull = 45,
+NullPointerIsValid = 46,
+OptForFuzzing = 47,
+OptimizeForDebugging = 48,
+OptimizeForSize = 49,
+OptimizeNone = 50,
+PresplitCoroutine = 51,
+ReadNone = 52,
+ReadOnly = 53,
+Returned = 54,
+ReturnsTwice = 55,
+SExt = 56,
+SafeStack = 57,
+SanitizeAddress = 58,
+SanitizeAllocToken = 59,
+SanitizeHWAddress = 60,
+SanitizeMemTag = 61,
+SanitizeMemory = 62,
+SanitizeNumericalStability = 63,
+SanitizeRealtime = 64,
+SanitizeRealtimeBlocking = 65,
+SanitizeThread = 66,
+SanitizeType = 67,
+ShadowCallStack = 68,
+SkipProfile = 69,
+Speculatable = 70,
+SpeculativeLoadHardening = 71,
+StackProtect = 72,
+StackProtectReq = 73,
+StackProtectStrong = 74,
+StrictFP = 75,
+SwiftAsync = 76,
+SwiftError = 77,
+SwiftSelf = 78,
+WillReturn = 79,
+Writable = 80,
+WriteOnly = 81,
+ZExt = 82,
+LastEnumAttr = 82,
+FirstTypeAttr = 83,
+ByRef = 83,
+ByVal = 84,
+ElementType = 85,
+InAlloca = 86,
+Preallocated = 87,
+StructRet = 88,
+LastTypeAttr = 88,
+FirstIntAttr = 89,
+Alignment = 89,
+AllocKind = 90,
+AllocSize = 91,
+Captures = 92,
+Dereferenceable = 93,
+DereferenceableOrNull = 94,
+Memory = 95,
+NoFPClass = 96,
+StackAlignment = 97,
+UWTable = 98,
+VScaleRange = 99,
+LastIntAttr = 99,
+FirstConstantRangeAttr = 100,
+Range = 100,
+LastConstantRangeAttr = 100,
+FirstConstantRangeListAttr = 101,
+Initializes = 101,
+LastConstantRangeListAttr = 101,
 #endif
 
 #ifdef GET_ATTR_COMPAT_FUNC
@@ -285,9 +287,7 @@ static inline void mergeFnAttrs(Function &Caller,
   setAND<LessPreciseFPMADAttr>(Caller, Callee);
   setAND<NoInfsFPMathAttr>(Caller, Callee);
   setAND<NoNansFPMathAttr>(Caller, Callee);
-  setAND<ApproxFuncFPMathAttr>(Caller, Callee);
   setAND<NoSignedZerosFPMathAttr>(Caller, Callee);
-  setAND<UnsafeFPMathAttr>(Caller, Callee);
   setOR<NoImplicitFloatAttr>(Caller, Callee);
   setOR<NoJumpTablesAttr>(Caller, Callee);
   setOR<ProfileSampleAccurateAttr>(Caller, Callee);
@@ -331,6 +331,7 @@ static const uint8_t AttrPropTable[] = {
 0 | AttributeProperty::FnAttr | AttributeProperty::IntersectAnd,
 0 | AttributeProperty::FnAttr | AttributeProperty::IntersectPreserve,
 0 | AttributeProperty::FnAttr | AttributeProperty::IntersectAnd,
+0 | AttributeProperty::FnAttr | AttributeProperty::IntersectAnd,
 0 | AttributeProperty::FnAttr | AttributeProperty::IntersectPreserve,
 0 | AttributeProperty::ParamAttr | AttributeProperty::RetAttr | AttributeProperty::IntersectPreserve,
 0 | AttributeProperty::FnAttr | AttributeProperty::ParamAttr | AttributeProperty::IntersectAnd,
@@ -359,6 +360,7 @@ static const uint8_t AttrPropTable[] = {
 0 | AttributeProperty::ParamAttr | AttributeProperty::IntersectAnd,
 0 | AttributeProperty::FnAttr | AttributeProperty::IntersectPreserve,
 0 | AttributeProperty::ParamAttr | AttributeProperty::RetAttr | AttributeProperty::IntersectPreserve,
+0 | AttributeProperty::FnAttr | AttributeProperty::IntersectPreserve,
 0 | AttributeProperty::FnAttr | AttributeProperty::IntersectPreserve,
 0 | AttributeProperty::FnAttr | AttributeProperty::IntersectPreserve,
 0 | AttributeProperty::FnAttr | AttributeProperty::IntersectPreserve,

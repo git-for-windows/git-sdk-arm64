@@ -79,6 +79,12 @@
     Visit(SA->getAlignment());
     Visit(SA->getOffset());
   }
+  void VisitCUDAClusterDimsAttr(const CUDAClusterDimsAttr *A) {
+    const auto *SA = cast<CUDAClusterDimsAttr>(A); (void)SA;
+    Visit(SA->getX());
+    Visit(SA->getY());
+    Visit(SA->getZ());
+  }
   void VisitCUDALaunchBoundsAttr(const CUDALaunchBoundsAttr *A) {
     const auto *SA = cast<CUDALaunchBoundsAttr>(A); (void)SA;
     Visit(SA->getMaxThreads());
@@ -93,6 +99,10 @@
     const auto *SA = cast<CodeAlignAttr>(A); (void)SA;
     Visit(SA->getAlignment());
   }
+  void VisitConstructorAttr(const ConstructorAttr *A) {
+    const auto *SA = cast<ConstructorAttr>(A); (void)SA;
+    Visit(SA->getPriority());
+  }
   void VisitCountedByAttr(const CountedByAttr *A) {
     const auto *SA = cast<CountedByAttr>(A); (void)SA;
     Visit(SA->getCount());
@@ -100,6 +110,10 @@
   void VisitCountedByOrNullAttr(const CountedByOrNullAttr *A) {
     const auto *SA = cast<CountedByOrNullAttr>(A); (void)SA;
     Visit(SA->getCount());
+  }
+  void VisitDestructorAttr(const DestructorAttr *A) {
+    const auto *SA = cast<DestructorAttr>(A); (void)SA;
+    Visit(SA->getPriority());
   }
   void VisitDiagnoseIfAttr(const DiagnoseIfAttr *A) {
     const auto *SA = cast<DiagnoseIfAttr>(A); (void)SA;

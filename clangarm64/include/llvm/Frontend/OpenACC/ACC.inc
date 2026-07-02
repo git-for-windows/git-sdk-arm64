@@ -1,8 +1,7 @@
 #ifdef GEN_FLANG_DIRECTIVE_CLAUSE_SETS
 #undef GEN_FLANG_DIRECTIVE_CLAUSE_SETS
 
-namespace llvm {
-namespace acc {
+namespace llvm::acc {
 
 // Sets for atomic
 
@@ -18,7 +17,6 @@ static AccClauseSet allowedExclusiveClauses_ACCD_atomic {
 
 static AccClauseSet requiredClauses_ACCD_atomic {
 };
-
 // Sets for cache
 
 static AccClauseSet allowedClauses_ACCD_cache {
@@ -32,7 +30,6 @@ static AccClauseSet allowedExclusiveClauses_ACCD_cache {
 
 static AccClauseSet requiredClauses_ACCD_cache {
 };
-
 // Sets for data
 
 static AccClauseSet allowedClauses_ACCD_data {
@@ -60,7 +57,6 @@ static AccClauseSet requiredClauses_ACCD_data {
   Clause::ACCC_no_create,
   Clause::ACCC_present,
 };
-
 // Sets for declare
 
 static AccClauseSet allowedClauses_ACCD_declare {
@@ -82,7 +78,6 @@ static AccClauseSet allowedExclusiveClauses_ACCD_declare {
 
 static AccClauseSet requiredClauses_ACCD_declare {
 };
-
 // Sets for enter data
 
 static AccClauseSet allowedClauses_ACCD_enter_data {
@@ -102,7 +97,6 @@ static AccClauseSet requiredClauses_ACCD_enter_data {
   Clause::ACCC_create,
   Clause::ACCC_copyin,
 };
-
 // Sets for exit data
 
 static AccClauseSet allowedClauses_ACCD_exit_data {
@@ -123,7 +117,6 @@ static AccClauseSet requiredClauses_ACCD_exit_data {
   Clause::ACCC_delete,
   Clause::ACCC_detach,
 };
-
 // Sets for host_data
 
 static AccClauseSet allowedClauses_ACCD_host_data {
@@ -140,7 +133,6 @@ static AccClauseSet allowedExclusiveClauses_ACCD_host_data {
 static AccClauseSet requiredClauses_ACCD_host_data {
   Clause::ACCC_use_device,
 };
-
 // Sets for init
 
 static AccClauseSet allowedClauses_ACCD_init {
@@ -157,7 +149,6 @@ static AccClauseSet allowedExclusiveClauses_ACCD_init {
 
 static AccClauseSet requiredClauses_ACCD_init {
 };
-
 // Sets for kernels
 
 static AccClauseSet allowedClauses_ACCD_kernels {
@@ -188,7 +179,6 @@ static AccClauseSet allowedExclusiveClauses_ACCD_kernels {
 
 static AccClauseSet requiredClauses_ACCD_kernels {
 };
-
 // Sets for kernels loop
 
 static AccClauseSet allowedClauses_ACCD_kernels_loop {
@@ -230,7 +220,6 @@ static AccClauseSet allowedExclusiveClauses_ACCD_kernels_loop {
 
 static AccClauseSet requiredClauses_ACCD_kernels_loop {
 };
-
 // Sets for loop
 
 static AccClauseSet allowedClauses_ACCD_loop {
@@ -256,7 +245,6 @@ static AccClauseSet allowedExclusiveClauses_ACCD_loop {
 
 static AccClauseSet requiredClauses_ACCD_loop {
 };
-
 // Sets for parallel
 
 static AccClauseSet allowedClauses_ACCD_parallel {
@@ -290,7 +278,6 @@ static AccClauseSet allowedExclusiveClauses_ACCD_parallel {
 
 static AccClauseSet requiredClauses_ACCD_parallel {
 };
-
 // Sets for parallel loop
 
 static AccClauseSet allowedClauses_ACCD_parallel_loop {
@@ -333,7 +320,6 @@ static AccClauseSet allowedExclusiveClauses_ACCD_parallel_loop {
 
 static AccClauseSet requiredClauses_ACCD_parallel_loop {
 };
-
 // Sets for routine
 
 static AccClauseSet allowedClauses_ACCD_routine {
@@ -354,7 +340,6 @@ static AccClauseSet allowedExclusiveClauses_ACCD_routine {
 
 static AccClauseSet requiredClauses_ACCD_routine {
 };
-
 // Sets for serial
 
 static AccClauseSet allowedClauses_ACCD_serial {
@@ -385,7 +370,6 @@ static AccClauseSet allowedExclusiveClauses_ACCD_serial {
 
 static AccClauseSet requiredClauses_ACCD_serial {
 };
-
 // Sets for serial loop
 
 static AccClauseSet allowedClauses_ACCD_serial_loop {
@@ -425,7 +409,6 @@ static AccClauseSet allowedExclusiveClauses_ACCD_serial_loop {
 
 static AccClauseSet requiredClauses_ACCD_serial_loop {
 };
-
 // Sets for set
 
 static AccClauseSet allowedClauses_ACCD_set {
@@ -446,7 +429,6 @@ static AccClauseSet requiredClauses_ACCD_set {
   Clause::ACCC_device_num,
   Clause::ACCC_device_type,
 };
-
 // Sets for shutdown
 
 static AccClauseSet allowedClauses_ACCD_shutdown {
@@ -463,7 +445,6 @@ static AccClauseSet allowedExclusiveClauses_ACCD_shutdown {
 
 static AccClauseSet requiredClauses_ACCD_shutdown {
 };
-
 // Sets for unknown
 
 static AccClauseSet allowedClauses_ACCD_unknown {
@@ -477,7 +458,6 @@ static AccClauseSet allowedExclusiveClauses_ACCD_unknown {
 
 static AccClauseSet requiredClauses_ACCD_unknown {
 };
-
 // Sets for update
 
 static AccClauseSet allowedClauses_ACCD_update {
@@ -499,7 +479,6 @@ static AccClauseSet requiredClauses_ACCD_update {
   Clause::ACCC_host,
   Clause::ACCC_self,
 };
-
 // Sets for wait
 
 static AccClauseSet allowedClauses_ACCD_wait {
@@ -515,8 +494,8 @@ static AccClauseSet allowedExclusiveClauses_ACCD_wait {
 
 static AccClauseSet requiredClauses_ACCD_wait {
 };
-} // namespace acc
-} // namespace llvm
+
+} // namespace llvm::acc
 
 #endif // GEN_FLANG_DIRECTIVE_CLAUSE_SETS
 
@@ -1284,8 +1263,7 @@ TYPE_PARSER(
 #ifdef GEN_CLANG_DIRECTIVE_CLAUSE_SETS
 #undef GEN_CLANG_DIRECTIVE_CLAUSE_SETS
 
-namespace clang {
-namespace acc {
+namespace clang::acc {
 
 // Sets for atomic
 
@@ -1301,7 +1279,6 @@ static AccClauseSet allowedExclusiveClauses_ACCD_atomic {
 
 static AccClauseSet requiredClauses_ACCD_atomic {
 };
-
 // Sets for cache
 
 static AccClauseSet allowedClauses_ACCD_cache {
@@ -1315,7 +1292,6 @@ static AccClauseSet allowedExclusiveClauses_ACCD_cache {
 
 static AccClauseSet requiredClauses_ACCD_cache {
 };
-
 // Sets for data
 
 static AccClauseSet allowedClauses_ACCD_data {
@@ -1343,7 +1319,6 @@ static AccClauseSet requiredClauses_ACCD_data {
   OpenACCClauseKind::NoCreate,
   OpenACCClauseKind::Present,
 };
-
 // Sets for declare
 
 static AccClauseSet allowedClauses_ACCD_declare {
@@ -1365,7 +1340,6 @@ static AccClauseSet allowedExclusiveClauses_ACCD_declare {
 
 static AccClauseSet requiredClauses_ACCD_declare {
 };
-
 // Sets for enter data
 
 static AccClauseSet allowedClauses_ACCD_enter_data {
@@ -1385,7 +1359,6 @@ static AccClauseSet requiredClauses_ACCD_enter_data {
   OpenACCClauseKind::Create,
   OpenACCClauseKind::CopyIn,
 };
-
 // Sets for exit data
 
 static AccClauseSet allowedClauses_ACCD_exit_data {
@@ -1406,7 +1379,6 @@ static AccClauseSet requiredClauses_ACCD_exit_data {
   OpenACCClauseKind::Delete,
   OpenACCClauseKind::Detach,
 };
-
 // Sets for host_data
 
 static AccClauseSet allowedClauses_ACCD_host_data {
@@ -1423,7 +1395,6 @@ static AccClauseSet allowedExclusiveClauses_ACCD_host_data {
 static AccClauseSet requiredClauses_ACCD_host_data {
   OpenACCClauseKind::UseDevice,
 };
-
 // Sets for init
 
 static AccClauseSet allowedClauses_ACCD_init {
@@ -1440,7 +1411,6 @@ static AccClauseSet allowedExclusiveClauses_ACCD_init {
 
 static AccClauseSet requiredClauses_ACCD_init {
 };
-
 // Sets for kernels
 
 static AccClauseSet allowedClauses_ACCD_kernels {
@@ -1471,7 +1441,6 @@ static AccClauseSet allowedExclusiveClauses_ACCD_kernels {
 
 static AccClauseSet requiredClauses_ACCD_kernels {
 };
-
 // Sets for kernels loop
 
 static AccClauseSet allowedClauses_ACCD_kernels_loop {
@@ -1513,7 +1482,6 @@ static AccClauseSet allowedExclusiveClauses_ACCD_kernels_loop {
 
 static AccClauseSet requiredClauses_ACCD_kernels_loop {
 };
-
 // Sets for loop
 
 static AccClauseSet allowedClauses_ACCD_loop {
@@ -1539,7 +1507,6 @@ static AccClauseSet allowedExclusiveClauses_ACCD_loop {
 
 static AccClauseSet requiredClauses_ACCD_loop {
 };
-
 // Sets for parallel
 
 static AccClauseSet allowedClauses_ACCD_parallel {
@@ -1573,7 +1540,6 @@ static AccClauseSet allowedExclusiveClauses_ACCD_parallel {
 
 static AccClauseSet requiredClauses_ACCD_parallel {
 };
-
 // Sets for parallel loop
 
 static AccClauseSet allowedClauses_ACCD_parallel_loop {
@@ -1616,7 +1582,6 @@ static AccClauseSet allowedExclusiveClauses_ACCD_parallel_loop {
 
 static AccClauseSet requiredClauses_ACCD_parallel_loop {
 };
-
 // Sets for routine
 
 static AccClauseSet allowedClauses_ACCD_routine {
@@ -1637,7 +1602,6 @@ static AccClauseSet allowedExclusiveClauses_ACCD_routine {
 
 static AccClauseSet requiredClauses_ACCD_routine {
 };
-
 // Sets for serial
 
 static AccClauseSet allowedClauses_ACCD_serial {
@@ -1668,7 +1632,6 @@ static AccClauseSet allowedExclusiveClauses_ACCD_serial {
 
 static AccClauseSet requiredClauses_ACCD_serial {
 };
-
 // Sets for serial loop
 
 static AccClauseSet allowedClauses_ACCD_serial_loop {
@@ -1708,7 +1671,6 @@ static AccClauseSet allowedExclusiveClauses_ACCD_serial_loop {
 
 static AccClauseSet requiredClauses_ACCD_serial_loop {
 };
-
 // Sets for set
 
 static AccClauseSet allowedClauses_ACCD_set {
@@ -1729,7 +1691,6 @@ static AccClauseSet requiredClauses_ACCD_set {
   OpenACCClauseKind::DeviceNum,
   OpenACCClauseKind::DeviceType,
 };
-
 // Sets for shutdown
 
 static AccClauseSet allowedClauses_ACCD_shutdown {
@@ -1746,7 +1707,6 @@ static AccClauseSet allowedExclusiveClauses_ACCD_shutdown {
 
 static AccClauseSet requiredClauses_ACCD_shutdown {
 };
-
 // Sets for unknown
 
 static AccClauseSet allowedClauses_ACCD_unknown {
@@ -1760,7 +1720,6 @@ static AccClauseSet allowedExclusiveClauses_ACCD_unknown {
 
 static AccClauseSet requiredClauses_ACCD_unknown {
 };
-
 // Sets for update
 
 static AccClauseSet allowedClauses_ACCD_update {
@@ -1782,7 +1741,6 @@ static AccClauseSet requiredClauses_ACCD_update {
   OpenACCClauseKind::Host,
   OpenACCClauseKind::Self,
 };
-
 // Sets for wait
 
 static AccClauseSet allowedClauses_ACCD_wait {
@@ -1798,8 +1756,8 @@ static AccClauseSet allowedExclusiveClauses_ACCD_wait {
 
 static AccClauseSet requiredClauses_ACCD_wait {
 };
-} // namespace acc
-} // namespace clang
+
+} // namespace clang::acc
 
 #endif // GEN_CLANG_DIRECTIVE_CLAUSE_SETS
 
@@ -2926,19 +2884,19 @@ llvm::acc::Association llvm::acc::getDirectiveAssociation(llvm::acc::Directive D
   case ACCD_kernels:
     return Association::Block;
   case ACCD_kernels_loop:
-    return Association::Loop;
+    return Association::LoopNest;
   case ACCD_loop:
-    return Association::Loop;
+    return Association::LoopNest;
   case ACCD_parallel:
     return Association::Block;
   case ACCD_parallel_loop:
-    return Association::Loop;
+    return Association::LoopNest;
   case ACCD_routine:
     return Association::Declaration;
   case ACCD_serial:
     return Association::Block;
   case ACCD_serial_loop:
-    return Association::Loop;
+    return Association::LoopNest;
   case ACCD_set:
     return Association::None;
   case ACCD_shutdown:

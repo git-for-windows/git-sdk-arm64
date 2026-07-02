@@ -26,6 +26,7 @@ static const RISCVSupportedExtension SupportedExtensions[] = {
     {"smcdeleg", {1, 0}},
     {"smcntrpmf", {1, 0}},
     {"smcsrind", {1, 0}},
+    {"smctr", {1, 0}},
     {"smdbltrp", {1, 0}},
     {"smepmp", {1, 0}},
     {"smmpm", {1, 0}},
@@ -38,6 +39,7 @@ static const RISCVSupportedExtension SupportedExtensions[] = {
     {"sscofpmf", {1, 0}},
     {"sscounterenw", {1, 0}},
     {"sscsrind", {1, 0}},
+    {"ssctr", {1, 0}},
     {"ssdbltrp", {1, 0}},
     {"ssnpm", {1, 0}},
     {"sspm", {1, 0}},
@@ -62,6 +64,7 @@ static const RISCVSupportedExtension SupportedExtensions[] = {
     {"xandesvbfhcvt", {5, 0}},
     {"xandesvdot", {5, 0}},
     {"xandesvpackfph", {5, 0}},
+    {"xandesvsinth", {5, 0}},
     {"xandesvsintload", {5, 0}},
     {"xcvalu", {1, 0}},
     {"xcvbi", {1, 0}},
@@ -72,7 +75,28 @@ static const RISCVSupportedExtension SupportedExtensions[] = {
     {"xcvsimd", {1, 0}},
     {"xmipscbop", {1, 0}},
     {"xmipscmov", {1, 0}},
+    {"xmipsexectl", {1, 0}},
     {"xmipslsp", {1, 0}},
+    {"xqccmp", {0, 3}},
+    {"xqci", {0, 13}},
+    {"xqcia", {0, 7}},
+    {"xqciac", {0, 3}},
+    {"xqcibi", {0, 2}},
+    {"xqcibm", {0, 8}},
+    {"xqcicli", {0, 3}},
+    {"xqcicm", {0, 2}},
+    {"xqcics", {0, 2}},
+    {"xqcicsr", {0, 4}},
+    {"xqciint", {0, 10}},
+    {"xqciio", {0, 1}},
+    {"xqcilb", {0, 2}},
+    {"xqcili", {0, 2}},
+    {"xqcilia", {0, 2}},
+    {"xqcilo", {0, 3}},
+    {"xqcilsm", {0, 6}},
+    {"xqcisim", {0, 2}},
+    {"xqcisls", {0, 2}},
+    {"xqcisync", {0, 3}},
     {"xsfcease", {1, 0}},
     {"xsfmm128t", {0, 6}},
     {"xsfmm16t", {0, 6}},
@@ -85,12 +109,18 @@ static const RISCVSupportedExtension SupportedExtensions[] = {
     {"xsfmm64t", {0, 6}},
     {"xsfmmbase", {0, 6}},
     {"xsfvcp", {1, 0}},
+    {"xsfvfbfexp16e", {0, 5}},
+    {"xsfvfexp16e", {0, 5}},
+    {"xsfvfexp32e", {0, 5}},
+    {"xsfvfexpa", {0, 2}},
+    {"xsfvfexpa64e", {0, 2}},
     {"xsfvfnrclipxfqf", {1, 0}},
     {"xsfvfwmaccqqq", {1, 0}},
     {"xsfvqmaccdod", {1, 0}},
     {"xsfvqmaccqoq", {1, 0}},
     {"xsifivecdiscarddlone", {1, 0}},
     {"xsifivecflushdlone", {1, 0}},
+    {"xsmtvdot", {1, 0}},
     {"xtheadba", {1, 0}},
     {"xtheadbb", {1, 0}},
     {"xtheadbs", {1, 0}},
@@ -109,6 +139,7 @@ static const RISCVSupportedExtension SupportedExtensions[] = {
     {"zaamo", {1, 0}},
     {"zabha", {1, 0}},
     {"zacas", {1, 0}},
+    {"zalasr", {1, 0}},
     {"zalrsc", {1, 0}},
     {"zama16b", {1, 0}},
     {"zawrs", {1, 0}},
@@ -206,37 +237,19 @@ static const RISCVSupportedExtension SupportedExtensions[] = {
 };
 
 static const RISCVSupportedExtension SupportedExperimentalExtensions[] = {
-    {"p", {0, 14}},
-    {"smctr", {1, 0}},
-    {"ssctr", {1, 0}},
+    {"p", {0, 18}},
+    {"smpmpmt", {0, 6}},
     {"svukte", {0, 3}},
-    {"xqccmp", {0, 3}},
-    {"xqcia", {0, 7}},
-    {"xqciac", {0, 3}},
-    {"xqcibi", {0, 2}},
-    {"xqcibm", {0, 8}},
-    {"xqcicli", {0, 3}},
-    {"xqcicm", {0, 2}},
-    {"xqcics", {0, 2}},
-    {"xqcicsr", {0, 4}},
-    {"xqciint", {0, 10}},
-    {"xqciio", {0, 1}},
-    {"xqcilb", {0, 2}},
-    {"xqcili", {0, 2}},
-    {"xqcilia", {0, 2}},
-    {"xqcilo", {0, 3}},
-    {"xqcilsm", {0, 6}},
-    {"xqcisim", {0, 2}},
-    {"xqcisls", {0, 2}},
-    {"xqcisync", {0, 3}},
     {"xrivosvisni", {0, 1}},
     {"xrivosvizip", {0, 1}},
     {"xsfmclic", {0, 1}},
     {"xsfsclic", {0, 1}},
-    {"zalasr", {0, 1}},
+    {"zibi", {0, 1}},
     {"zicfilp", {1, 0}},
     {"zicfiss", {1, 0}},
     {"zvbc32e", {0, 7}},
+    {"zvfbfa", {0, 1}},
+    {"zvfofp8min", {0, 2}},
     {"zvkgs", {0, 7}},
     {"zvqdotq", {0, 0}},
 };
@@ -276,8 +289,27 @@ static constexpr ImpliedExtsEntry ImpliedExts[] = {
     { {"xandesvbfhcvt"}, "zve32f"},
     { {"xandesvdot"}, "zve32x"},
     { {"xandesvpackfph"}, "f"},
+    { {"xandesvsinth"}, "zve32x"},
     { {"xandesvsintload"}, "zve32x"},
     { {"xqccmp"}, "zca"},
+    { {"xqci"}, "xqcia"},
+    { {"xqci"}, "xqciac"},
+    { {"xqci"}, "xqcibi"},
+    { {"xqci"}, "xqcibm"},
+    { {"xqci"}, "xqcicli"},
+    { {"xqci"}, "xqcicm"},
+    { {"xqci"}, "xqcics"},
+    { {"xqci"}, "xqcicsr"},
+    { {"xqci"}, "xqciint"},
+    { {"xqci"}, "xqciio"},
+    { {"xqci"}, "xqcilb"},
+    { {"xqci"}, "xqcili"},
+    { {"xqci"}, "xqcilia"},
+    { {"xqci"}, "xqcilo"},
+    { {"xqci"}, "xqcilsm"},
+    { {"xqci"}, "xqcisim"},
+    { {"xqci"}, "xqcisls"},
+    { {"xqci"}, "xqcisync"},
     { {"xqciac"}, "zca"},
     { {"xqcibi"}, "zca"},
     { {"xqcibm"}, "zca"},
@@ -308,10 +340,19 @@ static constexpr ImpliedExtsEntry ImpliedExts[] = {
     { {"xsfmm64t"}, "zvl256b"},
     { {"xsfmmbase"}, "zve32x"},
     { {"xsfvcp"}, "zve32x"},
+    { {"xsfvfexp16e"}, "zvfh"},
+    { {"xsfvfexp32e"}, "zve32f"},
+    { {"xsfvfexpa"}, "zve32f"},
+    { {"xsfvfexpa64e"}, "xsfvfexpa"},
+    { {"xsfvfexpa64e"}, "zve64d"},
     { {"xsfvfnrclipxfqf"}, "zve32f"},
     { {"xsfvfwmaccqqq"}, "zvfbfmin"},
+    { {"xsfvfwmaccqqq"}, "zvl128b"},
     { {"xsfvqmaccdod"}, "zve32x"},
+    { {"xsfvqmaccdod"}, "zvl128b"},
     { {"xsfvqmaccqoq"}, "zve32x"},
+    { {"xsfvqmaccqoq"}, "zvl256b"},
+    { {"xsmtvdot"}, "zve32f"},
     { {"xtheadvdot"}, "v"},
     { {"xwchc"}, "zca"},
     { {"zabha"}, "zaamo"},
@@ -371,12 +412,15 @@ static constexpr ImpliedExtsEntry ImpliedExts[] = {
     { {"zve64f"}, "zve64x"},
     { {"zve64x"}, "zve32x"},
     { {"zve64x"}, "zvl64b"},
+    { {"zvfbfa"}, "zve32f"},
+    { {"zvfbfa"}, "zfbfmin"},
     { {"zvfbfmin"}, "zve32f"},
     { {"zvfbfwma"}, "zvfbfmin"},
     { {"zvfbfwma"}, "zfbfmin"},
     { {"zvfh"}, "zvfhmin"},
     { {"zvfh"}, "zfhmin"},
     { {"zvfhmin"}, "zve32f"},
+    { {"zvfofp8min"}, "zve32f"},
     { {"zvkb"}, "zve32x"},
     { {"zvkg"}, "zve32x"},
     { {"zvkgs"}, "zvkg"},
@@ -452,7 +496,7 @@ PROC(ANDES_N45, {"andes-n45"}, {"rv32i2p1_m2p0_a2p1_f2p2_d2p2_c2p0_zicsr2p0_zife
 PROC(ANDES_NX45, {"andes-nx45"}, {"rv64i2p1_m2p0_a2p1_f2p2_d2p2_c2p0_zicsr2p0_zifencei2p0_xandesperf5p0"}, 0, 0, 0x00000000, 0x0000000000000000, 0x0000000000000000)
 PROC(GENERIC_RV32, {"generic-rv32"}, {"rv32i2p1"}, 0, 0, 0x00000000, 0x0000000000000000, 0x0000000000000000)
 PROC(GENERIC_RV64, {"generic-rv64"}, {"rv64i2p1"}, 0, 0, 0x00000000, 0x0000000000000000, 0x0000000000000000)
-PROC(MIPS_P8700, {"mips-p8700"}, {"rv64i2p1_m2p0_a2p1_f2p2_d2p2_c2p0_zicsr2p0_zifencei2p0_zba1p0_zbb1p0_xmipscbop1p0_xmipscmov1p0_xmipslsp1p0"}, 0, 0, 0x00000000, 0x0000000000000000, 0x0000000000000000)
+PROC(MIPS_P8700, {"mips-p8700"}, {"rv64i2p1_m2p0_a2p1_f2p2_d2p2_c2p0_zicsr2p0_zifencei2p0_zba1p0_zbb1p0_xmipscbop1p0_xmipscmov1p0_xmipsexectl1p0_xmipslsp1p0"}, 0, 0, 0x00000000, 0x0000000000000000, 0x0000000000000000)
 PROC(ROCKET_RV32, {"rocket-rv32"}, {"rv32i2p1_zicsr2p0_zifencei2p0"}, 0, 0, 0x00000000, 0x0000000000000000, 0x0000000000000000)
 PROC(ROCKET_RV64, {"rocket-rv64"}, {"rv64i2p1_zicsr2p0_zifencei2p0"}, 0, 0, 0x00000000, 0x0000000000000000, 0x0000000000000000)
 PROC(RP2350_HAZARD3, {"rp2350-hazard3"}, {"rv32i2p1_m2p0_a2p1_c2p0_zicsr2p0_zifencei2p0_zcb1p0_zcmp1p0_zba1p0_zbb1p0_zbkb1p0_zbs1p0"}, 0, 0, 0x00000000, 0x0000000000000000, 0x0000000000000000)
@@ -462,10 +506,10 @@ PROC(SIFIVE_E24, {"sifive-e24"}, {"rv32i2p1_m2p0_a2p1_f2p2_c2p0_zifencei2p0"}, 0
 PROC(SIFIVE_E31, {"sifive-e31"}, {"rv32i2p1_m2p0_a2p1_c2p0_zicsr2p0_zifencei2p0"}, 0, 0, 0x00000000, 0x0000000000000000, 0x0000000000000000)
 PROC(SIFIVE_E34, {"sifive-e34"}, {"rv32i2p1_m2p0_a2p1_f2p2_c2p0_zifencei2p0"}, 0, 0, 0x00000000, 0x0000000000000000, 0x0000000000000000)
 PROC(SIFIVE_E76, {"sifive-e76"}, {"rv32i2p1_m2p0_a2p1_f2p2_c2p0_zifencei2p0"}, 0, 0, 0x00000000, 0x0000000000000000, 0x0000000000000000)
-PROC(SIFIVE_P450, {"sifive-p450"}, {"rv64i2p1_m2p0_a2p1_f2p2_d2p2_c2p0_b1p0_zic64b1p0_zicbom1p0_zicbop1p0_zicboz1p0_ziccamoa1p0_ziccif1p0_zicclsm1p0_ziccrse1p0_zicntr2p0_zicsr2p0_zifencei2p0_zihintntl1p0_zihintpause2p0_zihpm2p0_za64rs1p0_zfhmin1p0_zkt1p0"}, 1, 1, 0x00000000, 0x0000000000000000, 0x0000000000000000)
-PROC(SIFIVE_P470, {"sifive-p470"}, {"rv64i2p1_m2p0_a2p1_f2p2_d2p2_c2p0_b1p0_v1p0_zic64b1p0_zicbom1p0_zicbop1p0_zicboz1p0_ziccamoa1p0_ziccif1p0_zicclsm1p0_ziccrse1p0_zicntr2p0_zicsr2p0_zifencei2p0_zihintntl1p0_zihintpause2p0_zihpm2p0_za64rs1p0_zfhmin1p0_zkt1p0_zvbb1p0_zvknc1p0_zvkng1p0_zvksc1p0_zvksg1p0_zvl128b1p0_xsifivecdiscarddlone1p0_xsifivecflushdlone1p0"}, 1, 1, 0x00000000, 0x0000000000000000, 0x0000000000000000)
-PROC(SIFIVE_P550, {"sifive-p550"}, {"rv64i2p1_m2p0_a2p1_f2p2_d2p2_c2p0_zifencei2p0_zba1p0_zbb1p0"}, 0, 0, 0x00000000, 0x0000000000000000, 0x0000000000000000)
-PROC(SIFIVE_P670, {"sifive-p670"}, {"rv64i2p1_m2p0_a2p1_f2p2_d2p2_c2p0_b1p0_v1p0_zic64b1p0_zicbom1p0_zicbop1p0_zicboz1p0_ziccamoa1p0_ziccif1p0_zicclsm1p0_ziccrse1p0_zicntr2p0_zicsr2p0_zifencei2p0_zihintntl1p0_zihintpause2p0_zihpm2p0_za64rs1p0_zfhmin1p0_zkt1p0_zvbb1p0_zvknc1p0_zvkng1p0_zvksc1p0_zvksg1p0_zvl128b1p0"}, 1, 1, 0x00000000, 0x0000000000000000, 0x0000000000000000)
+PROC(SIFIVE_P450, {"sifive-p450"}, {"rv64i2p1_m2p0_a2p1_f2p2_d2p2_c2p0_b1p0_zic64b1p0_zicbom1p0_zicbop1p0_zicboz1p0_ziccamoa1p0_ziccif1p0_zicclsm1p0_ziccrse1p0_zicsr2p0_zifencei2p0_zihintntl1p0_zihintpause2p0_zihpm2p0_za64rs1p0_zfhmin1p0_zkt1p0"}, 1, 1, 0x00000000, 0x0000000000000000, 0x0000000000000000)
+PROC(SIFIVE_P470, {"sifive-p470"}, {"rv64i2p1_m2p0_a2p1_f2p2_d2p2_c2p0_b1p0_v1p0_zic64b1p0_zicbom1p0_zicbop1p0_zicboz1p0_ziccamoa1p0_ziccif1p0_zicclsm1p0_ziccrse1p0_zicsr2p0_zifencei2p0_zihintntl1p0_zihintpause2p0_zihpm2p0_za64rs1p0_zfhmin1p0_zkt1p0_zvbb1p0_zvknc1p0_zvkng1p0_zvksc1p0_zvksg1p0_zvl128b1p0_xsifivecdiscarddlone1p0_xsifivecflushdlone1p0"}, 1, 1, 0x00000000, 0x0000000000000000, 0x0000000000000000)
+PROC(SIFIVE_P550, {"sifive-p550"}, {"rv64i2p1_m2p0_a2p1_f2p2_d2p2_c2p0_zifencei2p0_zba1p0_zbb1p0"}, 0, 0, 0x00000489, 0x8000000000000008, 0x0000000006220425)
+PROC(SIFIVE_P670, {"sifive-p670"}, {"rv64i2p1_m2p0_a2p1_f2p2_d2p2_c2p0_b1p0_v1p0_zic64b1p0_zicbom1p0_zicbop1p0_zicboz1p0_ziccamoa1p0_ziccif1p0_zicclsm1p0_ziccrse1p0_zicsr2p0_zifencei2p0_zihintntl1p0_zihintpause2p0_zihpm2p0_za64rs1p0_zfhmin1p0_zkt1p0_zvbb1p0_zvknc1p0_zvkng1p0_zvksc1p0_zvksg1p0_zvl128b1p0"}, 1, 1, 0x00000000, 0x0000000000000000, 0x0000000000000000)
 PROC(SIFIVE_P870, {"sifive-p870"}, {"rv64i2p1_m2p0_a2p1_f2p2_d2p2_c2p0_b1p0_v1p0_zic64b1p0_zicbom1p0_zicbop1p0_zicboz1p0_ziccamoa1p0_ziccif1p0_zicclsm1p0_ziccrse1p0_zicntr2p0_zicond1p0_zicsr2p0_zifencei2p0_zihintntl1p0_zihintpause2p0_zihpm2p0_zimop1p0_za64rs1p0_zama16b1p0_zawrs1p0_zfa1p0_zfh1p0_zfhmin1p0_zcb1p0_zcmop1p0_zkr1p0_zkt1p0_zvbb1p0_zvfbfmin1p0_zvfbfwma1p0_zvfh1p0_zvfhmin1p0_zvknc1p0_zvkng1p0_zvksc1p0_zvksg1p0_zvkt1p0_zvl128b1p0_supm1p0"}, 1, 1, 0x00000000, 0x0000000000000000, 0x0000000000000000)
 PROC(SIFIVE_S21, {"sifive-s21"}, {"rv64i2p1_m2p0_a2p1_c2p0_zicsr2p0_zifencei2p0"}, 0, 0, 0x00000000, 0x0000000000000000, 0x0000000000000000)
 PROC(SIFIVE_S51, {"sifive-s51"}, {"rv64i2p1_m2p0_a2p1_c2p0_zicsr2p0_zifencei2p0"}, 0, 0, 0x00000000, 0x0000000000000000, 0x0000000000000000)
@@ -475,7 +519,7 @@ PROC(SIFIVE_U54, {"sifive-u54"}, {"rv64i2p1_m2p0_a2p1_f2p2_d2p2_c2p0_zifencei2p0
 PROC(SIFIVE_U74, {"sifive-u74"}, {"rv64i2p1_m2p0_a2p1_f2p2_d2p2_c2p0_zifencei2p0"}, 0, 0, 0x00000000, 0x0000000000000000, 0x0000000000000000)
 PROC(SIFIVE_X280, {"sifive-x280"}, {"rv64i2p1_m2p0_a2p1_f2p2_d2p2_c2p0_v1p0_zifencei2p0_zfh1p0_zba1p0_zbb1p0_zvfh1p0_zvl512b1p0"}, 0, 0, 0x00000000, 0x0000000000000000, 0x0000000000000000)
 PROC(SIFIVE_X390, {"sifive-x390"}, {"rv64i2p1_m2p0_a2p1_f2p2_d2p2_c2p0_b1p0_v1p0_zic64b1p0_zicbom1p0_zicbop1p0_zicboz1p0_ziccamoa1p0_ziccif1p0_ziccrse1p0_zicfilp1p0_zicfiss1p0_zicntr2p0_zicond1p0_zifencei2p0_zihintntl1p0_zihintpause2p0_zihpm2p0_zimop1p0_za64rs1p0_zawrs1p0_zfa1p0_zfh1p0_zcb1p0_zcmop1p0_zkr1p0_zkt1p0_zvbb1p0_zvfbfmin1p0_zvfbfwma1p0_zvfh1p0_zvkt1p0_zvl1024b1p0_xsifivecdiscarddlone1p0_xsifivecflushdlone1p0"}, 0, 0, 0x00000000, 0x0000000000000000, 0x0000000000000000)
-PROC(SPACEMIT_X60, {"spacemit-x60"}, {"rv64i2p1_m2p0_a2p1_f2p2_d2p2_c2p0_b1p0_v1p0_zic64b1p0_zicbom1p0_zicbop1p0_zicboz1p0_ziccamoa1p0_ziccif1p0_zicclsm1p0_ziccrse1p0_zicntr2p0_zicond1p0_zicsr2p0_zifencei2p0_zihintpause2p0_zihpm2p0_za64rs1p0_zfh1p0_zfhmin1p0_zbc1p0_zbkc1p0_zkt1p0_zvfh1p0_zvkt1p0_zvl256b1p0_ssccptr1p0_sscofpmf1p0_sscounterenw1p0_sstc1p0_sstvala1p0_sstvecd1p0_svade1p0_svbare1p0_svinval1p0_svnapot1p0_svpbmt1p0"}, 1, 0, 0x00000710, 0x8000000058000001, 0x1000000049772200)
+PROC(SPACEMIT_X60, {"spacemit-x60"}, {"rv64i2p1_m2p0_a2p1_f2p2_d2p2_c2p0_b1p0_v1p0_zic64b1p0_zicbom1p0_zicbop1p0_zicboz1p0_ziccamoa1p0_ziccif1p0_zicclsm1p0_ziccrse1p0_zicntr2p0_zicond1p0_zicsr2p0_zifencei2p0_zihintpause2p0_zihpm2p0_za64rs1p0_zfh1p0_zfhmin1p0_zbc1p0_zbkc1p0_zkt1p0_zvfh1p0_zvkt1p0_zvl256b1p0_ssccptr1p0_sscofpmf1p0_sscounterenw1p0_sstc1p0_sstvala1p0_sstvecd1p0_svade1p0_svbare1p0_svinval1p0_svnapot1p0_svpbmt1p0_xsmtvdot1p0"}, 1, 0, 0x00000710, 0x8000000058000001, 0x1000000049772200)
 PROC(SYNTACORE_SCR1_BASE, {"syntacore-scr1-base"}, {"rv32i2p1_c2p0_zicsr2p0_zifencei2p0"}, 0, 0, 0x00000000, 0x0000000000000000, 0x0000000000000000)
 PROC(SYNTACORE_SCR1_MAX, {"syntacore-scr1-max"}, {"rv32i2p1_m2p0_c2p0_zicsr2p0_zifencei2p0"}, 0, 0, 0x00000000, 0x0000000000000000, 0x0000000000000000)
 PROC(SYNTACORE_SCR3_RV32, {"syntacore-scr3-rv32"}, {"rv32i2p1_m2p0_c2p0_zicsr2p0_zifencei2p0"}, 0, 0, 0x00000000, 0x0000000000000000, 0x0000000000000000)

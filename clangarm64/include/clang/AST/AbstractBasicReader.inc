@@ -227,6 +227,13 @@ struct ReadDispatcher<NamespaceAliasDecl*> {
   }
 };
 template <>
+struct ReadDispatcher<NamespaceBaseDecl*> {
+  template <class BasicReader, class... Args>
+  static NamespaceBaseDecl* read(BasicReader &R, Args &&... args) {
+    return R.readNamespaceBaseDeclRef(std::forward<Args>(args)...);
+  }
+};
+template <>
 struct ReadDispatcher<NamespaceDecl*> {
   template <class BasicReader, class... Args>
   static NamespaceDecl* read(BasicReader &R, Args &&... args) {
@@ -234,16 +241,16 @@ struct ReadDispatcher<NamespaceDecl*> {
   }
 };
 template <>
-struct ReadDispatcher<NestedNameSpecifier *> {
+struct ReadDispatcher<NestedNameSpecifier> {
   template <class BasicReader, class... Args>
-  static NestedNameSpecifier * read(BasicReader &R, Args &&... args) {
+  static NestedNameSpecifier read(BasicReader &R, Args &&... args) {
     return R.readNestedNameSpecifier(std::forward<Args>(args)...);
   }
 };
 template <>
-struct ReadDispatcher<NestedNameSpecifier::SpecifierKind> {
+struct ReadDispatcher<NestedNameSpecifier::Kind> {
   template <class BasicReader, class... Args>
-  static NestedNameSpecifier::SpecifierKind read(BasicReader &R, Args &&... args) {
+  static NestedNameSpecifier::Kind read(BasicReader &R, Args &&... args) {
     return R.readNestedNameSpecifierKind(std::forward<Args>(args)...);
   }
 };
@@ -492,6 +499,12 @@ template <>
 struct UnpackOptionalValue<NamespaceAliasDecl*> {
   static std::optional<NamespaceAliasDecl*> unpack(NamespaceAliasDecl* value) {
     return value ? std::optional<NamespaceAliasDecl*>(value) : std::nullopt;
+  }
+};
+template <>
+struct UnpackOptionalValue<NamespaceBaseDecl*> {
+  static std::optional<NamespaceBaseDecl*> unpack(NamespaceBaseDecl* value) {
+    return value ? std::optional<NamespaceBaseDecl*>(value) : std::nullopt;
   }
 };
 template <>
@@ -928,11 +941,14 @@ public:
   NamespaceAliasDecl* readNamespaceAliasDeclRef() {
     return cast_or_null<NamespaceAliasDecl>(asImpl().readDeclRef());
   }
+  NamespaceBaseDecl* readNamespaceBaseDeclRef() {
+    return cast_or_null<NamespaceBaseDecl>(asImpl().readDeclRef());
+  }
   NamespaceDecl* readNamespaceDeclRef() {
     return cast_or_null<NamespaceDecl>(asImpl().readDeclRef());
   }
-  NestedNameSpecifier::SpecifierKind readNestedNameSpecifierKind() {
-    return asImpl().template readEnum<NestedNameSpecifier::SpecifierKind>();
+  NestedNameSpecifier::Kind readNestedNameSpecifierKind() {
+    return asImpl().template readEnum<NestedNameSpecifier::Kind>();
   }
   ObjCProtocolDecl* readObjCProtocolDeclRef() {
     return cast_or_null<ObjCProtocolDecl>(asImpl().readDeclRef());
@@ -1092,7 +1108,7 @@ public:
     }
 
     case TemplateName::QualifiedTemplate: {
-    NestedNameSpecifier * qualifier = subR.find("qualifier").readNestedNameSpecifier();
+    NestedNameSpecifier qualifier = subR.find("qualifier").readNestedNameSpecifier();
     bool hasTemplateKeyword = subR.find("hasTemplateKeyword").readBool();
     TemplateName underlyingTemplateName = subR.find("underlyingTemplateName").readTemplateName();
     
@@ -1102,7 +1118,7 @@ public:
     }
 
     case TemplateName::DependentTemplate: {
-    NestedNameSpecifier * qualifier = subR.find("qualifier").readNestedNameSpecifier();
+    NestedNameSpecifier qualifier = subR.find("qualifier").readNestedNameSpecifier();
     std::optional<IdentifierInfo*> identifier = subR.find("identifier").template readOptional<IdentifierInfo*>();
     std::optional<OverloadedOperatorKind> operatorKind;
     if ( !identifier ) {

@@ -21,7 +21,7 @@
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Woverlength-strings"
 #endif
-static constexpr char BuiltinStringsStorage[] = 
+static constexpr char BuiltinStringsStorage[] =
   "\0"
   "__builtin_btf_type_id\0"
   "LUi.\0"

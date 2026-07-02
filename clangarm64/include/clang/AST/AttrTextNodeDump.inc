@@ -156,7 +156,6 @@
   void VisitAsmLabelAttr(const AsmLabelAttr *A) {
     const auto *SA = cast<AsmLabelAttr>(A); (void)SA;
     OS << " \"" << SA->getLabel() << "\"";
-    if (SA->getIsLiteralLabel()) OS << " IsLiteralLabel";
   }
   void VisitAssertCapabilityAttr(const AssertCapabilityAttr *A) {
     const auto *SA = cast<AssertCapabilityAttr>(A); (void)SA;
@@ -236,6 +235,10 @@
       break;
     }
   }
+  void VisitCFISaltAttr(const CFISaltAttr *A) {
+    const auto *SA = cast<CFISaltAttr>(A); (void)SA;
+    OS << " \"" << SA->getSalt() << "\"";
+  }
   void VisitCPUDispatchAttr(const CPUDispatchAttr *A) {
     const auto *SA = cast<CPUDispatchAttr>(A); (void)SA;
     for (const auto &Val : SA->cpus())
@@ -303,10 +306,6 @@
   void VisitConstInitAttr(const ConstInitAttr *A) {
     OS << " " << A->getSpelling();
   }
-  void VisitConstructorAttr(const ConstructorAttr *A) {
-    const auto *SA = cast<ConstructorAttr>(A); (void)SA;
-    OS << " " << SA->getPriority();
-  }
   void VisitConsumableAttr(const ConsumableAttr *A) {
     const auto *SA = cast<ConsumableAttr>(A); (void)SA;
     switch(SA->getDefaultState()) {
@@ -333,10 +332,6 @@
     const auto *SA = cast<DeprecatedAttr>(A); (void)SA;
     OS << " \"" << SA->getMessage() << "\"";
     OS << " \"" << SA->getReplacement() << "\"";
-  }
-  void VisitDestructorAttr(const DestructorAttr *A) {
-    const auto *SA = cast<DestructorAttr>(A); (void)SA;
-    OS << " " << SA->getPriority();
   }
   void VisitDeviceKernelAttr(const DeviceKernelAttr *A) {
     OS << " " << A->getSpelling();
@@ -430,6 +425,11 @@
       break;
     }
   }
+  void VisitHLSLAppliedSemanticAttr(const HLSLAppliedSemanticAttr *A) {
+    const auto *SA = cast<HLSLAppliedSemanticAttr>(A); (void)SA;
+    OS << " \"" << SA->getSemanticName() << "\"";
+    OS << " " << SA->getSemanticIndex();
+  }
   void VisitHLSLContainedTypeAttr(const HLSLContainedTypeAttr *A) {
     const auto *SA = cast<HLSLContainedTypeAttr>(A); (void)SA;
     OS << " " << SA->getType().getAsString();
@@ -457,6 +457,11 @@
     const auto *SA = cast<HLSLParamModifierAttr>(A); (void)SA;
     OS << " " << A->getSpelling();
     if (SA->getMergedSpelling()) OS << " MergedSpelling";
+  }
+  void VisitHLSLParsedSemanticAttr(const HLSLParsedSemanticAttr *A) {
+    const auto *SA = cast<HLSLParsedSemanticAttr>(A); (void)SA;
+    OS << " \"" << SA->getSemanticName() << "\"";
+    OS << " " << SA->getSemanticIndex();
   }
   void VisitHLSLResourceBindingAttr(const HLSLResourceBindingAttr *A) {
     const auto *SA = cast<HLSLResourceBindingAttr>(A); (void)SA;
@@ -529,6 +534,16 @@
       llvm_unreachable("Invalid attribute value");
     }
   }
+  void VisitHLSLUnparsedSemanticAttr(const HLSLUnparsedSemanticAttr *A) {
+    const auto *SA = cast<HLSLUnparsedSemanticAttr>(A); (void)SA;
+    OS << " " << SA->getIndex();
+    if (SA->getExplicitIndex()) OS << " ExplicitIndex";
+  }
+  void VisitHLSLVkBindingAttr(const HLSLVkBindingAttr *A) {
+    const auto *SA = cast<HLSLVkBindingAttr>(A); (void)SA;
+    OS << " " << SA->getBinding();
+    OS << " " << SA->getSet();
+  }
   void VisitHLSLVkConstantIdAttr(const HLSLVkConstantIdAttr *A) {
     const auto *SA = cast<HLSLVkConstantIdAttr>(A); (void)SA;
     OS << " " << SA->getId();
@@ -536,6 +551,10 @@
   void VisitHLSLVkExtBuiltinInputAttr(const HLSLVkExtBuiltinInputAttr *A) {
     const auto *SA = cast<HLSLVkExtBuiltinInputAttr>(A); (void)SA;
     OS << " " << SA->getBuiltIn();
+  }
+  void VisitHLSLVkLocationAttr(const HLSLVkLocationAttr *A) {
+    const auto *SA = cast<HLSLVkLocationAttr>(A); (void)SA;
+    OS << " " << SA->getLocation();
   }
   void VisitHLSLWaveSizeAttr(const HLSLWaveSizeAttr *A) {
     const auto *SA = cast<HLSLWaveSizeAttr>(A); (void)SA;
@@ -700,6 +719,14 @@
     const auto *SA = cast<ModeAttr>(A); (void)SA;
     if (SA->getMode())
       OS << " " << SA->getMode()->getName();
+  }
+  void VisitModularFormatAttr(const ModularFormatAttr *A) {
+    const auto *SA = cast<ModularFormatAttr>(A); (void)SA;
+    if (SA->getModularImplFn())
+      OS << " " << SA->getModularImplFn()->getName();
+    OS << " \"" << SA->getImplName() << "\"";
+    for (const auto &Val : SA->aspects())
+      OS << " " << Val;
   }
   void VisitNSErrorDomainAttr(const NSErrorDomainAttr *A) {
     const auto *SA = cast<NSErrorDomainAttr>(A); (void)SA;
@@ -1003,6 +1030,9 @@
       break;
     case RISCVInterruptAttr::InterruptType::machine:
       OS << " machine";
+      break;
+    case RISCVInterruptAttr::InterruptType::rnmi:
+      OS << " rnmi";
       break;
     case RISCVInterruptAttr::InterruptType::qcinest:
       OS << " qcinest";

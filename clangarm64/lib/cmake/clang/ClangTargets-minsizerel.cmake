@@ -144,6 +144,26 @@ set_target_properties(clangAnalysisFlowSensitiveModels PROPERTIES
 list(APPEND _cmake_import_check_targets clangAnalysisFlowSensitiveModels )
 list(APPEND _cmake_import_check_files_for_clangAnalysisFlowSensitiveModels "${_IMPORT_PREFIX}/lib/libclangAnalysisFlowSensitiveModels.a" )
 
+# Import target "clangAnalysisLifetimeSafety" for configuration "MinSizeRel"
+set_property(TARGET clangAnalysisLifetimeSafety APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
+set_target_properties(clangAnalysisLifetimeSafety PROPERTIES
+  IMPORTED_LINK_INTERFACE_LANGUAGES_MINSIZEREL "CXX"
+  IMPORTED_LOCATION_MINSIZEREL "${_IMPORT_PREFIX}/lib/libclangAnalysisLifetimeSafety.a"
+  )
+
+list(APPEND _cmake_import_check_targets clangAnalysisLifetimeSafety )
+list(APPEND _cmake_import_check_files_for_clangAnalysisLifetimeSafety "${_IMPORT_PREFIX}/lib/libclangAnalysisLifetimeSafety.a" )
+
+# Import target "clangAnalysisScalable" for configuration "MinSizeRel"
+set_property(TARGET clangAnalysisScalable APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
+set_target_properties(clangAnalysisScalable PROPERTIES
+  IMPORTED_LINK_INTERFACE_LANGUAGES_MINSIZEREL "CXX"
+  IMPORTED_LOCATION_MINSIZEREL "${_IMPORT_PREFIX}/lib/libclangAnalysisScalable.a"
+  )
+
+list(APPEND _cmake_import_check_targets clangAnalysisScalable )
+list(APPEND _cmake_import_check_files_for_clangAnalysisScalable "${_IMPORT_PREFIX}/lib/libclangAnalysisScalable.a" )
+
 # Import target "clangEdit" for configuration "MinSizeRel"
 set_property(TARGET clangEdit APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
 set_target_properties(clangEdit PROPERTIES
@@ -183,6 +203,16 @@ set_target_properties(clangDriver PROPERTIES
 
 list(APPEND _cmake_import_check_targets clangDriver )
 list(APPEND _cmake_import_check_files_for_clangDriver "${_IMPORT_PREFIX}/lib/libclangDriver.a" )
+
+# Import target "clangOptions" for configuration "MinSizeRel"
+set_property(TARGET clangOptions APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
+set_target_properties(clangOptions PROPERTIES
+  IMPORTED_LINK_INTERFACE_LANGUAGES_MINSIZEREL "CXX"
+  IMPORTED_LOCATION_MINSIZEREL "${_IMPORT_PREFIX}/lib/libclangOptions.a"
+  )
+
+list(APPEND _cmake_import_check_targets clangOptions )
+list(APPEND _cmake_import_check_files_for_clangOptions "${_IMPORT_PREFIX}/lib/libclangOptions.a" )
 
 # Import target "clangSerialization" for configuration "MinSizeRel"
 set_property(TARGET clangSerialization APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
@@ -284,16 +314,6 @@ set_target_properties(clangToolingSyntax PROPERTIES
 list(APPEND _cmake_import_check_targets clangToolingSyntax )
 list(APPEND _cmake_import_check_files_for_clangToolingSyntax "${_IMPORT_PREFIX}/lib/libclangToolingSyntax.a" )
 
-# Import target "clangDependencyScanning" for configuration "MinSizeRel"
-set_property(TARGET clangDependencyScanning APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
-set_target_properties(clangDependencyScanning PROPERTIES
-  IMPORTED_LINK_INTERFACE_LANGUAGES_MINSIZEREL "CXX"
-  IMPORTED_LOCATION_MINSIZEREL "${_IMPORT_PREFIX}/lib/libclangDependencyScanning.a"
-  )
-
-list(APPEND _cmake_import_check_targets clangDependencyScanning )
-list(APPEND _cmake_import_check_files_for_clangDependencyScanning "${_IMPORT_PREFIX}/lib/libclangDependencyScanning.a" )
-
 # Import target "clangTransformer" for configuration "MinSizeRel"
 set_property(TARGET clangTransformer APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
 set_target_properties(clangTransformer PROPERTIES
@@ -313,6 +333,16 @@ set_target_properties(clangTooling PROPERTIES
 
 list(APPEND _cmake_import_check_targets clangTooling )
 list(APPEND _cmake_import_check_files_for_clangTooling "${_IMPORT_PREFIX}/lib/libclangTooling.a" )
+
+# Import target "clangDependencyScanning" for configuration "MinSizeRel"
+set_property(TARGET clangDependencyScanning APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
+set_target_properties(clangDependencyScanning PROPERTIES
+  IMPORTED_LINK_INTERFACE_LANGUAGES_MINSIZEREL "CXX"
+  IMPORTED_LOCATION_MINSIZEREL "${_IMPORT_PREFIX}/lib/libclangDependencyScanning.a"
+  )
+
+list(APPEND _cmake_import_check_targets clangDependencyScanning )
+list(APPEND _cmake_import_check_files_for_clangDependencyScanning "${_IMPORT_PREFIX}/lib/libclangDependencyScanning.a" )
 
 # Import target "clangDirectoryWatcher" for configuration "MinSizeRel"
 set_property(TARGET clangDirectoryWatcher APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
@@ -478,15 +508,6 @@ set_target_properties(clang-nvlink-wrapper PROPERTIES
 
 list(APPEND _cmake_import_check_targets clang-nvlink-wrapper )
 list(APPEND _cmake_import_check_files_for_clang-nvlink-wrapper "${_IMPORT_PREFIX}/bin/clang-nvlink-wrapper.exe" )
-
-# Import target "clang-offload-packager" for configuration "MinSizeRel"
-set_property(TARGET clang-offload-packager APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
-set_target_properties(clang-offload-packager PROPERTIES
-  IMPORTED_LOCATION_MINSIZEREL "${_IMPORT_PREFIX}/bin/clang-offload-packager.exe"
-  )
-
-list(APPEND _cmake_import_check_targets clang-offload-packager )
-list(APPEND _cmake_import_check_files_for_clang-offload-packager "${_IMPORT_PREFIX}/bin/clang-offload-packager.exe" )
 
 # Import target "clang-offload-bundler" for configuration "MinSizeRel"
 set_property(TARGET clang-offload-bundler APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
@@ -707,6 +728,16 @@ set_target_properties(clangTidyCppCoreGuidelinesModule PROPERTIES
 
 list(APPEND _cmake_import_check_targets clangTidyCppCoreGuidelinesModule )
 list(APPEND _cmake_import_check_files_for_clangTidyCppCoreGuidelinesModule "${_IMPORT_PREFIX}/lib/libclangTidyCppCoreGuidelinesModule.a" )
+
+# Import target "clangTidyCustomModule" for configuration "MinSizeRel"
+set_property(TARGET clangTidyCustomModule APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)
+set_target_properties(clangTidyCustomModule PROPERTIES
+  IMPORTED_LINK_INTERFACE_LANGUAGES_MINSIZEREL "CXX"
+  IMPORTED_LOCATION_MINSIZEREL "${_IMPORT_PREFIX}/lib/libclangTidyCustomModule.a"
+  )
+
+list(APPEND _cmake_import_check_targets clangTidyCustomModule )
+list(APPEND _cmake_import_check_files_for_clangTidyCustomModule "${_IMPORT_PREFIX}/lib/libclangTidyCustomModule.a" )
 
 # Import target "clangTidyDarwinModule" for configuration "MinSizeRel"
 set_property(TARGET clangTidyDarwinModule APPEND PROPERTY IMPORTED_CONFIGURATIONS MINSIZEREL)

@@ -1,0 +1,47 @@
+%NAME%
+mingw-w64-clang-aarch64-clang-analyzer
+
+%VERSION%
+22.1.8-2
+
+%BASE%
+mingw-w64-llvm
+
+%DESC%
+A source code analysis framework (mingw-w64)
+
+%URL%
+https://clang-analyzer.llvm.org/
+
+%ARCH%
+any
+
+%BUILDDATE%
+1782931541
+
+%INSTALLDATE%
+1782973774
+
+%PACKAGER%
+Johannes Schindelin <johannes.schindelin@gmx.de>
+
+%SIZE%
+583924
+
+%GROUPS%
+mingw-w64-clang-aarch64-toolchain
+
+%LICENSE%
+spdx:Apache-2.0 WITH LLVM-exception
+
+%VALIDATION%
+sha256
+pgp
+
+%DEPENDS%
+mingw-w64-clang-aarch64-clang=22.1.8
+mingw-w64-clang-aarch64-python
+
+%XDATA%
+pkgtype=split
+

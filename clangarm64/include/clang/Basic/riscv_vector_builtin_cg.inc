@@ -2,10 +2,6 @@ case RISCVVector::BI__builtin_rvv_vundefined:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return llvm::PoisonValue::get(ResultType);
       break;
@@ -13,10 +9,6 @@ case RISCVVector::BI__builtin_rvv_vget_v:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVGetBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
                                  PolicyAttrs, IsMasked, SegInstSEW);
@@ -25,10 +17,6 @@ case RISCVVector::BI__builtin_rvv_vset_v:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVSetBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
                                  PolicyAttrs, IsMasked, SegInstSEW);
@@ -37,10 +25,6 @@ case RISCVVector::BI__builtin_rvv_vcreate_v:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVCreateBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
                                     PolicyAttrs, IsMasked, SegInstSEW);
@@ -49,10 +33,6 @@ case RISCVVector::BI__builtin_rvv_vlenb:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVVlenbBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
                                  PolicyAttrs, IsMasked, SegInstSEW);
@@ -61,10 +41,6 @@ case RISCVVector::BI__builtin_rvv_vlmul_ext_v:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return Builder.CreateInsertVector(ResultType,
                                           llvm::PoisonValue::get(ResultType),
@@ -74,10 +50,6 @@ case RISCVVector::BI__builtin_rvv_vlmul_trunc_v:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
  {
         return Builder.CreateExtractVector(ResultType, Ops[0],
                                            ConstantInt::get(Int64Ty, 0));
@@ -86,10 +58,6 @@ case RISCVVector::BI__builtin_rvv_vreinterpret_v:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVReinterpretBuiltin(this, E, ReturnValue, ResultType, ID,
                                          Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -97,10 +65,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return llvm::PoisonValue::get(ResultType);
       break;
@@ -110,10 +74,6 @@ case RISCVVector::BI__builtin_rvv_vaadd_vx_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVAveragingBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -126,10 +86,6 @@ case RISCVVector::BI__builtin_rvv_vaadd_vx:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVAveragingBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -142,10 +98,6 @@ case RISCVVector::BI__builtin_rvv_vaadd_vx_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVAveragingBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -158,10 +110,6 @@ case RISCVVector::BI__builtin_rvv_vaadd_vx_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVAveragingBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -174,10 +122,6 @@ case RISCVVector::BI__builtin_rvv_vaadd_vx_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVAveragingBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -190,10 +134,6 @@ case RISCVVector::BI__builtin_rvv_vaadd_vx_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVAveragingBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -206,10 +146,6 @@ case RISCVVector::BI__builtin_rvv_vaaddu_vx_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVAveragingBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -222,10 +158,6 @@ case RISCVVector::BI__builtin_rvv_vaaddu_vx:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVAveragingBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -238,10 +170,6 @@ case RISCVVector::BI__builtin_rvv_vaaddu_vx_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVAveragingBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -254,10 +182,6 @@ case RISCVVector::BI__builtin_rvv_vaaddu_vx_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVAveragingBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -270,10 +194,6 @@ case RISCVVector::BI__builtin_rvv_vaaddu_vx_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVAveragingBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -286,10 +206,6 @@ case RISCVVector::BI__builtin_rvv_vaaddu_vx_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVAveragingBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -626,10 +542,6 @@ case RISCVVector::BI__builtin_rvv_vasub_vx_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVAveragingBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -642,10 +554,6 @@ case RISCVVector::BI__builtin_rvv_vasub_vx:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVAveragingBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -658,10 +566,6 @@ case RISCVVector::BI__builtin_rvv_vasub_vx_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVAveragingBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -674,10 +578,6 @@ case RISCVVector::BI__builtin_rvv_vasub_vx_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVAveragingBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -690,10 +590,6 @@ case RISCVVector::BI__builtin_rvv_vasub_vx_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVAveragingBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -706,10 +602,6 @@ case RISCVVector::BI__builtin_rvv_vasub_vx_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVAveragingBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -722,10 +614,6 @@ case RISCVVector::BI__builtin_rvv_vasubu_vx_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVAveragingBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -738,10 +626,6 @@ case RISCVVector::BI__builtin_rvv_vasubu_vx:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVAveragingBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -754,10 +638,6 @@ case RISCVVector::BI__builtin_rvv_vasubu_vx_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVAveragingBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -770,10 +650,6 @@ case RISCVVector::BI__builtin_rvv_vasubu_vx_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVAveragingBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -786,10 +662,6 @@ case RISCVVector::BI__builtin_rvv_vasubu_vx_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVAveragingBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -802,10 +674,6 @@ case RISCVVector::BI__builtin_rvv_vasubu_vx_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVAveragingBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -1059,10 +927,6 @@ case RISCVVector::BI__builtin_rvv_vcompress_vm_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       // insert poison passthru
       if (PolicyAttrs & RVV_VTA)
@@ -1074,10 +938,6 @@ case RISCVVector::BI__builtin_rvv_vcompress_vm:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       // insert poison passthru
       if (PolicyAttrs & RVV_VTA)
@@ -1301,10 +1161,6 @@ case RISCVVector::BI__builtin_rvv_vfadd_vf_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingPointBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -1319,10 +1175,6 @@ case RISCVVector::BI__builtin_rvv_vfadd_vf:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingPointBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -1337,10 +1189,6 @@ case RISCVVector::BI__builtin_rvv_vfadd_vf_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingPointBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -1355,10 +1203,6 @@ case RISCVVector::BI__builtin_rvv_vfadd_vf_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingPointBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -1373,10 +1217,6 @@ case RISCVVector::BI__builtin_rvv_vfadd_vf_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingPointBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -1391,10 +1231,6 @@ case RISCVVector::BI__builtin_rvv_vfadd_vf_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingPointBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -1453,10 +1289,6 @@ case RISCVVector::BI__builtin_rvv_vfcvt_f_x_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -1469,10 +1301,6 @@ case RISCVVector::BI__builtin_rvv_vfcvt_f_x_v:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -1485,10 +1313,6 @@ case RISCVVector::BI__builtin_rvv_vfcvt_f_x_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -1501,10 +1325,6 @@ case RISCVVector::BI__builtin_rvv_vfcvt_f_x_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -1517,10 +1337,6 @@ case RISCVVector::BI__builtin_rvv_vfcvt_f_x_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -1533,10 +1349,6 @@ case RISCVVector::BI__builtin_rvv_vfcvt_f_x_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -1549,10 +1361,6 @@ case RISCVVector::BI__builtin_rvv_vfcvt_f_xu_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -1565,10 +1373,6 @@ case RISCVVector::BI__builtin_rvv_vfcvt_f_xu_v:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -1581,10 +1385,6 @@ case RISCVVector::BI__builtin_rvv_vfcvt_f_xu_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -1597,10 +1397,6 @@ case RISCVVector::BI__builtin_rvv_vfcvt_f_xu_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -1613,10 +1409,6 @@ case RISCVVector::BI__builtin_rvv_vfcvt_f_xu_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -1629,10 +1421,6 @@ case RISCVVector::BI__builtin_rvv_vfcvt_f_xu_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -1737,10 +1525,6 @@ case RISCVVector::BI__builtin_rvv_vfcvt_x_f_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -1753,10 +1537,6 @@ case RISCVVector::BI__builtin_rvv_vfcvt_x_f_v:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -1769,10 +1549,6 @@ case RISCVVector::BI__builtin_rvv_vfcvt_x_f_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -1785,10 +1561,6 @@ case RISCVVector::BI__builtin_rvv_vfcvt_x_f_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -1801,10 +1573,6 @@ case RISCVVector::BI__builtin_rvv_vfcvt_x_f_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -1817,10 +1585,6 @@ case RISCVVector::BI__builtin_rvv_vfcvt_x_f_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -1833,10 +1597,6 @@ case RISCVVector::BI__builtin_rvv_vfcvt_xu_f_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -1849,10 +1609,6 @@ case RISCVVector::BI__builtin_rvv_vfcvt_xu_f_v:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -1865,10 +1621,6 @@ case RISCVVector::BI__builtin_rvv_vfcvt_xu_f_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -1881,10 +1633,6 @@ case RISCVVector::BI__builtin_rvv_vfcvt_xu_f_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -1897,10 +1645,6 @@ case RISCVVector::BI__builtin_rvv_vfcvt_xu_f_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -1913,10 +1657,6 @@ case RISCVVector::BI__builtin_rvv_vfcvt_xu_f_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -1931,10 +1671,6 @@ case RISCVVector::BI__builtin_rvv_vfdiv_vf_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingPointBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -1949,10 +1685,6 @@ case RISCVVector::BI__builtin_rvv_vfdiv_vf:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingPointBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -1967,10 +1699,6 @@ case RISCVVector::BI__builtin_rvv_vfdiv_vf_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingPointBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -1985,10 +1713,6 @@ case RISCVVector::BI__builtin_rvv_vfdiv_vf_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingPointBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -2003,10 +1727,6 @@ case RISCVVector::BI__builtin_rvv_vfdiv_vf_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingPointBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -2021,10 +1741,6 @@ case RISCVVector::BI__builtin_rvv_vfdiv_vf_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingPointBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -2052,10 +1768,6 @@ case RISCVVector::BI__builtin_rvv_vfmacc_vf_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFMABuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -2070,10 +1782,6 @@ case RISCVVector::BI__builtin_rvv_vfmacc_vf:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFMABuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -2088,10 +1796,6 @@ case RISCVVector::BI__builtin_rvv_vfmacc_vf_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFMABuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -2106,10 +1810,6 @@ case RISCVVector::BI__builtin_rvv_vfmacc_vf_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFMABuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -2124,10 +1824,6 @@ case RISCVVector::BI__builtin_rvv_vfmacc_vf_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFMABuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -2142,10 +1838,6 @@ case RISCVVector::BI__builtin_rvv_vfmacc_vf_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFMABuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -2160,10 +1852,6 @@ case RISCVVector::BI__builtin_rvv_vfmadd_vf_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFMABuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -2178,10 +1866,6 @@ case RISCVVector::BI__builtin_rvv_vfmadd_vf:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFMABuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -2196,10 +1880,6 @@ case RISCVVector::BI__builtin_rvv_vfmadd_vf_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFMABuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -2214,10 +1894,6 @@ case RISCVVector::BI__builtin_rvv_vfmadd_vf_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFMABuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -2232,10 +1908,6 @@ case RISCVVector::BI__builtin_rvv_vfmadd_vf_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFMABuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -2250,10 +1922,6 @@ case RISCVVector::BI__builtin_rvv_vfmadd_vf_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFMABuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -2317,10 +1985,6 @@ case RISCVVector::BI__builtin_rvv_vfmerge_vfm_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       // insert poison passthru
       if (PolicyAttrs & RVV_VTA)
@@ -2332,10 +1996,6 @@ case RISCVVector::BI__builtin_rvv_vfmerge_vfm:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       // insert poison passthru
       if (PolicyAttrs & RVV_VTA)
@@ -2402,10 +2062,6 @@ case RISCVVector::BI__builtin_rvv_vfmsac_vf_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFMABuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -2420,10 +2076,6 @@ case RISCVVector::BI__builtin_rvv_vfmsac_vf:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFMABuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -2438,10 +2090,6 @@ case RISCVVector::BI__builtin_rvv_vfmsac_vf_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFMABuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -2456,10 +2104,6 @@ case RISCVVector::BI__builtin_rvv_vfmsac_vf_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFMABuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -2474,10 +2118,6 @@ case RISCVVector::BI__builtin_rvv_vfmsac_vf_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFMABuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -2492,10 +2132,6 @@ case RISCVVector::BI__builtin_rvv_vfmsac_vf_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFMABuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -2510,10 +2146,6 @@ case RISCVVector::BI__builtin_rvv_vfmsub_vf_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFMABuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -2528,10 +2160,6 @@ case RISCVVector::BI__builtin_rvv_vfmsub_vf:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFMABuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -2546,10 +2174,6 @@ case RISCVVector::BI__builtin_rvv_vfmsub_vf_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFMABuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -2564,10 +2188,6 @@ case RISCVVector::BI__builtin_rvv_vfmsub_vf_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFMABuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -2582,10 +2202,6 @@ case RISCVVector::BI__builtin_rvv_vfmsub_vf_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFMABuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -2600,10 +2216,6 @@ case RISCVVector::BI__builtin_rvv_vfmsub_vf_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFMABuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -2618,10 +2230,6 @@ case RISCVVector::BI__builtin_rvv_vfmul_vf_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingPointBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -2636,10 +2244,6 @@ case RISCVVector::BI__builtin_rvv_vfmul_vf:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingPointBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -2654,10 +2258,6 @@ case RISCVVector::BI__builtin_rvv_vfmul_vf_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingPointBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -2672,10 +2272,6 @@ case RISCVVector::BI__builtin_rvv_vfmul_vf_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingPointBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -2690,10 +2286,6 @@ case RISCVVector::BI__builtin_rvv_vfmul_vf_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingPointBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -2708,10 +2300,6 @@ case RISCVVector::BI__builtin_rvv_vfmul_vf_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingPointBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -2752,16 +2340,156 @@ case RISCVVector::BI__builtin_rvv_vfmv_v_f:
   Ops.insert(Ops.begin(), llvm::PoisonValue::get(ResultType));
   IntrinsicTypes = {ResultType, Ops.back()->getType()};
   break;
+case RISCVVector::BI__builtin_rvv_vfncvt_f_f_q_rm_tu:
+case RISCVVector::BI__builtin_rvv_vfncvt_f_f_q_tu:
+  ID = Intrinsic::riscv_vfncvt_f_f_q;
+  PolicyAttrs = 2;
+  SegInstSEW = 0;
+IsMasked = false;
+
+  {
+    return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
+                                      Ops, PolicyAttrs, IsMasked, SegInstSEW);
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfncvt_f_f_q_rm:
+case RISCVVector::BI__builtin_rvv_vfncvt_f_f_q:
+  ID = Intrinsic::riscv_vfncvt_f_f_q;
+  PolicyAttrs = 3;
+  SegInstSEW = 0;
+IsMasked = false;
+
+  {
+    return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
+                                      Ops, PolicyAttrs, IsMasked, SegInstSEW);
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfncvt_f_f_q_rm_alt_tu:
+case RISCVVector::BI__builtin_rvv_vfncvt_f_f_q_alt_tu:
+  ID = Intrinsic::riscv_vfncvt_f_f_q_alt;
+  PolicyAttrs = 2;
+  SegInstSEW = 0;
+IsMasked = false;
+
+  {
+    return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
+                                      Ops, PolicyAttrs, IsMasked, SegInstSEW);
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfncvt_f_f_q_rm_alt:
+case RISCVVector::BI__builtin_rvv_vfncvt_f_f_q_alt:
+  ID = Intrinsic::riscv_vfncvt_f_f_q_alt;
+  PolicyAttrs = 3;
+  SegInstSEW = 0;
+IsMasked = false;
+
+  {
+    return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
+                                      Ops, PolicyAttrs, IsMasked, SegInstSEW);
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfncvt_f_f_q_rm_alt_tum:
+case RISCVVector::BI__builtin_rvv_vfncvt_f_f_q_alt_tum:
+  ID = Intrinsic::riscv_vfncvt_f_f_q_alt_mask;
+  PolicyAttrs = 2;
+  SegInstSEW = 0;
+IsMasked = true;
+
+  {
+    return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
+                                      Ops, PolicyAttrs, IsMasked, SegInstSEW);
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfncvt_f_f_q_rm_alt_m:
+case RISCVVector::BI__builtin_rvv_vfncvt_f_f_q_alt_m:
+  ID = Intrinsic::riscv_vfncvt_f_f_q_alt_mask;
+  PolicyAttrs = 3;
+  SegInstSEW = 0;
+IsMasked = true;
+
+  {
+    return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
+                                      Ops, PolicyAttrs, IsMasked, SegInstSEW);
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfncvt_f_f_q_rm_alt_tumu:
+case RISCVVector::BI__builtin_rvv_vfncvt_f_f_q_alt_tumu:
+  ID = Intrinsic::riscv_vfncvt_f_f_q_alt_mask;
+  PolicyAttrs = 0;
+  SegInstSEW = 0;
+IsMasked = true;
+
+  {
+    return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
+                                      Ops, PolicyAttrs, IsMasked, SegInstSEW);
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfncvt_f_f_q_rm_alt_mu:
+case RISCVVector::BI__builtin_rvv_vfncvt_f_f_q_alt_mu:
+  ID = Intrinsic::riscv_vfncvt_f_f_q_alt_mask;
+  PolicyAttrs = 1;
+  SegInstSEW = 0;
+IsMasked = true;
+
+  {
+    return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
+                                      Ops, PolicyAttrs, IsMasked, SegInstSEW);
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfncvt_f_f_q_rm_tum:
+case RISCVVector::BI__builtin_rvv_vfncvt_f_f_q_tum:
+  ID = Intrinsic::riscv_vfncvt_f_f_q_mask;
+  PolicyAttrs = 2;
+  SegInstSEW = 0;
+IsMasked = true;
+
+  {
+    return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
+                                      Ops, PolicyAttrs, IsMasked, SegInstSEW);
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfncvt_f_f_q_rm_m:
+case RISCVVector::BI__builtin_rvv_vfncvt_f_f_q_m:
+  ID = Intrinsic::riscv_vfncvt_f_f_q_mask;
+  PolicyAttrs = 3;
+  SegInstSEW = 0;
+IsMasked = true;
+
+  {
+    return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
+                                      Ops, PolicyAttrs, IsMasked, SegInstSEW);
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfncvt_f_f_q_rm_tumu:
+case RISCVVector::BI__builtin_rvv_vfncvt_f_f_q_tumu:
+  ID = Intrinsic::riscv_vfncvt_f_f_q_mask;
+  PolicyAttrs = 0;
+  SegInstSEW = 0;
+IsMasked = true;
+
+  {
+    return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
+                                      Ops, PolicyAttrs, IsMasked, SegInstSEW);
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfncvt_f_f_q_rm_mu:
+case RISCVVector::BI__builtin_rvv_vfncvt_f_f_q_mu:
+  ID = Intrinsic::riscv_vfncvt_f_f_q_mask;
+  PolicyAttrs = 1;
+  SegInstSEW = 0;
+IsMasked = true;
+
+  {
+    return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
+                                      Ops, PolicyAttrs, IsMasked, SegInstSEW);
+  }
+break;
 case RISCVVector::BI__builtin_rvv_vfncvt_f_f_w_rm_tu:
 case RISCVVector::BI__builtin_rvv_vfncvt_f_f_w_tu:
   ID = Intrinsic::riscv_vfncvt_f_f_w;
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -2774,10 +2502,78 @@ case RISCVVector::BI__builtin_rvv_vfncvt_f_f_w:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
+
+  {
+    return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
+                                      Ops, PolicyAttrs, IsMasked, SegInstSEW);
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfncvt_f_f_w_rm_alt_tu:
+case RISCVVector::BI__builtin_rvv_vfncvt_f_f_w_alt_tu:
+  ID = Intrinsic::riscv_vfncvt_f_f_w_alt;
+  PolicyAttrs = 2;
+  SegInstSEW = 0;
+IsMasked = false;
+
+  {
+    return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
+                                      Ops, PolicyAttrs, IsMasked, SegInstSEW);
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfncvt_f_f_w_rm_alt:
+case RISCVVector::BI__builtin_rvv_vfncvt_f_f_w_alt:
+  ID = Intrinsic::riscv_vfncvt_f_f_w_alt;
+  PolicyAttrs = 3;
+  SegInstSEW = 0;
+IsMasked = false;
+
+  {
+    return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
+                                      Ops, PolicyAttrs, IsMasked, SegInstSEW);
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfncvt_f_f_w_rm_alt_tum:
+case RISCVVector::BI__builtin_rvv_vfncvt_f_f_w_alt_tum:
+  ID = Intrinsic::riscv_vfncvt_f_f_w_alt_mask;
+  PolicyAttrs = 2;
+  SegInstSEW = 0;
+IsMasked = true;
+
+  {
+    return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
+                                      Ops, PolicyAttrs, IsMasked, SegInstSEW);
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfncvt_f_f_w_rm_alt_m:
+case RISCVVector::BI__builtin_rvv_vfncvt_f_f_w_alt_m:
+  ID = Intrinsic::riscv_vfncvt_f_f_w_alt_mask;
+  PolicyAttrs = 3;
+  SegInstSEW = 0;
+IsMasked = true;
+
+  {
+    return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
+                                      Ops, PolicyAttrs, IsMasked, SegInstSEW);
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfncvt_f_f_w_rm_alt_tumu:
+case RISCVVector::BI__builtin_rvv_vfncvt_f_f_w_alt_tumu:
+  ID = Intrinsic::riscv_vfncvt_f_f_w_alt_mask;
+  PolicyAttrs = 0;
+  SegInstSEW = 0;
+IsMasked = true;
+
+  {
+    return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
+                                      Ops, PolicyAttrs, IsMasked, SegInstSEW);
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfncvt_f_f_w_rm_alt_mu:
+case RISCVVector::BI__builtin_rvv_vfncvt_f_f_w_alt_mu:
+  ID = Intrinsic::riscv_vfncvt_f_f_w_alt_mask;
+  PolicyAttrs = 1;
+  SegInstSEW = 0;
+IsMasked = true;
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -2790,10 +2586,6 @@ case RISCVVector::BI__builtin_rvv_vfncvt_f_f_w_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -2806,10 +2598,6 @@ case RISCVVector::BI__builtin_rvv_vfncvt_f_f_w_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -2822,10 +2610,6 @@ case RISCVVector::BI__builtin_rvv_vfncvt_f_f_w_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -2838,10 +2622,6 @@ case RISCVVector::BI__builtin_rvv_vfncvt_f_f_w_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -2854,10 +2634,6 @@ case RISCVVector::BI__builtin_rvv_vfncvt_f_x_w_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -2870,10 +2646,6 @@ case RISCVVector::BI__builtin_rvv_vfncvt_f_x_w:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -2886,10 +2658,6 @@ case RISCVVector::BI__builtin_rvv_vfncvt_f_x_w_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -2902,10 +2670,6 @@ case RISCVVector::BI__builtin_rvv_vfncvt_f_x_w_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -2918,10 +2682,6 @@ case RISCVVector::BI__builtin_rvv_vfncvt_f_x_w_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -2934,10 +2694,6 @@ case RISCVVector::BI__builtin_rvv_vfncvt_f_x_w_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -2950,10 +2706,6 @@ case RISCVVector::BI__builtin_rvv_vfncvt_f_xu_w_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -2966,10 +2718,6 @@ case RISCVVector::BI__builtin_rvv_vfncvt_f_xu_w:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -2982,10 +2730,6 @@ case RISCVVector::BI__builtin_rvv_vfncvt_f_xu_w_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -2998,10 +2742,6 @@ case RISCVVector::BI__builtin_rvv_vfncvt_f_xu_w_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -3014,10 +2754,6 @@ case RISCVVector::BI__builtin_rvv_vfncvt_f_xu_w_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -3030,10 +2766,6 @@ case RISCVVector::BI__builtin_rvv_vfncvt_f_xu_w_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -3178,16 +2910,300 @@ case RISCVVector::BI__builtin_rvv_vfncvt_rtz_xu_f_w_mu:
   Ops.push_back(ConstantInt::get(Ops.back()->getType(), PolicyAttrs));
   IntrinsicTypes = {ResultType, Ops[1]->getType(), Ops.back()->getType()};
   break;
+case RISCVVector::BI__builtin_rvv_vfncvt_sat_f_f_q_rm_tu:
+case RISCVVector::BI__builtin_rvv_vfncvt_sat_f_f_q_tu:
+  ID = Intrinsic::riscv_vfncvt_sat_f_f_q;
+  PolicyAttrs = 2;
+  SegInstSEW = 0;
+IsMasked = false;
+
+  {
+    return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
+                                      Ops, PolicyAttrs, IsMasked, SegInstSEW);
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfncvt_sat_f_f_q_rm:
+case RISCVVector::BI__builtin_rvv_vfncvt_sat_f_f_q:
+  ID = Intrinsic::riscv_vfncvt_sat_f_f_q;
+  PolicyAttrs = 3;
+  SegInstSEW = 0;
+IsMasked = false;
+
+  {
+    return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
+                                      Ops, PolicyAttrs, IsMasked, SegInstSEW);
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfncvt_sat_f_f_q_rm_alt_tu:
+case RISCVVector::BI__builtin_rvv_vfncvt_sat_f_f_q_alt_tu:
+  ID = Intrinsic::riscv_vfncvt_sat_f_f_q_alt;
+  PolicyAttrs = 2;
+  SegInstSEW = 0;
+IsMasked = false;
+
+  {
+    return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
+                                      Ops, PolicyAttrs, IsMasked, SegInstSEW);
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfncvt_sat_f_f_q_rm_alt:
+case RISCVVector::BI__builtin_rvv_vfncvt_sat_f_f_q_alt:
+  ID = Intrinsic::riscv_vfncvt_sat_f_f_q_alt;
+  PolicyAttrs = 3;
+  SegInstSEW = 0;
+IsMasked = false;
+
+  {
+    return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
+                                      Ops, PolicyAttrs, IsMasked, SegInstSEW);
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfncvt_sat_f_f_q_rm_alt_tum:
+case RISCVVector::BI__builtin_rvv_vfncvt_sat_f_f_q_alt_tum:
+  ID = Intrinsic::riscv_vfncvt_sat_f_f_q_alt_mask;
+  PolicyAttrs = 2;
+  SegInstSEW = 0;
+IsMasked = true;
+
+  {
+    return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
+                                      Ops, PolicyAttrs, IsMasked, SegInstSEW);
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfncvt_sat_f_f_q_rm_alt_m:
+case RISCVVector::BI__builtin_rvv_vfncvt_sat_f_f_q_alt_m:
+  ID = Intrinsic::riscv_vfncvt_sat_f_f_q_alt_mask;
+  PolicyAttrs = 3;
+  SegInstSEW = 0;
+IsMasked = true;
+
+  {
+    return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
+                                      Ops, PolicyAttrs, IsMasked, SegInstSEW);
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfncvt_sat_f_f_q_rm_alt_tumu:
+case RISCVVector::BI__builtin_rvv_vfncvt_sat_f_f_q_alt_tumu:
+  ID = Intrinsic::riscv_vfncvt_sat_f_f_q_alt_mask;
+  PolicyAttrs = 0;
+  SegInstSEW = 0;
+IsMasked = true;
+
+  {
+    return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
+                                      Ops, PolicyAttrs, IsMasked, SegInstSEW);
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfncvt_sat_f_f_q_rm_alt_mu:
+case RISCVVector::BI__builtin_rvv_vfncvt_sat_f_f_q_alt_mu:
+  ID = Intrinsic::riscv_vfncvt_sat_f_f_q_alt_mask;
+  PolicyAttrs = 1;
+  SegInstSEW = 0;
+IsMasked = true;
+
+  {
+    return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
+                                      Ops, PolicyAttrs, IsMasked, SegInstSEW);
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfncvt_sat_f_f_q_rm_tum:
+case RISCVVector::BI__builtin_rvv_vfncvt_sat_f_f_q_tum:
+  ID = Intrinsic::riscv_vfncvt_sat_f_f_q_mask;
+  PolicyAttrs = 2;
+  SegInstSEW = 0;
+IsMasked = true;
+
+  {
+    return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
+                                      Ops, PolicyAttrs, IsMasked, SegInstSEW);
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfncvt_sat_f_f_q_rm_m:
+case RISCVVector::BI__builtin_rvv_vfncvt_sat_f_f_q_m:
+  ID = Intrinsic::riscv_vfncvt_sat_f_f_q_mask;
+  PolicyAttrs = 3;
+  SegInstSEW = 0;
+IsMasked = true;
+
+  {
+    return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
+                                      Ops, PolicyAttrs, IsMasked, SegInstSEW);
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfncvt_sat_f_f_q_rm_tumu:
+case RISCVVector::BI__builtin_rvv_vfncvt_sat_f_f_q_tumu:
+  ID = Intrinsic::riscv_vfncvt_sat_f_f_q_mask;
+  PolicyAttrs = 0;
+  SegInstSEW = 0;
+IsMasked = true;
+
+  {
+    return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
+                                      Ops, PolicyAttrs, IsMasked, SegInstSEW);
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfncvt_sat_f_f_q_rm_mu:
+case RISCVVector::BI__builtin_rvv_vfncvt_sat_f_f_q_mu:
+  ID = Intrinsic::riscv_vfncvt_sat_f_f_q_mask;
+  PolicyAttrs = 1;
+  SegInstSEW = 0;
+IsMasked = true;
+
+  {
+    return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
+                                      Ops, PolicyAttrs, IsMasked, SegInstSEW);
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfncvt_sat_f_f_w_rm_tu:
+case RISCVVector::BI__builtin_rvv_vfncvt_sat_f_f_w_tu:
+  ID = Intrinsic::riscv_vfncvt_sat_f_f_w;
+  PolicyAttrs = 2;
+  SegInstSEW = 0;
+IsMasked = false;
+
+  {
+    return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
+                                      Ops, PolicyAttrs, IsMasked, SegInstSEW);
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfncvt_sat_f_f_w_rm:
+case RISCVVector::BI__builtin_rvv_vfncvt_sat_f_f_w:
+  ID = Intrinsic::riscv_vfncvt_sat_f_f_w;
+  PolicyAttrs = 3;
+  SegInstSEW = 0;
+IsMasked = false;
+
+  {
+    return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
+                                      Ops, PolicyAttrs, IsMasked, SegInstSEW);
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfncvt_sat_f_f_w_rm_alt_tu:
+case RISCVVector::BI__builtin_rvv_vfncvt_sat_f_f_w_alt_tu:
+  ID = Intrinsic::riscv_vfncvt_sat_f_f_w_alt;
+  PolicyAttrs = 2;
+  SegInstSEW = 0;
+IsMasked = false;
+
+  {
+    return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
+                                      Ops, PolicyAttrs, IsMasked, SegInstSEW);
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfncvt_sat_f_f_w_rm_alt:
+case RISCVVector::BI__builtin_rvv_vfncvt_sat_f_f_w_alt:
+  ID = Intrinsic::riscv_vfncvt_sat_f_f_w_alt;
+  PolicyAttrs = 3;
+  SegInstSEW = 0;
+IsMasked = false;
+
+  {
+    return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
+                                      Ops, PolicyAttrs, IsMasked, SegInstSEW);
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfncvt_sat_f_f_w_rm_alt_tum:
+case RISCVVector::BI__builtin_rvv_vfncvt_sat_f_f_w_alt_tum:
+  ID = Intrinsic::riscv_vfncvt_sat_f_f_w_alt_mask;
+  PolicyAttrs = 2;
+  SegInstSEW = 0;
+IsMasked = true;
+
+  {
+    return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
+                                      Ops, PolicyAttrs, IsMasked, SegInstSEW);
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfncvt_sat_f_f_w_rm_alt_m:
+case RISCVVector::BI__builtin_rvv_vfncvt_sat_f_f_w_alt_m:
+  ID = Intrinsic::riscv_vfncvt_sat_f_f_w_alt_mask;
+  PolicyAttrs = 3;
+  SegInstSEW = 0;
+IsMasked = true;
+
+  {
+    return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
+                                      Ops, PolicyAttrs, IsMasked, SegInstSEW);
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfncvt_sat_f_f_w_rm_alt_tumu:
+case RISCVVector::BI__builtin_rvv_vfncvt_sat_f_f_w_alt_tumu:
+  ID = Intrinsic::riscv_vfncvt_sat_f_f_w_alt_mask;
+  PolicyAttrs = 0;
+  SegInstSEW = 0;
+IsMasked = true;
+
+  {
+    return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
+                                      Ops, PolicyAttrs, IsMasked, SegInstSEW);
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfncvt_sat_f_f_w_rm_alt_mu:
+case RISCVVector::BI__builtin_rvv_vfncvt_sat_f_f_w_alt_mu:
+  ID = Intrinsic::riscv_vfncvt_sat_f_f_w_alt_mask;
+  PolicyAttrs = 1;
+  SegInstSEW = 0;
+IsMasked = true;
+
+  {
+    return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
+                                      Ops, PolicyAttrs, IsMasked, SegInstSEW);
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfncvt_sat_f_f_w_rm_tum:
+case RISCVVector::BI__builtin_rvv_vfncvt_sat_f_f_w_tum:
+  ID = Intrinsic::riscv_vfncvt_sat_f_f_w_mask;
+  PolicyAttrs = 2;
+  SegInstSEW = 0;
+IsMasked = true;
+
+  {
+    return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
+                                      Ops, PolicyAttrs, IsMasked, SegInstSEW);
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfncvt_sat_f_f_w_rm_m:
+case RISCVVector::BI__builtin_rvv_vfncvt_sat_f_f_w_m:
+  ID = Intrinsic::riscv_vfncvt_sat_f_f_w_mask;
+  PolicyAttrs = 3;
+  SegInstSEW = 0;
+IsMasked = true;
+
+  {
+    return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
+                                      Ops, PolicyAttrs, IsMasked, SegInstSEW);
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfncvt_sat_f_f_w_rm_tumu:
+case RISCVVector::BI__builtin_rvv_vfncvt_sat_f_f_w_tumu:
+  ID = Intrinsic::riscv_vfncvt_sat_f_f_w_mask;
+  PolicyAttrs = 0;
+  SegInstSEW = 0;
+IsMasked = true;
+
+  {
+    return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
+                                      Ops, PolicyAttrs, IsMasked, SegInstSEW);
+  }
+break;
+case RISCVVector::BI__builtin_rvv_vfncvt_sat_f_f_w_rm_mu:
+case RISCVVector::BI__builtin_rvv_vfncvt_sat_f_f_w_mu:
+  ID = Intrinsic::riscv_vfncvt_sat_f_f_w_mask;
+  PolicyAttrs = 1;
+  SegInstSEW = 0;
+IsMasked = true;
+
+  {
+    return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
+                                      Ops, PolicyAttrs, IsMasked, SegInstSEW);
+  }
+break;
 case RISCVVector::BI__builtin_rvv_vfncvt_x_f_w_rm_tu:
 case RISCVVector::BI__builtin_rvv_vfncvt_x_f_w_tu:
   ID = Intrinsic::riscv_vfncvt_x_f_w;
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -3200,10 +3216,6 @@ case RISCVVector::BI__builtin_rvv_vfncvt_x_f_w:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -3216,10 +3228,6 @@ case RISCVVector::BI__builtin_rvv_vfncvt_x_f_w_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -3232,10 +3240,6 @@ case RISCVVector::BI__builtin_rvv_vfncvt_x_f_w_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -3248,10 +3252,6 @@ case RISCVVector::BI__builtin_rvv_vfncvt_x_f_w_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -3264,10 +3264,6 @@ case RISCVVector::BI__builtin_rvv_vfncvt_x_f_w_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -3280,10 +3276,6 @@ case RISCVVector::BI__builtin_rvv_vfncvt_xu_f_w_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -3296,10 +3288,6 @@ case RISCVVector::BI__builtin_rvv_vfncvt_xu_f_w:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -3312,10 +3300,6 @@ case RISCVVector::BI__builtin_rvv_vfncvt_xu_f_w_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -3328,10 +3312,6 @@ case RISCVVector::BI__builtin_rvv_vfncvt_xu_f_w_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -3344,10 +3324,6 @@ case RISCVVector::BI__builtin_rvv_vfncvt_xu_f_w_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -3360,10 +3336,6 @@ case RISCVVector::BI__builtin_rvv_vfncvt_xu_f_w_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -3376,10 +3348,6 @@ case RISCVVector::BI__builtin_rvv_vfncvtbf16_f_f_w_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -3392,10 +3360,6 @@ case RISCVVector::BI__builtin_rvv_vfncvtbf16_f_f_w:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -3408,10 +3372,6 @@ case RISCVVector::BI__builtin_rvv_vfncvtbf16_f_f_w_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -3424,10 +3384,6 @@ case RISCVVector::BI__builtin_rvv_vfncvtbf16_f_f_w_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -3440,10 +3396,6 @@ case RISCVVector::BI__builtin_rvv_vfncvtbf16_f_f_w_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -3456,10 +3408,6 @@ case RISCVVector::BI__builtin_rvv_vfncvtbf16_f_f_w_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -3474,10 +3422,6 @@ case RISCVVector::BI__builtin_rvv_vfnmacc_vf_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFMABuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -3492,10 +3436,6 @@ case RISCVVector::BI__builtin_rvv_vfnmacc_vf:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFMABuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -3510,10 +3450,6 @@ case RISCVVector::BI__builtin_rvv_vfnmacc_vf_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFMABuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -3528,10 +3464,6 @@ case RISCVVector::BI__builtin_rvv_vfnmacc_vf_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFMABuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -3546,10 +3478,6 @@ case RISCVVector::BI__builtin_rvv_vfnmacc_vf_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFMABuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -3564,10 +3492,6 @@ case RISCVVector::BI__builtin_rvv_vfnmacc_vf_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFMABuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -3582,10 +3506,6 @@ case RISCVVector::BI__builtin_rvv_vfnmadd_vf_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFMABuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -3600,10 +3520,6 @@ case RISCVVector::BI__builtin_rvv_vfnmadd_vf:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFMABuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -3618,10 +3534,6 @@ case RISCVVector::BI__builtin_rvv_vfnmadd_vf_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFMABuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -3636,10 +3548,6 @@ case RISCVVector::BI__builtin_rvv_vfnmadd_vf_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFMABuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -3654,10 +3562,6 @@ case RISCVVector::BI__builtin_rvv_vfnmadd_vf_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFMABuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -3672,10 +3576,6 @@ case RISCVVector::BI__builtin_rvv_vfnmadd_vf_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFMABuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -3690,10 +3590,6 @@ case RISCVVector::BI__builtin_rvv_vfnmsac_vf_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFMABuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -3708,10 +3604,6 @@ case RISCVVector::BI__builtin_rvv_vfnmsac_vf:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFMABuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -3726,10 +3618,6 @@ case RISCVVector::BI__builtin_rvv_vfnmsac_vf_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFMABuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -3744,10 +3632,6 @@ case RISCVVector::BI__builtin_rvv_vfnmsac_vf_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFMABuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -3762,10 +3646,6 @@ case RISCVVector::BI__builtin_rvv_vfnmsac_vf_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFMABuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -3780,10 +3660,6 @@ case RISCVVector::BI__builtin_rvv_vfnmsac_vf_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFMABuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -3798,10 +3674,6 @@ case RISCVVector::BI__builtin_rvv_vfnmsub_vf_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFMABuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -3816,10 +3688,6 @@ case RISCVVector::BI__builtin_rvv_vfnmsub_vf:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFMABuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -3834,10 +3702,6 @@ case RISCVVector::BI__builtin_rvv_vfnmsub_vf_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFMABuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -3852,10 +3716,6 @@ case RISCVVector::BI__builtin_rvv_vfnmsub_vf_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFMABuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -3870,10 +3730,6 @@ case RISCVVector::BI__builtin_rvv_vfnmsub_vf_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFMABuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -3888,10 +3744,6 @@ case RISCVVector::BI__builtin_rvv_vfnmsub_vf_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFMABuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -3904,10 +3756,6 @@ case RISCVVector::BI__builtin_rvv_vfrdiv_vf_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingPointBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -3920,10 +3768,6 @@ case RISCVVector::BI__builtin_rvv_vfrdiv_vf:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingPointBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -3936,10 +3780,6 @@ case RISCVVector::BI__builtin_rvv_vfrdiv_vf_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingPointBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -3952,10 +3792,6 @@ case RISCVVector::BI__builtin_rvv_vfrdiv_vf_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingPointBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -3968,10 +3804,6 @@ case RISCVVector::BI__builtin_rvv_vfrdiv_vf_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingPointBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -3984,10 +3816,6 @@ case RISCVVector::BI__builtin_rvv_vfrdiv_vf_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingPointBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -4000,10 +3828,6 @@ case RISCVVector::BI__builtin_rvv_vfrec7_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingUnaryBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -4016,10 +3840,6 @@ case RISCVVector::BI__builtin_rvv_vfrec7_v:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingUnaryBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -4032,10 +3852,6 @@ case RISCVVector::BI__builtin_rvv_vfrec7_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingUnaryBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -4048,10 +3864,6 @@ case RISCVVector::BI__builtin_rvv_vfrec7_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingUnaryBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -4064,10 +3876,6 @@ case RISCVVector::BI__builtin_rvv_vfrec7_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingUnaryBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -4080,10 +3888,6 @@ case RISCVVector::BI__builtin_rvv_vfrec7_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingUnaryBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -4152,10 +3956,6 @@ case RISCVVector::BI__builtin_rvv_vfredosum_vs_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingReductionBuiltin(
@@ -4169,10 +3969,6 @@ case RISCVVector::BI__builtin_rvv_vfredosum_vs:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingReductionBuiltin(
@@ -4186,10 +3982,6 @@ case RISCVVector::BI__builtin_rvv_vfredosum_vs_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingReductionBuiltin(
@@ -4203,10 +3995,6 @@ case RISCVVector::BI__builtin_rvv_vfredosum_vs_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingReductionBuiltin(
@@ -4220,10 +4008,6 @@ case RISCVVector::BI__builtin_rvv_vfredusum_vs_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingReductionBuiltin(
@@ -4237,10 +4021,6 @@ case RISCVVector::BI__builtin_rvv_vfredusum_vs:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingReductionBuiltin(
@@ -4254,10 +4034,6 @@ case RISCVVector::BI__builtin_rvv_vfredusum_vs_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingReductionBuiltin(
@@ -4271,10 +4047,6 @@ case RISCVVector::BI__builtin_rvv_vfredusum_vs_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingReductionBuiltin(
@@ -4334,10 +4106,6 @@ case RISCVVector::BI__builtin_rvv_vfrsub_vf_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingPointBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -4350,10 +4118,6 @@ case RISCVVector::BI__builtin_rvv_vfrsub_vf:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingPointBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -4366,10 +4130,6 @@ case RISCVVector::BI__builtin_rvv_vfrsub_vf_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingPointBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -4382,10 +4142,6 @@ case RISCVVector::BI__builtin_rvv_vfrsub_vf_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingPointBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -4398,10 +4154,6 @@ case RISCVVector::BI__builtin_rvv_vfrsub_vf_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingPointBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -4414,10 +4166,6 @@ case RISCVVector::BI__builtin_rvv_vfrsub_vf_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingPointBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -4481,10 +4229,6 @@ case RISCVVector::BI__builtin_rvv_vfneg_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoVFUnaryBuiltin(this, E, ReturnValue, ResultType, ID,
                                            Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -4500,10 +4244,6 @@ case RISCVVector::BI__builtin_rvv_vfsgnjn_vf_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoVFUnaryBuiltin(this, E, ReturnValue, ResultType, ID,
                                            Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -4513,10 +4253,6 @@ case RISCVVector::BI__builtin_rvv_vfneg_v:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoVFUnaryBuiltin(this, E, ReturnValue, ResultType, ID,
                                            Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -4533,10 +4269,6 @@ case RISCVVector::BI__builtin_rvv_vfsgnjn_vf:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoVFUnaryBuiltin(this, E, ReturnValue, ResultType, ID,
                                            Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -4546,10 +4278,6 @@ case RISCVVector::BI__builtin_rvv_vfneg_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoVFUnaryBuiltin(this, E, ReturnValue, ResultType, ID,
                                            Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -4567,10 +4295,6 @@ case RISCVVector::BI__builtin_rvv_vfsgnjn_vf_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoVFUnaryBuiltin(this, E, ReturnValue, ResultType, ID,
                                            Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -4580,10 +4304,6 @@ case RISCVVector::BI__builtin_rvv_vfneg_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoVFUnaryBuiltin(this, E, ReturnValue, ResultType, ID,
                                            Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -4602,10 +4322,6 @@ case RISCVVector::BI__builtin_rvv_vfsgnjn_vf_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoVFUnaryBuiltin(this, E, ReturnValue, ResultType, ID,
                                            Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -4615,10 +4331,6 @@ case RISCVVector::BI__builtin_rvv_vfneg_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoVFUnaryBuiltin(this, E, ReturnValue, ResultType, ID,
                                            Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -4636,10 +4348,6 @@ case RISCVVector::BI__builtin_rvv_vfsgnjn_vf_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoVFUnaryBuiltin(this, E, ReturnValue, ResultType, ID,
                                            Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -4649,10 +4357,6 @@ case RISCVVector::BI__builtin_rvv_vfneg_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoVFUnaryBuiltin(this, E, ReturnValue, ResultType, ID,
                                            Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -4670,10 +4374,6 @@ case RISCVVector::BI__builtin_rvv_vfsgnjn_vf_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoVFUnaryBuiltin(this, E, ReturnValue, ResultType, ID,
                                            Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -4690,10 +4390,6 @@ case RISCVVector::BI__builtin_rvv_vfabs_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoVFUnaryBuiltin(this, E, ReturnValue, ResultType, ID,
                                            Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -4711,10 +4407,6 @@ case RISCVVector::BI__builtin_rvv_vfabs_v:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoVFUnaryBuiltin(this, E, ReturnValue, ResultType, ID,
                                            Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -4733,10 +4425,6 @@ case RISCVVector::BI__builtin_rvv_vfabs_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoVFUnaryBuiltin(this, E, ReturnValue, ResultType, ID,
                                            Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -4756,10 +4444,6 @@ case RISCVVector::BI__builtin_rvv_vfabs_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoVFUnaryBuiltin(this, E, ReturnValue, ResultType, ID,
                                            Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -4778,10 +4462,6 @@ case RISCVVector::BI__builtin_rvv_vfabs_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoVFUnaryBuiltin(this, E, ReturnValue, ResultType, ID,
                                            Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -4800,10 +4480,6 @@ case RISCVVector::BI__builtin_rvv_vfabs_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoVFUnaryBuiltin(this, E, ReturnValue, ResultType, ID,
                                            Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -4906,10 +4582,6 @@ case RISCVVector::BI__builtin_rvv_vfsqrt_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingUnaryBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -4922,10 +4594,6 @@ case RISCVVector::BI__builtin_rvv_vfsqrt_v:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingUnaryBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -4938,10 +4606,6 @@ case RISCVVector::BI__builtin_rvv_vfsqrt_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingUnaryBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -4954,10 +4618,6 @@ case RISCVVector::BI__builtin_rvv_vfsqrt_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingUnaryBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -4970,10 +4630,6 @@ case RISCVVector::BI__builtin_rvv_vfsqrt_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingUnaryBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -4986,10 +4642,6 @@ case RISCVVector::BI__builtin_rvv_vfsqrt_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingUnaryBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -5004,10 +4656,6 @@ case RISCVVector::BI__builtin_rvv_vfsub_vf_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingPointBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -5022,10 +4670,6 @@ case RISCVVector::BI__builtin_rvv_vfsub_vf:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingPointBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -5040,10 +4684,6 @@ case RISCVVector::BI__builtin_rvv_vfsub_vf_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingPointBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -5058,10 +4698,6 @@ case RISCVVector::BI__builtin_rvv_vfsub_vf_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingPointBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -5076,10 +4712,6 @@ case RISCVVector::BI__builtin_rvv_vfsub_vf_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingPointBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -5094,10 +4726,6 @@ case RISCVVector::BI__builtin_rvv_vfsub_vf_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingPointBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -5112,10 +4740,6 @@ case RISCVVector::BI__builtin_rvv_vfwadd_vf_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVWideningFloatingPointBuiltin(
@@ -5131,10 +4755,6 @@ case RISCVVector::BI__builtin_rvv_vfwadd_vf:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVWideningFloatingPointBuiltin(
@@ -5150,10 +4770,6 @@ case RISCVVector::BI__builtin_rvv_vfwadd_vf_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVWideningFloatingPointBuiltin(
@@ -5169,10 +4785,6 @@ case RISCVVector::BI__builtin_rvv_vfwadd_vf_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVWideningFloatingPointBuiltin(
@@ -5188,10 +4800,6 @@ case RISCVVector::BI__builtin_rvv_vfwadd_vf_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVWideningFloatingPointBuiltin(
@@ -5207,10 +4815,6 @@ case RISCVVector::BI__builtin_rvv_vfwadd_vf_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVWideningFloatingPointBuiltin(
@@ -5226,10 +4830,6 @@ case RISCVVector::BI__builtin_rvv_vfwadd_wf_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingPointBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -5244,10 +4844,6 @@ case RISCVVector::BI__builtin_rvv_vfwadd_wf:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingPointBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -5262,10 +4858,6 @@ case RISCVVector::BI__builtin_rvv_vfwadd_wf_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingPointBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -5280,10 +4872,6 @@ case RISCVVector::BI__builtin_rvv_vfwadd_wf_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingPointBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -5298,10 +4886,6 @@ case RISCVVector::BI__builtin_rvv_vfwadd_wf_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingPointBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -5316,10 +4900,6 @@ case RISCVVector::BI__builtin_rvv_vfwadd_wf_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingPointBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -5337,6 +4917,52 @@ case RISCVVector::BI__builtin_rvv_vfwcvt_f_f_v:
   PolicyAttrs = 3;
   SegInstSEW = 0;
   Ops.insert(Ops.begin(), llvm::PoisonValue::get(ResultType));
+  IntrinsicTypes = {ResultType, Ops[1]->getType(), Ops.back()->getType()};
+  break;
+case RISCVVector::BI__builtin_rvv_vfwcvt_f_f_v_alt_tu:
+  ID = Intrinsic::riscv_vfwcvt_f_f_v_alt;
+  PolicyAttrs = 2;
+  SegInstSEW = 0;
+  IntrinsicTypes = {ResultType, Ops[1]->getType(), Ops.back()->getType()};
+  break;
+case RISCVVector::BI__builtin_rvv_vfwcvt_f_f_v_alt:
+  ID = Intrinsic::riscv_vfwcvt_f_f_v_alt;
+  PolicyAttrs = 3;
+  SegInstSEW = 0;
+  Ops.insert(Ops.begin(), llvm::PoisonValue::get(ResultType));
+  IntrinsicTypes = {ResultType, Ops[1]->getType(), Ops.back()->getType()};
+  break;
+case RISCVVector::BI__builtin_rvv_vfwcvt_f_f_v_alt_tum:
+  ID = Intrinsic::riscv_vfwcvt_f_f_v_alt_mask;
+  PolicyAttrs = 2;
+  SegInstSEW = 0;
+  std::rotate(Ops.begin(), Ops.begin() + 1, Ops.end() - 1);
+  Ops.push_back(ConstantInt::get(Ops.back()->getType(), PolicyAttrs));
+  IntrinsicTypes = {ResultType, Ops[1]->getType(), Ops.back()->getType()};
+  break;
+case RISCVVector::BI__builtin_rvv_vfwcvt_f_f_v_alt_m:
+  ID = Intrinsic::riscv_vfwcvt_f_f_v_alt_mask;
+  PolicyAttrs = 3;
+  SegInstSEW = 0;
+  std::rotate(Ops.begin(), Ops.begin() + 1, Ops.end() - 1);
+  Ops.push_back(ConstantInt::get(Ops.back()->getType(), PolicyAttrs));
+  Ops.insert(Ops.begin(), llvm::PoisonValue::get(ResultType));
+  IntrinsicTypes = {ResultType, Ops[1]->getType(), Ops.back()->getType()};
+  break;
+case RISCVVector::BI__builtin_rvv_vfwcvt_f_f_v_alt_tumu:
+  ID = Intrinsic::riscv_vfwcvt_f_f_v_alt_mask;
+  PolicyAttrs = 0;
+  SegInstSEW = 0;
+  std::rotate(Ops.begin(), Ops.begin() + 1, Ops.end() - 1);
+  Ops.push_back(ConstantInt::get(Ops.back()->getType(), PolicyAttrs));
+  IntrinsicTypes = {ResultType, Ops[1]->getType(), Ops.back()->getType()};
+  break;
+case RISCVVector::BI__builtin_rvv_vfwcvt_f_f_v_alt_mu:
+  ID = Intrinsic::riscv_vfwcvt_f_f_v_alt_mask;
+  PolicyAttrs = 1;
+  SegInstSEW = 0;
+  std::rotate(Ops.begin(), Ops.begin() + 1, Ops.end() - 1);
+  Ops.push_back(ConstantInt::get(Ops.back()->getType(), PolicyAttrs));
   IntrinsicTypes = {ResultType, Ops[1]->getType(), Ops.back()->getType()};
   break;
 case RISCVVector::BI__builtin_rvv_vfwcvt_f_f_v_tum:
@@ -5562,10 +5188,6 @@ case RISCVVector::BI__builtin_rvv_vfwcvt_x_f_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -5578,10 +5200,6 @@ case RISCVVector::BI__builtin_rvv_vfwcvt_x_f_v:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -5594,10 +5212,6 @@ case RISCVVector::BI__builtin_rvv_vfwcvt_x_f_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -5610,10 +5224,6 @@ case RISCVVector::BI__builtin_rvv_vfwcvt_x_f_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -5626,10 +5236,6 @@ case RISCVVector::BI__builtin_rvv_vfwcvt_x_f_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -5642,10 +5248,6 @@ case RISCVVector::BI__builtin_rvv_vfwcvt_x_f_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -5658,10 +5260,6 @@ case RISCVVector::BI__builtin_rvv_vfwcvt_xu_f_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -5674,10 +5272,6 @@ case RISCVVector::BI__builtin_rvv_vfwcvt_xu_f_v:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -5690,10 +5284,6 @@ case RISCVVector::BI__builtin_rvv_vfwcvt_xu_f_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -5706,10 +5296,6 @@ case RISCVVector::BI__builtin_rvv_vfwcvt_xu_f_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -5722,10 +5308,6 @@ case RISCVVector::BI__builtin_rvv_vfwcvt_xu_f_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -5738,10 +5320,6 @@ case RISCVVector::BI__builtin_rvv_vfwcvt_xu_f_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingConvBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -5802,10 +5380,6 @@ case RISCVVector::BI__builtin_rvv_vfwmacc_vf_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVWideningFMABuiltin(this, E, ReturnValue, ResultType, ID,
@@ -5820,10 +5394,6 @@ case RISCVVector::BI__builtin_rvv_vfwmacc_vf:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVWideningFMABuiltin(this, E, ReturnValue, ResultType, ID,
@@ -5838,10 +5408,6 @@ case RISCVVector::BI__builtin_rvv_vfwmacc_vf_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVWideningFMABuiltin(this, E, ReturnValue, ResultType, ID,
@@ -5856,10 +5422,6 @@ case RISCVVector::BI__builtin_rvv_vfwmacc_vf_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVWideningFMABuiltin(this, E, ReturnValue, ResultType, ID,
@@ -5874,10 +5436,6 @@ case RISCVVector::BI__builtin_rvv_vfwmacc_vf_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVWideningFMABuiltin(this, E, ReturnValue, ResultType, ID,
@@ -5892,10 +5450,6 @@ case RISCVVector::BI__builtin_rvv_vfwmacc_vf_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVWideningFMABuiltin(this, E, ReturnValue, ResultType, ID,
@@ -5910,10 +5464,6 @@ case RISCVVector::BI__builtin_rvv_vfwmaccbf16_vf_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVWideningFMABuiltin(this, E, ReturnValue, ResultType, ID,
@@ -5928,10 +5478,6 @@ case RISCVVector::BI__builtin_rvv_vfwmaccbf16_vf:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVWideningFMABuiltin(this, E, ReturnValue, ResultType, ID,
@@ -5946,10 +5492,6 @@ case RISCVVector::BI__builtin_rvv_vfwmaccbf16_vf_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVWideningFMABuiltin(this, E, ReturnValue, ResultType, ID,
@@ -5964,10 +5506,6 @@ case RISCVVector::BI__builtin_rvv_vfwmaccbf16_vf_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVWideningFMABuiltin(this, E, ReturnValue, ResultType, ID,
@@ -5982,10 +5520,6 @@ case RISCVVector::BI__builtin_rvv_vfwmaccbf16_vf_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVWideningFMABuiltin(this, E, ReturnValue, ResultType, ID,
@@ -6000,10 +5534,6 @@ case RISCVVector::BI__builtin_rvv_vfwmaccbf16_vf_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVWideningFMABuiltin(this, E, ReturnValue, ResultType, ID,
@@ -6018,10 +5548,6 @@ case RISCVVector::BI__builtin_rvv_vfwmsac_vf_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVWideningFMABuiltin(this, E, ReturnValue, ResultType, ID,
@@ -6036,10 +5562,6 @@ case RISCVVector::BI__builtin_rvv_vfwmsac_vf:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVWideningFMABuiltin(this, E, ReturnValue, ResultType, ID,
@@ -6054,10 +5576,6 @@ case RISCVVector::BI__builtin_rvv_vfwmsac_vf_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVWideningFMABuiltin(this, E, ReturnValue, ResultType, ID,
@@ -6072,10 +5590,6 @@ case RISCVVector::BI__builtin_rvv_vfwmsac_vf_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVWideningFMABuiltin(this, E, ReturnValue, ResultType, ID,
@@ -6090,10 +5604,6 @@ case RISCVVector::BI__builtin_rvv_vfwmsac_vf_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVWideningFMABuiltin(this, E, ReturnValue, ResultType, ID,
@@ -6108,10 +5618,6 @@ case RISCVVector::BI__builtin_rvv_vfwmsac_vf_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVWideningFMABuiltin(this, E, ReturnValue, ResultType, ID,
@@ -6126,10 +5632,6 @@ case RISCVVector::BI__builtin_rvv_vfwmul_vf_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVWideningFloatingPointBuiltin(
@@ -6145,10 +5647,6 @@ case RISCVVector::BI__builtin_rvv_vfwmul_vf:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVWideningFloatingPointBuiltin(
@@ -6164,10 +5662,6 @@ case RISCVVector::BI__builtin_rvv_vfwmul_vf_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVWideningFloatingPointBuiltin(
@@ -6183,10 +5677,6 @@ case RISCVVector::BI__builtin_rvv_vfwmul_vf_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVWideningFloatingPointBuiltin(
@@ -6202,10 +5692,6 @@ case RISCVVector::BI__builtin_rvv_vfwmul_vf_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVWideningFloatingPointBuiltin(
@@ -6221,10 +5707,6 @@ case RISCVVector::BI__builtin_rvv_vfwmul_vf_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVWideningFloatingPointBuiltin(
@@ -6240,10 +5722,6 @@ case RISCVVector::BI__builtin_rvv_vfwnmacc_vf_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVWideningFMABuiltin(this, E, ReturnValue, ResultType, ID,
@@ -6258,10 +5736,6 @@ case RISCVVector::BI__builtin_rvv_vfwnmacc_vf:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVWideningFMABuiltin(this, E, ReturnValue, ResultType, ID,
@@ -6276,10 +5750,6 @@ case RISCVVector::BI__builtin_rvv_vfwnmacc_vf_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVWideningFMABuiltin(this, E, ReturnValue, ResultType, ID,
@@ -6294,10 +5764,6 @@ case RISCVVector::BI__builtin_rvv_vfwnmacc_vf_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVWideningFMABuiltin(this, E, ReturnValue, ResultType, ID,
@@ -6312,10 +5778,6 @@ case RISCVVector::BI__builtin_rvv_vfwnmacc_vf_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVWideningFMABuiltin(this, E, ReturnValue, ResultType, ID,
@@ -6330,10 +5792,6 @@ case RISCVVector::BI__builtin_rvv_vfwnmacc_vf_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVWideningFMABuiltin(this, E, ReturnValue, ResultType, ID,
@@ -6348,10 +5806,6 @@ case RISCVVector::BI__builtin_rvv_vfwnmsac_vf_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVWideningFMABuiltin(this, E, ReturnValue, ResultType, ID,
@@ -6366,10 +5820,6 @@ case RISCVVector::BI__builtin_rvv_vfwnmsac_vf:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVWideningFMABuiltin(this, E, ReturnValue, ResultType, ID,
@@ -6384,10 +5834,6 @@ case RISCVVector::BI__builtin_rvv_vfwnmsac_vf_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVWideningFMABuiltin(this, E, ReturnValue, ResultType, ID,
@@ -6402,10 +5848,6 @@ case RISCVVector::BI__builtin_rvv_vfwnmsac_vf_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVWideningFMABuiltin(this, E, ReturnValue, ResultType, ID,
@@ -6420,10 +5862,6 @@ case RISCVVector::BI__builtin_rvv_vfwnmsac_vf_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVWideningFMABuiltin(this, E, ReturnValue, ResultType, ID,
@@ -6438,10 +5876,6 @@ case RISCVVector::BI__builtin_rvv_vfwnmsac_vf_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVWideningFMABuiltin(this, E, ReturnValue, ResultType, ID,
@@ -6454,10 +5888,6 @@ case RISCVVector::BI__builtin_rvv_vfwredosum_vs_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingReductionBuiltin(
@@ -6471,10 +5901,6 @@ case RISCVVector::BI__builtin_rvv_vfwredosum_vs:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingReductionBuiltin(
@@ -6488,10 +5914,6 @@ case RISCVVector::BI__builtin_rvv_vfwredosum_vs_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingReductionBuiltin(
@@ -6505,10 +5927,6 @@ case RISCVVector::BI__builtin_rvv_vfwredosum_vs_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingReductionBuiltin(
@@ -6522,10 +5940,6 @@ case RISCVVector::BI__builtin_rvv_vfwredusum_vs_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingReductionBuiltin(
@@ -6539,10 +5953,6 @@ case RISCVVector::BI__builtin_rvv_vfwredusum_vs:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingReductionBuiltin(
@@ -6556,10 +5966,6 @@ case RISCVVector::BI__builtin_rvv_vfwredusum_vs_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingReductionBuiltin(
@@ -6573,10 +5979,6 @@ case RISCVVector::BI__builtin_rvv_vfwredusum_vs_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingReductionBuiltin(
@@ -6592,10 +5994,6 @@ case RISCVVector::BI__builtin_rvv_vfwsub_vf_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVWideningFloatingPointBuiltin(
@@ -6611,10 +6009,6 @@ case RISCVVector::BI__builtin_rvv_vfwsub_vf:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVWideningFloatingPointBuiltin(
@@ -6630,10 +6024,6 @@ case RISCVVector::BI__builtin_rvv_vfwsub_vf_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVWideningFloatingPointBuiltin(
@@ -6649,10 +6039,6 @@ case RISCVVector::BI__builtin_rvv_vfwsub_vf_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVWideningFloatingPointBuiltin(
@@ -6668,10 +6054,6 @@ case RISCVVector::BI__builtin_rvv_vfwsub_vf_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVWideningFloatingPointBuiltin(
@@ -6687,10 +6069,6 @@ case RISCVVector::BI__builtin_rvv_vfwsub_vf_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVWideningFloatingPointBuiltin(
@@ -6706,10 +6084,6 @@ case RISCVVector::BI__builtin_rvv_vfwsub_wf_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingPointBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -6724,10 +6098,6 @@ case RISCVVector::BI__builtin_rvv_vfwsub_wf:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingPointBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -6742,10 +6112,6 @@ case RISCVVector::BI__builtin_rvv_vfwsub_wf_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingPointBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -6760,10 +6126,6 @@ case RISCVVector::BI__builtin_rvv_vfwsub_wf_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingPointBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -6778,10 +6140,6 @@ case RISCVVector::BI__builtin_rvv_vfwsub_wf_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingPointBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -6796,10 +6154,6 @@ case RISCVVector::BI__builtin_rvv_vfwsub_wf_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVFloatingPointBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -6998,10 +6352,6 @@ case RISCVVector::BI__builtin_rvv_vle64ff_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVVLEFFBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
                                    PolicyAttrs, IsMasked, SegInstSEW);
@@ -7014,10 +6364,6 @@ case RISCVVector::BI__builtin_rvv_vle64ff_v:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVVLEFFBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
                                    PolicyAttrs, IsMasked, SegInstSEW);
@@ -7030,10 +6376,6 @@ case RISCVVector::BI__builtin_rvv_vle64ff_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVVLEFFBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
                                    PolicyAttrs, IsMasked, SegInstSEW);
@@ -7046,10 +6388,6 @@ case RISCVVector::BI__builtin_rvv_vle64ff_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVVLEFFBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
                                    PolicyAttrs, IsMasked, SegInstSEW);
@@ -7062,10 +6400,6 @@ case RISCVVector::BI__builtin_rvv_vle64ff_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVVLEFFBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
                                    PolicyAttrs, IsMasked, SegInstSEW);
@@ -7078,10 +6412,6 @@ case RISCVVector::BI__builtin_rvv_vle64ff_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVVLEFFBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
                                    PolicyAttrs, IsMasked, SegInstSEW);
@@ -7162,12 +6492,11 @@ case RISCVVector::BI__builtin_rvv_vloxseg2ei32_v_tu:
 case RISCVVector::BI__builtin_rvv_vloxseg2ei64_v_tu:
   ID = Intrinsic::riscv_vloxseg2;
   PolicyAttrs = 2;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(1)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(1      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -7179,12 +6508,11 @@ case RISCVVector::BI__builtin_rvv_vloxseg2ei32_v:
 case RISCVVector::BI__builtin_rvv_vloxseg2ei64_v:
   ID = Intrinsic::riscv_vloxseg2;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(0)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(0      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -7196,12 +6524,11 @@ case RISCVVector::BI__builtin_rvv_vloxseg2ei32_v_tum:
 case RISCVVector::BI__builtin_rvv_vloxseg2ei64_v_tum:
   ID = Intrinsic::riscv_vloxseg2_mask;
   PolicyAttrs = 2;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(2)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(2      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -7213,12 +6540,11 @@ case RISCVVector::BI__builtin_rvv_vloxseg2ei32_v_m:
 case RISCVVector::BI__builtin_rvv_vloxseg2ei64_v_m:
   ID = Intrinsic::riscv_vloxseg2_mask;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(1)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(1      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -7230,12 +6556,11 @@ case RISCVVector::BI__builtin_rvv_vloxseg2ei32_v_tumu:
 case RISCVVector::BI__builtin_rvv_vloxseg2ei64_v_tumu:
   ID = Intrinsic::riscv_vloxseg2_mask;
   PolicyAttrs = 0;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(2)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(2      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -7247,12 +6572,11 @@ case RISCVVector::BI__builtin_rvv_vloxseg2ei32_v_mu:
 case RISCVVector::BI__builtin_rvv_vloxseg2ei64_v_mu:
   ID = Intrinsic::riscv_vloxseg2_mask;
   PolicyAttrs = 1;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(2)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(2      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -7264,12 +6588,11 @@ case RISCVVector::BI__builtin_rvv_vloxseg3ei32_v_tu:
 case RISCVVector::BI__builtin_rvv_vloxseg3ei64_v_tu:
   ID = Intrinsic::riscv_vloxseg3;
   PolicyAttrs = 2;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(1)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(1      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -7281,12 +6604,11 @@ case RISCVVector::BI__builtin_rvv_vloxseg3ei32_v:
 case RISCVVector::BI__builtin_rvv_vloxseg3ei64_v:
   ID = Intrinsic::riscv_vloxseg3;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(0)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(0      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -7298,12 +6620,11 @@ case RISCVVector::BI__builtin_rvv_vloxseg3ei32_v_tum:
 case RISCVVector::BI__builtin_rvv_vloxseg3ei64_v_tum:
   ID = Intrinsic::riscv_vloxseg3_mask;
   PolicyAttrs = 2;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(2)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(2      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -7315,12 +6636,11 @@ case RISCVVector::BI__builtin_rvv_vloxseg3ei32_v_m:
 case RISCVVector::BI__builtin_rvv_vloxseg3ei64_v_m:
   ID = Intrinsic::riscv_vloxseg3_mask;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(1)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(1      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -7332,12 +6652,11 @@ case RISCVVector::BI__builtin_rvv_vloxseg3ei32_v_tumu:
 case RISCVVector::BI__builtin_rvv_vloxseg3ei64_v_tumu:
   ID = Intrinsic::riscv_vloxseg3_mask;
   PolicyAttrs = 0;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(2)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(2      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -7349,12 +6668,11 @@ case RISCVVector::BI__builtin_rvv_vloxseg3ei32_v_mu:
 case RISCVVector::BI__builtin_rvv_vloxseg3ei64_v_mu:
   ID = Intrinsic::riscv_vloxseg3_mask;
   PolicyAttrs = 1;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(2)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(2      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -7366,12 +6684,11 @@ case RISCVVector::BI__builtin_rvv_vloxseg4ei32_v_tu:
 case RISCVVector::BI__builtin_rvv_vloxseg4ei64_v_tu:
   ID = Intrinsic::riscv_vloxseg4;
   PolicyAttrs = 2;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(1)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(1      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -7383,12 +6700,11 @@ case RISCVVector::BI__builtin_rvv_vloxseg4ei32_v:
 case RISCVVector::BI__builtin_rvv_vloxseg4ei64_v:
   ID = Intrinsic::riscv_vloxseg4;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(0)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(0      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -7400,12 +6716,11 @@ case RISCVVector::BI__builtin_rvv_vloxseg4ei32_v_tum:
 case RISCVVector::BI__builtin_rvv_vloxseg4ei64_v_tum:
   ID = Intrinsic::riscv_vloxseg4_mask;
   PolicyAttrs = 2;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(2)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(2      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -7417,12 +6732,11 @@ case RISCVVector::BI__builtin_rvv_vloxseg4ei32_v_m:
 case RISCVVector::BI__builtin_rvv_vloxseg4ei64_v_m:
   ID = Intrinsic::riscv_vloxseg4_mask;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(1)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(1      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -7434,12 +6748,11 @@ case RISCVVector::BI__builtin_rvv_vloxseg4ei32_v_tumu:
 case RISCVVector::BI__builtin_rvv_vloxseg4ei64_v_tumu:
   ID = Intrinsic::riscv_vloxseg4_mask;
   PolicyAttrs = 0;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(2)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(2      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -7451,12 +6764,11 @@ case RISCVVector::BI__builtin_rvv_vloxseg4ei32_v_mu:
 case RISCVVector::BI__builtin_rvv_vloxseg4ei64_v_mu:
   ID = Intrinsic::riscv_vloxseg4_mask;
   PolicyAttrs = 1;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(2)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(2      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -7468,12 +6780,11 @@ case RISCVVector::BI__builtin_rvv_vloxseg5ei32_v_tu:
 case RISCVVector::BI__builtin_rvv_vloxseg5ei64_v_tu:
   ID = Intrinsic::riscv_vloxseg5;
   PolicyAttrs = 2;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(1)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(1      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -7485,12 +6796,11 @@ case RISCVVector::BI__builtin_rvv_vloxseg5ei32_v:
 case RISCVVector::BI__builtin_rvv_vloxseg5ei64_v:
   ID = Intrinsic::riscv_vloxseg5;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(0)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(0      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -7502,12 +6812,11 @@ case RISCVVector::BI__builtin_rvv_vloxseg5ei32_v_tum:
 case RISCVVector::BI__builtin_rvv_vloxseg5ei64_v_tum:
   ID = Intrinsic::riscv_vloxseg5_mask;
   PolicyAttrs = 2;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(2)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(2      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -7519,12 +6828,11 @@ case RISCVVector::BI__builtin_rvv_vloxseg5ei32_v_m:
 case RISCVVector::BI__builtin_rvv_vloxseg5ei64_v_m:
   ID = Intrinsic::riscv_vloxseg5_mask;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(1)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(1      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -7536,12 +6844,11 @@ case RISCVVector::BI__builtin_rvv_vloxseg5ei32_v_tumu:
 case RISCVVector::BI__builtin_rvv_vloxseg5ei64_v_tumu:
   ID = Intrinsic::riscv_vloxseg5_mask;
   PolicyAttrs = 0;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(2)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(2      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -7553,12 +6860,11 @@ case RISCVVector::BI__builtin_rvv_vloxseg5ei32_v_mu:
 case RISCVVector::BI__builtin_rvv_vloxseg5ei64_v_mu:
   ID = Intrinsic::riscv_vloxseg5_mask;
   PolicyAttrs = 1;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(2)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(2      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -7570,12 +6876,11 @@ case RISCVVector::BI__builtin_rvv_vloxseg6ei32_v_tu:
 case RISCVVector::BI__builtin_rvv_vloxseg6ei64_v_tu:
   ID = Intrinsic::riscv_vloxseg6;
   PolicyAttrs = 2;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(1)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(1      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -7587,12 +6892,11 @@ case RISCVVector::BI__builtin_rvv_vloxseg6ei32_v:
 case RISCVVector::BI__builtin_rvv_vloxseg6ei64_v:
   ID = Intrinsic::riscv_vloxseg6;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(0)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(0      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -7604,12 +6908,11 @@ case RISCVVector::BI__builtin_rvv_vloxseg6ei32_v_tum:
 case RISCVVector::BI__builtin_rvv_vloxseg6ei64_v_tum:
   ID = Intrinsic::riscv_vloxseg6_mask;
   PolicyAttrs = 2;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(2)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(2      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -7621,12 +6924,11 @@ case RISCVVector::BI__builtin_rvv_vloxseg6ei32_v_m:
 case RISCVVector::BI__builtin_rvv_vloxseg6ei64_v_m:
   ID = Intrinsic::riscv_vloxseg6_mask;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(1)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(1      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -7638,12 +6940,11 @@ case RISCVVector::BI__builtin_rvv_vloxseg6ei32_v_tumu:
 case RISCVVector::BI__builtin_rvv_vloxseg6ei64_v_tumu:
   ID = Intrinsic::riscv_vloxseg6_mask;
   PolicyAttrs = 0;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(2)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(2      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -7655,12 +6956,11 @@ case RISCVVector::BI__builtin_rvv_vloxseg6ei32_v_mu:
 case RISCVVector::BI__builtin_rvv_vloxseg6ei64_v_mu:
   ID = Intrinsic::riscv_vloxseg6_mask;
   PolicyAttrs = 1;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(2)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(2      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -7672,12 +6972,11 @@ case RISCVVector::BI__builtin_rvv_vloxseg7ei32_v_tu:
 case RISCVVector::BI__builtin_rvv_vloxseg7ei64_v_tu:
   ID = Intrinsic::riscv_vloxseg7;
   PolicyAttrs = 2;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(1)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(1      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -7689,12 +6988,11 @@ case RISCVVector::BI__builtin_rvv_vloxseg7ei32_v:
 case RISCVVector::BI__builtin_rvv_vloxseg7ei64_v:
   ID = Intrinsic::riscv_vloxseg7;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(0)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(0      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -7706,12 +7004,11 @@ case RISCVVector::BI__builtin_rvv_vloxseg7ei32_v_tum:
 case RISCVVector::BI__builtin_rvv_vloxseg7ei64_v_tum:
   ID = Intrinsic::riscv_vloxseg7_mask;
   PolicyAttrs = 2;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(2)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(2      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -7723,12 +7020,11 @@ case RISCVVector::BI__builtin_rvv_vloxseg7ei32_v_m:
 case RISCVVector::BI__builtin_rvv_vloxseg7ei64_v_m:
   ID = Intrinsic::riscv_vloxseg7_mask;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(1)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(1      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -7740,12 +7036,11 @@ case RISCVVector::BI__builtin_rvv_vloxseg7ei32_v_tumu:
 case RISCVVector::BI__builtin_rvv_vloxseg7ei64_v_tumu:
   ID = Intrinsic::riscv_vloxseg7_mask;
   PolicyAttrs = 0;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(2)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(2      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -7757,12 +7052,11 @@ case RISCVVector::BI__builtin_rvv_vloxseg7ei32_v_mu:
 case RISCVVector::BI__builtin_rvv_vloxseg7ei64_v_mu:
   ID = Intrinsic::riscv_vloxseg7_mask;
   PolicyAttrs = 1;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(2)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(2      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -7774,12 +7068,11 @@ case RISCVVector::BI__builtin_rvv_vloxseg8ei32_v_tu:
 case RISCVVector::BI__builtin_rvv_vloxseg8ei64_v_tu:
   ID = Intrinsic::riscv_vloxseg8;
   PolicyAttrs = 2;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(1)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(1      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -7791,12 +7084,11 @@ case RISCVVector::BI__builtin_rvv_vloxseg8ei32_v:
 case RISCVVector::BI__builtin_rvv_vloxseg8ei64_v:
   ID = Intrinsic::riscv_vloxseg8;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(0)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(0      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -7808,12 +7100,11 @@ case RISCVVector::BI__builtin_rvv_vloxseg8ei32_v_tum:
 case RISCVVector::BI__builtin_rvv_vloxseg8ei64_v_tum:
   ID = Intrinsic::riscv_vloxseg8_mask;
   PolicyAttrs = 2;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(2)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(2      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -7825,12 +7116,11 @@ case RISCVVector::BI__builtin_rvv_vloxseg8ei32_v_m:
 case RISCVVector::BI__builtin_rvv_vloxseg8ei64_v_m:
   ID = Intrinsic::riscv_vloxseg8_mask;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(1)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(1      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -7842,12 +7132,11 @@ case RISCVVector::BI__builtin_rvv_vloxseg8ei32_v_tumu:
 case RISCVVector::BI__builtin_rvv_vloxseg8ei64_v_tumu:
   ID = Intrinsic::riscv_vloxseg8_mask;
   PolicyAttrs = 0;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(2)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(2      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -7859,12 +7148,11 @@ case RISCVVector::BI__builtin_rvv_vloxseg8ei32_v_mu:
 case RISCVVector::BI__builtin_rvv_vloxseg8ei64_v_mu:
   ID = Intrinsic::riscv_vloxseg8_mask;
   PolicyAttrs = 1;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(2)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(2      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -7939,10 +7227,6 @@ case RISCVVector::BI__builtin_rvv_vlseg2e8_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -7953,10 +7237,6 @@ case RISCVVector::BI__builtin_rvv_vlseg2e16_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -7967,10 +7247,6 @@ case RISCVVector::BI__builtin_rvv_vlseg2e32_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -7981,10 +7257,6 @@ case RISCVVector::BI__builtin_rvv_vlseg2e64_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -7994,10 +7266,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -8007,10 +7275,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -8020,10 +7284,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -8033,10 +7293,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -8047,10 +7303,6 @@ case RISCVVector::BI__builtin_rvv_vlseg2e8_v:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -8061,10 +7313,6 @@ case RISCVVector::BI__builtin_rvv_vlseg2e16_v:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -8075,10 +7323,6 @@ case RISCVVector::BI__builtin_rvv_vlseg2e32_v:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -8089,10 +7333,6 @@ case RISCVVector::BI__builtin_rvv_vlseg2e64_v:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -8102,10 +7342,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -8115,10 +7351,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -8128,10 +7360,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -8141,10 +7369,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -8155,10 +7379,6 @@ case RISCVVector::BI__builtin_rvv_vlseg2e8_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -8169,10 +7389,6 @@ case RISCVVector::BI__builtin_rvv_vlseg2e16_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -8183,10 +7399,6 @@ case RISCVVector::BI__builtin_rvv_vlseg2e32_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -8197,10 +7409,6 @@ case RISCVVector::BI__builtin_rvv_vlseg2e64_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -8210,10 +7418,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -8223,10 +7427,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -8236,10 +7436,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -8249,10 +7445,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -8263,10 +7455,6 @@ case RISCVVector::BI__builtin_rvv_vlseg2e8_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -8277,10 +7465,6 @@ case RISCVVector::BI__builtin_rvv_vlseg2e16_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -8291,10 +7475,6 @@ case RISCVVector::BI__builtin_rvv_vlseg2e32_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -8305,10 +7485,6 @@ case RISCVVector::BI__builtin_rvv_vlseg2e64_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -8318,10 +7494,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -8331,10 +7503,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -8344,10 +7512,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -8357,10 +7521,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -8371,10 +7531,6 @@ case RISCVVector::BI__builtin_rvv_vlseg2e8_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -8385,10 +7541,6 @@ case RISCVVector::BI__builtin_rvv_vlseg2e16_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -8399,10 +7551,6 @@ case RISCVVector::BI__builtin_rvv_vlseg2e32_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -8413,10 +7561,6 @@ case RISCVVector::BI__builtin_rvv_vlseg2e64_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -8426,10 +7570,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -8439,10 +7579,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -8452,10 +7588,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -8465,10 +7597,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -8479,10 +7607,6 @@ case RISCVVector::BI__builtin_rvv_vlseg2e8_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -8493,10 +7617,6 @@ case RISCVVector::BI__builtin_rvv_vlseg2e16_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -8507,10 +7627,6 @@ case RISCVVector::BI__builtin_rvv_vlseg2e32_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -8521,10 +7637,6 @@ case RISCVVector::BI__builtin_rvv_vlseg2e64_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -8534,10 +7646,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -8547,10 +7655,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -8560,10 +7664,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -8573,10 +7673,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -8587,10 +7683,6 @@ case RISCVVector::BI__builtin_rvv_vlseg2e8ff_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -8601,10 +7693,6 @@ case RISCVVector::BI__builtin_rvv_vlseg2e16ff_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -8615,10 +7703,6 @@ case RISCVVector::BI__builtin_rvv_vlseg2e32ff_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -8629,10 +7713,6 @@ case RISCVVector::BI__builtin_rvv_vlseg2e64ff_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -8642,10 +7722,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -8655,10 +7731,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -8668,10 +7740,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -8681,10 +7749,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -8695,10 +7759,6 @@ case RISCVVector::BI__builtin_rvv_vlseg2e8ff_v:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -8709,10 +7769,6 @@ case RISCVVector::BI__builtin_rvv_vlseg2e16ff_v:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -8723,10 +7779,6 @@ case RISCVVector::BI__builtin_rvv_vlseg2e32ff_v:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -8737,10 +7789,6 @@ case RISCVVector::BI__builtin_rvv_vlseg2e64ff_v:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -8750,10 +7798,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -8763,10 +7807,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -8776,10 +7816,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -8789,10 +7825,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -8803,10 +7835,6 @@ case RISCVVector::BI__builtin_rvv_vlseg2e8ff_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -8817,10 +7845,6 @@ case RISCVVector::BI__builtin_rvv_vlseg2e16ff_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -8831,10 +7855,6 @@ case RISCVVector::BI__builtin_rvv_vlseg2e32ff_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -8845,10 +7865,6 @@ case RISCVVector::BI__builtin_rvv_vlseg2e64ff_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -8858,10 +7874,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -8871,10 +7883,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -8884,10 +7892,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -8897,10 +7901,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -8911,10 +7911,6 @@ case RISCVVector::BI__builtin_rvv_vlseg2e8ff_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -8925,10 +7921,6 @@ case RISCVVector::BI__builtin_rvv_vlseg2e16ff_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -8939,10 +7931,6 @@ case RISCVVector::BI__builtin_rvv_vlseg2e32ff_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -8953,10 +7941,6 @@ case RISCVVector::BI__builtin_rvv_vlseg2e64ff_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -8966,10 +7950,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -8979,10 +7959,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -8992,10 +7968,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -9005,10 +7977,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -9019,10 +7987,6 @@ case RISCVVector::BI__builtin_rvv_vlseg2e8ff_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -9033,10 +7997,6 @@ case RISCVVector::BI__builtin_rvv_vlseg2e16ff_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -9047,10 +8007,6 @@ case RISCVVector::BI__builtin_rvv_vlseg2e32ff_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -9061,10 +8017,6 @@ case RISCVVector::BI__builtin_rvv_vlseg2e64ff_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -9074,10 +8026,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -9087,10 +8035,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -9100,10 +8044,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -9113,10 +8053,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -9127,10 +8063,6 @@ case RISCVVector::BI__builtin_rvv_vlseg2e8ff_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -9141,10 +8073,6 @@ case RISCVVector::BI__builtin_rvv_vlseg2e16ff_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -9155,10 +8083,6 @@ case RISCVVector::BI__builtin_rvv_vlseg2e32ff_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -9169,10 +8093,6 @@ case RISCVVector::BI__builtin_rvv_vlseg2e64ff_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -9182,10 +8102,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -9195,10 +8111,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -9208,10 +8120,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -9221,10 +8129,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -9235,10 +8139,6 @@ case RISCVVector::BI__builtin_rvv_vlseg3e8_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -9249,10 +8149,6 @@ case RISCVVector::BI__builtin_rvv_vlseg3e16_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -9263,10 +8159,6 @@ case RISCVVector::BI__builtin_rvv_vlseg3e32_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -9277,10 +8169,6 @@ case RISCVVector::BI__builtin_rvv_vlseg3e64_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -9290,10 +8178,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -9303,10 +8187,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -9316,10 +8196,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -9329,10 +8205,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -9343,10 +8215,6 @@ case RISCVVector::BI__builtin_rvv_vlseg3e8_v:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -9357,10 +8225,6 @@ case RISCVVector::BI__builtin_rvv_vlseg3e16_v:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -9371,10 +8235,6 @@ case RISCVVector::BI__builtin_rvv_vlseg3e32_v:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -9385,10 +8245,6 @@ case RISCVVector::BI__builtin_rvv_vlseg3e64_v:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -9398,10 +8254,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -9411,10 +8263,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -9424,10 +8272,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -9437,10 +8281,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -9451,10 +8291,6 @@ case RISCVVector::BI__builtin_rvv_vlseg3e8_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -9465,10 +8301,6 @@ case RISCVVector::BI__builtin_rvv_vlseg3e16_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -9479,10 +8311,6 @@ case RISCVVector::BI__builtin_rvv_vlseg3e32_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -9493,10 +8321,6 @@ case RISCVVector::BI__builtin_rvv_vlseg3e64_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -9506,10 +8330,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -9519,10 +8339,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -9532,10 +8348,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -9545,10 +8357,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -9559,10 +8367,6 @@ case RISCVVector::BI__builtin_rvv_vlseg3e8_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -9573,10 +8377,6 @@ case RISCVVector::BI__builtin_rvv_vlseg3e16_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -9587,10 +8387,6 @@ case RISCVVector::BI__builtin_rvv_vlseg3e32_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -9601,10 +8397,6 @@ case RISCVVector::BI__builtin_rvv_vlseg3e64_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -9614,10 +8406,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -9627,10 +8415,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -9640,10 +8424,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -9653,10 +8433,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -9667,10 +8443,6 @@ case RISCVVector::BI__builtin_rvv_vlseg3e8_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -9681,10 +8453,6 @@ case RISCVVector::BI__builtin_rvv_vlseg3e16_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -9695,10 +8463,6 @@ case RISCVVector::BI__builtin_rvv_vlseg3e32_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -9709,10 +8473,6 @@ case RISCVVector::BI__builtin_rvv_vlseg3e64_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -9722,10 +8482,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -9735,10 +8491,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -9748,10 +8500,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -9761,10 +8509,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -9775,10 +8519,6 @@ case RISCVVector::BI__builtin_rvv_vlseg3e8_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -9789,10 +8529,6 @@ case RISCVVector::BI__builtin_rvv_vlseg3e16_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -9803,10 +8539,6 @@ case RISCVVector::BI__builtin_rvv_vlseg3e32_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -9817,10 +8549,6 @@ case RISCVVector::BI__builtin_rvv_vlseg3e64_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -9830,10 +8558,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -9843,10 +8567,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -9856,10 +8576,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -9869,10 +8585,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -9883,10 +8595,6 @@ case RISCVVector::BI__builtin_rvv_vlseg3e8ff_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -9897,10 +8605,6 @@ case RISCVVector::BI__builtin_rvv_vlseg3e16ff_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -9911,10 +8615,6 @@ case RISCVVector::BI__builtin_rvv_vlseg3e32ff_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -9925,10 +8625,6 @@ case RISCVVector::BI__builtin_rvv_vlseg3e64ff_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -9938,10 +8634,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -9951,10 +8643,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -9964,10 +8652,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -9977,10 +8661,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -9991,10 +8671,6 @@ case RISCVVector::BI__builtin_rvv_vlseg3e8ff_v:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -10005,10 +8681,6 @@ case RISCVVector::BI__builtin_rvv_vlseg3e16ff_v:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -10019,10 +8691,6 @@ case RISCVVector::BI__builtin_rvv_vlseg3e32ff_v:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -10033,10 +8701,6 @@ case RISCVVector::BI__builtin_rvv_vlseg3e64ff_v:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -10046,10 +8710,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -10059,10 +8719,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -10072,10 +8728,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -10085,10 +8737,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -10099,10 +8747,6 @@ case RISCVVector::BI__builtin_rvv_vlseg3e8ff_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -10113,10 +8757,6 @@ case RISCVVector::BI__builtin_rvv_vlseg3e16ff_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -10127,10 +8767,6 @@ case RISCVVector::BI__builtin_rvv_vlseg3e32ff_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -10141,10 +8777,6 @@ case RISCVVector::BI__builtin_rvv_vlseg3e64ff_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -10154,10 +8786,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -10167,10 +8795,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -10180,10 +8804,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -10193,10 +8813,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -10207,10 +8823,6 @@ case RISCVVector::BI__builtin_rvv_vlseg3e8ff_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -10221,10 +8833,6 @@ case RISCVVector::BI__builtin_rvv_vlseg3e16ff_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -10235,10 +8843,6 @@ case RISCVVector::BI__builtin_rvv_vlseg3e32ff_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -10249,10 +8853,6 @@ case RISCVVector::BI__builtin_rvv_vlseg3e64ff_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -10262,10 +8862,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -10275,10 +8871,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -10288,10 +8880,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -10301,10 +8889,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -10315,10 +8899,6 @@ case RISCVVector::BI__builtin_rvv_vlseg3e8ff_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -10329,10 +8909,6 @@ case RISCVVector::BI__builtin_rvv_vlseg3e16ff_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -10343,10 +8919,6 @@ case RISCVVector::BI__builtin_rvv_vlseg3e32ff_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -10357,10 +8929,6 @@ case RISCVVector::BI__builtin_rvv_vlseg3e64ff_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -10370,10 +8938,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -10383,10 +8947,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -10396,10 +8956,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -10409,10 +8965,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -10423,10 +8975,6 @@ case RISCVVector::BI__builtin_rvv_vlseg3e8ff_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -10437,10 +8985,6 @@ case RISCVVector::BI__builtin_rvv_vlseg3e16ff_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -10451,10 +8995,6 @@ case RISCVVector::BI__builtin_rvv_vlseg3e32ff_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -10465,10 +9005,6 @@ case RISCVVector::BI__builtin_rvv_vlseg3e64ff_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -10478,10 +9014,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -10491,10 +9023,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -10504,10 +9032,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -10517,10 +9041,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -10531,10 +9051,6 @@ case RISCVVector::BI__builtin_rvv_vlseg4e8_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -10545,10 +9061,6 @@ case RISCVVector::BI__builtin_rvv_vlseg4e16_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -10559,10 +9071,6 @@ case RISCVVector::BI__builtin_rvv_vlseg4e32_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -10573,10 +9081,6 @@ case RISCVVector::BI__builtin_rvv_vlseg4e64_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -10586,10 +9090,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -10599,10 +9099,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -10612,10 +9108,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -10625,10 +9117,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -10639,10 +9127,6 @@ case RISCVVector::BI__builtin_rvv_vlseg4e8_v:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -10653,10 +9137,6 @@ case RISCVVector::BI__builtin_rvv_vlseg4e16_v:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -10667,10 +9147,6 @@ case RISCVVector::BI__builtin_rvv_vlseg4e32_v:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -10681,10 +9157,6 @@ case RISCVVector::BI__builtin_rvv_vlseg4e64_v:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -10694,10 +9166,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -10707,10 +9175,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -10720,10 +9184,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -10733,10 +9193,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -10747,10 +9203,6 @@ case RISCVVector::BI__builtin_rvv_vlseg4e8_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -10761,10 +9213,6 @@ case RISCVVector::BI__builtin_rvv_vlseg4e16_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -10775,10 +9223,6 @@ case RISCVVector::BI__builtin_rvv_vlseg4e32_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -10789,10 +9233,6 @@ case RISCVVector::BI__builtin_rvv_vlseg4e64_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -10802,10 +9242,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -10815,10 +9251,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -10828,10 +9260,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -10841,10 +9269,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -10855,10 +9279,6 @@ case RISCVVector::BI__builtin_rvv_vlseg4e8_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -10869,10 +9289,6 @@ case RISCVVector::BI__builtin_rvv_vlseg4e16_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -10883,10 +9299,6 @@ case RISCVVector::BI__builtin_rvv_vlseg4e32_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -10897,10 +9309,6 @@ case RISCVVector::BI__builtin_rvv_vlseg4e64_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -10910,10 +9318,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -10923,10 +9327,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -10936,10 +9336,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -10949,10 +9345,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -10963,10 +9355,6 @@ case RISCVVector::BI__builtin_rvv_vlseg4e8_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -10977,10 +9365,6 @@ case RISCVVector::BI__builtin_rvv_vlseg4e16_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -10991,10 +9375,6 @@ case RISCVVector::BI__builtin_rvv_vlseg4e32_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -11005,10 +9385,6 @@ case RISCVVector::BI__builtin_rvv_vlseg4e64_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -11018,10 +9394,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -11031,10 +9403,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -11044,10 +9412,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -11057,10 +9421,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -11071,10 +9431,6 @@ case RISCVVector::BI__builtin_rvv_vlseg4e8_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -11085,10 +9441,6 @@ case RISCVVector::BI__builtin_rvv_vlseg4e16_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -11099,10 +9451,6 @@ case RISCVVector::BI__builtin_rvv_vlseg4e32_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -11113,10 +9461,6 @@ case RISCVVector::BI__builtin_rvv_vlseg4e64_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -11126,10 +9470,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -11139,10 +9479,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -11152,10 +9488,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -11165,10 +9497,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -11179,10 +9507,6 @@ case RISCVVector::BI__builtin_rvv_vlseg4e8ff_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -11193,10 +9517,6 @@ case RISCVVector::BI__builtin_rvv_vlseg4e16ff_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -11207,10 +9527,6 @@ case RISCVVector::BI__builtin_rvv_vlseg4e32ff_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -11221,10 +9537,6 @@ case RISCVVector::BI__builtin_rvv_vlseg4e64ff_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -11234,10 +9546,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -11247,10 +9555,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -11260,10 +9564,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -11273,10 +9573,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -11287,10 +9583,6 @@ case RISCVVector::BI__builtin_rvv_vlseg4e8ff_v:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -11301,10 +9593,6 @@ case RISCVVector::BI__builtin_rvv_vlseg4e16ff_v:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -11315,10 +9603,6 @@ case RISCVVector::BI__builtin_rvv_vlseg4e32ff_v:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -11329,10 +9613,6 @@ case RISCVVector::BI__builtin_rvv_vlseg4e64ff_v:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -11342,10 +9622,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -11355,10 +9631,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -11368,10 +9640,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -11381,10 +9649,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -11395,10 +9659,6 @@ case RISCVVector::BI__builtin_rvv_vlseg4e8ff_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -11409,10 +9669,6 @@ case RISCVVector::BI__builtin_rvv_vlseg4e16ff_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -11423,10 +9679,6 @@ case RISCVVector::BI__builtin_rvv_vlseg4e32ff_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -11437,10 +9689,6 @@ case RISCVVector::BI__builtin_rvv_vlseg4e64ff_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -11450,10 +9698,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -11463,10 +9707,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -11476,10 +9716,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -11489,10 +9725,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -11503,10 +9735,6 @@ case RISCVVector::BI__builtin_rvv_vlseg4e8ff_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -11517,10 +9745,6 @@ case RISCVVector::BI__builtin_rvv_vlseg4e16ff_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -11531,10 +9755,6 @@ case RISCVVector::BI__builtin_rvv_vlseg4e32ff_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -11545,10 +9765,6 @@ case RISCVVector::BI__builtin_rvv_vlseg4e64ff_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -11558,10 +9774,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -11571,10 +9783,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -11584,10 +9792,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -11597,10 +9801,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -11611,10 +9811,6 @@ case RISCVVector::BI__builtin_rvv_vlseg4e8ff_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -11625,10 +9821,6 @@ case RISCVVector::BI__builtin_rvv_vlseg4e16ff_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -11639,10 +9831,6 @@ case RISCVVector::BI__builtin_rvv_vlseg4e32ff_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -11653,10 +9841,6 @@ case RISCVVector::BI__builtin_rvv_vlseg4e64ff_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -11666,10 +9850,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -11679,10 +9859,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -11692,10 +9868,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -11705,10 +9877,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -11719,10 +9887,6 @@ case RISCVVector::BI__builtin_rvv_vlseg4e8ff_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -11733,10 +9897,6 @@ case RISCVVector::BI__builtin_rvv_vlseg4e16ff_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -11747,10 +9907,6 @@ case RISCVVector::BI__builtin_rvv_vlseg4e32ff_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -11761,10 +9917,6 @@ case RISCVVector::BI__builtin_rvv_vlseg4e64ff_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -11774,10 +9926,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -11787,10 +9935,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -11800,10 +9944,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -11813,10 +9953,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -11827,10 +9963,6 @@ case RISCVVector::BI__builtin_rvv_vlseg5e8_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -11841,10 +9973,6 @@ case RISCVVector::BI__builtin_rvv_vlseg5e16_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -11855,10 +9983,6 @@ case RISCVVector::BI__builtin_rvv_vlseg5e32_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -11869,10 +9993,6 @@ case RISCVVector::BI__builtin_rvv_vlseg5e64_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -11882,10 +10002,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -11895,10 +10011,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -11908,10 +10020,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -11921,10 +10029,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -11935,10 +10039,6 @@ case RISCVVector::BI__builtin_rvv_vlseg5e8_v:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -11949,10 +10049,6 @@ case RISCVVector::BI__builtin_rvv_vlseg5e16_v:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -11963,10 +10059,6 @@ case RISCVVector::BI__builtin_rvv_vlseg5e32_v:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -11977,10 +10069,6 @@ case RISCVVector::BI__builtin_rvv_vlseg5e64_v:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -11990,10 +10078,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -12003,10 +10087,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -12016,10 +10096,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -12029,10 +10105,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -12043,10 +10115,6 @@ case RISCVVector::BI__builtin_rvv_vlseg5e8_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -12057,10 +10125,6 @@ case RISCVVector::BI__builtin_rvv_vlseg5e16_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -12071,10 +10135,6 @@ case RISCVVector::BI__builtin_rvv_vlseg5e32_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -12085,10 +10145,6 @@ case RISCVVector::BI__builtin_rvv_vlseg5e64_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -12098,10 +10154,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -12111,10 +10163,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -12124,10 +10172,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -12137,10 +10181,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -12151,10 +10191,6 @@ case RISCVVector::BI__builtin_rvv_vlseg5e8_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -12165,10 +10201,6 @@ case RISCVVector::BI__builtin_rvv_vlseg5e16_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -12179,10 +10211,6 @@ case RISCVVector::BI__builtin_rvv_vlseg5e32_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -12193,10 +10221,6 @@ case RISCVVector::BI__builtin_rvv_vlseg5e64_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -12206,10 +10230,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -12219,10 +10239,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -12232,10 +10248,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -12245,10 +10257,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -12259,10 +10267,6 @@ case RISCVVector::BI__builtin_rvv_vlseg5e8_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -12273,10 +10277,6 @@ case RISCVVector::BI__builtin_rvv_vlseg5e16_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -12287,10 +10287,6 @@ case RISCVVector::BI__builtin_rvv_vlseg5e32_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -12301,10 +10297,6 @@ case RISCVVector::BI__builtin_rvv_vlseg5e64_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -12314,10 +10306,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -12327,10 +10315,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -12340,10 +10324,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -12353,10 +10333,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -12367,10 +10343,6 @@ case RISCVVector::BI__builtin_rvv_vlseg5e8_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -12381,10 +10353,6 @@ case RISCVVector::BI__builtin_rvv_vlseg5e16_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -12395,10 +10363,6 @@ case RISCVVector::BI__builtin_rvv_vlseg5e32_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -12409,10 +10373,6 @@ case RISCVVector::BI__builtin_rvv_vlseg5e64_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -12422,10 +10382,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -12435,10 +10391,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -12448,10 +10400,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -12461,10 +10409,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -12475,10 +10419,6 @@ case RISCVVector::BI__builtin_rvv_vlseg5e8ff_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -12489,10 +10429,6 @@ case RISCVVector::BI__builtin_rvv_vlseg5e16ff_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -12503,10 +10439,6 @@ case RISCVVector::BI__builtin_rvv_vlseg5e32ff_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -12517,10 +10449,6 @@ case RISCVVector::BI__builtin_rvv_vlseg5e64ff_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -12530,10 +10458,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -12543,10 +10467,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -12556,10 +10476,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -12569,10 +10485,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -12583,10 +10495,6 @@ case RISCVVector::BI__builtin_rvv_vlseg5e8ff_v:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -12597,10 +10505,6 @@ case RISCVVector::BI__builtin_rvv_vlseg5e16ff_v:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -12611,10 +10515,6 @@ case RISCVVector::BI__builtin_rvv_vlseg5e32ff_v:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -12625,10 +10525,6 @@ case RISCVVector::BI__builtin_rvv_vlseg5e64ff_v:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -12638,10 +10534,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -12651,10 +10543,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -12664,10 +10552,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -12677,10 +10561,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -12691,10 +10571,6 @@ case RISCVVector::BI__builtin_rvv_vlseg5e8ff_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -12705,10 +10581,6 @@ case RISCVVector::BI__builtin_rvv_vlseg5e16ff_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -12719,10 +10591,6 @@ case RISCVVector::BI__builtin_rvv_vlseg5e32ff_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -12733,10 +10601,6 @@ case RISCVVector::BI__builtin_rvv_vlseg5e64ff_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -12746,10 +10610,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -12759,10 +10619,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -12772,10 +10628,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -12785,10 +10637,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -12799,10 +10647,6 @@ case RISCVVector::BI__builtin_rvv_vlseg5e8ff_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -12813,10 +10657,6 @@ case RISCVVector::BI__builtin_rvv_vlseg5e16ff_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -12827,10 +10667,6 @@ case RISCVVector::BI__builtin_rvv_vlseg5e32ff_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -12841,10 +10677,6 @@ case RISCVVector::BI__builtin_rvv_vlseg5e64ff_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -12854,10 +10686,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -12867,10 +10695,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -12880,10 +10704,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -12893,10 +10713,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -12907,10 +10723,6 @@ case RISCVVector::BI__builtin_rvv_vlseg5e8ff_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -12921,10 +10733,6 @@ case RISCVVector::BI__builtin_rvv_vlseg5e16ff_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -12935,10 +10743,6 @@ case RISCVVector::BI__builtin_rvv_vlseg5e32ff_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -12949,10 +10753,6 @@ case RISCVVector::BI__builtin_rvv_vlseg5e64ff_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -12962,10 +10762,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -12975,10 +10771,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -12988,10 +10780,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -13001,10 +10789,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -13015,10 +10799,6 @@ case RISCVVector::BI__builtin_rvv_vlseg5e8ff_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -13029,10 +10809,6 @@ case RISCVVector::BI__builtin_rvv_vlseg5e16ff_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -13043,10 +10819,6 @@ case RISCVVector::BI__builtin_rvv_vlseg5e32ff_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -13057,10 +10829,6 @@ case RISCVVector::BI__builtin_rvv_vlseg5e64ff_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -13070,10 +10838,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -13083,10 +10847,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -13096,10 +10856,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -13109,10 +10865,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -13123,10 +10875,6 @@ case RISCVVector::BI__builtin_rvv_vlseg6e8_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -13137,10 +10885,6 @@ case RISCVVector::BI__builtin_rvv_vlseg6e16_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -13151,10 +10895,6 @@ case RISCVVector::BI__builtin_rvv_vlseg6e32_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -13165,10 +10905,6 @@ case RISCVVector::BI__builtin_rvv_vlseg6e64_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -13178,10 +10914,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -13191,10 +10923,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -13204,10 +10932,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -13217,10 +10941,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -13231,10 +10951,6 @@ case RISCVVector::BI__builtin_rvv_vlseg6e8_v:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -13245,10 +10961,6 @@ case RISCVVector::BI__builtin_rvv_vlseg6e16_v:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -13259,10 +10971,6 @@ case RISCVVector::BI__builtin_rvv_vlseg6e32_v:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -13273,10 +10981,6 @@ case RISCVVector::BI__builtin_rvv_vlseg6e64_v:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -13286,10 +10990,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -13299,10 +10999,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -13312,10 +11008,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -13325,10 +11017,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -13339,10 +11027,6 @@ case RISCVVector::BI__builtin_rvv_vlseg6e8_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -13353,10 +11037,6 @@ case RISCVVector::BI__builtin_rvv_vlseg6e16_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -13367,10 +11047,6 @@ case RISCVVector::BI__builtin_rvv_vlseg6e32_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -13381,10 +11057,6 @@ case RISCVVector::BI__builtin_rvv_vlseg6e64_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -13394,10 +11066,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -13407,10 +11075,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -13420,10 +11084,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -13433,10 +11093,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -13447,10 +11103,6 @@ case RISCVVector::BI__builtin_rvv_vlseg6e8_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -13461,10 +11113,6 @@ case RISCVVector::BI__builtin_rvv_vlseg6e16_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -13475,10 +11123,6 @@ case RISCVVector::BI__builtin_rvv_vlseg6e32_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -13489,10 +11133,6 @@ case RISCVVector::BI__builtin_rvv_vlseg6e64_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -13502,10 +11142,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -13515,10 +11151,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -13528,10 +11160,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -13541,10 +11169,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -13555,10 +11179,6 @@ case RISCVVector::BI__builtin_rvv_vlseg6e8_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -13569,10 +11189,6 @@ case RISCVVector::BI__builtin_rvv_vlseg6e16_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -13583,10 +11199,6 @@ case RISCVVector::BI__builtin_rvv_vlseg6e32_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -13597,10 +11209,6 @@ case RISCVVector::BI__builtin_rvv_vlseg6e64_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -13610,10 +11218,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -13623,10 +11227,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -13636,10 +11236,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -13649,10 +11245,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -13663,10 +11255,6 @@ case RISCVVector::BI__builtin_rvv_vlseg6e8_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -13677,10 +11265,6 @@ case RISCVVector::BI__builtin_rvv_vlseg6e16_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -13691,10 +11275,6 @@ case RISCVVector::BI__builtin_rvv_vlseg6e32_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -13705,10 +11285,6 @@ case RISCVVector::BI__builtin_rvv_vlseg6e64_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -13718,10 +11294,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -13731,10 +11303,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -13744,10 +11312,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -13757,10 +11321,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -13771,10 +11331,6 @@ case RISCVVector::BI__builtin_rvv_vlseg6e8ff_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -13785,10 +11341,6 @@ case RISCVVector::BI__builtin_rvv_vlseg6e16ff_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -13799,10 +11351,6 @@ case RISCVVector::BI__builtin_rvv_vlseg6e32ff_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -13813,10 +11361,6 @@ case RISCVVector::BI__builtin_rvv_vlseg6e64ff_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -13826,10 +11370,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -13839,10 +11379,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -13852,10 +11388,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -13865,10 +11397,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -13879,10 +11407,6 @@ case RISCVVector::BI__builtin_rvv_vlseg6e8ff_v:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -13893,10 +11417,6 @@ case RISCVVector::BI__builtin_rvv_vlseg6e16ff_v:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -13907,10 +11427,6 @@ case RISCVVector::BI__builtin_rvv_vlseg6e32ff_v:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -13921,10 +11437,6 @@ case RISCVVector::BI__builtin_rvv_vlseg6e64ff_v:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -13934,10 +11446,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -13947,10 +11455,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -13960,10 +11464,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -13973,10 +11473,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -13987,10 +11483,6 @@ case RISCVVector::BI__builtin_rvv_vlseg6e8ff_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -14001,10 +11493,6 @@ case RISCVVector::BI__builtin_rvv_vlseg6e16ff_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -14015,10 +11503,6 @@ case RISCVVector::BI__builtin_rvv_vlseg6e32ff_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -14029,10 +11513,6 @@ case RISCVVector::BI__builtin_rvv_vlseg6e64ff_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -14042,10 +11522,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -14055,10 +11531,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -14068,10 +11540,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -14081,10 +11549,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -14095,10 +11559,6 @@ case RISCVVector::BI__builtin_rvv_vlseg6e8ff_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -14109,10 +11569,6 @@ case RISCVVector::BI__builtin_rvv_vlseg6e16ff_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -14123,10 +11579,6 @@ case RISCVVector::BI__builtin_rvv_vlseg6e32ff_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -14137,10 +11589,6 @@ case RISCVVector::BI__builtin_rvv_vlseg6e64ff_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -14150,10 +11598,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -14163,10 +11607,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -14176,10 +11616,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -14189,10 +11625,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -14203,10 +11635,6 @@ case RISCVVector::BI__builtin_rvv_vlseg6e8ff_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -14217,10 +11645,6 @@ case RISCVVector::BI__builtin_rvv_vlseg6e16ff_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -14231,10 +11655,6 @@ case RISCVVector::BI__builtin_rvv_vlseg6e32ff_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -14245,10 +11665,6 @@ case RISCVVector::BI__builtin_rvv_vlseg6e64ff_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -14258,10 +11674,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -14271,10 +11683,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -14284,10 +11692,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -14297,10 +11701,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -14311,10 +11711,6 @@ case RISCVVector::BI__builtin_rvv_vlseg6e8ff_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -14325,10 +11721,6 @@ case RISCVVector::BI__builtin_rvv_vlseg6e16ff_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -14339,10 +11731,6 @@ case RISCVVector::BI__builtin_rvv_vlseg6e32ff_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -14353,10 +11741,6 @@ case RISCVVector::BI__builtin_rvv_vlseg6e64ff_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -14366,10 +11750,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -14379,10 +11759,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -14392,10 +11768,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -14405,10 +11777,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -14419,10 +11787,6 @@ case RISCVVector::BI__builtin_rvv_vlseg7e8_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -14433,10 +11797,6 @@ case RISCVVector::BI__builtin_rvv_vlseg7e16_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -14447,10 +11807,6 @@ case RISCVVector::BI__builtin_rvv_vlseg7e32_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -14461,10 +11817,6 @@ case RISCVVector::BI__builtin_rvv_vlseg7e64_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -14474,10 +11826,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -14487,10 +11835,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -14500,10 +11844,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -14513,10 +11853,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -14527,10 +11863,6 @@ case RISCVVector::BI__builtin_rvv_vlseg7e8_v:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -14541,10 +11873,6 @@ case RISCVVector::BI__builtin_rvv_vlseg7e16_v:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -14555,10 +11883,6 @@ case RISCVVector::BI__builtin_rvv_vlseg7e32_v:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -14569,10 +11893,6 @@ case RISCVVector::BI__builtin_rvv_vlseg7e64_v:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -14582,10 +11902,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -14595,10 +11911,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -14608,10 +11920,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -14621,10 +11929,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -14635,10 +11939,6 @@ case RISCVVector::BI__builtin_rvv_vlseg7e8_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -14649,10 +11949,6 @@ case RISCVVector::BI__builtin_rvv_vlseg7e16_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -14663,10 +11959,6 @@ case RISCVVector::BI__builtin_rvv_vlseg7e32_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -14677,10 +11969,6 @@ case RISCVVector::BI__builtin_rvv_vlseg7e64_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -14690,10 +11978,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -14703,10 +11987,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -14716,10 +11996,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -14729,10 +12005,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -14743,10 +12015,6 @@ case RISCVVector::BI__builtin_rvv_vlseg7e8_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -14757,10 +12025,6 @@ case RISCVVector::BI__builtin_rvv_vlseg7e16_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -14771,10 +12035,6 @@ case RISCVVector::BI__builtin_rvv_vlseg7e32_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -14785,10 +12045,6 @@ case RISCVVector::BI__builtin_rvv_vlseg7e64_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -14798,10 +12054,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -14811,10 +12063,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -14824,10 +12072,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -14837,10 +12081,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -14851,10 +12091,6 @@ case RISCVVector::BI__builtin_rvv_vlseg7e8_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -14865,10 +12101,6 @@ case RISCVVector::BI__builtin_rvv_vlseg7e16_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -14879,10 +12111,6 @@ case RISCVVector::BI__builtin_rvv_vlseg7e32_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -14893,10 +12121,6 @@ case RISCVVector::BI__builtin_rvv_vlseg7e64_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -14906,10 +12130,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -14919,10 +12139,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -14932,10 +12148,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -14945,10 +12157,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -14959,10 +12167,6 @@ case RISCVVector::BI__builtin_rvv_vlseg7e8_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -14973,10 +12177,6 @@ case RISCVVector::BI__builtin_rvv_vlseg7e16_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -14987,10 +12187,6 @@ case RISCVVector::BI__builtin_rvv_vlseg7e32_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -15001,10 +12197,6 @@ case RISCVVector::BI__builtin_rvv_vlseg7e64_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -15014,10 +12206,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -15027,10 +12215,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -15040,10 +12224,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -15053,10 +12233,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -15067,10 +12243,6 @@ case RISCVVector::BI__builtin_rvv_vlseg7e8ff_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -15081,10 +12253,6 @@ case RISCVVector::BI__builtin_rvv_vlseg7e16ff_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -15095,10 +12263,6 @@ case RISCVVector::BI__builtin_rvv_vlseg7e32ff_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -15109,10 +12273,6 @@ case RISCVVector::BI__builtin_rvv_vlseg7e64ff_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -15122,10 +12282,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -15135,10 +12291,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -15148,10 +12300,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -15161,10 +12309,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -15175,10 +12319,6 @@ case RISCVVector::BI__builtin_rvv_vlseg7e8ff_v:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -15189,10 +12329,6 @@ case RISCVVector::BI__builtin_rvv_vlseg7e16ff_v:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -15203,10 +12339,6 @@ case RISCVVector::BI__builtin_rvv_vlseg7e32ff_v:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -15217,10 +12349,6 @@ case RISCVVector::BI__builtin_rvv_vlseg7e64ff_v:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -15230,10 +12358,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -15243,10 +12367,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -15256,10 +12376,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -15269,10 +12385,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -15283,10 +12395,6 @@ case RISCVVector::BI__builtin_rvv_vlseg7e8ff_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -15297,10 +12405,6 @@ case RISCVVector::BI__builtin_rvv_vlseg7e16ff_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -15311,10 +12415,6 @@ case RISCVVector::BI__builtin_rvv_vlseg7e32ff_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -15325,10 +12425,6 @@ case RISCVVector::BI__builtin_rvv_vlseg7e64ff_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -15338,10 +12434,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -15351,10 +12443,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -15364,10 +12452,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -15377,10 +12461,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -15391,10 +12471,6 @@ case RISCVVector::BI__builtin_rvv_vlseg7e8ff_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -15405,10 +12481,6 @@ case RISCVVector::BI__builtin_rvv_vlseg7e16ff_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -15419,10 +12491,6 @@ case RISCVVector::BI__builtin_rvv_vlseg7e32ff_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -15433,10 +12501,6 @@ case RISCVVector::BI__builtin_rvv_vlseg7e64ff_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -15446,10 +12510,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -15459,10 +12519,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -15472,10 +12528,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -15485,10 +12537,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -15499,10 +12547,6 @@ case RISCVVector::BI__builtin_rvv_vlseg7e8ff_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -15513,10 +12557,6 @@ case RISCVVector::BI__builtin_rvv_vlseg7e16ff_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -15527,10 +12567,6 @@ case RISCVVector::BI__builtin_rvv_vlseg7e32ff_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -15541,10 +12577,6 @@ case RISCVVector::BI__builtin_rvv_vlseg7e64ff_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -15554,10 +12586,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -15567,10 +12595,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -15580,10 +12604,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -15593,10 +12613,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -15607,10 +12623,6 @@ case RISCVVector::BI__builtin_rvv_vlseg7e8ff_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -15621,10 +12633,6 @@ case RISCVVector::BI__builtin_rvv_vlseg7e16ff_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -15635,10 +12643,6 @@ case RISCVVector::BI__builtin_rvv_vlseg7e32ff_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -15649,10 +12653,6 @@ case RISCVVector::BI__builtin_rvv_vlseg7e64ff_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -15662,10 +12662,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -15675,10 +12671,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -15688,10 +12680,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -15701,10 +12689,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -15715,10 +12699,6 @@ case RISCVVector::BI__builtin_rvv_vlseg8e8_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -15729,10 +12709,6 @@ case RISCVVector::BI__builtin_rvv_vlseg8e16_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -15743,10 +12719,6 @@ case RISCVVector::BI__builtin_rvv_vlseg8e32_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -15757,10 +12729,6 @@ case RISCVVector::BI__builtin_rvv_vlseg8e64_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -15770,10 +12738,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -15783,10 +12747,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -15796,10 +12756,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -15809,10 +12765,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -15823,10 +12775,6 @@ case RISCVVector::BI__builtin_rvv_vlseg8e8_v:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -15837,10 +12785,6 @@ case RISCVVector::BI__builtin_rvv_vlseg8e16_v:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -15851,10 +12795,6 @@ case RISCVVector::BI__builtin_rvv_vlseg8e32_v:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -15865,10 +12805,6 @@ case RISCVVector::BI__builtin_rvv_vlseg8e64_v:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -15878,10 +12814,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -15891,10 +12823,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -15904,10 +12832,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -15917,10 +12841,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -15931,10 +12851,6 @@ case RISCVVector::BI__builtin_rvv_vlseg8e8_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -15945,10 +12861,6 @@ case RISCVVector::BI__builtin_rvv_vlseg8e16_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -15959,10 +12871,6 @@ case RISCVVector::BI__builtin_rvv_vlseg8e32_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -15973,10 +12881,6 @@ case RISCVVector::BI__builtin_rvv_vlseg8e64_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -15986,10 +12890,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -15999,10 +12899,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -16012,10 +12908,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -16025,10 +12917,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -16039,10 +12927,6 @@ case RISCVVector::BI__builtin_rvv_vlseg8e8_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -16053,10 +12937,6 @@ case RISCVVector::BI__builtin_rvv_vlseg8e16_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -16067,10 +12947,6 @@ case RISCVVector::BI__builtin_rvv_vlseg8e32_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -16081,10 +12957,6 @@ case RISCVVector::BI__builtin_rvv_vlseg8e64_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -16094,10 +12966,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -16107,10 +12975,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -16120,10 +12984,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -16133,10 +12993,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -16147,10 +13003,6 @@ case RISCVVector::BI__builtin_rvv_vlseg8e8_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -16161,10 +13013,6 @@ case RISCVVector::BI__builtin_rvv_vlseg8e16_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -16175,10 +13023,6 @@ case RISCVVector::BI__builtin_rvv_vlseg8e32_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -16189,10 +13033,6 @@ case RISCVVector::BI__builtin_rvv_vlseg8e64_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -16202,10 +13042,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -16215,10 +13051,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -16228,10 +13060,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -16241,10 +13069,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -16255,10 +13079,6 @@ case RISCVVector::BI__builtin_rvv_vlseg8e8_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -16269,10 +13089,6 @@ case RISCVVector::BI__builtin_rvv_vlseg8e16_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -16283,10 +13099,6 @@ case RISCVVector::BI__builtin_rvv_vlseg8e32_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -16297,10 +13109,6 @@ case RISCVVector::BI__builtin_rvv_vlseg8e64_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -16310,10 +13118,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -16323,10 +13127,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -16336,10 +13136,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -16349,10 +13145,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
               return emitRVVUnitStridedSegLoadTupleBuiltin(
                   this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -16363,10 +13155,6 @@ case RISCVVector::BI__builtin_rvv_vlseg8e8ff_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -16377,10 +13165,6 @@ case RISCVVector::BI__builtin_rvv_vlseg8e16ff_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -16391,10 +13175,6 @@ case RISCVVector::BI__builtin_rvv_vlseg8e32ff_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -16405,10 +13185,6 @@ case RISCVVector::BI__builtin_rvv_vlseg8e64ff_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -16418,10 +13194,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -16431,10 +13203,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -16444,10 +13212,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -16457,10 +13221,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -16471,10 +13231,6 @@ case RISCVVector::BI__builtin_rvv_vlseg8e8ff_v:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -16485,10 +13241,6 @@ case RISCVVector::BI__builtin_rvv_vlseg8e16ff_v:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -16499,10 +13251,6 @@ case RISCVVector::BI__builtin_rvv_vlseg8e32ff_v:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -16513,10 +13261,6 @@ case RISCVVector::BI__builtin_rvv_vlseg8e64ff_v:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -16526,10 +13270,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -16539,10 +13279,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -16552,10 +13288,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -16565,10 +13297,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -16579,10 +13307,6 @@ case RISCVVector::BI__builtin_rvv_vlseg8e8ff_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -16593,10 +13317,6 @@ case RISCVVector::BI__builtin_rvv_vlseg8e16ff_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -16607,10 +13327,6 @@ case RISCVVector::BI__builtin_rvv_vlseg8e32ff_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -16621,10 +13337,6 @@ case RISCVVector::BI__builtin_rvv_vlseg8e64ff_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -16634,10 +13346,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -16647,10 +13355,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -16660,10 +13364,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -16673,10 +13373,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -16687,10 +13383,6 @@ case RISCVVector::BI__builtin_rvv_vlseg8e8ff_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -16701,10 +13393,6 @@ case RISCVVector::BI__builtin_rvv_vlseg8e16ff_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -16715,10 +13403,6 @@ case RISCVVector::BI__builtin_rvv_vlseg8e32ff_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -16729,10 +13413,6 @@ case RISCVVector::BI__builtin_rvv_vlseg8e64ff_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -16742,10 +13422,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -16755,10 +13431,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -16768,10 +13440,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -16781,10 +13449,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -16795,10 +13459,6 @@ case RISCVVector::BI__builtin_rvv_vlseg8e8ff_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -16809,10 +13469,6 @@ case RISCVVector::BI__builtin_rvv_vlseg8e16ff_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -16823,10 +13479,6 @@ case RISCVVector::BI__builtin_rvv_vlseg8e32ff_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -16837,10 +13489,6 @@ case RISCVVector::BI__builtin_rvv_vlseg8e64ff_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -16850,10 +13498,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -16863,10 +13507,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -16876,10 +13516,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -16889,10 +13525,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -16903,10 +13535,6 @@ case RISCVVector::BI__builtin_rvv_vlseg8e8ff_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -16917,10 +13545,6 @@ case RISCVVector::BI__builtin_rvv_vlseg8e16ff_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -16931,10 +13555,6 @@ case RISCVVector::BI__builtin_rvv_vlseg8e32ff_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -16945,10 +13565,6 @@ case RISCVVector::BI__builtin_rvv_vlseg8e64ff_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -16958,10 +13574,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -16971,10 +13583,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -16984,10 +13592,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -16997,10 +13601,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVUnitStridedSegLoadFFTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17011,10 +13611,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg2e8_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17025,10 +13621,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg2e16_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17039,10 +13631,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg2e32_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17053,10 +13641,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg2e64_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17066,10 +13650,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17079,10 +13659,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17092,10 +13668,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17105,10 +13677,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17119,10 +13687,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg2e8_v:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17133,10 +13697,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg2e16_v:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17147,10 +13707,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg2e32_v:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17161,10 +13717,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg2e64_v:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17174,10 +13726,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17187,10 +13735,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17200,10 +13744,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17213,10 +13753,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17227,10 +13763,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg2e8_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17241,10 +13773,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg2e16_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17255,10 +13783,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg2e32_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17269,10 +13793,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg2e64_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17282,10 +13802,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17295,10 +13811,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17308,10 +13820,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17321,10 +13829,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17335,10 +13839,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg2e8_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17349,10 +13849,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg2e16_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17363,10 +13859,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg2e32_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17377,10 +13869,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg2e64_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17390,10 +13878,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17403,10 +13887,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17416,10 +13896,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17429,10 +13905,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17443,10 +13915,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg2e8_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17457,10 +13925,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg2e16_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17471,10 +13935,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg2e32_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17485,10 +13945,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg2e64_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17498,10 +13954,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17511,10 +13963,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17524,10 +13972,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17537,10 +13981,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17551,10 +13991,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg2e8_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17565,10 +14001,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg2e16_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17579,10 +14011,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg2e32_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17593,10 +14021,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg2e64_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17606,10 +14030,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17619,10 +14039,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17632,10 +14048,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17645,10 +14057,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17659,10 +14067,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg3e8_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17673,10 +14077,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg3e16_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17687,10 +14087,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg3e32_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17701,10 +14097,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg3e64_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17714,10 +14106,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17727,10 +14115,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17740,10 +14124,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17753,10 +14133,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17767,10 +14143,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg3e8_v:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17781,10 +14153,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg3e16_v:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17795,10 +14163,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg3e32_v:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17809,10 +14173,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg3e64_v:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17822,10 +14182,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17835,10 +14191,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17848,10 +14200,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17861,10 +14209,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17875,10 +14219,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg3e8_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17889,10 +14229,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg3e16_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17903,10 +14239,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg3e32_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17917,10 +14249,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg3e64_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17930,10 +14258,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17943,10 +14267,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17956,10 +14276,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17969,10 +14285,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17983,10 +14295,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg3e8_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -17997,10 +14305,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg3e16_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18011,10 +14315,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg3e32_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18025,10 +14325,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg3e64_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18038,10 +14334,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18051,10 +14343,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18064,10 +14352,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18077,10 +14361,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18091,10 +14371,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg3e8_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18105,10 +14381,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg3e16_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18119,10 +14391,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg3e32_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18133,10 +14401,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg3e64_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18146,10 +14410,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18159,10 +14419,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18172,10 +14428,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18185,10 +14437,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18199,10 +14447,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg3e8_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18213,10 +14457,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg3e16_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18227,10 +14467,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg3e32_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18241,10 +14477,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg3e64_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18254,10 +14486,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18267,10 +14495,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18280,10 +14504,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18293,10 +14513,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18307,10 +14523,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg4e8_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18321,10 +14533,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg4e16_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18335,10 +14543,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg4e32_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18349,10 +14553,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg4e64_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18362,10 +14562,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18375,10 +14571,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18388,10 +14580,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18401,10 +14589,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18415,10 +14599,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg4e8_v:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18429,10 +14609,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg4e16_v:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18443,10 +14619,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg4e32_v:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18457,10 +14629,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg4e64_v:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18470,10 +14638,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18483,10 +14647,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18496,10 +14656,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18509,10 +14665,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18523,10 +14675,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg4e8_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18537,10 +14685,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg4e16_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18551,10 +14695,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg4e32_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18565,10 +14705,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg4e64_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18578,10 +14714,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18591,10 +14723,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18604,10 +14732,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18617,10 +14741,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18631,10 +14751,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg4e8_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18645,10 +14761,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg4e16_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18659,10 +14771,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg4e32_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18673,10 +14781,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg4e64_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18686,10 +14790,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18699,10 +14799,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18712,10 +14808,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18725,10 +14817,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18739,10 +14827,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg4e8_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18753,10 +14837,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg4e16_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18767,10 +14847,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg4e32_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18781,10 +14857,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg4e64_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18794,10 +14866,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18807,10 +14875,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18820,10 +14884,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18833,10 +14893,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18847,10 +14903,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg4e8_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18861,10 +14913,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg4e16_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18875,10 +14923,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg4e32_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18889,10 +14933,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg4e64_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18902,10 +14942,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18915,10 +14951,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18928,10 +14960,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18941,10 +14969,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18955,10 +14979,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg5e8_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18969,10 +14989,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg5e16_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18983,10 +14999,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg5e32_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -18997,10 +15009,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg5e64_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19010,10 +15018,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19023,10 +15027,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19036,10 +15036,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19049,10 +15045,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19063,10 +15055,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg5e8_v:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19077,10 +15065,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg5e16_v:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19091,10 +15075,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg5e32_v:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19105,10 +15085,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg5e64_v:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19118,10 +15094,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19131,10 +15103,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19144,10 +15112,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19157,10 +15121,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19171,10 +15131,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg5e8_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19185,10 +15141,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg5e16_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19199,10 +15151,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg5e32_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19213,10 +15161,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg5e64_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19226,10 +15170,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19239,10 +15179,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19252,10 +15188,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19265,10 +15197,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19279,10 +15207,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg5e8_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19293,10 +15217,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg5e16_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19307,10 +15227,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg5e32_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19321,10 +15237,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg5e64_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19334,10 +15246,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19347,10 +15255,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19360,10 +15264,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19373,10 +15273,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19387,10 +15283,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg5e8_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19401,10 +15293,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg5e16_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19415,10 +15303,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg5e32_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19429,10 +15313,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg5e64_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19442,10 +15322,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19455,10 +15331,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19468,10 +15340,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19481,10 +15349,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19495,10 +15359,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg5e8_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19509,10 +15369,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg5e16_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19523,10 +15379,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg5e32_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19537,10 +15389,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg5e64_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19550,10 +15398,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19563,10 +15407,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19576,10 +15416,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19589,10 +15425,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19603,10 +15435,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg6e8_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19617,10 +15445,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg6e16_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19631,10 +15455,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg6e32_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19645,10 +15465,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg6e64_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19658,10 +15474,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19671,10 +15483,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19684,10 +15492,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19697,10 +15501,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19711,10 +15511,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg6e8_v:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19725,10 +15521,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg6e16_v:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19739,10 +15531,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg6e32_v:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19753,10 +15541,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg6e64_v:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19766,10 +15550,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19779,10 +15559,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19792,10 +15568,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19805,10 +15577,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19819,10 +15587,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg6e8_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19833,10 +15597,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg6e16_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19847,10 +15607,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg6e32_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19861,10 +15617,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg6e64_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19874,10 +15626,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19887,10 +15635,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19900,10 +15644,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19913,10 +15653,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19927,10 +15663,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg6e8_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19941,10 +15673,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg6e16_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19955,10 +15683,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg6e32_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19969,10 +15693,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg6e64_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19982,10 +15702,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -19995,10 +15711,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20008,10 +15720,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20021,10 +15729,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20035,10 +15739,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg6e8_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20049,10 +15749,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg6e16_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20063,10 +15759,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg6e32_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20077,10 +15769,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg6e64_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20090,10 +15778,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20103,10 +15787,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20116,10 +15796,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20129,10 +15805,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20143,10 +15815,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg6e8_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20157,10 +15825,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg6e16_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20171,10 +15835,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg6e32_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20185,10 +15845,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg6e64_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20198,10 +15854,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20211,10 +15863,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20224,10 +15872,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20237,10 +15881,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20251,10 +15891,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg7e8_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20265,10 +15901,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg7e16_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20279,10 +15911,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg7e32_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20293,10 +15921,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg7e64_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20306,10 +15930,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20319,10 +15939,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20332,10 +15948,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20345,10 +15957,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20359,10 +15967,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg7e8_v:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20373,10 +15977,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg7e16_v:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20387,10 +15987,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg7e32_v:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20401,10 +15997,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg7e64_v:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20414,10 +16006,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20427,10 +16015,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20440,10 +16024,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20453,10 +16033,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20467,10 +16043,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg7e8_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20481,10 +16053,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg7e16_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20495,10 +16063,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg7e32_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20509,10 +16073,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg7e64_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20522,10 +16082,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20535,10 +16091,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20548,10 +16100,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20561,10 +16109,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20575,10 +16119,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg7e8_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20589,10 +16129,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg7e16_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20603,10 +16139,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg7e32_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20617,10 +16149,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg7e64_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20630,10 +16158,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20643,10 +16167,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20656,10 +16176,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20669,10 +16185,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20683,10 +16195,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg7e8_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20697,10 +16205,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg7e16_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20711,10 +16215,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg7e32_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20725,10 +16225,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg7e64_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20738,10 +16234,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20751,10 +16243,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20764,10 +16252,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20777,10 +16261,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20791,10 +16271,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg7e8_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20805,10 +16281,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg7e16_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20819,10 +16291,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg7e32_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20833,10 +16301,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg7e64_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20846,10 +16310,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20859,10 +16319,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20872,10 +16328,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20885,10 +16337,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20899,10 +16347,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg8e8_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20913,10 +16357,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg8e16_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20927,10 +16367,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg8e32_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20941,10 +16377,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg8e64_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20954,10 +16386,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20967,10 +16395,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20980,10 +16404,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -20993,10 +16413,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21007,10 +16423,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg8e8_v:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21021,10 +16433,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg8e16_v:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21035,10 +16443,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg8e32_v:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21049,10 +16453,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg8e64_v:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21062,10 +16462,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21075,10 +16471,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21088,10 +16480,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21101,10 +16489,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21115,10 +16499,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg8e8_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21129,10 +16509,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg8e16_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21143,10 +16519,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg8e32_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21157,10 +16529,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg8e64_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21170,10 +16538,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21183,10 +16547,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21196,10 +16556,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21209,10 +16565,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 2;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21223,10 +16575,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg8e8_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21237,10 +16585,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg8e16_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21251,10 +16595,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg8e32_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21265,10 +16605,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg8e64_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21278,10 +16614,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21291,10 +16623,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21304,10 +16632,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21317,10 +16641,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21331,10 +16651,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg8e8_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21345,10 +16661,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg8e16_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21359,10 +16671,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg8e32_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21373,10 +16681,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg8e64_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21386,10 +16690,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21399,10 +16699,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21412,10 +16708,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21425,10 +16717,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 0;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21439,10 +16727,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg8e8_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21453,10 +16737,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg8e16_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21467,10 +16747,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg8e32_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21481,10 +16757,6 @@ case RISCVVector::BI__builtin_rvv_vlsseg8e64_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21494,10 +16766,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21507,10 +16775,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21520,10 +16784,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21533,10 +16793,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 1;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21612,12 +16868,11 @@ case RISCVVector::BI__builtin_rvv_vluxseg2ei32_v_tu:
 case RISCVVector::BI__builtin_rvv_vluxseg2ei64_v_tu:
   ID = Intrinsic::riscv_vluxseg2;
   PolicyAttrs = 2;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(1)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(1      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21629,12 +16884,11 @@ case RISCVVector::BI__builtin_rvv_vluxseg2ei32_v:
 case RISCVVector::BI__builtin_rvv_vluxseg2ei64_v:
   ID = Intrinsic::riscv_vluxseg2;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(0)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(0      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21646,12 +16900,11 @@ case RISCVVector::BI__builtin_rvv_vluxseg2ei32_v_tum:
 case RISCVVector::BI__builtin_rvv_vluxseg2ei64_v_tum:
   ID = Intrinsic::riscv_vluxseg2_mask;
   PolicyAttrs = 2;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(2)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(2      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21663,12 +16916,11 @@ case RISCVVector::BI__builtin_rvv_vluxseg2ei32_v_m:
 case RISCVVector::BI__builtin_rvv_vluxseg2ei64_v_m:
   ID = Intrinsic::riscv_vluxseg2_mask;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(1)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(1      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21680,12 +16932,11 @@ case RISCVVector::BI__builtin_rvv_vluxseg2ei32_v_tumu:
 case RISCVVector::BI__builtin_rvv_vluxseg2ei64_v_tumu:
   ID = Intrinsic::riscv_vluxseg2_mask;
   PolicyAttrs = 0;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(2)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(2      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21697,12 +16948,11 @@ case RISCVVector::BI__builtin_rvv_vluxseg2ei32_v_mu:
 case RISCVVector::BI__builtin_rvv_vluxseg2ei64_v_mu:
   ID = Intrinsic::riscv_vluxseg2_mask;
   PolicyAttrs = 1;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(2)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(2      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21714,12 +16964,11 @@ case RISCVVector::BI__builtin_rvv_vluxseg3ei32_v_tu:
 case RISCVVector::BI__builtin_rvv_vluxseg3ei64_v_tu:
   ID = Intrinsic::riscv_vluxseg3;
   PolicyAttrs = 2;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(1)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(1      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21731,12 +16980,11 @@ case RISCVVector::BI__builtin_rvv_vluxseg3ei32_v:
 case RISCVVector::BI__builtin_rvv_vluxseg3ei64_v:
   ID = Intrinsic::riscv_vluxseg3;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(0)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(0      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21748,12 +16996,11 @@ case RISCVVector::BI__builtin_rvv_vluxseg3ei32_v_tum:
 case RISCVVector::BI__builtin_rvv_vluxseg3ei64_v_tum:
   ID = Intrinsic::riscv_vluxseg3_mask;
   PolicyAttrs = 2;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(2)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(2      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21765,12 +17012,11 @@ case RISCVVector::BI__builtin_rvv_vluxseg3ei32_v_m:
 case RISCVVector::BI__builtin_rvv_vluxseg3ei64_v_m:
   ID = Intrinsic::riscv_vluxseg3_mask;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(1)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(1      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21782,12 +17028,11 @@ case RISCVVector::BI__builtin_rvv_vluxseg3ei32_v_tumu:
 case RISCVVector::BI__builtin_rvv_vluxseg3ei64_v_tumu:
   ID = Intrinsic::riscv_vluxseg3_mask;
   PolicyAttrs = 0;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(2)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(2      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21799,12 +17044,11 @@ case RISCVVector::BI__builtin_rvv_vluxseg3ei32_v_mu:
 case RISCVVector::BI__builtin_rvv_vluxseg3ei64_v_mu:
   ID = Intrinsic::riscv_vluxseg3_mask;
   PolicyAttrs = 1;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(2)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(2      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21816,12 +17060,11 @@ case RISCVVector::BI__builtin_rvv_vluxseg4ei32_v_tu:
 case RISCVVector::BI__builtin_rvv_vluxseg4ei64_v_tu:
   ID = Intrinsic::riscv_vluxseg4;
   PolicyAttrs = 2;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(1)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(1      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21833,12 +17076,11 @@ case RISCVVector::BI__builtin_rvv_vluxseg4ei32_v:
 case RISCVVector::BI__builtin_rvv_vluxseg4ei64_v:
   ID = Intrinsic::riscv_vluxseg4;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(0)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(0      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21850,12 +17092,11 @@ case RISCVVector::BI__builtin_rvv_vluxseg4ei32_v_tum:
 case RISCVVector::BI__builtin_rvv_vluxseg4ei64_v_tum:
   ID = Intrinsic::riscv_vluxseg4_mask;
   PolicyAttrs = 2;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(2)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(2      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21867,12 +17108,11 @@ case RISCVVector::BI__builtin_rvv_vluxseg4ei32_v_m:
 case RISCVVector::BI__builtin_rvv_vluxseg4ei64_v_m:
   ID = Intrinsic::riscv_vluxseg4_mask;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(1)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(1      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21884,12 +17124,11 @@ case RISCVVector::BI__builtin_rvv_vluxseg4ei32_v_tumu:
 case RISCVVector::BI__builtin_rvv_vluxseg4ei64_v_tumu:
   ID = Intrinsic::riscv_vluxseg4_mask;
   PolicyAttrs = 0;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(2)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(2      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21901,12 +17140,11 @@ case RISCVVector::BI__builtin_rvv_vluxseg4ei32_v_mu:
 case RISCVVector::BI__builtin_rvv_vluxseg4ei64_v_mu:
   ID = Intrinsic::riscv_vluxseg4_mask;
   PolicyAttrs = 1;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(2)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(2      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21918,12 +17156,11 @@ case RISCVVector::BI__builtin_rvv_vluxseg5ei32_v_tu:
 case RISCVVector::BI__builtin_rvv_vluxseg5ei64_v_tu:
   ID = Intrinsic::riscv_vluxseg5;
   PolicyAttrs = 2;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(1)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(1      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21935,12 +17172,11 @@ case RISCVVector::BI__builtin_rvv_vluxseg5ei32_v:
 case RISCVVector::BI__builtin_rvv_vluxseg5ei64_v:
   ID = Intrinsic::riscv_vluxseg5;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(0)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(0      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21952,12 +17188,11 @@ case RISCVVector::BI__builtin_rvv_vluxseg5ei32_v_tum:
 case RISCVVector::BI__builtin_rvv_vluxseg5ei64_v_tum:
   ID = Intrinsic::riscv_vluxseg5_mask;
   PolicyAttrs = 2;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(2)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(2      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21969,12 +17204,11 @@ case RISCVVector::BI__builtin_rvv_vluxseg5ei32_v_m:
 case RISCVVector::BI__builtin_rvv_vluxseg5ei64_v_m:
   ID = Intrinsic::riscv_vluxseg5_mask;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(1)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(1      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -21986,12 +17220,11 @@ case RISCVVector::BI__builtin_rvv_vluxseg5ei32_v_tumu:
 case RISCVVector::BI__builtin_rvv_vluxseg5ei64_v_tumu:
   ID = Intrinsic::riscv_vluxseg5_mask;
   PolicyAttrs = 0;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(2)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(2      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -22003,12 +17236,11 @@ case RISCVVector::BI__builtin_rvv_vluxseg5ei32_v_mu:
 case RISCVVector::BI__builtin_rvv_vluxseg5ei64_v_mu:
   ID = Intrinsic::riscv_vluxseg5_mask;
   PolicyAttrs = 1;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(2)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(2      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -22020,12 +17252,11 @@ case RISCVVector::BI__builtin_rvv_vluxseg6ei32_v_tu:
 case RISCVVector::BI__builtin_rvv_vluxseg6ei64_v_tu:
   ID = Intrinsic::riscv_vluxseg6;
   PolicyAttrs = 2;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(1)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(1      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -22037,12 +17268,11 @@ case RISCVVector::BI__builtin_rvv_vluxseg6ei32_v:
 case RISCVVector::BI__builtin_rvv_vluxseg6ei64_v:
   ID = Intrinsic::riscv_vluxseg6;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(0)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(0      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -22054,12 +17284,11 @@ case RISCVVector::BI__builtin_rvv_vluxseg6ei32_v_tum:
 case RISCVVector::BI__builtin_rvv_vluxseg6ei64_v_tum:
   ID = Intrinsic::riscv_vluxseg6_mask;
   PolicyAttrs = 2;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(2)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(2      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -22071,12 +17300,11 @@ case RISCVVector::BI__builtin_rvv_vluxseg6ei32_v_m:
 case RISCVVector::BI__builtin_rvv_vluxseg6ei64_v_m:
   ID = Intrinsic::riscv_vluxseg6_mask;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(1)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(1      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -22088,12 +17316,11 @@ case RISCVVector::BI__builtin_rvv_vluxseg6ei32_v_tumu:
 case RISCVVector::BI__builtin_rvv_vluxseg6ei64_v_tumu:
   ID = Intrinsic::riscv_vluxseg6_mask;
   PolicyAttrs = 0;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(2)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(2      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -22105,12 +17332,11 @@ case RISCVVector::BI__builtin_rvv_vluxseg6ei32_v_mu:
 case RISCVVector::BI__builtin_rvv_vluxseg6ei64_v_mu:
   ID = Intrinsic::riscv_vluxseg6_mask;
   PolicyAttrs = 1;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(2)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(2      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -22122,12 +17348,11 @@ case RISCVVector::BI__builtin_rvv_vluxseg7ei32_v_tu:
 case RISCVVector::BI__builtin_rvv_vluxseg7ei64_v_tu:
   ID = Intrinsic::riscv_vluxseg7;
   PolicyAttrs = 2;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(1)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(1      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -22139,12 +17364,11 @@ case RISCVVector::BI__builtin_rvv_vluxseg7ei32_v:
 case RISCVVector::BI__builtin_rvv_vluxseg7ei64_v:
   ID = Intrinsic::riscv_vluxseg7;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(0)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(0      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -22156,12 +17380,11 @@ case RISCVVector::BI__builtin_rvv_vluxseg7ei32_v_tum:
 case RISCVVector::BI__builtin_rvv_vluxseg7ei64_v_tum:
   ID = Intrinsic::riscv_vluxseg7_mask;
   PolicyAttrs = 2;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(2)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(2      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -22173,12 +17396,11 @@ case RISCVVector::BI__builtin_rvv_vluxseg7ei32_v_m:
 case RISCVVector::BI__builtin_rvv_vluxseg7ei64_v_m:
   ID = Intrinsic::riscv_vluxseg7_mask;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(1)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(1      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -22190,12 +17412,11 @@ case RISCVVector::BI__builtin_rvv_vluxseg7ei32_v_tumu:
 case RISCVVector::BI__builtin_rvv_vluxseg7ei64_v_tumu:
   ID = Intrinsic::riscv_vluxseg7_mask;
   PolicyAttrs = 0;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(2)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(2      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -22207,12 +17428,11 @@ case RISCVVector::BI__builtin_rvv_vluxseg7ei32_v_mu:
 case RISCVVector::BI__builtin_rvv_vluxseg7ei64_v_mu:
   ID = Intrinsic::riscv_vluxseg7_mask;
   PolicyAttrs = 1;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(2)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(2      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -22224,12 +17444,11 @@ case RISCVVector::BI__builtin_rvv_vluxseg8ei32_v_tu:
 case RISCVVector::BI__builtin_rvv_vluxseg8ei64_v_tu:
   ID = Intrinsic::riscv_vluxseg8;
   PolicyAttrs = 2;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(1)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(1      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -22241,12 +17460,11 @@ case RISCVVector::BI__builtin_rvv_vluxseg8ei32_v:
 case RISCVVector::BI__builtin_rvv_vluxseg8ei64_v:
   ID = Intrinsic::riscv_vluxseg8;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(0)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(0      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -22258,12 +17476,11 @@ case RISCVVector::BI__builtin_rvv_vluxseg8ei32_v_tum:
 case RISCVVector::BI__builtin_rvv_vluxseg8ei64_v_tum:
   ID = Intrinsic::riscv_vluxseg8_mask;
   PolicyAttrs = 2;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(2)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(2      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -22275,12 +17492,11 @@ case RISCVVector::BI__builtin_rvv_vluxseg8ei32_v_m:
 case RISCVVector::BI__builtin_rvv_vluxseg8ei64_v_m:
   ID = Intrinsic::riscv_vluxseg8_mask;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(1)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(1      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -22292,12 +17508,11 @@ case RISCVVector::BI__builtin_rvv_vluxseg8ei32_v_tumu:
 case RISCVVector::BI__builtin_rvv_vluxseg8ei64_v_tumu:
   ID = Intrinsic::riscv_vluxseg8_mask;
   PolicyAttrs = 0;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(2)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(2      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -22309,12 +17524,11 @@ case RISCVVector::BI__builtin_rvv_vluxseg8ei32_v_mu:
 case RISCVVector::BI__builtin_rvv_vluxseg8ei64_v_mu:
   ID = Intrinsic::riscv_vluxseg8_mask;
   PolicyAttrs = 1;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(2)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(2      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegLoadTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -22443,10 +17657,6 @@ case RISCVVector::BI__builtin_rvv_vmmv_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoMaskBuiltin(this, E, ReturnValue, ResultType, ID,
                                         Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -22579,10 +17789,6 @@ case RISCVVector::BI__builtin_rvv_vmerge_vxm_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       // insert poison passthru
       if (PolicyAttrs & RVV_VTA)
@@ -22595,10 +17801,6 @@ case RISCVVector::BI__builtin_rvv_vmerge_vxm:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       // insert poison passthru
       if (PolicyAttrs & RVV_VTA)
@@ -22858,10 +18060,6 @@ case RISCVVector::BI__builtin_rvv_vmnot_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoMaskBuiltin(this, E, ReturnValue, ResultType, ID,
                                         Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -23484,10 +18682,6 @@ case RISCVVector::BI__builtin_rvv_vnclip_wx_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVNarrowingClipBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -23500,10 +18694,6 @@ case RISCVVector::BI__builtin_rvv_vnclip_wx:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVNarrowingClipBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -23516,10 +18706,6 @@ case RISCVVector::BI__builtin_rvv_vnclip_wx_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVNarrowingClipBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -23532,10 +18718,6 @@ case RISCVVector::BI__builtin_rvv_vnclip_wx_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVNarrowingClipBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -23548,10 +18730,6 @@ case RISCVVector::BI__builtin_rvv_vnclip_wx_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVNarrowingClipBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -23564,10 +18742,6 @@ case RISCVVector::BI__builtin_rvv_vnclip_wx_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVNarrowingClipBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -23580,10 +18754,6 @@ case RISCVVector::BI__builtin_rvv_vnclipu_wx_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVNarrowingClipBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -23596,10 +18766,6 @@ case RISCVVector::BI__builtin_rvv_vnclipu_wx:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVNarrowingClipBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -23612,10 +18778,6 @@ case RISCVVector::BI__builtin_rvv_vnclipu_wx_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVNarrowingClipBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -23628,10 +18790,6 @@ case RISCVVector::BI__builtin_rvv_vnclipu_wx_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVNarrowingClipBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -23644,10 +18802,6 @@ case RISCVVector::BI__builtin_rvv_vnclipu_wx_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVNarrowingClipBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -23660,10 +18814,6 @@ case RISCVVector::BI__builtin_rvv_vnclipu_wx_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVNarrowingClipBuiltin(this, E, ReturnValue, ResultType, ID,
@@ -23831,10 +18981,6 @@ case RISCVVector::BI__builtin_rvv_vncvt_x_x_w_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoVNCVTBuiltin(this, E, ReturnValue, ResultType, ID,
                                          Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -23850,10 +18996,6 @@ case RISCVVector::BI__builtin_rvv_vnsrl_wx_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoVNCVTBuiltin(this, E, ReturnValue, ResultType, ID,
                                          Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -23863,10 +19005,6 @@ case RISCVVector::BI__builtin_rvv_vncvt_x_x_w:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoVNCVTBuiltin(this, E, ReturnValue, ResultType, ID,
                                          Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -23883,10 +19021,6 @@ case RISCVVector::BI__builtin_rvv_vnsrl_wx:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoVNCVTBuiltin(this, E, ReturnValue, ResultType, ID,
                                          Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -23896,10 +19030,6 @@ case RISCVVector::BI__builtin_rvv_vncvt_x_x_w_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoVNCVTBuiltin(this, E, ReturnValue, ResultType, ID,
                                          Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -23917,10 +19047,6 @@ case RISCVVector::BI__builtin_rvv_vnsrl_wx_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoVNCVTBuiltin(this, E, ReturnValue, ResultType, ID,
                                          Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -23930,10 +19056,6 @@ case RISCVVector::BI__builtin_rvv_vncvt_x_x_w_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoVNCVTBuiltin(this, E, ReturnValue, ResultType, ID,
                                          Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -23952,10 +19074,6 @@ case RISCVVector::BI__builtin_rvv_vnsrl_wx_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoVNCVTBuiltin(this, E, ReturnValue, ResultType, ID,
                                          Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -23965,10 +19083,6 @@ case RISCVVector::BI__builtin_rvv_vncvt_x_x_w_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoVNCVTBuiltin(this, E, ReturnValue, ResultType, ID,
                                          Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -23986,10 +19100,6 @@ case RISCVVector::BI__builtin_rvv_vnsrl_wx_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoVNCVTBuiltin(this, E, ReturnValue, ResultType, ID,
                                          Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -23999,10 +19109,6 @@ case RISCVVector::BI__builtin_rvv_vncvt_x_x_w_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoVNCVTBuiltin(this, E, ReturnValue, ResultType, ID,
                                          Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -24020,10 +19126,6 @@ case RISCVVector::BI__builtin_rvv_vnsrl_wx_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoVNCVTBuiltin(this, E, ReturnValue, ResultType, ID,
                                          Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -24079,6 +19181,208 @@ case RISCVVector::BI__builtin_rvv_vor_vx_mu:
   std::rotate(Ops.begin(), Ops.begin() + 1, Ops.end() - 1);
   Ops.push_back(ConstantInt::get(Ops.back()->getType(), PolicyAttrs));
   IntrinsicTypes = {ResultType, Ops[2]->getType(), Ops.back()->getType()};
+  break;
+case RISCVVector::BI__builtin_rvv_vqdot_vv_tu:
+case RISCVVector::BI__builtin_rvv_vqdot_vx_tu:
+  ID = Intrinsic::riscv_vqdot;
+  PolicyAttrs = 2;
+  SegInstSEW = 0;
+  Ops.push_back(ConstantInt::get(Ops.back()->getType(), PolicyAttrs));
+  IntrinsicTypes = {ResultType, Ops[1]->getType(), Ops[2]->getType(), Ops.back()->getType()};
+  break;
+case RISCVVector::BI__builtin_rvv_vqdot_vv:
+case RISCVVector::BI__builtin_rvv_vqdot_vx:
+  ID = Intrinsic::riscv_vqdot;
+  PolicyAttrs = 3;
+  SegInstSEW = 0;
+  Ops.push_back(ConstantInt::get(Ops.back()->getType(), PolicyAttrs));
+  IntrinsicTypes = {ResultType, Ops[1]->getType(), Ops[2]->getType(), Ops.back()->getType()};
+  break;
+case RISCVVector::BI__builtin_rvv_vqdot_vv_tum:
+case RISCVVector::BI__builtin_rvv_vqdot_vx_tum:
+  ID = Intrinsic::riscv_vqdot_mask;
+  PolicyAttrs = 2;
+  SegInstSEW = 0;
+  std::rotate(Ops.begin(), Ops.begin() + 1, Ops.end() - 1);
+  Ops.push_back(ConstantInt::get(Ops.back()->getType(), PolicyAttrs));
+  IntrinsicTypes = {ResultType, Ops[1]->getType(), Ops[2]->getType(), Ops.back()->getType()};
+  break;
+case RISCVVector::BI__builtin_rvv_vqdot_vv_m:
+case RISCVVector::BI__builtin_rvv_vqdot_vx_m:
+  ID = Intrinsic::riscv_vqdot_mask;
+  PolicyAttrs = 3;
+  SegInstSEW = 0;
+  std::rotate(Ops.begin(), Ops.begin() + 1, Ops.end() - 1);
+  Ops.push_back(ConstantInt::get(Ops.back()->getType(), PolicyAttrs));
+  IntrinsicTypes = {ResultType, Ops[1]->getType(), Ops[2]->getType(), Ops.back()->getType()};
+  break;
+case RISCVVector::BI__builtin_rvv_vqdot_vv_tumu:
+case RISCVVector::BI__builtin_rvv_vqdot_vx_tumu:
+  ID = Intrinsic::riscv_vqdot_mask;
+  PolicyAttrs = 0;
+  SegInstSEW = 0;
+  std::rotate(Ops.begin(), Ops.begin() + 1, Ops.end() - 1);
+  Ops.push_back(ConstantInt::get(Ops.back()->getType(), PolicyAttrs));
+  IntrinsicTypes = {ResultType, Ops[1]->getType(), Ops[2]->getType(), Ops.back()->getType()};
+  break;
+case RISCVVector::BI__builtin_rvv_vqdot_vv_mu:
+case RISCVVector::BI__builtin_rvv_vqdot_vx_mu:
+  ID = Intrinsic::riscv_vqdot_mask;
+  PolicyAttrs = 1;
+  SegInstSEW = 0;
+  std::rotate(Ops.begin(), Ops.begin() + 1, Ops.end() - 1);
+  Ops.push_back(ConstantInt::get(Ops.back()->getType(), PolicyAttrs));
+  IntrinsicTypes = {ResultType, Ops[1]->getType(), Ops[2]->getType(), Ops.back()->getType()};
+  break;
+case RISCVVector::BI__builtin_rvv_vqdotsu_vv_tu:
+case RISCVVector::BI__builtin_rvv_vqdotsu_vx_tu:
+  ID = Intrinsic::riscv_vqdotsu;
+  PolicyAttrs = 2;
+  SegInstSEW = 0;
+  Ops.push_back(ConstantInt::get(Ops.back()->getType(), PolicyAttrs));
+  IntrinsicTypes = {ResultType, Ops[1]->getType(), Ops[2]->getType(), Ops.back()->getType()};
+  break;
+case RISCVVector::BI__builtin_rvv_vqdotsu_vv:
+case RISCVVector::BI__builtin_rvv_vqdotsu_vx:
+  ID = Intrinsic::riscv_vqdotsu;
+  PolicyAttrs = 3;
+  SegInstSEW = 0;
+  Ops.push_back(ConstantInt::get(Ops.back()->getType(), PolicyAttrs));
+  IntrinsicTypes = {ResultType, Ops[1]->getType(), Ops[2]->getType(), Ops.back()->getType()};
+  break;
+case RISCVVector::BI__builtin_rvv_vqdotsu_vv_tum:
+case RISCVVector::BI__builtin_rvv_vqdotsu_vx_tum:
+  ID = Intrinsic::riscv_vqdotsu_mask;
+  PolicyAttrs = 2;
+  SegInstSEW = 0;
+  std::rotate(Ops.begin(), Ops.begin() + 1, Ops.end() - 1);
+  Ops.push_back(ConstantInt::get(Ops.back()->getType(), PolicyAttrs));
+  IntrinsicTypes = {ResultType, Ops[1]->getType(), Ops[2]->getType(), Ops.back()->getType()};
+  break;
+case RISCVVector::BI__builtin_rvv_vqdotsu_vv_m:
+case RISCVVector::BI__builtin_rvv_vqdotsu_vx_m:
+  ID = Intrinsic::riscv_vqdotsu_mask;
+  PolicyAttrs = 3;
+  SegInstSEW = 0;
+  std::rotate(Ops.begin(), Ops.begin() + 1, Ops.end() - 1);
+  Ops.push_back(ConstantInt::get(Ops.back()->getType(), PolicyAttrs));
+  IntrinsicTypes = {ResultType, Ops[1]->getType(), Ops[2]->getType(), Ops.back()->getType()};
+  break;
+case RISCVVector::BI__builtin_rvv_vqdotsu_vv_tumu:
+case RISCVVector::BI__builtin_rvv_vqdotsu_vx_tumu:
+  ID = Intrinsic::riscv_vqdotsu_mask;
+  PolicyAttrs = 0;
+  SegInstSEW = 0;
+  std::rotate(Ops.begin(), Ops.begin() + 1, Ops.end() - 1);
+  Ops.push_back(ConstantInt::get(Ops.back()->getType(), PolicyAttrs));
+  IntrinsicTypes = {ResultType, Ops[1]->getType(), Ops[2]->getType(), Ops.back()->getType()};
+  break;
+case RISCVVector::BI__builtin_rvv_vqdotsu_vv_mu:
+case RISCVVector::BI__builtin_rvv_vqdotsu_vx_mu:
+  ID = Intrinsic::riscv_vqdotsu_mask;
+  PolicyAttrs = 1;
+  SegInstSEW = 0;
+  std::rotate(Ops.begin(), Ops.begin() + 1, Ops.end() - 1);
+  Ops.push_back(ConstantInt::get(Ops.back()->getType(), PolicyAttrs));
+  IntrinsicTypes = {ResultType, Ops[1]->getType(), Ops[2]->getType(), Ops.back()->getType()};
+  break;
+case RISCVVector::BI__builtin_rvv_vqdotu_vv_tu:
+case RISCVVector::BI__builtin_rvv_vqdotu_vx_tu:
+  ID = Intrinsic::riscv_vqdotu;
+  PolicyAttrs = 2;
+  SegInstSEW = 0;
+  Ops.push_back(ConstantInt::get(Ops.back()->getType(), PolicyAttrs));
+  IntrinsicTypes = {ResultType, Ops[1]->getType(), Ops[2]->getType(), Ops.back()->getType()};
+  break;
+case RISCVVector::BI__builtin_rvv_vqdotu_vv:
+case RISCVVector::BI__builtin_rvv_vqdotu_vx:
+  ID = Intrinsic::riscv_vqdotu;
+  PolicyAttrs = 3;
+  SegInstSEW = 0;
+  Ops.push_back(ConstantInt::get(Ops.back()->getType(), PolicyAttrs));
+  IntrinsicTypes = {ResultType, Ops[1]->getType(), Ops[2]->getType(), Ops.back()->getType()};
+  break;
+case RISCVVector::BI__builtin_rvv_vqdotu_vv_tum:
+case RISCVVector::BI__builtin_rvv_vqdotu_vx_tum:
+  ID = Intrinsic::riscv_vqdotu_mask;
+  PolicyAttrs = 2;
+  SegInstSEW = 0;
+  std::rotate(Ops.begin(), Ops.begin() + 1, Ops.end() - 1);
+  Ops.push_back(ConstantInt::get(Ops.back()->getType(), PolicyAttrs));
+  IntrinsicTypes = {ResultType, Ops[1]->getType(), Ops[2]->getType(), Ops.back()->getType()};
+  break;
+case RISCVVector::BI__builtin_rvv_vqdotu_vv_m:
+case RISCVVector::BI__builtin_rvv_vqdotu_vx_m:
+  ID = Intrinsic::riscv_vqdotu_mask;
+  PolicyAttrs = 3;
+  SegInstSEW = 0;
+  std::rotate(Ops.begin(), Ops.begin() + 1, Ops.end() - 1);
+  Ops.push_back(ConstantInt::get(Ops.back()->getType(), PolicyAttrs));
+  IntrinsicTypes = {ResultType, Ops[1]->getType(), Ops[2]->getType(), Ops.back()->getType()};
+  break;
+case RISCVVector::BI__builtin_rvv_vqdotu_vv_tumu:
+case RISCVVector::BI__builtin_rvv_vqdotu_vx_tumu:
+  ID = Intrinsic::riscv_vqdotu_mask;
+  PolicyAttrs = 0;
+  SegInstSEW = 0;
+  std::rotate(Ops.begin(), Ops.begin() + 1, Ops.end() - 1);
+  Ops.push_back(ConstantInt::get(Ops.back()->getType(), PolicyAttrs));
+  IntrinsicTypes = {ResultType, Ops[1]->getType(), Ops[2]->getType(), Ops.back()->getType()};
+  break;
+case RISCVVector::BI__builtin_rvv_vqdotu_vv_mu:
+case RISCVVector::BI__builtin_rvv_vqdotu_vx_mu:
+  ID = Intrinsic::riscv_vqdotu_mask;
+  PolicyAttrs = 1;
+  SegInstSEW = 0;
+  std::rotate(Ops.begin(), Ops.begin() + 1, Ops.end() - 1);
+  Ops.push_back(ConstantInt::get(Ops.back()->getType(), PolicyAttrs));
+  IntrinsicTypes = {ResultType, Ops[1]->getType(), Ops[2]->getType(), Ops.back()->getType()};
+  break;
+case RISCVVector::BI__builtin_rvv_vqdotus_vx_tu:
+  ID = Intrinsic::riscv_vqdotus;
+  PolicyAttrs = 2;
+  SegInstSEW = 0;
+  Ops.push_back(ConstantInt::get(Ops.back()->getType(), PolicyAttrs));
+  IntrinsicTypes = {ResultType, Ops[1]->getType(), Ops[2]->getType(), Ops.back()->getType()};
+  break;
+case RISCVVector::BI__builtin_rvv_vqdotus_vx:
+  ID = Intrinsic::riscv_vqdotus;
+  PolicyAttrs = 3;
+  SegInstSEW = 0;
+  Ops.push_back(ConstantInt::get(Ops.back()->getType(), PolicyAttrs));
+  IntrinsicTypes = {ResultType, Ops[1]->getType(), Ops[2]->getType(), Ops.back()->getType()};
+  break;
+case RISCVVector::BI__builtin_rvv_vqdotus_vx_tum:
+  ID = Intrinsic::riscv_vqdotus_mask;
+  PolicyAttrs = 2;
+  SegInstSEW = 0;
+  std::rotate(Ops.begin(), Ops.begin() + 1, Ops.end() - 1);
+  Ops.push_back(ConstantInt::get(Ops.back()->getType(), PolicyAttrs));
+  IntrinsicTypes = {ResultType, Ops[1]->getType(), Ops[2]->getType(), Ops.back()->getType()};
+  break;
+case RISCVVector::BI__builtin_rvv_vqdotus_vx_m:
+  ID = Intrinsic::riscv_vqdotus_mask;
+  PolicyAttrs = 3;
+  SegInstSEW = 0;
+  std::rotate(Ops.begin(), Ops.begin() + 1, Ops.end() - 1);
+  Ops.push_back(ConstantInt::get(Ops.back()->getType(), PolicyAttrs));
+  IntrinsicTypes = {ResultType, Ops[1]->getType(), Ops[2]->getType(), Ops.back()->getType()};
+  break;
+case RISCVVector::BI__builtin_rvv_vqdotus_vx_tumu:
+  ID = Intrinsic::riscv_vqdotus_mask;
+  PolicyAttrs = 0;
+  SegInstSEW = 0;
+  std::rotate(Ops.begin(), Ops.begin() + 1, Ops.end() - 1);
+  Ops.push_back(ConstantInt::get(Ops.back()->getType(), PolicyAttrs));
+  IntrinsicTypes = {ResultType, Ops[1]->getType(), Ops[2]->getType(), Ops.back()->getType()};
+  break;
+case RISCVVector::BI__builtin_rvv_vqdotus_vx_mu:
+  ID = Intrinsic::riscv_vqdotus_mask;
+  PolicyAttrs = 1;
+  SegInstSEW = 0;
+  std::rotate(Ops.begin(), Ops.begin() + 1, Ops.end() - 1);
+  Ops.push_back(ConstantInt::get(Ops.back()->getType(), PolicyAttrs));
+  IntrinsicTypes = {ResultType, Ops[1]->getType(), Ops[2]->getType(), Ops.back()->getType()};
   break;
 case RISCVVector::BI__builtin_rvv_vredand_vs_tu:
   ID = Intrinsic::riscv_vredand;
@@ -24701,10 +20005,6 @@ case RISCVVector::BI__builtin_rvv_vneg_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoUnaryBuiltin(this, E, ReturnValue, ResultType, ID,
                                          Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -24720,10 +20020,6 @@ case RISCVVector::BI__builtin_rvv_vneg_v:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoUnaryBuiltin(this, E, ReturnValue, ResultType, ID,
                                          Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -24740,10 +20036,6 @@ case RISCVVector::BI__builtin_rvv_vneg_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoUnaryBuiltin(this, E, ReturnValue, ResultType, ID,
                                          Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -24761,10 +20053,6 @@ case RISCVVector::BI__builtin_rvv_vneg_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoUnaryBuiltin(this, E, ReturnValue, ResultType, ID,
                                          Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -24783,10 +20071,6 @@ case RISCVVector::BI__builtin_rvv_vneg_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoUnaryBuiltin(this, E, ReturnValue, ResultType, ID,
                                          Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -24804,10 +20088,6 @@ case RISCVVector::BI__builtin_rvv_vneg_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoUnaryBuiltin(this, E, ReturnValue, ResultType, ID,
                                          Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -24947,10 +20227,6 @@ case RISCVVector::BI__builtin_rvv_vse64_v:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVVSEMaskBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
                                    PolicyAttrs, IsMasked, SegInstSEW);
@@ -24963,10 +20239,6 @@ case RISCVVector::BI__builtin_rvv_vse64_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVVSEMaskBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
                                    PolicyAttrs, IsMasked, SegInstSEW);
@@ -24976,10 +20248,6 @@ case RISCVVector::BI__builtin_rvv_vsetvli:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVVsetvliBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
                                    PolicyAttrs, IsMasked, SegInstSEW);
@@ -24989,10 +20257,6 @@ case RISCVVector::BI__builtin_rvv_vsetvlimax:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVVsetvliBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
                                    PolicyAttrs, IsMasked, SegInstSEW);
@@ -25194,10 +20458,6 @@ case RISCVVector::BI__builtin_rvv_vslidedown_vx_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       if (IsMasked) {
         std::rotate(Ops.begin(), Ops.begin() + 1, Ops.end() - 1);
@@ -25216,10 +20476,6 @@ case RISCVVector::BI__builtin_rvv_vslidedown_vx:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       if (IsMasked) {
         std::rotate(Ops.begin(), Ops.begin() + 1, Ops.end() - 1);
@@ -25238,10 +20494,6 @@ case RISCVVector::BI__builtin_rvv_vslidedown_vx_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       if (IsMasked) {
         std::rotate(Ops.begin(), Ops.begin() + 1, Ops.end() - 1);
@@ -25260,10 +20512,6 @@ case RISCVVector::BI__builtin_rvv_vslidedown_vx_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       if (IsMasked) {
         std::rotate(Ops.begin(), Ops.begin() + 1, Ops.end() - 1);
@@ -25282,10 +20530,6 @@ case RISCVVector::BI__builtin_rvv_vslidedown_vx_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       if (IsMasked) {
         std::rotate(Ops.begin(), Ops.begin() + 1, Ops.end() - 1);
@@ -25304,10 +20548,6 @@ case RISCVVector::BI__builtin_rvv_vslidedown_vx_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       if (IsMasked) {
         std::rotate(Ops.begin(), Ops.begin() + 1, Ops.end() - 1);
@@ -25424,10 +20664,6 @@ case RISCVVector::BI__builtin_rvv_vsm_v:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVVSEMaskBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
                                    PolicyAttrs, IsMasked, SegInstSEW);
@@ -25506,10 +20742,6 @@ case RISCVVector::BI__builtin_rvv_vsmul_vx_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVAveragingBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -25522,10 +20754,6 @@ case RISCVVector::BI__builtin_rvv_vsmul_vx:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVAveragingBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -25538,10 +20766,6 @@ case RISCVVector::BI__builtin_rvv_vsmul_vx_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVAveragingBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -25554,10 +20778,6 @@ case RISCVVector::BI__builtin_rvv_vsmul_vx_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVAveragingBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -25570,10 +20790,6 @@ case RISCVVector::BI__builtin_rvv_vsmul_vx_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVAveragingBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -25586,10 +20802,6 @@ case RISCVVector::BI__builtin_rvv_vsmul_vx_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVAveragingBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -25604,10 +20816,6 @@ case RISCVVector::BI__builtin_rvv_vsoxei64_v:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVIndexedStoreBuiltin(this, E, ReturnValue, ResultType, ID,
                                           Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -25620,10 +20828,6 @@ case RISCVVector::BI__builtin_rvv_vsoxei64_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVIndexedStoreBuiltin(this, E, ReturnValue, ResultType, ID,
                                           Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -25634,12 +20838,11 @@ case RISCVVector::BI__builtin_rvv_vsoxseg2ei32_v:
 case RISCVVector::BI__builtin_rvv_vsoxseg2ei64_v:
   ID = Intrinsic::riscv_vsoxseg2;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(0)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(0      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -25651,12 +20854,11 @@ case RISCVVector::BI__builtin_rvv_vsoxseg2ei32_v_m:
 case RISCVVector::BI__builtin_rvv_vsoxseg2ei64_v_m:
   ID = Intrinsic::riscv_vsoxseg2_mask;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(1)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(1      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -25668,12 +20870,11 @@ case RISCVVector::BI__builtin_rvv_vsoxseg3ei32_v:
 case RISCVVector::BI__builtin_rvv_vsoxseg3ei64_v:
   ID = Intrinsic::riscv_vsoxseg3;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(0)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(0      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -25685,12 +20886,11 @@ case RISCVVector::BI__builtin_rvv_vsoxseg3ei32_v_m:
 case RISCVVector::BI__builtin_rvv_vsoxseg3ei64_v_m:
   ID = Intrinsic::riscv_vsoxseg3_mask;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(1)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(1      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -25702,12 +20902,11 @@ case RISCVVector::BI__builtin_rvv_vsoxseg4ei32_v:
 case RISCVVector::BI__builtin_rvv_vsoxseg4ei64_v:
   ID = Intrinsic::riscv_vsoxseg4;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(0)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(0      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -25719,12 +20918,11 @@ case RISCVVector::BI__builtin_rvv_vsoxseg4ei32_v_m:
 case RISCVVector::BI__builtin_rvv_vsoxseg4ei64_v_m:
   ID = Intrinsic::riscv_vsoxseg4_mask;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(1)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(1      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -25736,12 +20934,11 @@ case RISCVVector::BI__builtin_rvv_vsoxseg5ei32_v:
 case RISCVVector::BI__builtin_rvv_vsoxseg5ei64_v:
   ID = Intrinsic::riscv_vsoxseg5;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(0)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(0      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -25753,12 +20950,11 @@ case RISCVVector::BI__builtin_rvv_vsoxseg5ei32_v_m:
 case RISCVVector::BI__builtin_rvv_vsoxseg5ei64_v_m:
   ID = Intrinsic::riscv_vsoxseg5_mask;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(1)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(1      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -25770,12 +20966,11 @@ case RISCVVector::BI__builtin_rvv_vsoxseg6ei32_v:
 case RISCVVector::BI__builtin_rvv_vsoxseg6ei64_v:
   ID = Intrinsic::riscv_vsoxseg6;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(0)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(0      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -25787,12 +20982,11 @@ case RISCVVector::BI__builtin_rvv_vsoxseg6ei32_v_m:
 case RISCVVector::BI__builtin_rvv_vsoxseg6ei64_v_m:
   ID = Intrinsic::riscv_vsoxseg6_mask;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(1)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(1      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -25804,12 +20998,11 @@ case RISCVVector::BI__builtin_rvv_vsoxseg7ei32_v:
 case RISCVVector::BI__builtin_rvv_vsoxseg7ei64_v:
   ID = Intrinsic::riscv_vsoxseg7;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(0)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(0      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -25821,12 +21014,11 @@ case RISCVVector::BI__builtin_rvv_vsoxseg7ei32_v_m:
 case RISCVVector::BI__builtin_rvv_vsoxseg7ei64_v_m:
   ID = Intrinsic::riscv_vsoxseg7_mask;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(1)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(1      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -25838,12 +21030,11 @@ case RISCVVector::BI__builtin_rvv_vsoxseg8ei32_v:
 case RISCVVector::BI__builtin_rvv_vsoxseg8ei64_v:
   ID = Intrinsic::riscv_vsoxseg8;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(0)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(0      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -25855,12 +21046,11 @@ case RISCVVector::BI__builtin_rvv_vsoxseg8ei32_v_m:
 case RISCVVector::BI__builtin_rvv_vsoxseg8ei64_v_m:
   ID = Intrinsic::riscv_vsoxseg8_mask;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(1)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(1      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -25978,10 +21168,6 @@ case RISCVVector::BI__builtin_rvv_vsse64_v:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVVSSEBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
                                   PolicyAttrs, IsMasked, SegInstSEW);
@@ -25994,10 +21180,6 @@ case RISCVVector::BI__builtin_rvv_vsse64_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVVSSEBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
                                   PolicyAttrs, IsMasked, SegInstSEW);
@@ -26007,10 +21189,6 @@ case RISCVVector::BI__builtin_rvv_vsseg2e8_v:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26021,10 +21199,6 @@ case RISCVVector::BI__builtin_rvv_vsseg2e16_v:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26035,10 +21209,6 @@ case RISCVVector::BI__builtin_rvv_vsseg2e32_v:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26049,10 +21219,6 @@ case RISCVVector::BI__builtin_rvv_vsseg2e64_v:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26062,10 +21228,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26075,10 +21237,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26088,10 +21246,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26101,10 +21255,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26115,10 +21265,6 @@ case RISCVVector::BI__builtin_rvv_vsseg2e8_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26129,10 +21275,6 @@ case RISCVVector::BI__builtin_rvv_vsseg2e16_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26143,10 +21285,6 @@ case RISCVVector::BI__builtin_rvv_vsseg2e32_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26157,10 +21295,6 @@ case RISCVVector::BI__builtin_rvv_vsseg2e64_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26170,10 +21304,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26183,10 +21313,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26196,10 +21322,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26209,10 +21331,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26223,10 +21341,6 @@ case RISCVVector::BI__builtin_rvv_vsseg3e8_v:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26237,10 +21351,6 @@ case RISCVVector::BI__builtin_rvv_vsseg3e16_v:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26251,10 +21361,6 @@ case RISCVVector::BI__builtin_rvv_vsseg3e32_v:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26265,10 +21371,6 @@ case RISCVVector::BI__builtin_rvv_vsseg3e64_v:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26278,10 +21380,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26291,10 +21389,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26304,10 +21398,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26317,10 +21407,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26331,10 +21417,6 @@ case RISCVVector::BI__builtin_rvv_vsseg3e8_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26345,10 +21427,6 @@ case RISCVVector::BI__builtin_rvv_vsseg3e16_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26359,10 +21437,6 @@ case RISCVVector::BI__builtin_rvv_vsseg3e32_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26373,10 +21447,6 @@ case RISCVVector::BI__builtin_rvv_vsseg3e64_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26386,10 +21456,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26399,10 +21465,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26412,10 +21474,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26425,10 +21483,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26439,10 +21493,6 @@ case RISCVVector::BI__builtin_rvv_vsseg4e8_v:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26453,10 +21503,6 @@ case RISCVVector::BI__builtin_rvv_vsseg4e16_v:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26467,10 +21513,6 @@ case RISCVVector::BI__builtin_rvv_vsseg4e32_v:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26481,10 +21523,6 @@ case RISCVVector::BI__builtin_rvv_vsseg4e64_v:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26494,10 +21532,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26507,10 +21541,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26520,10 +21550,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26533,10 +21559,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26547,10 +21569,6 @@ case RISCVVector::BI__builtin_rvv_vsseg4e8_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26561,10 +21579,6 @@ case RISCVVector::BI__builtin_rvv_vsseg4e16_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26575,10 +21589,6 @@ case RISCVVector::BI__builtin_rvv_vsseg4e32_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26589,10 +21599,6 @@ case RISCVVector::BI__builtin_rvv_vsseg4e64_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26602,10 +21608,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26615,10 +21617,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26628,10 +21626,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26641,10 +21635,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26655,10 +21645,6 @@ case RISCVVector::BI__builtin_rvv_vsseg5e8_v:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26669,10 +21655,6 @@ case RISCVVector::BI__builtin_rvv_vsseg5e16_v:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26683,10 +21665,6 @@ case RISCVVector::BI__builtin_rvv_vsseg5e32_v:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26697,10 +21675,6 @@ case RISCVVector::BI__builtin_rvv_vsseg5e64_v:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26710,10 +21684,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26723,10 +21693,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26736,10 +21702,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26749,10 +21711,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26763,10 +21721,6 @@ case RISCVVector::BI__builtin_rvv_vsseg5e8_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26777,10 +21731,6 @@ case RISCVVector::BI__builtin_rvv_vsseg5e16_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26791,10 +21741,6 @@ case RISCVVector::BI__builtin_rvv_vsseg5e32_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26805,10 +21751,6 @@ case RISCVVector::BI__builtin_rvv_vsseg5e64_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26818,10 +21760,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26831,10 +21769,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26844,10 +21778,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26857,10 +21787,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26871,10 +21797,6 @@ case RISCVVector::BI__builtin_rvv_vsseg6e8_v:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26885,10 +21807,6 @@ case RISCVVector::BI__builtin_rvv_vsseg6e16_v:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26899,10 +21817,6 @@ case RISCVVector::BI__builtin_rvv_vsseg6e32_v:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26913,10 +21827,6 @@ case RISCVVector::BI__builtin_rvv_vsseg6e64_v:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26926,10 +21836,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26939,10 +21845,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26952,10 +21854,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26965,10 +21863,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26979,10 +21873,6 @@ case RISCVVector::BI__builtin_rvv_vsseg6e8_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -26993,10 +21883,6 @@ case RISCVVector::BI__builtin_rvv_vsseg6e16_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -27007,10 +21893,6 @@ case RISCVVector::BI__builtin_rvv_vsseg6e32_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -27021,10 +21903,6 @@ case RISCVVector::BI__builtin_rvv_vsseg6e64_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -27034,10 +21912,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -27047,10 +21921,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -27060,10 +21930,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -27073,10 +21939,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -27087,10 +21949,6 @@ case RISCVVector::BI__builtin_rvv_vsseg7e8_v:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -27101,10 +21959,6 @@ case RISCVVector::BI__builtin_rvv_vsseg7e16_v:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -27115,10 +21969,6 @@ case RISCVVector::BI__builtin_rvv_vsseg7e32_v:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -27129,10 +21979,6 @@ case RISCVVector::BI__builtin_rvv_vsseg7e64_v:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -27142,10 +21988,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -27155,10 +21997,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -27168,10 +22006,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -27181,10 +22015,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -27195,10 +22025,6 @@ case RISCVVector::BI__builtin_rvv_vsseg7e8_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -27209,10 +22035,6 @@ case RISCVVector::BI__builtin_rvv_vsseg7e16_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -27223,10 +22045,6 @@ case RISCVVector::BI__builtin_rvv_vsseg7e32_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -27237,10 +22055,6 @@ case RISCVVector::BI__builtin_rvv_vsseg7e64_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -27250,10 +22064,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -27263,10 +22073,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -27276,10 +22082,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -27289,10 +22091,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -27303,10 +22101,6 @@ case RISCVVector::BI__builtin_rvv_vsseg8e8_v:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -27317,10 +22111,6 @@ case RISCVVector::BI__builtin_rvv_vsseg8e16_v:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -27331,10 +22121,6 @@ case RISCVVector::BI__builtin_rvv_vsseg8e32_v:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -27345,10 +22131,6 @@ case RISCVVector::BI__builtin_rvv_vsseg8e64_v:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -27358,10 +22140,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -27371,10 +22149,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -27384,10 +22158,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -27397,10 +22167,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -27411,10 +22177,6 @@ case RISCVVector::BI__builtin_rvv_vsseg8e8_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -27425,10 +22187,6 @@ case RISCVVector::BI__builtin_rvv_vsseg8e16_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -27439,10 +22197,6 @@ case RISCVVector::BI__builtin_rvv_vsseg8e32_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -27453,10 +22207,6 @@ case RISCVVector::BI__builtin_rvv_vsseg8e64_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -27466,10 +22216,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -27479,10 +22225,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -27492,10 +22234,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -27505,10 +22243,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
             return emitRVVUnitStridedSegStoreTupleBuiltin(
                 this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs,
@@ -27520,10 +22254,6 @@ case RISCVVector::BI__builtin_rvv_vssra_vx_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVAveragingBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -27536,10 +22266,6 @@ case RISCVVector::BI__builtin_rvv_vssra_vx:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVAveragingBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -27552,10 +22278,6 @@ case RISCVVector::BI__builtin_rvv_vssra_vx_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVAveragingBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -27568,10 +22290,6 @@ case RISCVVector::BI__builtin_rvv_vssra_vx_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVAveragingBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -27584,10 +22302,6 @@ case RISCVVector::BI__builtin_rvv_vssra_vx_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVAveragingBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -27600,10 +22314,6 @@ case RISCVVector::BI__builtin_rvv_vssra_vx_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVAveragingBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -27616,10 +22326,6 @@ case RISCVVector::BI__builtin_rvv_vssrl_vx_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVAveragingBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -27632,10 +22338,6 @@ case RISCVVector::BI__builtin_rvv_vssrl_vx:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVAveragingBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -27648,10 +22350,6 @@ case RISCVVector::BI__builtin_rvv_vssrl_vx_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVAveragingBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -27664,10 +22362,6 @@ case RISCVVector::BI__builtin_rvv_vssrl_vx_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVAveragingBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -27680,10 +22374,6 @@ case RISCVVector::BI__builtin_rvv_vssrl_vx_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVAveragingBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -27696,10 +22386,6 @@ case RISCVVector::BI__builtin_rvv_vssrl_vx_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
   {
     return emitRVVAveragingBuiltin(this, E, ReturnValue, ResultType, ID, Ops,
@@ -27711,10 +22397,6 @@ case RISCVVector::BI__builtin_rvv_vssseg2e8_v:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -27725,10 +22407,6 @@ case RISCVVector::BI__builtin_rvv_vssseg2e16_v:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -27739,10 +22417,6 @@ case RISCVVector::BI__builtin_rvv_vssseg2e32_v:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -27753,10 +22427,6 @@ case RISCVVector::BI__builtin_rvv_vssseg2e64_v:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -27766,10 +22436,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -27779,10 +22445,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -27792,10 +22454,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -27805,10 +22463,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -27819,10 +22473,6 @@ case RISCVVector::BI__builtin_rvv_vssseg2e8_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -27833,10 +22483,6 @@ case RISCVVector::BI__builtin_rvv_vssseg2e16_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -27847,10 +22493,6 @@ case RISCVVector::BI__builtin_rvv_vssseg2e32_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -27861,10 +22503,6 @@ case RISCVVector::BI__builtin_rvv_vssseg2e64_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -27874,10 +22512,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -27887,10 +22521,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -27900,10 +22530,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -27913,10 +22539,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -27927,10 +22549,6 @@ case RISCVVector::BI__builtin_rvv_vssseg3e8_v:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -27941,10 +22559,6 @@ case RISCVVector::BI__builtin_rvv_vssseg3e16_v:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -27955,10 +22569,6 @@ case RISCVVector::BI__builtin_rvv_vssseg3e32_v:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -27969,10 +22579,6 @@ case RISCVVector::BI__builtin_rvv_vssseg3e64_v:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -27982,10 +22588,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -27995,10 +22597,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28008,10 +22606,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28021,10 +22615,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28035,10 +22625,6 @@ case RISCVVector::BI__builtin_rvv_vssseg3e8_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28049,10 +22635,6 @@ case RISCVVector::BI__builtin_rvv_vssseg3e16_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28063,10 +22645,6 @@ case RISCVVector::BI__builtin_rvv_vssseg3e32_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28077,10 +22655,6 @@ case RISCVVector::BI__builtin_rvv_vssseg3e64_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28090,10 +22664,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28103,10 +22673,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28116,10 +22682,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28129,10 +22691,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28143,10 +22701,6 @@ case RISCVVector::BI__builtin_rvv_vssseg4e8_v:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28157,10 +22711,6 @@ case RISCVVector::BI__builtin_rvv_vssseg4e16_v:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28171,10 +22721,6 @@ case RISCVVector::BI__builtin_rvv_vssseg4e32_v:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28185,10 +22731,6 @@ case RISCVVector::BI__builtin_rvv_vssseg4e64_v:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28198,10 +22740,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28211,10 +22749,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28224,10 +22758,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28237,10 +22767,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28251,10 +22777,6 @@ case RISCVVector::BI__builtin_rvv_vssseg4e8_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28265,10 +22787,6 @@ case RISCVVector::BI__builtin_rvv_vssseg4e16_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28279,10 +22797,6 @@ case RISCVVector::BI__builtin_rvv_vssseg4e32_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28293,10 +22807,6 @@ case RISCVVector::BI__builtin_rvv_vssseg4e64_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28306,10 +22816,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28319,10 +22825,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28332,10 +22834,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28345,10 +22843,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28359,10 +22853,6 @@ case RISCVVector::BI__builtin_rvv_vssseg5e8_v:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28373,10 +22863,6 @@ case RISCVVector::BI__builtin_rvv_vssseg5e16_v:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28387,10 +22873,6 @@ case RISCVVector::BI__builtin_rvv_vssseg5e32_v:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28401,10 +22883,6 @@ case RISCVVector::BI__builtin_rvv_vssseg5e64_v:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28414,10 +22892,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28427,10 +22901,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28440,10 +22910,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28453,10 +22919,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28467,10 +22929,6 @@ case RISCVVector::BI__builtin_rvv_vssseg5e8_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28481,10 +22939,6 @@ case RISCVVector::BI__builtin_rvv_vssseg5e16_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28495,10 +22949,6 @@ case RISCVVector::BI__builtin_rvv_vssseg5e32_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28509,10 +22959,6 @@ case RISCVVector::BI__builtin_rvv_vssseg5e64_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28522,10 +22968,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28535,10 +22977,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28548,10 +22986,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28561,10 +22995,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28575,10 +23005,6 @@ case RISCVVector::BI__builtin_rvv_vssseg6e8_v:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28589,10 +23015,6 @@ case RISCVVector::BI__builtin_rvv_vssseg6e16_v:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28603,10 +23025,6 @@ case RISCVVector::BI__builtin_rvv_vssseg6e32_v:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28617,10 +23035,6 @@ case RISCVVector::BI__builtin_rvv_vssseg6e64_v:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28630,10 +23044,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28643,10 +23053,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28656,10 +23062,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28669,10 +23071,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28683,10 +23081,6 @@ case RISCVVector::BI__builtin_rvv_vssseg6e8_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28697,10 +23091,6 @@ case RISCVVector::BI__builtin_rvv_vssseg6e16_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28711,10 +23101,6 @@ case RISCVVector::BI__builtin_rvv_vssseg6e32_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28725,10 +23111,6 @@ case RISCVVector::BI__builtin_rvv_vssseg6e64_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28738,10 +23120,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28751,10 +23129,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28764,10 +23138,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28777,10 +23147,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28791,10 +23157,6 @@ case RISCVVector::BI__builtin_rvv_vssseg7e8_v:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28805,10 +23167,6 @@ case RISCVVector::BI__builtin_rvv_vssseg7e16_v:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28819,10 +23177,6 @@ case RISCVVector::BI__builtin_rvv_vssseg7e32_v:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28833,10 +23187,6 @@ case RISCVVector::BI__builtin_rvv_vssseg7e64_v:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28846,10 +23196,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28859,10 +23205,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28872,10 +23214,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28885,10 +23223,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28899,10 +23233,6 @@ case RISCVVector::BI__builtin_rvv_vssseg7e8_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28913,10 +23243,6 @@ case RISCVVector::BI__builtin_rvv_vssseg7e16_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28927,10 +23253,6 @@ case RISCVVector::BI__builtin_rvv_vssseg7e32_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28941,10 +23263,6 @@ case RISCVVector::BI__builtin_rvv_vssseg7e64_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28954,10 +23272,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28967,10 +23281,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28980,10 +23290,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -28993,10 +23299,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -29007,10 +23309,6 @@ case RISCVVector::BI__builtin_rvv_vssseg8e8_v:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -29021,10 +23319,6 @@ case RISCVVector::BI__builtin_rvv_vssseg8e16_v:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -29035,10 +23329,6 @@ case RISCVVector::BI__builtin_rvv_vssseg8e32_v:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -29049,10 +23339,6 @@ case RISCVVector::BI__builtin_rvv_vssseg8e64_v:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -29062,10 +23348,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -29075,10 +23357,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -29088,10 +23366,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -29101,10 +23375,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -29115,10 +23385,6 @@ case RISCVVector::BI__builtin_rvv_vssseg8e8_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 3;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -29129,10 +23395,6 @@ case RISCVVector::BI__builtin_rvv_vssseg8e16_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -29143,10 +23405,6 @@ case RISCVVector::BI__builtin_rvv_vssseg8e32_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -29157,10 +23415,6 @@ case RISCVVector::BI__builtin_rvv_vssseg8e64_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -29170,10 +23424,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -29183,10 +23433,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 5;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -29196,10 +23442,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 6;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -29209,10 +23451,6 @@ if (SegInstSEW == (unsigned)-1) {
   PolicyAttrs = 3;
   SegInstSEW = 4;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVStridedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -29382,10 +23620,6 @@ case RISCVVector::BI__builtin_rvv_vsuxei32_v:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVIndexedStoreBuiltin(this, E, ReturnValue, ResultType, ID,
                                           Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -29398,10 +23632,6 @@ case RISCVVector::BI__builtin_rvv_vsuxei32_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVIndexedStoreBuiltin(this, E, ReturnValue, ResultType, ID,
                                           Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -29412,12 +23642,11 @@ case RISCVVector::BI__builtin_rvv_vsuxseg2ei32_v:
 case RISCVVector::BI__builtin_rvv_vsuxseg2ei64_v:
   ID = Intrinsic::riscv_vsuxseg2;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(0)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(0      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -29429,12 +23658,11 @@ case RISCVVector::BI__builtin_rvv_vsuxseg2ei32_v_m:
 case RISCVVector::BI__builtin_rvv_vsuxseg2ei64_v_m:
   ID = Intrinsic::riscv_vsuxseg2_mask;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(1)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(1      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -29446,12 +23674,11 @@ case RISCVVector::BI__builtin_rvv_vsuxseg3ei32_v:
 case RISCVVector::BI__builtin_rvv_vsuxseg3ei64_v:
   ID = Intrinsic::riscv_vsuxseg3;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(0)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(0      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -29463,12 +23690,11 @@ case RISCVVector::BI__builtin_rvv_vsuxseg3ei32_v_m:
 case RISCVVector::BI__builtin_rvv_vsuxseg3ei64_v_m:
   ID = Intrinsic::riscv_vsuxseg3_mask;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(1)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(1      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -29480,12 +23706,11 @@ case RISCVVector::BI__builtin_rvv_vsuxseg4ei32_v:
 case RISCVVector::BI__builtin_rvv_vsuxseg4ei64_v:
   ID = Intrinsic::riscv_vsuxseg4;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(0)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(0      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -29497,12 +23722,11 @@ case RISCVVector::BI__builtin_rvv_vsuxseg4ei32_v_m:
 case RISCVVector::BI__builtin_rvv_vsuxseg4ei64_v_m:
   ID = Intrinsic::riscv_vsuxseg4_mask;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(1)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(1      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -29514,12 +23738,11 @@ case RISCVVector::BI__builtin_rvv_vsuxseg5ei32_v:
 case RISCVVector::BI__builtin_rvv_vsuxseg5ei64_v:
   ID = Intrinsic::riscv_vsuxseg5;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(0)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(0      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -29531,12 +23754,11 @@ case RISCVVector::BI__builtin_rvv_vsuxseg5ei32_v_m:
 case RISCVVector::BI__builtin_rvv_vsuxseg5ei64_v_m:
   ID = Intrinsic::riscv_vsuxseg5_mask;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(1)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(1      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -29548,12 +23770,11 @@ case RISCVVector::BI__builtin_rvv_vsuxseg6ei32_v:
 case RISCVVector::BI__builtin_rvv_vsuxseg6ei64_v:
   ID = Intrinsic::riscv_vsuxseg6;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(0)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(0      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -29565,12 +23786,11 @@ case RISCVVector::BI__builtin_rvv_vsuxseg6ei32_v_m:
 case RISCVVector::BI__builtin_rvv_vsuxseg6ei64_v_m:
   ID = Intrinsic::riscv_vsuxseg6_mask;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(1)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(1      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -29582,12 +23802,11 @@ case RISCVVector::BI__builtin_rvv_vsuxseg7ei32_v:
 case RISCVVector::BI__builtin_rvv_vsuxseg7ei64_v:
   ID = Intrinsic::riscv_vsuxseg7;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(0)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(0      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -29599,12 +23818,11 @@ case RISCVVector::BI__builtin_rvv_vsuxseg7ei32_v_m:
 case RISCVVector::BI__builtin_rvv_vsuxseg7ei64_v_m:
   ID = Intrinsic::riscv_vsuxseg7_mask;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(1)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(1      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -29616,12 +23834,11 @@ case RISCVVector::BI__builtin_rvv_vsuxseg8ei32_v:
 case RISCVVector::BI__builtin_rvv_vsuxseg8ei64_v:
   ID = Intrinsic::riscv_vsuxseg8;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(0)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(0      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -29633,12 +23850,11 @@ case RISCVVector::BI__builtin_rvv_vsuxseg8ei32_v_m:
 case RISCVVector::BI__builtin_rvv_vsuxseg8ei64_v_m:
   ID = Intrinsic::riscv_vsuxseg8_mask;
   PolicyAttrs = 3;
-  SegInstSEW = 4294967295;
+  {
+    auto PointeeType = E->getArg(1)->getType()->getPointeeType();
+    SegInstSEW = llvm::Log2_64(getContext().getTypeSize(PointeeType));
+  }
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(1      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
       return emitRVVIndexedSegStoreTupleBuiltin(
           this, E, ReturnValue, ResultType, ID, Ops, PolicyAttrs, IsMasked,
@@ -29656,10 +23872,6 @@ case RISCVVector::BI__builtin_rvv_vwcvt_x_x_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoVWCVTBuiltin(this, E, ReturnValue, ResultType, ID,
                                          Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -29677,10 +23889,6 @@ case RISCVVector::BI__builtin_rvv_vwcvt_x_x_v:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoVWCVTBuiltin(this, E, ReturnValue, ResultType, ID,
                                          Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -29699,10 +23907,6 @@ case RISCVVector::BI__builtin_rvv_vwcvt_x_x_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoVWCVTBuiltin(this, E, ReturnValue, ResultType, ID,
                                          Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -29722,10 +23926,6 @@ case RISCVVector::BI__builtin_rvv_vwcvt_x_x_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoVWCVTBuiltin(this, E, ReturnValue, ResultType, ID,
                                          Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -29744,10 +23944,6 @@ case RISCVVector::BI__builtin_rvv_vwcvt_x_x_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoVWCVTBuiltin(this, E, ReturnValue, ResultType, ID,
                                          Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -29766,10 +23962,6 @@ case RISCVVector::BI__builtin_rvv_vwcvt_x_x_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoVWCVTBuiltin(this, E, ReturnValue, ResultType, ID,
                                          Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -29837,10 +24029,6 @@ case RISCVVector::BI__builtin_rvv_vwcvtu_x_x_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoVWCVTBuiltin(this, E, ReturnValue, ResultType, ID,
                                          Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -29863,10 +24051,6 @@ case RISCVVector::BI__builtin_rvv_vwcvtu_x_x_v:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoVWCVTBuiltin(this, E, ReturnValue, ResultType, ID,
                                          Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -29891,10 +24075,6 @@ case RISCVVector::BI__builtin_rvv_vwcvtu_x_x_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoVWCVTBuiltin(this, E, ReturnValue, ResultType, ID,
                                          Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -29921,10 +24101,6 @@ case RISCVVector::BI__builtin_rvv_vwcvtu_x_x_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoVWCVTBuiltin(this, E, ReturnValue, ResultType, ID,
                                          Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -29951,10 +24127,6 @@ case RISCVVector::BI__builtin_rvv_vwcvtu_x_x_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoVWCVTBuiltin(this, E, ReturnValue, ResultType, ID,
                                          Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -29980,10 +24152,6 @@ case RISCVVector::BI__builtin_rvv_vwcvtu_x_x_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoVWCVTBuiltin(this, E, ReturnValue, ResultType, ID,
                                          Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -30727,10 +24895,6 @@ case RISCVVector::BI__builtin_rvv_vnot_v_tu:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoVNotBuiltin(this, E, ReturnValue, ResultType, ID,
                                         Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -30747,10 +24911,6 @@ case RISCVVector::BI__builtin_rvv_vnot_v:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = false;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoVNotBuiltin(this, E, ReturnValue, ResultType, ID,
                                         Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -30768,10 +24928,6 @@ case RISCVVector::BI__builtin_rvv_vnot_v_tum:
   PolicyAttrs = 2;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoVNotBuiltin(this, E, ReturnValue, ResultType, ID,
                                         Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -30790,10 +24946,6 @@ case RISCVVector::BI__builtin_rvv_vnot_v_m:
   PolicyAttrs = 3;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoVNotBuiltin(this, E, ReturnValue, ResultType, ID,
                                         Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -30813,10 +24965,6 @@ case RISCVVector::BI__builtin_rvv_vnot_v_tumu:
   PolicyAttrs = 0;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoVNotBuiltin(this, E, ReturnValue, ResultType, ID,
                                         Ops, PolicyAttrs, IsMasked, SegInstSEW);
@@ -30835,10 +24983,6 @@ case RISCVVector::BI__builtin_rvv_vnot_v_mu:
   PolicyAttrs = 1;
   SegInstSEW = 0;
 IsMasked = true;
-if (SegInstSEW == (unsigned)-1) {
-  auto PointeeType = E->getArg(4294967295      )->getType()->getPointeeType();
-  SegInstSEW =       llvm::Log2_64(getContext().getTypeSize(PointeeType));
-}
 
         return emitRVVPseudoVNotBuiltin(this, E, ReturnValue, ResultType, ID,
                                         Ops, PolicyAttrs, IsMasked, SegInstSEW);

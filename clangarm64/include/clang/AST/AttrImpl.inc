@@ -4320,7 +4320,7 @@ const char *ArcWeakrefUnavailableAttr::getSpelling() const {
 
 // ArgumentWithTypeTagAttr implementation
 
-ArgumentWithTypeTagAttr *ArgumentWithTypeTagAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * ArgumentKind, ParamIdx ArgumentIdx, ParamIdx TypeTagIdx, bool IsPointer, const AttributeCommonInfo &CommonInfo) {
+ArgumentWithTypeTagAttr *ArgumentWithTypeTagAttr::CreateImplicit(ASTContext &Ctx, const IdentifierInfo * ArgumentKind, ParamIdx ArgumentIdx, ParamIdx TypeTagIdx, bool IsPointer, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) ArgumentWithTypeTagAttr(Ctx, CommonInfo, ArgumentKind, ArgumentIdx, TypeTagIdx, IsPointer);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -4328,12 +4328,12 @@ ArgumentWithTypeTagAttr *ArgumentWithTypeTagAttr::CreateImplicit(ASTContext &Ctx
   return A;
 }
 
-ArgumentWithTypeTagAttr *ArgumentWithTypeTagAttr::Create(ASTContext &Ctx, IdentifierInfo * ArgumentKind, ParamIdx ArgumentIdx, ParamIdx TypeTagIdx, bool IsPointer, const AttributeCommonInfo &CommonInfo) {
+ArgumentWithTypeTagAttr *ArgumentWithTypeTagAttr::Create(ASTContext &Ctx, const IdentifierInfo * ArgumentKind, ParamIdx ArgumentIdx, ParamIdx TypeTagIdx, bool IsPointer, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) ArgumentWithTypeTagAttr(Ctx, CommonInfo, ArgumentKind, ArgumentIdx, TypeTagIdx, IsPointer);
   return A;
 }
 
-ArgumentWithTypeTagAttr *ArgumentWithTypeTagAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * ArgumentKind, ParamIdx ArgumentIdx, ParamIdx TypeTagIdx, bool IsPointer, SourceRange Range, Spelling S) {
+ArgumentWithTypeTagAttr *ArgumentWithTypeTagAttr::CreateImplicit(ASTContext &Ctx, const IdentifierInfo * ArgumentKind, ParamIdx ArgumentIdx, ParamIdx TypeTagIdx, bool IsPointer, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_argument_with_type_tag:
@@ -4356,7 +4356,7 @@ ArgumentWithTypeTagAttr *ArgumentWithTypeTagAttr::CreateImplicit(ASTContext &Ctx
   return CreateImplicit(Ctx, ArgumentKind, ArgumentIdx, TypeTagIdx, IsPointer, I);
 }
 
-ArgumentWithTypeTagAttr *ArgumentWithTypeTagAttr::Create(ASTContext &Ctx, IdentifierInfo * ArgumentKind, ParamIdx ArgumentIdx, ParamIdx TypeTagIdx, bool IsPointer, SourceRange Range, Spelling S) {
+ArgumentWithTypeTagAttr *ArgumentWithTypeTagAttr::Create(ASTContext &Ctx, const IdentifierInfo * ArgumentKind, ParamIdx ArgumentIdx, ParamIdx TypeTagIdx, bool IsPointer, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_argument_with_type_tag:
@@ -4379,7 +4379,7 @@ ArgumentWithTypeTagAttr *ArgumentWithTypeTagAttr::Create(ASTContext &Ctx, Identi
   return Create(Ctx, ArgumentKind, ArgumentIdx, TypeTagIdx, IsPointer, I);
 }
 
-ArgumentWithTypeTagAttr *ArgumentWithTypeTagAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * ArgumentKind, ParamIdx ArgumentIdx, ParamIdx TypeTagIdx, const AttributeCommonInfo &CommonInfo) {
+ArgumentWithTypeTagAttr *ArgumentWithTypeTagAttr::CreateImplicit(ASTContext &Ctx, const IdentifierInfo * ArgumentKind, ParamIdx ArgumentIdx, ParamIdx TypeTagIdx, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) ArgumentWithTypeTagAttr(Ctx, CommonInfo, ArgumentKind, ArgumentIdx, TypeTagIdx);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -4387,12 +4387,12 @@ ArgumentWithTypeTagAttr *ArgumentWithTypeTagAttr::CreateImplicit(ASTContext &Ctx
   return A;
 }
 
-ArgumentWithTypeTagAttr *ArgumentWithTypeTagAttr::Create(ASTContext &Ctx, IdentifierInfo * ArgumentKind, ParamIdx ArgumentIdx, ParamIdx TypeTagIdx, const AttributeCommonInfo &CommonInfo) {
+ArgumentWithTypeTagAttr *ArgumentWithTypeTagAttr::Create(ASTContext &Ctx, const IdentifierInfo * ArgumentKind, ParamIdx ArgumentIdx, ParamIdx TypeTagIdx, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) ArgumentWithTypeTagAttr(Ctx, CommonInfo, ArgumentKind, ArgumentIdx, TypeTagIdx);
   return A;
 }
 
-ArgumentWithTypeTagAttr *ArgumentWithTypeTagAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * ArgumentKind, ParamIdx ArgumentIdx, ParamIdx TypeTagIdx, SourceRange Range, Spelling S) {
+ArgumentWithTypeTagAttr *ArgumentWithTypeTagAttr::CreateImplicit(ASTContext &Ctx, const IdentifierInfo * ArgumentKind, ParamIdx ArgumentIdx, ParamIdx TypeTagIdx, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_argument_with_type_tag:
@@ -4415,7 +4415,7 @@ ArgumentWithTypeTagAttr *ArgumentWithTypeTagAttr::CreateImplicit(ASTContext &Ctx
   return CreateImplicit(Ctx, ArgumentKind, ArgumentIdx, TypeTagIdx, I);
 }
 
-ArgumentWithTypeTagAttr *ArgumentWithTypeTagAttr::Create(ASTContext &Ctx, IdentifierInfo * ArgumentKind, ParamIdx ArgumentIdx, ParamIdx TypeTagIdx, SourceRange Range, Spelling S) {
+ArgumentWithTypeTagAttr *ArgumentWithTypeTagAttr::Create(ASTContext &Ctx, const IdentifierInfo * ArgumentKind, ParamIdx ArgumentIdx, ParamIdx TypeTagIdx, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_argument_with_type_tag:
@@ -4439,7 +4439,7 @@ ArgumentWithTypeTagAttr *ArgumentWithTypeTagAttr::Create(ASTContext &Ctx, Identi
 }
 
 ArgumentWithTypeTagAttr::ArgumentWithTypeTagAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , IdentifierInfo * ArgumentKind
+              , const IdentifierInfo * ArgumentKind
               , ParamIdx ArgumentIdx
               , ParamIdx TypeTagIdx
               , bool IsPointer
@@ -4453,7 +4453,7 @@ ArgumentWithTypeTagAttr::ArgumentWithTypeTagAttr(ASTContext &Ctx, const Attribut
 }
 
 ArgumentWithTypeTagAttr::ArgumentWithTypeTagAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , IdentifierInfo * ArgumentKind
+              , const IdentifierInfo * ArgumentKind
               , ParamIdx ArgumentIdx
               , ParamIdx TypeTagIdx
              )
@@ -4698,7 +4698,7 @@ const char *ArmAgnosticAttr::getSpelling() const {
 
 // ArmBuiltinAliasAttr implementation
 
-ArmBuiltinAliasAttr *ArmBuiltinAliasAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * BuiltinName, const AttributeCommonInfo &CommonInfo) {
+ArmBuiltinAliasAttr *ArmBuiltinAliasAttr::CreateImplicit(ASTContext &Ctx, const IdentifierInfo * BuiltinName, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) ArmBuiltinAliasAttr(Ctx, CommonInfo, BuiltinName);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -4706,14 +4706,14 @@ ArmBuiltinAliasAttr *ArmBuiltinAliasAttr::CreateImplicit(ASTContext &Ctx, Identi
   return A;
 }
 
-ArmBuiltinAliasAttr *ArmBuiltinAliasAttr::Create(ASTContext &Ctx, IdentifierInfo * BuiltinName, const AttributeCommonInfo &CommonInfo) {
+ArmBuiltinAliasAttr *ArmBuiltinAliasAttr::Create(ASTContext &Ctx, const IdentifierInfo * BuiltinName, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) ArmBuiltinAliasAttr(Ctx, CommonInfo, BuiltinName);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-ArmBuiltinAliasAttr *ArmBuiltinAliasAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * BuiltinName, SourceRange Range, Spelling S) {
+ArmBuiltinAliasAttr *ArmBuiltinAliasAttr::CreateImplicit(ASTContext &Ctx, const IdentifierInfo * BuiltinName, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_clang_arm_builtin_alias:
@@ -4730,7 +4730,7 @@ ArmBuiltinAliasAttr *ArmBuiltinAliasAttr::CreateImplicit(ASTContext &Ctx, Identi
   return CreateImplicit(Ctx, BuiltinName, I);
 }
 
-ArmBuiltinAliasAttr *ArmBuiltinAliasAttr::Create(ASTContext &Ctx, IdentifierInfo * BuiltinName, SourceRange Range, Spelling S) {
+ArmBuiltinAliasAttr *ArmBuiltinAliasAttr::Create(ASTContext &Ctx, const IdentifierInfo * BuiltinName, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_clang_arm_builtin_alias:
@@ -4748,7 +4748,7 @@ ArmBuiltinAliasAttr *ArmBuiltinAliasAttr::Create(ASTContext &Ctx, IdentifierInfo
 }
 
 ArmBuiltinAliasAttr::ArmBuiltinAliasAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , IdentifierInfo * BuiltinName
+              , const IdentifierInfo * BuiltinName
              )
   : InheritableAttr(Ctx, CommonInfo, attr::ArmBuiltinAlias, /*IsLateParsed=*/false, false)
               , builtinName(BuiltinName)
@@ -5705,47 +5705,6 @@ const char *ArtificialAttr::getSpelling() const {
 
 // AsmLabelAttr implementation
 
-AsmLabelAttr *AsmLabelAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Label, bool IsLiteralLabel, const AttributeCommonInfo &CommonInfo) {
-  auto *A = new (Ctx) AsmLabelAttr(Ctx, CommonInfo, Label, IsLiteralLabel);
-  A->setImplicit(true);
-  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
-    A->setAttributeSpellingListIndex(0);
-  return A;
-}
-
-AsmLabelAttr *AsmLabelAttr::Create(ASTContext &Ctx, llvm::StringRef Label, bool IsLiteralLabel, const AttributeCommonInfo &CommonInfo) {
-  auto *A = new (Ctx) AsmLabelAttr(Ctx, CommonInfo, Label, IsLiteralLabel);
-  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
-    A->setAttributeSpellingListIndex(0);
-  return A;
-}
-
-AsmLabelAttr *AsmLabelAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Label, bool IsLiteralLabel, SourceRange Range, Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
-    switch (S) {
-    case Keyword_asm:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_asm, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    default:
-      llvm_unreachable("Unknown attribute spelling!");
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    }
-  }());
-  return CreateImplicit(Ctx, Label, IsLiteralLabel, I);
-}
-
-AsmLabelAttr *AsmLabelAttr::Create(ASTContext &Ctx, llvm::StringRef Label, bool IsLiteralLabel, SourceRange Range, Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
-    switch (S) {
-    case Keyword_asm:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, Keyword_asm, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    default:
-      llvm_unreachable("Unknown attribute spelling!");
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    }
-  }());
-  return Create(Ctx, Label, IsLiteralLabel, I);
-}
-
 AsmLabelAttr *AsmLabelAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Label, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) AsmLabelAttr(Ctx, CommonInfo, Label);
   A->setImplicit(true);
@@ -5789,33 +5748,18 @@ AsmLabelAttr *AsmLabelAttr::Create(ASTContext &Ctx, llvm::StringRef Label, Sourc
 
 AsmLabelAttr::AsmLabelAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
               , llvm::StringRef Label
-              , bool IsLiteralLabel
              )
   : InheritableAttr(Ctx, CommonInfo, attr::AsmLabel, /*IsLateParsed=*/false, false)
               , labelLength(Label.size()),label(new (Ctx, 1) char[labelLength])
-              , isLiteralLabel(IsLiteralLabel)
   {
     if (!Label.empty())
       std::memcpy(label, Label.data(), labelLength);
 }
-
-AsmLabelAttr::AsmLabelAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , llvm::StringRef Label
-             )
-  : InheritableAttr(Ctx, CommonInfo, attr::AsmLabel, /*IsLateParsed=*/false, false)
-              , labelLength(Label.size()),label(new (Ctx, 1) char[labelLength])
-              , isLiteralLabel()
-  {
-    if (!Label.empty())
-      std::memcpy(label, Label.data(), labelLength);
-}
-
-
 
 
 
 AsmLabelAttr *AsmLabelAttr::clone(ASTContext &C) const {
-  auto *A = new (C) AsmLabelAttr(C, *this, getLabel(), isLiteralLabel);
+  auto *A = new (C) AsmLabelAttr(C, *this, getLabel());
   A->Inherited = Inherited;
   A->IsPackExpansion = IsPackExpansion;
   A->setImplicit(Implicit);
@@ -5839,6 +5783,15 @@ void AsmLabelAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) co
     break;
   }
   case 1 : {
+    OS << "__asm";
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "\"" << getLabel() << "\"";
+    if (!IsFirstArgument)
+      OS << ")";
+    OS << "";
+    break;
+  }
+  case 2 : {
     OS << "__asm__";
     DelimitAttributeArgument(OS, IsFirstArgument);
     OS << "\"" << getLabel() << "\"";
@@ -5858,6 +5811,8 @@ const char *AsmLabelAttr::getSpelling() const {
   case 0:
     return "asm";
   case 1:
+    return "__asm";
+  case 2:
     return "__asm__";
   }
 }
@@ -6468,7 +6423,7 @@ const char *AtomicAttr::getSpelling() const {
 
 // AvailabilityAttr implementation
 
-AvailabilityAttr *AvailabilityAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * Platform, VersionTuple Introduced, VersionTuple Deprecated, VersionTuple Obsoleted, bool Unavailable, llvm::StringRef Message, bool Strict, llvm::StringRef Replacement, int Priority, IdentifierInfo * Environment, const AttributeCommonInfo &CommonInfo) {
+AvailabilityAttr *AvailabilityAttr::CreateImplicit(ASTContext &Ctx, const IdentifierInfo * Platform, VersionTuple Introduced, VersionTuple Deprecated, VersionTuple Obsoleted, bool Unavailable, llvm::StringRef Message, bool Strict, llvm::StringRef Replacement, int Priority, const IdentifierInfo * Environment, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) AvailabilityAttr(Ctx, CommonInfo, Platform, Introduced, Deprecated, Obsoleted, Unavailable, Message, Strict, Replacement, Priority, Environment);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -6476,14 +6431,14 @@ AvailabilityAttr *AvailabilityAttr::CreateImplicit(ASTContext &Ctx, IdentifierIn
   return A;
 }
 
-AvailabilityAttr *AvailabilityAttr::Create(ASTContext &Ctx, IdentifierInfo * Platform, VersionTuple Introduced, VersionTuple Deprecated, VersionTuple Obsoleted, bool Unavailable, llvm::StringRef Message, bool Strict, llvm::StringRef Replacement, int Priority, IdentifierInfo * Environment, const AttributeCommonInfo &CommonInfo) {
+AvailabilityAttr *AvailabilityAttr::Create(ASTContext &Ctx, const IdentifierInfo * Platform, VersionTuple Introduced, VersionTuple Deprecated, VersionTuple Obsoleted, bool Unavailable, llvm::StringRef Message, bool Strict, llvm::StringRef Replacement, int Priority, const IdentifierInfo * Environment, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) AvailabilityAttr(Ctx, CommonInfo, Platform, Introduced, Deprecated, Obsoleted, Unavailable, Message, Strict, Replacement, Priority, Environment);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-AvailabilityAttr *AvailabilityAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * Platform, VersionTuple Introduced, VersionTuple Deprecated, VersionTuple Obsoleted, bool Unavailable, llvm::StringRef Message, bool Strict, llvm::StringRef Replacement, int Priority, IdentifierInfo * Environment, SourceRange Range, Spelling S) {
+AvailabilityAttr *AvailabilityAttr::CreateImplicit(ASTContext &Ctx, const IdentifierInfo * Platform, VersionTuple Introduced, VersionTuple Deprecated, VersionTuple Obsoleted, bool Unavailable, llvm::StringRef Message, bool Strict, llvm::StringRef Replacement, int Priority, const IdentifierInfo * Environment, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_availability:
@@ -6500,7 +6455,7 @@ AvailabilityAttr *AvailabilityAttr::CreateImplicit(ASTContext &Ctx, IdentifierIn
   return CreateImplicit(Ctx, Platform, Introduced, Deprecated, Obsoleted, Unavailable, Message, Strict, Replacement, Priority, Environment, I);
 }
 
-AvailabilityAttr *AvailabilityAttr::Create(ASTContext &Ctx, IdentifierInfo * Platform, VersionTuple Introduced, VersionTuple Deprecated, VersionTuple Obsoleted, bool Unavailable, llvm::StringRef Message, bool Strict, llvm::StringRef Replacement, int Priority, IdentifierInfo * Environment, SourceRange Range, Spelling S) {
+AvailabilityAttr *AvailabilityAttr::Create(ASTContext &Ctx, const IdentifierInfo * Platform, VersionTuple Introduced, VersionTuple Deprecated, VersionTuple Obsoleted, bool Unavailable, llvm::StringRef Message, bool Strict, llvm::StringRef Replacement, int Priority, const IdentifierInfo * Environment, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_availability:
@@ -6518,7 +6473,7 @@ AvailabilityAttr *AvailabilityAttr::Create(ASTContext &Ctx, IdentifierInfo * Pla
 }
 
 AvailabilityAttr::AvailabilityAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , IdentifierInfo * Platform
+              , const IdentifierInfo * Platform
               , VersionTuple Introduced
               , VersionTuple Deprecated
               , VersionTuple Obsoleted
@@ -6527,7 +6482,7 @@ AvailabilityAttr::AvailabilityAttr(ASTContext &Ctx, const AttributeCommonInfo &C
               , bool Strict
               , llvm::StringRef Replacement
               , int Priority
-              , IdentifierInfo * Environment
+              , const IdentifierInfo * Environment
              )
   : InheritableAttr(Ctx, CommonInfo, attr::Availability, /*IsLateParsed=*/false, true)
               , platform(Platform)
@@ -7630,7 +7585,7 @@ const char *BuiltinAttr::getSpelling() const {
 
 // BuiltinAliasAttr implementation
 
-BuiltinAliasAttr *BuiltinAliasAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * BuiltinName, const AttributeCommonInfo &CommonInfo) {
+BuiltinAliasAttr *BuiltinAliasAttr::CreateImplicit(ASTContext &Ctx, const IdentifierInfo * BuiltinName, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) BuiltinAliasAttr(Ctx, CommonInfo, BuiltinName);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -7638,12 +7593,12 @@ BuiltinAliasAttr *BuiltinAliasAttr::CreateImplicit(ASTContext &Ctx, IdentifierIn
   return A;
 }
 
-BuiltinAliasAttr *BuiltinAliasAttr::Create(ASTContext &Ctx, IdentifierInfo * BuiltinName, const AttributeCommonInfo &CommonInfo) {
+BuiltinAliasAttr *BuiltinAliasAttr::Create(ASTContext &Ctx, const IdentifierInfo * BuiltinName, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) BuiltinAliasAttr(Ctx, CommonInfo, BuiltinName);
   return A;
 }
 
-BuiltinAliasAttr *BuiltinAliasAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * BuiltinName, SourceRange Range, Spelling S) {
+BuiltinAliasAttr *BuiltinAliasAttr::CreateImplicit(ASTContext &Ctx, const IdentifierInfo * BuiltinName, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case CXX11_clang_builtin_alias:
@@ -7660,7 +7615,7 @@ BuiltinAliasAttr *BuiltinAliasAttr::CreateImplicit(ASTContext &Ctx, IdentifierIn
   return CreateImplicit(Ctx, BuiltinName, I);
 }
 
-BuiltinAliasAttr *BuiltinAliasAttr::Create(ASTContext &Ctx, IdentifierInfo * BuiltinName, SourceRange Range, Spelling S) {
+BuiltinAliasAttr *BuiltinAliasAttr::Create(ASTContext &Ctx, const IdentifierInfo * BuiltinName, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case CXX11_clang_builtin_alias:
@@ -7678,7 +7633,7 @@ BuiltinAliasAttr *BuiltinAliasAttr::Create(ASTContext &Ctx, IdentifierInfo * Bui
 }
 
 BuiltinAliasAttr::BuiltinAliasAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , IdentifierInfo * BuiltinName
+              , const IdentifierInfo * BuiltinName
              )
   : Attr(Ctx, CommonInfo, attr::BuiltinAlias, /*IsLateParsed=*/false)
               , builtinName(BuiltinName)
@@ -8413,6 +8368,129 @@ const char *CFICanonicalJumpTableAttr::getSpelling() const {
 }
 
 
+// CFISaltAttr implementation
+
+CFISaltAttr *CFISaltAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Salt, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) CFISaltAttr(Ctx, CommonInfo, Salt);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+CFISaltAttr *CFISaltAttr::Create(ASTContext &Ctx, llvm::StringRef Salt, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) CFISaltAttr(Ctx, CommonInfo, Salt);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+CFISaltAttr *CFISaltAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef Salt, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
+    switch (S) {
+    case GNU_cfi_salt:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_cfi_salt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case CXX11_clang_cfi_salt:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_cfi_salt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_cfi_salt:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_cfi_salt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    default:
+      llvm_unreachable("Unknown attribute spelling!");
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    }
+  }());
+  return CreateImplicit(Ctx, Salt, I);
+}
+
+CFISaltAttr *CFISaltAttr::Create(ASTContext &Ctx, llvm::StringRef Salt, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
+    switch (S) {
+    case GNU_cfi_salt:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_cfi_salt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case CXX11_clang_cfi_salt:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_cfi_salt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_cfi_salt:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_cfi_salt, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    default:
+      llvm_unreachable("Unknown attribute spelling!");
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    }
+  }());
+  return Create(Ctx, Salt, I);
+}
+
+CFISaltAttr::CFISaltAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , llvm::StringRef Salt
+             )
+  : TypeAttr(Ctx, CommonInfo, attr::CFISalt, /*IsLateParsed=*/false)
+              , saltLength(Salt.size()),salt(new (Ctx, 1) char[saltLength])
+  {
+    if (!Salt.empty())
+      std::memcpy(salt, Salt.data(), saltLength);
+}
+
+
+
+CFISaltAttr *CFISaltAttr::clone(ASTContext &C) const {
+  auto *A = new (C) CFISaltAttr(C, *this, getSalt());
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void CFISaltAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+  bool IsFirstArgument = true; (void)IsFirstArgument;
+  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    break;
+  case 0 : {
+    OS << "__attribute__((cfi_salt";
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "\"" << getSalt() << "\"";
+    if (!IsFirstArgument)
+      OS << ")";
+    OS << "))";
+    break;
+  }
+  case 1 : {
+    OS << "[[clang::cfi_salt";
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "\"" << getSalt() << "\"";
+    if (!IsFirstArgument)
+      OS << ")";
+    OS << "]]";
+    break;
+  }
+  case 2 : {
+    OS << "[[clang::cfi_salt";
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "\"" << getSalt() << "\"";
+    if (!IsFirstArgument)
+      OS << ")";
+    OS << "]]";
+    break;
+  }
+}
+}
+
+const char *CFISaltAttr::getSpelling() const {
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    return "(No spelling)";
+  case 0:
+    return "cfi_salt";
+  case 1:
+    return "cfi_salt";
+  case 2:
+    return "cfi_salt";
+  }
+}
+
+
 // CFIUncheckedCalleeAttr implementation
 
 CFIUncheckedCalleeAttr *CFIUncheckedCalleeAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
@@ -8835,7 +8913,7 @@ const char *CFUnknownTransferAttr::getSpelling() const {
 
 // CPUDispatchAttr implementation
 
-CPUDispatchAttr *CPUDispatchAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * *Cpus, unsigned CpusSize, const AttributeCommonInfo &CommonInfo) {
+CPUDispatchAttr *CPUDispatchAttr::CreateImplicit(ASTContext &Ctx, const IdentifierInfo * *Cpus, unsigned CpusSize, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) CPUDispatchAttr(Ctx, CommonInfo, Cpus, CpusSize);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -8843,14 +8921,14 @@ CPUDispatchAttr *CPUDispatchAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo
   return A;
 }
 
-CPUDispatchAttr *CPUDispatchAttr::Create(ASTContext &Ctx, IdentifierInfo * *Cpus, unsigned CpusSize, const AttributeCommonInfo &CommonInfo) {
+CPUDispatchAttr *CPUDispatchAttr::Create(ASTContext &Ctx, const IdentifierInfo * *Cpus, unsigned CpusSize, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) CPUDispatchAttr(Ctx, CommonInfo, Cpus, CpusSize);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-CPUDispatchAttr *CPUDispatchAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * *Cpus, unsigned CpusSize, SourceRange Range, Spelling S) {
+CPUDispatchAttr *CPUDispatchAttr::CreateImplicit(ASTContext &Ctx, const IdentifierInfo * *Cpus, unsigned CpusSize, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_cpu_dispatch:
@@ -8869,7 +8947,7 @@ CPUDispatchAttr *CPUDispatchAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo
   return CreateImplicit(Ctx, Cpus, CpusSize, I);
 }
 
-CPUDispatchAttr *CPUDispatchAttr::Create(ASTContext &Ctx, IdentifierInfo * *Cpus, unsigned CpusSize, SourceRange Range, Spelling S) {
+CPUDispatchAttr *CPUDispatchAttr::Create(ASTContext &Ctx, const IdentifierInfo * *Cpus, unsigned CpusSize, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_cpu_dispatch:
@@ -8889,10 +8967,10 @@ CPUDispatchAttr *CPUDispatchAttr::Create(ASTContext &Ctx, IdentifierInfo * *Cpus
 }
 
 CPUDispatchAttr::CPUDispatchAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , IdentifierInfo * *Cpus, unsigned CpusSize
+              , const IdentifierInfo * *Cpus, unsigned CpusSize
              )
   : InheritableAttr(Ctx, CommonInfo, attr::CPUDispatch, /*IsLateParsed=*/false, false)
-              , cpus_Size(CpusSize), cpus_(new (Ctx, 16) IdentifierInfo *[cpus_Size])
+              , cpus_Size(CpusSize), cpus_(new (Ctx, 16) const IdentifierInfo *[cpus_Size])
   {
   std::copy(Cpus, Cpus + cpus_Size, cpus_);
 }
@@ -8995,7 +9073,7 @@ const char *CPUDispatchAttr::getSpelling() const {
 
 // CPUSpecificAttr implementation
 
-CPUSpecificAttr *CPUSpecificAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * *Cpus, unsigned CpusSize, const AttributeCommonInfo &CommonInfo) {
+CPUSpecificAttr *CPUSpecificAttr::CreateImplicit(ASTContext &Ctx, const IdentifierInfo * *Cpus, unsigned CpusSize, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) CPUSpecificAttr(Ctx, CommonInfo, Cpus, CpusSize);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -9003,14 +9081,14 @@ CPUSpecificAttr *CPUSpecificAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo
   return A;
 }
 
-CPUSpecificAttr *CPUSpecificAttr::Create(ASTContext &Ctx, IdentifierInfo * *Cpus, unsigned CpusSize, const AttributeCommonInfo &CommonInfo) {
+CPUSpecificAttr *CPUSpecificAttr::Create(ASTContext &Ctx, const IdentifierInfo * *Cpus, unsigned CpusSize, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) CPUSpecificAttr(Ctx, CommonInfo, Cpus, CpusSize);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-CPUSpecificAttr *CPUSpecificAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * *Cpus, unsigned CpusSize, SourceRange Range, Spelling S) {
+CPUSpecificAttr *CPUSpecificAttr::CreateImplicit(ASTContext &Ctx, const IdentifierInfo * *Cpus, unsigned CpusSize, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_cpu_specific:
@@ -9029,7 +9107,7 @@ CPUSpecificAttr *CPUSpecificAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo
   return CreateImplicit(Ctx, Cpus, CpusSize, I);
 }
 
-CPUSpecificAttr *CPUSpecificAttr::Create(ASTContext &Ctx, IdentifierInfo * *Cpus, unsigned CpusSize, SourceRange Range, Spelling S) {
+CPUSpecificAttr *CPUSpecificAttr::Create(ASTContext &Ctx, const IdentifierInfo * *Cpus, unsigned CpusSize, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_cpu_specific:
@@ -9049,10 +9127,10 @@ CPUSpecificAttr *CPUSpecificAttr::Create(ASTContext &Ctx, IdentifierInfo * *Cpus
 }
 
 CPUSpecificAttr::CPUSpecificAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , IdentifierInfo * *Cpus, unsigned CpusSize
+              , const IdentifierInfo * *Cpus, unsigned CpusSize
              )
   : InheritableAttr(Ctx, CommonInfo, attr::CPUSpecific, /*IsLateParsed=*/false, false)
-              , cpus_Size(CpusSize), cpus_(new (Ctx, 16) IdentifierInfo *[cpus_Size])
+              , cpus_Size(CpusSize), cpus_(new (Ctx, 16) const IdentifierInfo *[cpus_Size])
   {
   std::copy(Cpus, Cpus + cpus_Size, cpus_);
 }
@@ -9149,6 +9227,117 @@ const char *CPUSpecificAttr::getSpelling() const {
     return "cpu_specific";
   case 3:
     return "cpu_specific";
+  }
+}
+
+
+// CUDAClusterDimsAttr implementation
+
+CUDAClusterDimsAttr *CUDAClusterDimsAttr::CreateImplicit(ASTContext &Ctx, Expr * X, Expr * Y, Expr * Z, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) CUDAClusterDimsAttr(Ctx, CommonInfo, X, Y, Z);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+CUDAClusterDimsAttr *CUDAClusterDimsAttr::Create(ASTContext &Ctx, Expr * X, Expr * Y, Expr * Z, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) CUDAClusterDimsAttr(Ctx, CommonInfo, X, Y, Z);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+CUDAClusterDimsAttr *CUDAClusterDimsAttr::CreateImplicit(ASTContext &Ctx, Expr * X, Expr * Y, Expr * Z, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
+  return CreateImplicit(Ctx, X, Y, Z, I);
+}
+
+CUDAClusterDimsAttr *CUDAClusterDimsAttr::Create(ASTContext &Ctx, Expr * X, Expr * Y, Expr * Z, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
+  return Create(Ctx, X, Y, Z, I);
+}
+
+CUDAClusterDimsAttr::CUDAClusterDimsAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , Expr * X
+              , Expr * Y
+              , Expr * Z
+             )
+  : InheritableAttr(Ctx, CommonInfo, attr::CUDAClusterDims, /*IsLateParsed=*/false, false)
+              , x(X)
+              , y(Y)
+              , z(Z)
+  {
+}
+
+CUDAClusterDimsAttr::CUDAClusterDimsAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , Expr * X
+             )
+  : InheritableAttr(Ctx, CommonInfo, attr::CUDAClusterDims, /*IsLateParsed=*/false, false)
+              , x(X)
+              , y()
+              , z()
+  {
+}
+
+
+
+
+
+
+
+CUDAClusterDimsAttr *CUDAClusterDimsAttr::clone(ASTContext &C) const {
+  auto *A = new (C) CUDAClusterDimsAttr(C, *this, x, y, z);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void CUDAClusterDimsAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+  bool IsFirstArgument = true; (void)IsFirstArgument;
+  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    break;
+  case 0 : {
+    OS << "__attribute__((cluster_dims";
+    if (!getZ())
+      ++TrailingOmittedArgs;
+    if (!getY())
+      ++TrailingOmittedArgs;
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "";
+    getX()->printPretty(OS, nullptr, Policy);
+    OS << "";
+    if (!(!getY())) {
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "";
+    getY()->printPretty(OS, nullptr, Policy);
+    OS << "";
+    }
+    if (!(!getZ())) {
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "";
+    getZ()->printPretty(OS, nullptr, Policy);
+    OS << "";
+    }
+    if (!IsFirstArgument)
+      OS << ")";
+    OS << "))";
+    break;
+  }
+}
+}
+
+const char *CUDAClusterDimsAttr::getSpelling() const {
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    return "(No spelling)";
+  case 0:
+    return "cluster_dims";
   }
 }
 
@@ -10016,6 +10205,73 @@ const char *CUDALaunchBoundsAttr::getSpelling() const {
     return "launch_bounds";
   case 1:
     return "__launch_bounds__";
+  }
+}
+
+
+// CUDANoClusterAttr implementation
+
+CUDANoClusterAttr *CUDANoClusterAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) CUDANoClusterAttr(Ctx, CommonInfo);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+CUDANoClusterAttr *CUDANoClusterAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) CUDANoClusterAttr(Ctx, CommonInfo);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+CUDANoClusterAttr *CUDANoClusterAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
+  return CreateImplicit(Ctx, I);
+}
+
+CUDANoClusterAttr *CUDANoClusterAttr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
+  return Create(Ctx, I);
+}
+
+CUDANoClusterAttr::CUDANoClusterAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             )
+  : InheritableAttr(Ctx, CommonInfo, attr::CUDANoCluster, /*IsLateParsed=*/false, false)
+  {
+}
+
+CUDANoClusterAttr *CUDANoClusterAttr::clone(ASTContext &C) const {
+  auto *A = new (C) CUDANoClusterAttr(C, *this);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void CUDANoClusterAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+  bool IsFirstArgument = true; (void)IsFirstArgument;
+  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    break;
+  case 0 : {
+    OS << "__attribute__((no_cluster";
+    OS << "))";
+    break;
+  }
+}
+}
+
+const char *CUDANoClusterAttr::getSpelling() const {
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    return "(No spelling)";
+  case 0:
+    return "no_cluster";
   }
 }
 
@@ -12204,7 +12460,7 @@ const char *ConstInitAttr::getSpelling() const {
 
 // ConstructorAttr implementation
 
-ConstructorAttr *ConstructorAttr::CreateImplicit(ASTContext &Ctx, int Priority, const AttributeCommonInfo &CommonInfo) {
+ConstructorAttr *ConstructorAttr::CreateImplicit(ASTContext &Ctx, Expr * Priority, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) ConstructorAttr(Ctx, CommonInfo, Priority);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -12212,14 +12468,14 @@ ConstructorAttr *ConstructorAttr::CreateImplicit(ASTContext &Ctx, int Priority, 
   return A;
 }
 
-ConstructorAttr *ConstructorAttr::Create(ASTContext &Ctx, int Priority, const AttributeCommonInfo &CommonInfo) {
+ConstructorAttr *ConstructorAttr::Create(ASTContext &Ctx, Expr * Priority, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) ConstructorAttr(Ctx, CommonInfo, Priority);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-ConstructorAttr *ConstructorAttr::CreateImplicit(ASTContext &Ctx, int Priority, SourceRange Range, Spelling S) {
+ConstructorAttr *ConstructorAttr::CreateImplicit(ASTContext &Ctx, Expr * Priority, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_constructor:
@@ -12236,7 +12492,7 @@ ConstructorAttr *ConstructorAttr::CreateImplicit(ASTContext &Ctx, int Priority, 
   return CreateImplicit(Ctx, Priority, I);
 }
 
-ConstructorAttr *ConstructorAttr::Create(ASTContext &Ctx, int Priority, SourceRange Range, Spelling S) {
+ConstructorAttr *ConstructorAttr::Create(ASTContext &Ctx, Expr * Priority, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_constructor:
@@ -12254,7 +12510,7 @@ ConstructorAttr *ConstructorAttr::Create(ASTContext &Ctx, int Priority, SourceRa
 }
 
 ConstructorAttr::ConstructorAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , int Priority
+              , Expr * Priority
              )
   : InheritableAttr(Ctx, CommonInfo, attr::Constructor, /*IsLateParsed=*/false, false)
               , priority(Priority)
@@ -12287,8 +12543,14 @@ void ConstructorAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy)
     break;
   case 0 : {
     OS << "__attribute__((constructor";
+    if (!getPriority())
+      ++TrailingOmittedArgs;
+    if (!(!getPriority())) {
     DelimitAttributeArgument(OS, IsFirstArgument);
-    OS << "" << getPriority() << "";
+    OS << "";
+    getPriority()->printPretty(OS, nullptr, Policy);
+    OS << "";
+    }
     if (!IsFirstArgument)
       OS << ")";
     OS << "))";
@@ -12296,8 +12558,14 @@ void ConstructorAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy)
   }
   case 1 : {
     OS << "[[gnu::constructor";
+    if (!getPriority())
+      ++TrailingOmittedArgs;
+    if (!(!getPriority())) {
     DelimitAttributeArgument(OS, IsFirstArgument);
-    OS << "" << getPriority() << "";
+    OS << "";
+    getPriority()->printPretty(OS, nullptr, Policy);
+    OS << "";
+    }
     if (!IsFirstArgument)
       OS << ")";
     OS << "]]";
@@ -12305,8 +12573,14 @@ void ConstructorAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy)
   }
   case 2 : {
     OS << "[[gnu::constructor";
+    if (!getPriority())
+      ++TrailingOmittedArgs;
+    if (!(!getPriority())) {
     DelimitAttributeArgument(OS, IsFirstArgument);
-    OS << "" << getPriority() << "";
+    OS << "";
+    getPriority()->printPretty(OS, nullptr, Policy);
+    OS << "";
+    }
     if (!IsFirstArgument)
       OS << ")";
     OS << "]]";
@@ -13893,6 +14167,55 @@ const char *DLLExportAttr::getSpelling() const {
 }
 
 
+// DLLExportOnDeclAttr implementation
+
+DLLExportOnDeclAttr *DLLExportOnDeclAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) DLLExportOnDeclAttr(Ctx, CommonInfo);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+DLLExportOnDeclAttr *DLLExportOnDeclAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) DLLExportOnDeclAttr(Ctx, CommonInfo);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+DLLExportOnDeclAttr *DLLExportOnDeclAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
+  return CreateImplicit(Ctx, I);
+}
+
+DLLExportOnDeclAttr *DLLExportOnDeclAttr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
+  return Create(Ctx, I);
+}
+
+DLLExportOnDeclAttr::DLLExportOnDeclAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             )
+  : InheritableAttr(Ctx, CommonInfo, attr::DLLExportOnDecl, /*IsLateParsed=*/false, false)
+  {
+}
+
+DLLExportOnDeclAttr *DLLExportOnDeclAttr::clone(ASTContext &C) const {
+  auto *A = new (C) DLLExportOnDeclAttr(C, *this);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void DLLExportOnDeclAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+}
+
+const char *DLLExportOnDeclAttr::getSpelling() const {
+  return "(No spelling)";
+}
+
+
 // DLLExportStaticLocalAttr implementation
 
 DLLExportStaticLocalAttr *DLLExportStaticLocalAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
@@ -14280,7 +14603,7 @@ const char *DeprecatedAttr::getSpelling() const {
 
 // DestructorAttr implementation
 
-DestructorAttr *DestructorAttr::CreateImplicit(ASTContext &Ctx, int Priority, const AttributeCommonInfo &CommonInfo) {
+DestructorAttr *DestructorAttr::CreateImplicit(ASTContext &Ctx, Expr * Priority, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) DestructorAttr(Ctx, CommonInfo, Priority);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -14288,14 +14611,14 @@ DestructorAttr *DestructorAttr::CreateImplicit(ASTContext &Ctx, int Priority, co
   return A;
 }
 
-DestructorAttr *DestructorAttr::Create(ASTContext &Ctx, int Priority, const AttributeCommonInfo &CommonInfo) {
+DestructorAttr *DestructorAttr::Create(ASTContext &Ctx, Expr * Priority, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) DestructorAttr(Ctx, CommonInfo, Priority);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-DestructorAttr *DestructorAttr::CreateImplicit(ASTContext &Ctx, int Priority, SourceRange Range, Spelling S) {
+DestructorAttr *DestructorAttr::CreateImplicit(ASTContext &Ctx, Expr * Priority, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_destructor:
@@ -14312,7 +14635,7 @@ DestructorAttr *DestructorAttr::CreateImplicit(ASTContext &Ctx, int Priority, So
   return CreateImplicit(Ctx, Priority, I);
 }
 
-DestructorAttr *DestructorAttr::Create(ASTContext &Ctx, int Priority, SourceRange Range, Spelling S) {
+DestructorAttr *DestructorAttr::Create(ASTContext &Ctx, Expr * Priority, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_destructor:
@@ -14330,7 +14653,7 @@ DestructorAttr *DestructorAttr::Create(ASTContext &Ctx, int Priority, SourceRang
 }
 
 DestructorAttr::DestructorAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , int Priority
+              , Expr * Priority
              )
   : InheritableAttr(Ctx, CommonInfo, attr::Destructor, /*IsLateParsed=*/false, false)
               , priority(Priority)
@@ -14363,8 +14686,14 @@ void DestructorAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) 
     break;
   case 0 : {
     OS << "__attribute__((destructor";
+    if (!getPriority())
+      ++TrailingOmittedArgs;
+    if (!(!getPriority())) {
     DelimitAttributeArgument(OS, IsFirstArgument);
-    OS << "" << getPriority() << "";
+    OS << "";
+    getPriority()->printPretty(OS, nullptr, Policy);
+    OS << "";
+    }
     if (!IsFirstArgument)
       OS << ")";
     OS << "))";
@@ -14372,8 +14701,14 @@ void DestructorAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) 
   }
   case 1 : {
     OS << "[[gnu::destructor";
+    if (!getPriority())
+      ++TrailingOmittedArgs;
+    if (!(!getPriority())) {
     DelimitAttributeArgument(OS, IsFirstArgument);
-    OS << "" << getPriority() << "";
+    OS << "";
+    getPriority()->printPretty(OS, nullptr, Policy);
+    OS << "";
+    }
     if (!IsFirstArgument)
       OS << ")";
     OS << "]]";
@@ -14381,8 +14716,14 @@ void DestructorAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) 
   }
   case 2 : {
     OS << "[[gnu::destructor";
+    if (!getPriority())
+      ++TrailingOmittedArgs;
+    if (!(!getPriority())) {
     DelimitAttributeArgument(OS, IsFirstArgument);
-    OS << "" << getPriority() << "";
+    OS << "";
+    getPriority()->printPretty(OS, nullptr, Policy);
+    OS << "";
+    }
     if (!IsFirstArgument)
       OS << ")";
     OS << "]]";
@@ -14430,12 +14771,6 @@ DeviceKernelAttr *DeviceKernelAttr::CreateImplicit(ASTContext &Ctx, SourceRange 
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_device_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case C23_clang_device_kernel:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_device_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case GNU_sycl_kernel:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_sycl_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case CXX11_clang_sycl_kernel:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_sycl_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C23_clang_sycl_kernel:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_sycl_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case GNU_nvptx_kernel:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_nvptx_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_nvptx_kernel:
@@ -14467,12 +14802,6 @@ DeviceKernelAttr *DeviceKernelAttr::Create(ASTContext &Ctx, SourceRange Range, S
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_device_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case C23_clang_device_kernel:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_device_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case GNU_sycl_kernel:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_sycl_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case CXX11_clang_sycl_kernel:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_sycl_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C23_clang_sycl_kernel:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_sycl_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case GNU_nvptx_kernel:
       return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_nvptx_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
     case CXX11_clang_nvptx_kernel:
@@ -14507,17 +14836,14 @@ DeviceKernelAttr::Spelling DeviceKernelAttr::getSemanticSpelling() const {
     case 0: return GNU_device_kernel;
     case 1: return CXX11_clang_device_kernel;
     case 2: return C23_clang_device_kernel;
-    case 3: return GNU_sycl_kernel;
-    case 4: return CXX11_clang_sycl_kernel;
-    case 5: return C23_clang_sycl_kernel;
-    case 6: return GNU_nvptx_kernel;
-    case 7: return CXX11_clang_nvptx_kernel;
-    case 8: return C23_clang_nvptx_kernel;
-    case 9: return GNU_amdgpu_kernel;
-    case 10: return CXX11_clang_amdgpu_kernel;
-    case 11: return C23_clang_amdgpu_kernel;
-    case 12: return Keyword_kernel;
-    case 13: return Keyword_kernel;
+    case 3: return GNU_nvptx_kernel;
+    case 4: return CXX11_clang_nvptx_kernel;
+    case 5: return C23_clang_nvptx_kernel;
+    case 6: return GNU_amdgpu_kernel;
+    case 7: return CXX11_clang_amdgpu_kernel;
+    case 8: return C23_clang_amdgpu_kernel;
+    case 9: return Keyword_kernel;
+    case 10: return Keyword_kernel;
   }
 }
 DeviceKernelAttr *DeviceKernelAttr::clone(ASTContext &C) const {
@@ -14551,56 +14877,41 @@ void DeviceKernelAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy
     break;
   }
   case 3 : {
-    OS << "__attribute__((sycl_kernel";
-    OS << "))";
-    break;
-  }
-  case 4 : {
-    OS << "[[clang::sycl_kernel";
-    OS << "]]";
-    break;
-  }
-  case 5 : {
-    OS << "[[clang::sycl_kernel";
-    OS << "]]";
-    break;
-  }
-  case 6 : {
     OS << "__attribute__((nvptx_kernel";
     OS << "))";
     break;
   }
-  case 7 : {
+  case 4 : {
     OS << "[[clang::nvptx_kernel";
     OS << "]]";
     break;
   }
-  case 8 : {
+  case 5 : {
     OS << "[[clang::nvptx_kernel";
     OS << "]]";
     break;
   }
-  case 9 : {
+  case 6 : {
     OS << "__attribute__((amdgpu_kernel";
     OS << "))";
     break;
   }
-  case 10 : {
+  case 7 : {
     OS << "[[clang::amdgpu_kernel";
     OS << "]]";
     break;
   }
-  case 11 : {
+  case 8 : {
     OS << "[[clang::amdgpu_kernel";
     OS << "]]";
     break;
   }
-  case 12 : {
+  case 9 : {
     OS << "__kernel";
     OS << "";
     break;
   }
-  case 13 : {
+  case 10 : {
     OS << "kernel";
     OS << "";
     break;
@@ -14620,26 +14931,20 @@ const char *DeviceKernelAttr::getSpelling() const {
   case 2:
     return "device_kernel";
   case 3:
-    return "sycl_kernel";
+    return "nvptx_kernel";
   case 4:
-    return "sycl_kernel";
+    return "nvptx_kernel";
   case 5:
-    return "sycl_kernel";
+    return "nvptx_kernel";
   case 6:
-    return "nvptx_kernel";
+    return "amdgpu_kernel";
   case 7:
-    return "nvptx_kernel";
+    return "amdgpu_kernel";
   case 8:
-    return "nvptx_kernel";
+    return "amdgpu_kernel";
   case 9:
-    return "amdgpu_kernel";
-  case 10:
-    return "amdgpu_kernel";
-  case 11:
-    return "amdgpu_kernel";
-  case 12:
     return "__kernel";
-  case 13:
+  case 10:
     return "kernel";
   }
 }
@@ -16987,7 +17292,7 @@ const char *FlattenAttr::getSpelling() const {
 
 // FormatAttr implementation
 
-FormatAttr *FormatAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * Type, int FormatIdx, int FirstArg, const AttributeCommonInfo &CommonInfo) {
+FormatAttr *FormatAttr::CreateImplicit(ASTContext &Ctx, const IdentifierInfo * Type, int FormatIdx, int FirstArg, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) FormatAttr(Ctx, CommonInfo, Type, FormatIdx, FirstArg);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -16995,14 +17300,14 @@ FormatAttr *FormatAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * Type, i
   return A;
 }
 
-FormatAttr *FormatAttr::Create(ASTContext &Ctx, IdentifierInfo * Type, int FormatIdx, int FirstArg, const AttributeCommonInfo &CommonInfo) {
+FormatAttr *FormatAttr::Create(ASTContext &Ctx, const IdentifierInfo * Type, int FormatIdx, int FirstArg, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) FormatAttr(Ctx, CommonInfo, Type, FormatIdx, FirstArg);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-FormatAttr *FormatAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * Type, int FormatIdx, int FirstArg, SourceRange Range, Spelling S) {
+FormatAttr *FormatAttr::CreateImplicit(ASTContext &Ctx, const IdentifierInfo * Type, int FormatIdx, int FirstArg, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_format:
@@ -17019,7 +17324,7 @@ FormatAttr *FormatAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * Type, i
   return CreateImplicit(Ctx, Type, FormatIdx, FirstArg, I);
 }
 
-FormatAttr *FormatAttr::Create(ASTContext &Ctx, IdentifierInfo * Type, int FormatIdx, int FirstArg, SourceRange Range, Spelling S) {
+FormatAttr *FormatAttr::Create(ASTContext &Ctx, const IdentifierInfo * Type, int FormatIdx, int FirstArg, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_format:
@@ -17037,7 +17342,7 @@ FormatAttr *FormatAttr::Create(ASTContext &Ctx, IdentifierInfo * Type, int Forma
 }
 
 FormatAttr::FormatAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , IdentifierInfo * Type
+              , const IdentifierInfo * Type
               , int FormatIdx
               , int FirstArg
              )
@@ -17249,7 +17554,7 @@ const char *FormatArgAttr::getSpelling() const {
 
 // FormatMatchesAttr implementation
 
-FormatMatchesAttr *FormatMatchesAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * Type, int FormatIdx, Expr * ExpectedFormat, const AttributeCommonInfo &CommonInfo) {
+FormatMatchesAttr *FormatMatchesAttr::CreateImplicit(ASTContext &Ctx, const IdentifierInfo * Type, int FormatIdx, Expr * ExpectedFormat, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) FormatMatchesAttr(Ctx, CommonInfo, Type, FormatIdx, ExpectedFormat);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -17257,14 +17562,14 @@ FormatMatchesAttr *FormatMatchesAttr::CreateImplicit(ASTContext &Ctx, Identifier
   return A;
 }
 
-FormatMatchesAttr *FormatMatchesAttr::Create(ASTContext &Ctx, IdentifierInfo * Type, int FormatIdx, Expr * ExpectedFormat, const AttributeCommonInfo &CommonInfo) {
+FormatMatchesAttr *FormatMatchesAttr::Create(ASTContext &Ctx, const IdentifierInfo * Type, int FormatIdx, Expr * ExpectedFormat, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) FormatMatchesAttr(Ctx, CommonInfo, Type, FormatIdx, ExpectedFormat);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-FormatMatchesAttr *FormatMatchesAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * Type, int FormatIdx, Expr * ExpectedFormat, SourceRange Range, Spelling S) {
+FormatMatchesAttr *FormatMatchesAttr::CreateImplicit(ASTContext &Ctx, const IdentifierInfo * Type, int FormatIdx, Expr * ExpectedFormat, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_format_matches:
@@ -17281,7 +17586,7 @@ FormatMatchesAttr *FormatMatchesAttr::CreateImplicit(ASTContext &Ctx, Identifier
   return CreateImplicit(Ctx, Type, FormatIdx, ExpectedFormat, I);
 }
 
-FormatMatchesAttr *FormatMatchesAttr::Create(ASTContext &Ctx, IdentifierInfo * Type, int FormatIdx, Expr * ExpectedFormat, SourceRange Range, Spelling S) {
+FormatMatchesAttr *FormatMatchesAttr::Create(ASTContext &Ctx, const IdentifierInfo * Type, int FormatIdx, Expr * ExpectedFormat, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_format_matches:
@@ -17299,7 +17604,7 @@ FormatMatchesAttr *FormatMatchesAttr::Create(ASTContext &Ctx, IdentifierInfo * T
 }
 
 FormatMatchesAttr::FormatMatchesAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , IdentifierInfo * Type
+              , const IdentifierInfo * Type
               , int FormatIdx
               , Expr * ExpectedFormat
              )
@@ -17530,6 +17835,111 @@ const char *FunctionReturnThunksAttr::getSpelling() const {
     return "function_return";
   case 2:
     return "function_return";
+  }
+}
+
+
+// GCCStructAttr implementation
+
+GCCStructAttr *GCCStructAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) GCCStructAttr(Ctx, CommonInfo);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+GCCStructAttr *GCCStructAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) GCCStructAttr(Ctx, CommonInfo);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+GCCStructAttr *GCCStructAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
+    switch (S) {
+    case GNU_gcc_struct:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_gcc_struct, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case CXX11_gnu_gcc_struct:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_gcc_struct, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_gcc_struct:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_gcc_struct, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    default:
+      llvm_unreachable("Unknown attribute spelling!");
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    }
+  }());
+  return CreateImplicit(Ctx, I);
+}
+
+GCCStructAttr *GCCStructAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
+    switch (S) {
+    case GNU_gcc_struct:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_gcc_struct, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case CXX11_gnu_gcc_struct:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_gnu_gcc_struct, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_gnu_gcc_struct:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_gnu_gcc_struct, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    default:
+      llvm_unreachable("Unknown attribute spelling!");
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    }
+  }());
+  return Create(Ctx, I);
+}
+
+GCCStructAttr::GCCStructAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             )
+  : InheritableAttr(Ctx, CommonInfo, attr::GCCStruct, /*IsLateParsed=*/false, false)
+  {
+}
+
+GCCStructAttr *GCCStructAttr::clone(ASTContext &C) const {
+  auto *A = new (C) GCCStructAttr(C, *this);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void GCCStructAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+  bool IsFirstArgument = true; (void)IsFirstArgument;
+  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    break;
+  case 0 : {
+    OS << "__attribute__((gcc_struct";
+    OS << "))";
+    break;
+  }
+  case 1 : {
+    OS << "[[gnu::gcc_struct";
+    OS << "]]";
+    break;
+  }
+  case 2 : {
+    OS << "[[gnu::gcc_struct";
+    OS << "]]";
+    break;
+  }
+}
+}
+
+const char *GCCStructAttr::getSpelling() const {
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    return "(No spelling)";
+  case 0:
+    return "gcc_struct";
+  case 1:
+    return "gcc_struct";
+  case 2:
+    return "gcc_struct";
   }
 }
 
@@ -17904,6 +18314,65 @@ const char *HIPManagedAttr::getSpelling() const {
 }
 
 
+// HLSLAppliedSemanticAttr implementation
+
+HLSLAppliedSemanticAttr *HLSLAppliedSemanticAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef SemanticName, int SemanticIndex, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) HLSLAppliedSemanticAttr(Ctx, CommonInfo, SemanticName, SemanticIndex);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+HLSLAppliedSemanticAttr *HLSLAppliedSemanticAttr::Create(ASTContext &Ctx, llvm::StringRef SemanticName, int SemanticIndex, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) HLSLAppliedSemanticAttr(Ctx, CommonInfo, SemanticName, SemanticIndex);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+HLSLAppliedSemanticAttr *HLSLAppliedSemanticAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef SemanticName, int SemanticIndex, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
+  return CreateImplicit(Ctx, SemanticName, SemanticIndex, I);
+}
+
+HLSLAppliedSemanticAttr *HLSLAppliedSemanticAttr::Create(ASTContext &Ctx, llvm::StringRef SemanticName, int SemanticIndex, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
+  return Create(Ctx, SemanticName, SemanticIndex, I);
+}
+
+HLSLAppliedSemanticAttr::HLSLAppliedSemanticAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , llvm::StringRef SemanticName
+              , int SemanticIndex
+             )
+  : HLSLSemanticBaseAttr(Ctx, CommonInfo, attr::HLSLAppliedSemantic, /*IsLateParsed=*/false, false)
+              , semanticNameLength(SemanticName.size()),semanticName(new (Ctx, 1) char[semanticNameLength])
+              , semanticIndex(SemanticIndex)
+  {
+    if (!SemanticName.empty())
+      std::memcpy(semanticName, SemanticName.data(), semanticNameLength);
+}
+
+
+
+
+
+HLSLAppliedSemanticAttr *HLSLAppliedSemanticAttr::clone(ASTContext &C) const {
+  auto *A = new (C) HLSLAppliedSemanticAttr(C, *this, getSemanticName(), semanticIndex);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void HLSLAppliedSemanticAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+}
+
+const char *HLSLAppliedSemanticAttr::getSpelling() const {
+  return "(No spelling)";
+}
+
+
 // HLSLContainedTypeAttr implementation
 
 HLSLContainedTypeAttr *HLSLContainedTypeAttr::CreateImplicit(ASTContext &Ctx, TypeSourceInfo * Type, const AttributeCommonInfo &CommonInfo) {
@@ -18141,6 +18610,73 @@ const char *HLSLGroupSharedAddressSpaceAttr::getSpelling() const {
     return "(No spelling)";
   case 0:
     return "groupshared";
+  }
+}
+
+
+// HLSLIsCounterAttr implementation
+
+HLSLIsCounterAttr *HLSLIsCounterAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) HLSLIsCounterAttr(Ctx, CommonInfo);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+HLSLIsCounterAttr *HLSLIsCounterAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) HLSLIsCounterAttr(Ctx, CommonInfo);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+HLSLIsCounterAttr *HLSLIsCounterAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
+  return CreateImplicit(Ctx, I);
+}
+
+HLSLIsCounterAttr *HLSLIsCounterAttr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
+  return Create(Ctx, I);
+}
+
+HLSLIsCounterAttr::HLSLIsCounterAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             )
+  : TypeAttr(Ctx, CommonInfo, attr::HLSLIsCounter, /*IsLateParsed=*/false)
+  {
+}
+
+HLSLIsCounterAttr *HLSLIsCounterAttr::clone(ASTContext &C) const {
+  auto *A = new (C) HLSLIsCounterAttr(C, *this);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void HLSLIsCounterAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+  bool IsFirstArgument = true; (void)IsFirstArgument;
+  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    break;
+  case 0 : {
+    OS << "[[hlsl::is_counter";
+    OS << "]]";
+    break;
+  }
+}
+}
+
+const char *HLSLIsCounterAttr::getSpelling() const {
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    return "(No spelling)";
+  case 0:
+    return "is_counter";
   }
 }
 
@@ -18600,6 +19136,65 @@ const char *HLSLParamModifierAttr::getSpelling() const {
 }
 
 
+// HLSLParsedSemanticAttr implementation
+
+HLSLParsedSemanticAttr *HLSLParsedSemanticAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef SemanticName, int SemanticIndex, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) HLSLParsedSemanticAttr(Ctx, CommonInfo, SemanticName, SemanticIndex);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+HLSLParsedSemanticAttr *HLSLParsedSemanticAttr::Create(ASTContext &Ctx, llvm::StringRef SemanticName, int SemanticIndex, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) HLSLParsedSemanticAttr(Ctx, CommonInfo, SemanticName, SemanticIndex);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+HLSLParsedSemanticAttr *HLSLParsedSemanticAttr::CreateImplicit(ASTContext &Ctx, llvm::StringRef SemanticName, int SemanticIndex, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
+  return CreateImplicit(Ctx, SemanticName, SemanticIndex, I);
+}
+
+HLSLParsedSemanticAttr *HLSLParsedSemanticAttr::Create(ASTContext &Ctx, llvm::StringRef SemanticName, int SemanticIndex, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
+  return Create(Ctx, SemanticName, SemanticIndex, I);
+}
+
+HLSLParsedSemanticAttr::HLSLParsedSemanticAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , llvm::StringRef SemanticName
+              , int SemanticIndex
+             )
+  : HLSLSemanticBaseAttr(Ctx, CommonInfo, attr::HLSLParsedSemantic, /*IsLateParsed=*/false, false)
+              , semanticNameLength(SemanticName.size()),semanticName(new (Ctx, 1) char[semanticNameLength])
+              , semanticIndex(SemanticIndex)
+  {
+    if (!SemanticName.empty())
+      std::memcpy(semanticName, SemanticName.data(), semanticNameLength);
+}
+
+
+
+
+
+HLSLParsedSemanticAttr *HLSLParsedSemanticAttr::clone(ASTContext &C) const {
+  auto *A = new (C) HLSLParsedSemanticAttr(C, *this, getSemanticName(), semanticIndex);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void HLSLParsedSemanticAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+}
+
+const char *HLSLParsedSemanticAttr::getSpelling() const {
+  return "(No spelling)";
+}
+
+
 // HLSLROVAttr implementation
 
 HLSLROVAttr *HLSLROVAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
@@ -18928,341 +19523,6 @@ const char *HLSLResourceClassAttr::getSpelling() const {
 }
 
 
-// HLSLSV_DispatchThreadIDAttr implementation
-
-HLSLSV_DispatchThreadIDAttr *HLSLSV_DispatchThreadIDAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
-  auto *A = new (Ctx) HLSLSV_DispatchThreadIDAttr(Ctx, CommonInfo);
-  A->setImplicit(true);
-  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
-    A->setAttributeSpellingListIndex(0);
-  return A;
-}
-
-HLSLSV_DispatchThreadIDAttr *HLSLSV_DispatchThreadIDAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
-  auto *A = new (Ctx) HLSLSV_DispatchThreadIDAttr(Ctx, CommonInfo);
-  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
-    A->setAttributeSpellingListIndex(0);
-  return A;
-}
-
-HLSLSV_DispatchThreadIDAttr *HLSLSV_DispatchThreadIDAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_HLSLAnnotation, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
-  return CreateImplicit(Ctx, I);
-}
-
-HLSLSV_DispatchThreadIDAttr *HLSLSV_DispatchThreadIDAttr::Create(ASTContext &Ctx, SourceRange Range) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_HLSLAnnotation, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
-  return Create(Ctx, I);
-}
-
-HLSLSV_DispatchThreadIDAttr::HLSLSV_DispatchThreadIDAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-             )
-  : HLSLAnnotationAttr(Ctx, CommonInfo, attr::HLSLSV_DispatchThreadID, /*IsLateParsed=*/false, false)
-  {
-}
-
-HLSLSV_DispatchThreadIDAttr *HLSLSV_DispatchThreadIDAttr::clone(ASTContext &C) const {
-  auto *A = new (C) HLSLSV_DispatchThreadIDAttr(C, *this);
-  A->Inherited = Inherited;
-  A->IsPackExpansion = IsPackExpansion;
-  A->setImplicit(Implicit);
-  return A;
-}
-
-void HLSLSV_DispatchThreadIDAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
-  bool IsFirstArgument = true; (void)IsFirstArgument;
-  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
-  switch (getAttributeSpellingListIndex()) {
-  default:
-    llvm_unreachable("Unknown attribute spelling!");
-    break;
-  case 0 : {
-    OS << ":sv_dispatchthreadid";
-    OS << "";
-    break;
-  }
-}
-}
-
-const char *HLSLSV_DispatchThreadIDAttr::getSpelling() const {
-  switch (getAttributeSpellingListIndex()) {
-  default:
-    llvm_unreachable("Unknown attribute spelling!");
-    return "(No spelling)";
-  case 0:
-    return "sv_dispatchthreadid";
-  }
-}
-
-
-// HLSLSV_GroupIDAttr implementation
-
-HLSLSV_GroupIDAttr *HLSLSV_GroupIDAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
-  auto *A = new (Ctx) HLSLSV_GroupIDAttr(Ctx, CommonInfo);
-  A->setImplicit(true);
-  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
-    A->setAttributeSpellingListIndex(0);
-  return A;
-}
-
-HLSLSV_GroupIDAttr *HLSLSV_GroupIDAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
-  auto *A = new (Ctx) HLSLSV_GroupIDAttr(Ctx, CommonInfo);
-  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
-    A->setAttributeSpellingListIndex(0);
-  return A;
-}
-
-HLSLSV_GroupIDAttr *HLSLSV_GroupIDAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_HLSLAnnotation, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
-  return CreateImplicit(Ctx, I);
-}
-
-HLSLSV_GroupIDAttr *HLSLSV_GroupIDAttr::Create(ASTContext &Ctx, SourceRange Range) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_HLSLAnnotation, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
-  return Create(Ctx, I);
-}
-
-HLSLSV_GroupIDAttr::HLSLSV_GroupIDAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-             )
-  : HLSLAnnotationAttr(Ctx, CommonInfo, attr::HLSLSV_GroupID, /*IsLateParsed=*/false, false)
-  {
-}
-
-HLSLSV_GroupIDAttr *HLSLSV_GroupIDAttr::clone(ASTContext &C) const {
-  auto *A = new (C) HLSLSV_GroupIDAttr(C, *this);
-  A->Inherited = Inherited;
-  A->IsPackExpansion = IsPackExpansion;
-  A->setImplicit(Implicit);
-  return A;
-}
-
-void HLSLSV_GroupIDAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
-  bool IsFirstArgument = true; (void)IsFirstArgument;
-  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
-  switch (getAttributeSpellingListIndex()) {
-  default:
-    llvm_unreachable("Unknown attribute spelling!");
-    break;
-  case 0 : {
-    OS << ":sv_groupid";
-    OS << "";
-    break;
-  }
-}
-}
-
-const char *HLSLSV_GroupIDAttr::getSpelling() const {
-  switch (getAttributeSpellingListIndex()) {
-  default:
-    llvm_unreachable("Unknown attribute spelling!");
-    return "(No spelling)";
-  case 0:
-    return "sv_groupid";
-  }
-}
-
-
-// HLSLSV_GroupIndexAttr implementation
-
-HLSLSV_GroupIndexAttr *HLSLSV_GroupIndexAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
-  auto *A = new (Ctx) HLSLSV_GroupIndexAttr(Ctx, CommonInfo);
-  A->setImplicit(true);
-  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
-    A->setAttributeSpellingListIndex(0);
-  return A;
-}
-
-HLSLSV_GroupIndexAttr *HLSLSV_GroupIndexAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
-  auto *A = new (Ctx) HLSLSV_GroupIndexAttr(Ctx, CommonInfo);
-  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
-    A->setAttributeSpellingListIndex(0);
-  return A;
-}
-
-HLSLSV_GroupIndexAttr *HLSLSV_GroupIndexAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_HLSLAnnotation, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
-  return CreateImplicit(Ctx, I);
-}
-
-HLSLSV_GroupIndexAttr *HLSLSV_GroupIndexAttr::Create(ASTContext &Ctx, SourceRange Range) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_HLSLAnnotation, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
-  return Create(Ctx, I);
-}
-
-HLSLSV_GroupIndexAttr::HLSLSV_GroupIndexAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-             )
-  : HLSLAnnotationAttr(Ctx, CommonInfo, attr::HLSLSV_GroupIndex, /*IsLateParsed=*/false, false)
-  {
-}
-
-HLSLSV_GroupIndexAttr *HLSLSV_GroupIndexAttr::clone(ASTContext &C) const {
-  auto *A = new (C) HLSLSV_GroupIndexAttr(C, *this);
-  A->Inherited = Inherited;
-  A->IsPackExpansion = IsPackExpansion;
-  A->setImplicit(Implicit);
-  return A;
-}
-
-void HLSLSV_GroupIndexAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
-  bool IsFirstArgument = true; (void)IsFirstArgument;
-  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
-  switch (getAttributeSpellingListIndex()) {
-  default:
-    llvm_unreachable("Unknown attribute spelling!");
-    break;
-  case 0 : {
-    OS << ":sv_groupindex";
-    OS << "";
-    break;
-  }
-}
-}
-
-const char *HLSLSV_GroupIndexAttr::getSpelling() const {
-  switch (getAttributeSpellingListIndex()) {
-  default:
-    llvm_unreachable("Unknown attribute spelling!");
-    return "(No spelling)";
-  case 0:
-    return "sv_groupindex";
-  }
-}
-
-
-// HLSLSV_GroupThreadIDAttr implementation
-
-HLSLSV_GroupThreadIDAttr *HLSLSV_GroupThreadIDAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
-  auto *A = new (Ctx) HLSLSV_GroupThreadIDAttr(Ctx, CommonInfo);
-  A->setImplicit(true);
-  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
-    A->setAttributeSpellingListIndex(0);
-  return A;
-}
-
-HLSLSV_GroupThreadIDAttr *HLSLSV_GroupThreadIDAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
-  auto *A = new (Ctx) HLSLSV_GroupThreadIDAttr(Ctx, CommonInfo);
-  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
-    A->setAttributeSpellingListIndex(0);
-  return A;
-}
-
-HLSLSV_GroupThreadIDAttr *HLSLSV_GroupThreadIDAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_HLSLAnnotation, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
-  return CreateImplicit(Ctx, I);
-}
-
-HLSLSV_GroupThreadIDAttr *HLSLSV_GroupThreadIDAttr::Create(ASTContext &Ctx, SourceRange Range) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_HLSLAnnotation, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
-  return Create(Ctx, I);
-}
-
-HLSLSV_GroupThreadIDAttr::HLSLSV_GroupThreadIDAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-             )
-  : HLSLAnnotationAttr(Ctx, CommonInfo, attr::HLSLSV_GroupThreadID, /*IsLateParsed=*/false, false)
-  {
-}
-
-HLSLSV_GroupThreadIDAttr *HLSLSV_GroupThreadIDAttr::clone(ASTContext &C) const {
-  auto *A = new (C) HLSLSV_GroupThreadIDAttr(C, *this);
-  A->Inherited = Inherited;
-  A->IsPackExpansion = IsPackExpansion;
-  A->setImplicit(Implicit);
-  return A;
-}
-
-void HLSLSV_GroupThreadIDAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
-  bool IsFirstArgument = true; (void)IsFirstArgument;
-  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
-  switch (getAttributeSpellingListIndex()) {
-  default:
-    llvm_unreachable("Unknown attribute spelling!");
-    break;
-  case 0 : {
-    OS << ":sv_groupthreadid";
-    OS << "";
-    break;
-  }
-}
-}
-
-const char *HLSLSV_GroupThreadIDAttr::getSpelling() const {
-  switch (getAttributeSpellingListIndex()) {
-  default:
-    llvm_unreachable("Unknown attribute spelling!");
-    return "(No spelling)";
-  case 0:
-    return "sv_groupthreadid";
-  }
-}
-
-
-// HLSLSV_PositionAttr implementation
-
-HLSLSV_PositionAttr *HLSLSV_PositionAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
-  auto *A = new (Ctx) HLSLSV_PositionAttr(Ctx, CommonInfo);
-  A->setImplicit(true);
-  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
-    A->setAttributeSpellingListIndex(0);
-  return A;
-}
-
-HLSLSV_PositionAttr *HLSLSV_PositionAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
-  auto *A = new (Ctx) HLSLSV_PositionAttr(Ctx, CommonInfo);
-  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
-    A->setAttributeSpellingListIndex(0);
-  return A;
-}
-
-HLSLSV_PositionAttr *HLSLSV_PositionAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_HLSLAnnotation, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
-  return CreateImplicit(Ctx, I);
-}
-
-HLSLSV_PositionAttr *HLSLSV_PositionAttr::Create(ASTContext &Ctx, SourceRange Range) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_HLSLAnnotation, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
-  return Create(Ctx, I);
-}
-
-HLSLSV_PositionAttr::HLSLSV_PositionAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-             )
-  : HLSLAnnotationAttr(Ctx, CommonInfo, attr::HLSLSV_Position, /*IsLateParsed=*/false, false)
-  {
-}
-
-HLSLSV_PositionAttr *HLSLSV_PositionAttr::clone(ASTContext &C) const {
-  auto *A = new (C) HLSLSV_PositionAttr(C, *this);
-  A->Inherited = Inherited;
-  A->IsPackExpansion = IsPackExpansion;
-  A->setImplicit(Implicit);
-  return A;
-}
-
-void HLSLSV_PositionAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
-  bool IsFirstArgument = true; (void)IsFirstArgument;
-  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
-  switch (getAttributeSpellingListIndex()) {
-  default:
-    llvm_unreachable("Unknown attribute spelling!");
-    break;
-  case 0 : {
-    OS << ":sv_position";
-    OS << "";
-    break;
-  }
-}
-}
-
-const char *HLSLSV_PositionAttr::getSpelling() const {
-  switch (getAttributeSpellingListIndex()) {
-  default:
-    llvm_unreachable("Unknown attribute spelling!");
-    return "(No spelling)";
-  case 0:
-    return "sv_position";
-  }
-}
-
-
 // HLSLShaderAttr implementation
 
 HLSLShaderAttr *HLSLShaderAttr::CreateImplicit(ASTContext &Ctx, llvm::Triple::EnvironmentType Type, const AttributeCommonInfo &CommonInfo) {
@@ -19378,6 +19638,161 @@ const char *HLSLShaderAttr::getSpelling() const {
     return "(No spelling)";
   case 0:
     return "shader";
+  }
+}
+
+
+// HLSLUnparsedSemanticAttr implementation
+
+HLSLUnparsedSemanticAttr *HLSLUnparsedSemanticAttr::CreateImplicit(ASTContext &Ctx, int Index, bool ExplicitIndex, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) HLSLUnparsedSemanticAttr(Ctx, CommonInfo, Index, ExplicitIndex);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+HLSLUnparsedSemanticAttr *HLSLUnparsedSemanticAttr::Create(ASTContext &Ctx, int Index, bool ExplicitIndex, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) HLSLUnparsedSemanticAttr(Ctx, CommonInfo, Index, ExplicitIndex);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+HLSLUnparsedSemanticAttr *HLSLUnparsedSemanticAttr::CreateImplicit(ASTContext &Ctx, int Index, bool ExplicitIndex, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
+  return CreateImplicit(Ctx, Index, ExplicitIndex, I);
+}
+
+HLSLUnparsedSemanticAttr *HLSLUnparsedSemanticAttr::Create(ASTContext &Ctx, int Index, bool ExplicitIndex, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
+  return Create(Ctx, Index, ExplicitIndex, I);
+}
+
+HLSLUnparsedSemanticAttr::HLSLUnparsedSemanticAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , int Index
+              , bool ExplicitIndex
+             )
+  : HLSLAnnotationAttr(Ctx, CommonInfo, attr::HLSLUnparsedSemantic, /*IsLateParsed=*/false, false)
+              , index(Index)
+              , explicitIndex(ExplicitIndex)
+  {
+}
+
+HLSLUnparsedSemanticAttr::HLSLUnparsedSemanticAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             )
+  : HLSLAnnotationAttr(Ctx, CommonInfo, attr::HLSLUnparsedSemantic, /*IsLateParsed=*/false, false)
+              , index()
+              , explicitIndex()
+  {
+}
+
+
+
+
+
+HLSLUnparsedSemanticAttr *HLSLUnparsedSemanticAttr::clone(ASTContext &C) const {
+  auto *A = new (C) HLSLUnparsedSemanticAttr(C, *this, index, explicitIndex);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void HLSLUnparsedSemanticAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+}
+
+const char *HLSLUnparsedSemanticAttr::getSpelling() const {
+  return "(No spelling)";
+}
+
+
+// HLSLVkBindingAttr implementation
+
+HLSLVkBindingAttr *HLSLVkBindingAttr::CreateImplicit(ASTContext &Ctx, int Binding, int Set, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) HLSLVkBindingAttr(Ctx, CommonInfo, Binding, Set);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+HLSLVkBindingAttr *HLSLVkBindingAttr::Create(ASTContext &Ctx, int Binding, int Set, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) HLSLVkBindingAttr(Ctx, CommonInfo, Binding, Set);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+HLSLVkBindingAttr *HLSLVkBindingAttr::CreateImplicit(ASTContext &Ctx, int Binding, int Set, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
+  return CreateImplicit(Ctx, Binding, Set, I);
+}
+
+HLSLVkBindingAttr *HLSLVkBindingAttr::Create(ASTContext &Ctx, int Binding, int Set, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
+  return Create(Ctx, Binding, Set, I);
+}
+
+HLSLVkBindingAttr::HLSLVkBindingAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , int Binding
+              , int Set
+             )
+  : InheritableAttr(Ctx, CommonInfo, attr::HLSLVkBinding, /*IsLateParsed=*/false, false)
+              , binding(Binding)
+              , set(Set)
+  {
+}
+
+HLSLVkBindingAttr::HLSLVkBindingAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , int Binding
+             )
+  : InheritableAttr(Ctx, CommonInfo, attr::HLSLVkBinding, /*IsLateParsed=*/false, false)
+              , binding(Binding)
+              , set()
+  {
+}
+
+
+
+
+
+HLSLVkBindingAttr *HLSLVkBindingAttr::clone(ASTContext &C) const {
+  auto *A = new (C) HLSLVkBindingAttr(C, *this, binding, set);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void HLSLVkBindingAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+  bool IsFirstArgument = true; (void)IsFirstArgument;
+  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    break;
+  case 0 : {
+    OS << "[[vk::binding";
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "" << getBinding() << "";
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "" << getSet() << "";
+    if (!IsFirstArgument)
+      OS << ")";
+    OS << "]]";
+    break;
+  }
+}
+}
+
+const char *HLSLVkBindingAttr::getSpelling() const {
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    return "(No spelling)";
+  case 0:
+    return "binding";
   }
 }
 
@@ -19528,6 +19943,148 @@ const char *HLSLVkExtBuiltinInputAttr::getSpelling() const {
     return "(No spelling)";
   case 0:
     return "ext_builtin_input";
+  }
+}
+
+
+// HLSLVkLocationAttr implementation
+
+HLSLVkLocationAttr *HLSLVkLocationAttr::CreateImplicit(ASTContext &Ctx, int Location, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) HLSLVkLocationAttr(Ctx, CommonInfo, Location);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+HLSLVkLocationAttr *HLSLVkLocationAttr::Create(ASTContext &Ctx, int Location, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) HLSLVkLocationAttr(Ctx, CommonInfo, Location);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+HLSLVkLocationAttr *HLSLVkLocationAttr::CreateImplicit(ASTContext &Ctx, int Location, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
+  return CreateImplicit(Ctx, Location, I);
+}
+
+HLSLVkLocationAttr *HLSLVkLocationAttr::Create(ASTContext &Ctx, int Location, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
+  return Create(Ctx, Location, I);
+}
+
+HLSLVkLocationAttr::HLSLVkLocationAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , int Location
+             )
+  : HLSLAnnotationAttr(Ctx, CommonInfo, attr::HLSLVkLocation, /*IsLateParsed=*/false, false)
+              , location(Location)
+  {
+}
+
+
+
+HLSLVkLocationAttr *HLSLVkLocationAttr::clone(ASTContext &C) const {
+  auto *A = new (C) HLSLVkLocationAttr(C, *this, location);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void HLSLVkLocationAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+  bool IsFirstArgument = true; (void)IsFirstArgument;
+  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    break;
+  case 0 : {
+    OS << "[[vk::location";
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "" << getLocation() << "";
+    if (!IsFirstArgument)
+      OS << ")";
+    OS << "]]";
+    break;
+  }
+}
+}
+
+const char *HLSLVkLocationAttr::getSpelling() const {
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    return "(No spelling)";
+  case 0:
+    return "location";
+  }
+}
+
+
+// HLSLVkPushConstantAttr implementation
+
+HLSLVkPushConstantAttr *HLSLVkPushConstantAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) HLSLVkPushConstantAttr(Ctx, CommonInfo);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+HLSLVkPushConstantAttr *HLSLVkPushConstantAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) HLSLVkPushConstantAttr(Ctx, CommonInfo);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+HLSLVkPushConstantAttr *HLSLVkPushConstantAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
+  return CreateImplicit(Ctx, I);
+}
+
+HLSLVkPushConstantAttr *HLSLVkPushConstantAttr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
+  return Create(Ctx, I);
+}
+
+HLSLVkPushConstantAttr::HLSLVkPushConstantAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             )
+  : InheritableAttr(Ctx, CommonInfo, attr::HLSLVkPushConstant, /*IsLateParsed=*/false, false)
+  {
+}
+
+HLSLVkPushConstantAttr *HLSLVkPushConstantAttr::clone(ASTContext &C) const {
+  auto *A = new (C) HLSLVkPushConstantAttr(C, *this);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void HLSLVkPushConstantAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+  bool IsFirstArgument = true; (void)IsFirstArgument;
+  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    break;
+  case 0 : {
+    OS << "[[vk::push_constant";
+    OS << "]]";
+    break;
+  }
+}
+}
+
+const char *HLSLVkPushConstantAttr::getSpelling() const {
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    return "(No spelling)";
+  case 0:
+    return "push_constant";
   }
 }
 
@@ -22914,6 +23471,111 @@ const char *MSVtorDispAttr::getSpelling() const {
 }
 
 
+// MallocSpanAttr implementation
+
+MallocSpanAttr *MallocSpanAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) MallocSpanAttr(Ctx, CommonInfo);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+MallocSpanAttr *MallocSpanAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) MallocSpanAttr(Ctx, CommonInfo);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+MallocSpanAttr *MallocSpanAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
+    switch (S) {
+    case GNU_malloc_span:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_malloc_span, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case CXX11_clang_malloc_span:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_malloc_span, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_malloc_span:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_malloc_span, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    default:
+      llvm_unreachable("Unknown attribute spelling!");
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    }
+  }());
+  return CreateImplicit(Ctx, I);
+}
+
+MallocSpanAttr *MallocSpanAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
+    switch (S) {
+    case GNU_malloc_span:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_malloc_span, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case CXX11_clang_malloc_span:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_malloc_span, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_malloc_span:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_malloc_span, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    default:
+      llvm_unreachable("Unknown attribute spelling!");
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    }
+  }());
+  return Create(Ctx, I);
+}
+
+MallocSpanAttr::MallocSpanAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             )
+  : InheritableAttr(Ctx, CommonInfo, attr::MallocSpan, /*IsLateParsed=*/false, false)
+  {
+}
+
+MallocSpanAttr *MallocSpanAttr::clone(ASTContext &C) const {
+  auto *A = new (C) MallocSpanAttr(C, *this);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void MallocSpanAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+  bool IsFirstArgument = true; (void)IsFirstArgument;
+  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    break;
+  case 0 : {
+    OS << "__attribute__((malloc_span";
+    OS << "))";
+    break;
+  }
+  case 1 : {
+    OS << "[[clang::malloc_span";
+    OS << "]]";
+    break;
+  }
+  case 2 : {
+    OS << "[[clang::malloc_span";
+    OS << "]]";
+    break;
+  }
+}
+}
+
+const char *MallocSpanAttr::getSpelling() const {
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    return "(No spelling)";
+  case 0:
+    return "malloc_span";
+  case 1:
+    return "malloc_span";
+  case 2:
+    return "malloc_span";
+  }
+}
+
+
 // MaxFieldAlignmentAttr implementation
 
 MaxFieldAlignmentAttr *MaxFieldAlignmentAttr::CreateImplicit(ASTContext &Ctx, unsigned Alignment, const AttributeCommonInfo &CommonInfo) {
@@ -24064,7 +24726,7 @@ const char *MipsShortCallAttr::getSpelling() const {
 
 // ModeAttr implementation
 
-ModeAttr *ModeAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * Mode, const AttributeCommonInfo &CommonInfo) {
+ModeAttr *ModeAttr::CreateImplicit(ASTContext &Ctx, const IdentifierInfo * Mode, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) ModeAttr(Ctx, CommonInfo, Mode);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -24072,14 +24734,14 @@ ModeAttr *ModeAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * Mode, const
   return A;
 }
 
-ModeAttr *ModeAttr::Create(ASTContext &Ctx, IdentifierInfo * Mode, const AttributeCommonInfo &CommonInfo) {
+ModeAttr *ModeAttr::Create(ASTContext &Ctx, const IdentifierInfo * Mode, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) ModeAttr(Ctx, CommonInfo, Mode);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-ModeAttr *ModeAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * Mode, SourceRange Range, Spelling S) {
+ModeAttr *ModeAttr::CreateImplicit(ASTContext &Ctx, const IdentifierInfo * Mode, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_mode:
@@ -24096,7 +24758,7 @@ ModeAttr *ModeAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * Mode, Sourc
   return CreateImplicit(Ctx, Mode, I);
 }
 
-ModeAttr *ModeAttr::Create(ASTContext &Ctx, IdentifierInfo * Mode, SourceRange Range, Spelling S) {
+ModeAttr *ModeAttr::Create(ASTContext &Ctx, const IdentifierInfo * Mode, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_mode:
@@ -24114,7 +24776,7 @@ ModeAttr *ModeAttr::Create(ASTContext &Ctx, IdentifierInfo * Mode, SourceRange R
 }
 
 ModeAttr::ModeAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , IdentifierInfo * Mode
+              , const IdentifierInfo * Mode
              )
   : Attr(Ctx, CommonInfo, attr::Mode, /*IsLateParsed=*/false)
               , mode(Mode)
@@ -24179,6 +24841,183 @@ const char *ModeAttr::getSpelling() const {
     return "mode";
   case 2:
     return "mode";
+  }
+}
+
+
+// ModularFormatAttr implementation
+
+ModularFormatAttr *ModularFormatAttr::CreateImplicit(ASTContext &Ctx, const IdentifierInfo * ModularImplFn, llvm::StringRef ImplName, StringRef *Aspects, unsigned AspectsSize, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) ModularFormatAttr(Ctx, CommonInfo, ModularImplFn, ImplName, Aspects, AspectsSize);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+ModularFormatAttr *ModularFormatAttr::Create(ASTContext &Ctx, const IdentifierInfo * ModularImplFn, llvm::StringRef ImplName, StringRef *Aspects, unsigned AspectsSize, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) ModularFormatAttr(Ctx, CommonInfo, ModularImplFn, ImplName, Aspects, AspectsSize);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+ModularFormatAttr *ModularFormatAttr::CreateImplicit(ASTContext &Ctx, const IdentifierInfo * ModularImplFn, llvm::StringRef ImplName, StringRef *Aspects, unsigned AspectsSize, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
+    switch (S) {
+    case GNU_modular_format:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_modular_format, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case CXX11_clang_modular_format:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_modular_format, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_modular_format:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_modular_format, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    default:
+      llvm_unreachable("Unknown attribute spelling!");
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    }
+  }());
+  return CreateImplicit(Ctx, ModularImplFn, ImplName, Aspects, AspectsSize, I);
+}
+
+ModularFormatAttr *ModularFormatAttr::Create(ASTContext &Ctx, const IdentifierInfo * ModularImplFn, llvm::StringRef ImplName, StringRef *Aspects, unsigned AspectsSize, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
+    switch (S) {
+    case GNU_modular_format:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_modular_format, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case CXX11_clang_modular_format:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_modular_format, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_modular_format:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_modular_format, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    default:
+      llvm_unreachable("Unknown attribute spelling!");
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    }
+  }());
+  return Create(Ctx, ModularImplFn, ImplName, Aspects, AspectsSize, I);
+}
+
+ModularFormatAttr::ModularFormatAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , const IdentifierInfo * ModularImplFn
+              , llvm::StringRef ImplName
+              , StringRef *Aspects, unsigned AspectsSize
+             )
+  : InheritableAttr(Ctx, CommonInfo, attr::ModularFormat, /*IsLateParsed=*/false, false)
+              , modularImplFn(ModularImplFn)
+              , implNameLength(ImplName.size()),implName(new (Ctx, 1) char[implNameLength])
+              , aspects_Size(AspectsSize), aspects_(new (Ctx, 16) StringRef[aspects_Size])
+  {
+    if (!ImplName.empty())
+      std::memcpy(implName, ImplName.data(), implNameLength);
+  for (size_t I = 0, E = aspects_Size; I != E;
+       ++I) {
+    StringRef Ref = Aspects[I];
+    if (!Ref.empty()) {
+      char *Mem = new (Ctx, 1) char[Ref.size()];
+      std::memcpy(Mem, Ref.data(), Ref.size());
+      aspects_[I] = StringRef(Mem, Ref.size());
+    }
+  }
+}
+
+ModularFormatAttr::ModularFormatAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+              , const IdentifierInfo * ModularImplFn
+              , llvm::StringRef ImplName
+             )
+  : InheritableAttr(Ctx, CommonInfo, attr::ModularFormat, /*IsLateParsed=*/false, false)
+              , modularImplFn(ModularImplFn)
+              , implNameLength(ImplName.size()),implName(new (Ctx, 1) char[implNameLength])
+              , aspects_Size(0), aspects_(nullptr)
+  {
+    if (!ImplName.empty())
+      std::memcpy(implName, ImplName.data(), implNameLength);
+}
+
+
+
+
+
+
+
+ModularFormatAttr *ModularFormatAttr::clone(ASTContext &C) const {
+  auto *A = new (C) ModularFormatAttr(C, *this, modularImplFn, getImplName(), aspects_, aspects_Size);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void ModularFormatAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+  bool IsFirstArgument = true; (void)IsFirstArgument;
+  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    break;
+  case 0 : {
+    OS << "__attribute__((modular_format";
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "" << (getModularImplFn() ? getModularImplFn()->getName() : "") << "";
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "\"" << getImplName() << "\"";
+    OS << "";
+  for (const auto &Val : aspects()) {
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "\"" << Val << "\"";
+  }
+  OS << "";
+    if (!IsFirstArgument)
+      OS << ")";
+    OS << "))";
+    break;
+  }
+  case 1 : {
+    OS << "[[clang::modular_format";
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "" << (getModularImplFn() ? getModularImplFn()->getName() : "") << "";
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "\"" << getImplName() << "\"";
+    OS << "";
+  for (const auto &Val : aspects()) {
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "\"" << Val << "\"";
+  }
+  OS << "";
+    if (!IsFirstArgument)
+      OS << ")";
+    OS << "]]";
+    break;
+  }
+  case 2 : {
+    OS << "[[clang::modular_format";
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "" << (getModularImplFn() ? getModularImplFn()->getName() : "") << "";
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "\"" << getImplName() << "\"";
+    OS << "";
+  for (const auto &Val : aspects()) {
+    DelimitAttributeArgument(OS, IsFirstArgument);
+    OS << "\"" << Val << "\"";
+  }
+  OS << "";
+    if (!IsFirstArgument)
+      OS << ")";
+    OS << "]]";
+    break;
+  }
+}
+}
+
+const char *ModularFormatAttr::getSpelling() const {
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    return "(No spelling)";
+  case 0:
+    return "modular_format";
+  case 1:
+    return "modular_format";
+  case 2:
+    return "modular_format";
   }
 }
 
@@ -24500,7 +25339,7 @@ const char *NSConsumesSelfAttr::getSpelling() const {
 
 // NSErrorDomainAttr implementation
 
-NSErrorDomainAttr *NSErrorDomainAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * ErrorDomain, const AttributeCommonInfo &CommonInfo) {
+NSErrorDomainAttr *NSErrorDomainAttr::CreateImplicit(ASTContext &Ctx, const IdentifierInfo * ErrorDomain, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) NSErrorDomainAttr(Ctx, CommonInfo, ErrorDomain);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -24508,25 +25347,25 @@ NSErrorDomainAttr *NSErrorDomainAttr::CreateImplicit(ASTContext &Ctx, Identifier
   return A;
 }
 
-NSErrorDomainAttr *NSErrorDomainAttr::Create(ASTContext &Ctx, IdentifierInfo * ErrorDomain, const AttributeCommonInfo &CommonInfo) {
+NSErrorDomainAttr *NSErrorDomainAttr::Create(ASTContext &Ctx, const IdentifierInfo * ErrorDomain, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) NSErrorDomainAttr(Ctx, CommonInfo, ErrorDomain);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-NSErrorDomainAttr *NSErrorDomainAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * ErrorDomain, SourceRange Range) {
+NSErrorDomainAttr *NSErrorDomainAttr::CreateImplicit(ASTContext &Ctx, const IdentifierInfo * ErrorDomain, SourceRange Range) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, ErrorDomain, I);
 }
 
-NSErrorDomainAttr *NSErrorDomainAttr::Create(ASTContext &Ctx, IdentifierInfo * ErrorDomain, SourceRange Range) {
+NSErrorDomainAttr *NSErrorDomainAttr::Create(ASTContext &Ctx, const IdentifierInfo * ErrorDomain, SourceRange Range) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, ErrorDomain, I);
 }
 
 NSErrorDomainAttr::NSErrorDomainAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , IdentifierInfo * ErrorDomain
+              , const IdentifierInfo * ErrorDomain
              )
   : InheritableAttr(Ctx, CommonInfo, attr::NSErrorDomain, /*IsLateParsed=*/false, false)
               , errorDomain(ErrorDomain)
@@ -29318,6 +30157,55 @@ const char *OMPDeclareVariantAttr::getSpelling() const {
 }
 
 
+// OMPGroupPrivateDeclAttr implementation
+
+OMPGroupPrivateDeclAttr *OMPGroupPrivateDeclAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) OMPGroupPrivateDeclAttr(Ctx, CommonInfo);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+OMPGroupPrivateDeclAttr *OMPGroupPrivateDeclAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) OMPGroupPrivateDeclAttr(Ctx, CommonInfo);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+OMPGroupPrivateDeclAttr *OMPGroupPrivateDeclAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
+  return CreateImplicit(Ctx, I);
+}
+
+OMPGroupPrivateDeclAttr *OMPGroupPrivateDeclAttr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, AttributeCommonInfo::Form::Implicit());
+  return Create(Ctx, I);
+}
+
+OMPGroupPrivateDeclAttr::OMPGroupPrivateDeclAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             )
+  : InheritableAttr(Ctx, CommonInfo, attr::OMPGroupPrivateDecl, /*IsLateParsed=*/false, false)
+  {
+}
+
+OMPGroupPrivateDeclAttr *OMPGroupPrivateDeclAttr::clone(ASTContext &C) const {
+  auto *A = new (C) OMPGroupPrivateDeclAttr(C, *this);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void OMPGroupPrivateDeclAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+}
+
+const char *OMPGroupPrivateDeclAttr::getSpelling() const {
+  return "(No spelling)";
+}
+
+
 // OMPReferencedVarAttr implementation
 
 OMPReferencedVarAttr *OMPReferencedVarAttr::CreateImplicit(ASTContext &Ctx, Expr * Ref, const AttributeCommonInfo &CommonInfo) {
@@ -30157,7 +31045,7 @@ const char *ObjCBoxableAttr::getSpelling() const {
 
 // ObjCBridgeAttr implementation
 
-ObjCBridgeAttr *ObjCBridgeAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * BridgedType, const AttributeCommonInfo &CommonInfo) {
+ObjCBridgeAttr *ObjCBridgeAttr::CreateImplicit(ASTContext &Ctx, const IdentifierInfo * BridgedType, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) ObjCBridgeAttr(Ctx, CommonInfo, BridgedType);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -30165,14 +31053,14 @@ ObjCBridgeAttr *ObjCBridgeAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo *
   return A;
 }
 
-ObjCBridgeAttr *ObjCBridgeAttr::Create(ASTContext &Ctx, IdentifierInfo * BridgedType, const AttributeCommonInfo &CommonInfo) {
+ObjCBridgeAttr *ObjCBridgeAttr::Create(ASTContext &Ctx, const IdentifierInfo * BridgedType, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) ObjCBridgeAttr(Ctx, CommonInfo, BridgedType);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-ObjCBridgeAttr *ObjCBridgeAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * BridgedType, SourceRange Range, Spelling S) {
+ObjCBridgeAttr *ObjCBridgeAttr::CreateImplicit(ASTContext &Ctx, const IdentifierInfo * BridgedType, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_objc_bridge:
@@ -30189,7 +31077,7 @@ ObjCBridgeAttr *ObjCBridgeAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo *
   return CreateImplicit(Ctx, BridgedType, I);
 }
 
-ObjCBridgeAttr *ObjCBridgeAttr::Create(ASTContext &Ctx, IdentifierInfo * BridgedType, SourceRange Range, Spelling S) {
+ObjCBridgeAttr *ObjCBridgeAttr::Create(ASTContext &Ctx, const IdentifierInfo * BridgedType, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_objc_bridge:
@@ -30207,7 +31095,7 @@ ObjCBridgeAttr *ObjCBridgeAttr::Create(ASTContext &Ctx, IdentifierInfo * Bridged
 }
 
 ObjCBridgeAttr::ObjCBridgeAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , IdentifierInfo * BridgedType
+              , const IdentifierInfo * BridgedType
              )
   : InheritableAttr(Ctx, CommonInfo, attr::ObjCBridge, /*IsLateParsed=*/false, false)
               , bridgedType(BridgedType)
@@ -30278,7 +31166,7 @@ const char *ObjCBridgeAttr::getSpelling() const {
 
 // ObjCBridgeMutableAttr implementation
 
-ObjCBridgeMutableAttr *ObjCBridgeMutableAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * BridgedType, const AttributeCommonInfo &CommonInfo) {
+ObjCBridgeMutableAttr *ObjCBridgeMutableAttr::CreateImplicit(ASTContext &Ctx, const IdentifierInfo * BridgedType, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) ObjCBridgeMutableAttr(Ctx, CommonInfo, BridgedType);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -30286,14 +31174,14 @@ ObjCBridgeMutableAttr *ObjCBridgeMutableAttr::CreateImplicit(ASTContext &Ctx, Id
   return A;
 }
 
-ObjCBridgeMutableAttr *ObjCBridgeMutableAttr::Create(ASTContext &Ctx, IdentifierInfo * BridgedType, const AttributeCommonInfo &CommonInfo) {
+ObjCBridgeMutableAttr *ObjCBridgeMutableAttr::Create(ASTContext &Ctx, const IdentifierInfo * BridgedType, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) ObjCBridgeMutableAttr(Ctx, CommonInfo, BridgedType);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-ObjCBridgeMutableAttr *ObjCBridgeMutableAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * BridgedType, SourceRange Range, Spelling S) {
+ObjCBridgeMutableAttr *ObjCBridgeMutableAttr::CreateImplicit(ASTContext &Ctx, const IdentifierInfo * BridgedType, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_objc_bridge_mutable:
@@ -30310,7 +31198,7 @@ ObjCBridgeMutableAttr *ObjCBridgeMutableAttr::CreateImplicit(ASTContext &Ctx, Id
   return CreateImplicit(Ctx, BridgedType, I);
 }
 
-ObjCBridgeMutableAttr *ObjCBridgeMutableAttr::Create(ASTContext &Ctx, IdentifierInfo * BridgedType, SourceRange Range, Spelling S) {
+ObjCBridgeMutableAttr *ObjCBridgeMutableAttr::Create(ASTContext &Ctx, const IdentifierInfo * BridgedType, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_objc_bridge_mutable:
@@ -30328,7 +31216,7 @@ ObjCBridgeMutableAttr *ObjCBridgeMutableAttr::Create(ASTContext &Ctx, Identifier
 }
 
 ObjCBridgeMutableAttr::ObjCBridgeMutableAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , IdentifierInfo * BridgedType
+              , const IdentifierInfo * BridgedType
              )
   : InheritableAttr(Ctx, CommonInfo, attr::ObjCBridgeMutable, /*IsLateParsed=*/false, false)
               , bridgedType(BridgedType)
@@ -30399,7 +31287,7 @@ const char *ObjCBridgeMutableAttr::getSpelling() const {
 
 // ObjCBridgeRelatedAttr implementation
 
-ObjCBridgeRelatedAttr *ObjCBridgeRelatedAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * RelatedClass, IdentifierInfo * ClassMethod, IdentifierInfo * InstanceMethod, const AttributeCommonInfo &CommonInfo) {
+ObjCBridgeRelatedAttr *ObjCBridgeRelatedAttr::CreateImplicit(ASTContext &Ctx, const IdentifierInfo * RelatedClass, const IdentifierInfo * ClassMethod, const IdentifierInfo * InstanceMethod, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) ObjCBridgeRelatedAttr(Ctx, CommonInfo, RelatedClass, ClassMethod, InstanceMethod);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -30407,14 +31295,14 @@ ObjCBridgeRelatedAttr *ObjCBridgeRelatedAttr::CreateImplicit(ASTContext &Ctx, Id
   return A;
 }
 
-ObjCBridgeRelatedAttr *ObjCBridgeRelatedAttr::Create(ASTContext &Ctx, IdentifierInfo * RelatedClass, IdentifierInfo * ClassMethod, IdentifierInfo * InstanceMethod, const AttributeCommonInfo &CommonInfo) {
+ObjCBridgeRelatedAttr *ObjCBridgeRelatedAttr::Create(ASTContext &Ctx, const IdentifierInfo * RelatedClass, const IdentifierInfo * ClassMethod, const IdentifierInfo * InstanceMethod, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) ObjCBridgeRelatedAttr(Ctx, CommonInfo, RelatedClass, ClassMethod, InstanceMethod);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-ObjCBridgeRelatedAttr *ObjCBridgeRelatedAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * RelatedClass, IdentifierInfo * ClassMethod, IdentifierInfo * InstanceMethod, SourceRange Range, Spelling S) {
+ObjCBridgeRelatedAttr *ObjCBridgeRelatedAttr::CreateImplicit(ASTContext &Ctx, const IdentifierInfo * RelatedClass, const IdentifierInfo * ClassMethod, const IdentifierInfo * InstanceMethod, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_objc_bridge_related:
@@ -30431,7 +31319,7 @@ ObjCBridgeRelatedAttr *ObjCBridgeRelatedAttr::CreateImplicit(ASTContext &Ctx, Id
   return CreateImplicit(Ctx, RelatedClass, ClassMethod, InstanceMethod, I);
 }
 
-ObjCBridgeRelatedAttr *ObjCBridgeRelatedAttr::Create(ASTContext &Ctx, IdentifierInfo * RelatedClass, IdentifierInfo * ClassMethod, IdentifierInfo * InstanceMethod, SourceRange Range, Spelling S) {
+ObjCBridgeRelatedAttr *ObjCBridgeRelatedAttr::Create(ASTContext &Ctx, const IdentifierInfo * RelatedClass, const IdentifierInfo * ClassMethod, const IdentifierInfo * InstanceMethod, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_objc_bridge_related:
@@ -30449,9 +31337,9 @@ ObjCBridgeRelatedAttr *ObjCBridgeRelatedAttr::Create(ASTContext &Ctx, Identifier
 }
 
 ObjCBridgeRelatedAttr::ObjCBridgeRelatedAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , IdentifierInfo * RelatedClass
-              , IdentifierInfo * ClassMethod
-              , IdentifierInfo * InstanceMethod
+              , const IdentifierInfo * RelatedClass
+              , const IdentifierInfo * ClassMethod
+              , const IdentifierInfo * InstanceMethod
              )
   : InheritableAttr(Ctx, CommonInfo, attr::ObjCBridgeRelated, /*IsLateParsed=*/false, false)
               , relatedClass(RelatedClass)
@@ -31275,7 +32163,7 @@ const char *ObjCExternallyRetainedAttr::getSpelling() const {
 
 // ObjCGCAttr implementation
 
-ObjCGCAttr *ObjCGCAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * Kind, const AttributeCommonInfo &CommonInfo) {
+ObjCGCAttr *ObjCGCAttr::CreateImplicit(ASTContext &Ctx, const IdentifierInfo * Kind, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) ObjCGCAttr(Ctx, CommonInfo, Kind);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -31283,14 +32171,14 @@ ObjCGCAttr *ObjCGCAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * Kind, c
   return A;
 }
 
-ObjCGCAttr *ObjCGCAttr::Create(ASTContext &Ctx, IdentifierInfo * Kind, const AttributeCommonInfo &CommonInfo) {
+ObjCGCAttr *ObjCGCAttr::Create(ASTContext &Ctx, const IdentifierInfo * Kind, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) ObjCGCAttr(Ctx, CommonInfo, Kind);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-ObjCGCAttr *ObjCGCAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * Kind, SourceRange Range, Spelling S) {
+ObjCGCAttr *ObjCGCAttr::CreateImplicit(ASTContext &Ctx, const IdentifierInfo * Kind, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_objc_gc:
@@ -31307,7 +32195,7 @@ ObjCGCAttr *ObjCGCAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * Kind, S
   return CreateImplicit(Ctx, Kind, I);
 }
 
-ObjCGCAttr *ObjCGCAttr::Create(ASTContext &Ctx, IdentifierInfo * Kind, SourceRange Range, Spelling S) {
+ObjCGCAttr *ObjCGCAttr::Create(ASTContext &Ctx, const IdentifierInfo * Kind, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_objc_gc:
@@ -31325,7 +32213,7 @@ ObjCGCAttr *ObjCGCAttr::Create(ASTContext &Ctx, IdentifierInfo * Kind, SourceRan
 }
 
 ObjCGCAttr::ObjCGCAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , IdentifierInfo * Kind
+              , const IdentifierInfo * Kind
              )
   : TypeAttr(Ctx, CommonInfo, attr::ObjCGC, /*IsLateParsed=*/false)
               , kind(Kind)
@@ -32098,7 +32986,7 @@ const char *ObjCNonRuntimeProtocolAttr::getSpelling() const {
 
 // ObjCOwnershipAttr implementation
 
-ObjCOwnershipAttr *ObjCOwnershipAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * Kind, const AttributeCommonInfo &CommonInfo) {
+ObjCOwnershipAttr *ObjCOwnershipAttr::CreateImplicit(ASTContext &Ctx, const IdentifierInfo * Kind, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) ObjCOwnershipAttr(Ctx, CommonInfo, Kind);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -32106,14 +32994,14 @@ ObjCOwnershipAttr *ObjCOwnershipAttr::CreateImplicit(ASTContext &Ctx, Identifier
   return A;
 }
 
-ObjCOwnershipAttr *ObjCOwnershipAttr::Create(ASTContext &Ctx, IdentifierInfo * Kind, const AttributeCommonInfo &CommonInfo) {
+ObjCOwnershipAttr *ObjCOwnershipAttr::Create(ASTContext &Ctx, const IdentifierInfo * Kind, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) ObjCOwnershipAttr(Ctx, CommonInfo, Kind);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-ObjCOwnershipAttr *ObjCOwnershipAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * Kind, SourceRange Range, Spelling S) {
+ObjCOwnershipAttr *ObjCOwnershipAttr::CreateImplicit(ASTContext &Ctx, const IdentifierInfo * Kind, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_objc_ownership:
@@ -32130,7 +33018,7 @@ ObjCOwnershipAttr *ObjCOwnershipAttr::CreateImplicit(ASTContext &Ctx, Identifier
   return CreateImplicit(Ctx, Kind, I);
 }
 
-ObjCOwnershipAttr *ObjCOwnershipAttr::Create(ASTContext &Ctx, IdentifierInfo * Kind, SourceRange Range, Spelling S) {
+ObjCOwnershipAttr *ObjCOwnershipAttr::Create(ASTContext &Ctx, const IdentifierInfo * Kind, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_objc_ownership:
@@ -32148,7 +33036,7 @@ ObjCOwnershipAttr *ObjCOwnershipAttr::Create(ASTContext &Ctx, IdentifierInfo * K
 }
 
 ObjCOwnershipAttr::ObjCOwnershipAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , IdentifierInfo * Kind
+              , const IdentifierInfo * Kind
              )
   : InheritableAttr(Ctx, CommonInfo, attr::ObjCOwnership, /*IsLateParsed=*/false, false)
               , kind(Kind)
@@ -34713,7 +35601,7 @@ const char *OwnerAttr::getSpelling() const {
 
 // OwnershipAttr implementation
 
-OwnershipAttr *OwnershipAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * Module, ParamIdx *Args, unsigned ArgsSize, const AttributeCommonInfo &CommonInfo) {
+OwnershipAttr *OwnershipAttr::CreateImplicit(ASTContext &Ctx, const IdentifierInfo * Module, ParamIdx *Args, unsigned ArgsSize, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) OwnershipAttr(Ctx, CommonInfo, Module, Args, ArgsSize);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -34721,12 +35609,12 @@ OwnershipAttr *OwnershipAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * M
   return A;
 }
 
-OwnershipAttr *OwnershipAttr::Create(ASTContext &Ctx, IdentifierInfo * Module, ParamIdx *Args, unsigned ArgsSize, const AttributeCommonInfo &CommonInfo) {
+OwnershipAttr *OwnershipAttr::Create(ASTContext &Ctx, const IdentifierInfo * Module, ParamIdx *Args, unsigned ArgsSize, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) OwnershipAttr(Ctx, CommonInfo, Module, Args, ArgsSize);
   return A;
 }
 
-OwnershipAttr *OwnershipAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * Module, ParamIdx *Args, unsigned ArgsSize, SourceRange Range, Spelling S) {
+OwnershipAttr *OwnershipAttr::CreateImplicit(ASTContext &Ctx, const IdentifierInfo * Module, ParamIdx *Args, unsigned ArgsSize, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_ownership_holds:
@@ -34755,7 +35643,7 @@ OwnershipAttr *OwnershipAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * M
   return CreateImplicit(Ctx, Module, Args, ArgsSize, I);
 }
 
-OwnershipAttr *OwnershipAttr::Create(ASTContext &Ctx, IdentifierInfo * Module, ParamIdx *Args, unsigned ArgsSize, SourceRange Range, Spelling S) {
+OwnershipAttr *OwnershipAttr::Create(ASTContext &Ctx, const IdentifierInfo * Module, ParamIdx *Args, unsigned ArgsSize, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_ownership_holds:
@@ -34785,7 +35673,7 @@ OwnershipAttr *OwnershipAttr::Create(ASTContext &Ctx, IdentifierInfo * Module, P
 }
 
 OwnershipAttr::OwnershipAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , IdentifierInfo * Module
+              , const IdentifierInfo * Module
               , ParamIdx *Args, unsigned ArgsSize
              )
   : InheritableAttr(Ctx, CommonInfo, attr::Ownership, /*IsLateParsed=*/false, false)
@@ -34796,7 +35684,7 @@ OwnershipAttr::OwnershipAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonI
 }
 
 OwnershipAttr::OwnershipAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , IdentifierInfo * Module
+              , const IdentifierInfo * Module
              )
   : InheritableAttr(Ctx, CommonInfo, attr::Ownership, /*IsLateParsed=*/false, false)
               , module(Module)
@@ -37327,6 +38215,7 @@ bool RISCVInterruptAttr::ConvertStrToInterruptType(StringRef Val, RISCVInterrupt
   std::optional<RISCVInterruptAttr::InterruptType> R = llvm::StringSwitch<std::optional<RISCVInterruptAttr::InterruptType>>(Val)
     .Case("supervisor", RISCVInterruptAttr::InterruptType::supervisor)
     .Case("machine", RISCVInterruptAttr::InterruptType::machine)
+    .Case("rnmi", RISCVInterruptAttr::InterruptType::rnmi)
     .Case("qci-nest", RISCVInterruptAttr::InterruptType::qcinest)
     .Case("qci-nonest", RISCVInterruptAttr::InterruptType::qcinonest)
     .Case("SiFive-CLIC-preemptible", RISCVInterruptAttr::InterruptType::SiFiveCLICPreemptible)
@@ -37343,6 +38232,7 @@ const char *RISCVInterruptAttr::ConvertInterruptTypeToStr(RISCVInterruptAttr::In
   switch(Val) {
   case RISCVInterruptAttr::InterruptType::supervisor: return "supervisor";
   case RISCVInterruptAttr::InterruptType::machine: return "machine";
+  case RISCVInterruptAttr::InterruptType::rnmi: return "rnmi";
   case RISCVInterruptAttr::InterruptType::qcinest: return "qci-nest";
   case RISCVInterruptAttr::InterruptType::qcinonest: return "qci-nonest";
   case RISCVInterruptAttr::InterruptType::SiFiveCLICPreemptible: return "SiFive-CLIC-preemptible";
@@ -38690,73 +39580,6 @@ const char *ReleaseHandleAttr::getSpelling() const {
 }
 
 
-// ReplaceableAttr implementation
-
-ReplaceableAttr *ReplaceableAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
-  auto *A = new (Ctx) ReplaceableAttr(Ctx, CommonInfo);
-  A->setImplicit(true);
-  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
-    A->setAttributeSpellingListIndex(0);
-  return A;
-}
-
-ReplaceableAttr *ReplaceableAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
-  auto *A = new (Ctx) ReplaceableAttr(Ctx, CommonInfo);
-  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
-    A->setAttributeSpellingListIndex(0);
-  return A;
-}
-
-ReplaceableAttr *ReplaceableAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
-  return CreateImplicit(Ctx, I);
-}
-
-ReplaceableAttr *ReplaceableAttr::Create(ASTContext &Ctx, SourceRange Range) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
-  return Create(Ctx, I);
-}
-
-ReplaceableAttr::ReplaceableAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-             )
-  : InheritableAttr(Ctx, CommonInfo, attr::Replaceable, /*IsLateParsed=*/false, false)
-  {
-}
-
-ReplaceableAttr *ReplaceableAttr::clone(ASTContext &C) const {
-  auto *A = new (C) ReplaceableAttr(C, *this);
-  A->Inherited = Inherited;
-  A->IsPackExpansion = IsPackExpansion;
-  A->setImplicit(Implicit);
-  return A;
-}
-
-void ReplaceableAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
-  bool IsFirstArgument = true; (void)IsFirstArgument;
-  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
-  switch (getAttributeSpellingListIndex()) {
-  default:
-    llvm_unreachable("Unknown attribute spelling!");
-    break;
-  case 0 : {
-    OS << "replaceable_if_eligible";
-    OS << "";
-    break;
-  }
-}
-}
-
-const char *ReplaceableAttr::getSpelling() const {
-  switch (getAttributeSpellingListIndex()) {
-  default:
-    llvm_unreachable("Unknown attribute spelling!");
-    return "(No spelling)";
-  case 0:
-    return "replaceable_if_eligible";
-  }
-}
-
-
 // ReqdWorkGroupSizeAttr implementation
 
 ReqdWorkGroupSizeAttr *ReqdWorkGroupSizeAttr::CreateImplicit(ASTContext &Ctx, Expr * XDim, Expr * YDim, Expr * ZDim, const AttributeCommonInfo &CommonInfo) {
@@ -39816,7 +40639,7 @@ const char *ReturnsTwiceAttr::getSpelling() const {
 
 // RootSignatureAttr implementation
 
-RootSignatureAttr *RootSignatureAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * SignatureIdent, HLSLRootSignatureDecl * SignatureDecl, const AttributeCommonInfo &CommonInfo) {
+RootSignatureAttr *RootSignatureAttr::CreateImplicit(ASTContext &Ctx, const IdentifierInfo * SignatureIdent, HLSLRootSignatureDecl * SignatureDecl, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) RootSignatureAttr(Ctx, CommonInfo, SignatureIdent, SignatureDecl);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -39824,24 +40647,24 @@ RootSignatureAttr *RootSignatureAttr::CreateImplicit(ASTContext &Ctx, Identifier
   return A;
 }
 
-RootSignatureAttr *RootSignatureAttr::Create(ASTContext &Ctx, IdentifierInfo * SignatureIdent, HLSLRootSignatureDecl * SignatureDecl, const AttributeCommonInfo &CommonInfo) {
+RootSignatureAttr *RootSignatureAttr::Create(ASTContext &Ctx, const IdentifierInfo * SignatureIdent, HLSLRootSignatureDecl * SignatureDecl, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) RootSignatureAttr(Ctx, CommonInfo, SignatureIdent, SignatureDecl);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-RootSignatureAttr *RootSignatureAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * SignatureIdent, HLSLRootSignatureDecl * SignatureDecl, SourceRange Range) {
+RootSignatureAttr *RootSignatureAttr::CreateImplicit(ASTContext &Ctx, const IdentifierInfo * SignatureIdent, HLSLRootSignatureDecl * SignatureDecl, SourceRange Range) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Microsoft, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, SignatureIdent, SignatureDecl, I);
 }
 
-RootSignatureAttr *RootSignatureAttr::Create(ASTContext &Ctx, IdentifierInfo * SignatureIdent, HLSLRootSignatureDecl * SignatureDecl, SourceRange Range) {
+RootSignatureAttr *RootSignatureAttr::Create(ASTContext &Ctx, const IdentifierInfo * SignatureIdent, HLSLRootSignatureDecl * SignatureDecl, SourceRange Range) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Microsoft, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, SignatureIdent, SignatureDecl, I);
 }
 
-RootSignatureAttr *RootSignatureAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * SignatureIdent, const AttributeCommonInfo &CommonInfo) {
+RootSignatureAttr *RootSignatureAttr::CreateImplicit(ASTContext &Ctx, const IdentifierInfo * SignatureIdent, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) RootSignatureAttr(Ctx, CommonInfo, SignatureIdent);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -39849,25 +40672,25 @@ RootSignatureAttr *RootSignatureAttr::CreateImplicit(ASTContext &Ctx, Identifier
   return A;
 }
 
-RootSignatureAttr *RootSignatureAttr::Create(ASTContext &Ctx, IdentifierInfo * SignatureIdent, const AttributeCommonInfo &CommonInfo) {
+RootSignatureAttr *RootSignatureAttr::Create(ASTContext &Ctx, const IdentifierInfo * SignatureIdent, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) RootSignatureAttr(Ctx, CommonInfo, SignatureIdent);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-RootSignatureAttr *RootSignatureAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * SignatureIdent, SourceRange Range) {
+RootSignatureAttr *RootSignatureAttr::CreateImplicit(ASTContext &Ctx, const IdentifierInfo * SignatureIdent, SourceRange Range) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Microsoft, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, SignatureIdent, I);
 }
 
-RootSignatureAttr *RootSignatureAttr::Create(ASTContext &Ctx, IdentifierInfo * SignatureIdent, SourceRange Range) {
+RootSignatureAttr *RootSignatureAttr::Create(ASTContext &Ctx, const IdentifierInfo * SignatureIdent, SourceRange Range) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Microsoft, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, SignatureIdent, I);
 }
 
 RootSignatureAttr::RootSignatureAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , IdentifierInfo * SignatureIdent
+              , const IdentifierInfo * SignatureIdent
               , HLSLRootSignatureDecl * SignatureDecl
              )
   : Attr(Ctx, CommonInfo, attr::RootSignature, /*IsLateParsed=*/false)
@@ -39877,7 +40700,7 @@ RootSignatureAttr::RootSignatureAttr(ASTContext &Ctx, const AttributeCommonInfo 
 }
 
 RootSignatureAttr::RootSignatureAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , IdentifierInfo * SignatureIdent
+              , const IdentifierInfo * SignatureIdent
              )
   : Attr(Ctx, CommonInfo, attr::RootSignature, /*IsLateParsed=*/false)
               , signatureIdent(SignatureIdent)
@@ -39994,6 +40817,178 @@ const char *SPtrAttr::getSpelling() const {
 }
 
 
+// SYCLExternalAttr implementation
+
+SYCLExternalAttr *SYCLExternalAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) SYCLExternalAttr(Ctx, CommonInfo);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+SYCLExternalAttr *SYCLExternalAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) SYCLExternalAttr(Ctx, CommonInfo);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+SYCLExternalAttr *SYCLExternalAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
+  return CreateImplicit(Ctx, I);
+}
+
+SYCLExternalAttr *SYCLExternalAttr::Create(ASTContext &Ctx, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
+  return Create(Ctx, I);
+}
+
+SYCLExternalAttr::SYCLExternalAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             )
+  : InheritableAttr(Ctx, CommonInfo, attr::SYCLExternal, /*IsLateParsed=*/false, false)
+  {
+}
+
+SYCLExternalAttr *SYCLExternalAttr::clone(ASTContext &C) const {
+  auto *A = new (C) SYCLExternalAttr(C, *this);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void SYCLExternalAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+  bool IsFirstArgument = true; (void)IsFirstArgument;
+  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    break;
+  case 0 : {
+    OS << "[[clang::sycl_external";
+    OS << "]]";
+    break;
+  }
+}
+}
+
+const char *SYCLExternalAttr::getSpelling() const {
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    return "(No spelling)";
+  case 0:
+    return "sycl_external";
+  }
+}
+
+
+// SYCLKernelAttr implementation
+
+SYCLKernelAttr *SYCLKernelAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) SYCLKernelAttr(Ctx, CommonInfo);
+  A->setImplicit(true);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+SYCLKernelAttr *SYCLKernelAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
+  auto *A = new (Ctx) SYCLKernelAttr(Ctx, CommonInfo);
+  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
+    A->setAttributeSpellingListIndex(0);
+  return A;
+}
+
+SYCLKernelAttr *SYCLKernelAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
+    switch (S) {
+    case GNU_sycl_kernel:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_sycl_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case CXX11_clang_sycl_kernel:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_sycl_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_sycl_kernel:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_sycl_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    default:
+      llvm_unreachable("Unknown attribute spelling!");
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    }
+  }());
+  return CreateImplicit(Ctx, I);
+}
+
+SYCLKernelAttr *SYCLKernelAttr::Create(ASTContext &Ctx, SourceRange Range, Spelling S) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
+    switch (S) {
+    case GNU_sycl_kernel:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_sycl_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case CXX11_clang_sycl_kernel:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_sycl_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    case C23_clang_sycl_kernel:
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_sycl_kernel, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    default:
+      llvm_unreachable("Unknown attribute spelling!");
+      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
+    }
+  }());
+  return Create(Ctx, I);
+}
+
+SYCLKernelAttr::SYCLKernelAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
+             )
+  : InheritableAttr(Ctx, CommonInfo, attr::SYCLKernel, /*IsLateParsed=*/false, false)
+  {
+}
+
+SYCLKernelAttr *SYCLKernelAttr::clone(ASTContext &C) const {
+  auto *A = new (C) SYCLKernelAttr(C, *this);
+  A->Inherited = Inherited;
+  A->IsPackExpansion = IsPackExpansion;
+  A->setImplicit(Implicit);
+  return A;
+}
+
+void SYCLKernelAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
+  bool IsFirstArgument = true; (void)IsFirstArgument;
+  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    break;
+  case 0 : {
+    OS << "__attribute__((sycl_kernel";
+    OS << "))";
+    break;
+  }
+  case 1 : {
+    OS << "[[clang::sycl_kernel";
+    OS << "]]";
+    break;
+  }
+  case 2 : {
+    OS << "[[clang::sycl_kernel";
+    OS << "]]";
+    break;
+  }
+}
+}
+
+const char *SYCLKernelAttr::getSpelling() const {
+  switch (getAttributeSpellingListIndex()) {
+  default:
+    llvm_unreachable("Unknown attribute spelling!");
+    return "(No spelling)";
+  case 0:
+    return "sycl_kernel";
+  case 1:
+    return "sycl_kernel";
+  case 2:
+    return "sycl_kernel";
+  }
+}
+
+
 // SYCLKernelEntryPointAttr implementation
 
 SYCLKernelEntryPointAttr *SYCLKernelEntryPointAttr::CreateImplicit(ASTContext &Ctx, TypeSourceInfo * KernelName, bool Invalid, const AttributeCommonInfo &CommonInfo) {
@@ -40011,37 +41006,13 @@ SYCLKernelEntryPointAttr *SYCLKernelEntryPointAttr::Create(ASTContext &Ctx, Type
   return A;
 }
 
-SYCLKernelEntryPointAttr *SYCLKernelEntryPointAttr::CreateImplicit(ASTContext &Ctx, TypeSourceInfo * KernelName, bool Invalid, SourceRange Range, Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
-    switch (S) {
-    case GNU_sycl_kernel_entry_point:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_sycl_kernel_entry_point, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case CXX11_clang_sycl_kernel_entry_point:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_sycl_kernel_entry_point, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C23_clang_sycl_kernel_entry_point:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_sycl_kernel_entry_point, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    default:
-      llvm_unreachable("Unknown attribute spelling!");
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    }
-  }());
+SYCLKernelEntryPointAttr *SYCLKernelEntryPointAttr::CreateImplicit(ASTContext &Ctx, TypeSourceInfo * KernelName, bool Invalid, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, KernelName, Invalid, I);
 }
 
-SYCLKernelEntryPointAttr *SYCLKernelEntryPointAttr::Create(ASTContext &Ctx, TypeSourceInfo * KernelName, bool Invalid, SourceRange Range, Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
-    switch (S) {
-    case GNU_sycl_kernel_entry_point:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_sycl_kernel_entry_point, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case CXX11_clang_sycl_kernel_entry_point:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_sycl_kernel_entry_point, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C23_clang_sycl_kernel_entry_point:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_sycl_kernel_entry_point, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    default:
-      llvm_unreachable("Unknown attribute spelling!");
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    }
-  }());
+SYCLKernelEntryPointAttr *SYCLKernelEntryPointAttr::Create(ASTContext &Ctx, TypeSourceInfo * KernelName, bool Invalid, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, KernelName, Invalid, I);
 }
 
@@ -40060,37 +41031,13 @@ SYCLKernelEntryPointAttr *SYCLKernelEntryPointAttr::Create(ASTContext &Ctx, Type
   return A;
 }
 
-SYCLKernelEntryPointAttr *SYCLKernelEntryPointAttr::CreateImplicit(ASTContext &Ctx, TypeSourceInfo * KernelName, SourceRange Range, Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
-    switch (S) {
-    case GNU_sycl_kernel_entry_point:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_sycl_kernel_entry_point, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case CXX11_clang_sycl_kernel_entry_point:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_sycl_kernel_entry_point, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C23_clang_sycl_kernel_entry_point:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_sycl_kernel_entry_point, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    default:
-      llvm_unreachable("Unknown attribute spelling!");
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    }
-  }());
+SYCLKernelEntryPointAttr *SYCLKernelEntryPointAttr::CreateImplicit(ASTContext &Ctx, TypeSourceInfo * KernelName, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return CreateImplicit(Ctx, KernelName, I);
 }
 
-SYCLKernelEntryPointAttr *SYCLKernelEntryPointAttr::Create(ASTContext &Ctx, TypeSourceInfo * KernelName, SourceRange Range, Spelling S) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
-    switch (S) {
-    case GNU_sycl_kernel_entry_point:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, GNU_sycl_kernel_entry_point, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case CXX11_clang_sycl_kernel_entry_point:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_CXX11, CXX11_clang_sycl_kernel_entry_point, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    case C23_clang_sycl_kernel_entry_point:
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_C23, C23_clang_sycl_kernel_entry_point, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    default:
-      llvm_unreachable("Unknown attribute spelling!");
-      return AttributeCommonInfo::Form{AttributeCommonInfo::AS_GNU, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/};
-    }
-  }());
+SYCLKernelEntryPointAttr *SYCLKernelEntryPointAttr::Create(ASTContext &Ctx, TypeSourceInfo * KernelName, SourceRange Range) {
+  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_CXX11, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
   return Create(Ctx, KernelName, I);
 }
 
@@ -40133,24 +41080,6 @@ void SYCLKernelEntryPointAttr::printPretty(raw_ostream &OS, const PrintingPolicy
     llvm_unreachable("Unknown attribute spelling!");
     break;
   case 0 : {
-    OS << "__attribute__((sycl_kernel_entry_point";
-    DelimitAttributeArgument(OS, IsFirstArgument);
-    OS << "" << getKernelName().getAsString() << "";
-    if (!IsFirstArgument)
-      OS << ")";
-    OS << "))";
-    break;
-  }
-  case 1 : {
-    OS << "[[clang::sycl_kernel_entry_point";
-    DelimitAttributeArgument(OS, IsFirstArgument);
-    OS << "" << getKernelName().getAsString() << "";
-    if (!IsFirstArgument)
-      OS << ")";
-    OS << "]]";
-    break;
-  }
-  case 2 : {
     OS << "[[clang::sycl_kernel_entry_point";
     DelimitAttributeArgument(OS, IsFirstArgument);
     OS << "" << getKernelName().getAsString() << "";
@@ -40168,10 +41097,6 @@ const char *SYCLKernelEntryPointAttr::getSpelling() const {
     llvm_unreachable("Unknown attribute spelling!");
     return "(No spelling)";
   case 0:
-    return "sycl_kernel_entry_point";
-  case 1:
-    return "sycl_kernel_entry_point";
-  case 2:
     return "sycl_kernel_entry_point";
   }
 }
@@ -44994,73 +45919,6 @@ const char *TrivialABIAttr::getSpelling() const {
 }
 
 
-// TriviallyRelocatableAttr implementation
-
-TriviallyRelocatableAttr *TriviallyRelocatableAttr::CreateImplicit(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
-  auto *A = new (Ctx) TriviallyRelocatableAttr(Ctx, CommonInfo);
-  A->setImplicit(true);
-  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
-    A->setAttributeSpellingListIndex(0);
-  return A;
-}
-
-TriviallyRelocatableAttr *TriviallyRelocatableAttr::Create(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo) {
-  auto *A = new (Ctx) TriviallyRelocatableAttr(Ctx, CommonInfo);
-  if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
-    A->setAttributeSpellingListIndex(0);
-  return A;
-}
-
-TriviallyRelocatableAttr *TriviallyRelocatableAttr::CreateImplicit(ASTContext &Ctx, SourceRange Range) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
-  return CreateImplicit(Ctx, I);
-}
-
-TriviallyRelocatableAttr *TriviallyRelocatableAttr::Create(ASTContext &Ctx, SourceRange Range) {
-  AttributeCommonInfo I(Range, NoSemaHandlerAttribute, {AttributeCommonInfo::AS_Keyword, 0, false /*IsAlignas*/, false /*IsRegularKeywordAttribute*/});
-  return Create(Ctx, I);
-}
-
-TriviallyRelocatableAttr::TriviallyRelocatableAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-             )
-  : InheritableAttr(Ctx, CommonInfo, attr::TriviallyRelocatable, /*IsLateParsed=*/false, false)
-  {
-}
-
-TriviallyRelocatableAttr *TriviallyRelocatableAttr::clone(ASTContext &C) const {
-  auto *A = new (C) TriviallyRelocatableAttr(C, *this);
-  A->Inherited = Inherited;
-  A->IsPackExpansion = IsPackExpansion;
-  A->setImplicit(Implicit);
-  return A;
-}
-
-void TriviallyRelocatableAttr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
-  bool IsFirstArgument = true; (void)IsFirstArgument;
-  unsigned TrailingOmittedArgs = 0; (void)TrailingOmittedArgs;
-  switch (getAttributeSpellingListIndex()) {
-  default:
-    llvm_unreachable("Unknown attribute spelling!");
-    break;
-  case 0 : {
-    OS << "trivially_relocatable_if_eligible";
-    OS << "";
-    break;
-  }
-}
-}
-
-const char *TriviallyRelocatableAttr::getSpelling() const {
-  switch (getAttributeSpellingListIndex()) {
-  default:
-    llvm_unreachable("Unknown attribute spelling!");
-    return "(No spelling)";
-  case 0:
-    return "trivially_relocatable_if_eligible";
-  }
-}
-
-
 // TryAcquireCapabilityAttr implementation
 
 TryAcquireCapabilityAttr *TryAcquireCapabilityAttr::CreateImplicit(ASTContext &Ctx, Expr * SuccessValue, Expr * *Args, unsigned ArgsSize, const AttributeCommonInfo &CommonInfo) {
@@ -45641,7 +46499,7 @@ const char *TypeNullableResultAttr::getSpelling() const {
 
 // TypeTagForDatatypeAttr implementation
 
-TypeTagForDatatypeAttr *TypeTagForDatatypeAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * ArgumentKind, TypeSourceInfo * MatchingCType, bool LayoutCompatible, bool MustBeNull, const AttributeCommonInfo &CommonInfo) {
+TypeTagForDatatypeAttr *TypeTagForDatatypeAttr::CreateImplicit(ASTContext &Ctx, const IdentifierInfo * ArgumentKind, TypeSourceInfo * MatchingCType, bool LayoutCompatible, bool MustBeNull, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) TypeTagForDatatypeAttr(Ctx, CommonInfo, ArgumentKind, MatchingCType, LayoutCompatible, MustBeNull);
   A->setImplicit(true);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
@@ -45649,14 +46507,14 @@ TypeTagForDatatypeAttr *TypeTagForDatatypeAttr::CreateImplicit(ASTContext &Ctx, 
   return A;
 }
 
-TypeTagForDatatypeAttr *TypeTagForDatatypeAttr::Create(ASTContext &Ctx, IdentifierInfo * ArgumentKind, TypeSourceInfo * MatchingCType, bool LayoutCompatible, bool MustBeNull, const AttributeCommonInfo &CommonInfo) {
+TypeTagForDatatypeAttr *TypeTagForDatatypeAttr::Create(ASTContext &Ctx, const IdentifierInfo * ArgumentKind, TypeSourceInfo * MatchingCType, bool LayoutCompatible, bool MustBeNull, const AttributeCommonInfo &CommonInfo) {
   auto *A = new (Ctx) TypeTagForDatatypeAttr(Ctx, CommonInfo, ArgumentKind, MatchingCType, LayoutCompatible, MustBeNull);
   if (!A->isAttributeSpellingListCalculated() && !A->getAttrName())
     A->setAttributeSpellingListIndex(0);
   return A;
 }
 
-TypeTagForDatatypeAttr *TypeTagForDatatypeAttr::CreateImplicit(ASTContext &Ctx, IdentifierInfo * ArgumentKind, TypeSourceInfo * MatchingCType, bool LayoutCompatible, bool MustBeNull, SourceRange Range, Spelling S) {
+TypeTagForDatatypeAttr *TypeTagForDatatypeAttr::CreateImplicit(ASTContext &Ctx, const IdentifierInfo * ArgumentKind, TypeSourceInfo * MatchingCType, bool LayoutCompatible, bool MustBeNull, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_type_tag_for_datatype:
@@ -45673,7 +46531,7 @@ TypeTagForDatatypeAttr *TypeTagForDatatypeAttr::CreateImplicit(ASTContext &Ctx, 
   return CreateImplicit(Ctx, ArgumentKind, MatchingCType, LayoutCompatible, MustBeNull, I);
 }
 
-TypeTagForDatatypeAttr *TypeTagForDatatypeAttr::Create(ASTContext &Ctx, IdentifierInfo * ArgumentKind, TypeSourceInfo * MatchingCType, bool LayoutCompatible, bool MustBeNull, SourceRange Range, Spelling S) {
+TypeTagForDatatypeAttr *TypeTagForDatatypeAttr::Create(ASTContext &Ctx, const IdentifierInfo * ArgumentKind, TypeSourceInfo * MatchingCType, bool LayoutCompatible, bool MustBeNull, SourceRange Range, Spelling S) {
   AttributeCommonInfo I(Range, NoSemaHandlerAttribute, [&]() {
     switch (S) {
     case GNU_type_tag_for_datatype:
@@ -45691,7 +46549,7 @@ TypeTagForDatatypeAttr *TypeTagForDatatypeAttr::Create(ASTContext &Ctx, Identifi
 }
 
 TypeTagForDatatypeAttr::TypeTagForDatatypeAttr(ASTContext &Ctx, const AttributeCommonInfo &CommonInfo
-              , IdentifierInfo * ArgumentKind
+              , const IdentifierInfo * ArgumentKind
               , TypeSourceInfo * MatchingCType
               , bool LayoutCompatible
               , bool MustBeNull
@@ -49603,6 +50461,8 @@ const char *Attr::getSpelling() const {
     return cast<CFGuardAttr>(this)->getSpelling();
   case attr::CFICanonicalJumpTable:
     return cast<CFICanonicalJumpTableAttr>(this)->getSpelling();
+  case attr::CFISalt:
+    return cast<CFISaltAttr>(this)->getSpelling();
   case attr::CFIUncheckedCallee:
     return cast<CFIUncheckedCalleeAttr>(this)->getSpelling();
   case attr::CFReturnsNotRetained:
@@ -49615,6 +50475,8 @@ const char *Attr::getSpelling() const {
     return cast<CPUDispatchAttr>(this)->getSpelling();
   case attr::CPUSpecific:
     return cast<CPUSpecificAttr>(this)->getSpelling();
+  case attr::CUDAClusterDims:
+    return cast<CUDAClusterDimsAttr>(this)->getSpelling();
   case attr::CUDAConstant:
     return cast<CUDAConstantAttr>(this)->getSpelling();
   case attr::CUDADevice:
@@ -49633,6 +50495,8 @@ const char *Attr::getSpelling() const {
     return cast<CUDAInvalidTargetAttr>(this)->getSpelling();
   case attr::CUDALaunchBounds:
     return cast<CUDALaunchBoundsAttr>(this)->getSpelling();
+  case attr::CUDANoCluster:
+    return cast<CUDANoClusterAttr>(this)->getSpelling();
   case attr::CUDAShared:
     return cast<CUDASharedAttr>(this)->getSpelling();
   case attr::CXX11NoReturn:
@@ -49703,6 +50567,8 @@ const char *Attr::getSpelling() const {
     return cast<CountedByOrNullAttr>(this)->getSpelling();
   case attr::DLLExport:
     return cast<DLLExportAttr>(this)->getSpelling();
+  case attr::DLLExportOnDecl:
+    return cast<DLLExportOnDeclAttr>(this)->getSpelling();
   case attr::DLLExportStaticLocal:
     return cast<DLLExportStaticLocalAttr>(this)->getSpelling();
   case attr::DLLImport:
@@ -49761,6 +50627,8 @@ const char *Attr::getSpelling() const {
     return cast<FormatMatchesAttr>(this)->getSpelling();
   case attr::FunctionReturnThunks:
     return cast<FunctionReturnThunksAttr>(this)->getSpelling();
+  case attr::GCCStruct:
+    return cast<GCCStructAttr>(this)->getSpelling();
   case attr::GNUInline:
     return cast<GNUInlineAttr>(this)->getSpelling();
   case attr::GuardedBy:
@@ -49769,12 +50637,16 @@ const char *Attr::getSpelling() const {
     return cast<GuardedVarAttr>(this)->getSpelling();
   case attr::HIPManaged:
     return cast<HIPManagedAttr>(this)->getSpelling();
+  case attr::HLSLAppliedSemantic:
+    return cast<HLSLAppliedSemanticAttr>(this)->getSpelling();
   case attr::HLSLContainedType:
     return cast<HLSLContainedTypeAttr>(this)->getSpelling();
   case attr::HLSLControlFlowHint:
     return cast<HLSLControlFlowHintAttr>(this)->getSpelling();
   case attr::HLSLGroupSharedAddressSpace:
     return cast<HLSLGroupSharedAddressSpaceAttr>(this)->getSpelling();
+  case attr::HLSLIsCounter:
+    return cast<HLSLIsCounterAttr>(this)->getSpelling();
   case attr::HLSLLoopHint:
     return cast<HLSLLoopHintAttr>(this)->getSpelling();
   case attr::HLSLNumThreads:
@@ -49783,6 +50655,8 @@ const char *Attr::getSpelling() const {
     return cast<HLSLPackOffsetAttr>(this)->getSpelling();
   case attr::HLSLParamModifier:
     return cast<HLSLParamModifierAttr>(this)->getSpelling();
+  case attr::HLSLParsedSemantic:
+    return cast<HLSLParsedSemanticAttr>(this)->getSpelling();
   case attr::HLSLROV:
     return cast<HLSLROVAttr>(this)->getSpelling();
   case attr::HLSLRawBuffer:
@@ -49791,22 +50665,20 @@ const char *Attr::getSpelling() const {
     return cast<HLSLResourceBindingAttr>(this)->getSpelling();
   case attr::HLSLResourceClass:
     return cast<HLSLResourceClassAttr>(this)->getSpelling();
-  case attr::HLSLSV_DispatchThreadID:
-    return cast<HLSLSV_DispatchThreadIDAttr>(this)->getSpelling();
-  case attr::HLSLSV_GroupID:
-    return cast<HLSLSV_GroupIDAttr>(this)->getSpelling();
-  case attr::HLSLSV_GroupIndex:
-    return cast<HLSLSV_GroupIndexAttr>(this)->getSpelling();
-  case attr::HLSLSV_GroupThreadID:
-    return cast<HLSLSV_GroupThreadIDAttr>(this)->getSpelling();
-  case attr::HLSLSV_Position:
-    return cast<HLSLSV_PositionAttr>(this)->getSpelling();
   case attr::HLSLShader:
     return cast<HLSLShaderAttr>(this)->getSpelling();
+  case attr::HLSLUnparsedSemantic:
+    return cast<HLSLUnparsedSemanticAttr>(this)->getSpelling();
+  case attr::HLSLVkBinding:
+    return cast<HLSLVkBindingAttr>(this)->getSpelling();
   case attr::HLSLVkConstantId:
     return cast<HLSLVkConstantIdAttr>(this)->getSpelling();
   case attr::HLSLVkExtBuiltinInput:
     return cast<HLSLVkExtBuiltinInputAttr>(this)->getSpelling();
+  case attr::HLSLVkLocation:
+    return cast<HLSLVkLocationAttr>(this)->getSpelling();
+  case attr::HLSLVkPushConstant:
+    return cast<HLSLVkPushConstantAttr>(this)->getSpelling();
   case attr::HLSLWaveSize:
     return cast<HLSLWaveSizeAttr>(this)->getSpelling();
   case attr::Hot:
@@ -49873,6 +50745,8 @@ const char *Attr::getSpelling() const {
     return cast<MSStructAttr>(this)->getSpelling();
   case attr::MSVtorDisp:
     return cast<MSVtorDispAttr>(this)->getSpelling();
+  case attr::MallocSpan:
+    return cast<MallocSpanAttr>(this)->getSpelling();
   case attr::MaxFieldAlignment:
     return cast<MaxFieldAlignmentAttr>(this)->getSpelling();
   case attr::MayAlias:
@@ -49895,6 +50769,8 @@ const char *Attr::getSpelling() const {
     return cast<MipsShortCallAttr>(this)->getSpelling();
   case attr::Mode:
     return cast<ModeAttr>(this)->getSpelling();
+  case attr::ModularFormat:
+    return cast<ModularFormatAttr>(this)->getSpelling();
   case attr::MustTail:
     return cast<MustTailAttr>(this)->getSpelling();
   case attr::NSConsumed:
@@ -49989,6 +50865,8 @@ const char *Attr::getSpelling() const {
     return cast<OMPDeclareTargetDeclAttr>(this)->getSpelling();
   case attr::OMPDeclareVariant:
     return cast<OMPDeclareVariantAttr>(this)->getSpelling();
+  case attr::OMPGroupPrivateDecl:
+    return cast<OMPGroupPrivateDeclAttr>(this)->getSpelling();
   case attr::OMPReferencedVar:
     return cast<OMPReferencedVarAttr>(this)->getSpelling();
   case attr::OMPThreadPrivateDecl:
@@ -50161,8 +51039,6 @@ const char *Attr::getSpelling() const {
     return cast<ReleaseCapabilityAttr>(this)->getSpelling();
   case attr::ReleaseHandle:
     return cast<ReleaseHandleAttr>(this)->getSpelling();
-  case attr::Replaceable:
-    return cast<ReplaceableAttr>(this)->getSpelling();
   case attr::ReqdWorkGroupSize:
     return cast<ReqdWorkGroupSizeAttr>(this)->getSpelling();
   case attr::RequiresCapability:
@@ -50181,6 +51057,10 @@ const char *Attr::getSpelling() const {
     return cast<RootSignatureAttr>(this)->getSpelling();
   case attr::SPtr:
     return cast<SPtrAttr>(this)->getSpelling();
+  case attr::SYCLExternal:
+    return cast<SYCLExternalAttr>(this)->getSpelling();
+  case attr::SYCLKernel:
+    return cast<SYCLKernelAttr>(this)->getSpelling();
   case attr::SYCLKernelEntryPoint:
     return cast<SYCLKernelEntryPointAttr>(this)->getSpelling();
   case attr::SYCLSpecialClass:
@@ -50277,8 +51157,6 @@ const char *Attr::getSpelling() const {
     return cast<TransparentUnionAttr>(this)->getSpelling();
   case attr::TrivialABI:
     return cast<TrivialABIAttr>(this)->getSpelling();
-  case attr::TriviallyRelocatable:
-    return cast<TriviallyRelocatableAttr>(this)->getSpelling();
   case attr::TryAcquireCapability:
     return cast<TryAcquireCapabilityAttr>(this)->getSpelling();
   case attr::TypeNonNull:
@@ -50495,6 +51373,8 @@ Attr *Attr::clone(ASTContext &C) const {
     return cast<CFGuardAttr>(this)->clone(C);
   case attr::CFICanonicalJumpTable:
     return cast<CFICanonicalJumpTableAttr>(this)->clone(C);
+  case attr::CFISalt:
+    return cast<CFISaltAttr>(this)->clone(C);
   case attr::CFIUncheckedCallee:
     return cast<CFIUncheckedCalleeAttr>(this)->clone(C);
   case attr::CFReturnsNotRetained:
@@ -50507,6 +51387,8 @@ Attr *Attr::clone(ASTContext &C) const {
     return cast<CPUDispatchAttr>(this)->clone(C);
   case attr::CPUSpecific:
     return cast<CPUSpecificAttr>(this)->clone(C);
+  case attr::CUDAClusterDims:
+    return cast<CUDAClusterDimsAttr>(this)->clone(C);
   case attr::CUDAConstant:
     return cast<CUDAConstantAttr>(this)->clone(C);
   case attr::CUDADevice:
@@ -50525,6 +51407,8 @@ Attr *Attr::clone(ASTContext &C) const {
     return cast<CUDAInvalidTargetAttr>(this)->clone(C);
   case attr::CUDALaunchBounds:
     return cast<CUDALaunchBoundsAttr>(this)->clone(C);
+  case attr::CUDANoCluster:
+    return cast<CUDANoClusterAttr>(this)->clone(C);
   case attr::CUDAShared:
     return cast<CUDASharedAttr>(this)->clone(C);
   case attr::CXX11NoReturn:
@@ -50595,6 +51479,8 @@ Attr *Attr::clone(ASTContext &C) const {
     return cast<CountedByOrNullAttr>(this)->clone(C);
   case attr::DLLExport:
     return cast<DLLExportAttr>(this)->clone(C);
+  case attr::DLLExportOnDecl:
+    return cast<DLLExportOnDeclAttr>(this)->clone(C);
   case attr::DLLExportStaticLocal:
     return cast<DLLExportStaticLocalAttr>(this)->clone(C);
   case attr::DLLImport:
@@ -50653,6 +51539,8 @@ Attr *Attr::clone(ASTContext &C) const {
     return cast<FormatMatchesAttr>(this)->clone(C);
   case attr::FunctionReturnThunks:
     return cast<FunctionReturnThunksAttr>(this)->clone(C);
+  case attr::GCCStruct:
+    return cast<GCCStructAttr>(this)->clone(C);
   case attr::GNUInline:
     return cast<GNUInlineAttr>(this)->clone(C);
   case attr::GuardedBy:
@@ -50661,12 +51549,16 @@ Attr *Attr::clone(ASTContext &C) const {
     return cast<GuardedVarAttr>(this)->clone(C);
   case attr::HIPManaged:
     return cast<HIPManagedAttr>(this)->clone(C);
+  case attr::HLSLAppliedSemantic:
+    return cast<HLSLAppliedSemanticAttr>(this)->clone(C);
   case attr::HLSLContainedType:
     return cast<HLSLContainedTypeAttr>(this)->clone(C);
   case attr::HLSLControlFlowHint:
     return cast<HLSLControlFlowHintAttr>(this)->clone(C);
   case attr::HLSLGroupSharedAddressSpace:
     return cast<HLSLGroupSharedAddressSpaceAttr>(this)->clone(C);
+  case attr::HLSLIsCounter:
+    return cast<HLSLIsCounterAttr>(this)->clone(C);
   case attr::HLSLLoopHint:
     return cast<HLSLLoopHintAttr>(this)->clone(C);
   case attr::HLSLNumThreads:
@@ -50675,6 +51567,8 @@ Attr *Attr::clone(ASTContext &C) const {
     return cast<HLSLPackOffsetAttr>(this)->clone(C);
   case attr::HLSLParamModifier:
     return cast<HLSLParamModifierAttr>(this)->clone(C);
+  case attr::HLSLParsedSemantic:
+    return cast<HLSLParsedSemanticAttr>(this)->clone(C);
   case attr::HLSLROV:
     return cast<HLSLROVAttr>(this)->clone(C);
   case attr::HLSLRawBuffer:
@@ -50683,22 +51577,20 @@ Attr *Attr::clone(ASTContext &C) const {
     return cast<HLSLResourceBindingAttr>(this)->clone(C);
   case attr::HLSLResourceClass:
     return cast<HLSLResourceClassAttr>(this)->clone(C);
-  case attr::HLSLSV_DispatchThreadID:
-    return cast<HLSLSV_DispatchThreadIDAttr>(this)->clone(C);
-  case attr::HLSLSV_GroupID:
-    return cast<HLSLSV_GroupIDAttr>(this)->clone(C);
-  case attr::HLSLSV_GroupIndex:
-    return cast<HLSLSV_GroupIndexAttr>(this)->clone(C);
-  case attr::HLSLSV_GroupThreadID:
-    return cast<HLSLSV_GroupThreadIDAttr>(this)->clone(C);
-  case attr::HLSLSV_Position:
-    return cast<HLSLSV_PositionAttr>(this)->clone(C);
   case attr::HLSLShader:
     return cast<HLSLShaderAttr>(this)->clone(C);
+  case attr::HLSLUnparsedSemantic:
+    return cast<HLSLUnparsedSemanticAttr>(this)->clone(C);
+  case attr::HLSLVkBinding:
+    return cast<HLSLVkBindingAttr>(this)->clone(C);
   case attr::HLSLVkConstantId:
     return cast<HLSLVkConstantIdAttr>(this)->clone(C);
   case attr::HLSLVkExtBuiltinInput:
     return cast<HLSLVkExtBuiltinInputAttr>(this)->clone(C);
+  case attr::HLSLVkLocation:
+    return cast<HLSLVkLocationAttr>(this)->clone(C);
+  case attr::HLSLVkPushConstant:
+    return cast<HLSLVkPushConstantAttr>(this)->clone(C);
   case attr::HLSLWaveSize:
     return cast<HLSLWaveSizeAttr>(this)->clone(C);
   case attr::Hot:
@@ -50765,6 +51657,8 @@ Attr *Attr::clone(ASTContext &C) const {
     return cast<MSStructAttr>(this)->clone(C);
   case attr::MSVtorDisp:
     return cast<MSVtorDispAttr>(this)->clone(C);
+  case attr::MallocSpan:
+    return cast<MallocSpanAttr>(this)->clone(C);
   case attr::MaxFieldAlignment:
     return cast<MaxFieldAlignmentAttr>(this)->clone(C);
   case attr::MayAlias:
@@ -50787,6 +51681,8 @@ Attr *Attr::clone(ASTContext &C) const {
     return cast<MipsShortCallAttr>(this)->clone(C);
   case attr::Mode:
     return cast<ModeAttr>(this)->clone(C);
+  case attr::ModularFormat:
+    return cast<ModularFormatAttr>(this)->clone(C);
   case attr::MustTail:
     return cast<MustTailAttr>(this)->clone(C);
   case attr::NSConsumed:
@@ -50881,6 +51777,8 @@ Attr *Attr::clone(ASTContext &C) const {
     return cast<OMPDeclareTargetDeclAttr>(this)->clone(C);
   case attr::OMPDeclareVariant:
     return cast<OMPDeclareVariantAttr>(this)->clone(C);
+  case attr::OMPGroupPrivateDecl:
+    return cast<OMPGroupPrivateDeclAttr>(this)->clone(C);
   case attr::OMPReferencedVar:
     return cast<OMPReferencedVarAttr>(this)->clone(C);
   case attr::OMPThreadPrivateDecl:
@@ -51053,8 +51951,6 @@ Attr *Attr::clone(ASTContext &C) const {
     return cast<ReleaseCapabilityAttr>(this)->clone(C);
   case attr::ReleaseHandle:
     return cast<ReleaseHandleAttr>(this)->clone(C);
-  case attr::Replaceable:
-    return cast<ReplaceableAttr>(this)->clone(C);
   case attr::ReqdWorkGroupSize:
     return cast<ReqdWorkGroupSizeAttr>(this)->clone(C);
   case attr::RequiresCapability:
@@ -51073,6 +51969,10 @@ Attr *Attr::clone(ASTContext &C) const {
     return cast<RootSignatureAttr>(this)->clone(C);
   case attr::SPtr:
     return cast<SPtrAttr>(this)->clone(C);
+  case attr::SYCLExternal:
+    return cast<SYCLExternalAttr>(this)->clone(C);
+  case attr::SYCLKernel:
+    return cast<SYCLKernelAttr>(this)->clone(C);
   case attr::SYCLKernelEntryPoint:
     return cast<SYCLKernelEntryPointAttr>(this)->clone(C);
   case attr::SYCLSpecialClass:
@@ -51169,8 +52069,6 @@ Attr *Attr::clone(ASTContext &C) const {
     return cast<TransparentUnionAttr>(this)->clone(C);
   case attr::TrivialABI:
     return cast<TrivialABIAttr>(this)->clone(C);
-  case attr::TriviallyRelocatable:
-    return cast<TriviallyRelocatableAttr>(this)->clone(C);
   case attr::TryAcquireCapability:
     return cast<TryAcquireCapabilityAttr>(this)->clone(C);
   case attr::TypeNonNull:
@@ -51387,6 +52285,8 @@ void Attr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
     return cast<CFGuardAttr>(this)->printPretty(OS, Policy);
   case attr::CFICanonicalJumpTable:
     return cast<CFICanonicalJumpTableAttr>(this)->printPretty(OS, Policy);
+  case attr::CFISalt:
+    return cast<CFISaltAttr>(this)->printPretty(OS, Policy);
   case attr::CFIUncheckedCallee:
     return cast<CFIUncheckedCalleeAttr>(this)->printPretty(OS, Policy);
   case attr::CFReturnsNotRetained:
@@ -51399,6 +52299,8 @@ void Attr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
     return cast<CPUDispatchAttr>(this)->printPretty(OS, Policy);
   case attr::CPUSpecific:
     return cast<CPUSpecificAttr>(this)->printPretty(OS, Policy);
+  case attr::CUDAClusterDims:
+    return cast<CUDAClusterDimsAttr>(this)->printPretty(OS, Policy);
   case attr::CUDAConstant:
     return cast<CUDAConstantAttr>(this)->printPretty(OS, Policy);
   case attr::CUDADevice:
@@ -51417,6 +52319,8 @@ void Attr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
     return cast<CUDAInvalidTargetAttr>(this)->printPretty(OS, Policy);
   case attr::CUDALaunchBounds:
     return cast<CUDALaunchBoundsAttr>(this)->printPretty(OS, Policy);
+  case attr::CUDANoCluster:
+    return cast<CUDANoClusterAttr>(this)->printPretty(OS, Policy);
   case attr::CUDAShared:
     return cast<CUDASharedAttr>(this)->printPretty(OS, Policy);
   case attr::CXX11NoReturn:
@@ -51487,6 +52391,8 @@ void Attr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
     return cast<CountedByOrNullAttr>(this)->printPretty(OS, Policy);
   case attr::DLLExport:
     return cast<DLLExportAttr>(this)->printPretty(OS, Policy);
+  case attr::DLLExportOnDecl:
+    return cast<DLLExportOnDeclAttr>(this)->printPretty(OS, Policy);
   case attr::DLLExportStaticLocal:
     return cast<DLLExportStaticLocalAttr>(this)->printPretty(OS, Policy);
   case attr::DLLImport:
@@ -51545,6 +52451,8 @@ void Attr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
     return cast<FormatMatchesAttr>(this)->printPretty(OS, Policy);
   case attr::FunctionReturnThunks:
     return cast<FunctionReturnThunksAttr>(this)->printPretty(OS, Policy);
+  case attr::GCCStruct:
+    return cast<GCCStructAttr>(this)->printPretty(OS, Policy);
   case attr::GNUInline:
     return cast<GNUInlineAttr>(this)->printPretty(OS, Policy);
   case attr::GuardedBy:
@@ -51553,12 +52461,16 @@ void Attr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
     return cast<GuardedVarAttr>(this)->printPretty(OS, Policy);
   case attr::HIPManaged:
     return cast<HIPManagedAttr>(this)->printPretty(OS, Policy);
+  case attr::HLSLAppliedSemantic:
+    return cast<HLSLAppliedSemanticAttr>(this)->printPretty(OS, Policy);
   case attr::HLSLContainedType:
     return cast<HLSLContainedTypeAttr>(this)->printPretty(OS, Policy);
   case attr::HLSLControlFlowHint:
     return cast<HLSLControlFlowHintAttr>(this)->printPretty(OS, Policy);
   case attr::HLSLGroupSharedAddressSpace:
     return cast<HLSLGroupSharedAddressSpaceAttr>(this)->printPretty(OS, Policy);
+  case attr::HLSLIsCounter:
+    return cast<HLSLIsCounterAttr>(this)->printPretty(OS, Policy);
   case attr::HLSLLoopHint:
     return cast<HLSLLoopHintAttr>(this)->printPretty(OS, Policy);
   case attr::HLSLNumThreads:
@@ -51567,6 +52479,8 @@ void Attr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
     return cast<HLSLPackOffsetAttr>(this)->printPretty(OS, Policy);
   case attr::HLSLParamModifier:
     return cast<HLSLParamModifierAttr>(this)->printPretty(OS, Policy);
+  case attr::HLSLParsedSemantic:
+    return cast<HLSLParsedSemanticAttr>(this)->printPretty(OS, Policy);
   case attr::HLSLROV:
     return cast<HLSLROVAttr>(this)->printPretty(OS, Policy);
   case attr::HLSLRawBuffer:
@@ -51575,22 +52489,20 @@ void Attr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
     return cast<HLSLResourceBindingAttr>(this)->printPretty(OS, Policy);
   case attr::HLSLResourceClass:
     return cast<HLSLResourceClassAttr>(this)->printPretty(OS, Policy);
-  case attr::HLSLSV_DispatchThreadID:
-    return cast<HLSLSV_DispatchThreadIDAttr>(this)->printPretty(OS, Policy);
-  case attr::HLSLSV_GroupID:
-    return cast<HLSLSV_GroupIDAttr>(this)->printPretty(OS, Policy);
-  case attr::HLSLSV_GroupIndex:
-    return cast<HLSLSV_GroupIndexAttr>(this)->printPretty(OS, Policy);
-  case attr::HLSLSV_GroupThreadID:
-    return cast<HLSLSV_GroupThreadIDAttr>(this)->printPretty(OS, Policy);
-  case attr::HLSLSV_Position:
-    return cast<HLSLSV_PositionAttr>(this)->printPretty(OS, Policy);
   case attr::HLSLShader:
     return cast<HLSLShaderAttr>(this)->printPretty(OS, Policy);
+  case attr::HLSLUnparsedSemantic:
+    return cast<HLSLUnparsedSemanticAttr>(this)->printPretty(OS, Policy);
+  case attr::HLSLVkBinding:
+    return cast<HLSLVkBindingAttr>(this)->printPretty(OS, Policy);
   case attr::HLSLVkConstantId:
     return cast<HLSLVkConstantIdAttr>(this)->printPretty(OS, Policy);
   case attr::HLSLVkExtBuiltinInput:
     return cast<HLSLVkExtBuiltinInputAttr>(this)->printPretty(OS, Policy);
+  case attr::HLSLVkLocation:
+    return cast<HLSLVkLocationAttr>(this)->printPretty(OS, Policy);
+  case attr::HLSLVkPushConstant:
+    return cast<HLSLVkPushConstantAttr>(this)->printPretty(OS, Policy);
   case attr::HLSLWaveSize:
     return cast<HLSLWaveSizeAttr>(this)->printPretty(OS, Policy);
   case attr::Hot:
@@ -51657,6 +52569,8 @@ void Attr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
     return cast<MSStructAttr>(this)->printPretty(OS, Policy);
   case attr::MSVtorDisp:
     return cast<MSVtorDispAttr>(this)->printPretty(OS, Policy);
+  case attr::MallocSpan:
+    return cast<MallocSpanAttr>(this)->printPretty(OS, Policy);
   case attr::MaxFieldAlignment:
     return cast<MaxFieldAlignmentAttr>(this)->printPretty(OS, Policy);
   case attr::MayAlias:
@@ -51679,6 +52593,8 @@ void Attr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
     return cast<MipsShortCallAttr>(this)->printPretty(OS, Policy);
   case attr::Mode:
     return cast<ModeAttr>(this)->printPretty(OS, Policy);
+  case attr::ModularFormat:
+    return cast<ModularFormatAttr>(this)->printPretty(OS, Policy);
   case attr::MustTail:
     return cast<MustTailAttr>(this)->printPretty(OS, Policy);
   case attr::NSConsumed:
@@ -51773,6 +52689,8 @@ void Attr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
     return cast<OMPDeclareTargetDeclAttr>(this)->printPretty(OS, Policy);
   case attr::OMPDeclareVariant:
     return cast<OMPDeclareVariantAttr>(this)->printPretty(OS, Policy);
+  case attr::OMPGroupPrivateDecl:
+    return cast<OMPGroupPrivateDeclAttr>(this)->printPretty(OS, Policy);
   case attr::OMPReferencedVar:
     return cast<OMPReferencedVarAttr>(this)->printPretty(OS, Policy);
   case attr::OMPThreadPrivateDecl:
@@ -51945,8 +52863,6 @@ void Attr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
     return cast<ReleaseCapabilityAttr>(this)->printPretty(OS, Policy);
   case attr::ReleaseHandle:
     return cast<ReleaseHandleAttr>(this)->printPretty(OS, Policy);
-  case attr::Replaceable:
-    return cast<ReplaceableAttr>(this)->printPretty(OS, Policy);
   case attr::ReqdWorkGroupSize:
     return cast<ReqdWorkGroupSizeAttr>(this)->printPretty(OS, Policy);
   case attr::RequiresCapability:
@@ -51965,6 +52881,10 @@ void Attr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
     return cast<RootSignatureAttr>(this)->printPretty(OS, Policy);
   case attr::SPtr:
     return cast<SPtrAttr>(this)->printPretty(OS, Policy);
+  case attr::SYCLExternal:
+    return cast<SYCLExternalAttr>(this)->printPretty(OS, Policy);
+  case attr::SYCLKernel:
+    return cast<SYCLKernelAttr>(this)->printPretty(OS, Policy);
   case attr::SYCLKernelEntryPoint:
     return cast<SYCLKernelEntryPointAttr>(this)->printPretty(OS, Policy);
   case attr::SYCLSpecialClass:
@@ -52061,8 +52981,6 @@ void Attr::printPretty(raw_ostream &OS, const PrintingPolicy &Policy) const {
     return cast<TransparentUnionAttr>(this)->printPretty(OS, Policy);
   case attr::TrivialABI:
     return cast<TrivialABIAttr>(this)->printPretty(OS, Policy);
-  case attr::TriviallyRelocatable:
-    return cast<TriviallyRelocatableAttr>(this)->printPretty(OS, Policy);
   case attr::TryAcquireCapability:
     return cast<TryAcquireCapabilityAttr>(this)->printPretty(OS, Policy);
   case attr::TypeNonNull:

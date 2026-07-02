@@ -224,7 +224,6 @@ case SME::BI__builtin_sme_svmla_single_za16_bf16_vg1x2:
 case SME::BI__builtin_sme_svmla_single_za16_bf16_vg1x4:
 case SME::BI__builtin_sme_svmla_single_za16_f16_vg1x2:
 case SME::BI__builtin_sme_svmla_single_za16_f16_vg1x4:
-case SME::BI__builtin_sme_svmla_single_za16_mf8_vg2x1_fpm:
 case SME::BI__builtin_sme_svmla_single_za16_mf8_vg2x2_fpm:
 case SME::BI__builtin_sme_svmla_single_za16_mf8_vg2x4_fpm:
 case SME::BI__builtin_sme_svmla_single_za32_bf16_vg2x2:
@@ -233,7 +232,6 @@ case SME::BI__builtin_sme_svmla_single_za32_f16_vg2x2:
 case SME::BI__builtin_sme_svmla_single_za32_f16_vg2x4:
 case SME::BI__builtin_sme_svmla_single_za32_f32_vg1x2:
 case SME::BI__builtin_sme_svmla_single_za32_f32_vg1x4:
-case SME::BI__builtin_sme_svmla_single_za32_mf8_vg4x1_fpm:
 case SME::BI__builtin_sme_svmla_single_za32_mf8_vg4x2_fpm:
 case SME::BI__builtin_sme_svmla_single_za32_mf8_vg4x4_fpm:
 case SME::BI__builtin_sme_svmla_single_za32_s16_vg2x2:
@@ -254,6 +252,7 @@ case SME::BI__builtin_sme_svmla_za16_bf16_vg1x2:
 case SME::BI__builtin_sme_svmla_za16_bf16_vg1x4:
 case SME::BI__builtin_sme_svmla_za16_f16_vg1x2:
 case SME::BI__builtin_sme_svmla_za16_f16_vg1x4:
+case SME::BI__builtin_sme_svmla_za16_mf8_vg2x1_fpm:
 case SME::BI__builtin_sme_svmla_za16_mf8_vg2x2_fpm:
 case SME::BI__builtin_sme_svmla_za16_mf8_vg2x4_fpm:
 case SME::BI__builtin_sme_svmla_za32_bf16_vg2x1:
@@ -264,6 +263,7 @@ case SME::BI__builtin_sme_svmla_za32_f16_vg2x2:
 case SME::BI__builtin_sme_svmla_za32_f16_vg2x4:
 case SME::BI__builtin_sme_svmla_za32_f32_vg1x2:
 case SME::BI__builtin_sme_svmla_za32_f32_vg1x4:
+case SME::BI__builtin_sme_svmla_za32_mf8_vg4x1_fpm:
 case SME::BI__builtin_sme_svmla_za32_mf8_vg4x2_fpm:
 case SME::BI__builtin_sme_svmla_za32_mf8_vg4x4_fpm:
 case SME::BI__builtin_sme_svmla_za32_s16_vg2x1:

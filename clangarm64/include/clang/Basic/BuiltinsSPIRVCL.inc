@@ -21,7 +21,7 @@
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Woverlength-strings"
 #endif
-static constexpr char BuiltinStringsStorage[] = 
+static constexpr char BuiltinStringsStorage[] =
   "\0"
   "__builtin_spirv_generic_cast_to_ptr_explicit\0"
   "v*v*i\0"

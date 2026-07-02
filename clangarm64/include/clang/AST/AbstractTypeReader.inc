@@ -60,12 +60,8 @@ public:
       return readDependentNameType();
     case Type::DependentSizedExtVector:
       return readDependentSizedExtVectorType();
-    case Type::DependentTemplateSpecialization:
-      return readDependentTemplateSpecializationType();
     case Type::DependentVector:
       return readDependentVectorType();
-    case Type::Elaborated:
-      return readElaboratedType();
     case Type::FunctionNoProto:
       return readFunctionNoProtoType();
     case Type::FunctionProto:
@@ -74,8 +70,6 @@ public:
       return readHLSLAttributedResourceType();
     case Type::HLSLInlineSpirv:
       return readHLSLInlineSpirvType();
-    case Type::InjectedClassName:
-      return readInjectedClassNameType();
     case Type::MacroQualified:
       return readMacroQualifiedType();
     case Type::ConstantMatrix:
@@ -102,16 +96,22 @@ public:
       return readPipeType();
     case Type::Pointer:
       return readPointerType();
+    case Type::PredefinedSugar:
+      return readPredefinedSugarType();
     case Type::LValueReference:
       return readLValueReferenceType();
     case Type::RValueReference:
       return readRValueReferenceType();
+    case Type::SubstBuiltinTemplatePack:
+      return readSubstBuiltinTemplatePackType();
     case Type::SubstTemplateTypeParmPack:
       return readSubstTemplateTypeParmPackType();
     case Type::SubstTemplateTypeParm:
       return readSubstTemplateTypeParmType();
     case Type::Enum:
       return readEnumType();
+    case Type::InjectedClassName:
+      return readInjectedClassNameType();
     case Type::Record:
       return readRecordType();
     case Type::TemplateSpecialization:
@@ -332,7 +332,7 @@ public:
     auto &ctx = R.getASTContext();
     std::optional<QualType> deducedType = R.find("deducedType").template readOptional<QualType>();
     AutoTypeKeyword keyword = R.find("keyword").readAutoTypeKeyword();
-    std::optional<ConceptDecl*> typeConstraintConcept = R.find("typeConstraintConcept").template readOptional<ConceptDecl*>();
+    std::optional<TemplateDecl*> typeConstraintConcept = R.find("typeConstraintConcept").template readOptional<TemplateDecl*>();
     llvm::SmallVector<TemplateArgument, 8> typeConstraintArguments_buffer_0;
     llvm::ArrayRef<TemplateArgument> typeConstraintArguments = R.find("typeConstraintArguments").template readArray<TemplateArgument>(typeConstraintArguments_buffer_0);
     uint32_t dependence = R.find("dependence").readUInt32();
@@ -347,11 +347,12 @@ public:
 
   QualType readDeducedTemplateSpecializationType() {
     auto &ctx = R.getASTContext();
+    ElaboratedTypeKeyword keyword = R.find("keyword").readElaboratedTypeKeyword();
     std::optional<TemplateName> templateName = R.find("templateName").template readOptional<TemplateName>();
     QualType deducedType = R.find("deducedType").readQualType();
     bool dependent = R.find("dependent").readBool();
     
-    return ctx.getDeducedTemplateSpecializationType(
+    return ctx.getDeducedTemplateSpecializationType(keyword,
                                      makeNullableFromOptional(templateName),
                                      deducedType, dependent);
   
@@ -380,7 +381,7 @@ public:
   QualType readDependentNameType() {
     auto &ctx = R.getASTContext();
     ElaboratedTypeKeyword keyword = R.find("keyword").readElaboratedTypeKeyword();
-    NestedNameSpecifier * qualifier = R.find("qualifier").readNestedNameSpecifier();
+    NestedNameSpecifier qualifier = R.find("qualifier").readNestedNameSpecifier();
     IdentifierInfo* name = R.find("name").readIdentifier();
     
     return ctx.getDependentNameType(keyword, qualifier, name);
@@ -397,26 +398,6 @@ public:
   
   }
 
-  QualType readDependentTemplateSpecializationType() {
-    auto &ctx = R.getASTContext();
-    NestedNameSpecifier * qualifier = R.find("qualifier").readNestedNameSpecifier();
-    std::optional<IdentifierInfo*> identifier = R.find("identifier").template readOptional<IdentifierInfo*>();
-    std::optional<OverloadedOperatorKind> operatorKind;
-    if ( !identifier ) {
-      operatorKind.emplace(R.find("operatorKind").readOverloadedOperatorKind());
-    }
-    bool HasTemplateKeyword = R.find("HasTemplateKeyword").readBool();
-    ElaboratedTypeKeyword keyword = R.find("keyword").readElaboratedTypeKeyword();
-    llvm::SmallVector<TemplateArgument, 8> templateArguments_buffer_0;
-    llvm::ArrayRef<TemplateArgument> templateArguments = R.find("templateArguments").template readArray<TemplateArgument>(templateArguments_buffer_0);
-    
-    DependentTemplateStorage S(qualifier, identifier ? IdentifierOrOverloadedOperator(*identifier) :
-                                                       IdentifierOrOverloadedOperator(*operatorKind),
-                               HasTemplateKeyword);
-    return ctx.getDependentTemplateSpecializationType(keyword, S, templateArguments);
-  
-  }
-
   QualType readDependentVectorType() {
     auto &ctx = R.getASTContext();
     QualType elementType = R.find("elementType").readQualType();
@@ -426,18 +407,6 @@ public:
     
     return ctx.getDependentVectorType(elementType, size, attributeLoc,
                                       vectorKind);
-  
-  }
-
-  QualType readElaboratedType() {
-    auto &ctx = R.getASTContext();
-    ElaboratedTypeKeyword keyword = R.find("keyword").readElaboratedTypeKeyword();
-    NestedNameSpecifier * qualifier = R.find("qualifier").readNestedNameSpecifier();
-    QualType namedType = R.find("namedType").readQualType();
-    std::optional<TagDecl*> ownedTag = R.find("ownedTag").template readOptional<TagDecl*>();
-    
-    return ctx.getElaboratedType(keyword, qualifier, namedType,
-                                 makePointerFromOptional(ownedTag));
   
   }
 
@@ -514,10 +483,11 @@ public:
     uint32_t resClass = R.find("resClass").readUInt32();
     bool isROV = R.find("isROV").readBool();
     bool rawBuffer = R.find("rawBuffer").readBool();
+    bool isCounter = R.find("isCounter").readBool();
     QualType wrappedTy = R.find("wrappedTy").readQualType();
     QualType containedTy = R.find("containedTy").readQualType();
     
-    HLSLAttributedResourceType::Attributes attrs(static_cast<llvm::dxil::ResourceClass>(resClass), isROV, rawBuffer);
+    HLSLAttributedResourceType::Attributes attrs(static_cast<llvm::dxil::ResourceClass>(resClass), isROV, rawBuffer, isCounter);
     return ctx.getHLSLAttributedResourceType(wrappedTy, containedTy, attrs);
   
   }
@@ -531,31 +501,6 @@ public:
     llvm::ArrayRef<SpirvOperand> operands = R.find("operands").template readArray<SpirvOperand>(operands_buffer_0);
     
     return ctx.getHLSLInlineSpirvType(opcode, size, alignment, operands);
-  
-  }
-
-  QualType readInjectedClassNameType() {
-    auto &ctx = R.getASTContext();
-    Decl* declaration = R.find("declaration").readDeclRef();
-    QualType injectedSpecializationType = R.find("injectedSpecializationType").readQualType();
-    
-    // FIXME: ASTContext::getInjectedClassNameType is not currently suitable
-    // for AST reading, too much interdependencies.
-    const Type *T = nullptr;
-    auto typeDecl = cast<CXXRecordDecl>(declaration);
-    for (auto *DI = typeDecl; DI; DI = DI->getPreviousDecl()) {
-      if (const Type *existing = DI->getTypeForDecl()) {
-        T = existing;
-        break;
-      }
-    }
-    if (!T) {
-      T = new (ctx, TypeAlignment)
-            InjectedClassNameType(typeDecl, injectedSpecializationType);
-      for (auto *DI = typeDecl; DI; DI = DI->getPreviousDecl())
-        DI->setTypeForDecl(T);
-    }
-    return QualType(T, 0);
   
   }
 
@@ -592,7 +537,7 @@ public:
   QualType readMemberPointerType() {
     auto &ctx = R.getASTContext();
     QualType pointeeType = R.find("pointeeType").readQualType();
-    NestedNameSpecifier * Qualifier = R.find("Qualifier").readNestedNameSpecifier();
+    NestedNameSpecifier Qualifier = R.find("Qualifier").readNestedNameSpecifier();
     Decl* Cls = R.find("Cls").readDeclRef();
     
     return ctx.getMemberPointerType(pointeeType, Qualifier, cast_or_null<CXXRecordDecl>(Cls));
@@ -655,8 +600,10 @@ public:
     QualType pattern = R.find("pattern").readQualType();
     Expr* indexExpression = R.find("indexExpression").readExprRef();
     bool isFullySubstituted = R.find("isFullySubstituted").readBool();
+    llvm::SmallVector<QualType, 8> expansions_buffer_0;
+    llvm::ArrayRef<QualType> expansions = R.find("expansions").template readArray<QualType>(expansions_buffer_0);
     
-    return ctx.getPackIndexingType(pattern, indexExpression, isFullySubstituted);
+    return ctx.getPackIndexingType(pattern, indexExpression, isFullySubstituted, expansions);
   
   }
 
@@ -683,6 +630,14 @@ public:
      return ctx.getPointerType(pointeeType); 
   }
 
+  QualType readPredefinedSugarType() {
+    auto &ctx = R.getASTContext();
+    uint32_t kind = R.find("kind").readUInt32();
+    
+    return ctx.getPredefinedSugarType(static_cast<PredefinedSugarType::Kind>(kind));
+  
+  }
+
   QualType readLValueReferenceType() {
     auto &ctx = R.getASTContext();
     bool isSpelledAsLValue = R.find("isSpelledAsLValue").readBool();
@@ -698,6 +653,14 @@ public:
     QualType pointeeTypeAsWritten = R.find("pointeeTypeAsWritten").readQualType();
     
     return ctx.getRValueReferenceType(pointeeTypeAsWritten);
+  
+  }
+
+  QualType readSubstBuiltinTemplatePackType() {
+    auto &ctx = R.getASTContext();
+    TemplateArgument replacementPack = R.find("replacementPack").readTemplateArgument();
+    
+    return ctx.getSubstBuiltinTemplatePack(replacementPack);
   
   }
 
@@ -728,39 +691,66 @@ public:
 
   QualType readEnumType() {
     auto &ctx = R.getASTContext();
-    bool dependent = R.find("dependent").readBool();
-    Decl* declaration = R.find("declaration").readDeclRef();
+    bool OwnsTag = R.find("OwnsTag").readBool();
+    bool IsCanonical = R.find("IsCanonical").readBool();
+    std::optional<ElaboratedTypeKeyword> Keyword;
+    if ( !IsCanonical ) {
+      Keyword.emplace(R.find("Keyword").readElaboratedTypeKeyword());
+    }
+    std::optional<NestedNameSpecifier> Qualifier;
+    if ( !IsCanonical ) {
+      Qualifier.emplace(R.find("Qualifier").readNestedNameSpecifier());
+    }
+    TagDecl* TD = R.find("TD").readTagDeclRef();
     
-    QualType result = ctx.getEnumType(cast<EnumDecl>(declaration));
-    if (dependent)
-      const_cast<Type *>(result.getTypePtr())
-          ->addDependence(TypeDependence::DependentInstantiation);
-    return result;
+    return IsCanonical ? ctx.getCanonicalTagType(TD) : ctx.getTagType(*Keyword, *Qualifier, TD, OwnsTag);
+  
+  }
+
+  QualType readInjectedClassNameType() {
+    auto &ctx = R.getASTContext();
+    bool IsCanonical = R.find("IsCanonical").readBool();
+    std::optional<ElaboratedTypeKeyword> Keyword;
+    if ( !IsCanonical ) {
+      Keyword.emplace(R.find("Keyword").readElaboratedTypeKeyword());
+    }
+    std::optional<NestedNameSpecifier> Qualifier;
+    if ( !IsCanonical ) {
+      Qualifier.emplace(R.find("Qualifier").readNestedNameSpecifier());
+    }
+    TagDecl* TD = R.find("TD").readTagDeclRef();
+    
+    return IsCanonical ? ctx.getCanonicalTagType(TD) : ctx.getTagType(*Keyword, *Qualifier, TD, /*OwnsTag=*/false);
   
   }
 
   QualType readRecordType() {
     auto &ctx = R.getASTContext();
-    bool dependent = R.find("dependent").readBool();
-    Decl* declaration = R.find("declaration").readDeclRef();
+    bool OwnsTag = R.find("OwnsTag").readBool();
+    bool IsCanonical = R.find("IsCanonical").readBool();
+    std::optional<ElaboratedTypeKeyword> Keyword;
+    if ( !IsCanonical ) {
+      Keyword.emplace(R.find("Keyword").readElaboratedTypeKeyword());
+    }
+    std::optional<NestedNameSpecifier> Qualifier;
+    if ( !IsCanonical ) {
+      Qualifier.emplace(R.find("Qualifier").readNestedNameSpecifier());
+    }
+    TagDecl* TD = R.find("TD").readTagDeclRef();
     
-    auto record = cast<RecordDecl>(declaration);
-    QualType result = ctx.getRecordType(record);
-    if (dependent)
-      const_cast<Type *>(result.getTypePtr())
-          ->addDependence(TypeDependence::DependentInstantiation);
-    return result;
+    return IsCanonical ? ctx.getCanonicalTagType(TD) : ctx.getTagType(*Keyword, *Qualifier, TD, OwnsTag);
   
   }
 
   QualType readTemplateSpecializationType() {
     auto &ctx = R.getASTContext();
+    ElaboratedTypeKeyword keyword = R.find("keyword").readElaboratedTypeKeyword();
     TemplateName templateName = R.find("templateName").readTemplateName();
     llvm::SmallVector<TemplateArgument, 8> args_buffer_0;
     llvm::ArrayRef<TemplateArgument> args = R.find("args").template readArray<TemplateArgument>(args_buffer_0);
     QualType UnderlyingType = R.find("UnderlyingType").readQualType();
     
-    return ctx.getTemplateSpecializationType(templateName, args, {}, UnderlyingType);
+    return ctx.getTemplateSpecializationType(keyword, templateName, args, {}, UnderlyingType);
   
   }
 
@@ -796,10 +786,13 @@ public:
 
   QualType readTypedefType() {
     auto &ctx = R.getASTContext();
+    ElaboratedTypeKeyword Keyword = R.find("Keyword").readElaboratedTypeKeyword();
+    NestedNameSpecifier Qualifier = R.find("Qualifier").readNestedNameSpecifier();
     Decl* declaration = R.find("declaration").readDeclRef();
-    QualType underlyingType = R.find("underlyingType").readQualType();
+    QualType UnderlyingType = R.find("UnderlyingType").readQualType();
+    bool TypeMatchesDecl = R.find("TypeMatchesDecl").readBool();
     
-    return ctx.getTypedefType(cast<TypedefNameDecl>(declaration), underlyingType);
+    return ctx.getTypedefType(Keyword, Qualifier, cast<TypedefNameDecl>(declaration), UnderlyingType, TypeMatchesDecl);
   
   }
 
@@ -815,18 +808,30 @@ public:
 
   QualType readUnresolvedUsingType() {
     auto &ctx = R.getASTContext();
-    Decl* declaration = R.find("declaration").readDeclRef();
+    bool IsCanonical = R.find("IsCanonical").readBool();
+    std::optional<ElaboratedTypeKeyword> Keyword;
+    if ( !IsCanonical ) {
+      Keyword.emplace(R.find("Keyword").readElaboratedTypeKeyword());
+    }
+    std::optional<NestedNameSpecifier> Qualifier;
+    if ( !IsCanonical ) {
+      Qualifier.emplace(R.find("Qualifier").readNestedNameSpecifier());
+    }
+    Decl* D = R.find("D").readDeclRef();
     
-    return ctx.getUnresolvedUsingType(cast<UnresolvedUsingTypenameDecl>(declaration));
+    auto *UD = cast<UnresolvedUsingTypenameDecl>(D);
+    return IsCanonical ? ctx.getCanonicalUnresolvedUsingType(UD) : ctx.getUnresolvedUsingType(*Keyword, *Qualifier, UD);
   
   }
 
   QualType readUsingType() {
     auto &ctx = R.getASTContext();
-    UsingShadowDecl* foundDeclaration = R.find("foundDeclaration").readUsingShadowDeclRef();
-    QualType underlyingType = R.find("underlyingType").readQualType();
+    ElaboratedTypeKeyword Keyword = R.find("Keyword").readElaboratedTypeKeyword();
+    NestedNameSpecifier Qualifier = R.find("Qualifier").readNestedNameSpecifier();
+    UsingShadowDecl* D = R.find("D").readUsingShadowDeclRef();
+    QualType UnderlyingType = R.find("UnderlyingType").readQualType();
     
-    return ctx.getUsingType(foundDeclaration, underlyingType);
+    return ctx.getUsingType(Keyword, Qualifier, D, UnderlyingType);
   
   }
 

@@ -1,4 +1,28 @@
 #ifdef GET_SVE_IMMEDIATE_CHECK
+case SVE::BI__builtin_sve_svaesd_lane_u8_x2:
+ImmChecks.emplace_back(2, 16, 0);
+  break;
+case SVE::BI__builtin_sve_svaesd_lane_u8_x4:
+ImmChecks.emplace_back(2, 16, 0);
+  break;
+case SVE::BI__builtin_sve_svaesdimc_lane_u8_x2:
+ImmChecks.emplace_back(2, 16, 0);
+  break;
+case SVE::BI__builtin_sve_svaesdimc_lane_u8_x4:
+ImmChecks.emplace_back(2, 16, 0);
+  break;
+case SVE::BI__builtin_sve_svaese_lane_u8_x2:
+ImmChecks.emplace_back(2, 16, 0);
+  break;
+case SVE::BI__builtin_sve_svaese_lane_u8_x4:
+ImmChecks.emplace_back(2, 16, 0);
+  break;
+case SVE::BI__builtin_sve_svaesemc_lane_u8_x2:
+ImmChecks.emplace_back(2, 16, 0);
+  break;
+case SVE::BI__builtin_sve_svaesemc_lane_u8_x4:
+ImmChecks.emplace_back(2, 16, 0);
+  break;
 case SVE::BI__builtin_sve_svasrd_n_s16_m:
 ImmChecks.emplace_back(2, 3, 16);
   break;

@@ -519,6 +519,15 @@
       return 2;
     break;
   }
+  case AT_CFISalt: {
+    if (getSyntax() == AttributeCommonInfo::AS_GNU && ComputedScope == AttributeCommonInfo::Scope::NONE)
+      return 0;
+    if (getSyntax() == AttributeCommonInfo::AS_CXX11 && ComputedScope == AttributeCommonInfo::Scope::CLANG)
+      return 1;
+    if (getSyntax() == AttributeCommonInfo::AS_C23 && ComputedScope == AttributeCommonInfo::Scope::CLANG)
+      return 2;
+    break;
+  }
   case AT_CFIUncheckedCallee: {
     if (getSyntax() == AttributeCommonInfo::AS_GNU && ComputedScope == AttributeCommonInfo::Scope::NONE)
       return 0;
@@ -575,6 +584,10 @@
       return 2;
     if (getSyntax() == AttributeCommonInfo::AS_Declspec && ComputedScope == AttributeCommonInfo::Scope::NONE)
       return 3;
+    break;
+  }
+  case AT_CUDAClusterDims: {
+    return 0;
     break;
   }
   case AT_CUDAConstant: {
@@ -635,6 +648,10 @@
       return 0;
     if (Name.size() == 17 && getSyntax() == AttributeCommonInfo::AS_Declspec && ComputedScope == AttributeCommonInfo::Scope::NONE)
       return 1;
+    break;
+  }
+  case AT_CUDANoCluster: {
+    return 0;
     break;
   }
   case AT_CUDAShared: {
@@ -928,6 +945,10 @@
       return 3;
     break;
   }
+  case AT_DLLExportOnDecl: {
+    return 0;
+    break;
+  }
   case AT_DLLExportStaticLocal: {
     return 0;
     break;
@@ -978,28 +999,22 @@
       return 1;
     if (Name == "device_kernel" && getSyntax() == AttributeCommonInfo::AS_C23 && ComputedScope == AttributeCommonInfo::Scope::CLANG)
       return 2;
-    if (Name.size() == 11 && getSyntax() == AttributeCommonInfo::AS_GNU && ComputedScope == AttributeCommonInfo::Scope::NONE)
-      return 3;
-    if (Name.size() == 11 && getSyntax() == AttributeCommonInfo::AS_CXX11 && ComputedScope == AttributeCommonInfo::Scope::CLANG)
-      return 4;
-    if (Name.size() == 11 && getSyntax() == AttributeCommonInfo::AS_C23 && ComputedScope == AttributeCommonInfo::Scope::CLANG)
-      return 5;
     if (Name.size() == 12 && getSyntax() == AttributeCommonInfo::AS_GNU && ComputedScope == AttributeCommonInfo::Scope::NONE)
-      return 6;
+      return 3;
     if (Name.size() == 12 && getSyntax() == AttributeCommonInfo::AS_CXX11 && ComputedScope == AttributeCommonInfo::Scope::CLANG)
-      return 7;
+      return 4;
     if (Name.size() == 12 && getSyntax() == AttributeCommonInfo::AS_C23 && ComputedScope == AttributeCommonInfo::Scope::CLANG)
-      return 8;
+      return 5;
     if (Name == "amdgpu_kernel" && getSyntax() == AttributeCommonInfo::AS_GNU && ComputedScope == AttributeCommonInfo::Scope::NONE)
-      return 9;
+      return 6;
     if (Name == "amdgpu_kernel" && getSyntax() == AttributeCommonInfo::AS_CXX11 && ComputedScope == AttributeCommonInfo::Scope::CLANG)
-      return 10;
+      return 7;
     if (Name == "amdgpu_kernel" && getSyntax() == AttributeCommonInfo::AS_C23 && ComputedScope == AttributeCommonInfo::Scope::CLANG)
-      return 11;
+      return 8;
     if (Name.size() == 8 && getSyntax() == AttributeCommonInfo::AS_Keyword && ComputedScope == AttributeCommonInfo::Scope::NONE)
-      return 12;
+      return 9;
     if (Name.size() == 6 && getSyntax() == AttributeCommonInfo::AS_Keyword && ComputedScope == AttributeCommonInfo::Scope::NONE)
-      return 13;
+      return 10;
     break;
   }
   case AT_DiagnoseAsBuiltin: {
@@ -1201,6 +1216,15 @@
       return 2;
     break;
   }
+  case AT_GCCStruct: {
+    if (getSyntax() == AttributeCommonInfo::AS_GNU && ComputedScope == AttributeCommonInfo::Scope::NONE)
+      return 0;
+    if (getSyntax() == AttributeCommonInfo::AS_CXX11 && ComputedScope == AttributeCommonInfo::Scope::GNU)
+      return 1;
+    if (getSyntax() == AttributeCommonInfo::AS_C23 && ComputedScope == AttributeCommonInfo::Scope::GNU)
+      return 2;
+    break;
+  }
   case AT_GNUInline: {
     if (getSyntax() == AttributeCommonInfo::AS_GNU && ComputedScope == AttributeCommonInfo::Scope::NONE)
       return 0;
@@ -1228,6 +1252,10 @@
       return 1;
     break;
   }
+  case AT_HLSLAppliedSemantic: {
+    return 0;
+    break;
+  }
   case AT_HLSLContainedType: {
     return 0;
     break;
@@ -1240,6 +1268,10 @@
     break;
   }
   case AT_HLSLGroupSharedAddressSpace: {
+    return 0;
+    break;
+  }
+  case AT_HLSLIsCounter: {
     return 0;
     break;
   }
@@ -1267,6 +1299,10 @@
       return 2;
     break;
   }
+  case AT_HLSLParsedSemantic: {
+    return 0;
+    break;
+  }
   case AT_HLSLROV: {
     return 0;
     break;
@@ -1283,27 +1319,15 @@
     return 0;
     break;
   }
-  case AT_HLSLSV_DispatchThreadID: {
-    return 0;
-    break;
-  }
-  case AT_HLSLSV_GroupID: {
-    return 0;
-    break;
-  }
-  case AT_HLSLSV_GroupIndex: {
-    return 0;
-    break;
-  }
-  case AT_HLSLSV_GroupThreadID: {
-    return 0;
-    break;
-  }
-  case AT_HLSLSV_Position: {
-    return 0;
-    break;
-  }
   case AT_HLSLShader: {
+    return 0;
+    break;
+  }
+  case AT_HLSLUnparsedSemantic: {
+    return 0;
+    break;
+  }
+  case AT_HLSLVkBinding: {
     return 0;
     break;
   }
@@ -1312,6 +1336,14 @@
     break;
   }
   case AT_HLSLVkExtBuiltinInput: {
+    return 0;
+    break;
+  }
+  case AT_HLSLVkLocation: {
+    return 0;
+    break;
+  }
+  case AT_HLSLVkPushConstant: {
     return 0;
     break;
   }
@@ -1534,6 +1566,15 @@
       return 2;
     break;
   }
+  case AT_MallocSpan: {
+    if (getSyntax() == AttributeCommonInfo::AS_GNU && ComputedScope == AttributeCommonInfo::Scope::NONE)
+      return 0;
+    if (getSyntax() == AttributeCommonInfo::AS_CXX11 && ComputedScope == AttributeCommonInfo::Scope::CLANG)
+      return 1;
+    if (getSyntax() == AttributeCommonInfo::AS_C23 && ComputedScope == AttributeCommonInfo::Scope::CLANG)
+      return 2;
+    break;
+  }
   case AT_MatrixType: {
     if (getSyntax() == AttributeCommonInfo::AS_GNU && ComputedScope == AttributeCommonInfo::Scope::NONE)
       return 0;
@@ -1633,6 +1674,15 @@
     if (getSyntax() == AttributeCommonInfo::AS_CXX11 && ComputedScope == AttributeCommonInfo::Scope::GNU)
       return 1;
     if (getSyntax() == AttributeCommonInfo::AS_C23 && ComputedScope == AttributeCommonInfo::Scope::GNU)
+      return 2;
+    break;
+  }
+  case AT_ModularFormat: {
+    if (getSyntax() == AttributeCommonInfo::AS_GNU && ComputedScope == AttributeCommonInfo::Scope::NONE)
+      return 0;
+    if (getSyntax() == AttributeCommonInfo::AS_CXX11 && ComputedScope == AttributeCommonInfo::Scope::CLANG)
+      return 1;
+    if (getSyntax() == AttributeCommonInfo::AS_C23 && ComputedScope == AttributeCommonInfo::Scope::CLANG)
       return 2;
     break;
   }
@@ -1898,7 +1948,7 @@
       return 4;
     break;
   }
-  case AT_NoSanitizeSpecific: {
+  case AT_NoSanitizeAddress: {
     if (Name.size() == 26 && getSyntax() == AttributeCommonInfo::AS_GNU && ComputedScope == AttributeCommonInfo::Scope::NONE)
       return 0;
     if (Name.size() == 26 && getSyntax() == AttributeCommonInfo::AS_CXX11 && ComputedScope == AttributeCommonInfo::Scope::GNU)
@@ -1911,18 +1961,24 @@
       return 4;
     if (Name.size() == 19 && getSyntax() == AttributeCommonInfo::AS_C23 && ComputedScope == AttributeCommonInfo::Scope::GNU)
       return 5;
-    if (Name == "no_sanitize_thread" && getSyntax() == AttributeCommonInfo::AS_GNU && ComputedScope == AttributeCommonInfo::Scope::NONE)
-      return 6;
-    if (Name == "no_sanitize_thread" && getSyntax() == AttributeCommonInfo::AS_CXX11 && ComputedScope == AttributeCommonInfo::Scope::GNU)
-      return 7;
-    if (Name == "no_sanitize_thread" && getSyntax() == AttributeCommonInfo::AS_C23 && ComputedScope == AttributeCommonInfo::Scope::GNU)
-      return 8;
-    if (Name == "no_sanitize_memory" && getSyntax() == AttributeCommonInfo::AS_GNU && ComputedScope == AttributeCommonInfo::Scope::NONE)
-      return 9;
-    if (Name == "no_sanitize_memory" && getSyntax() == AttributeCommonInfo::AS_CXX11 && ComputedScope == AttributeCommonInfo::Scope::CLANG)
-      return 10;
-    if (Name == "no_sanitize_memory" && getSyntax() == AttributeCommonInfo::AS_C23 && ComputedScope == AttributeCommonInfo::Scope::CLANG)
-      return 11;
+    break;
+  }
+  case AT_NoSanitizeMemory: {
+    if (getSyntax() == AttributeCommonInfo::AS_GNU && ComputedScope == AttributeCommonInfo::Scope::NONE)
+      return 0;
+    if (getSyntax() == AttributeCommonInfo::AS_CXX11 && ComputedScope == AttributeCommonInfo::Scope::CLANG)
+      return 1;
+    if (getSyntax() == AttributeCommonInfo::AS_C23 && ComputedScope == AttributeCommonInfo::Scope::CLANG)
+      return 2;
+    break;
+  }
+  case AT_NoSanitizeThread: {
+    if (getSyntax() == AttributeCommonInfo::AS_GNU && ComputedScope == AttributeCommonInfo::Scope::NONE)
+      return 0;
+    if (getSyntax() == AttributeCommonInfo::AS_CXX11 && ComputedScope == AttributeCommonInfo::Scope::GNU)
+      return 1;
+    if (getSyntax() == AttributeCommonInfo::AS_C23 && ComputedScope == AttributeCommonInfo::Scope::GNU)
+      return 2;
     break;
   }
   case AT_NoSpecializations: {
@@ -2856,13 +2912,21 @@
     return 0;
     break;
   }
-  case AT_SYCLKernelEntryPoint: {
+  case AT_SYCLExternal: {
+    return 0;
+    break;
+  }
+  case AT_SYCLKernel: {
     if (getSyntax() == AttributeCommonInfo::AS_GNU && ComputedScope == AttributeCommonInfo::Scope::NONE)
       return 0;
     if (getSyntax() == AttributeCommonInfo::AS_CXX11 && ComputedScope == AttributeCommonInfo::Scope::CLANG)
       return 1;
     if (getSyntax() == AttributeCommonInfo::AS_C23 && ComputedScope == AttributeCommonInfo::Scope::CLANG)
       return 2;
+    break;
+  }
+  case AT_SYCLKernelEntryPoint: {
+    return 0;
     break;
   }
   case AT_SYCLSpecialClass: {

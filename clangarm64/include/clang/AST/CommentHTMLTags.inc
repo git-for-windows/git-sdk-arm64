@@ -149,7 +149,7 @@ bool isHTMLTagName(StringRef Name) {
       break;
     }
     break;
-  case 4:	 // 3 strings to match.
+  case 4:	 // 4 strings to match.
     switch (Name[0]) {
     default: break;
     case 'c':	 // 1 string to match.
@@ -160,6 +160,10 @@ bool isHTMLTagName(StringRef Name) {
       if (memcmp(Name.data()+1, "ont", 3) != 0)
         break;
       return true;	 // "font"
+    case 'm':	 // 1 string to match.
+      if (memcmp(Name.data()+1, "ark", 3) != 0)
+        break;
+      return true;	 // "mark"
     case 's':	 // 1 string to match.
       if (memcmp(Name.data()+1, "pan", 3) != 0)
         break;
@@ -196,33 +200,64 @@ bool isHTMLTagName(StringRef Name) {
       break;
     }
     break;
-  case 6:	 // 2 strings to match.
-    if (memcmp(Name.data()+0, "str", 3) != 0)
-      break;
-    switch (Name[3]) {
+  case 6:	 // 3 strings to match.
+    switch (Name[0]) {
     default: break;
-    case 'i':	 // 1 string to match.
-      if (memcmp(Name.data()+4, "ke", 2) != 0)
+    case 'f':	 // 1 string to match.
+      if (memcmp(Name.data()+1, "igure", 5) != 0)
         break;
-      return true;	 // "strike"
-    case 'o':	 // 1 string to match.
-      if (memcmp(Name.data()+4, "ng", 2) != 0)
+      return true;	 // "figure"
+    case 's':	 // 2 strings to match.
+      if (memcmp(Name.data()+1, "tr", 2) != 0)
         break;
-      return true;	 // "strong"
+      switch (Name[3]) {
+      default: break;
+      case 'i':	 // 1 string to match.
+        if (memcmp(Name.data()+4, "ke", 2) != 0)
+          break;
+        return true;	 // "strike"
+      case 'o':	 // 1 string to match.
+        if (memcmp(Name.data()+4, "ng", 2) != 0)
+          break;
+        return true;	 // "strong"
+      }
+      break;
     }
     break;
-  case 7:	 // 1 string to match.
-    if (memcmp(Name.data()+0, "caption", 7) != 0)
-      break;
-    return true;	 // "caption"
+  case 7:	 // 3 strings to match.
+    switch (Name[0]) {
+    default: break;
+    case 'c':	 // 1 string to match.
+      if (memcmp(Name.data()+1, "aption", 6) != 0)
+        break;
+      return true;	 // "caption"
+    case 'd':	 // 1 string to match.
+      if (memcmp(Name.data()+1, "etails", 6) != 0)
+        break;
+      return true;	 // "details"
+    case 's':	 // 1 string to match.
+      if (memcmp(Name.data()+1, "ummary", 6) != 0)
+        break;
+      return true;	 // "summary"
+    }
+    break;
   case 8:	 // 1 string to match.
     if (memcmp(Name.data()+0, "colgroup", 8) != 0)
       break;
     return true;	 // "colgroup"
-  case 10:	 // 1 string to match.
-    if (memcmp(Name.data()+0, "blockquote", 10) != 0)
-      break;
-    return true;	 // "blockquote"
+  case 10:	 // 2 strings to match.
+    switch (Name[0]) {
+    default: break;
+    case 'b':	 // 1 string to match.
+      if (memcmp(Name.data()+1, "lockquote", 9) != 0)
+        break;
+      return true;	 // "blockquote"
+    case 'f':	 // 1 string to match.
+      if (memcmp(Name.data()+1, "igcaption", 9) != 0)
+        break;
+      return true;	 // "figcaption"
+    }
+    break;
   }
   return false;
 }

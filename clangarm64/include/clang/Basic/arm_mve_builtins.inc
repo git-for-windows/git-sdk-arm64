@@ -2975,7 +2975,7 @@
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Woverlength-strings"
 #endif
-static constexpr char BuiltinStringsStorage[] = 
+static constexpr char BuiltinStringsStorage[] =
   "\0"
   "n\0"
   "nt\0"

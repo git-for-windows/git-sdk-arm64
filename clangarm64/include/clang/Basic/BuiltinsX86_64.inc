@@ -65,40 +65,25 @@
     BI__builtin_ia32_senduipi,
     BI__builtin_ia32_stui,
     BI__builtin_ia32_subborrow_u64,
-    BI__builtin_ia32_t2rpntlvwz0,
-    BI__builtin_ia32_t2rpntlvwz0_internal,
-    BI__builtin_ia32_t2rpntlvwz0rs,
-    BI__builtin_ia32_t2rpntlvwz0rs_internal,
-    BI__builtin_ia32_t2rpntlvwz0rst1,
-    BI__builtin_ia32_t2rpntlvwz0rst1_internal,
-    BI__builtin_ia32_t2rpntlvwz0t1,
-    BI__builtin_ia32_t2rpntlvwz0t1_internal,
-    BI__builtin_ia32_t2rpntlvwz1,
-    BI__builtin_ia32_t2rpntlvwz1_internal,
-    BI__builtin_ia32_t2rpntlvwz1rs,
-    BI__builtin_ia32_t2rpntlvwz1rs_internal,
-    BI__builtin_ia32_t2rpntlvwz1rst1,
-    BI__builtin_ia32_t2rpntlvwz1rst1_internal,
-    BI__builtin_ia32_t2rpntlvwz1t1,
-    BI__builtin_ia32_t2rpntlvwz1t1_internal,
     BI__builtin_ia32_tcmmimfp16ps,
     BI__builtin_ia32_tcmmimfp16ps_internal,
     BI__builtin_ia32_tcmmrlfp16ps,
     BI__builtin_ia32_tcmmrlfp16ps_internal,
-    BI__builtin_ia32_tconjtcmmimfp16ps,
-    BI__builtin_ia32_tconjtcmmimfp16ps_internal,
-    BI__builtin_ia32_tconjtfp16,
-    BI__builtin_ia32_tconjtfp16_internal,
     BI__builtin_ia32_tcvtrowd2ps,
     BI__builtin_ia32_tcvtrowd2ps_internal,
+    BI__builtin_ia32_tcvtrowd2psi,
     BI__builtin_ia32_tcvtrowps2bf16h,
     BI__builtin_ia32_tcvtrowps2bf16h_internal,
+    BI__builtin_ia32_tcvtrowps2bf16hi,
     BI__builtin_ia32_tcvtrowps2bf16l,
     BI__builtin_ia32_tcvtrowps2bf16l_internal,
+    BI__builtin_ia32_tcvtrowps2bf16li,
     BI__builtin_ia32_tcvtrowps2phh,
     BI__builtin_ia32_tcvtrowps2phh_internal,
+    BI__builtin_ia32_tcvtrowps2phhi,
     BI__builtin_ia32_tcvtrowps2phl,
     BI__builtin_ia32_tcvtrowps2phl_internal,
+    BI__builtin_ia32_tcvtrowps2phli,
     BI__builtin_ia32_tdpbf8ps,
     BI__builtin_ia32_tdpbf8ps_internal,
     BI__builtin_ia32_tdpbf16ps,
@@ -133,6 +118,7 @@
     BI__builtin_ia32_tileloaddt164_internal,
     BI__builtin_ia32_tilemovrow,
     BI__builtin_ia32_tilemovrow_internal,
+    BI__builtin_ia32_tilemovrowi,
     BI__builtin_ia32_tilerelease,
     BI__builtin_ia32_tilestored64,
     BI__builtin_ia32_tilestored64_internal,
@@ -140,18 +126,6 @@
     BI__builtin_ia32_tilezero_internal,
     BI__builtin_ia32_tmmultf32ps,
     BI__builtin_ia32_tmmultf32ps_internal,
-    BI__builtin_ia32_ttcmmimfp16ps,
-    BI__builtin_ia32_ttcmmimfp16ps_internal,
-    BI__builtin_ia32_ttcmmrlfp16ps,
-    BI__builtin_ia32_ttcmmrlfp16ps_internal,
-    BI__builtin_ia32_ttdpbf16ps,
-    BI__builtin_ia32_ttdpbf16ps_internal,
-    BI__builtin_ia32_ttdpfp16ps,
-    BI__builtin_ia32_ttdpfp16ps_internal,
-    BI__builtin_ia32_ttmmultf32ps,
-    BI__builtin_ia32_ttmmultf32ps_internal,
-    BI__builtin_ia32_ttransposed,
-    BI__builtin_ia32_ttransposed_internal,
     BI__builtin_ia32_tzcnt_u64,
     BI__builtin_ia32_urdmsr,
     BI__builtin_ia32_uwrmsr,
@@ -210,7 +184,7 @@
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Woverlength-strings"
 #endif
-static constexpr char BuiltinStringsStorage[] = 
+static constexpr char BuiltinStringsStorage[] =
   "\0"
   "_BitScanForward64\0"
   "UcUNi*ULLi\0"
@@ -331,26 +305,6 @@ static constexpr char BuiltinStringsStorage[] =
   "vUWi\0"
   "stui\0"
   "subborrow_u64\0"
-  "t2rpntlvwz0\0"
-  "vIUcvC*z\0"
-  "amx-transpose\0"
-  "t2rpntlvwz0_internal\0"
-  "vUsUsUsV256i*V256i*vC*z\0"
-  "t2rpntlvwz0rs\0"
-  "amx-movrs,amx-transpose\0"
-  "t2rpntlvwz0rs_internal\0"
-  "t2rpntlvwz0rst1\0"
-  "t2rpntlvwz0rst1_internal\0"
-  "t2rpntlvwz0t1\0"
-  "t2rpntlvwz0t1_internal\0"
-  "t2rpntlvwz1\0"
-  "t2rpntlvwz1_internal\0"
-  "t2rpntlvwz1rs\0"
-  "t2rpntlvwz1rs_internal\0"
-  "t2rpntlvwz1rst1\0"
-  "t2rpntlvwz1rst1_internal\0"
-  "t2rpntlvwz1t1\0"
-  "t2rpntlvwz1t1_internal\0"
   "tcmmimfp16ps\0"
   "vIUcIUcIUc\0"
   "amx-complex\0"
@@ -358,30 +312,32 @@ static constexpr char BuiltinStringsStorage[] =
   "V256iUsUsUsV256iV256iV256i\0"
   "tcmmrlfp16ps\0"
   "tcmmrlfp16ps_internal\0"
-  "tconjtcmmimfp16ps\0"
-  "amx-complex,amx-transpose\0"
-  "tconjtcmmimfp16ps_internal\0"
-  "tconjtfp16\0"
-  "vIUcIUc\0"
-  "tconjtfp16_internal\0"
-  "V256iUsUsV256i\0"
   "tcvtrowd2ps\0"
   "V16fIUcUi\0"
-  "amx-avx512,avx10.2-512\0"
+  "nV:512:\0"
+  "amx-avx512,avx10.2\0"
   "tcvtrowd2ps_internal\0"
   "V16fUsUsV256iUi\0"
+  "tcvtrowd2psi\0"
+  "V16fIUcIUi\0"
   "tcvtrowps2bf16h\0"
   "V32yIUcUi\0"
   "tcvtrowps2bf16h_internal\0"
   "V32yUsUsV256iUi\0"
+  "tcvtrowps2bf16hi\0"
+  "V32yIUcIUi\0"
   "tcvtrowps2bf16l\0"
   "tcvtrowps2bf16l_internal\0"
+  "tcvtrowps2bf16li\0"
   "tcvtrowps2phh\0"
   "V32xIUcUi\0"
   "tcvtrowps2phh_internal\0"
   "V32xUsUsV256iUi\0"
+  "tcvtrowps2phhi\0"
+  "V32xIUcIUi\0"
   "tcvtrowps2phl\0"
   "tcvtrowps2phl_internal\0"
+  "tcvtrowps2phli\0"
   "tdpbf8ps\0"
   "vIUcUIcUIc\0"
   "amx-fp8\0"
@@ -415,6 +371,7 @@ static constexpr char BuiltinStringsStorage[] =
   "tile_loadconfig_internal\0"
   "tile_storeconfig\0"
   "tileloadd64\0"
+  "vIUcvC*z\0"
   "tileloadd64_internal\0"
   "V256iUsUsvC*z\0"
   "tileloaddrs64\0"
@@ -428,6 +385,8 @@ static constexpr char BuiltinStringsStorage[] =
   "V16iIUcUi\0"
   "tilemovrow_internal\0"
   "V16iUsUsV256iUi\0"
+  "tilemovrowi\0"
+  "V16iIUcIUi\0"
   "tilerelease\0"
   "tilestored64\0"
   "vIUcv*z\0"
@@ -440,21 +399,6 @@ static constexpr char BuiltinStringsStorage[] =
   "tmmultf32ps\0"
   "amx-tf32\0"
   "tmmultf32ps_internal\0"
-  "ttcmmimfp16ps\0"
-  "ttcmmimfp16ps_internal\0"
-  "ttcmmrlfp16ps\0"
-  "ttcmmrlfp16ps_internal\0"
-  "ttdpbf16ps\0"
-  "amx-bf16,amx-transpose\0"
-  "ttdpbf16ps_internal\0"
-  "ttdpfp16ps\0"
-  "amx-fp16,amx-transpose\0"
-  "ttdpfp16ps_internal\0"
-  "ttmmultf32ps\0"
-  "amx-tf32,amx-transpose\0"
-  "ttmmultf32ps_internal\0"
-  "ttransposed\0"
-  "ttransposed_internal\0"
   "tzcnt_u64\0"
   "urdmsr\0"
   "usermsr\0"
@@ -477,7 +421,7 @@ static constexpr char BuiltinStringsStorage[] =
   "UOiV4fIi\0"
   "vcvttsd2si64\0"
   "vcvttsd2sis64\0"
-  "avx10.2-256\0"
+  "avx10.2\0"
   "vcvttsd2usi64\0"
   "vcvttsd2usis64\0"
   "vcvttsh2si64\0"
@@ -490,24 +434,23 @@ static constexpr char BuiltinStringsStorage[] =
   "V8xV8xUOiIi\0"
   "vec_ext_v4di\0"
   "OiV4OiIi\0"
-  "ncV:256:\0"
+  "ncEV:256:\0"
   "avx\0"
   "vec_set_v2di\0"
   "V2OiV2OiOiIi\0"
+  "ncEV:128:\0"
   "sse4.1\0"
   "vec_set_v4di\0"
   "V4OiV4OiOiIi\0"
   "vmovrsb128\0"
   "V16cV16cC*\0"
   "nV:128:\0"
-  "movrs,avx10.2-256\0"
+  "movrs,avx10.2\0"
   "vmovrsb256\0"
   "V32cV32cC*\0"
   "nV:256:\0"
   "vmovrsb512\0"
   "V64cV64cC*\0"
-  "nV:512:\0"
-  "movrs,avx10.2-512\0"
   "vmovrsd128\0"
   "V4iV4iC*\0"
   "vmovrsd256\0"
@@ -618,142 +561,116 @@ BuiltinStrings = BuiltinStringsStorage;
     Builtin::Info{Builtin::Info::StrOffsets{1063 /* senduipi */, 1072 /* vUWi */, 270 /* n */, 403 /* uintr */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
     Builtin::Info{Builtin::Info::StrOffsets{1077 /* stui */, 117 /* v */, 270 /* n */, 403 /* uintr */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
     Builtin::Info{Builtin::Info::StrOffsets{1082 /* subborrow_u64 */, 300 /* UcUcUOiUOiUOi* */, 315 /* nE */, 0 /*  */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{1096 /* t2rpntlvwz0 */, 1108 /* vIUcvC*z */, 270 /* n */, 1117 /* amx-transpose */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{1131 /* t2rpntlvwz0_internal */, 1152 /* vUsUsUsV256i*V256i*vC*z */, 270 /* n */, 1117 /* amx-transpose */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{1176 /* t2rpntlvwz0rs */, 1108 /* vIUcvC*z */, 270 /* n */, 1190 /* amx-movrs,amx-transpose */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{1214 /* t2rpntlvwz0rs_internal */, 1152 /* vUsUsUsV256i*V256i*vC*z */, 270 /* n */, 1190 /* amx-movrs,amx-transpose */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{1237 /* t2rpntlvwz0rst1 */, 1108 /* vIUcvC*z */, 270 /* n */, 1190 /* amx-movrs,amx-transpose */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{1253 /* t2rpntlvwz0rst1_internal */, 1152 /* vUsUsUsV256i*V256i*vC*z */, 270 /* n */, 1190 /* amx-movrs,amx-transpose */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{1278 /* t2rpntlvwz0t1 */, 1108 /* vIUcvC*z */, 270 /* n */, 1117 /* amx-transpose */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{1292 /* t2rpntlvwz0t1_internal */, 1152 /* vUsUsUsV256i*V256i*vC*z */, 270 /* n */, 1117 /* amx-transpose */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{1315 /* t2rpntlvwz1 */, 1108 /* vIUcvC*z */, 270 /* n */, 1117 /* amx-transpose */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{1327 /* t2rpntlvwz1_internal */, 1152 /* vUsUsUsV256i*V256i*vC*z */, 270 /* n */, 1117 /* amx-transpose */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{1348 /* t2rpntlvwz1rs */, 1108 /* vIUcvC*z */, 270 /* n */, 1190 /* amx-movrs,amx-transpose */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{1362 /* t2rpntlvwz1rs_internal */, 1152 /* vUsUsUsV256i*V256i*vC*z */, 270 /* n */, 1190 /* amx-movrs,amx-transpose */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{1385 /* t2rpntlvwz1rst1 */, 1108 /* vIUcvC*z */, 270 /* n */, 1190 /* amx-movrs,amx-transpose */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{1401 /* t2rpntlvwz1rst1_internal */, 1152 /* vUsUsUsV256i*V256i*vC*z */, 270 /* n */, 1190 /* amx-movrs,amx-transpose */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{1426 /* t2rpntlvwz1t1 */, 1108 /* vIUcvC*z */, 270 /* n */, 1117 /* amx-transpose */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{1440 /* t2rpntlvwz1t1_internal */, 1152 /* vUsUsUsV256i*V256i*vC*z */, 270 /* n */, 1117 /* amx-transpose */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{1463 /* tcmmimfp16ps */, 1476 /* vIUcIUcIUc */, 270 /* n */, 1487 /* amx-complex */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{1499 /* tcmmimfp16ps_internal */, 1521 /* V256iUsUsUsV256iV256iV256i */, 270 /* n */, 1487 /* amx-complex */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{1548 /* tcmmrlfp16ps */, 1476 /* vIUcIUcIUc */, 270 /* n */, 1487 /* amx-complex */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{1561 /* tcmmrlfp16ps_internal */, 1521 /* V256iUsUsUsV256iV256iV256i */, 270 /* n */, 1487 /* amx-complex */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{1583 /* tconjtcmmimfp16ps */, 1476 /* vIUcIUcIUc */, 270 /* n */, 1601 /* amx-complex,amx-transpose */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{1627 /* tconjtcmmimfp16ps_internal */, 1521 /* V256iUsUsUsV256iV256iV256i */, 270 /* n */, 1601 /* amx-complex,amx-transpose */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{1654 /* tconjtfp16 */, 1665 /* vIUcIUc */, 270 /* n */, 1601 /* amx-complex,amx-transpose */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{1673 /* tconjtfp16_internal */, 1693 /* V256iUsUsV256i */, 270 /* n */, 1601 /* amx-complex,amx-transpose */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{1708 /* tcvtrowd2ps */, 1720 /* V16fIUcUi */, 270 /* n */, 1730 /* amx-avx512,avx10.2-512 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{1753 /* tcvtrowd2ps_internal */, 1774 /* V16fUsUsV256iUi */, 270 /* n */, 1730 /* amx-avx512,avx10.2-512 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{1790 /* tcvtrowps2bf16h */, 1806 /* V32yIUcUi */, 270 /* n */, 1730 /* amx-avx512,avx10.2-512 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{1816 /* tcvtrowps2bf16h_internal */, 1841 /* V32yUsUsV256iUi */, 270 /* n */, 1730 /* amx-avx512,avx10.2-512 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{1857 /* tcvtrowps2bf16l */, 1806 /* V32yIUcUi */, 270 /* n */, 1730 /* amx-avx512,avx10.2-512 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{1873 /* tcvtrowps2bf16l_internal */, 1841 /* V32yUsUsV256iUi */, 270 /* n */, 1730 /* amx-avx512,avx10.2-512 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{1898 /* tcvtrowps2phh */, 1912 /* V32xIUcUi */, 270 /* n */, 1730 /* amx-avx512,avx10.2-512 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{1922 /* tcvtrowps2phh_internal */, 1945 /* V32xUsUsV256iUi */, 270 /* n */, 1730 /* amx-avx512,avx10.2-512 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{1961 /* tcvtrowps2phl */, 1912 /* V32xIUcUi */, 270 /* n */, 1730 /* amx-avx512,avx10.2-512 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{1975 /* tcvtrowps2phl_internal */, 1945 /* V32xUsUsV256iUi */, 270 /* n */, 1730 /* amx-avx512,avx10.2-512 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{1998 /* tdpbf8ps */, 2007 /* vIUcUIcUIc */, 270 /* n */, 2018 /* amx-fp8 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2026 /* tdpbf8ps_internal */, 1521 /* V256iUsUsUsV256iV256iV256i */, 270 /* n */, 2018 /* amx-fp8 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2044 /* tdpbf16ps */, 1476 /* vIUcIUcIUc */, 270 /* n */, 2054 /* amx-bf16 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2063 /* tdpbf16ps_internal */, 1521 /* V256iUsUsUsV256iV256iV256i */, 270 /* n */, 2054 /* amx-bf16 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2082 /* tdpbhf8ps */, 2007 /* vIUcUIcUIc */, 270 /* n */, 2018 /* amx-fp8 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2092 /* tdpbhf8ps_internal */, 1521 /* V256iUsUsUsV256iV256iV256i */, 270 /* n */, 2018 /* amx-fp8 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2111 /* tdpbssd */, 1476 /* vIUcIUcIUc */, 270 /* n */, 2119 /* amx-int8 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2128 /* tdpbssd_internal */, 1521 /* V256iUsUsUsV256iV256iV256i */, 270 /* n */, 2119 /* amx-int8 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2145 /* tdpbsud */, 1476 /* vIUcIUcIUc */, 270 /* n */, 2119 /* amx-int8 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2153 /* tdpbsud_internal */, 1521 /* V256iUsUsUsV256iV256iV256i */, 270 /* n */, 2119 /* amx-int8 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2170 /* tdpbusd */, 1476 /* vIUcIUcIUc */, 270 /* n */, 2119 /* amx-int8 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2178 /* tdpbusd_internal */, 1521 /* V256iUsUsUsV256iV256iV256i */, 270 /* n */, 2119 /* amx-int8 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2195 /* tdpbuud */, 1476 /* vIUcIUcIUc */, 270 /* n */, 2119 /* amx-int8 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2203 /* tdpbuud_internal */, 1521 /* V256iUsUsUsV256iV256iV256i */, 270 /* n */, 2119 /* amx-int8 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2220 /* tdpfp16ps */, 1476 /* vIUcIUcIUc */, 270 /* n */, 2230 /* amx-fp16 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2239 /* tdpfp16ps_internal */, 1521 /* V256iUsUsUsV256iV256iV256i */, 270 /* n */, 2230 /* amx-fp16 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2258 /* tdphbf8ps */, 2007 /* vIUcUIcUIc */, 270 /* n */, 2018 /* amx-fp8 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2268 /* tdphbf8ps_internal */, 1521 /* V256iUsUsUsV256iV256iV256i */, 270 /* n */, 2018 /* amx-fp8 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2287 /* tdphf8ps */, 2007 /* vIUcUIcUIc */, 270 /* n */, 2018 /* amx-fp8 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2296 /* tdphf8ps_internal */, 1521 /* V256iUsUsUsV256iV256iV256i */, 270 /* n */, 2018 /* amx-fp8 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2314 /* testui */, 2321 /* Uc */, 270 /* n */, 403 /* uintr */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2324 /* tile_loadconfig */, 2340 /* vvC* */, 270 /* n */, 2345 /* amx-tile */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2354 /* tile_loadconfig_internal */, 2340 /* vvC* */, 270 /* n */, 2345 /* amx-tile */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2379 /* tile_storeconfig */, 2340 /* vvC* */, 270 /* n */, 2345 /* amx-tile */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2396 /* tileloadd64 */, 1108 /* vIUcvC*z */, 270 /* n */, 2345 /* amx-tile */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2408 /* tileloadd64_internal */, 2429 /* V256iUsUsvC*z */, 270 /* n */, 2345 /* amx-tile */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2443 /* tileloaddrs64 */, 1108 /* vIUcvC*z */, 270 /* n */, 2457 /* amx-movrs */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2467 /* tileloaddrs64_internal */, 2429 /* V256iUsUsvC*z */, 270 /* n */, 2457 /* amx-movrs */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2490 /* tileloaddrst164 */, 1108 /* vIUcvC*z */, 270 /* n */, 2457 /* amx-movrs */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2506 /* tileloaddrst164_internal */, 2429 /* V256iUsUsvC*z */, 270 /* n */, 2457 /* amx-movrs */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2531 /* tileloaddt164 */, 1108 /* vIUcvC*z */, 270 /* n */, 2345 /* amx-tile */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2545 /* tileloaddt164_internal */, 2429 /* V256iUsUsvC*z */, 270 /* n */, 2345 /* amx-tile */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2568 /* tilemovrow */, 2579 /* V16iIUcUi */, 270 /* n */, 1730 /* amx-avx512,avx10.2-512 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2589 /* tilemovrow_internal */, 2609 /* V16iUsUsV256iUi */, 270 /* n */, 1730 /* amx-avx512,avx10.2-512 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2625 /* tilerelease */, 117 /* v */, 270 /* n */, 2345 /* amx-tile */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2637 /* tilestored64 */, 2650 /* vIUcv*z */, 270 /* n */, 2345 /* amx-tile */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2658 /* tilestored64_internal */, 2680 /* vUsUsv*zV256i */, 270 /* n */, 2345 /* amx-tile */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2694 /* tilezero */, 2703 /* vUc */, 270 /* n */, 2345 /* amx-tile */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2707 /* tilezero_internal */, 2725 /* V256iUsUs */, 270 /* n */, 2345 /* amx-tile */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2735 /* tmmultf32ps */, 1476 /* vIUcIUcIUc */, 270 /* n */, 2747 /* amx-tf32 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2756 /* tmmultf32ps_internal */, 1521 /* V256iUsUsUsV256iV256iV256i */, 270 /* n */, 2747 /* amx-tf32 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2777 /* ttcmmimfp16ps */, 1476 /* vIUcIUcIUc */, 270 /* n */, 1601 /* amx-complex,amx-transpose */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2791 /* ttcmmimfp16ps_internal */, 1521 /* V256iUsUsUsV256iV256iV256i */, 270 /* n */, 1601 /* amx-complex,amx-transpose */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2814 /* ttcmmrlfp16ps */, 1476 /* vIUcIUcIUc */, 270 /* n */, 1601 /* amx-complex,amx-transpose */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2828 /* ttcmmrlfp16ps_internal */, 1521 /* V256iUsUsUsV256iV256iV256i */, 270 /* n */, 1601 /* amx-complex,amx-transpose */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2851 /* ttdpbf16ps */, 1476 /* vIUcIUcIUc */, 270 /* n */, 2862 /* amx-bf16,amx-transpose */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2885 /* ttdpbf16ps_internal */, 1521 /* V256iUsUsUsV256iV256iV256i */, 270 /* n */, 2862 /* amx-bf16,amx-transpose */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2905 /* ttdpfp16ps */, 1476 /* vIUcIUcIUc */, 270 /* n */, 2916 /* amx-fp16,amx-transpose */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2939 /* ttdpfp16ps_internal */, 1521 /* V256iUsUsUsV256iV256iV256i */, 270 /* n */, 2916 /* amx-fp16,amx-transpose */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2959 /* ttmmultf32ps */, 1476 /* vIUcIUcIUc */, 270 /* n */, 2972 /* amx-tf32,amx-transpose */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{2995 /* ttmmultf32ps_internal */, 1521 /* V256iUsUsUsV256iV256iV256i */, 270 /* n */, 2972 /* amx-tf32,amx-transpose */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3017 /* ttransposed */, 1665 /* vIUcIUc */, 270 /* n */, 1117 /* amx-transpose */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3029 /* ttransposed_internal */, 1693 /* V256iUsUsV256i */, 270 /* n */, 1117 /* amx-transpose */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3050 /* tzcnt_u64 */, 796 /* UOiUOi */, 351 /* ncE */, 0 /*  */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3060 /* urdmsr */, 796 /* UOiUOi */, 270 /* n */, 3067 /* usermsr */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3075 /* uwrmsr */, 3082 /* vUOiUOi */, 270 /* n */, 3067 /* usermsr */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3090 /* vcvtsd2si64 */, 3102 /* OiV2dIi */, 504 /* ncV:128: */, 540 /* avx512f */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3110 /* vcvtsd2usi64 */, 3123 /* UOiV2dIi */, 504 /* ncV:128: */, 540 /* avx512f */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3132 /* vcvtsh2si64 */, 3144 /* OiV8xIi */, 504 /* ncV:128: */, 3152 /* avx512fp16 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3163 /* vcvtsh2usi64 */, 3176 /* UOiV8xIi */, 504 /* ncV:128: */, 3152 /* avx512fp16 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3185 /* vcvtsi642sh */, 3197 /* V8xV8xOiIi */, 504 /* ncV:128: */, 3152 /* avx512fp16 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3208 /* vcvtss2si64 */, 3220 /* OiV4fIi */, 504 /* ncV:128: */, 540 /* avx512f */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3228 /* vcvtss2usi64 */, 3241 /* UOiV4fIi */, 504 /* ncV:128: */, 540 /* avx512f */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3250 /* vcvttsd2si64 */, 3102 /* OiV2dIi */, 504 /* ncV:128: */, 540 /* avx512f */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3263 /* vcvttsd2sis64 */, 3102 /* OiV2dIi */, 504 /* ncV:128: */, 3277 /* avx10.2-256 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3289 /* vcvttsd2usi64 */, 3123 /* UOiV2dIi */, 504 /* ncV:128: */, 540 /* avx512f */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3303 /* vcvttsd2usis64 */, 3123 /* UOiV2dIi */, 504 /* ncV:128: */, 3277 /* avx10.2-256 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3318 /* vcvttsh2si64 */, 3144 /* OiV8xIi */, 504 /* ncV:128: */, 3152 /* avx512fp16 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3331 /* vcvttsh2usi64 */, 3176 /* UOiV8xIi */, 504 /* ncV:128: */, 3152 /* avx512fp16 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3345 /* vcvttss2si64 */, 3220 /* OiV4fIi */, 504 /* ncV:128: */, 540 /* avx512f */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3358 /* vcvttss2sis64 */, 3220 /* OiV4fIi */, 504 /* ncV:128: */, 3277 /* avx10.2-256 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3372 /* vcvttss2usi64 */, 3241 /* UOiV4fIi */, 504 /* ncV:128: */, 540 /* avx512f */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3386 /* vcvttss2usis64 */, 3241 /* UOiV4fIi */, 504 /* ncV:128: */, 3277 /* avx10.2-256 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3401 /* vcvtusi642sh */, 3414 /* V8xV8xUOiIi */, 504 /* ncV:128: */, 3152 /* avx512fp16 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3426 /* vec_ext_v4di */, 3439 /* OiV4OiIi */, 3448 /* ncV:256: */, 3457 /* avx */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3461 /* vec_set_v2di */, 3474 /* V2OiV2OiOiIi */, 504 /* ncV:128: */, 3487 /* sse4.1 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3494 /* vec_set_v4di */, 3507 /* V4OiV4OiOiIi */, 3448 /* ncV:256: */, 3457 /* avx */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3520 /* vmovrsb128 */, 3531 /* V16cV16cC* */, 3542 /* nV:128: */, 3550 /* movrs,avx10.2-256 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3568 /* vmovrsb256 */, 3579 /* V32cV32cC* */, 3590 /* nV:256: */, 3550 /* movrs,avx10.2-256 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3598 /* vmovrsb512 */, 3609 /* V64cV64cC* */, 3620 /* nV:512: */, 3628 /* movrs,avx10.2-512 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3646 /* vmovrsd128 */, 3657 /* V4iV4iC* */, 3542 /* nV:128: */, 3550 /* movrs,avx10.2-256 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3666 /* vmovrsd256 */, 3677 /* V8iV8iC* */, 3590 /* nV:256: */, 3550 /* movrs,avx10.2-256 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3686 /* vmovrsd512 */, 3697 /* V16iV16iC* */, 3620 /* nV:512: */, 3628 /* movrs,avx10.2-512 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3708 /* vmovrsq128 */, 3719 /* V2OiV2OiC* */, 3542 /* nV:128: */, 3550 /* movrs,avx10.2-256 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3730 /* vmovrsq256 */, 3741 /* V4OiV4OiC* */, 3590 /* nV:256: */, 3550 /* movrs,avx10.2-256 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3752 /* vmovrsq512 */, 3763 /* V8OiV8OiC* */, 3620 /* nV:512: */, 3628 /* movrs,avx10.2-512 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3774 /* vmovrsw128 */, 3785 /* V8sV8sC* */, 3542 /* nV:128: */, 3550 /* movrs,avx10.2-256 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3794 /* vmovrsw256 */, 3805 /* V16sV16sC* */, 3590 /* nV:256: */, 3550 /* movrs,avx10.2-256 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3816 /* vmovrsw512 */, 3827 /* V32sV32sC* */, 3620 /* nV:512: */, 3628 /* movrs,avx10.2-512 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3838 /* wrfsbase32 */, 3849 /* vUi */, 270 /* n */, 947 /* fsgsbase */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3853 /* wrfsbase64 */, 732 /* vUOi */, 270 /* n */, 947 /* fsgsbase */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3864 /* wrgsbase32 */, 3849 /* vUi */, 270 /* n */, 947 /* fsgsbase */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3875 /* wrgsbase64 */, 732 /* vUOi */, 270 /* n */, 947 /* fsgsbase */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3886 /* writeeflags_u64 */, 732 /* vUOi */, 270 /* n */, 0 /*  */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3902 /* wrssq */, 3908 /* vUOiv* */, 270 /* n */, 737 /* shstk */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3915 /* wrussq */, 3908 /* vUOiv* */, 270 /* n */, 737 /* shstk */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3922 /* xrstor64 */, 3931 /* vv*UOi */, 270 /* n */, 3938 /* xsave */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3944 /* xrstors64 */, 3931 /* vv*UOi */, 270 /* n */, 3954 /* xsaves */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3961 /* xsave64 */, 3931 /* vv*UOi */, 270 /* n */, 3938 /* xsave */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3969 /* xsavec64 */, 3931 /* vv*UOi */, 270 /* n */, 3978 /* xsavec */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{3985 /* xsaveopt64 */, 3931 /* vv*UOi */, 270 /* n */, 3996 /* xsaveopt */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
-    Builtin::Info{Builtin::Info::StrOffsets{4005 /* xsaves64 */, 3931 /* vv*UOi */, 270 /* n */, 3954 /* xsaves */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{1096 /* tcmmimfp16ps */, 1109 /* vIUcIUcIUc */, 270 /* n */, 1120 /* amx-complex */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{1132 /* tcmmimfp16ps_internal */, 1154 /* V256iUsUsUsV256iV256iV256i */, 270 /* n */, 1120 /* amx-complex */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{1181 /* tcmmrlfp16ps */, 1109 /* vIUcIUcIUc */, 270 /* n */, 1120 /* amx-complex */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{1194 /* tcmmrlfp16ps_internal */, 1154 /* V256iUsUsUsV256iV256iV256i */, 270 /* n */, 1120 /* amx-complex */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{1216 /* tcvtrowd2ps */, 1228 /* V16fIUcUi */, 1238 /* nV:512: */, 1246 /* amx-avx512,avx10.2 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{1265 /* tcvtrowd2ps_internal */, 1286 /* V16fUsUsV256iUi */, 1238 /* nV:512: */, 1246 /* amx-avx512,avx10.2 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{1302 /* tcvtrowd2psi */, 1315 /* V16fIUcIUi */, 1238 /* nV:512: */, 1246 /* amx-avx512,avx10.2 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{1326 /* tcvtrowps2bf16h */, 1342 /* V32yIUcUi */, 1238 /* nV:512: */, 1246 /* amx-avx512,avx10.2 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{1352 /* tcvtrowps2bf16h_internal */, 1377 /* V32yUsUsV256iUi */, 1238 /* nV:512: */, 1246 /* amx-avx512,avx10.2 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{1393 /* tcvtrowps2bf16hi */, 1410 /* V32yIUcIUi */, 1238 /* nV:512: */, 1246 /* amx-avx512,avx10.2 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{1421 /* tcvtrowps2bf16l */, 1342 /* V32yIUcUi */, 1238 /* nV:512: */, 1246 /* amx-avx512,avx10.2 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{1437 /* tcvtrowps2bf16l_internal */, 1377 /* V32yUsUsV256iUi */, 1238 /* nV:512: */, 1246 /* amx-avx512,avx10.2 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{1462 /* tcvtrowps2bf16li */, 1410 /* V32yIUcIUi */, 1238 /* nV:512: */, 1246 /* amx-avx512,avx10.2 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{1479 /* tcvtrowps2phh */, 1493 /* V32xIUcUi */, 1238 /* nV:512: */, 1246 /* amx-avx512,avx10.2 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{1503 /* tcvtrowps2phh_internal */, 1526 /* V32xUsUsV256iUi */, 1238 /* nV:512: */, 1246 /* amx-avx512,avx10.2 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{1542 /* tcvtrowps2phhi */, 1557 /* V32xIUcIUi */, 1238 /* nV:512: */, 1246 /* amx-avx512,avx10.2 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{1568 /* tcvtrowps2phl */, 1493 /* V32xIUcUi */, 1238 /* nV:512: */, 1246 /* amx-avx512,avx10.2 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{1582 /* tcvtrowps2phl_internal */, 1526 /* V32xUsUsV256iUi */, 1238 /* nV:512: */, 1246 /* amx-avx512,avx10.2 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{1605 /* tcvtrowps2phli */, 1557 /* V32xIUcIUi */, 1238 /* nV:512: */, 1246 /* amx-avx512,avx10.2 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{1620 /* tdpbf8ps */, 1629 /* vIUcUIcUIc */, 270 /* n */, 1640 /* amx-fp8 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{1648 /* tdpbf8ps_internal */, 1154 /* V256iUsUsUsV256iV256iV256i */, 270 /* n */, 1640 /* amx-fp8 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{1666 /* tdpbf16ps */, 1109 /* vIUcIUcIUc */, 270 /* n */, 1676 /* amx-bf16 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{1685 /* tdpbf16ps_internal */, 1154 /* V256iUsUsUsV256iV256iV256i */, 270 /* n */, 1676 /* amx-bf16 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{1704 /* tdpbhf8ps */, 1629 /* vIUcUIcUIc */, 270 /* n */, 1640 /* amx-fp8 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{1714 /* tdpbhf8ps_internal */, 1154 /* V256iUsUsUsV256iV256iV256i */, 270 /* n */, 1640 /* amx-fp8 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{1733 /* tdpbssd */, 1109 /* vIUcIUcIUc */, 270 /* n */, 1741 /* amx-int8 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{1750 /* tdpbssd_internal */, 1154 /* V256iUsUsUsV256iV256iV256i */, 270 /* n */, 1741 /* amx-int8 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{1767 /* tdpbsud */, 1109 /* vIUcIUcIUc */, 270 /* n */, 1741 /* amx-int8 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{1775 /* tdpbsud_internal */, 1154 /* V256iUsUsUsV256iV256iV256i */, 270 /* n */, 1741 /* amx-int8 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{1792 /* tdpbusd */, 1109 /* vIUcIUcIUc */, 270 /* n */, 1741 /* amx-int8 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{1800 /* tdpbusd_internal */, 1154 /* V256iUsUsUsV256iV256iV256i */, 270 /* n */, 1741 /* amx-int8 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{1817 /* tdpbuud */, 1109 /* vIUcIUcIUc */, 270 /* n */, 1741 /* amx-int8 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{1825 /* tdpbuud_internal */, 1154 /* V256iUsUsUsV256iV256iV256i */, 270 /* n */, 1741 /* amx-int8 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{1842 /* tdpfp16ps */, 1109 /* vIUcIUcIUc */, 270 /* n */, 1852 /* amx-fp16 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{1861 /* tdpfp16ps_internal */, 1154 /* V256iUsUsUsV256iV256iV256i */, 270 /* n */, 1852 /* amx-fp16 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{1880 /* tdphbf8ps */, 1629 /* vIUcUIcUIc */, 270 /* n */, 1640 /* amx-fp8 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{1890 /* tdphbf8ps_internal */, 1154 /* V256iUsUsUsV256iV256iV256i */, 270 /* n */, 1640 /* amx-fp8 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{1909 /* tdphf8ps */, 1629 /* vIUcUIcUIc */, 270 /* n */, 1640 /* amx-fp8 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{1918 /* tdphf8ps_internal */, 1154 /* V256iUsUsUsV256iV256iV256i */, 270 /* n */, 1640 /* amx-fp8 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{1936 /* testui */, 1943 /* Uc */, 270 /* n */, 403 /* uintr */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{1946 /* tile_loadconfig */, 1962 /* vvC* */, 270 /* n */, 1967 /* amx-tile */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{1976 /* tile_loadconfig_internal */, 1962 /* vvC* */, 270 /* n */, 1967 /* amx-tile */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{2001 /* tile_storeconfig */, 1962 /* vvC* */, 270 /* n */, 1967 /* amx-tile */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{2018 /* tileloadd64 */, 2030 /* vIUcvC*z */, 270 /* n */, 1967 /* amx-tile */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{2039 /* tileloadd64_internal */, 2060 /* V256iUsUsvC*z */, 270 /* n */, 1967 /* amx-tile */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{2074 /* tileloaddrs64 */, 2030 /* vIUcvC*z */, 270 /* n */, 2088 /* amx-movrs */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{2098 /* tileloaddrs64_internal */, 2060 /* V256iUsUsvC*z */, 270 /* n */, 2088 /* amx-movrs */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{2121 /* tileloaddrst164 */, 2030 /* vIUcvC*z */, 270 /* n */, 2088 /* amx-movrs */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{2137 /* tileloaddrst164_internal */, 2060 /* V256iUsUsvC*z */, 270 /* n */, 2088 /* amx-movrs */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{2162 /* tileloaddt164 */, 2030 /* vIUcvC*z */, 270 /* n */, 1967 /* amx-tile */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{2176 /* tileloaddt164_internal */, 2060 /* V256iUsUsvC*z */, 270 /* n */, 1967 /* amx-tile */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{2199 /* tilemovrow */, 2210 /* V16iIUcUi */, 1238 /* nV:512: */, 1246 /* amx-avx512,avx10.2 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{2220 /* tilemovrow_internal */, 2240 /* V16iUsUsV256iUi */, 1238 /* nV:512: */, 1246 /* amx-avx512,avx10.2 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{2256 /* tilemovrowi */, 2268 /* V16iIUcIUi */, 1238 /* nV:512: */, 1246 /* amx-avx512,avx10.2 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{2279 /* tilerelease */, 117 /* v */, 270 /* n */, 1967 /* amx-tile */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{2291 /* tilestored64 */, 2304 /* vIUcv*z */, 270 /* n */, 1967 /* amx-tile */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{2312 /* tilestored64_internal */, 2334 /* vUsUsv*zV256i */, 270 /* n */, 1967 /* amx-tile */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{2348 /* tilezero */, 2357 /* vUc */, 270 /* n */, 1967 /* amx-tile */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{2361 /* tilezero_internal */, 2379 /* V256iUsUs */, 270 /* n */, 1967 /* amx-tile */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{2389 /* tmmultf32ps */, 1109 /* vIUcIUcIUc */, 270 /* n */, 2401 /* amx-tf32 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{2410 /* tmmultf32ps_internal */, 1154 /* V256iUsUsUsV256iV256iV256i */, 270 /* n */, 2401 /* amx-tf32 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{2431 /* tzcnt_u64 */, 796 /* UOiUOi */, 351 /* ncE */, 0 /*  */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{2441 /* urdmsr */, 796 /* UOiUOi */, 270 /* n */, 2448 /* usermsr */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{2456 /* uwrmsr */, 2463 /* vUOiUOi */, 270 /* n */, 2448 /* usermsr */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{2471 /* vcvtsd2si64 */, 2483 /* OiV2dIi */, 504 /* ncV:128: */, 540 /* avx512f */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{2491 /* vcvtsd2usi64 */, 2504 /* UOiV2dIi */, 504 /* ncV:128: */, 540 /* avx512f */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{2513 /* vcvtsh2si64 */, 2525 /* OiV8xIi */, 504 /* ncV:128: */, 2533 /* avx512fp16 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{2544 /* vcvtsh2usi64 */, 2557 /* UOiV8xIi */, 504 /* ncV:128: */, 2533 /* avx512fp16 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{2566 /* vcvtsi642sh */, 2578 /* V8xV8xOiIi */, 504 /* ncV:128: */, 2533 /* avx512fp16 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{2589 /* vcvtss2si64 */, 2601 /* OiV4fIi */, 504 /* ncV:128: */, 540 /* avx512f */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{2609 /* vcvtss2usi64 */, 2622 /* UOiV4fIi */, 504 /* ncV:128: */, 540 /* avx512f */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{2631 /* vcvttsd2si64 */, 2483 /* OiV2dIi */, 504 /* ncV:128: */, 540 /* avx512f */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{2644 /* vcvttsd2sis64 */, 2483 /* OiV2dIi */, 504 /* ncV:128: */, 2658 /* avx10.2 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{2666 /* vcvttsd2usi64 */, 2504 /* UOiV2dIi */, 504 /* ncV:128: */, 540 /* avx512f */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{2680 /* vcvttsd2usis64 */, 2504 /* UOiV2dIi */, 504 /* ncV:128: */, 2658 /* avx10.2 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{2695 /* vcvttsh2si64 */, 2525 /* OiV8xIi */, 504 /* ncV:128: */, 2533 /* avx512fp16 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{2708 /* vcvttsh2usi64 */, 2557 /* UOiV8xIi */, 504 /* ncV:128: */, 2533 /* avx512fp16 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{2722 /* vcvttss2si64 */, 2601 /* OiV4fIi */, 504 /* ncV:128: */, 540 /* avx512f */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{2735 /* vcvttss2sis64 */, 2601 /* OiV4fIi */, 504 /* ncV:128: */, 2658 /* avx10.2 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{2749 /* vcvttss2usi64 */, 2622 /* UOiV4fIi */, 504 /* ncV:128: */, 540 /* avx512f */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{2763 /* vcvttss2usis64 */, 2622 /* UOiV4fIi */, 504 /* ncV:128: */, 2658 /* avx10.2 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{2778 /* vcvtusi642sh */, 2791 /* V8xV8xUOiIi */, 504 /* ncV:128: */, 2533 /* avx512fp16 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{2803 /* vec_ext_v4di */, 2816 /* OiV4OiIi */, 2825 /* ncEV:256: */, 2835 /* avx */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{2839 /* vec_set_v2di */, 2852 /* V2OiV2OiOiIi */, 2865 /* ncEV:128: */, 2875 /* sse4.1 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{2882 /* vec_set_v4di */, 2895 /* V4OiV4OiOiIi */, 2825 /* ncEV:256: */, 2835 /* avx */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{2908 /* vmovrsb128 */, 2919 /* V16cV16cC* */, 2930 /* nV:128: */, 2938 /* movrs,avx10.2 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{2952 /* vmovrsb256 */, 2963 /* V32cV32cC* */, 2974 /* nV:256: */, 2938 /* movrs,avx10.2 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{2982 /* vmovrsb512 */, 2993 /* V64cV64cC* */, 1238 /* nV:512: */, 2938 /* movrs,avx10.2 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{3004 /* vmovrsd128 */, 3015 /* V4iV4iC* */, 2930 /* nV:128: */, 2938 /* movrs,avx10.2 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{3024 /* vmovrsd256 */, 3035 /* V8iV8iC* */, 2974 /* nV:256: */, 2938 /* movrs,avx10.2 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{3044 /* vmovrsd512 */, 3055 /* V16iV16iC* */, 1238 /* nV:512: */, 2938 /* movrs,avx10.2 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{3066 /* vmovrsq128 */, 3077 /* V2OiV2OiC* */, 2930 /* nV:128: */, 2938 /* movrs,avx10.2 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{3088 /* vmovrsq256 */, 3099 /* V4OiV4OiC* */, 2974 /* nV:256: */, 2938 /* movrs,avx10.2 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{3110 /* vmovrsq512 */, 3121 /* V8OiV8OiC* */, 1238 /* nV:512: */, 2938 /* movrs,avx10.2 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{3132 /* vmovrsw128 */, 3143 /* V8sV8sC* */, 2930 /* nV:128: */, 2938 /* movrs,avx10.2 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{3152 /* vmovrsw256 */, 3163 /* V16sV16sC* */, 2974 /* nV:256: */, 2938 /* movrs,avx10.2 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{3174 /* vmovrsw512 */, 3185 /* V32sV32sC* */, 1238 /* nV:512: */, 2938 /* movrs,avx10.2 */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{3196 /* wrfsbase32 */, 3207 /* vUi */, 270 /* n */, 947 /* fsgsbase */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{3211 /* wrfsbase64 */, 732 /* vUOi */, 270 /* n */, 947 /* fsgsbase */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{3222 /* wrgsbase32 */, 3207 /* vUi */, 270 /* n */, 947 /* fsgsbase */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{3233 /* wrgsbase64 */, 732 /* vUOi */, 270 /* n */, 947 /* fsgsbase */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{3244 /* writeeflags_u64 */, 732 /* vUOi */, 270 /* n */, 0 /*  */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{3260 /* wrssq */, 3266 /* vUOiv* */, 270 /* n */, 737 /* shstk */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{3273 /* wrussq */, 3266 /* vUOiv* */, 270 /* n */, 737 /* shstk */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{3280 /* xrstor64 */, 3289 /* vv*UOi */, 270 /* n */, 3296 /* xsave */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{3302 /* xrstors64 */, 3289 /* vv*UOi */, 270 /* n */, 3312 /* xsaves */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{3319 /* xsave64 */, 3289 /* vv*UOi */, 270 /* n */, 3296 /* xsave */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{3327 /* xsavec64 */, 3289 /* vv*UOi */, 270 /* n */, 3336 /* xsavec */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{3343 /* xsaveopt64 */, 3289 /* vv*UOi */, 270 /* n */, 3354 /* xsaveopt */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
+    Builtin::Info{Builtin::Info::StrOffsets{3363 /* xsaves64 */, 3289 /* vv*UOi */, 270 /* n */, 3312 /* xsaves */}, HeaderDesc::NO_HEADER, ALL_LANGUAGES},
 
 #endif // GET_BUILTIN_PREFIXED_INFOS
 

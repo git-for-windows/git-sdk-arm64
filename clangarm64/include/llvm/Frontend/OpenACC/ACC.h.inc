@@ -3,6 +3,7 @@
 
 #include "llvm/ADT/ArrayRef.h"
 #include "llvm/ADT/BitmaskEnum.h"
+#include "llvm/ADT/Sequence.h"
 #include "llvm/ADT/StringRef.h"
 #include "llvm/Frontend/Directive/Spelling.h"
 #include "llvm/Support/Compiler.h"
@@ -10,28 +11,34 @@
 #include <utility>
 
 namespace llvm {
+
 namespace acc {
 
 LLVM_ENABLE_BITMASK_ENUMS_IN_NAMESPACE();
 
 enum class Association {
   Block,
+  First_ = Block,
   Declaration,
   Delimited,
-  Loop,
+  LoopNest,
+  LoopSeq,
   None,
   Separating,
+  Last_ = Separating,
 };
 
-static constexpr std::size_t Association_enumSize = 6;
+static constexpr std::size_t Association_enumSize = 7;
 
 enum class Category {
   Declarative,
+  First_ = Declarative,
   Executable,
   Informational,
   Meta,
   Subsidiary,
   Utility,
+  Last_ = Utility,
 };
 
 static constexpr std::size_t Category_enumSize = 6;
@@ -46,6 +53,7 @@ static constexpr std::size_t SourceLanguage_enumSize = 2;
 
 enum class Directive {
   ACCD_atomic,
+  First_ = ACCD_atomic,
   ACCD_cache,
   ACCD_data,
   ACCD_declare,
@@ -66,6 +74,7 @@ enum class Directive {
   ACCD_unknown,
   ACCD_update,
   ACCD_wait,
+  Last_ = ACCD_wait,
 };
 
 static constexpr std::size_t Directive_enumSize = 21;
@@ -94,6 +103,7 @@ constexpr auto ACCD_wait = Directive::ACCD_wait;
 
 enum class Clause {
   ACCC_async,
+  First_ = ACCC_async,
   ACCC_attach,
   ACCC_auto,
   ACCC_bind,
@@ -139,6 +149,7 @@ enum class Clause {
   ACCC_wait,
   ACCC_worker,
   ACCC_write,
+  Last_ = ACCC_write,
 };
 
 static constexpr std::size_t Clause_enumSize = 46;
@@ -225,5 +236,24 @@ LLVM_ABI DefaultValue getDefaultValue(StringRef Str);
 LLVM_ABI StringRef getOpenACCDefaultValueName(DefaultValue x);
 
 } // namespace acc
+
+template <> struct enum_iteration_traits<acc::Association> {
+  static constexpr bool is_iterable = true;
+};
+
+template <> struct enum_iteration_traits<acc::Category> {
+  static constexpr bool is_iterable = true;
+};
+
+template <> struct enum_iteration_traits<acc::Directive> {
+  static constexpr bool is_iterable = true;
+};
+
+template <> struct enum_iteration_traits<acc::Clause> {
+  static constexpr bool is_iterable = true;
+};
+
 } // namespace llvm
+
 #endif // LLVM_OpenACC_INC
+
