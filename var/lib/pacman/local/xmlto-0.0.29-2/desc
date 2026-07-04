@@ -2,7 +2,7 @@
 xmlto
 
 %VERSION%
-0.0.29-1
+0.0.29-2
 
 %BASE%
 xmlto
@@ -17,27 +17,25 @@ https://pagure.io/xmlto/
 x86_64
 
 %BUILDDATE%
-1719815376
+1783070618
 
 %INSTALLDATE%
-1719889946
+1783145154
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/00495cb2/9739154571)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/28651248092/job/84969555303)
 
 %SIZE%
-77485
+77448
 
 %LICENSE%
-GPL
+spdx:GPL-2.0-or-later
 
 %VALIDATION%
 pgp
 
 %DEPENDS%
 libxslt
-perl-YAML-Syck
-perl-Test-Pod
 
 %XDATA%
 pkgtype=pkg

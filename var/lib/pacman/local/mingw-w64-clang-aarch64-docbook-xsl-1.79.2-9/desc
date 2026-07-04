@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-docbook-xsl
 
 %VERSION%
-1.79.2-8
+1.79.2-9
 
 %BASE%
 mingw-w64-docbook-xsl
@@ -17,16 +17,16 @@ https://docbook.org/
 any
 
 %BUILDDATE%
-1652227424
+1783068371
 
 %INSTALLDATE%
-1671477497
+1783145152
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/600b5bae/2303930259)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/28649194674/job/84962865803)
 
 %SIZE%
-27605086
+27605663
 
 %REASON%
 1
@@ -35,10 +35,14 @@ CI (msys2-arm/msys2-autobuild/600b5bae/2303930259)
 custom
 
 %VALIDATION%
+sha256
 pgp
 
 %DEPENDS%
 mingw-w64-clang-aarch64-libxml2
 mingw-w64-clang-aarch64-libxslt
 mingw-w64-clang-aarch64-docbook-xml
+
+%XDATA%
+pkgtype=pkg
 
