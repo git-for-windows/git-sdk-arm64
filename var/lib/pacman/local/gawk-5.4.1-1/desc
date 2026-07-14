@@ -2,7 +2,7 @@
 gawk
 
 %VERSION%
-5.4.0-1
+5.4.1-1
 
 %BASE%
 gawk
@@ -17,19 +17,19 @@ https://www.gnu.org/software/gawk/
 x86_64
 
 %BUILDDATE%
-1771838742
+1783806833
 
 %INSTALLDATE%
-1771994816
+1784003032
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/ad23bc5d/22299974053)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/29169543570/job/86588338737)
 
 %SIZE%
-5340448
+5364978
 
 %LICENSE%
-GPL
+spdx:GPL-3.0-or-later
 
 %VALIDATION%
 pgp

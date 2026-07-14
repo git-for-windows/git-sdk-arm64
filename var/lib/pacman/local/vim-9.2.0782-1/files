@@ -1120,6 +1120,7 @@ usr/share/vim/vim92/indent/bpftrace.vim
 usr/share/vim/vim92/indent/bst.vim
 usr/share/vim/vim92/indent/bzl.vim
 usr/share/vim/vim92/indent/c.vim
+usr/share/vim/vim92/indent/cabal.vim
 usr/share/vim/vim92/indent/cdl.vim
 usr/share/vim/vim92/indent/ch.vim
 usr/share/vim/vim92/indent/chaiscript.vim
@@ -2520,8 +2521,12 @@ usr/share/vim/vim92/syntax/squirrel.vim
 usr/share/vim/vim92/syntax/srec.vim
 usr/share/vim/vim92/syntax/srt.vim
 usr/share/vim/vim92/syntax/ssa.vim
+usr/share/vim/vim92/syntax/sshallowedsigners.vim
+usr/share/vim/vim92/syntax/sshauthorizedkeys.vim
 usr/share/vim/vim92/syntax/sshconfig.vim
 usr/share/vim/vim92/syntax/sshdconfig.vim
+usr/share/vim/vim92/syntax/sshknownhosts.vim
+usr/share/vim/vim92/syntax/sshpublickey.vim
 usr/share/vim/vim92/syntax/st.vim
 usr/share/vim/vim92/syntax/stata.vim
 usr/share/vim/vim92/syntax/stp.vim

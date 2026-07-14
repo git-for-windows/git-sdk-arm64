@@ -2,7 +2,7 @@
 perl-HTTP-Date
 
 %VERSION%
-6.07-1
+6.08-1
 
 %BASE%
 perl-HTTP-Date
@@ -17,16 +17,16 @@ https://metacpan.org/release/HTTP-Date
 any
 
 %BUILDDATE%
-1782463434
+1783811437
 
 %INSTALLDATE%
-1782541228
+1784003032
 
 %PACKAGER%
-CI (https://github.com/msys2/msys2-autobuild/actions/runs/28225880878/job/83617594642)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/29171516383/job/86593377874)
 
 %SIZE%
-15592
+16625
 
 %REASON%
 1

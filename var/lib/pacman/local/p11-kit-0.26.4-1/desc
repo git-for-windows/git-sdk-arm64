@@ -2,7 +2,7 @@
 p11-kit
 
 %VERSION%
-0.26.2-1
+0.26.4-1
 
 %BASE%
 p11-kit
@@ -17,22 +17,22 @@ https://p11-glue.freedesktop.org/p11-kit.html
 x86_64
 
 %BUILDDATE%
-1770641498
+1783811197
 
 %INSTALLDATE%
-1770785785
+1784003032
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/f49d3a35/21825625795)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/29171516383/job/86593377874)
 
 %SIZE%
-3173883
+3211468
 
 %REASON%
 1
 
 %LICENSE%
-BSD
+spdx:BSD-3-Clause
 
 %VALIDATION%
 pgp
