@@ -2,7 +2,7 @@
 tzcode
 
 %VERSION%
-2026b-1
+2026c-1
 
 %BASE%
 tzcode
@@ -17,19 +17,19 @@ https://www.iana.org/time-zones
 x86_64
 
 %BUILDDATE%
-1778923082
+1784097383
 
 %INSTALLDATE%
-1779259115
+1784351691
 
 %PACKAGER%
-CI (https://github.com/msys2/msys2-autobuild/actions/runs/25958166976/job/76308580694)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/29394636554/job/87285242931)
 
 %SIZE%
-1077838
+1069221
 
 %LICENSE%
-GPL
+spdx:LicenseRef-tz
 
 %VALIDATION%
 pgp
