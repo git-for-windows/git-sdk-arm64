@@ -1,32 +1,32 @@
 %NAME%
-mingw-w64-clang-aarch64-clang-tools-extra
+mingw-w64-clang-aarch64-lld
 
 %VERSION%
-22.1.8-2
+22.1.8-3
 
 %BASE%
 mingw-w64-llvm
 
 %DESC%
-Extra tools built using Clang's tooling APIs (mingw-w64)
+Linker tools for LLVM (mingw-w64)
 
 %URL%
-https://clang.llvm.org/
+https://lld.llvm.org/
 
 %ARCH%
 any
 
 %BUILDDATE%
-1782931541
+1784325764
 
 %INSTALLDATE%
-1782973776
+1784439665
 
 %PACKAGER%
 Johannes Schindelin <johannes.schindelin@gmx.de>
 
 %SIZE%
-157910559
+50982980
 
 %GROUPS%
 mingw-w64-clang-aarch64-toolchain
@@ -39,7 +39,13 @@ sha256
 pgp
 
 %DEPENDS%
-mingw-w64-clang-aarch64-clang=22.1.8
+mingw-w64-clang-aarch64-cc-libs
+mingw-w64-clang-aarch64-llvm-libs=22.1.8
+mingw-w64-clang-aarch64-zlib
+mingw-w64-clang-aarch64-zstd
+
+%PROVIDES%
+mingw-w64-clang-aarch64-binutils
 
 %XDATA%
 pkgtype=split

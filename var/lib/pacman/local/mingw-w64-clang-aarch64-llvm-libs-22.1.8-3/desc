@@ -1,32 +1,35 @@
 %NAME%
-mingw-w64-clang-aarch64-lld
+mingw-w64-clang-aarch64-llvm-libs
 
 %VERSION%
-22.1.8-2
+22.1.8-3
 
 %BASE%
 mingw-w64-llvm
 
 %DESC%
-Linker tools for LLVM (mingw-w64)
+Low Level Virtual Machine Runtime Libraries (mingw-w64)
 
 %URL%
-https://lld.llvm.org/
+https://llvm.org/
 
 %ARCH%
 any
 
 %BUILDDATE%
-1782931541
+1784325764
 
 %INSTALLDATE%
-1782973768
+1784439663
 
 %PACKAGER%
 Johannes Schindelin <johannes.schindelin@gmx.de>
 
 %SIZE%
-51002116
+63714085
+
+%REASON%
+1
 
 %GROUPS%
 mingw-w64-clang-aarch64-toolchain
@@ -40,12 +43,13 @@ pgp
 
 %DEPENDS%
 mingw-w64-clang-aarch64-cc-libs
-mingw-w64-clang-aarch64-llvm-libs=22.1.8
+mingw-w64-clang-aarch64-libffi
+mingw-w64-clang-aarch64-libxml2
 mingw-w64-clang-aarch64-zlib
 mingw-w64-clang-aarch64-zstd
 
-%PROVIDES%
-mingw-w64-clang-aarch64-binutils
+%CONFLICTS%
+mingw-w64-clang-aarch64-llvm<16.0.2-2
 
 %XDATA%
 pkgtype=split

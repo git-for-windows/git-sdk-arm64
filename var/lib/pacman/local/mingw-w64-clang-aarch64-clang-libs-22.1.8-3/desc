@@ -1,32 +1,32 @@
 %NAME%
-mingw-w64-clang-aarch64-llvm-libs
+mingw-w64-clang-aarch64-clang-libs
 
 %VERSION%
-22.1.8-2
+22.1.8-3
 
 %BASE%
 mingw-w64-llvm
 
 %DESC%
-Low Level Virtual Machine Runtime Libraries (mingw-w64)
+Clang runtime libraries (mingw-w64)
 
 %URL%
-https://llvm.org/
+https://clang.llvm.org/
 
 %ARCH%
 any
 
 %BUILDDATE%
-1782931541
+1784325764
 
 %INSTALLDATE%
-1782973766
+1784439664
 
 %PACKAGER%
 Johannes Schindelin <johannes.schindelin@gmx.de>
 
 %SIZE%
-63751973
+87260452
 
 %REASON%
 1
@@ -43,13 +43,10 @@ pgp
 
 %DEPENDS%
 mingw-w64-clang-aarch64-cc-libs
-mingw-w64-clang-aarch64-libffi
-mingw-w64-clang-aarch64-libxml2
-mingw-w64-clang-aarch64-zlib
-mingw-w64-clang-aarch64-zstd
+mingw-w64-clang-aarch64-llvm-libs=22.1.8
 
 %CONFLICTS%
-mingw-w64-clang-aarch64-llvm<16.0.2-2
+mingw-w64-clang-aarch64-clang<17.0.6
 
 %XDATA%
 pkgtype=split
