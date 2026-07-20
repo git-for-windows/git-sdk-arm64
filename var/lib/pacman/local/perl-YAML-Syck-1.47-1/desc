@@ -2,7 +2,7 @@
 perl-YAML-Syck
 
 %VERSION%
-1.46-1
+1.47-1
 
 %BASE%
 perl-YAML-Syck
@@ -17,16 +17,16 @@ https://metacpan.org/release/YAML-Syck
 x86_64
 
 %BUILDDATE%
-1779906558
+1784411678
 
 %INSTALLDATE%
-1779950631
+1784527110
 
 %PACKAGER%
-CI (https://github.com/msys2/msys2-autobuild/actions/runs/26530509793/job/78145614390)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/29662427199/job/88127241876)
 
 %SIZE%
-155598
+157313
 
 %REASON%
 1

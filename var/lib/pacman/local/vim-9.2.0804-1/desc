@@ -2,7 +2,7 @@
 vim
 
 %VERSION%
-9.2.0782-1
+9.2.0804-1
 
 %BASE%
 vim
@@ -17,16 +17,16 @@ https://www.vim.org
 x86_64
 
 %BUILDDATE%
-1783912763
+1784417773
 
 %INSTALLDATE%
-1784003043
+1784527121
 
 %PACKAGER%
-CI (https://github.com/msys2/msys2-autobuild/actions/runs/29221397488/job/86727070670)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/29665477828/job/88135081616)
 
 %SIZE%
-64844081
+64863013
 
 %GROUPS%
 editors
