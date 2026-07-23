@@ -6,6 +6,7 @@ clangarm64/include/_cygwin.h
 clangarm64/include/_dbdao.h
 clangarm64/include/_mingw.h
 clangarm64/include/_mingw_dxhelper.h
+clangarm64/include/_mingw_locale.h
 clangarm64/include/_mingw_mac.h
 clangarm64/include/_mingw_off_t.h
 clangarm64/include/_mingw_secapi.h

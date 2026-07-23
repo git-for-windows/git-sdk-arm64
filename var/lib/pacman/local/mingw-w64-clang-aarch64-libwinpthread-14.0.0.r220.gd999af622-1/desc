@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-libwinpthread
 
 %VERSION%
-14.0.0.r190.g96fb1bff7-1
+14.0.0.r220.gd999af622-1
 
 %BASE%
 mingw-w64-winpthreads
@@ -17,16 +17,16 @@ https://www.mingw-w64.org/
 any
 
 %BUILDDATE%
-1783987034
+1784623811
 
 %INSTALLDATE%
-1784092824
+1784785451
 
 %PACKAGER%
-CI (https://github.com/msys2/msys2-autobuild/actions/runs/29293726638/job/86962661480)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/29815022351/job/88584261710)
 
 %SIZE%
-75075
+74563
 
 %GROUPS%
 mingw-w64-clang-aarch64-toolchain

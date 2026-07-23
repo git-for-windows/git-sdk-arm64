@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-pkgconf
 
 %VERSION%
-1~3.0.3-1
+1~3.0.4-1
 
 %BASE%
 mingw-w64-pkgconf
@@ -17,16 +17,16 @@ https://github.com/pkgconf/pkgconf
 any
 
 %BUILDDATE%
-1784394436
+1784699717
 
 %INSTALLDATE%
-1784527110
+1784785451
 
 %PACKAGER%
-CI (https://github.com/msys2/msys2-autobuild/actions/runs/29653211567/job/88102974428)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/29895014872/job/88843221191)
 
 %SIZE%
-776920
+773184
 
 %GROUPS%
 mingw-w64-clang-aarch64-toolchain
