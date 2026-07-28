@@ -3,7 +3,7 @@ vim9script
 # Vim functions for file type detection
 #
 # Maintainer:		The Vim Project <https://github.com/vim/vim>
-# Last Change:		2026 Jul 18
+# Last Change:		2026 Jul 24
 # Former Maintainer:	Bram Moolenaar <Bram@vim.org>
 
 # These functions are moved here from runtime/filetype.vim to make startup
@@ -3271,6 +3271,8 @@ const ft_from_name = {
   "TAG_EDITMSG": "gitcommit",
   "NOTES_EDITMSG": "gitcommit",
   "EDIT_DESCRIPTION": "gitcommit",
+  # Git revision list
+  ".git-blame-ignore-revs": "gitrevlist",
   # gnash(1) configuration files
   "gnashrc": "gnash",
   ".gnashrc": "gnash",
@@ -3313,6 +3315,8 @@ const ft_from_name = {
   ".swcrc": "json",
   "composer.lock": "json",
   "symfony.lock": "json",
+  # osquery configuration
+  "osquery.conf": "jsonc",
   # Kconfig
   "Kconfig": "kconfig",
   "Kconfig.debug": "kconfig",
@@ -3345,6 +3349,7 @@ const ft_from_name = {
   "meson.options": "meson",
   "meson_options.txt": "meson",
   # msmtp
+  "msmtprc": "msmtp",
   ".msmtprc": "msmtp",
   # Mrxvtrc
   "mrxvtrc": "mrxvtrc",

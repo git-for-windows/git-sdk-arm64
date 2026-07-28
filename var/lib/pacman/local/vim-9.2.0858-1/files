@@ -342,6 +342,7 @@ usr/share/vim/vim92/colors/lists/default.vim
 usr/share/vim/vim92/colors/lunaperche.vim
 usr/share/vim/vim92/colors/morning.vim
 usr/share/vim/vim92/colors/murphy.vim
+usr/share/vim/vim92/colors/novum.vim
 usr/share/vim/vim92/colors/pablo.vim
 usr/share/vim/vim92/colors/peachpuff.vim
 usr/share/vim/vim92/colors/quiet.vim
@@ -408,6 +409,7 @@ usr/share/vim/vim92/compiler/groff.vim
 usr/share/vim/vim92/compiler/haml.vim
 usr/share/vim/vim92/compiler/hare.vim
 usr/share/vim/vim92/compiler/hp_acc.vim
+usr/share/vim/vim92/compiler/iar.vim
 usr/share/vim/vim92/compiler/icc.vim
 usr/share/vim/vim92/compiler/icon.vim
 usr/share/vim/vim92/compiler/ifort.vim
@@ -790,6 +792,7 @@ usr/share/vim/vim92/ftplugin/gitcommit.vim
 usr/share/vim/vim92/ftplugin/gitconfig.vim
 usr/share/vim/vim92/ftplugin/gitignore.vim
 usr/share/vim/vim92/ftplugin/gitrebase.vim
+usr/share/vim/vim92/ftplugin/gitrevlist.vim
 usr/share/vim/vim92/ftplugin/gitsendemail.vim
 usr/share/vim/vim92/ftplugin/gleam.vim
 usr/share/vim/vim92/ftplugin/go.vim
@@ -2108,6 +2111,7 @@ usr/share/vim/vim92/syntax/gitconfig.vim
 usr/share/vim/vim92/syntax/gitignore.vim
 usr/share/vim/vim92/syntax/gitolite.vim
 usr/share/vim/vim92/syntax/gitrebase.vim
+usr/share/vim/vim92/syntax/gitrevlist.vim
 usr/share/vim/vim92/syntax/gitsendemail.vim
 usr/share/vim/vim92/syntax/gkrellmrc.vim
 usr/share/vim/vim92/syntax/gleam.vim
