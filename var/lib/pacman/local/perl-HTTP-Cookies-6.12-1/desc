@@ -2,7 +2,7 @@
 perl-HTTP-Cookies
 
 %VERSION%
-6.11-1
+6.12-1
 
 %BASE%
 perl-HTTP-Cookies
@@ -17,16 +17,16 @@ https://metacpan.org/release/HTTP-Cookies
 any
 
 %BUILDDATE%
-1705752423
+1785360173
 
 %INSTALLDATE%
-1705893387
+1785389404
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/1c45f2ab/7594202499)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/30492051774/job/90712056580)
 
 %SIZE%
-44013
+50653
 
 %REASON%
 1
@@ -35,8 +35,7 @@ CI (msys2/msys2-autobuild/1c45f2ab/7594202499)
 perl-modules
 
 %LICENSE%
-PerlArtistic
-GPL
+spdx:Artistic-1.0-Perl OR GPL-1.0-or-later
 
 %VALIDATION%
 pgp
@@ -48,4 +47,7 @@ perl-HTTP-Message
 
 %CONFLICTS%
 perl-libwww<6
+
+%XDATA%
+pkgtype=pkg
 

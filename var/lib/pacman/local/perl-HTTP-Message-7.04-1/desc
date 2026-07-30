@@ -2,7 +2,7 @@
 perl-HTTP-Message
 
 %VERSION%
-7.02-1
+7.04-1
 
 %BASE%
 perl-HTTP-Message
@@ -17,16 +17,16 @@ https://metacpan.org/release/HTTP-Message
 any
 
 %BUILDDATE%
-1780784148
+1785356892
 
 %INSTALLDATE%
-1781074612
+1785389404
 
 %PACKAGER%
-CI (https://github.com/msys2/msys2-autobuild/actions/runs/27075344677/job/79911662666)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/30488449978/job/90699972362)
 
 %SIZE%
-173211
+174923
 
 %REASON%
 1
@@ -35,8 +35,7 @@ CI (https://github.com/msys2/msys2-autobuild/actions/runs/27075344677/job/799116
 perl-modules
 
 %LICENSE%
-PerlArtistic
-GPL
+spdx:Artistic-1.0-Perl OR GPL-1.0-or-later
 
 %VALIDATION%
 pgp
