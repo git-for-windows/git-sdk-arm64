@@ -1760,7 +1760,7 @@
 /* #undef Py_SUNOS_VERSION */
 
 /* Define if you want to use tail-calling interpreters in CPython. */
-/* #undef Py_TAIL_CALL_INTERP */
+#define Py_TAIL_CALL_INTERP 1
 
 /* Define if you want to enable tracing references for debugging purpose */
 /* #undef Py_TRACE_REFS */

@@ -427,7 +427,7 @@ EXEMODE=	755
 FILEMODE=	644
 
 # configure script arguments
-CONFIG_ARGS=	 '--prefix=/clangarm64' '--host=aarch64-w64-mingw32' '--build=aarch64-w64-mingw32' '--enable-shared' '--with-system-expat' '--with-system-ffi' '--with-system-libmpdec' '--without-ensurepip' '--enable-loadable-sqlite-extensions' '--with-tzpath=/clangarm64/share/zoneinfo' '--enable-optimizations' '--with-lto=full' 'build_alias=aarch64-w64-mingw32' 'host_alias=aarch64-w64-mingw32' 'PKG_CONFIG_PATH=/clangarm64/lib/pkgconfig:/clangarm64/share/pkgconfig' 'CC=clang' 'CFLAGS=-march=armv8.1-a -O2 -pipe -Wp,-D_FORTIFY_SOURCE=2 -fstack-protector-strong -Wp,-D__USE_MINGW_ANSI_STDIO=1 -O3' 'LDFLAGS=' 'CPPFLAGS='
+CONFIG_ARGS=	 '--prefix=/clangarm64' '--host=aarch64-w64-mingw32' '--build=aarch64-w64-mingw32' '--enable-shared' '--with-system-expat' '--with-system-ffi' '--with-system-libmpdec' '--without-ensurepip' '--enable-loadable-sqlite-extensions' '--with-tzpath=/clangarm64/share/zoneinfo' '--enable-optimizations' '--with-lto=full' '--with-tail-call-interp' 'build_alias=aarch64-w64-mingw32' 'host_alias=aarch64-w64-mingw32' 'PKG_CONFIG_PATH=/clangarm64/lib/pkgconfig:/clangarm64/share/pkgconfig' 'CC=clang' 'CFLAGS=-march=armv8.1-a -O2 -pipe -Wp,-D_FORTIFY_SOURCE=2 -fstack-protector-strong -Wp,-D__USE_MINGW_ANSI_STDIO=1 -O3' 'LDFLAGS=' 'CPPFLAGS='
 
 
 # Subdirectories with code
