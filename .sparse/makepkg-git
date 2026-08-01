@@ -81,7 +81,7 @@
 /clangarm64/lib/ruby/gems/*/specifications/asciidoctor-*.gemspec
 /clangarm64/lib/ruby/*/tsort.rb
 /clangarm64/lib/ruby/*/set.rb
-/clangarm64/lib/ruby/*/logger.rb
+/clangarm64/lib/ruby/**/logger*
 /clangarm64/lib/ruby/*/aarch64-mingw-ucrt/enc/encdb.so
 /clangarm64/lib/ruby/*/aarch64-mingw-ucrt/enc/windows_1252.so
 /clangarm64/lib/ruby/*/optparse.rb
@@ -90,8 +90,7 @@
 /clangarm64/lib/ruby/*/pathname.rb
 /clangarm64/lib/ruby/*/aarch64-mingw-ucrt/pathname.so
 /clangarm64/lib/ruby/*/did_you_mean*
-/clangarm64/lib/ruby/*/cgi/util*
-/clangarm64/lib/ruby/*/logger*
+/clangarm64/lib/ruby/*/cgi/*
 /clangarm64/lib/ruby/*/bundled_gems.rb
 /clangarm64/lib/ruby/*/syntax_suggest*
 
