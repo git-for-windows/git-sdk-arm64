@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-tools
 
 %VERSION%
-14.0.0.r220.gd999af622-1
+14.0.0.r248.g7735a1a63-1
 
 %BASE%
 mingw-w64-tools
@@ -17,16 +17,16 @@ https://www.mingw-w64.org/
 any
 
 %BUILDDATE%
-1784627464
+1785745258
 
 %INSTALLDATE%
-1784785451
+1785994716
 
 %PACKAGER%
-CI (https://github.com/msys2/msys2-autobuild/actions/runs/29815022351/job/88584261710)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/30794451695/job/91624767744)
 
 %SIZE%
-965601
+958433
 
 %GROUPS%
 mingw-w64-clang-aarch64-toolchain
@@ -48,7 +48,7 @@ mingw-w64-clang-aarch64-cc-libs
 mingw-w64-clang-aarch64-tools-git
 
 %PROVIDES%
-mingw-w64-clang-aarch64-tools-git=14.0.0.r220.gd999af622
+mingw-w64-clang-aarch64-tools-git=14.0.0.r248.g7735a1a63
 
 %XDATA%
 pkgtype=pkg
