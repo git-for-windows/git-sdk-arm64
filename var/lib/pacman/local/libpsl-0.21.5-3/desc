@@ -2,7 +2,7 @@
 libpsl
 
 %VERSION%
-0.21.5-2
+0.21.5-3
 
 %BASE%
 libpsl
@@ -17,16 +17,16 @@ https://github.com/rockdaboot/libpsl
 x86_64
 
 %BUILDDATE%
-1706741522
+1785861026
 
 %INSTALLDATE%
-1706930168
+1786078008
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/d5779cd6/7733411968)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/30929333559/job/92059744345)
 
 %SIZE%
-115831
+115245
 
 %REASON%
 1
@@ -43,4 +43,7 @@ pgp
 %DEPENDS%
 libidn2
 libunistring
+
+%XDATA%
+pkgtype=split
 

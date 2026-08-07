@@ -2,7 +2,7 @@
 rsync
 
 %VERSION%
-3.4.4-1
+3.4.4-2
 
 %BASE%
 rsync
@@ -17,22 +17,22 @@ https://rsync.samba.org
 x86_64
 
 %BUILDDATE%
-1780907566
+1785861277
 
 %INSTALLDATE%
-1781074612
+1786078014
 
 %PACKAGER%
-CI (https://github.com/msys2/msys2-autobuild/actions/runs/27125431483/job/80052678831)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/30929333559/job/92059744345)
 
 %SIZE%
-703500
+702988
 
 %GROUPS%
 net-utils
 
 %LICENSE%
-GPL3
+spdx:GPL-3.0-or-later
 
 %VALIDATION%
 pgp
@@ -41,13 +41,15 @@ pgp
 rsync2
 
 %DEPENDS%
-perl
 libiconv
 liblz4
 libopenssl
 libxxhash
 libzstd
 popt
+
+%OPTDEPENDS%
+python: for rrsync
 
 %CONFLICTS%
 rsync2

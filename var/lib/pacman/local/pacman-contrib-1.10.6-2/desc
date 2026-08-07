@@ -2,7 +2,7 @@
 pacman-contrib
 
 %VERSION%
-1.10.6-1
+1.10.6-2
 
 %BASE%
 pacman-contrib
@@ -17,16 +17,16 @@ https://gitlab.archlinux.org/pacman/pacman-contrib
 x86_64
 
 %BUILDDATE%
-1715675079
+1785861182
 
 %INSTALLDATE%
-1716415432
+1786078008
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/9c7e8d31/9076046553)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/30929333559/job/92059744345)
 
 %SIZE%
-12436708
+10806911
 
 %LICENSE%
 spdx:GPL-2.0-or-later
@@ -35,12 +35,12 @@ spdx:GPL-2.0-or-later
 pgp
 
 %DEPENDS%
-perl
 pacman
 bash
 
 %OPTDEPENDS%
-vim
+perl: for pacsearch
+vim: default diff program for pacdiff
 
 %XDATA%
 pkgtype=pkg

@@ -2,7 +2,7 @@
 perl
 
 %VERSION%
-5.42.2-1
+5.42.3-1
 
 %BASE%
 perl
@@ -17,19 +17,19 @@ https://www.perl.org/
 x86_64
 
 %BUILDDATE%
-1775159657
+1785831947
 
 %INSTALLDATE%
-1775365536
+1786078014
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/b28ef76c/23919051692)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/30891817927/job/91935428144)
 
 %SIZE%
-45384290
+45425009
 
 %LICENSE%
-GPL
+spdx:Artistic-1.0-Perl OR GPL-1.0-or-later
 
 %VALIDATION%
 pgp

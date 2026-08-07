@@ -2,7 +2,7 @@
 vim
 
 %VERSION%
-9.2.0858-1
+9.2.0858-2
 
 %BASE%
 vim
@@ -17,13 +17,13 @@ https://www.vim.org
 x86_64
 
 %BUILDDATE%
-1785103334
+1785832920
 
 %INSTALLDATE%
-1785216993
+1786078025
 
 %PACKAGER%
-CI (https://github.com/msys2/msys2-autobuild/actions/runs/30222258457/job/89846580947)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/30891817927/job/91935428144)
 
 %SIZE%
 64917433
@@ -42,7 +42,12 @@ ncurses
 libiconv
 libintl
 libxcrypt
-perl
+
+%OPTDEPENDS%
+python: Python language support
+ruby: Ruby language support
+lua: Lua language support
+perl: Perl language support
 
 %XDATA%
 pkgtype=pkg
