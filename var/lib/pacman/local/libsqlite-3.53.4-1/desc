@@ -2,7 +2,7 @@
 libsqlite
 
 %VERSION%
-3.53.3-1
+3.53.4-1
 
 %BASE%
 sqlite
@@ -17,16 +17,16 @@ https://www.sqlite.org/
 x86_64
 
 %BUILDDATE%
-1782718922
+1786324690
 
 %INSTALLDATE%
-1782889336
+1786421401
 
 %PACKAGER%
-CI (https://github.com/msys2/msys2-autobuild/actions/runs/28356367184/job/84000210900)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/31346680119/job/93329786617)
 
 %SIZE%
-1574354
+1574866
 
 %REASON%
 1
@@ -47,7 +47,7 @@ sqlite-rbu<3.33.0
 sqlite-vfslog<3.33.0
 
 %PROVIDES%
-libsqlite=3.53.3
+libsqlite=3.53.4
 
 %XDATA%
 pkgtype=split
