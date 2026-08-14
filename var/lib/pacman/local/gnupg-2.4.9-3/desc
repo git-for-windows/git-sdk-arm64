@@ -2,7 +2,7 @@
 gnupg
 
 %VERSION%
-2.4.9-1
+2.4.9-3
 
 %BASE%
 gnupg
@@ -17,22 +17,22 @@ https://gnupg.org/
 x86_64
 
 %BUILDDATE%
-1767183185
+1786434145
 
 %INSTALLDATE%
-1767844735
+1786682094
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/08a109fc/20618714874)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/31469957260/job/93710885570)
 
 %SIZE%
-11551805
+11546671
 
 %REASON%
 1
 
 %LICENSE%
-GPL
+spdx:GPL-3.0-or-later
 
 %VALIDATION%
 pgp

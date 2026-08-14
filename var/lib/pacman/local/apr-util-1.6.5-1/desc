@@ -2,7 +2,7 @@
 apr-util
 
 %VERSION%
-1.6.3-2
+1.6.5-1
 
 %BASE%
 apr-util
@@ -17,16 +17,16 @@ https://apr.apache.org/
 x86_64
 
 %BUILDDATE%
-1697828442
+1786484820
 
 %INSTALLDATE%
-1697858056
+1786682093
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/e6700d20/6591628196)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/31537595248/job/93932330967)
 
 %SIZE%
-132605
+135772
 
 %REASON%
 1
@@ -45,4 +45,7 @@ apr
 expat
 libsqlite
 libxcrypt
+
+%XDATA%
+pkgtype=split
 

@@ -1,8 +1,8 @@
 %NAME%
-expat
+libexpat
 
 %VERSION%
-2.8.2-1
+2.8.3-1
 
 %BASE%
 expat
@@ -17,25 +17,31 @@ https://libexpat.github.io/
 x86_64
 
 %BUILDDATE%
-1782463002
+1786432503
 
 %INSTALLDATE%
-1782541222
+1786682102
 
 %PACKAGER%
-CI (https://github.com/msys2/msys2-autobuild/actions/runs/28225880878/job/83617594642)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/31468092589/job/93705164028)
 
 %SIZE%
-146177
+165139
 
 %REASON%
 1
+
+%GROUPS%
+libraries
 
 %LICENSE%
 spdx:MIT
 
 %VALIDATION%
 pgp
+
+%DEPENDS%
+gcc-libs
 
 %XDATA%
 pkgtype=split

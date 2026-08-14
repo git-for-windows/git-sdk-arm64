@@ -2,6 +2,7 @@
 usr/
 usr/bin/
 usr/bin/libtool
+usr/bin/libtool-next-version
 usr/bin/libtoolize
 usr/share/
 usr/share/aclocal/
@@ -67,6 +68,7 @@ usr/share/licenses/libtool/
 usr/share/licenses/libtool/COPYING
 usr/share/man/
 usr/share/man/man1/
+usr/share/man/man1/libtool-next-version.1.gz
 usr/share/man/man1/libtool.1.gz
 usr/share/man/man1/libtoolize.1.gz
 

@@ -2,7 +2,7 @@
 libffi
 
 %VERSION%
-3.7.1-1
+3.8.0-1
 
 %BASE%
 libffi
@@ -17,16 +17,16 @@ https://sourceware.org/libffi/
 x86_64
 
 %BUILDDATE%
-1783811069
+1786487620
 
 %INSTALLDATE%
-1784003032
+1786682093
 
 %PACKAGER%
-CI (https://github.com/msys2/msys2-autobuild/actions/runs/29171516383/job/86593377874)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/31542835925/job/93948896350)
 
 %SIZE%
-53601
+55573
 
 %REASON%
 1

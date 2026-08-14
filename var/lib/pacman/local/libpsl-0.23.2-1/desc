@@ -2,7 +2,7 @@
 libpsl
 
 %VERSION%
-0.21.5-3
+0.23.2-1
 
 %BASE%
 libpsl
@@ -17,16 +17,16 @@ https://github.com/rockdaboot/libpsl
 x86_64
 
 %BUILDDATE%
-1785861026
+1786434727
 
 %INSTALLDATE%
-1786078008
+1786682093
 
 %PACKAGER%
-CI (https://github.com/msys2/msys2-autobuild/actions/runs/30929333559/job/92059744345)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/31469957260/job/93710885570)
 
 %SIZE%
-115245
+118819
 
 %REASON%
 1

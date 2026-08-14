@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-libffi
 
 %VERSION%
-3.7.1-1
+3.8.0-1
 
 %BASE%
 mingw-w64-libffi
@@ -17,16 +17,16 @@ https://sourceware.org/libffi
 any
 
 %BUILDDATE%
-1783750657
+1786475530
 
 %INSTALLDATE%
-1783835187
+1786682103
 
 %PACKAGER%
-CI (https://github.com/msys2/msys2-autobuild/actions/runs/29141656024/job/86515855832)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/31526379481/job/93895626111)
 
 %SIZE%
-136752
+137773
 
 %REASON%
 1
