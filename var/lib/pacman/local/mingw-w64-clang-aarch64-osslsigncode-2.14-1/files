@@ -6,4 +6,8 @@ clangarm64/share/
 clangarm64/share/bash-completion/
 clangarm64/share/bash-completion/completions/
 clangarm64/share/bash-completion/completions/osslsigncode.bash
+clangarm64/share/doc/
+clangarm64/share/doc/osslsigncode/
+clangarm64/share/doc/osslsigncode/NEWS.md
+clangarm64/share/doc/osslsigncode/README.md
 

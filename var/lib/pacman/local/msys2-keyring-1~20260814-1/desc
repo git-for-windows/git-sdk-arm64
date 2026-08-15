@@ -2,7 +2,7 @@
 msys2-keyring
 
 %VERSION%
-1~20260214-1
+1~20260814-1
 
 %BASE%
 msys2-keyring
@@ -17,13 +17,13 @@ https://github.com/msys2/MSYS2-keyring
 any
 
 %BUILDDATE%
-1771092852
+1786700788
 
 %INSTALLDATE%
-1771390066
+1786764501
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/ad23bc5d/22021970699)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/31788818539/job/94730790945)
 
 %SIZE%
 55262
@@ -32,7 +32,7 @@ CI (msys2/msys2-autobuild/ad23bc5d/22021970699)
 1
 
 %LICENSE%
-GPL
+spdx:GPL-3.0-or-later
 
 %VALIDATION%
 pgp

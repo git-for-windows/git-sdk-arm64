@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-osslsigncode
 
 %VERSION%
-2.13-1
+2.14-1
 
 %BASE%
 mingw-w64-osslsigncode
@@ -17,16 +17,16 @@ https://github.com/mtrojnar/osslsigncode
 any
 
 %BUILDDATE%
-1775892428
+1786627607
 
 %INSTALLDATE%
-1776058411
+1786764501
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/5dbc5ed2/24276656892)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/31704090606/job/94460144279)
 
 %SIZE%
-244643
+260650
 
 %LICENSE%
 spdx:GPL-3.0-or-later

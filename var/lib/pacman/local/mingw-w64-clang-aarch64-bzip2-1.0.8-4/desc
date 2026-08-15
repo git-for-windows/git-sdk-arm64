@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-bzip2
 
 %VERSION%
-1.0.8-3
+1.0.8-4
 
 %BASE%
 mingw-w64-bzip2
@@ -17,16 +17,16 @@ https://sourceware.org/bzip2/
 any
 
 %BUILDDATE%
-1695797842
+1786714579
 
 %INSTALLDATE%
-1695870884
+1786764501
 
 %PACKAGER%
-CI (msys2-arm/msys2-autobuild/3f5f60aa/6322455789)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/31805212222/job/94782383557)
 
 %SIZE%
-377559
+465311
 
 %REASON%
 1
@@ -35,8 +35,9 @@ CI (msys2-arm/msys2-autobuild/3f5f60aa/6322455789)
 custom
 
 %VALIDATION%
+sha256
 pgp
 
-%DEPENDS%
-mingw-w64-clang-aarch64-gcc-libs
+%XDATA%
+pkgtype=pkg
 

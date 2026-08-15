@@ -2,7 +2,7 @@
 rsync
 
 %VERSION%
-3.4.4-2
+3.5.0-1
 
 %BASE%
 rsync
@@ -17,16 +17,16 @@ https://rsync.samba.org
 x86_64
 
 %BUILDDATE%
-1785861277
+1786604570
 
 %INSTALLDATE%
-1786078014
+1786764506
 
 %PACKAGER%
-CI (https://github.com/msys2/msys2-autobuild/actions/runs/30929333559/job/92059744345)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/31676079369/job/94370840375)
 
 %SIZE%
-702988
+797127
 
 %GROUPS%
 net-utils
