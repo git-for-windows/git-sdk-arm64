@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-crt
 
 %VERSION%
-14.0.0.r262.g5ea8e9fac-1
+14.0.0.r283.ga7cb47123-1
 
 %BASE%
 mingw-w64-crt
@@ -17,16 +17,16 @@ https://www.mingw-w64.org/
 any
 
 %BUILDDATE%
-1786200790
+1786949344
 
 %INSTALLDATE%
-1786335676
+1787024114
 
 %PACKAGER%
-CI (https://github.com/msys2/msys2-autobuild/actions/runs/31262754484/job/93115998201)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/32002642566/job/95305827034)
 
 %SIZE%
-33020995
+33010039
 
 %GROUPS%
 mingw-w64-clang-aarch64-toolchain
@@ -48,7 +48,7 @@ mingw-w64-clang-aarch64-headers
 mingw-w64-clang-aarch64-crt-git
 
 %PROVIDES%
-mingw-w64-clang-aarch64-crt-git=14.0.0.r262.g5ea8e9fac
+mingw-w64-clang-aarch64-crt-git=14.0.0.r283.ga7cb47123
 
 %XDATA%
 pkgtype=pkg

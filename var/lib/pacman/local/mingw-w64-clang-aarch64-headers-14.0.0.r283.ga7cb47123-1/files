@@ -225,8 +225,12 @@ clangarm64/include/corecrt_startup.h
 clangarm64/include/corecrt_stdio_config.h
 clangarm64/include/corecrt_wconio.h
 clangarm64/include/corecrt_wctype.h
+clangarm64/include/corecrt_wio.h
+clangarm64/include/corecrt_wprocess.h
+clangarm64/include/corecrt_wstdio.h
 clangarm64/include/corecrt_wstdlib.h
 clangarm64/include/corecrt_wstring.h
+clangarm64/include/corecrt_wtime.h
 clangarm64/include/corerror.h
 clangarm64/include/corhdr.h
 clangarm64/include/correg.h
