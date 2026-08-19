@@ -12,6 +12,9 @@ usr/share/info/
 usr/share/info/find-maint.info.gz
 usr/share/info/find.info.gz
 usr/share/locale/
+usr/share/locale/ar/
+usr/share/locale/ar/LC_MESSAGES/
+usr/share/locale/ar/LC_MESSAGES/findutils.mo
 usr/share/locale/be/
 usr/share/locale/be/LC_MESSAGES/
 usr/share/locale/be/LC_MESSAGES/findutils.mo

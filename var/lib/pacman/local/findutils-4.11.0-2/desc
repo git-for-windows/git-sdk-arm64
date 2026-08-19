@@ -2,7 +2,7 @@
 findutils
 
 %VERSION%
-4.10.0-3
+4.11.0-2
 
 %BASE%
 findutils
@@ -17,16 +17,16 @@ https://www.gnu.org/software/findutils
 x86_64
 
 %BUILDDATE%
-1782377493
+1786868578
 
 %INSTALLDATE%
-1782541223
+1787110635
 
 %PACKAGER%
-CI (https://github.com/msys2/msys2-autobuild/actions/runs/28158415740/job/83392561541)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/31936249743/job/95138531641)
 
 %SIZE%
-2241966
+2395986
 
 %REASON%
 1
