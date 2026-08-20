@@ -2,7 +2,7 @@
 ca-certificates
 
 %VERSION%
-20250419-1
+20260816-1
 
 %BASE%
 ca-certificates
@@ -17,23 +17,22 @@ https://www.mozilla.org/en-US/about/governance/policies/security-group/certs/
 any
 
 %BUILDDATE%
-1753089154
+1787061234
 
 %INSTALLDATE%
-1753588945
+1787237523
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/70dec0bd/16412923159)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/32144908404/job/95736224514)
 
 %SIZE%
-1075692
+1066623
 
 %REASON%
 1
 
 %LICENSE%
-MPL
-GPL
+spdx:MPL-2.0 AND GPL-2.0-or-later
 
 %VALIDATION%
 pgp
