@@ -1,14 +1,14 @@
 %NAME%
-mingw-w64-clang-aarch64-git-perl
+mingw-w64-clang-aarch64-git-svn
 
 %VERSION%
-2.55.0.4-1
+2.55.0.5-1
 
 %BASE%
 mingw-w64-git
 
 %DESC%
-Perl module for Git (mingw-w64)
+Subversion support for Git (mingw-w64)
 
 %URL%
 https://gitforwindows.org/
@@ -17,16 +17,16 @@ https://gitforwindows.org/
 any
 
 %BUILDDATE%
-1784723259
+1787240904
 
 %INSTALLDATE%
-1786509142
+1787283669
 
 %PACKAGER%
 Johannes Schindelin <johannes.schindelin@gmx.de>
 
 %SIZE%
-91949
+377629
 
 %REASON%
 1
@@ -39,11 +39,9 @@ sha256
 pgp
 
 %DEPENDS%
-mingw-w64-clang-aarch64-git=2.55.0.4
-perl>=5.14.0
-perl-Error
-perl-libwww
-perl-TermReadKey
+mingw-w64-clang-aarch64-git=2.55.0.5
+mingw-w64-clang-aarch64-git-perl=2.55.0.5
+subversion
 
 %XDATA%
 pkgtype=split
