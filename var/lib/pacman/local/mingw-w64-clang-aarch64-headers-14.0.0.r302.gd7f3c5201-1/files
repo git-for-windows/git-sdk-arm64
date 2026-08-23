@@ -225,6 +225,7 @@ clangarm64/include/corecrt_startup.h
 clangarm64/include/corecrt_stdio_config.h
 clangarm64/include/corecrt_wconio.h
 clangarm64/include/corecrt_wctype.h
+clangarm64/include/corecrt_wdirect.h
 clangarm64/include/corecrt_wio.h
 clangarm64/include/corecrt_wprocess.h
 clangarm64/include/corecrt_wstdio.h
@@ -1113,6 +1114,8 @@ clangarm64/include/newapis.h
 clangarm64/include/newdev.h
 clangarm64/include/nldef.h
 clangarm64/include/nmsupp.h
+clangarm64/include/notificationactivationcallback.h
+clangarm64/include/notificationactivationcallback.idl
 clangarm64/include/npapi.h
 clangarm64/include/nsemail.h
 clangarm64/include/nserror.h
