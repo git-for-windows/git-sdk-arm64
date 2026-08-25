@@ -2,7 +2,7 @@
 python
 
 %VERSION%
-3.12.13-1
+3.12.14-1
 
 %BASE%
 python
@@ -17,19 +17,19 @@ https://www.python.org/
 x86_64
 
 %BUILDDATE%
-1772701226
+1787387521
 
 %INSTALLDATE%
-1772857135
+1787629163
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/ad23bc5d/22710038631)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/32562469701/job/97006082935)
 
 %SIZE%
-193693828
+193946821
 
 %LICENSE%
-custom
+spdx:Python-2.0
 
 %VALIDATION%
 pgp
