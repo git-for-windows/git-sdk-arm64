@@ -2,7 +2,7 @@
 lndir
 
 %VERSION%
-1.0.5-1
+1.0.6-1
 
 %BASE%
 lndir
@@ -17,20 +17,23 @@ https://xorg.freedesktop.org/
 x86_64
 
 %BUILDDATE%
-1712512296
+1787760739
 
 %INSTALLDATE%
-1712805332
+1787836258
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/8d08599c/8590405538)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/32987015740/job/98235598673)
 
 %SIZE%
-17574
+17524
 
 %LICENSE%
-custom
+spdx:X11
 
 %VALIDATION%
 pgp
+
+%XDATA%
+pkgtype=pkg
 
