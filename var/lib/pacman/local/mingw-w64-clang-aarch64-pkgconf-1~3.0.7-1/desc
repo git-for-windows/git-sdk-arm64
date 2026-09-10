@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-pkgconf
 
 %VERSION%
-1~3.0.5-1
+1~3.0.7-1
 
 %BASE%
 mingw-w64-pkgconf
@@ -11,22 +11,22 @@ mingw-w64-pkgconf
 pkg-config compatible utility which does not depend on glib
 
 %URL%
-https://github.com/pkgconf/pkgconf
+https://pkgconf.org
 
 %ARCH%
 any
 
 %BUILDDATE%
-1785659529
+1788896062
 
 %INSTALLDATE%
-1785736948
+1789025644
 
 %PACKAGER%
-CI (https://github.com/msys2/msys2-autobuild/actions/runs/30739796992/job/91475032658)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/34263566421/job/102187238173)
 
 %SIZE%
-781626
+763091
 
 %GROUPS%
 mingw-w64-clang-aarch64-toolchain

@@ -53,6 +53,7 @@ clangarm64/share/doc/xz/api/check_8h.html
 clangarm64/share/doc/xz/api/check_8h.js
 clangarm64/share/doc/xz/api/classes.html
 clangarm64/share/doc/xz/api/clipboard.js
+clangarm64/share/doc/xz/api/codefolding.js
 clangarm64/share/doc/xz/api/container_8h.html
 clangarm64/share/doc/xz/api/container_8h.js
 clangarm64/share/doc/xz/api/cookie.js
@@ -63,7 +64,6 @@ clangarm64/share/doc/xz/api/dir_b17a1d403082bd69a703ed987cf158fb.js
 clangarm64/share/doc/xz/api/doxygen.css
 clangarm64/share/doc/xz/api/doxygen.svg
 clangarm64/share/doc/xz/api/doxygen_crawl.html
-clangarm64/share/doc/xz/api/dynsections.js
 clangarm64/share/doc/xz/api/files.html
 clangarm64/share/doc/xz/api/files_dup.js
 clangarm64/share/doc/xz/api/filter_8h.html
@@ -84,7 +84,6 @@ clangarm64/share/doc/xz/api/index_8h.html
 clangarm64/share/doc/xz/api/index_8h.js
 clangarm64/share/doc/xz/api/index__hash_8h.html
 clangarm64/share/doc/xz/api/index__hash_8h.js
-clangarm64/share/doc/xz/api/jquery.js
 clangarm64/share/doc/xz/api/lzma12_8h.html
 clangarm64/share/doc/xz/api/lzma12_8h.js
 clangarm64/share/doc/xz/api/lzma_8h.html
@@ -104,6 +103,10 @@ clangarm64/share/doc/xz/api/structlzma__filter.html
 clangarm64/share/doc/xz/api/structlzma__filter.js
 clangarm64/share/doc/xz/api/structlzma__index__iter.html
 clangarm64/share/doc/xz/api/structlzma__index__iter.js
+clangarm64/share/doc/xz/api/structlzma__index__iter_1_1_0fstruct_0e_8block.html
+clangarm64/share/doc/xz/api/structlzma__index__iter_1_1_0fstruct_0e_8block.js
+clangarm64/share/doc/xz/api/structlzma__index__iter_1_1_0fstruct_0e_8stream.html
+clangarm64/share/doc/xz/api/structlzma__index__iter_1_1_0fstruct_0e_8stream.js
 clangarm64/share/doc/xz/api/structlzma__mt.html
 clangarm64/share/doc/xz/api/structlzma__mt.js
 clangarm64/share/doc/xz/api/structlzma__options__bcj.html

@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-libsystre
 
 %VERSION%
-1.0.2-2
+1.0.2-3
 
 %BASE%
 mingw-w64-libsystre
@@ -17,16 +17,16 @@ https://github.com/msys2/MINGW-packages/tree/master/mingw-w64-libsystre
 any
 
 %BUILDDATE%
-1759592695
+1788884202
 
 %INSTALLDATE%
-1759807512
+1789025644
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/c6213b4d/18246305820)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/34248458570/job/102136430746)
 
 %SIZE%
-27215
+23119
 
 %REASON%
 1
@@ -38,17 +38,8 @@ spdx:BSD-2-Clause
 sha256
 pgp
 
-%REPLACES%
-mingw-w64-clang-aarch64-libgnurx
-
 %DEPENDS%
 mingw-w64-clang-aarch64-libtre
-
-%CONFLICTS%
-mingw-w64-clang-aarch64-libgnurx
-
-%PROVIDES%
-mingw-w64-clang-aarch64-libgnurx
 
 %XDATA%
 pkgtype=pkg
