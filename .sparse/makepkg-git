@@ -148,6 +148,7 @@
 /clangarm64/bin/libgit2*.dll
 /clangarm64/bin/libhttp_parser*.dll
 /clangarm64/bin/libsqlite*.dll
+/clangarm64/bin/libunwind.dll
 /clangarm64/bin/rustc.exe
 /clangarm64/bin/rustc_driver*.dll
 /clangarm64/bin/std-*.dll
