@@ -17,16 +17,16 @@ https://llvm.org/
 any
 
 %BUILDDATE%
-1784325764
+1789626733
 
 %INSTALLDATE%
-1784439663
+1790544931
 
 %PACKAGER%
-Johannes Schindelin <johannes.schindelin@gmx.de>
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/35189982361/job/105100211347)
 
 %SIZE%
-63714085
+144121637
 
 %REASON%
 1
@@ -38,8 +38,7 @@ mingw-w64-clang-aarch64-toolchain
 spdx:Apache-2.0 WITH LLVM-exception
 
 %VALIDATION%
-sha256
-pgp
+none
 
 %DEPENDS%
 mingw-w64-clang-aarch64-cc-libs

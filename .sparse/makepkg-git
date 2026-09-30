@@ -142,3 +142,19 @@
 /clangarm64/bin/liblzma-[0-9]*.dll
 /clangarm64/bin/libpcre-[0-9]*.dll
 /clangarm64/bin/libffi-[0-9]*.dll
+
+# Rust
+/clangarm64/bin/cargo.exe
+/clangarm64/bin/libgit2*.dll
+/clangarm64/bin/libhttp_parser*.dll
+/clangarm64/bin/libsqlite*.dll
+/clangarm64/bin/libunwind.dll
+/clangarm64/bin/rustc.exe
+/clangarm64/bin/rustc_driver*.dll
+/clangarm64/bin/std-*.dll
+/clangarm64/bin/libLLVM*.dll
+/clangarm64/bin/libxml2*.dll
+/clangarm64/bin/libLTO.dll
+/clangarm64/bin/libRemarks.dll
+/clangarm64/lib/rustlib/aarch64-pc-windows-gnullvm/lib/
+/clangarm64/lib/libdbghelp.a

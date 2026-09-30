@@ -1,0 +1,58 @@
+%NAME%
+mingw-w64-clang-aarch64-rust
+
+%VERSION%
+1.98.1-1
+
+%BASE%
+mingw-w64-rust
+
+%DESC%
+Systems programming language focused on safety, speed and concurrency (mingw-w64)
+
+%URL%
+https://www.rust-lang.org/
+
+%ARCH%
+any
+
+%BUILDDATE%
+1788450745
+
+%INSTALLDATE%
+1790462928
+
+%PACKAGER%
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/33774869660/job/100713934927)
+
+%SIZE%
+233618987
+
+%LICENSE%
+spdx:Apache-2.0 AND MIT
+
+%VALIDATION%
+sha256
+pgp
+
+%REPLACES%
+mingw-w64-clang-aarch64-rust-docs
+
+%DEPENDS%
+mingw-w64-clang-aarch64-cc
+mingw-w64-clang-aarch64-libgit2
+mingw-w64-clang-aarch64-libssh2
+mingw-w64-clang-aarch64-llvm-libs
+mingw-w64-clang-aarch64-sqlite3
+mingw-w64-clang-aarch64-zlib
+
+%OPTDEPENDS%
+mingw-w64-clang-aarch64-gdb: for rust-gdb script
+mingw-w64-clang-aarch64-lldb: for rust-lldb script
+
+%CONFLICTS%
+mingw-w64-clang-aarch64-rust-docs
+
+%XDATA%
+pkgtype=split
+
