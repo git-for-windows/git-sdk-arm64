@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-pcre2
 
 %VERSION%
-10.48-3
+10.49-1
 
 %BASE%
 mingw-w64-pcre2
@@ -17,16 +17,16 @@ https://pcre.org/
 any
 
 %BUILDDATE%
-1788370812
+1790689274
 
 %INSTALLDATE%
-1788506931
+1790759140
 
 %PACKAGER%
-CI (https://github.com/msys2/msys2-autobuild/actions/runs/33660834535/job/100350682543)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/36575950950/job/109431498421)
 
 %SIZE%
-7416748
+7415875
 
 %REASON%
 1
