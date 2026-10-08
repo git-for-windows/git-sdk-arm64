@@ -2,7 +2,7 @@
 python
 
 %VERSION%
-3.12.14-1
+3.12.15-1
 
 %BASE%
 python
@@ -17,16 +17,16 @@ https://www.python.org/
 x86_64
 
 %BUILDDATE%
-1787387521
+1791143759
 
 %INSTALLDATE%
-1787629163
+1791452233
 
 %PACKAGER%
-CI (https://github.com/msys2/msys2-autobuild/actions/runs/32562469701/job/97006082935)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/37230057849/job/111517669795)
 
 %SIZE%
-193946821
+194168969
 
 %LICENSE%
 spdx:Python-2.0

@@ -2,7 +2,7 @@
 expat
 
 %VERSION%
-2.8.5-1
+2.9.0-1
 
 %BASE%
 expat
@@ -17,16 +17,16 @@ https://libexpat.github.io/
 x86_64
 
 %BUILDDATE%
-1790099095
+1791273032
 
 %INSTALLDATE%
-1790150649
+1791452201
 
 %PACKAGER%
-CI (https://github.com/msys2/msys2-autobuild/actions/runs/35762545034/job/106863910616)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/37432041371/job/112164935774)
 
 %SIZE%
-156033
+159898
 
 %REASON%
 1
