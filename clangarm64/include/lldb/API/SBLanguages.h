@@ -96,6 +96,8 @@ enum SBSourceLanguageName : uint16_t {
   eLanguageNameMove = 0x0027,
   /// Hylo.
   eLanguageNameHylo = 0x0028,
+  /// HIP.
+  eLanguageNameHIP = 0x0029,
   /// Metal.
   eLanguageNameMetal = 0x002c,
 };

@@ -1,4 +1,4 @@
-__all__ = ["in_call_stack", "symbolication"]
+__all__ = ["in_call_stack", "symbolication", "delayed_enable"]
 for x in __all__:
   __import__('lldb.utils.' + x)
 
