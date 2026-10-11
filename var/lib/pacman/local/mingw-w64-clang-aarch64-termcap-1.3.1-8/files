@@ -9,4 +9,8 @@ clangarm64/lib/libtermcap.a
 clangarm64/lib/libtermcap.dll.a
 clangarm64/lib/pkgconfig/
 clangarm64/lib/pkgconfig/termcap.pc
+clangarm64/share/
+clangarm64/share/licenses/
+clangarm64/share/licenses/termcap/
+clangarm64/share/licenses/termcap/LICENSE
 

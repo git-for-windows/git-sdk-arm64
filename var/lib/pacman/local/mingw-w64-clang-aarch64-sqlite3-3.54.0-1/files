@@ -18,9 +18,9 @@ clangarm64/lib/libsqlite3.a
 clangarm64/lib/libsqlite3.dll.a
 clangarm64/lib/pkgconfig/
 clangarm64/lib/pkgconfig/sqlite3.pc
-clangarm64/lib/sqlite3.53.4/
-clangarm64/lib/sqlite3.53.4/libsqlite3.53.4.dll
-clangarm64/lib/sqlite3.53.4/pkgIndex.tcl
+clangarm64/lib/sqlite3.54.0/
+clangarm64/lib/sqlite3.54.0/libsqlite3.54.0.dll
+clangarm64/lib/sqlite3.54.0/pkgIndex.tcl
 clangarm64/share/
 clangarm64/share/licenses/
 clangarm64/share/licenses/sqlite3/
@@ -42,8 +42,6 @@ clangarm64/share/sqlite/extensions/base85.c
 clangarm64/share/sqlite/extensions/base85.dll
 clangarm64/share/sqlite/extensions/basexx.c
 clangarm64/share/sqlite/extensions/basexx.dll
-clangarm64/share/sqlite/extensions/blobio.c
-clangarm64/share/sqlite/extensions/blobio.dll
 clangarm64/share/sqlite/extensions/btreeinfo.c
 clangarm64/share/sqlite/extensions/btreeinfo.dll
 clangarm64/share/sqlite/extensions/cksumvfs.c
@@ -60,6 +58,8 @@ clangarm64/share/sqlite/extensions/dbdump.c
 clangarm64/share/sqlite/extensions/dbdump.dll
 clangarm64/share/sqlite/extensions/decimal.c
 clangarm64/share/sqlite/extensions/decimal.dll
+clangarm64/share/sqlite/extensions/diskused.c
+clangarm64/share/sqlite/extensions/diskused.dll
 clangarm64/share/sqlite/extensions/eval.c
 clangarm64/share/sqlite/extensions/eval.dll
 clangarm64/share/sqlite/extensions/explain.c
@@ -113,6 +113,8 @@ clangarm64/share/sqlite/extensions/stmt.c
 clangarm64/share/sqlite/extensions/stmt.dll
 clangarm64/share/sqlite/extensions/stmtrand.c
 clangarm64/share/sqlite/extensions/stmtrand.dll
+clangarm64/share/sqlite/extensions/strdup.c
+clangarm64/share/sqlite/extensions/strdup.dll
 clangarm64/share/sqlite/extensions/templatevtab.c
 clangarm64/share/sqlite/extensions/templatevtab.dll
 clangarm64/share/sqlite/extensions/tmstmpvfs.c
