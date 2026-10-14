@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-libwinpthread
 
 %VERSION%
-14.0.0.r426.g4564ee4b5-1
+14.0.0.r426.g4564ee4b5-2
 
 %BASE%
 mingw-w64-winpthreads
@@ -17,22 +17,22 @@ https://www.mingw-w64.org/
 any
 
 %BUILDDATE%
-1790234695
+1791855850
 
 %INSTALLDATE%
-1790324121
+1791965194
 
 %PACKAGER%
-CI (https://github.com/msys2/msys2-autobuild/actions/runs/35968347358/job/107531986713)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/38333273652/job/115087604530)
 
 %SIZE%
-74563
+76099
 
 %GROUPS%
 mingw-w64-clang-aarch64-toolchain
 
 %LICENSE%
-spdx:MIT AND BSD-3-Clause-Clear
+spdx:MIT AND BSD-3-Clause
 
 %VALIDATION%
 sha256
