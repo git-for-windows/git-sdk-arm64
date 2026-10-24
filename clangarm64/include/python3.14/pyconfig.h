@@ -337,7 +337,7 @@
 /* #undef HAVE_EDITLINE_READLINE_H */
 
 /* Define to 1 if you have the <endian.h> header file. */
-/* #undef HAVE_ENDIAN_H */
+#define HAVE_ENDIAN_H 1
 
 /* Define if you have the 'epoll_create' function. */
 /* #undef HAVE_EPOLL */
@@ -651,7 +651,7 @@
 /* #undef HAVE_HSTRERROR */
 
 /* Define this if you have le64toh() */
-/* #undef HAVE_HTOLE64 */
+#define HAVE_HTOLE64 1
 
 /* Define to 1 if you have the 'if_nameindex' function. */
 /* #undef HAVE_IF_NAMEINDEX */
@@ -2056,6 +2056,9 @@
 
 /* HACL* library can compile SIMD256 implementations */
 /* #undef _Py_HACL_CAN_COMPILE_VEC256 */
+
+/* Define if you have the 'strerror_r' function. */
+/* #undef _Py_HAVE_STRERROR_R */
 
 /* Thread stack size set by the linker (in bytes). */
 /* #undef _Py_LINKER_THREAD_STACK_SIZE */
