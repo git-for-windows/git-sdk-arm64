@@ -10,7 +10,7 @@
 
 module RbConfig
   RUBY_VERSION.start_with?("4.0.") or
-    raise "ruby lib version (4.0.6) doesn't match executable version (#{RUBY_VERSION})"
+    raise "ruby lib version (4.0.9) doesn't match executable version (#{RUBY_VERSION})"
 
   # Ruby installed directory.
   TOPDIR = File.dirname(__FILE__).chomp!("/lib/ruby/4.0.0/aarch64-mingw-ucrt")
@@ -21,7 +21,7 @@ module RbConfig
   CONFIG["DESTDIR"] = DESTDIR
   CONFIG["MAJOR"] = "4"
   CONFIG["MINOR"] = "0"
-  CONFIG["TEENY"] = "6"
+  CONFIG["TEENY"] = "9"
   CONFIG["PATCHLEVEL"] = "0"
   CONFIG["INSTALL"] = '/usr/bin/install -c'
   CONFIG["EXEEXT"] = ".exe"
@@ -179,7 +179,7 @@ module RbConfig
   CONFIG["WINDRES"] = "windres"
   CONFIG["ARFLAGS"] = "rcD "
   CONFIG["try_header"] = ""
-  CONFIG["CC_VERSION_MESSAGE"] = "clang version 22.1.8 (https://github.com/msys2/MINGW-packages 6e4e79c2f86eeb534e324e583f2057dc9fd5ecab)\nTarget: aarch64-w64-windows-gnu\nThread model: posix\nInstalledDir: C:/M/msys64/clangarm64/bin"
+  CONFIG["CC_VERSION_MESSAGE"] = "clang version 23.1.3 (https://github.com/msys2/MINGW-packages 067886dba977a6b4c97dfedfb25286b5eda55620)\nTarget: aarch64-w64-windows-gnu\nThread model: posix\nInstalledDir: C:/M/msys64/clangarm64/bin"
   CONFIG["CC_VERSION"] = "$(CC) --version"
   CONFIG["CSRCFLAG"] = ""
   CONFIG["COUTFLAG"] = "-o "

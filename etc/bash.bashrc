@@ -9,11 +9,11 @@
 
 # System-wide bashrc file
 
-# Check that we haven't already been sourced.
-([[ -z ${CYG_SYS_BASHRC} ]] && CYG_SYS_BASHRC="1") || return
-
 # If not running interactively, don't do anything
 [[ "$-" != *i* ]] && return
+
+# Check that we haven't already been sourced.
+[[ -z "${CYG_SYS_BASHRC}" ]] && CYG_SYS_BASHRC="1" || return
 
 # If started from sshd, make sure profile is sourced
 if [[ -n "$SSH_CONNECTION" ]] && [[ "$PATH" != *:/usr/bin* ]]; then
@@ -64,9 +64,6 @@ unset _ps1_symbol
 
 # Uncomment to use the terminal colours set in DIR_COLORS
 # eval "$(dircolors -b /etc/DIR_COLORS)"
-
-# Fixup git-bash in non login env
-shopt -q login_shell || . /etc/profile.d/git-prompt.sh
 
 # Fixup git-bash in non login env
 shopt -q login_shell || . /etc/profile.d/git-prompt.sh
