@@ -117,7 +117,7 @@ else()
   add_library(OpenSSL::Crypto SHARED IMPORTED)
   add_library(OpenSSL::SSL SHARED IMPORTED)
 
-  set(OPENSSL_LIBCRYPTO_SHARED "${OPENSSL_RUNTIME_DIR}/libcrypto-3.dll")
+  set(OPENSSL_LIBCRYPTO_SHARED "${OPENSSL_RUNTIME_DIR}/libcrypto-3-arm64.dll")
   set(OPENSSL_LIBCRYPTO_IMPORT "${OPENSSL_LIBRARY_DIR}/libcrypto.dll.a")
   set(OPENSSL_LIBCRYPTO_DEPENDENCIES )
   set_target_properties(OpenSSL::Crypto PROPERTIES
@@ -127,7 +127,7 @@ else()
   set_property(TARGET OpenSSL::Crypto
     PROPERTY INTERFACE_LINK_LIBRARIES ${OPENSSL_LIBCRYPTO_DEPENDENCIES})
 
-  set(OPENSSL_LIBSSL_SHARED "${OPENSSL_RUNTIME_DIR}/libssl-3.dll")
+  set(OPENSSL_LIBSSL_SHARED "${OPENSSL_RUNTIME_DIR}/libssl-3-arm64.dll")
   set(OPENSSL_LIBSSL_IMPORT "${OPENSSL_LIBRARY_DIR}/libssl.dll.a")
   set(OPENSSL_LIBSSL_DEPENDENCIES OpenSSL::Crypto )
   set_target_properties(OpenSSL::SSL PROPERTIES

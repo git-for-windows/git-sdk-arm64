@@ -109,7 +109,50 @@ OPTIONS
 
     -o file: write output to file
 
-    [ ...more docs need to be written... - type `upx --help' for now ]
+    -v: be verbose
+
+    -i: info mode
+
+    -f: force compression of suspicious files
+
+    --force-overwrite: force overwrite of output files
+
+    --link: preserve hard links (Unix only) [USE WITH CARE]
+
+    --no-link: do not preserve hard links but rename files [default]
+
+    --no-mode: do not preserve file mode (aka permissions)
+
+    --no-owner: do not preserve file ownership
+
+    --no-time: do not preserve file timestamp
+
+    --no-color, --mono, --color, --no-progress: change the look of the
+    terminal output
+
+    --no-env: ignore the UPX environment variable
+
+    --fileinfo: show parameters of an already-compressed file
+
+    --lzma: try LZMA [slower but tighter than NRV]
+
+    --no-lzma: do not use LZMA compression
+
+    --brute: try all available compression methods & filters [slow]
+
+    --ultra-brute: try even more compression variants [very slow]
+
+    --all-methods: compress the program several times, using all available
+    compression methods
+
+    --all-filters: compress the program several times, using all available
+    preprocessing filters
+
+    Overlay handling options: --overlay=copy, --overlay=strip,
+    --overlay=skip. See the L/"OVERLAY HANDLING OPTIONS"> section below.
+
+    Options that are specific to a single executable format are documented
+    in the L/"NOTES FOR THE SUPPORTED EXECUTABLE FORMATS"> section below.
 
 COMPRESSION LEVELS & TUNING
     UPX offers ten different compression levels from -1 to -9, and --best.
@@ -712,6 +755,18 @@ NOTES FOR THE SUPPORTED EXECUTABLE FORMATS
   NOTES FOR WIN32/PE
     The PE support in UPX is quite stable now, but probably there are still
     some incompatibilities with some files.
+
+    Normally, unpacking rebuilds parts of a PE file, so the result may not
+    be byte-identical to the original. Use --exact when compressing if every
+    byte needs to be restored. Retaining the original representation can
+    increase the packed size; this information is compressed along with the
+    program data. Older versions of UPX reject PE files packed with --exact
+    rather than unpacking them without the byte-identity guarantee.
+    Relocation stripping is incompatible with exact mode.
+
+    Exact mode does not currently support EFI or WinCE ARM images, PE files
+    without raw-backed sections, overlapping raw or virtual section data, or
+    raw data extending beyond the aligned virtual end of the last section.
 
     Because of the way UPX (and other packers for this format) works, you
     can see increased memory usage of your compressed files because the

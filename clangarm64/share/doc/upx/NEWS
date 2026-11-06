@@ -2,11 +2,15 @@
 User visible changes for UPX
 ==================================================================
 
+Changes in 5.3.0 (28 Oct 2026):
+  * new format win64/arm64; based on work by hoptodesk and Johannes Schindelin
+  * bug fixes - see https://github.com/upx/upx/milestone/25
+
 Changes in 5.2.1 (27 Aug 2026):
   * bug fixes - see https://github.com/upx/upx/milestone/24
 
 Changes in 5.2.0 (08 Jun 2026):
-  * new format cpm86/cmd
+  * new format cpm86/cmd; based on work by Jeffrey H. Johnson
   * bug fixes - see https://github.com/upx/upx/milestone/23
 
 Changes in 5.1.1 (05 Mar 2026):
@@ -116,7 +120,7 @@ Changes in 3.92 (11 Dec 2016):
 
 Changes in 3.91 (30 Sep 2013):
   * Added experimental support for Windows 64-bit PE files, based on
-    work by Stefan Widmann. Please use for testing only!
+    work by Stefan Widmann.
   * bug fixes
 
 ==================================================================
@@ -295,7 +299,8 @@ Changes in 1.91 beta (30 Jun 2004):
 Changes in 1.90 beta (11 Nov 2002):
   * implemented several new options for finer compression control:
     '--all-methods', '--all-filters' and '--brute'
-  * ps1/exe: new format - UPX now supports PlayStation One programs
+  * ps1/exe: new format - UPX now supports PlayStation One programs; based
+    on work by Jens Medoch
   * linux/386: added the option '--force-execve'
   * vmlinuz/386: better kernel detection and sanity checks
   * re-synced with upx 1.24 branch
