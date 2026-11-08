@@ -5,13 +5,7 @@ clangarm64/bin/libz-1.dll
 clangarm64/bin/libzlibwapi.dll
 clangarm64/bin/zlib1.dll
 clangarm64/include/
-clangarm64/include/crypt.h
-clangarm64/include/ints.h
-clangarm64/include/ioapi.h
-clangarm64/include/mztools.h
-clangarm64/include/unzip.h
 clangarm64/include/zconf.h
-clangarm64/include/zip.h
 clangarm64/include/zlib.h
 clangarm64/lib/
 clangarm64/lib/cmake/
