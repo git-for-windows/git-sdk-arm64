@@ -7,6 +7,7 @@
 /clangarm64/bin/libiconv-*[0-9].dll
 /clangarm64/bin/libintl-*[0-9].dll
 /clangarm64/bin/libpcre2-[1-9]*-*[0-9].dll
+/clangarm64/bin/libz-*[0-9].dll
 /clangarm64/bin/zlib*[0-9].dll
 
 # system gitconfig
