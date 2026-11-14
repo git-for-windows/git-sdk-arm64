@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-libssh2-wincng
 
 %VERSION%
-1.11.1-2
+1.11.1-3
 
 %BASE%
 mingw-w64-libssh2
@@ -17,16 +17,16 @@ https://libssh2.org/
 any
 
 %BUILDDATE%
-1769682880
+1794470522
 
 %INSTALLDATE%
-1769833343
+1794648874
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/59a03c95/21471220986)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/43179238974/job/131050900852)
 
 %SIZE%
-797796
+1198387
 
 %REASON%
 1

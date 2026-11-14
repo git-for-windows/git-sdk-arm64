@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-python
 
 %VERSION%
-3.14.10-1
+3.14.10-2
 
 %BASE%
 mingw-w64-python
@@ -17,16 +17,16 @@ https://www.python.org/
 any
 
 %BUILDDATE%
-1793447588
+1794554884
 
 %INSTALLDATE%
-1793984993
+1794648910
 
 %PACKAGER%
-CI (https://github.com/msys2/msys2-autobuild/actions/runs/41197888476/job/124527657041)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/43385561841/job/131753085604)
 
 %SIZE%
-227882112
+227681851
 
 %REASON%
 1
@@ -38,34 +38,21 @@ spdx:PSF-2.0
 sha256
 pgp
 
-%REPLACES%
-mingw-w64-clang-aarch64-python3
-mingw-w64-clang-aarch64-python3.14
-
 %DEPENDS%
 mingw-w64-clang-aarch64-cc-libs
-mingw-w64-clang-aarch64-expat
 mingw-w64-clang-aarch64-bzip2
+mingw-w64-clang-aarch64-expat
 mingw-w64-clang-aarch64-libffi
 mingw-w64-clang-aarch64-mpdecimal
 mingw-w64-clang-aarch64-ncurses
 mingw-w64-clang-aarch64-openssl
-mingw-w64-clang-aarch64-sqlite3
+mingw-w64-clang-aarch64-sqlite
 mingw-w64-clang-aarch64-tcl
 mingw-w64-clang-aarch64-tk
-mingw-w64-clang-aarch64-zlib
-mingw-w64-clang-aarch64-libb2
-mingw-w64-clang-aarch64-xz
 mingw-w64-clang-aarch64-tzdata
-
-%CONFLICTS%
-mingw-w64-clang-aarch64-python3
-mingw-w64-clang-aarch64-python3.14
-mingw-w64-clang-aarch64-python2<2.7.16-7
-
-%PROVIDES%
-mingw-w64-clang-aarch64-python3
-mingw-w64-clang-aarch64-python3.14
+mingw-w64-clang-aarch64-xz
+mingw-w64-clang-aarch64-zlib
+mingw-w64-clang-aarch64-zstd
 
 %XDATA%
 pkgtype=pkg
