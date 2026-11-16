@@ -179,7 +179,7 @@ module RbConfig
   CONFIG["WINDRES"] = "windres"
   CONFIG["ARFLAGS"] = "rcD "
   CONFIG["try_header"] = ""
-  CONFIG["CC_VERSION_MESSAGE"] = "clang version 23.1.3 (https://github.com/msys2/MINGW-packages 067886dba977a6b4c97dfedfb25286b5eda55620)\nTarget: aarch64-w64-windows-gnu\nThread model: posix\nInstalledDir: C:/M/msys64/clangarm64/bin"
+  CONFIG["CC_VERSION_MESSAGE"] = "clang version 23.1.5 (https://github.com/msys2/MINGW-packages efc96badda99c076509ef01986c673d1cd30f725)\nTarget: aarch64-w64-windows-gnu\nThread model: posix\nInstalledDir: C:/M/msys64/clangarm64/bin"
   CONFIG["CC_VERSION"] = "$(CC) --version"
   CONFIG["CSRCFLAG"] = ""
   CONFIG["COUTFLAG"] = "-o "
