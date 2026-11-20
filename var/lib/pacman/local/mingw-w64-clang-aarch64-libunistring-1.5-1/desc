@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-libunistring
 
 %VERSION%
-1.4.2-1
+1.5-1
 
 %BASE%
 mingw-w64-libunistring
@@ -17,16 +17,16 @@ https://www.gnu.org/software/libunistring
 any
 
 %BUILDDATE%
-1776624377
+1795073618
 
 %INSTALLDATE%
-1776748789
+1795171219
 
 %PACKAGER%
-CI (msys2/msys2-autobuild/actions/runs/24636365904/job/72032462318)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/44480117545/job/135410051621)
 
 %SIZE%
-6347825
+6159311
 
 %REASON%
 1

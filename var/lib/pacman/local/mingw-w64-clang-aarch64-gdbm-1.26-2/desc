@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-gdbm
 
 %VERSION%
-1.26-1
+1.26-2
 
 %BASE%
 mingw-w64-gdbm
@@ -17,16 +17,16 @@ https://www.gnu.org/software/gdbm/gdbm.html
 any
 
 %BUILDDATE%
-1783328825
+1795114311
 
 %INSTALLDATE%
-1783665074
+1795171219
 
 %PACKAGER%
-CI (https://github.com/msys2/msys2-autobuild/actions/runs/28771996399/job/85307444015)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/44591603700/job/135798786157)
 
 %SIZE%
-946911
+923525
 
 %REASON%
 1
@@ -41,7 +41,7 @@ pgp
 %DEPENDS%
 mingw-w64-clang-aarch64-cc-libs
 mingw-w64-clang-aarch64-gettext-runtime
-mingw-w64-clang-aarch64-libiconv
+mingw-w64-clang-aarch64-libwinpthread
 mingw-w64-clang-aarch64-readline
 
 %XDATA%

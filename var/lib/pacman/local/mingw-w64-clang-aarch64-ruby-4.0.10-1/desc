@@ -2,7 +2,7 @@
 mingw-w64-clang-aarch64-ruby
 
 %VERSION%
-4.0.9-2
+4.0.10-1
 
 %BASE%
 mingw-w64-ruby
@@ -17,16 +17,16 @@ https://www.ruby-lang.org/en
 any
 
 %BUILDDATE%
-1794751310
+1795078148
 
 %INSTALLDATE%
-1794824241
+1795171230
 
 %PACKAGER%
-CI (https://github.com/msys2/msys2-autobuild/actions/runs/43719287166/job/132827575159)
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/44490371227/job/135444158567)
 
 %SIZE%
-39562546
+39576553
 
 %REASON%
 1
@@ -101,12 +101,12 @@ mingw-w64-clang-aarch64-ruby-io-console=0.8.2
 mingw-w64-clang-aarch64-ruby-io-nonblock=0.3.2
 mingw-w64-clang-aarch64-ruby-io-wait=0.4.0
 mingw-w64-clang-aarch64-ruby-ipaddr=1.2.8
-mingw-w64-clang-aarch64-ruby-json=2.18.0
+mingw-w64-clang-aarch64-ruby-json=2.18.3
 mingw-w64-clang-aarch64-ruby-net-http=0.9.1
 mingw-w64-clang-aarch64-ruby-net-protocol=0.2.2
+mingw-w64-clang-aarch64-ruby-open-uri=0.5.0
 mingw-w64-clang-aarch64-ruby-open3=0.2.1
 mingw-w64-clang-aarch64-ruby-openssl=4.0.2
-mingw-w64-clang-aarch64-ruby-open-uri=0.5.0
 mingw-w64-clang-aarch64-ruby-optparse=0.8.1
 mingw-w64-clang-aarch64-ruby-pp=0.6.3
 mingw-w64-clang-aarch64-ruby-prettyprint=0.2.0
