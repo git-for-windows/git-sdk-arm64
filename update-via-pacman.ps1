@@ -35,7 +35,7 @@ if (!(Test-Path var\log -PathType Container)) {
 }
 
 echo "Run Pacman (First Pass)"
-bash -lc "pacman --debug -Syyuu --overwrite=\* --noconfirm"
+bash -lc "pacman -Syyuu --overwrite=\* --noconfirm"
 if (!$?) { exit 1 }
 
 # Ensure that the Git for Windows keyring is registered
@@ -68,7 +68,7 @@ if ($type -Match "full system upgrade") {
   echo "No second pass needed"
 } else {
   echo "Run Pacman again (Second Pass) to upgrade the remaining (non-core) packages"
-  bash -lc "pacman --debug -Suu --overwrite=\* --noconfirm"
+  bash -lc "pacman -Suu --overwrite=\* --noconfirm"
   if (!$?) { exit 1 }
 
   # Ensure that the Git for Windows keyring is registered
@@ -197,4 +197,4 @@ if (!(Test-Path cmd\git.exe -PathType Leaf)) {
 }
 
 # Wrapping up: re-install mingw-w64-git-extra
-bash -lc "pacman --debug -S --overwrite=\* --noconfirm mingw-w64-clang-aarch64-git-extra"
+bash -lc "pacman -S --overwrite=\* --noconfirm mingw-w64-clang-aarch64-git-extra"
