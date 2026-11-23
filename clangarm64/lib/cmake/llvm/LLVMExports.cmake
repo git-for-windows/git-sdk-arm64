@@ -19,7 +19,7 @@ set(CMAKE_IMPORT_FILE_VERSION 1)
 set(_cmake_targets_defined "")
 set(_cmake_targets_not_defined "")
 set(_cmake_expected_targets "")
-foreach(_cmake_expected_target IN ITEMS LLVMDemangle LLVMSupportLSP LLVMSupport LLVMTableGen LLVMTableGenBasic LLVMTableGenCommon llvm-tblgen LLVMABI LLVMCore LLVMFuzzerCLI LLVMFuzzMutate LLVMFileCheck LLVMInterfaceStub LLVMIRPrinter LLVMIRReader LLVMCAS LLVMCGData LLVMCodeGen LLVMSelectionDAG LLVMAsmPrinter LLVMMIRParser LLVMGlobalISel LLVMCodeGenTypes LLVMBinaryFormat LLVMBitReader LLVMBitWriter LLVMBitstreamReader LLVMDWARFLinker LLVMDWARFLinkerClassic LLVMDWARFLinkerParallel LLVMExtensions LLVMFrontendAtomic LLVMFrontendDirective LLVMFrontendDriver LLVMFrontendHLSL LLVMFrontendOpenACC LLVMFrontendOpenMP LLVMFrontendOffloading LLVMTransformUtils LLVMInstrumentation LLVMAggressiveInstCombine LLVMInstCombine LLVMScalarOpts LLVMipo LLVMVectorize LLVMObjCARCOpts LLVMCoroutines LLVMCFGuard LLVMHipStdPar LLVMLinker LLVMAnalysis LLVMDTLTO LLVMLTO LLVMMC LLVMMCParser LLVMMCDisassembler LLVMMCA LLVMObjCopy LLVMObject LLVMObjectYAML LLVMOption LLVMRemarks LLVMDebuginfod LLVMDebugInfoDWARFLowLevel LLVMDebugInfoDWARF LLVMDebugInfoGSYM LLVMDebugInfoLogicalView LLVMDebugInfoMSF LLVMDebugInfoCodeView LLVMDebugInfoPDB LLVMSymbolize LLVMDebugInfoBTF LLVMDWARFCFIChecker LLVMDWP LLVMExecutionEngine LLVMInterpreter LLVMJITLink LLVMMCJIT LLVMOrcJIT LLVMOrcDebugging LLVMOrcShared LLVMOrcTargetProcess LLVMRuntimeDyld LLVMTarget LLVMAArch64CodeGen LLVMAArch64AsmParser LLVMAArch64Disassembler LLVMAArch64Desc LLVMAArch64Info LLVMAArch64Utils LLVMSandboxIR LLVMAsmParser LLVMLineEditor LLVMProfileData LLVMCoverage LLVMPasses LLVMPlugins LLVMTargetParser LLVMTextAPI LLVMTextAPIBinaryReader LLVMTelemetry LLVMDlltoolDriver LLVMLibDriver LLVMXRay LLVMWindowsDriver LLVMWindowsManifest FileCheck llvm-PerfectShuffle count not UnicodeNameMappingGenerator yaml-bench split-file llvm-test-mustache-spec LTO llvm-ar llvm-config llvm-ctxprof-util llvm-lto llvm-profdata bugpoint dsymutil llc lli-child-target lli llvm-as llvm-bcanalyzer llvm-c-test llvm-cas llvm-cat llvm-cfi-verify LLVMCFIVerify llvm-cgdata llvm-cov llvm-cvtres llvm-cxxdump llvm-cxxfilt llvm-cxxmap llvm-debuginfo-analyzer llvm-debuginfod llvm-debuginfod-find llvm-diff LLVMDiff llvm-dis llvm-dwarfdump llvm-dwarfutil llvm-dwp LLVMExegesisAArch64 LLVMExegesis llvm-exegesis llvm-extract llvm-gsymutil llvm-ifs llvm-ir2vec llvm-jitlink-executor llvm-jitlink llvm-libtool-darwin llvm-link llvm-lipo llvm-lto2 llvm-mc llvm-mca llvm-ml llvm-modextract llvm-mt llvm-nm llvm-objcopy llvm-objdump llvm-offload-binary llvm-offload-wrapper llvm-opt-report llvm-pdbutil llvm-profgen llvm-rc llvm-readobj llvm-readtapi llvm-reduce llvm-remarkutil llvm-rtdyld LLVM llvm-sim llvm-size llvm-split llvm-stress llvm-strings llvm-symbolizer llvm-tli-checker llvm-undname llvm-xray obj2yaml LLVMOptDriver opt reduce-chunk-list Remarks sancov sanstats verify-uselistorder yaml2obj)
+foreach(_cmake_expected_target IN ITEMS LLVMDemangle LLVMSupport LLVMSupportLSP LLVMTableGen LLVMTableGenBasic LLVMTableGenCommon llvm-tblgen LLVMCore LLVMABI LLVMFuzzerCLI LLVMFuzzMutate LLVMFileCheck LLVMInterfaceStub LLVMIRPrinter LLVMIRReader LLVMCAS LLVMCGData LLVMCodeGen LLVMSelectionDAG LLVMAsmPrinter LLVMMIRParser LLVMGlobalISel LLVMCodeGenTypes LLVMBinaryFormat LLVMBitReader LLVMBitWriter LLVMBitstreamReader LLVMDWARFLinker LLVMDWARFLinkerClassic LLVMDWARFLinkerParallel LLVMExtensions LLVMFrontendAtomic LLVMFrontendDirective LLVMFrontendDriver LLVMFrontendHLSL LLVMFrontendOpenACC LLVMFrontendOpenMP LLVMFrontendOffloading LLVMTransformUtils LLVMInstrumentation LLVMAggressiveInstCombine LLVMInstCombine LLVMScalarOpts LLVMipo LLVMVectorize LLVMObjCARCOpts LLVMCoroutines LLVMCFGuard LLVMHipStdPar LLVMLinker LLVMAnalysis LLVMDTLTO LLVMLTO LLVMMC LLVMMCParser LLVMMCDisassembler LLVMMCA LLVMObjCopy LLVMObject LLVMObjectYAML LLVMOption LLVMRemarks LLVMHTTP LLVMDebuginfod LLVMDebugInfoDWARFLowLevel LLVMDebugInfoDWARF LLVMDebugInfoGSYM LLVMDebugInfoLogicalView LLVMDebugInfoMSF LLVMDebugInfoCodeView LLVMDebugInfoPDB LLVMSymbolize LLVMDebugInfoBTF LLVMDWARFCFIChecker LLVMDWP LLVMExecutionEngine LLVMInterpreter LLVMJITLink LLVMMCJIT LLVMOrcJIT LLVMOrcDebugging LLVMOrcShared LLVMOrcTargetProcess LLVMRuntimeDyld LLVMTarget LLVMAArch64CodeGen LLVMAArch64AsmParser LLVMAArch64Disassembler LLVMAArch64Desc LLVMAArch64Info LLVMAArch64Utils LLVMAMDGPUCodeGen LLVMAMDGPUAsmParser LLVMAMDGPUDisassembler LLVMAMDGPUTargetMCA LLVMAMDGPUDesc LLVMAMDGPUInfo LLVMAMDGPUUtils LLVMARMCodeGen LLVMARMAsmParser LLVMARMDisassembler LLVMARMDesc LLVMARMInfo LLVMARMUtils LLVMAVRCodeGen LLVMAVRAsmParser LLVMAVRDisassembler LLVMAVRDesc LLVMAVRInfo LLVMBPFCodeGen LLVMBPFAsmParser LLVMBPFDisassembler LLVMBPFDesc LLVMBPFInfo LLVMHexagonCodeGen LLVMHexagonAsmParser LLVMHexagonDisassembler LLVMHexagonDesc LLVMHexagonInfo LLVMLanaiCodeGen LLVMLanaiAsmParser LLVMLanaiDisassembler LLVMLanaiDesc LLVMLanaiInfo LLVMLoongArchCodeGen LLVMLoongArchAsmParser LLVMLoongArchDisassembler LLVMLoongArchDesc LLVMLoongArchInfo LLVMMipsCodeGen LLVMMipsAsmParser LLVMMipsDisassembler LLVMMipsDesc LLVMMipsInfo LLVMMSP430CodeGen LLVMMSP430Desc LLVMMSP430Info LLVMMSP430AsmParser LLVMMSP430Disassembler LLVMNVPTXCodeGen LLVMNVPTXDesc LLVMNVPTXInfo LLVMPowerPCCodeGen LLVMPowerPCAsmParser LLVMPowerPCDisassembler LLVMPowerPCDesc LLVMPowerPCInfo LLVMRISCVCodeGen LLVMRISCVAsmParser LLVMRISCVDisassembler LLVMRISCVDesc LLVMRISCVTargetMCA LLVMRISCVInfo LLVMSparcCodeGen LLVMSparcAsmParser LLVMSparcDisassembler LLVMSparcDesc LLVMSparcInfo LLVMSPIRVCodeGen LLVMSPIRVDesc LLVMSPIRVInfo LLVMSPIRVAnalysis LLVMSystemZCodeGen LLVMSystemZAsmParser LLVMSystemZDisassembler LLVMSystemZDesc LLVMSystemZInfo LLVMVECodeGen LLVMVEAsmParser LLVMVEDisassembler LLVMVEInfo LLVMVEDesc LLVMWebAssemblyCodeGen LLVMWebAssemblyAsmParser LLVMWebAssemblyDisassembler LLVMWebAssemblyDesc LLVMWebAssemblyInfo LLVMWebAssemblyUtils LLVMX86CodeGen LLVMX86AsmParser LLVMX86Disassembler LLVMX86TargetMCA LLVMX86Desc LLVMX86Info LLVMXCoreCodeGen LLVMXCoreDisassembler LLVMXCoreDesc LLVMXCoreInfo LLVMSandboxIR LLVMAsmParser LLVMLineEditor LLVMProfileData LLVMCoverage LLVMPasses LLVMPlugins LLVMTargetParser LLVMTextAPI LLVMTextAPIBinaryReader LLVMTelemetry LLVMDlltoolDriver LLVMLibDriver LLVMXRay LLVMWindowsDriver LLVMWindowsManifest FileCheck llvm-PerfectShuffle count not UnicodeNameMappingGenerator yaml-bench split-file llvm-test-mustache-spec LTO llvm-ar llvm-config llvm-ctxprof-util llvm-lto llvm-profdata llvm-nm llvm-readobj dsymutil llc lli-child-target lli llubi LLVMUBAwareInterpreter llvm-as llvm-bcanalyzer llvm-c-test llvm-cas llvm-cat llvm-cfi-verify LLVMCFIVerify llvm-cgdata llvm-cov llvm-cvtres llvm-cxxdump llvm-cxxfilt llvm-cxxmap llvm-debuginfo-analyzer llvm-debuginfod llvm-debuginfod-find llvm-diff LLVMDiff llvm-dis llvm-dwarfdump llvm-dwarfutil llvm-dwp LLVMExegesisX86 LLVMExegesisAArch64 LLVMExegesisPowerPC LLVMExegesisMips LLVMExegesisRISCV LLVMExegesis llvm-exegesis llvm-extract llvm-gpu-loader llvm-gsymutil llvm-ifs llvm-ir2vec llvm-jitlink-executor llvm-jitlink llvm-libtool-darwin llvm-link llvm-lipo llvm-lto2 llvm-mc llvm-mca llvm-ml llvm-modextract llvm-mt llvm-objcopy llvm-objdump llvm-offload-binary llvm-offload-wrapper llvm-opt-report llvm-pdbutil llvm-profgen llvm-rc llvm-readtapi llvm-reduce llvm-remarkutil llvm-rtdyld LLVM llvm-sim llvm-size llvm-split llvm-stress llvm-strings llvm-symbolizer llvm-tli-checker llvm-undname llvm-xray obj2yaml LLVMOptDriver opt reduce-chunk-list Remarks sancov sanstats verify-uselistorder yaml2obj)
   list(APPEND _cmake_expected_targets "${_cmake_expected_target}")
   if(TARGET "${_cmake_expected_target}")
     list(APPEND _cmake_targets_defined "${_cmake_expected_target}")
@@ -58,18 +58,18 @@ endif()
 # Create imported target LLVMDemangle
 add_library(LLVMDemangle STATIC IMPORTED)
 
-# Create imported target LLVMSupportLSP
-add_library(LLVMSupportLSP STATIC IMPORTED)
-
-set_target_properties(LLVMSupportLSP PROPERTIES
-  INTERFACE_LINK_LIBRARIES "LLVMSupport"
-)
-
 # Create imported target LLVMSupport
 add_library(LLVMSupport STATIC IMPORTED)
 
 set_target_properties(LLVMSupport PROPERTIES
   INTERFACE_LINK_LIBRARIES "psapi;shell32;ole32;uuid;advapi32;ws2_32;ntdll;ZLIB::ZLIB;zstd::libzstd_shared;LLVMDemangle"
+)
+
+# Create imported target LLVMSupportLSP
+add_library(LLVMSupportLSP STATIC IMPORTED)
+
+set_target_properties(LLVMSupportLSP PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMSupport"
 )
 
 # Create imported target LLVMTableGen
@@ -90,24 +90,24 @@ set_target_properties(LLVMTableGenBasic PROPERTIES
 add_library(LLVMTableGenCommon STATIC IMPORTED)
 
 set_target_properties(LLVMTableGenCommon PROPERTIES
-  INTERFACE_LINK_LIBRARIES "LLVMTableGenBasic;LLVMSupport;LLVMTableGen"
+  INTERFACE_LINK_LIBRARIES "LLVMTableGenBasic;LLVMSupport;LLVMTableGen;LLVMCodeGenTypes"
 )
 
 # Create imported target llvm-tblgen
 add_executable(llvm-tblgen IMPORTED)
-
-# Create imported target LLVMABI
-add_library(LLVMABI STATIC IMPORTED)
-
-set_target_properties(LLVMABI PROPERTIES
-  INTERFACE_LINK_LIBRARIES "LLVMCore;LLVMSupport"
-)
 
 # Create imported target LLVMCore
 add_library(LLVMCore STATIC IMPORTED)
 
 set_target_properties(LLVMCore PROPERTIES
   INTERFACE_LINK_LIBRARIES "LLVMBinaryFormat;LLVMDemangle;LLVMRemarks;LLVMSupport;LLVMTargetParser"
+)
+
+# Create imported target LLVMABI
+add_library(LLVMABI STATIC IMPORTED)
+
+set_target_properties(LLVMABI PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMCore;LLVMSupport"
 )
 
 # Create imported target LLVMFuzzerCLI
@@ -317,7 +317,7 @@ set_target_properties(LLVMFrontendOffloading PROPERTIES
 add_library(LLVMTransformUtils STATIC IMPORTED)
 
 set_target_properties(LLVMTransformUtils PROPERTIES
-  INTERFACE_LINK_LIBRARIES "LLVMAnalysis;LLVMCore;LLVMSupport;LLVMTargetParser"
+  INTERFACE_LINK_LIBRARIES "LLVMAnalysis;LLVMCore;LLVMProfileData;LLVMSupport;LLVMTargetParser"
 )
 
 # Create imported target LLVMInstrumentation
@@ -352,7 +352,7 @@ set_target_properties(LLVMScalarOpts PROPERTIES
 add_library(LLVMipo STATIC IMPORTED)
 
 set_target_properties(LLVMipo PROPERTIES
-  INTERFACE_LINK_LIBRARIES "LLVMAggressiveInstCombine;LLVMAnalysis;LLVMBitReader;LLVMBitWriter;LLVMCore;LLVMFrontendOpenMP;LLVMInstCombine;LLVMIRReader;LLVMDemangle;LLVMLinker;LLVMObject;LLVMProfileData;LLVMScalarOpts;LLVMSupport;LLVMTargetParser;LLVMTransformUtils;LLVMVectorize;LLVMInstrumentation"
+  INTERFACE_LINK_LIBRARIES "LLVMAggressiveInstCombine;LLVMAnalysis;LLVMBitReader;LLVMBitWriter;LLVMCore;LLVMDemangle;LLVMFrontendOpenMP;LLVMInstCombine;LLVMIRReader;LLVMDemangle;LLVMLinker;LLVMObject;LLVMProfileData;LLVMScalarOpts;LLVMSupport;LLVMTargetParser;LLVMTransformUtils;LLVMVectorize;LLVMInstrumentation"
 )
 
 # Create imported target LLVMVectorize
@@ -481,11 +481,18 @@ set_target_properties(LLVMRemarks PROPERTIES
   INTERFACE_LINK_LIBRARIES "LLVMBitstreamReader;LLVMSupport"
 )
 
+# Create imported target LLVMHTTP
+add_library(LLVMHTTP STATIC IMPORTED)
+
+set_target_properties(LLVMHTTP PROPERTIES
+  INTERFACE_LINK_LIBRARIES "winhttp.lib;crypt32.lib;LLVM"
+)
+
 # Create imported target LLVMDebuginfod
 add_library(LLVMDebuginfod STATIC IMPORTED)
 
 set_target_properties(LLVMDebuginfod PROPERTIES
-  INTERFACE_LINK_LIBRARIES "LLVM"
+  INTERFACE_LINK_LIBRARIES "LLVMHTTP;LLVM"
 )
 
 # Create imported target LLVMDebugInfoDWARFLowLevel
@@ -513,7 +520,7 @@ set_target_properties(LLVMDebugInfoGSYM PROPERTIES
 add_library(LLVMDebugInfoLogicalView STATIC IMPORTED)
 
 set_target_properties(LLVMDebugInfoLogicalView PROPERTIES
-  INTERFACE_LINK_LIBRARIES "LLVMBinaryFormat;LLVMDemangle;LLVMObject;LLVMMC;LLVMSupport;LLVMTargetParser;LLVMDebugInfoCodeView;LLVMDebugInfoDWARF;LLVMDebugInfoDWARFLowLevel;LLVMDebugInfoPDB"
+  INTERFACE_LINK_LIBRARIES "LLVMAsmPrinter;LLVMBinaryFormat;LLVMCore;LLVMDemangle;LLVMIRReader;LLVMObject;LLVMMC;LLVMSupport;LLVMTargetParser;LLVMTransformUtils;LLVMDebugInfoCodeView;LLVMDebugInfoDWARF;LLVMDebugInfoDWARFLowLevel;LLVMDebugInfoPDB"
 )
 
 # Create imported target LLVMDebugInfoMSF
@@ -562,7 +569,7 @@ set_target_properties(LLVMDWARFCFIChecker PROPERTIES
 add_library(LLVMDWP STATIC IMPORTED)
 
 set_target_properties(LLVMDWP PROPERTIES
-  INTERFACE_LINK_LIBRARIES "LLVMDebugInfoDWARF;LLVMMC;LLVMObject;LLVMSupport"
+  INTERFACE_LINK_LIBRARIES "LLVMDebugInfoDWARF;LLVMObject;LLVMSupport"
 )
 
 # Create imported target LLVMExecutionEngine
@@ -677,6 +684,685 @@ set_target_properties(LLVMAArch64Utils PROPERTIES
   INTERFACE_LINK_LIBRARIES "LLVMSupport"
 )
 
+# Create imported target LLVMAMDGPUCodeGen
+add_library(LLVMAMDGPUCodeGen STATIC IMPORTED)
+
+set_target_properties(LLVMAMDGPUCodeGen PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMAMDGPUDesc;LLVMAMDGPUInfo;LLVMAMDGPUUtils;LLVMAnalysis;LLVMAsmPrinter;LLVMBinaryFormat;LLVMCodeGen;LLVMCodeGenTypes;LLVMCore;LLVMGlobalISel;LLVMHipStdPar;LLVMipo;LLVMIRPrinter;LLVMInstrumentation;LLVMMC;LLVMMIRParser;LLVMObjCARCOpts;LLVMPasses;LLVMScalarOpts;LLVMSelectionDAG;LLVMSupport;LLVMTarget;LLVMTargetParser;LLVMTransformUtils;LLVMVectorize"
+)
+
+# Create imported target LLVMAMDGPUAsmParser
+add_library(LLVMAMDGPUAsmParser STATIC IMPORTED)
+
+set_target_properties(LLVMAMDGPUAsmParser PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMAMDGPUDesc;LLVMAMDGPUInfo;LLVMAMDGPUUtils;LLVMCodeGenTypes;LLVMMC;LLVMMCParser;LLVMSupport;LLVMTargetParser"
+)
+
+# Create imported target LLVMAMDGPUDisassembler
+add_library(LLVMAMDGPUDisassembler STATIC IMPORTED)
+
+set_target_properties(LLVMAMDGPUDisassembler PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMAMDGPUDesc;LLVMAMDGPUInfo;LLVMAMDGPUUtils;LLVMCodeGenTypes;LLVMMC;LLVMMCDisassembler;LLVMTargetParser;LLVMSupport"
+)
+
+# Create imported target LLVMAMDGPUTargetMCA
+add_library(LLVMAMDGPUTargetMCA STATIC IMPORTED)
+
+set_target_properties(LLVMAMDGPUTargetMCA PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMAMDGPUDesc;LLVMAMDGPUInfo;LLVMAMDGPUUtils;LLVMCodeGenTypes;LLVMMC;LLVMMCA;LLVMMCParser;LLVMSupport;LLVMTargetParser"
+)
+
+# Create imported target LLVMAMDGPUDesc
+add_library(LLVMAMDGPUDesc STATIC IMPORTED)
+
+set_target_properties(LLVMAMDGPUDesc PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMAMDGPUInfo;LLVMAMDGPUUtils;LLVMBinaryFormat;LLVMCodeGenTypes;LLVMCore;LLVMMC;LLVMSupport;LLVMTargetParser"
+)
+
+# Create imported target LLVMAMDGPUInfo
+add_library(LLVMAMDGPUInfo STATIC IMPORTED)
+
+set_target_properties(LLVMAMDGPUInfo PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMMC;LLVMSupport"
+)
+
+# Create imported target LLVMAMDGPUUtils
+add_library(LLVMAMDGPUUtils STATIC IMPORTED)
+
+set_target_properties(LLVMAMDGPUUtils PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMAnalysis;LLVMBinaryFormat;LLVMCodeGenTypes;LLVMCore;LLVMMC;LLVMMCParser;LLVMSupport;LLVMTargetParser"
+)
+
+# Create imported target LLVMARMCodeGen
+add_library(LLVMARMCodeGen STATIC IMPORTED)
+
+set_target_properties(LLVMARMCodeGen PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMARMDesc;LLVMARMInfo;LLVMARMUtils;LLVMAnalysis;LLVMAsmPrinter;LLVMCFGuard;LLVMCodeGen;LLVMCodeGenTypes;LLVMCore;LLVMGlobalISel;LLVMipo;LLVMMC;LLVMScalarOpts;LLVMSelectionDAG;LLVMSupport;LLVMTarget;LLVMTargetParser;LLVMTransformUtils"
+)
+
+# Create imported target LLVMARMAsmParser
+add_library(LLVMARMAsmParser STATIC IMPORTED)
+
+set_target_properties(LLVMARMAsmParser PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMARMDesc;LLVMARMInfo;LLVMARMUtils;LLVMCodeGenTypes;LLVMMC;LLVMMCParser;LLVMSupport;LLVMTargetParser"
+)
+
+# Create imported target LLVMARMDisassembler
+add_library(LLVMARMDisassembler STATIC IMPORTED)
+
+set_target_properties(LLVMARMDisassembler PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMARMDesc;LLVMARMInfo;LLVMARMUtils;LLVMCodeGenTypes;LLVMMC;LLVMMCDisassembler;LLVMSupport"
+)
+
+# Create imported target LLVMARMDesc
+add_library(LLVMARMDesc STATIC IMPORTED)
+
+set_target_properties(LLVMARMDesc PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMARMInfo;LLVMARMUtils;LLVMBinaryFormat;LLVMCodeGenTypes;LLVMMC;LLVMMCDisassembler;LLVMObject;LLVMSupport;LLVMTargetParser"
+)
+
+# Create imported target LLVMARMInfo
+add_library(LLVMARMInfo STATIC IMPORTED)
+
+set_target_properties(LLVMARMInfo PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMMC;LLVMSupport"
+)
+
+# Create imported target LLVMARMUtils
+add_library(LLVMARMUtils STATIC IMPORTED)
+
+set_target_properties(LLVMARMUtils PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMSupport"
+)
+
+# Create imported target LLVMAVRCodeGen
+add_library(LLVMAVRCodeGen STATIC IMPORTED)
+
+set_target_properties(LLVMAVRCodeGen PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMAnalysis;LLVMAVRDesc;LLVMAVRInfo;LLVMAsmPrinter;LLVMCodeGen;LLVMCodeGenTypes;LLVMCore;LLVMMC;LLVMSelectionDAG;LLVMSupport;LLVMTarget;LLVMTargetParser;LLVMTransformUtils"
+)
+
+# Create imported target LLVMAVRAsmParser
+add_library(LLVMAVRAsmParser STATIC IMPORTED)
+
+set_target_properties(LLVMAVRAsmParser PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMAVRDesc;LLVMAVRInfo;LLVMCodeGenTypes;LLVMMC;LLVMMCParser;LLVMSupport"
+)
+
+# Create imported target LLVMAVRDisassembler
+add_library(LLVMAVRDisassembler STATIC IMPORTED)
+
+set_target_properties(LLVMAVRDisassembler PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMAVRInfo;LLVMCodeGenTypes;LLVMMC;LLVMMCDisassembler;LLVMSupport"
+)
+
+# Create imported target LLVMAVRDesc
+add_library(LLVMAVRDesc STATIC IMPORTED)
+
+set_target_properties(LLVMAVRDesc PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMMC;LLVMAVRInfo;LLVMSupport;LLVMTargetParser"
+)
+
+# Create imported target LLVMAVRInfo
+add_library(LLVMAVRInfo STATIC IMPORTED)
+
+set_target_properties(LLVMAVRInfo PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMMC;LLVMSupport"
+)
+
+# Create imported target LLVMBPFCodeGen
+add_library(LLVMBPFCodeGen STATIC IMPORTED)
+
+set_target_properties(LLVMBPFCodeGen PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMAnalysis;LLVMAsmPrinter;LLVMBPFDesc;LLVMBPFInfo;LLVMCodeGen;LLVMCodeGenTypes;LLVMCore;LLVMIRPrinter;LLVMGlobalISel;LLVMipo;LLVMMC;LLVMObjCARCOpts;LLVMPasses;LLVMScalarOpts;LLVMSelectionDAG;LLVMSupport;LLVMTarget;LLVMTargetParser;LLVMTransformUtils"
+)
+
+# Create imported target LLVMBPFAsmParser
+add_library(LLVMBPFAsmParser STATIC IMPORTED)
+
+set_target_properties(LLVMBPFAsmParser PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMMC;LLVMMCParser;LLVMBPFDesc;LLVMBPFInfo;LLVMSupport"
+)
+
+# Create imported target LLVMBPFDisassembler
+add_library(LLVMBPFDisassembler STATIC IMPORTED)
+
+set_target_properties(LLVMBPFDisassembler PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMMCDisassembler;LLVMMC;LLVMBPFInfo;LLVMSupport"
+)
+
+# Create imported target LLVMBPFDesc
+add_library(LLVMBPFDesc STATIC IMPORTED)
+
+set_target_properties(LLVMBPFDesc PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMMC;LLVMBPFInfo;LLVMSupport;LLVMTargetParser"
+)
+
+# Create imported target LLVMBPFInfo
+add_library(LLVMBPFInfo STATIC IMPORTED)
+
+set_target_properties(LLVMBPFInfo PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMMC;LLVMSupport"
+)
+
+# Create imported target LLVMHexagonCodeGen
+add_library(LLVMHexagonCodeGen STATIC IMPORTED)
+
+set_target_properties(LLVMHexagonCodeGen PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMAnalysis;LLVMAsmPrinter;LLVMCodeGen;LLVMCodeGenTypes;LLVMCore;LLVMHexagonAsmParser;LLVMHexagonDesc;LLVMHexagonInfo;LLVMipo;LLVMMC;LLVMMIRParser;LLVMScalarOpts;LLVMSelectionDAG;LLVMSupport;LLVMTarget;LLVMTargetParser;LLVMTransformUtils"
+)
+
+# Create imported target LLVMHexagonAsmParser
+add_library(LLVMHexagonAsmParser STATIC IMPORTED)
+
+set_target_properties(LLVMHexagonAsmParser PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMMC;LLVMMCParser;LLVMSupport;LLVMHexagonDesc;LLVMHexagonInfo"
+)
+
+# Create imported target LLVMHexagonDisassembler
+add_library(LLVMHexagonDisassembler STATIC IMPORTED)
+
+set_target_properties(LLVMHexagonDisassembler PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMHexagonDesc;LLVMHexagonInfo;LLVMMC;LLVMMCDisassembler;LLVMSupport"
+)
+
+# Create imported target LLVMHexagonDesc
+add_library(LLVMHexagonDesc STATIC IMPORTED)
+
+set_target_properties(LLVMHexagonDesc PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMHexagonInfo;LLVMMC;LLVMSupport"
+)
+
+# Create imported target LLVMHexagonInfo
+add_library(LLVMHexagonInfo STATIC IMPORTED)
+
+set_target_properties(LLVMHexagonInfo PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMMC;LLVMSupport"
+)
+
+# Create imported target LLVMLanaiCodeGen
+add_library(LLVMLanaiCodeGen STATIC IMPORTED)
+
+set_target_properties(LLVMLanaiCodeGen PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMAnalysis;LLVMAsmPrinter;LLVMCodeGen;LLVMCodeGenTypes;LLVMCore;LLVMIRPrinter;LLVMLanaiAsmParser;LLVMLanaiDesc;LLVMLanaiInfo;LLVMMC;LLVMObjCARCOpts;LLVMScalarOpts;LLVMSelectionDAG;LLVMSupport;LLVMTarget;LLVMTargetParser;LLVMTransformUtils"
+)
+
+# Create imported target LLVMLanaiAsmParser
+add_library(LLVMLanaiAsmParser STATIC IMPORTED)
+
+set_target_properties(LLVMLanaiAsmParser PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMCodeGenTypes;LLVMLanaiDesc;LLVMLanaiInfo;LLVMMC;LLVMMCParser;LLVMSupport"
+)
+
+# Create imported target LLVMLanaiDisassembler
+add_library(LLVMLanaiDisassembler STATIC IMPORTED)
+
+set_target_properties(LLVMLanaiDisassembler PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMCodeGenTypes;LLVMLanaiDesc;LLVMLanaiInfo;LLVMMC;LLVMMCDisassembler;LLVMSupport"
+)
+
+# Create imported target LLVMLanaiDesc
+add_library(LLVMLanaiDesc STATIC IMPORTED)
+
+set_target_properties(LLVMLanaiDesc PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMLanaiInfo;LLVMMC;LLVMMCDisassembler;LLVMSupport;LLVMTargetParser"
+)
+
+# Create imported target LLVMLanaiInfo
+add_library(LLVMLanaiInfo STATIC IMPORTED)
+
+set_target_properties(LLVMLanaiInfo PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMMC;LLVMSupport"
+)
+
+# Create imported target LLVMLoongArchCodeGen
+add_library(LLVMLoongArchCodeGen STATIC IMPORTED)
+
+set_target_properties(LLVMLoongArchCodeGen PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMAnalysis;LLVMAsmPrinter;LLVMCodeGen;LLVMCodeGenTypes;LLVMCore;LLVMLoongArchDesc;LLVMLoongArchInfo;LLVMMC;LLVMScalarOpts;LLVMSelectionDAG;LLVMSupport;LLVMTarget;LLVMTargetParser;LLVMTransformUtils"
+)
+
+# Create imported target LLVMLoongArchAsmParser
+add_library(LLVMLoongArchAsmParser STATIC IMPORTED)
+
+set_target_properties(LLVMLoongArchAsmParser PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMLoongArchDesc;LLVMLoongArchInfo;LLVMMC;LLVMMCParser;LLVMSupport"
+)
+
+# Create imported target LLVMLoongArchDisassembler
+add_library(LLVMLoongArchDisassembler STATIC IMPORTED)
+
+set_target_properties(LLVMLoongArchDisassembler PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMLoongArchDesc;LLVMLoongArchInfo;LLVMMC;LLVMMCDisassembler;LLVMSupport"
+)
+
+# Create imported target LLVMLoongArchDesc
+add_library(LLVMLoongArchDesc STATIC IMPORTED)
+
+set_target_properties(LLVMLoongArchDesc PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMMC;LLVMLoongArchInfo;LLVMSupport;LLVMTargetParser"
+)
+
+# Create imported target LLVMLoongArchInfo
+add_library(LLVMLoongArchInfo STATIC IMPORTED)
+
+set_target_properties(LLVMLoongArchInfo PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMMC;LLVMSupport"
+)
+
+# Create imported target LLVMMipsCodeGen
+add_library(LLVMMipsCodeGen STATIC IMPORTED)
+
+set_target_properties(LLVMMipsCodeGen PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMAnalysis;LLVMAsmPrinter;LLVMCodeGen;LLVMCodeGenTypes;LLVMCore;LLVMGlobalISel;LLVMMC;LLVMMipsDesc;LLVMMipsInfo;LLVMSelectionDAG;LLVMSupport;LLVMTarget;LLVMTargetParser;LLVMTransformUtils"
+)
+
+# Create imported target LLVMMipsAsmParser
+add_library(LLVMMipsAsmParser STATIC IMPORTED)
+
+set_target_properties(LLVMMipsAsmParser PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMMC;LLVMMCParser;LLVMMipsDesc;LLVMMipsInfo;LLVMSupport;LLVMTargetParser"
+)
+
+# Create imported target LLVMMipsDisassembler
+add_library(LLVMMipsDisassembler STATIC IMPORTED)
+
+set_target_properties(LLVMMipsDisassembler PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMMCDisassembler;LLVMMC;LLVMMipsInfo;LLVMSupport"
+)
+
+# Create imported target LLVMMipsDesc
+add_library(LLVMMipsDesc STATIC IMPORTED)
+
+set_target_properties(LLVMMipsDesc PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMCodeGenTypes;LLVMMC;LLVMMipsInfo;LLVMSupport;LLVMTargetParser"
+)
+
+# Create imported target LLVMMipsInfo
+add_library(LLVMMipsInfo STATIC IMPORTED)
+
+set_target_properties(LLVMMipsInfo PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMMC;LLVMSupport"
+)
+
+# Create imported target LLVMMSP430CodeGen
+add_library(LLVMMSP430CodeGen STATIC IMPORTED)
+
+set_target_properties(LLVMMSP430CodeGen PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMAnalysis;LLVMAsmPrinter;LLVMCodeGen;LLVMCodeGenTypes;LLVMCore;LLVMIRPrinter;LLVMMC;LLVMMSP430Desc;LLVMMSP430Info;LLVMObjCARCOpts;LLVMScalarOpts;LLVMSelectionDAG;LLVMSupport;LLVMTarget;LLVMTargetParser;LLVMTransformUtils"
+)
+
+# Create imported target LLVMMSP430Desc
+add_library(LLVMMSP430Desc STATIC IMPORTED)
+
+set_target_properties(LLVMMSP430Desc PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMMC;LLVMMSP430Info;LLVMSupport"
+)
+
+# Create imported target LLVMMSP430Info
+add_library(LLVMMSP430Info STATIC IMPORTED)
+
+set_target_properties(LLVMMSP430Info PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMMC;LLVMSupport"
+)
+
+# Create imported target LLVMMSP430AsmParser
+add_library(LLVMMSP430AsmParser STATIC IMPORTED)
+
+set_target_properties(LLVMMSP430AsmParser PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMCodeGenTypes;LLVMMC;LLVMMCParser;LLVMMSP430Desc;LLVMMSP430Info;LLVMSupport"
+)
+
+# Create imported target LLVMMSP430Disassembler
+add_library(LLVMMSP430Disassembler STATIC IMPORTED)
+
+set_target_properties(LLVMMSP430Disassembler PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMMCDisassembler;LLVMMC;LLVMMSP430Info;LLVMSupport"
+)
+
+# Create imported target LLVMNVPTXCodeGen
+add_library(LLVMNVPTXCodeGen STATIC IMPORTED)
+
+set_target_properties(LLVMNVPTXCodeGen PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMAnalysis;LLVMAsmPrinter;LLVMCodeGen;LLVMCodeGenTypes;LLVMCore;LLVMipo;LLVMMC;LLVMNVPTXDesc;LLVMNVPTXInfo;LLVMScalarOpts;LLVMSelectionDAG;LLVMSupport;LLVMTarget;LLVMTargetParser;LLVMTransformUtils;LLVMVectorize"
+)
+
+# Create imported target LLVMNVPTXDesc
+add_library(LLVMNVPTXDesc STATIC IMPORTED)
+
+set_target_properties(LLVMNVPTXDesc PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMMC;LLVMNVPTXInfo;LLVMSupport;LLVMTargetParser"
+)
+
+# Create imported target LLVMNVPTXInfo
+add_library(LLVMNVPTXInfo STATIC IMPORTED)
+
+set_target_properties(LLVMNVPTXInfo PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMMC;LLVMSupport"
+)
+
+# Create imported target LLVMPowerPCCodeGen
+add_library(LLVMPowerPCCodeGen STATIC IMPORTED)
+
+set_target_properties(LLVMPowerPCCodeGen PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMAnalysis;LLVMAsmPrinter;LLVMBinaryFormat;LLVMCodeGen;LLVMCodeGenTypes;LLVMCore;LLVMGlobalISel;LLVMMC;LLVMPowerPCDesc;LLVMPowerPCInfo;LLVMScalarOpts;LLVMSelectionDAG;LLVMSupport;LLVMTarget;LLVMTargetParser;LLVMTransformUtils"
+)
+
+# Create imported target LLVMPowerPCAsmParser
+add_library(LLVMPowerPCAsmParser STATIC IMPORTED)
+
+set_target_properties(LLVMPowerPCAsmParser PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMMC;LLVMMCParser;LLVMPowerPCDesc;LLVMPowerPCInfo;LLVMSupport"
+)
+
+# Create imported target LLVMPowerPCDisassembler
+add_library(LLVMPowerPCDisassembler STATIC IMPORTED)
+
+set_target_properties(LLVMPowerPCDisassembler PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMMCDisassembler;LLVMMC;LLVMPowerPCInfo;LLVMSupport"
+)
+
+# Create imported target LLVMPowerPCDesc
+add_library(LLVMPowerPCDesc STATIC IMPORTED)
+
+set_target_properties(LLVMPowerPCDesc PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMBinaryFormat;LLVMCodeGenTypes;LLVMMC;LLVMPowerPCInfo;LLVMSupport;LLVMTargetParser"
+)
+
+# Create imported target LLVMPowerPCInfo
+add_library(LLVMPowerPCInfo STATIC IMPORTED)
+
+set_target_properties(LLVMPowerPCInfo PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMMC;LLVMSupport"
+)
+
+# Create imported target LLVMRISCVCodeGen
+add_library(LLVMRISCVCodeGen STATIC IMPORTED)
+
+set_target_properties(LLVMRISCVCodeGen PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMAnalysis;LLVMAsmPrinter;LLVMCodeGen;LLVMCodeGenTypes;LLVMCore;LLVMGlobalISel;LLVMipo;LLVMMC;LLVMPasses;LLVMRISCVDesc;LLVMRISCVInfo;LLVMScalarOpts;LLVMSelectionDAG;LLVMSupport;LLVMTarget;LLVMTargetParser;LLVMTransformUtils;LLVMVectorize"
+)
+
+# Create imported target LLVMRISCVAsmParser
+add_library(LLVMRISCVAsmParser STATIC IMPORTED)
+
+set_target_properties(LLVMRISCVAsmParser PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMMC;LLVMMCParser;LLVMRISCVDesc;LLVMRISCVInfo;LLVMSupport;LLVMTargetParser"
+)
+
+# Create imported target LLVMRISCVDisassembler
+add_library(LLVMRISCVDisassembler STATIC IMPORTED)
+
+set_target_properties(LLVMRISCVDisassembler PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMMC;LLVMMCDisassembler;LLVMRISCVDesc;LLVMRISCVInfo;LLVMSupport"
+)
+
+# Create imported target LLVMRISCVDesc
+add_library(LLVMRISCVDesc STATIC IMPORTED)
+
+set_target_properties(LLVMRISCVDesc PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMBinaryFormat;LLVMMC;LLVMRISCVInfo;LLVMSupport;LLVMTargetParser"
+)
+
+# Create imported target LLVMRISCVTargetMCA
+add_library(LLVMRISCVTargetMCA STATIC IMPORTED)
+
+set_target_properties(LLVMRISCVTargetMCA PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMCodeGenTypes;LLVMMC;LLVMMCA;LLVMMCParser;LLVMRISCVDesc;LLVMRISCVInfo;LLVMSupport;LLVMTargetParser"
+)
+
+# Create imported target LLVMRISCVInfo
+add_library(LLVMRISCVInfo STATIC IMPORTED)
+
+set_target_properties(LLVMRISCVInfo PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMMC;LLVMSupport"
+)
+
+# Create imported target LLVMSparcCodeGen
+add_library(LLVMSparcCodeGen STATIC IMPORTED)
+
+set_target_properties(LLVMSparcCodeGen PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMAnalysis;LLVMAsmPrinter;LLVMCodeGen;LLVMCodeGenTypes;LLVMCore;LLVMMC;LLVMSelectionDAG;LLVMSparcDesc;LLVMSparcInfo;LLVMSupport;LLVMTarget;LLVMTargetParser;LLVMTransformUtils"
+)
+
+# Create imported target LLVMSparcAsmParser
+add_library(LLVMSparcAsmParser STATIC IMPORTED)
+
+set_target_properties(LLVMSparcAsmParser PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMMC;LLVMMCParser;LLVMSparcDesc;LLVMSparcInfo;LLVMSupport;LLVMTargetParser"
+)
+
+# Create imported target LLVMSparcDisassembler
+add_library(LLVMSparcDisassembler STATIC IMPORTED)
+
+set_target_properties(LLVMSparcDisassembler PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMMCDisassembler;LLVMMC;LLVMSparcInfo;LLVMSupport"
+)
+
+# Create imported target LLVMSparcDesc
+add_library(LLVMSparcDesc STATIC IMPORTED)
+
+set_target_properties(LLVMSparcDesc PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMMC;LLVMSparcInfo;LLVMSupport;LLVMTargetParser"
+)
+
+# Create imported target LLVMSparcInfo
+add_library(LLVMSparcInfo STATIC IMPORTED)
+
+set_target_properties(LLVMSparcInfo PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMMC;LLVMSupport"
+)
+
+# Create imported target LLVMSPIRVCodeGen
+add_library(LLVMSPIRVCodeGen STATIC IMPORTED)
+
+set_target_properties(LLVMSPIRVCodeGen PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMAnalysis;LLVMAsmPrinter;LLVMCodeGen;LLVMCodeGenTypes;LLVMCore;LLVMDemangle;LLVMGlobalISel;LLVMFrontendHLSL;LLVMipo;LLVMMC;LLVMSPIRVAnalysis;LLVMSPIRVDesc;LLVMSPIRVInfo;LLVMScalarOpts;LLVMSelectionDAG;LLVMSupport;LLVMTarget;LLVMTargetParser;LLVMTransformUtils"
+)
+
+# Create imported target LLVMSPIRVDesc
+add_library(LLVMSPIRVDesc STATIC IMPORTED)
+
+set_target_properties(LLVMSPIRVDesc PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMCodeGenTypes;LLVMMC;LLVMSPIRVInfo;LLVMSupport;LLVMTargetParser"
+)
+
+# Create imported target LLVMSPIRVInfo
+add_library(LLVMSPIRVInfo STATIC IMPORTED)
+
+set_target_properties(LLVMSPIRVInfo PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMMC;LLVMSupport"
+)
+
+# Create imported target LLVMSPIRVAnalysis
+add_library(LLVMSPIRVAnalysis STATIC IMPORTED)
+
+set_target_properties(LLVMSPIRVAnalysis PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMAnalysis;LLVMCore;LLVMSupport;LLVMTransformUtils"
+)
+
+# Create imported target LLVMSystemZCodeGen
+add_library(LLVMSystemZCodeGen STATIC IMPORTED)
+
+set_target_properties(LLVMSystemZCodeGen PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMAnalysis;LLVMAsmPrinter;LLVMCodeGen;LLVMCodeGenTypes;LLVMCore;LLVMMC;LLVMScalarOpts;LLVMSelectionDAG;LLVMSupport;LLVMSystemZDesc;LLVMSystemZInfo;LLVMTarget;LLVMTargetParser;LLVMTransformUtils"
+)
+
+# Create imported target LLVMSystemZAsmParser
+add_library(LLVMSystemZAsmParser STATIC IMPORTED)
+
+set_target_properties(LLVMSystemZAsmParser PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMMC;LLVMMCParser;LLVMSupport;LLVMSystemZDesc;LLVMSystemZInfo"
+)
+
+# Create imported target LLVMSystemZDisassembler
+add_library(LLVMSystemZDisassembler STATIC IMPORTED)
+
+set_target_properties(LLVMSystemZDisassembler PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMMC;LLVMMCDisassembler;LLVMSupport;LLVMSystemZDesc;LLVMSystemZInfo"
+)
+
+# Create imported target LLVMSystemZDesc
+add_library(LLVMSystemZDesc STATIC IMPORTED)
+
+set_target_properties(LLVMSystemZDesc PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMCodeGenTypes;LLVMMC;LLVMSupport;LLVMSystemZInfo"
+)
+
+# Create imported target LLVMSystemZInfo
+add_library(LLVMSystemZInfo STATIC IMPORTED)
+
+set_target_properties(LLVMSystemZInfo PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMMC;LLVMSupport"
+)
+
+# Create imported target LLVMVECodeGen
+add_library(LLVMVECodeGen STATIC IMPORTED)
+
+set_target_properties(LLVMVECodeGen PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMAnalysis;LLVMAsmPrinter;LLVMCodeGen;LLVMCodeGenTypes;LLVMCore;LLVMMC;LLVMSelectionDAG;LLVMSupport;LLVMTarget;LLVMTargetParser;LLVMTransformUtils;LLVMVEDesc;LLVMVEInfo"
+)
+
+# Create imported target LLVMVEAsmParser
+add_library(LLVMVEAsmParser STATIC IMPORTED)
+
+set_target_properties(LLVMVEAsmParser PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMCodeGenTypes;LLVMMC;LLVMMCParser;LLVMSupport;LLVMVEDesc;LLVMVEInfo"
+)
+
+# Create imported target LLVMVEDisassembler
+add_library(LLVMVEDisassembler STATIC IMPORTED)
+
+set_target_properties(LLVMVEDisassembler PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMCodeGenTypes;LLVMMC;LLVMMCDisassembler;LLVMSupport;LLVMVEInfo"
+)
+
+# Create imported target LLVMVEInfo
+add_library(LLVMVEInfo STATIC IMPORTED)
+
+set_target_properties(LLVMVEInfo PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMMC;LLVMSupport"
+)
+
+# Create imported target LLVMVEDesc
+add_library(LLVMVEDesc STATIC IMPORTED)
+
+set_target_properties(LLVMVEDesc PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMCodeGenTypes;LLVMMC;LLVMSupport;LLVMTargetParser;LLVMVEInfo"
+)
+
+# Create imported target LLVMWebAssemblyCodeGen
+add_library(LLVMWebAssemblyCodeGen STATIC IMPORTED)
+
+set_target_properties(LLVMWebAssemblyCodeGen PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMAnalysis;LLVMAsmPrinter;LLVMBinaryFormat;LLVMCodeGen;LLVMCodeGenTypes;LLVMCore;LLVMGlobalISel;LLVMMC;LLVMScalarOpts;LLVMSelectionDAG;LLVMSupport;LLVMTarget;LLVMTargetParser;LLVMTransformUtils;LLVMWebAssemblyDesc;LLVMWebAssemblyInfo;LLVMWebAssemblyUtils"
+)
+
+# Create imported target LLVMWebAssemblyAsmParser
+add_library(LLVMWebAssemblyAsmParser STATIC IMPORTED)
+
+set_target_properties(LLVMWebAssemblyAsmParser PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMCodeGenTypes;LLVMMC;LLVMMCParser;LLVMSupport;LLVMTargetParser;LLVMWebAssemblyDesc;LLVMWebAssemblyInfo"
+)
+
+# Create imported target LLVMWebAssemblyDisassembler
+add_library(LLVMWebAssemblyDisassembler STATIC IMPORTED)
+
+set_target_properties(LLVMWebAssemblyDisassembler PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMCodeGenTypes;LLVMMC;LLVMMCDisassembler;LLVMSupport;LLVMWebAssemblyDesc;LLVMWebAssemblyInfo"
+)
+
+# Create imported target LLVMWebAssemblyDesc
+add_library(LLVMWebAssemblyDesc STATIC IMPORTED)
+
+set_target_properties(LLVMWebAssemblyDesc PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMCodeGenTypes;LLVMMC;LLVMSupport;LLVMTargetParser;LLVMWebAssemblyInfo"
+)
+
+# Create imported target LLVMWebAssemblyInfo
+add_library(LLVMWebAssemblyInfo STATIC IMPORTED)
+
+set_target_properties(LLVMWebAssemblyInfo PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMMC;LLVMSupport"
+)
+
+# Create imported target LLVMWebAssemblyUtils
+add_library(LLVMWebAssemblyUtils STATIC IMPORTED)
+
+set_target_properties(LLVMWebAssemblyUtils PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMCodeGen;LLVMCodeGenTypes;LLVMCore;LLVMMC;LLVMSupport;LLVMWebAssemblyDesc"
+)
+
+# Create imported target LLVMX86CodeGen
+add_library(LLVMX86CodeGen STATIC IMPORTED)
+
+set_target_properties(LLVMX86CodeGen PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMAnalysis;LLVMAsmPrinter;LLVMCFGuard;LLVMCodeGen;LLVMCodeGenTypes;LLVMCore;LLVMGlobalISel;LLVMIRPrinter;LLVMInstrumentation;LLVMMC;LLVMObjCARCOpts;LLVMProfileData;LLVMScalarOpts;LLVMSelectionDAG;LLVMSupport;LLVMTarget;LLVMTargetParser;LLVMTransformUtils;LLVMX86Desc;LLVMX86Info"
+)
+
+# Create imported target LLVMX86AsmParser
+add_library(LLVMX86AsmParser STATIC IMPORTED)
+
+set_target_properties(LLVMX86AsmParser PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMMC;LLVMMCParser;LLVMSupport;LLVMX86Desc;LLVMX86Info"
+)
+
+# Create imported target LLVMX86Disassembler
+add_library(LLVMX86Disassembler STATIC IMPORTED)
+
+set_target_properties(LLVMX86Disassembler PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMMCDisassembler;LLVMSupport;LLVMX86Info"
+)
+
+# Create imported target LLVMX86TargetMCA
+add_library(LLVMX86TargetMCA STATIC IMPORTED)
+
+set_target_properties(LLVMX86TargetMCA PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMCodeGenTypes;LLVMMC;LLVMMCA;LLVMMCParser;LLVMSupport;LLVMTargetParser;LLVMX86Desc;LLVMX86Info"
+)
+
+# Create imported target LLVMX86Desc
+add_library(LLVMX86Desc STATIC IMPORTED)
+
+set_target_properties(LLVMX86Desc PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMBinaryFormat;LLVMCodeGenTypes;LLVMMC;LLVMMCDisassembler;LLVMSupport;LLVMTargetParser;LLVMX86Info"
+)
+
+# Create imported target LLVMX86Info
+add_library(LLVMX86Info STATIC IMPORTED)
+
+set_target_properties(LLVMX86Info PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMMC;LLVMSupport"
+)
+
+# Create imported target LLVMXCoreCodeGen
+add_library(LLVMXCoreCodeGen STATIC IMPORTED)
+
+set_target_properties(LLVMXCoreCodeGen PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMAnalysis;LLVMAsmPrinter;LLVMCodeGen;LLVMCodeGenTypes;LLVMCore;LLVMMC;LLVMSelectionDAG;LLVMSupport;LLVMTarget;LLVMTargetParser;LLVMTransformUtils;LLVMXCoreDesc;LLVMXCoreInfo"
+)
+
+# Create imported target LLVMXCoreDisassembler
+add_library(LLVMXCoreDisassembler STATIC IMPORTED)
+
+set_target_properties(LLVMXCoreDisassembler PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMCodeGenTypes;LLVMMC;LLVMMCDisassembler;LLVMSupport;LLVMXCoreInfo"
+)
+
+# Create imported target LLVMXCoreDesc
+add_library(LLVMXCoreDesc STATIC IMPORTED)
+
+set_target_properties(LLVMXCoreDesc PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMMC;LLVMSupport;LLVMXCoreInfo"
+)
+
+# Create imported target LLVMXCoreInfo
+add_library(LLVMXCoreInfo STATIC IMPORTED)
+
+set_target_properties(LLVMXCoreInfo PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMMC;LLVMSupport"
+)
+
 # Create imported target LLVMSandboxIR
 add_library(LLVMSandboxIR STATIC IMPORTED)
 
@@ -765,7 +1451,7 @@ set_target_properties(LLVMDlltoolDriver PROPERTIES
 add_library(LLVMLibDriver STATIC IMPORTED)
 
 set_target_properties(LLVMLibDriver PROPERTIES
-  INTERFACE_LINK_LIBRARIES "LLVMBinaryFormat;LLVMBitReader;LLVMObject;LLVMOption;LLVMSupport;LLVMTargetParser;LLVMBinaryFormat;LLVMBitReader;LLVMObject;LLVMOption;LLVMSupport"
+  INTERFACE_LINK_LIBRARIES "LLVMBinaryFormat;LLVMBitReader;LLVMObject;LLVMOption;LLVMSupport;LLVMBinaryFormat;LLVMBitReader;LLVMObject;LLVMOption;LLVMSupport;LLVMTargetParser"
 )
 
 # Create imported target LLVMXRay
@@ -831,8 +1517,11 @@ add_executable(llvm-lto IMPORTED)
 # Create imported target llvm-profdata
 add_executable(llvm-profdata IMPORTED)
 
-# Create imported target bugpoint
-add_executable(bugpoint IMPORTED)
+# Create imported target llvm-nm
+add_executable(llvm-nm IMPORTED)
+
+# Create imported target llvm-readobj
+add_executable(llvm-readobj IMPORTED)
 
 # Create imported target dsymutil
 add_executable(dsymutil IMPORTED)
@@ -845,6 +1534,16 @@ add_executable(lli-child-target IMPORTED)
 
 # Create imported target lli
 add_executable(lli IMPORTED)
+
+# Create imported target llubi
+add_executable(llubi IMPORTED)
+
+# Create imported target LLVMUBAwareInterpreter
+add_library(LLVMUBAwareInterpreter STATIC IMPORTED)
+
+set_target_properties(LLVMUBAwareInterpreter PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVM"
+)
 
 # Create imported target llvm-as
 add_executable(llvm-as IMPORTED)
@@ -920,11 +1619,39 @@ add_executable(llvm-dwarfutil IMPORTED)
 # Create imported target llvm-dwp
 add_executable(llvm-dwp IMPORTED)
 
+# Create imported target LLVMExegesisX86
+add_library(LLVMExegesisX86 STATIC IMPORTED)
+
+set_target_properties(LLVMExegesisX86 PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMCodeGen;LLVMCodeGenTypes;LLVMCore;LLVMExegesis;LLVMMC;LLVMSupport;LLVMTargetParser;LLVMX86CodeGen;LLVMX86AsmParser;LLVMX86Desc;LLVMX86Disassembler;LLVMX86Info"
+)
+
 # Create imported target LLVMExegesisAArch64
 add_library(LLVMExegesisAArch64 STATIC IMPORTED)
 
 set_target_properties(LLVMExegesisAArch64 PROPERTIES
   INTERFACE_LINK_LIBRARIES "LLVMAArch64CodeGen;LLVMAArch64AsmParser;LLVMAArch64Desc;LLVMAArch64Disassembler;LLVMAArch64Info;LLVMAArch64Utils;LLVMCodeGen;LLVMCodeGenTypes;LLVMCore;LLVMExegesis;LLVMMC;LLVMSupport"
+)
+
+# Create imported target LLVMExegesisPowerPC
+add_library(LLVMExegesisPowerPC STATIC IMPORTED)
+
+set_target_properties(LLVMExegesisPowerPC PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMCodeGenTypes;LLVMCore;LLVMExegesis;LLVMMC;LLVMPowerPCCodeGen;LLVMPowerPCAsmParser;LLVMPowerPCDesc;LLVMPowerPCDisassembler;LLVMPowerPCInfo;LLVMSupport;LLVMTargetParser"
+)
+
+# Create imported target LLVMExegesisMips
+add_library(LLVMExegesisMips STATIC IMPORTED)
+
+set_target_properties(LLVMExegesisMips PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMCodeGenTypes;LLVMCore;LLVMExegesis;LLVMMC;LLVMMipsCodeGen;LLVMMipsAsmParser;LLVMMipsDesc;LLVMMipsDisassembler;LLVMMipsInfo;LLVMSupport;LLVMTargetParser"
+)
+
+# Create imported target LLVMExegesisRISCV
+add_library(LLVMExegesisRISCV STATIC IMPORTED)
+
+set_target_properties(LLVMExegesisRISCV PROPERTIES
+  INTERFACE_LINK_LIBRARIES "LLVMCodeGen;LLVMRISCVCodeGen;LLVMRISCVAsmParser;LLVMRISCVDesc;LLVMRISCVDisassembler;LLVMRISCVInfo;LLVMExegesis;LLVMCore;LLVMSupport;LLVMMC;LLVMTargetParser"
 )
 
 # Create imported target LLVMExegesis
@@ -939,6 +1666,9 @@ add_executable(llvm-exegesis IMPORTED)
 
 # Create imported target llvm-extract
 add_executable(llvm-extract IMPORTED)
+
+# Create imported target llvm-gpu-loader
+add_executable(llvm-gpu-loader IMPORTED)
 
 # Create imported target llvm-gsymutil
 add_executable(llvm-gsymutil IMPORTED)
@@ -982,9 +1712,6 @@ add_executable(llvm-modextract IMPORTED)
 # Create imported target llvm-mt
 add_executable(llvm-mt IMPORTED)
 
-# Create imported target llvm-nm
-add_executable(llvm-nm IMPORTED)
-
 # Create imported target llvm-objcopy
 add_executable(llvm-objcopy IMPORTED)
 
@@ -1008,9 +1735,6 @@ add_executable(llvm-profgen IMPORTED)
 
 # Create imported target llvm-rc
 add_executable(llvm-rc IMPORTED)
-
-# Create imported target llvm-readobj
-add_executable(llvm-readobj IMPORTED)
 
 # Create imported target llvm-readtapi
 add_executable(llvm-readtapi IMPORTED)

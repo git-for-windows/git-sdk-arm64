@@ -24,6 +24,9 @@
 #  error Please define the macro LLVM_TARGETMCA(TargetName)
 #endif
 
+LLVM_TARGETMCA(AMDGPU)
+LLVM_TARGETMCA(RISCV)
+LLVM_TARGETMCA(X86)
 
 
 #undef LLVM_TARGETMCA

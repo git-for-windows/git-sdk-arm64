@@ -4,6 +4,7 @@
 #include "llvm/ADT/ArrayRef.h"
 #include "llvm/ADT/BitmaskEnum.h"
 #include "llvm/ADT/Sequence.h"
+#include "llvm/ADT/STLExtras.h"
 #include "llvm/ADT/StringRef.h"
 #include "llvm/Frontend/Directive/Spelling.h"
 #include "llvm/Support/Compiler.h"
@@ -201,6 +202,34 @@ constexpr auto ACCC_wait = Clause::ACCC_wait;
 constexpr auto ACCC_worker = Clause::ACCC_worker;
 constexpr auto ACCC_write = Clause::ACCC_write;
 
+enum class LoopModifier {
+  flattened,
+  First_ = flattened,
+  fused,
+  grid,
+  identity,
+  interchanged,
+  intratile,
+  offsets,
+  reversed,
+  split,
+  unrolled,
+  Last_ = unrolled,
+};
+
+static constexpr std::size_t LoopModifier_enumSize = 10;
+
+constexpr auto flattened = LoopModifier::flattened;
+constexpr auto fused = LoopModifier::fused;
+constexpr auto grid = LoopModifier::grid;
+constexpr auto identity = LoopModifier::identity;
+constexpr auto interchanged = LoopModifier::interchanged;
+constexpr auto intratile = LoopModifier::intratile;
+constexpr auto offsets = LoopModifier::offsets;
+constexpr auto reversed = LoopModifier::reversed;
+constexpr auto split = LoopModifier::split;
+constexpr auto unrolled = LoopModifier::unrolled;
+
 enum class DefaultValue {
   ACC_Default_present=0,
   ACC_Default_none=1,
@@ -208,6 +237,164 @@ enum class DefaultValue {
 
 constexpr auto ACC_Default_present = DefaultValue::ACC_Default_present;
 constexpr auto ACC_Default_none = DefaultValue::ACC_Default_none;
+
+// Constexpr functions.
+
+constexpr Association getDirectiveAssociation(Directive Dir) {
+  switch (Dir) {
+  case ACCD_atomic:
+    return Association::Block;
+  case ACCD_cache:
+    return Association::None;
+  case ACCD_data:
+    return Association::Block;
+  case ACCD_declare:
+    return Association::None;
+  case ACCD_enter_data:
+    return Association::None;
+  case ACCD_exit_data:
+    return Association::None;
+  case ACCD_host_data:
+    return Association::Block;
+  case ACCD_init:
+    return Association::None;
+  case ACCD_kernels:
+    return Association::Block;
+  case ACCD_kernels_loop:
+    return Association::LoopNest;
+  case ACCD_loop:
+    return Association::LoopNest;
+  case ACCD_parallel:
+    return Association::Block;
+  case ACCD_parallel_loop:
+    return Association::LoopNest;
+  case ACCD_routine:
+    return Association::Declaration;
+  case ACCD_serial:
+    return Association::Block;
+  case ACCD_serial_loop:
+    return Association::LoopNest;
+  case ACCD_set:
+    return Association::None;
+  case ACCD_shutdown:
+    return Association::None;
+  case ACCD_unknown:
+    return Association::None;
+  case ACCD_update:
+    return Association::None;
+  case ACCD_wait:
+    return Association::None;
+  } // switch (Dir)
+#if !defined(__clang__) && defined(__GNUC__) && __GNUC__ < 9
+  abort();
+#else
+  llvm_unreachable("Unexpected directive");
+#endif
+}
+
+constexpr Category getDirectiveCategory(Directive Dir) {
+  switch (Dir) {
+  case ACCD_atomic:
+    return Category::Executable;
+  case ACCD_cache:
+    return Category::Executable;
+  case ACCD_data:
+    return Category::Executable;
+  case ACCD_declare:
+    return Category::Declarative;
+  case ACCD_enter_data:
+    return Category::Executable;
+  case ACCD_exit_data:
+    return Category::Executable;
+  case ACCD_host_data:
+    return Category::Executable;
+  case ACCD_init:
+    return Category::Executable;
+  case ACCD_kernels:
+    return Category::Executable;
+  case ACCD_kernels_loop:
+    return Category::Executable;
+  case ACCD_loop:
+    return Category::Executable;
+  case ACCD_parallel:
+    return Category::Executable;
+  case ACCD_parallel_loop:
+    return Category::Executable;
+  case ACCD_routine:
+    return Category::Declarative;
+  case ACCD_serial:
+    return Category::Executable;
+  case ACCD_serial_loop:
+    return Category::Executable;
+  case ACCD_set:
+    return Category::Executable;
+  case ACCD_shutdown:
+    return Category::Executable;
+  case ACCD_unknown:
+    return Category::Utility;
+  case ACCD_update:
+    return Category::Executable;
+  case ACCD_wait:
+    return Category::Executable;
+  } // switch (Dir)
+#if !defined(__clang__) && defined(__GNUC__) && __GNUC__ < 9
+  abort();
+#else
+  llvm_unreachable("Unexpected directive");
+#endif
+}
+
+constexpr SourceLanguage getDirectiveLanguages(Directive D) {
+  switch (D) {
+  case ACCD_atomic:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case ACCD_cache:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case ACCD_data:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case ACCD_declare:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case ACCD_enter_data:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case ACCD_exit_data:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case ACCD_host_data:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case ACCD_init:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case ACCD_kernels:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case ACCD_kernels_loop:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case ACCD_loop:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case ACCD_parallel:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case ACCD_parallel_loop:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case ACCD_routine:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case ACCD_serial:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case ACCD_serial_loop:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case ACCD_set:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case ACCD_shutdown:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case ACCD_unknown:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case ACCD_update:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case ACCD_wait:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  } // switch(D)
+#if !defined(__clang__) && defined(__GNUC__) && __GNUC__ < 9
+  abort();
+#else
+  llvm_unreachable("Unexpected directive");
+#endif
+}
 
 // Enumeration helper functions
 LLVM_ABI std::pair<Directive, directive::VersionRange> getOpenACCDirectiveKindAndVersions(StringRef Str);
@@ -229,9 +416,8 @@ LLVM_ABI StringRef getOpenACCClauseName(Clause C, unsigned Ver = 0);
 LLVM_ABI bool isAllowedClauseForDirective(Directive D, Clause C, unsigned Version);
 
 constexpr std::size_t getMaxLeafCount() { return 2; }
-LLVM_ABI Association getDirectiveAssociation(Directive D);
-LLVM_ABI Category getDirectiveCategory(Directive D);
-LLVM_ABI SourceLanguage getDirectiveLanguages(Directive D);
+LLVM_ABI bool isAllowedLoopModifier(Directive D, LoopModifier LM);
+LLVM_ABI StringRef getLoopModifierName(LoopModifier LM, unsigned Ver = 0);
 LLVM_ABI DefaultValue getDefaultValue(StringRef Str);
 LLVM_ABI StringRef getOpenACCDefaultValueName(DefaultValue x);
 
@@ -250,6 +436,10 @@ template <> struct enum_iteration_traits<acc::Directive> {
 };
 
 template <> struct enum_iteration_traits<acc::Clause> {
+  static constexpr bool is_iterable = true;
+};
+
+template <> struct enum_iteration_traits<acc::LoopModifier> {
   static constexpr bool is_iterable = true;
 };
 

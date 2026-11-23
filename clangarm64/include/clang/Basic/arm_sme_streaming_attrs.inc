@@ -182,6 +182,12 @@ case SME::BI__builtin_sme_svluti4_lane_zt_u8:
 case SME::BI__builtin_sme_svluti4_lane_zt_u8_x2:
 case SME::BI__builtin_sme_svluti4_zt_s8_x4:
 case SME::BI__builtin_sme_svluti4_zt_u8_x4:
+case SME::BI__builtin_sme_svluti6_zt_mf8:
+case SME::BI__builtin_sme_svluti6_zt_mf8_x4:
+case SME::BI__builtin_sme_svluti6_zt_s8:
+case SME::BI__builtin_sme_svluti6_zt_s8_x4:
+case SME::BI__builtin_sme_svluti6_zt_u8:
+case SME::BI__builtin_sme_svluti6_zt_u8_x4:
 case SME::BI__builtin_sme_svmla_lane_za16_bf16_vg1x2:
 case SME::BI__builtin_sme_svmla_lane_za16_bf16_vg1x4:
 case SME::BI__builtin_sme_svmla_lane_za16_f16_vg1x2:

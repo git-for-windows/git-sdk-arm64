@@ -129,6 +129,13 @@ struct ReadDispatcher<DeclarationName::NameKind> {
   }
 };
 template <>
+struct ReadDispatcher<DeducedKind> {
+  template <class BasicReader, class... Args>
+  static DeducedKind read(BasicReader &R, Args &&... args) {
+    return R.readDeducedKind(std::forward<Args>(args)...);
+  }
+};
+template <>
 struct ReadDispatcher<EffectConditionExpr> {
   template <class BasicReader, class... Args>
   static EffectConditionExpr read(BasicReader &R, Args &&... args) {
@@ -266,6 +273,13 @@ struct ReadDispatcher<ObjCTypeParamDecl*> {
   template <class BasicReader, class... Args>
   static ObjCTypeParamDecl* read(BasicReader &R, Args &&... args) {
     return R.readObjCTypeParamDeclRef(std::forward<Args>(args)...);
+  }
+};
+template <>
+struct ReadDispatcher<OverflowBehaviorType::OverflowBehaviorKind> {
+  template <class BasicReader, class... Args>
+  static OverflowBehaviorType::OverflowBehaviorKind read(BasicReader &R, Args &&... args) {
+    return R.readOverflowBehaviorKind(std::forward<Args>(args)...);
   }
 };
 template <>
@@ -668,6 +682,21 @@ public:
   
     }
 
+    case APValue::Matrix: {
+    uint32_t numRows = subR.find("numRows").readUInt32();
+    uint32_t numCols = subR.find("numCols").readUInt32();
+    llvm::SmallVector<APValue, 8> elements_buffer_0;
+    llvm::ArrayRef<APValue> elements = subR.find("elements").template readArray<APValue>(elements_buffer_0);
+    
+    APValue result;
+    result.MakeMatrix();
+    (void)result.setMatrixUninit(numRows, numCols);
+    for (unsigned i = 0; i < elements.size(); i++)
+      result.getMatrixElt(i) = elements[i];
+    return result;
+  
+    }
+
     case APValue::Array: {
     uint32_t totalLength = subR.find("totalLength").readUInt32();
     bool hasFiller = subR.find("hasFiller").readBool();
@@ -926,6 +955,9 @@ public:
   DeclarationName::NameKind readDeclarationNameKind() {
     return asImpl().template readEnum<DeclarationName::NameKind>();
   }
+  DeducedKind readDeducedKind() {
+    return asImpl().template readEnum<DeducedKind>();
+  }
   ElaboratedTypeKeyword readElaboratedTypeKeyword() {
     return asImpl().template readEnum<ElaboratedTypeKeyword>();
   }
@@ -955,6 +987,9 @@ public:
   }
   ObjCTypeParamDecl* readObjCTypeParamDeclRef() {
     return cast_or_null<ObjCTypeParamDecl>(asImpl().readDeclRef());
+  }
+  OverflowBehaviorType::OverflowBehaviorKind readOverflowBehaviorKind() {
+    return asImpl().template readEnum<OverflowBehaviorType::OverflowBehaviorKind>();
   }
   OverloadedOperatorKind readOverloadedOperatorKind() {
     return asImpl().template readEnum<OverloadedOperatorKind>();

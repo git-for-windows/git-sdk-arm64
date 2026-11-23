@@ -42,9 +42,9 @@ static OmpClauseSet allowedOnceClauses_OMPD_assume {
   Clause::OMPC_contains,
   Clause::OMPC_holds,
   Clause::OMPC_no_openmp,
+  Clause::OMPC_no_openmp_constructs,
   Clause::OMPC_no_openmp_routines,
   Clause::OMPC_no_parallelism,
-  Clause::OMPC_no_openmp_constructs,
 };
 
 static OmpClauseSet allowedExclusiveClauses_OMPD_assume {
@@ -132,13 +132,13 @@ static OmpClauseSet requiredClauses_OMPD_begin_assumes {
 // Sets for begin declare target
 
 static OmpClauseSet allowedClauses_OMPD_begin_declare_target {
-  Clause::OMPC_device_type,
-  Clause::OMPC_indirect,
   Clause::OMPC_link,
   Clause::OMPC_to,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_begin_declare_target {
+  Clause::OMPC_device_type,
+  Clause::OMPC_indirect,
 };
 
 static OmpClauseSet allowedExclusiveClauses_OMPD_begin_declare_target {
@@ -162,11 +162,11 @@ static OmpClauseSet requiredClauses_OMPD_begin_declare_variant {
 // Sets for cancel
 
 static OmpClauseSet allowedClauses_OMPD_cancel {
+  Clause::OMPC_if,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_cancel {
   Clause::OMPC_cancellation_construct_type,
-  Clause::OMPC_if,
 };
 
 static OmpClauseSet allowedExclusiveClauses_OMPD_cancel {
@@ -269,13 +269,14 @@ static OmpClauseSet requiredClauses_OMPD_declare_simd {
 
 static OmpClauseSet allowedClauses_OMPD_declare_target {
   Clause::OMPC_enter,
-  Clause::OMPC_indirect,
   Clause::OMPC_link,
+  Clause::OMPC_local,
   Clause::OMPC_to,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_declare_target {
   Clause::OMPC_device_type,
+  Clause::OMPC_indirect,
 };
 
 static OmpClauseSet allowedExclusiveClauses_OMPD_declare_target {
@@ -290,8 +291,8 @@ static OmpClauseSet allowedClauses_OMPD_declare_variant {
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_declare_variant {
-  Clause::OMPC_match,
   Clause::OMPC_append_args,
+  Clause::OMPC_match,
 };
 
 static OmpClauseSet allowedExclusiveClauses_OMPD_declare_variant {
@@ -306,10 +307,10 @@ static OmpClauseSet allowedClauses_OMPD_depobj {
   Clause::OMPC_depobj,
   Clause::OMPC_destroy,
   Clause::OMPC_init,
-  Clause::OMPC_update,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_depobj {
+  Clause::OMPC_update,
 };
 
 static OmpClauseSet allowedExclusiveClauses_OMPD_depobj {
@@ -342,8 +343,8 @@ static OmpClauseSet requiredClauses_OMPD_distribute {
 static OmpClauseSet allowedClauses_OMPD_distribute_parallel_do {
   Clause::OMPC_allocate,
   Clause::OMPC_copyin,
-  Clause::OMPC_default,
   Clause::OMPC_firstprivate,
+  Clause::OMPC_if,
   Clause::OMPC_lastprivate,
   Clause::OMPC_linear,
   Clause::OMPC_private,
@@ -353,8 +354,8 @@ static OmpClauseSet allowedClauses_OMPD_distribute_parallel_do {
 
 static OmpClauseSet allowedOnceClauses_OMPD_distribute_parallel_do {
   Clause::OMPC_collapse,
+  Clause::OMPC_default,
   Clause::OMPC_dist_schedule,
-  Clause::OMPC_if,
   Clause::OMPC_message,
   Clause::OMPC_num_threads,
   Clause::OMPC_order,
@@ -373,29 +374,29 @@ static OmpClauseSet requiredClauses_OMPD_distribute_parallel_do {
 static OmpClauseSet allowedClauses_OMPD_distribute_parallel_do_simd {
   Clause::OMPC_aligned,
   Clause::OMPC_allocate,
-  Clause::OMPC_collapse,
   Clause::OMPC_copyin,
-  Clause::OMPC_default,
-  Clause::OMPC_dist_schedule,
   Clause::OMPC_firstprivate,
   Clause::OMPC_if,
   Clause::OMPC_lastprivate,
   Clause::OMPC_linear,
-  Clause::OMPC_message,
   Clause::OMPC_nontemporal,
-  Clause::OMPC_num_threads,
-  Clause::OMPC_order,
   Clause::OMPC_private,
-  Clause::OMPC_proc_bind,
   Clause::OMPC_reduction,
-  Clause::OMPC_safelen,
-  Clause::OMPC_schedule,
-  Clause::OMPC_severity,
   Clause::OMPC_shared,
-  Clause::OMPC_simdlen,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_distribute_parallel_do_simd {
+  Clause::OMPC_collapse,
+  Clause::OMPC_default,
+  Clause::OMPC_dist_schedule,
+  Clause::OMPC_message,
+  Clause::OMPC_num_threads,
+  Clause::OMPC_order,
+  Clause::OMPC_proc_bind,
+  Clause::OMPC_safelen,
+  Clause::OMPC_schedule,
+  Clause::OMPC_severity,
+  Clause::OMPC_simdlen,
 };
 
 static OmpClauseSet allowedExclusiveClauses_OMPD_distribute_parallel_do_simd {
@@ -407,26 +408,26 @@ static OmpClauseSet requiredClauses_OMPD_distribute_parallel_do_simd {
 
 static OmpClauseSet allowedClauses_OMPD_distribute_parallel_for {
   Clause::OMPC_allocate,
-  Clause::OMPC_collapse,
   Clause::OMPC_copyin,
-  Clause::OMPC_default,
-  Clause::OMPC_dist_schedule,
   Clause::OMPC_firstprivate,
   Clause::OMPC_if,
   Clause::OMPC_lastprivate,
-  Clause::OMPC_message,
-  Clause::OMPC_num_threads,
   Clause::OMPC_ompx_attribute,
-  Clause::OMPC_order,
   Clause::OMPC_private,
-  Clause::OMPC_proc_bind,
   Clause::OMPC_reduction,
-  Clause::OMPC_schedule,
-  Clause::OMPC_severity,
   Clause::OMPC_shared,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_distribute_parallel_for {
+  Clause::OMPC_collapse,
+  Clause::OMPC_default,
+  Clause::OMPC_dist_schedule,
+  Clause::OMPC_message,
+  Clause::OMPC_num_threads,
+  Clause::OMPC_order,
+  Clause::OMPC_proc_bind,
+  Clause::OMPC_schedule,
+  Clause::OMPC_severity,
 };
 
 static OmpClauseSet allowedExclusiveClauses_OMPD_distribute_parallel_for {
@@ -439,30 +440,30 @@ static OmpClauseSet requiredClauses_OMPD_distribute_parallel_for {
 static OmpClauseSet allowedClauses_OMPD_distribute_parallel_for_simd {
   Clause::OMPC_aligned,
   Clause::OMPC_allocate,
-  Clause::OMPC_collapse,
   Clause::OMPC_copyin,
-  Clause::OMPC_default,
-  Clause::OMPC_dist_schedule,
   Clause::OMPC_firstprivate,
   Clause::OMPC_if,
   Clause::OMPC_lastprivate,
   Clause::OMPC_linear,
-  Clause::OMPC_message,
   Clause::OMPC_nontemporal,
-  Clause::OMPC_num_threads,
   Clause::OMPC_ompx_attribute,
-  Clause::OMPC_order,
   Clause::OMPC_private,
-  Clause::OMPC_proc_bind,
   Clause::OMPC_reduction,
-  Clause::OMPC_safelen,
-  Clause::OMPC_schedule,
-  Clause::OMPC_severity,
   Clause::OMPC_shared,
-  Clause::OMPC_simdlen,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_distribute_parallel_for_simd {
+  Clause::OMPC_collapse,
+  Clause::OMPC_default,
+  Clause::OMPC_dist_schedule,
+  Clause::OMPC_message,
+  Clause::OMPC_num_threads,
+  Clause::OMPC_order,
+  Clause::OMPC_proc_bind,
+  Clause::OMPC_safelen,
+  Clause::OMPC_schedule,
+  Clause::OMPC_severity,
+  Clause::OMPC_simdlen,
 };
 
 static OmpClauseSet allowedExclusiveClauses_OMPD_distribute_parallel_for_simd {
@@ -476,8 +477,8 @@ static OmpClauseSet allowedClauses_OMPD_distribute_simd {
   Clause::OMPC_aligned,
   Clause::OMPC_allocate,
   Clause::OMPC_copyin,
-  Clause::OMPC_default,
   Clause::OMPC_firstprivate,
+  Clause::OMPC_if,
   Clause::OMPC_lastprivate,
   Clause::OMPC_linear,
   Clause::OMPC_nontemporal,
@@ -487,8 +488,8 @@ static OmpClauseSet allowedClauses_OMPD_distribute_simd {
 
 static OmpClauseSet allowedOnceClauses_OMPD_distribute_simd {
   Clause::OMPC_collapse,
+  Clause::OMPC_default,
   Clause::OMPC_dist_schedule,
-  Clause::OMPC_if,
   Clause::OMPC_message,
   Clause::OMPC_num_threads,
   Clause::OMPC_order,
@@ -507,6 +508,7 @@ static OmpClauseSet requiredClauses_OMPD_distribute_simd {
 // Sets for do
 
 static OmpClauseSet allowedClauses_OMPD_do {
+  Clause::OMPC_allocate,
   Clause::OMPC_firstprivate,
   Clause::OMPC_lastprivate,
   Clause::OMPC_linear,
@@ -532,6 +534,7 @@ static OmpClauseSet requiredClauses_OMPD_do {
 static OmpClauseSet allowedClauses_OMPD_do_simd {
   Clause::OMPC_aligned,
   Clause::OMPC_firstprivate,
+  Clause::OMPC_if,
   Clause::OMPC_lastprivate,
   Clause::OMPC_linear,
   Clause::OMPC_private,
@@ -540,7 +543,6 @@ static OmpClauseSet allowedClauses_OMPD_do_simd {
 
 static OmpClauseSet allowedOnceClauses_OMPD_do_simd {
   Clause::OMPC_collapse,
-  Clause::OMPC_if,
   Clause::OMPC_nowait,
   Clause::OMPC_order,
   Clause::OMPC_ordered,
@@ -593,119 +595,36 @@ static OmpClauseSet allowedExclusiveClauses_OMPD_end_declare_variant {
 
 static OmpClauseSet requiredClauses_OMPD_end_declare_variant {
 };
-// Sets for end do
-
-static OmpClauseSet allowedClauses_OMPD_end_do {
-};
-
-static OmpClauseSet allowedOnceClauses_OMPD_end_do {
-  Clause::OMPC_nowait,
-};
-
-static OmpClauseSet allowedExclusiveClauses_OMPD_end_do {
-};
-
-static OmpClauseSet requiredClauses_OMPD_end_do {
-};
-// Sets for end do simd
-
-static OmpClauseSet allowedClauses_OMPD_end_do_simd {
-};
-
-static OmpClauseSet allowedOnceClauses_OMPD_end_do_simd {
-  Clause::OMPC_nowait,
-};
-
-static OmpClauseSet allowedExclusiveClauses_OMPD_end_do_simd {
-};
-
-static OmpClauseSet requiredClauses_OMPD_end_do_simd {
-};
-// Sets for end scope
-
-static OmpClauseSet allowedClauses_OMPD_end_scope {
-};
-
-static OmpClauseSet allowedOnceClauses_OMPD_end_scope {
-  Clause::OMPC_nowait,
-};
-
-static OmpClauseSet allowedExclusiveClauses_OMPD_end_scope {
-};
-
-static OmpClauseSet requiredClauses_OMPD_end_scope {
-};
-// Sets for end sections
-
-static OmpClauseSet allowedClauses_OMPD_end_sections {
-};
-
-static OmpClauseSet allowedOnceClauses_OMPD_end_sections {
-  Clause::OMPC_nowait,
-};
-
-static OmpClauseSet allowedExclusiveClauses_OMPD_end_sections {
-};
-
-static OmpClauseSet requiredClauses_OMPD_end_sections {
-};
-// Sets for end single
-
-static OmpClauseSet allowedClauses_OMPD_end_single {
-  Clause::OMPC_copyprivate,
-};
-
-static OmpClauseSet allowedOnceClauses_OMPD_end_single {
-  Clause::OMPC_nowait,
-};
-
-static OmpClauseSet allowedExclusiveClauses_OMPD_end_single {
-};
-
-static OmpClauseSet requiredClauses_OMPD_end_single {
-};
-// Sets for end workdistribute
-
-static OmpClauseSet allowedClauses_OMPD_end_workdistribute {
-};
-
-static OmpClauseSet allowedOnceClauses_OMPD_end_workdistribute {
-};
-
-static OmpClauseSet allowedExclusiveClauses_OMPD_end_workdistribute {
-};
-
-static OmpClauseSet requiredClauses_OMPD_end_workdistribute {
-};
-// Sets for end workshare
-
-static OmpClauseSet allowedClauses_OMPD_end_workshare {
-};
-
-static OmpClauseSet allowedOnceClauses_OMPD_end_workshare {
-  Clause::OMPC_nowait,
-};
-
-static OmpClauseSet allowedExclusiveClauses_OMPD_end_workshare {
-};
-
-static OmpClauseSet requiredClauses_OMPD_end_workshare {
-};
 // Sets for error
 
 static OmpClauseSet allowedClauses_OMPD_error {
-  Clause::OMPC_at,
-  Clause::OMPC_message,
-  Clause::OMPC_severity,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_error {
+  Clause::OMPC_at,
+  Clause::OMPC_message,
+  Clause::OMPC_severity,
 };
 
 static OmpClauseSet allowedExclusiveClauses_OMPD_error {
 };
 
 static OmpClauseSet requiredClauses_OMPD_error {
+};
+// Sets for flatten
+
+static OmpClauseSet allowedClauses_OMPD_flatten {
+  Clause::OMPC_apply,
+};
+
+static OmpClauseSet allowedOnceClauses_OMPD_flatten {
+  Clause::OMPC_depth,
+};
+
+static OmpClauseSet allowedExclusiveClauses_OMPD_flatten {
+};
+
+static OmpClauseSet requiredClauses_OMPD_flatten {
 };
 // Sets for flush
 
@@ -729,19 +648,19 @@ static OmpClauseSet requiredClauses_OMPD_flush {
 
 static OmpClauseSet allowedClauses_OMPD_for {
   Clause::OMPC_allocate,
-  Clause::OMPC_collapse,
   Clause::OMPC_firstprivate,
   Clause::OMPC_lastprivate,
   Clause::OMPC_linear,
-  Clause::OMPC_nowait,
-  Clause::OMPC_order,
-  Clause::OMPC_ordered,
   Clause::OMPC_private,
   Clause::OMPC_reduction,
-  Clause::OMPC_schedule,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_for {
+  Clause::OMPC_collapse,
+  Clause::OMPC_nowait,
+  Clause::OMPC_order,
+  Clause::OMPC_ordered,
+  Clause::OMPC_schedule,
 };
 
 static OmpClauseSet allowedExclusiveClauses_OMPD_for {
@@ -754,23 +673,23 @@ static OmpClauseSet requiredClauses_OMPD_for {
 static OmpClauseSet allowedClauses_OMPD_for_simd {
   Clause::OMPC_aligned,
   Clause::OMPC_allocate,
-  Clause::OMPC_collapse,
   Clause::OMPC_firstprivate,
   Clause::OMPC_if,
   Clause::OMPC_lastprivate,
   Clause::OMPC_linear,
   Clause::OMPC_nontemporal,
-  Clause::OMPC_nowait,
-  Clause::OMPC_order,
-  Clause::OMPC_ordered,
   Clause::OMPC_private,
   Clause::OMPC_reduction,
-  Clause::OMPC_safelen,
-  Clause::OMPC_schedule,
-  Clause::OMPC_simdlen,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_for_simd {
+  Clause::OMPC_collapse,
+  Clause::OMPC_nowait,
+  Clause::OMPC_order,
+  Clause::OMPC_ordered,
+  Clause::OMPC_safelen,
+  Clause::OMPC_schedule,
+  Clause::OMPC_simdlen,
 };
 
 static OmpClauseSet allowedExclusiveClauses_OMPD_for_simd {
@@ -781,9 +700,11 @@ static OmpClauseSet requiredClauses_OMPD_for_simd {
 // Sets for fuse
 
 static OmpClauseSet allowedClauses_OMPD_fuse {
+  Clause::OMPC_apply,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_fuse {
+  Clause::OMPC_depth,
   Clause::OMPC_looprange,
 };
 
@@ -809,6 +730,7 @@ static OmpClauseSet requiredClauses_OMPD_groupprivate {
 // Sets for interchange
 
 static OmpClauseSet allowedClauses_OMPD_interchange {
+  Clause::OMPC_apply,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_interchange {
@@ -824,26 +746,26 @@ static OmpClauseSet requiredClauses_OMPD_interchange {
 
 static OmpClauseSet allowedClauses_OMPD_masked_taskloop {
   Clause::OMPC_allocate,
+  Clause::OMPC_firstprivate,
+  Clause::OMPC_if,
+  Clause::OMPC_in_reduction,
+  Clause::OMPC_lastprivate,
+  Clause::OMPC_private,
+  Clause::OMPC_reduction,
+  Clause::OMPC_shared,
+};
+
+static OmpClauseSet allowedOnceClauses_OMPD_masked_taskloop {
   Clause::OMPC_collapse,
   Clause::OMPC_default,
   Clause::OMPC_filter,
   Clause::OMPC_final,
-  Clause::OMPC_firstprivate,
   Clause::OMPC_grainsize,
-  Clause::OMPC_if,
-  Clause::OMPC_in_reduction,
-  Clause::OMPC_lastprivate,
   Clause::OMPC_mergeable,
   Clause::OMPC_nogroup,
   Clause::OMPC_num_tasks,
   Clause::OMPC_priority,
-  Clause::OMPC_private,
-  Clause::OMPC_reduction,
-  Clause::OMPC_shared,
   Clause::OMPC_untied,
-};
-
-static OmpClauseSet allowedOnceClauses_OMPD_masked_taskloop {
 };
 
 static OmpClauseSet allowedExclusiveClauses_OMPD_masked_taskloop {
@@ -856,31 +778,31 @@ static OmpClauseSet requiredClauses_OMPD_masked_taskloop {
 static OmpClauseSet allowedClauses_OMPD_masked_taskloop_simd {
   Clause::OMPC_aligned,
   Clause::OMPC_allocate,
-  Clause::OMPC_collapse,
-  Clause::OMPC_default,
-  Clause::OMPC_filter,
-  Clause::OMPC_final,
   Clause::OMPC_firstprivate,
-  Clause::OMPC_grainsize,
   Clause::OMPC_if,
   Clause::OMPC_in_reduction,
   Clause::OMPC_lastprivate,
   Clause::OMPC_linear,
-  Clause::OMPC_mergeable,
-  Clause::OMPC_nogroup,
   Clause::OMPC_nontemporal,
-  Clause::OMPC_num_tasks,
-  Clause::OMPC_order,
-  Clause::OMPC_priority,
   Clause::OMPC_private,
   Clause::OMPC_reduction,
-  Clause::OMPC_safelen,
   Clause::OMPC_shared,
-  Clause::OMPC_simdlen,
-  Clause::OMPC_untied,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_masked_taskloop_simd {
+  Clause::OMPC_collapse,
+  Clause::OMPC_default,
+  Clause::OMPC_filter,
+  Clause::OMPC_final,
+  Clause::OMPC_grainsize,
+  Clause::OMPC_mergeable,
+  Clause::OMPC_nogroup,
+  Clause::OMPC_num_tasks,
+  Clause::OMPC_order,
+  Clause::OMPC_priority,
+  Clause::OMPC_safelen,
+  Clause::OMPC_simdlen,
+  Clause::OMPC_untied,
 };
 
 static OmpClauseSet allowedExclusiveClauses_OMPD_masked_taskloop_simd {
@@ -905,25 +827,25 @@ static OmpClauseSet requiredClauses_OMPD_master {
 
 static OmpClauseSet allowedClauses_OMPD_master_taskloop {
   Clause::OMPC_allocate,
-  Clause::OMPC_collapse,
-  Clause::OMPC_default,
-  Clause::OMPC_final,
   Clause::OMPC_firstprivate,
-  Clause::OMPC_grainsize,
   Clause::OMPC_if,
   Clause::OMPC_in_reduction,
   Clause::OMPC_lastprivate,
+  Clause::OMPC_private,
+  Clause::OMPC_reduction,
+  Clause::OMPC_shared,
+};
+
+static OmpClauseSet allowedOnceClauses_OMPD_master_taskloop {
+  Clause::OMPC_collapse,
+  Clause::OMPC_default,
+  Clause::OMPC_final,
+  Clause::OMPC_grainsize,
   Clause::OMPC_mergeable,
   Clause::OMPC_nogroup,
   Clause::OMPC_num_tasks,
   Clause::OMPC_priority,
-  Clause::OMPC_private,
-  Clause::OMPC_reduction,
-  Clause::OMPC_shared,
   Clause::OMPC_untied,
-};
-
-static OmpClauseSet allowedOnceClauses_OMPD_master_taskloop {
 };
 
 static OmpClauseSet allowedExclusiveClauses_OMPD_master_taskloop {
@@ -936,30 +858,30 @@ static OmpClauseSet requiredClauses_OMPD_master_taskloop {
 static OmpClauseSet allowedClauses_OMPD_master_taskloop_simd {
   Clause::OMPC_aligned,
   Clause::OMPC_allocate,
-  Clause::OMPC_collapse,
-  Clause::OMPC_default,
-  Clause::OMPC_final,
   Clause::OMPC_firstprivate,
-  Clause::OMPC_grainsize,
   Clause::OMPC_if,
   Clause::OMPC_in_reduction,
   Clause::OMPC_lastprivate,
   Clause::OMPC_linear,
-  Clause::OMPC_mergeable,
-  Clause::OMPC_nogroup,
   Clause::OMPC_nontemporal,
-  Clause::OMPC_num_tasks,
-  Clause::OMPC_order,
-  Clause::OMPC_priority,
   Clause::OMPC_private,
   Clause::OMPC_reduction,
-  Clause::OMPC_safelen,
   Clause::OMPC_shared,
-  Clause::OMPC_simdlen,
-  Clause::OMPC_untied,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_master_taskloop_simd {
+  Clause::OMPC_collapse,
+  Clause::OMPC_default,
+  Clause::OMPC_final,
+  Clause::OMPC_grainsize,
+  Clause::OMPC_mergeable,
+  Clause::OMPC_nogroup,
+  Clause::OMPC_num_tasks,
+  Clause::OMPC_order,
+  Clause::OMPC_priority,
+  Clause::OMPC_safelen,
+  Clause::OMPC_simdlen,
+  Clause::OMPC_untied,
 };
 
 static OmpClauseSet allowedExclusiveClauses_OMPD_master_taskloop_simd {
@@ -974,8 +896,8 @@ static OmpClauseSet allowedClauses_OMPD_metadirective {
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_metadirective {
-  Clause::OMPC_otherwise,
   Clause::OMPC_default,
+  Clause::OMPC_otherwise,
 };
 
 static OmpClauseSet allowedExclusiveClauses_OMPD_metadirective {
@@ -986,6 +908,7 @@ static OmpClauseSet requiredClauses_OMPD_metadirective {
 // Sets for nothing
 
 static OmpClauseSet allowedClauses_OMPD_nothing {
+  Clause::OMPC_apply,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_nothing {
@@ -1019,6 +942,7 @@ static OmpClauseSet allowedClauses_OMPD_parallel {
   Clause::OMPC_allocate,
   Clause::OMPC_copyin,
   Clause::OMPC_firstprivate,
+  Clause::OMPC_if,
   Clause::OMPC_ompx_attribute,
   Clause::OMPC_private,
   Clause::OMPC_reduction,
@@ -1027,7 +951,6 @@ static OmpClauseSet allowedClauses_OMPD_parallel {
 
 static OmpClauseSet allowedOnceClauses_OMPD_parallel {
   Clause::OMPC_default,
-  Clause::OMPC_if,
   Clause::OMPC_message,
   Clause::OMPC_num_threads,
   Clause::OMPC_proc_bind,
@@ -1042,9 +965,10 @@ static OmpClauseSet requiredClauses_OMPD_parallel {
 // Sets for parallel do
 
 static OmpClauseSet allowedClauses_OMPD_parallel_do {
+  Clause::OMPC_allocate,
   Clause::OMPC_copyin,
-  Clause::OMPC_default,
   Clause::OMPC_firstprivate,
+  Clause::OMPC_if,
   Clause::OMPC_lastprivate,
   Clause::OMPC_linear,
   Clause::OMPC_private,
@@ -1054,7 +978,7 @@ static OmpClauseSet allowedClauses_OMPD_parallel_do {
 
 static OmpClauseSet allowedOnceClauses_OMPD_parallel_do {
   Clause::OMPC_collapse,
-  Clause::OMPC_if,
+  Clause::OMPC_default,
   Clause::OMPC_message,
   Clause::OMPC_num_threads,
   Clause::OMPC_order,
@@ -1075,7 +999,6 @@ static OmpClauseSet allowedClauses_OMPD_parallel_do_simd {
   Clause::OMPC_aligned,
   Clause::OMPC_allocate,
   Clause::OMPC_copyin,
-  Clause::OMPC_default,
   Clause::OMPC_firstprivate,
   Clause::OMPC_if,
   Clause::OMPC_lastprivate,
@@ -1088,6 +1011,7 @@ static OmpClauseSet allowedClauses_OMPD_parallel_do_simd {
 
 static OmpClauseSet allowedOnceClauses_OMPD_parallel_do_simd {
   Clause::OMPC_collapse,
+  Clause::OMPC_default,
   Clause::OMPC_message,
   Clause::OMPC_num_threads,
   Clause::OMPC_order,
@@ -1095,8 +1019,8 @@ static OmpClauseSet allowedOnceClauses_OMPD_parallel_do_simd {
   Clause::OMPC_proc_bind,
   Clause::OMPC_safelen,
   Clause::OMPC_schedule,
-  Clause::OMPC_simdlen,
   Clause::OMPC_severity,
+  Clause::OMPC_simdlen,
 };
 
 static OmpClauseSet allowedExclusiveClauses_OMPD_parallel_do_simd {
@@ -1108,27 +1032,27 @@ static OmpClauseSet requiredClauses_OMPD_parallel_do_simd {
 
 static OmpClauseSet allowedClauses_OMPD_parallel_for {
   Clause::OMPC_allocate,
-  Clause::OMPC_collapse,
   Clause::OMPC_copyin,
-  Clause::OMPC_default,
   Clause::OMPC_firstprivate,
   Clause::OMPC_if,
   Clause::OMPC_lastprivate,
   Clause::OMPC_linear,
-  Clause::OMPC_message,
-  Clause::OMPC_num_threads,
   Clause::OMPC_ompx_attribute,
-  Clause::OMPC_order,
-  Clause::OMPC_ordered,
   Clause::OMPC_private,
-  Clause::OMPC_proc_bind,
   Clause::OMPC_reduction,
-  Clause::OMPC_schedule,
-  Clause::OMPC_severity,
   Clause::OMPC_shared,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_parallel_for {
+  Clause::OMPC_collapse,
+  Clause::OMPC_default,
+  Clause::OMPC_message,
+  Clause::OMPC_num_threads,
+  Clause::OMPC_order,
+  Clause::OMPC_ordered,
+  Clause::OMPC_proc_bind,
+  Clause::OMPC_schedule,
+  Clause::OMPC_severity,
 };
 
 static OmpClauseSet allowedExclusiveClauses_OMPD_parallel_for {
@@ -1141,30 +1065,30 @@ static OmpClauseSet requiredClauses_OMPD_parallel_for {
 static OmpClauseSet allowedClauses_OMPD_parallel_for_simd {
   Clause::OMPC_aligned,
   Clause::OMPC_allocate,
-  Clause::OMPC_collapse,
   Clause::OMPC_copyin,
-  Clause::OMPC_default,
   Clause::OMPC_firstprivate,
   Clause::OMPC_if,
   Clause::OMPC_lastprivate,
   Clause::OMPC_linear,
-  Clause::OMPC_message,
   Clause::OMPC_nontemporal,
-  Clause::OMPC_num_threads,
   Clause::OMPC_ompx_attribute,
-  Clause::OMPC_order,
-  Clause::OMPC_ordered,
   Clause::OMPC_private,
-  Clause::OMPC_proc_bind,
   Clause::OMPC_reduction,
-  Clause::OMPC_safelen,
-  Clause::OMPC_schedule,
-  Clause::OMPC_severity,
   Clause::OMPC_shared,
-  Clause::OMPC_simdlen,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_parallel_for_simd {
+  Clause::OMPC_collapse,
+  Clause::OMPC_default,
+  Clause::OMPC_message,
+  Clause::OMPC_num_threads,
+  Clause::OMPC_order,
+  Clause::OMPC_ordered,
+  Clause::OMPC_proc_bind,
+  Clause::OMPC_safelen,
+  Clause::OMPC_schedule,
+  Clause::OMPC_severity,
+  Clause::OMPC_simdlen,
 };
 
 static OmpClauseSet allowedExclusiveClauses_OMPD_parallel_for_simd {
@@ -1177,21 +1101,21 @@ static OmpClauseSet requiredClauses_OMPD_parallel_for_simd {
 static OmpClauseSet allowedClauses_OMPD_parallel_masked {
   Clause::OMPC_allocate,
   Clause::OMPC_copyin,
-  Clause::OMPC_default,
-  Clause::OMPC_filter,
   Clause::OMPC_firstprivate,
   Clause::OMPC_if,
-  Clause::OMPC_message,
-  Clause::OMPC_num_threads,
   Clause::OMPC_ompx_attribute,
   Clause::OMPC_private,
-  Clause::OMPC_proc_bind,
   Clause::OMPC_reduction,
-  Clause::OMPC_severity,
   Clause::OMPC_shared,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_parallel_masked {
+  Clause::OMPC_default,
+  Clause::OMPC_filter,
+  Clause::OMPC_message,
+  Clause::OMPC_num_threads,
+  Clause::OMPC_proc_bind,
+  Clause::OMPC_severity,
 };
 
 static OmpClauseSet allowedExclusiveClauses_OMPD_parallel_masked {
@@ -1203,31 +1127,31 @@ static OmpClauseSet requiredClauses_OMPD_parallel_masked {
 
 static OmpClauseSet allowedClauses_OMPD_parallel_masked_taskloop {
   Clause::OMPC_allocate,
-  Clause::OMPC_collapse,
   Clause::OMPC_copyin,
+  Clause::OMPC_firstprivate,
+  Clause::OMPC_if,
+  Clause::OMPC_lastprivate,
+  Clause::OMPC_ompx_attribute,
+  Clause::OMPC_private,
+  Clause::OMPC_reduction,
+  Clause::OMPC_shared,
+};
+
+static OmpClauseSet allowedOnceClauses_OMPD_parallel_masked_taskloop {
+  Clause::OMPC_collapse,
   Clause::OMPC_default,
   Clause::OMPC_filter,
   Clause::OMPC_final,
-  Clause::OMPC_firstprivate,
   Clause::OMPC_grainsize,
-  Clause::OMPC_if,
-  Clause::OMPC_lastprivate,
   Clause::OMPC_mergeable,
   Clause::OMPC_message,
   Clause::OMPC_nogroup,
   Clause::OMPC_num_tasks,
   Clause::OMPC_num_threads,
-  Clause::OMPC_ompx_attribute,
   Clause::OMPC_priority,
-  Clause::OMPC_private,
   Clause::OMPC_proc_bind,
-  Clause::OMPC_reduction,
   Clause::OMPC_severity,
-  Clause::OMPC_shared,
   Clause::OMPC_untied,
-};
-
-static OmpClauseSet allowedOnceClauses_OMPD_parallel_masked_taskloop {
 };
 
 static OmpClauseSet allowedExclusiveClauses_OMPD_parallel_masked_taskloop {
@@ -1240,36 +1164,36 @@ static OmpClauseSet requiredClauses_OMPD_parallel_masked_taskloop {
 static OmpClauseSet allowedClauses_OMPD_parallel_masked_taskloop_simd {
   Clause::OMPC_aligned,
   Clause::OMPC_allocate,
-  Clause::OMPC_collapse,
   Clause::OMPC_copyin,
-  Clause::OMPC_default,
-  Clause::OMPC_filter,
-  Clause::OMPC_final,
   Clause::OMPC_firstprivate,
-  Clause::OMPC_grainsize,
   Clause::OMPC_if,
   Clause::OMPC_lastprivate,
   Clause::OMPC_linear,
-  Clause::OMPC_mergeable,
-  Clause::OMPC_message,
-  Clause::OMPC_nogroup,
   Clause::OMPC_nontemporal,
-  Clause::OMPC_num_tasks,
-  Clause::OMPC_num_threads,
   Clause::OMPC_ompx_attribute,
-  Clause::OMPC_order,
-  Clause::OMPC_priority,
   Clause::OMPC_private,
-  Clause::OMPC_proc_bind,
   Clause::OMPC_reduction,
-  Clause::OMPC_safelen,
-  Clause::OMPC_severity,
   Clause::OMPC_shared,
-  Clause::OMPC_simdlen,
-  Clause::OMPC_untied,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_parallel_masked_taskloop_simd {
+  Clause::OMPC_collapse,
+  Clause::OMPC_default,
+  Clause::OMPC_filter,
+  Clause::OMPC_final,
+  Clause::OMPC_grainsize,
+  Clause::OMPC_mergeable,
+  Clause::OMPC_message,
+  Clause::OMPC_nogroup,
+  Clause::OMPC_num_tasks,
+  Clause::OMPC_num_threads,
+  Clause::OMPC_order,
+  Clause::OMPC_priority,
+  Clause::OMPC_proc_bind,
+  Clause::OMPC_safelen,
+  Clause::OMPC_severity,
+  Clause::OMPC_simdlen,
+  Clause::OMPC_untied,
 };
 
 static OmpClauseSet allowedExclusiveClauses_OMPD_parallel_masked_taskloop_simd {
@@ -1282,20 +1206,20 @@ static OmpClauseSet requiredClauses_OMPD_parallel_masked_taskloop_simd {
 static OmpClauseSet allowedClauses_OMPD_parallel_master {
   Clause::OMPC_allocate,
   Clause::OMPC_copyin,
-  Clause::OMPC_default,
   Clause::OMPC_firstprivate,
   Clause::OMPC_if,
-  Clause::OMPC_message,
-  Clause::OMPC_num_threads,
   Clause::OMPC_ompx_attribute,
   Clause::OMPC_private,
-  Clause::OMPC_proc_bind,
   Clause::OMPC_reduction,
-  Clause::OMPC_severity,
   Clause::OMPC_shared,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_parallel_master {
+  Clause::OMPC_default,
+  Clause::OMPC_message,
+  Clause::OMPC_num_threads,
+  Clause::OMPC_proc_bind,
+  Clause::OMPC_severity,
 };
 
 static OmpClauseSet allowedExclusiveClauses_OMPD_parallel_master {
@@ -1307,30 +1231,30 @@ static OmpClauseSet requiredClauses_OMPD_parallel_master {
 
 static OmpClauseSet allowedClauses_OMPD_parallel_master_taskloop {
   Clause::OMPC_allocate,
-  Clause::OMPC_collapse,
   Clause::OMPC_copyin,
-  Clause::OMPC_default,
-  Clause::OMPC_final,
   Clause::OMPC_firstprivate,
-  Clause::OMPC_grainsize,
   Clause::OMPC_if,
   Clause::OMPC_lastprivate,
+  Clause::OMPC_ompx_attribute,
+  Clause::OMPC_private,
+  Clause::OMPC_reduction,
+  Clause::OMPC_shared,
+};
+
+static OmpClauseSet allowedOnceClauses_OMPD_parallel_master_taskloop {
+  Clause::OMPC_collapse,
+  Clause::OMPC_default,
+  Clause::OMPC_final,
+  Clause::OMPC_grainsize,
   Clause::OMPC_mergeable,
   Clause::OMPC_message,
   Clause::OMPC_nogroup,
   Clause::OMPC_num_tasks,
   Clause::OMPC_num_threads,
-  Clause::OMPC_ompx_attribute,
   Clause::OMPC_priority,
-  Clause::OMPC_private,
   Clause::OMPC_proc_bind,
-  Clause::OMPC_reduction,
   Clause::OMPC_severity,
-  Clause::OMPC_shared,
   Clause::OMPC_untied,
-};
-
-static OmpClauseSet allowedOnceClauses_OMPD_parallel_master_taskloop {
 };
 
 static OmpClauseSet allowedExclusiveClauses_OMPD_parallel_master_taskloop {
@@ -1343,35 +1267,35 @@ static OmpClauseSet requiredClauses_OMPD_parallel_master_taskloop {
 static OmpClauseSet allowedClauses_OMPD_parallel_master_taskloop_simd {
   Clause::OMPC_aligned,
   Clause::OMPC_allocate,
-  Clause::OMPC_collapse,
   Clause::OMPC_copyin,
-  Clause::OMPC_default,
-  Clause::OMPC_final,
   Clause::OMPC_firstprivate,
-  Clause::OMPC_grainsize,
   Clause::OMPC_if,
   Clause::OMPC_lastprivate,
   Clause::OMPC_linear,
-  Clause::OMPC_mergeable,
-  Clause::OMPC_message,
-  Clause::OMPC_nogroup,
   Clause::OMPC_nontemporal,
-  Clause::OMPC_num_tasks,
-  Clause::OMPC_num_threads,
   Clause::OMPC_ompx_attribute,
-  Clause::OMPC_order,
-  Clause::OMPC_priority,
   Clause::OMPC_private,
-  Clause::OMPC_proc_bind,
   Clause::OMPC_reduction,
-  Clause::OMPC_safelen,
-  Clause::OMPC_severity,
   Clause::OMPC_shared,
-  Clause::OMPC_simdlen,
-  Clause::OMPC_untied,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_parallel_master_taskloop_simd {
+  Clause::OMPC_collapse,
+  Clause::OMPC_default,
+  Clause::OMPC_final,
+  Clause::OMPC_grainsize,
+  Clause::OMPC_mergeable,
+  Clause::OMPC_message,
+  Clause::OMPC_nogroup,
+  Clause::OMPC_num_tasks,
+  Clause::OMPC_num_threads,
+  Clause::OMPC_order,
+  Clause::OMPC_priority,
+  Clause::OMPC_proc_bind,
+  Clause::OMPC_safelen,
+  Clause::OMPC_severity,
+  Clause::OMPC_simdlen,
+  Clause::OMPC_untied,
 };
 
 static OmpClauseSet allowedExclusiveClauses_OMPD_parallel_master_taskloop_simd {
@@ -1384,20 +1308,20 @@ static OmpClauseSet requiredClauses_OMPD_parallel_master_taskloop_simd {
 static OmpClauseSet allowedClauses_OMPD_parallel_sections {
   Clause::OMPC_allocate,
   Clause::OMPC_copyin,
-  Clause::OMPC_default,
   Clause::OMPC_firstprivate,
+  Clause::OMPC_if,
   Clause::OMPC_lastprivate,
   Clause::OMPC_ompx_attribute,
   Clause::OMPC_private,
-  Clause::OMPC_proc_bind,
   Clause::OMPC_reduction,
   Clause::OMPC_shared,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_parallel_sections {
-  Clause::OMPC_if,
+  Clause::OMPC_default,
   Clause::OMPC_message,
   Clause::OMPC_num_threads,
+  Clause::OMPC_proc_bind,
   Clause::OMPC_severity,
 };
 
@@ -1411,15 +1335,15 @@ static OmpClauseSet requiredClauses_OMPD_parallel_sections {
 static OmpClauseSet allowedClauses_OMPD_parallel_workshare {
   Clause::OMPC_allocate,
   Clause::OMPC_copyin,
-  Clause::OMPC_default,
   Clause::OMPC_firstprivate,
+  Clause::OMPC_if,
   Clause::OMPC_private,
   Clause::OMPC_reduction,
   Clause::OMPC_shared,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_parallel_workshare {
-  Clause::OMPC_if,
+  Clause::OMPC_default,
   Clause::OMPC_message,
   Clause::OMPC_num_threads,
   Clause::OMPC_proc_bind,
@@ -1437,13 +1361,13 @@ static OmpClauseSet allowedClauses_OMPD_requires {
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_requires {
+  Clause::OMPC_atomic_default_mem_order,
+  Clause::OMPC_device_safesync,
+  Clause::OMPC_dynamic_allocators,
+  Clause::OMPC_reverse_offload,
+  Clause::OMPC_self_maps,
   Clause::OMPC_unified_address,
   Clause::OMPC_unified_shared_memory,
-  Clause::OMPC_device_safesync,
-  Clause::OMPC_atomic_default_mem_order,
-  Clause::OMPC_dynamic_allocators,
-  Clause::OMPC_self_maps,
-  Clause::OMPC_reverse_offload,
 };
 
 static OmpClauseSet allowedExclusiveClauses_OMPD_requires {
@@ -1454,6 +1378,7 @@ static OmpClauseSet requiredClauses_OMPD_requires {
 // Sets for reverse
 
 static OmpClauseSet allowedClauses_OMPD_reverse {
+  Clause::OMPC_apply,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_reverse {
@@ -1467,11 +1392,11 @@ static OmpClauseSet requiredClauses_OMPD_reverse {
 // Sets for scan
 
 static OmpClauseSet allowedClauses_OMPD_scan {
-  Clause::OMPC_exclusive,
-  Clause::OMPC_inclusive,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_scan {
+  Clause::OMPC_exclusive,
+  Clause::OMPC_inclusive,
 };
 
 static OmpClauseSet allowedExclusiveClauses_OMPD_scan {
@@ -1516,12 +1441,12 @@ static OmpClauseSet allowedClauses_OMPD_sections {
   Clause::OMPC_allocate,
   Clause::OMPC_firstprivate,
   Clause::OMPC_lastprivate,
-  Clause::OMPC_nowait,
   Clause::OMPC_private,
   Clause::OMPC_reduction,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_sections {
+  Clause::OMPC_nowait,
 };
 
 static OmpClauseSet allowedExclusiveClauses_OMPD_sections {
@@ -1534,6 +1459,7 @@ static OmpClauseSet requiredClauses_OMPD_sections {
 static OmpClauseSet allowedClauses_OMPD_simd {
   Clause::OMPC_aligned,
   Clause::OMPC_allocate,
+  Clause::OMPC_if,
   Clause::OMPC_lastprivate,
   Clause::OMPC_linear,
   Clause::OMPC_nontemporal,
@@ -1543,7 +1469,6 @@ static OmpClauseSet allowedClauses_OMPD_simd {
 
 static OmpClauseSet allowedOnceClauses_OMPD_simd {
   Clause::OMPC_collapse,
-  Clause::OMPC_if,
   Clause::OMPC_order,
   Clause::OMPC_safelen,
   Clause::OMPC_simdlen,
@@ -1572,9 +1497,26 @@ static OmpClauseSet allowedExclusiveClauses_OMPD_single {
 
 static OmpClauseSet requiredClauses_OMPD_single {
 };
+// Sets for split
+
+static OmpClauseSet allowedClauses_OMPD_split {
+  Clause::OMPC_apply,
+};
+
+static OmpClauseSet allowedOnceClauses_OMPD_split {
+  Clause::OMPC_counts,
+};
+
+static OmpClauseSet allowedExclusiveClauses_OMPD_split {
+};
+
+static OmpClauseSet requiredClauses_OMPD_split {
+  Clause::OMPC_counts,
+};
 // Sets for stripe
 
 static OmpClauseSet allowedClauses_OMPD_stripe {
+  Clause::OMPC_apply,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_stripe {
@@ -1593,6 +1535,7 @@ static OmpClauseSet allowedClauses_OMPD_target {
   Clause::OMPC_depend,
   Clause::OMPC_dyn_groupprivate,
   Clause::OMPC_firstprivate,
+  Clause::OMPC_if,
   Clause::OMPC_has_device_addr,
   Clause::OMPC_in_reduction,
   Clause::OMPC_is_device_ptr,
@@ -1600,13 +1543,12 @@ static OmpClauseSet allowedClauses_OMPD_target {
   Clause::OMPC_ompx_attribute,
   Clause::OMPC_private,
   Clause::OMPC_uses_allocators,
-  Clause::OMPC_default,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_target {
+  Clause::OMPC_default,
   Clause::OMPC_defaultmap,
   Clause::OMPC_device,
-  Clause::OMPC_if,
   Clause::OMPC_nowait,
   Clause::OMPC_ompx_bare,
   Clause::OMPC_ompx_dyn_cgroup_mem,
@@ -1622,12 +1564,12 @@ static OmpClauseSet requiredClauses_OMPD_target {
 // Sets for target data
 
 static OmpClauseSet allowedClauses_OMPD_target_data {
+  Clause::OMPC_if,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_target_data {
-  Clause::OMPC_device,
-  Clause::OMPC_if,
   Clause::OMPC_default,
+  Clause::OMPC_device,
   Clause::OMPC_transparent,
 };
 
@@ -1643,11 +1585,11 @@ static OmpClauseSet requiredClauses_OMPD_target_data {
 
 static OmpClauseSet allowedClauses_OMPD_target_enter_data {
   Clause::OMPC_depend,
+  Clause::OMPC_if,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_target_enter_data {
   Clause::OMPC_device,
-  Clause::OMPC_if,
   Clause::OMPC_nowait,
   Clause::OMPC_replayable,
 };
@@ -1662,11 +1604,11 @@ static OmpClauseSet requiredClauses_OMPD_target_enter_data {
 
 static OmpClauseSet allowedClauses_OMPD_target_exit_data {
   Clause::OMPC_depend,
+  Clause::OMPC_if,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_target_exit_data {
   Clause::OMPC_device,
-  Clause::OMPC_if,
   Clause::OMPC_nowait,
   Clause::OMPC_replayable,
 };
@@ -1681,7 +1623,6 @@ static OmpClauseSet requiredClauses_OMPD_target_exit_data {
 
 static OmpClauseSet allowedClauses_OMPD_target_parallel {
   Clause::OMPC_allocate,
-  Clause::OMPC_default,
   Clause::OMPC_depend,
   Clause::OMPC_dyn_groupprivate,
   Clause::OMPC_firstprivate,
@@ -1689,7 +1630,6 @@ static OmpClauseSet allowedClauses_OMPD_target_parallel {
   Clause::OMPC_if,
   Clause::OMPC_is_device_ptr,
   Clause::OMPC_map,
-  Clause::OMPC_nowait,
   Clause::OMPC_ompx_attribute,
   Clause::OMPC_private,
   Clause::OMPC_reduction,
@@ -1698,9 +1638,11 @@ static OmpClauseSet allowedClauses_OMPD_target_parallel {
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_target_parallel {
+  Clause::OMPC_default,
   Clause::OMPC_defaultmap,
   Clause::OMPC_device,
   Clause::OMPC_message,
+  Clause::OMPC_nowait,
   Clause::OMPC_num_threads,
   Clause::OMPC_ompx_dyn_cgroup_mem,
   Clause::OMPC_proc_bind,
@@ -1716,8 +1658,6 @@ static OmpClauseSet requiredClauses_OMPD_target_parallel {
 // Sets for target parallel do
 
 static OmpClauseSet allowedClauses_OMPD_target_parallel_do {
-  Clause::OMPC_allocator,
-  Clause::OMPC_default,
   Clause::OMPC_depend,
   Clause::OMPC_dyn_groupprivate,
   Clause::OMPC_firstprivate,
@@ -1734,7 +1674,9 @@ static OmpClauseSet allowedClauses_OMPD_target_parallel_do {
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_target_parallel_do {
+  Clause::OMPC_allocator,
   Clause::OMPC_collapse,
+  Clause::OMPC_default,
   Clause::OMPC_defaultmap,
   Clause::OMPC_device,
   Clause::OMPC_message,
@@ -1757,11 +1699,7 @@ static OmpClauseSet requiredClauses_OMPD_target_parallel_do {
 static OmpClauseSet allowedClauses_OMPD_target_parallel_do_simd {
   Clause::OMPC_aligned,
   Clause::OMPC_allocate,
-  Clause::OMPC_collapse,
-  Clause::OMPC_default,
-  Clause::OMPC_defaultmap,
   Clause::OMPC_depend,
-  Clause::OMPC_device,
   Clause::OMPC_dyn_groupprivate,
   Clause::OMPC_firstprivate,
   Clause::OMPC_has_device_addr,
@@ -1770,24 +1708,28 @@ static OmpClauseSet allowedClauses_OMPD_target_parallel_do_simd {
   Clause::OMPC_lastprivate,
   Clause::OMPC_linear,
   Clause::OMPC_map,
-  Clause::OMPC_message,
   Clause::OMPC_nontemporal,
-  Clause::OMPC_nowait,
-  Clause::OMPC_num_threads,
-  Clause::OMPC_order,
-  Clause::OMPC_ordered,
   Clause::OMPC_private,
-  Clause::OMPC_proc_bind,
   Clause::OMPC_reduction,
-  Clause::OMPC_safelen,
-  Clause::OMPC_schedule,
-  Clause::OMPC_severity,
   Clause::OMPC_shared,
-  Clause::OMPC_simdlen,
   Clause::OMPC_uses_allocators,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_target_parallel_do_simd {
+  Clause::OMPC_collapse,
+  Clause::OMPC_default,
+  Clause::OMPC_defaultmap,
+  Clause::OMPC_device,
+  Clause::OMPC_message,
+  Clause::OMPC_nowait,
+  Clause::OMPC_num_threads,
+  Clause::OMPC_order,
+  Clause::OMPC_ordered,
+  Clause::OMPC_proc_bind,
+  Clause::OMPC_safelen,
+  Clause::OMPC_schedule,
+  Clause::OMPC_severity,
+  Clause::OMPC_simdlen,
 };
 
 static OmpClauseSet allowedExclusiveClauses_OMPD_target_parallel_do_simd {
@@ -1799,11 +1741,7 @@ static OmpClauseSet requiredClauses_OMPD_target_parallel_do_simd {
 
 static OmpClauseSet allowedClauses_OMPD_target_parallel_for {
   Clause::OMPC_allocate,
-  Clause::OMPC_collapse,
-  Clause::OMPC_default,
-  Clause::OMPC_defaultmap,
   Clause::OMPC_depend,
-  Clause::OMPC_device,
   Clause::OMPC_dyn_groupprivate,
   Clause::OMPC_firstprivate,
   Clause::OMPC_has_device_addr,
@@ -1812,23 +1750,27 @@ static OmpClauseSet allowedClauses_OMPD_target_parallel_for {
   Clause::OMPC_lastprivate,
   Clause::OMPC_linear,
   Clause::OMPC_map,
-  Clause::OMPC_message,
-  Clause::OMPC_nowait,
-  Clause::OMPC_num_threads,
   Clause::OMPC_ompx_attribute,
-  Clause::OMPC_order,
-  Clause::OMPC_ordered,
   Clause::OMPC_private,
-  Clause::OMPC_proc_bind,
   Clause::OMPC_reduction,
-  Clause::OMPC_schedule,
-  Clause::OMPC_severity,
   Clause::OMPC_shared,
   Clause::OMPC_uses_allocators,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_target_parallel_for {
+  Clause::OMPC_collapse,
+  Clause::OMPC_default,
+  Clause::OMPC_defaultmap,
+  Clause::OMPC_device,
+  Clause::OMPC_message,
+  Clause::OMPC_nowait,
+  Clause::OMPC_num_threads,
   Clause::OMPC_ompx_dyn_cgroup_mem,
+  Clause::OMPC_order,
+  Clause::OMPC_ordered,
+  Clause::OMPC_proc_bind,
+  Clause::OMPC_schedule,
+  Clause::OMPC_severity,
   Clause::OMPC_thread_limit,
 };
 
@@ -1842,11 +1784,7 @@ static OmpClauseSet requiredClauses_OMPD_target_parallel_for {
 static OmpClauseSet allowedClauses_OMPD_target_parallel_for_simd {
   Clause::OMPC_aligned,
   Clause::OMPC_allocate,
-  Clause::OMPC_collapse,
-  Clause::OMPC_default,
-  Clause::OMPC_defaultmap,
   Clause::OMPC_depend,
-  Clause::OMPC_device,
   Clause::OMPC_dyn_groupprivate,
   Clause::OMPC_firstprivate,
   Clause::OMPC_has_device_addr,
@@ -1855,26 +1793,30 @@ static OmpClauseSet allowedClauses_OMPD_target_parallel_for_simd {
   Clause::OMPC_lastprivate,
   Clause::OMPC_linear,
   Clause::OMPC_map,
-  Clause::OMPC_message,
   Clause::OMPC_nontemporal,
-  Clause::OMPC_nowait,
-  Clause::OMPC_num_threads,
   Clause::OMPC_ompx_attribute,
-  Clause::OMPC_order,
-  Clause::OMPC_ordered,
   Clause::OMPC_private,
-  Clause::OMPC_proc_bind,
   Clause::OMPC_reduction,
-  Clause::OMPC_safelen,
-  Clause::OMPC_schedule,
-  Clause::OMPC_severity,
   Clause::OMPC_shared,
-  Clause::OMPC_simdlen,
   Clause::OMPC_uses_allocators,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_target_parallel_for_simd {
+  Clause::OMPC_collapse,
+  Clause::OMPC_default,
+  Clause::OMPC_defaultmap,
+  Clause::OMPC_device,
+  Clause::OMPC_message,
+  Clause::OMPC_nowait,
+  Clause::OMPC_num_threads,
   Clause::OMPC_ompx_dyn_cgroup_mem,
+  Clause::OMPC_order,
+  Clause::OMPC_ordered,
+  Clause::OMPC_proc_bind,
+  Clause::OMPC_safelen,
+  Clause::OMPC_schedule,
+  Clause::OMPC_severity,
+  Clause::OMPC_simdlen,
   Clause::OMPC_thread_limit,
 };
 
@@ -1898,7 +1840,6 @@ static OmpClauseSet allowedClauses_OMPD_target_simd {
   Clause::OMPC_linear,
   Clause::OMPC_map,
   Clause::OMPC_nontemporal,
-  Clause::OMPC_nowait,
   Clause::OMPC_ompx_attribute,
   Clause::OMPC_private,
   Clause::OMPC_reduction,
@@ -1911,6 +1852,7 @@ static OmpClauseSet allowedOnceClauses_OMPD_target_simd {
   Clause::OMPC_defaultmap,
   Clause::OMPC_device,
   Clause::OMPC_message,
+  Clause::OMPC_nowait,
   Clause::OMPC_num_threads,
   Clause::OMPC_ompx_dyn_cgroup_mem,
   Clause::OMPC_order,
@@ -1951,8 +1893,8 @@ static OmpClauseSet allowedOnceClauses_OMPD_target_teams {
   Clause::OMPC_device,
   Clause::OMPC_nowait,
   Clause::OMPC_num_teams,
-  Clause::OMPC_ompx_dyn_cgroup_mem,
   Clause::OMPC_ompx_bare,
+  Clause::OMPC_ompx_dyn_cgroup_mem,
   Clause::OMPC_thread_limit,
 };
 
@@ -2088,12 +2030,7 @@ static OmpClauseSet requiredClauses_OMPD_target_teams_distribute_parallel_do_sim
 
 static OmpClauseSet allowedClauses_OMPD_target_teams_distribute_parallel_for {
   Clause::OMPC_allocate,
-  Clause::OMPC_collapse,
-  Clause::OMPC_default,
-  Clause::OMPC_defaultmap,
   Clause::OMPC_depend,
-  Clause::OMPC_device,
-  Clause::OMPC_dist_schedule,
   Clause::OMPC_dyn_groupprivate,
   Clause::OMPC_firstprivate,
   Clause::OMPC_has_device_addr,
@@ -2101,24 +2038,29 @@ static OmpClauseSet allowedClauses_OMPD_target_teams_distribute_parallel_for {
   Clause::OMPC_is_device_ptr,
   Clause::OMPC_lastprivate,
   Clause::OMPC_map,
-  Clause::OMPC_message,
-  Clause::OMPC_nowait,
-  Clause::OMPC_num_teams,
-  Clause::OMPC_num_threads,
   Clause::OMPC_ompx_attribute,
-  Clause::OMPC_order,
   Clause::OMPC_private,
-  Clause::OMPC_proc_bind,
   Clause::OMPC_reduction,
-  Clause::OMPC_schedule,
-  Clause::OMPC_severity,
   Clause::OMPC_shared,
-  Clause::OMPC_thread_limit,
   Clause::OMPC_uses_allocators,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_target_teams_distribute_parallel_for {
+  Clause::OMPC_collapse,
+  Clause::OMPC_default,
+  Clause::OMPC_defaultmap,
+  Clause::OMPC_device,
+  Clause::OMPC_dist_schedule,
+  Clause::OMPC_message,
+  Clause::OMPC_nowait,
+  Clause::OMPC_num_teams,
+  Clause::OMPC_num_threads,
   Clause::OMPC_ompx_dyn_cgroup_mem,
+  Clause::OMPC_order,
+  Clause::OMPC_proc_bind,
+  Clause::OMPC_schedule,
+  Clause::OMPC_severity,
+  Clause::OMPC_thread_limit,
 };
 
 static OmpClauseSet allowedExclusiveClauses_OMPD_target_teams_distribute_parallel_for {
@@ -2131,12 +2073,7 @@ static OmpClauseSet requiredClauses_OMPD_target_teams_distribute_parallel_for {
 static OmpClauseSet allowedClauses_OMPD_target_teams_distribute_parallel_for_simd {
   Clause::OMPC_aligned,
   Clause::OMPC_allocate,
-  Clause::OMPC_collapse,
-  Clause::OMPC_default,
-  Clause::OMPC_defaultmap,
   Clause::OMPC_depend,
-  Clause::OMPC_device,
-  Clause::OMPC_dist_schedule,
   Clause::OMPC_dyn_groupprivate,
   Clause::OMPC_firstprivate,
   Clause::OMPC_has_device_addr,
@@ -2145,27 +2082,32 @@ static OmpClauseSet allowedClauses_OMPD_target_teams_distribute_parallel_for_sim
   Clause::OMPC_lastprivate,
   Clause::OMPC_linear,
   Clause::OMPC_map,
-  Clause::OMPC_message,
   Clause::OMPC_nontemporal,
-  Clause::OMPC_nowait,
-  Clause::OMPC_num_teams,
-  Clause::OMPC_num_threads,
   Clause::OMPC_ompx_attribute,
-  Clause::OMPC_order,
   Clause::OMPC_private,
-  Clause::OMPC_proc_bind,
   Clause::OMPC_reduction,
-  Clause::OMPC_safelen,
-  Clause::OMPC_schedule,
-  Clause::OMPC_severity,
   Clause::OMPC_shared,
-  Clause::OMPC_simdlen,
-  Clause::OMPC_thread_limit,
   Clause::OMPC_uses_allocators,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_target_teams_distribute_parallel_for_simd {
+  Clause::OMPC_collapse,
+  Clause::OMPC_default,
+  Clause::OMPC_defaultmap,
+  Clause::OMPC_device,
+  Clause::OMPC_dist_schedule,
+  Clause::OMPC_message,
+  Clause::OMPC_nowait,
+  Clause::OMPC_num_teams,
+  Clause::OMPC_num_threads,
   Clause::OMPC_ompx_dyn_cgroup_mem,
+  Clause::OMPC_order,
+  Clause::OMPC_proc_bind,
+  Clause::OMPC_safelen,
+  Clause::OMPC_schedule,
+  Clause::OMPC_severity,
+  Clause::OMPC_simdlen,
+  Clause::OMPC_thread_limit,
 };
 
 static OmpClauseSet allowedExclusiveClauses_OMPD_target_teams_distribute_parallel_for_simd {
@@ -2193,11 +2135,11 @@ static OmpClauseSet allowedClauses_OMPD_target_teams_distribute_simd {
   Clause::OMPC_reduction,
   Clause::OMPC_shared,
   Clause::OMPC_uses_allocators,
-  Clause::OMPC_default,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_target_teams_distribute_simd {
   Clause::OMPC_collapse,
+  Clause::OMPC_default,
   Clause::OMPC_defaultmap,
   Clause::OMPC_device,
   Clause::OMPC_dist_schedule,
@@ -2238,8 +2180,8 @@ static OmpClauseSet allowedOnceClauses_OMPD_target_teams_workdistribute {
   Clause::OMPC_device,
   Clause::OMPC_nowait,
   Clause::OMPC_num_teams,
-  Clause::OMPC_ompx_dyn_cgroup_mem,
   Clause::OMPC_ompx_bare,
+  Clause::OMPC_ompx_dyn_cgroup_mem,
   Clause::OMPC_thread_limit,
 };
 
@@ -2253,12 +2195,12 @@ static OmpClauseSet requiredClauses_OMPD_target_teams_workdistribute {
 static OmpClauseSet allowedClauses_OMPD_target_update {
   Clause::OMPC_depend,
   Clause::OMPC_from,
+  Clause::OMPC_if,
   Clause::OMPC_to,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_target_update {
   Clause::OMPC_device,
-  Clause::OMPC_if,
   Clause::OMPC_nowait,
   Clause::OMPC_replayable,
 };
@@ -2275,22 +2217,22 @@ static OmpClauseSet allowedClauses_OMPD_task {
   Clause::OMPC_allocate,
   Clause::OMPC_depend,
   Clause::OMPC_firstprivate,
+  Clause::OMPC_if,
   Clause::OMPC_in_reduction,
-  Clause::OMPC_mergeable,
   Clause::OMPC_private,
   Clause::OMPC_shared,
-  Clause::OMPC_untied,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_task {
   Clause::OMPC_default,
   Clause::OMPC_detach,
   Clause::OMPC_final,
-  Clause::OMPC_if,
+  Clause::OMPC_mergeable,
   Clause::OMPC_priority,
-  Clause::OMPC_threadset,
   Clause::OMPC_replayable,
+  Clause::OMPC_threadset,
   Clause::OMPC_transparent,
+  Clause::OMPC_untied,
 };
 
 static OmpClauseSet allowedExclusiveClauses_OMPD_task {
@@ -2319,24 +2261,24 @@ static OmpClauseSet allowedClauses_OMPD_taskloop {
   Clause::OMPC_allocate,
   Clause::OMPC_firstprivate,
   Clause::OMPC_in_reduction,
+  Clause::OMPC_if,
   Clause::OMPC_lastprivate,
-  Clause::OMPC_mergeable,
-  Clause::OMPC_nogroup,
   Clause::OMPC_private,
   Clause::OMPC_reduction,
   Clause::OMPC_shared,
-  Clause::OMPC_untied,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_taskloop {
   Clause::OMPC_collapse,
   Clause::OMPC_default,
   Clause::OMPC_final,
-  Clause::OMPC_if,
+  Clause::OMPC_mergeable,
+  Clause::OMPC_nogroup,
   Clause::OMPC_priority,
-  Clause::OMPC_threadset,
   Clause::OMPC_replayable,
+  Clause::OMPC_threadset,
   Clause::OMPC_transparent,
+  Clause::OMPC_untied,
 };
 
 static OmpClauseSet allowedExclusiveClauses_OMPD_taskloop {
@@ -2351,28 +2293,28 @@ static OmpClauseSet requiredClauses_OMPD_taskloop {
 static OmpClauseSet allowedClauses_OMPD_taskloop_simd {
   Clause::OMPC_aligned,
   Clause::OMPC_allocate,
-  Clause::OMPC_default,
   Clause::OMPC_firstprivate,
   Clause::OMPC_if,
   Clause::OMPC_in_reduction,
   Clause::OMPC_lastprivate,
   Clause::OMPC_linear,
-  Clause::OMPC_mergeable,
-  Clause::OMPC_nogroup,
   Clause::OMPC_nontemporal,
   Clause::OMPC_private,
   Clause::OMPC_reduction,
   Clause::OMPC_shared,
-  Clause::OMPC_untied,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_taskloop_simd {
   Clause::OMPC_collapse,
+  Clause::OMPC_default,
   Clause::OMPC_final,
+  Clause::OMPC_mergeable,
+  Clause::OMPC_nogroup,
   Clause::OMPC_order,
   Clause::OMPC_priority,
   Clause::OMPC_safelen,
   Clause::OMPC_simdlen,
+  Clause::OMPC_untied,
 };
 
 static OmpClauseSet allowedExclusiveClauses_OMPD_taskloop_simd {
@@ -2386,10 +2328,10 @@ static OmpClauseSet requiredClauses_OMPD_taskloop_simd {
 
 static OmpClauseSet allowedClauses_OMPD_taskwait {
   Clause::OMPC_depend,
-  Clause::OMPC_nowait,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_taskwait {
+  Clause::OMPC_nowait,
   Clause::OMPC_replayable,
 };
 
@@ -2414,12 +2356,12 @@ static OmpClauseSet requiredClauses_OMPD_taskyield {
 // Sets for taskgraph
 
 static OmpClauseSet allowedClauses_OMPD_taskgraph {
+  Clause::OMPC_if,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_taskgraph {
   Clause::OMPC_graph_id,
   Clause::OMPC_graph_reset,
-  Clause::OMPC_if,
   Clause::OMPC_nogroup,
 };
 
@@ -2434,6 +2376,7 @@ static OmpClauseSet allowedClauses_OMPD_teams {
   Clause::OMPC_allocate,
   Clause::OMPC_dyn_groupprivate,
   Clause::OMPC_firstprivate,
+  Clause::OMPC_if,
   Clause::OMPC_ompx_attribute,
   Clause::OMPC_private,
   Clause::OMPC_reduction,
@@ -2442,7 +2385,6 @@ static OmpClauseSet allowedClauses_OMPD_teams {
 
 static OmpClauseSet allowedOnceClauses_OMPD_teams {
   Clause::OMPC_default,
-  Clause::OMPC_if,
   Clause::OMPC_num_teams,
   Clause::OMPC_thread_limit,
 };
@@ -2456,23 +2398,23 @@ static OmpClauseSet requiredClauses_OMPD_teams {
 
 static OmpClauseSet allowedClauses_OMPD_teams_distribute {
   Clause::OMPC_allocate,
-  Clause::OMPC_collapse,
-  Clause::OMPC_default,
-  Clause::OMPC_dist_schedule,
   Clause::OMPC_dyn_groupprivate,
   Clause::OMPC_firstprivate,
+  Clause::OMPC_if,
   Clause::OMPC_lastprivate,
-  Clause::OMPC_num_teams,
   Clause::OMPC_ompx_attribute,
   Clause::OMPC_private,
   Clause::OMPC_reduction,
   Clause::OMPC_shared,
-  Clause::OMPC_thread_limit,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_teams_distribute {
-  Clause::OMPC_if,
+  Clause::OMPC_collapse,
+  Clause::OMPC_default,
+  Clause::OMPC_dist_schedule,
+  Clause::OMPC_num_teams,
   Clause::OMPC_order,
+  Clause::OMPC_thread_limit,
 };
 
 static OmpClauseSet allowedExclusiveClauses_OMPD_teams_distribute {
@@ -2555,29 +2497,29 @@ static OmpClauseSet requiredClauses_OMPD_teams_distribute_parallel_do_simd {
 
 static OmpClauseSet allowedClauses_OMPD_teams_distribute_parallel_for {
   Clause::OMPC_allocate,
-  Clause::OMPC_collapse,
   Clause::OMPC_copyin,
-  Clause::OMPC_default,
-  Clause::OMPC_dist_schedule,
   Clause::OMPC_dyn_groupprivate,
   Clause::OMPC_firstprivate,
   Clause::OMPC_if,
   Clause::OMPC_lastprivate,
-  Clause::OMPC_message,
-  Clause::OMPC_num_teams,
-  Clause::OMPC_num_threads,
   Clause::OMPC_ompx_attribute,
-  Clause::OMPC_order,
   Clause::OMPC_private,
-  Clause::OMPC_proc_bind,
   Clause::OMPC_reduction,
-  Clause::OMPC_schedule,
-  Clause::OMPC_severity,
   Clause::OMPC_shared,
-  Clause::OMPC_thread_limit,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_teams_distribute_parallel_for {
+  Clause::OMPC_collapse,
+  Clause::OMPC_default,
+  Clause::OMPC_dist_schedule,
+  Clause::OMPC_message,
+  Clause::OMPC_num_teams,
+  Clause::OMPC_num_threads,
+  Clause::OMPC_order,
+  Clause::OMPC_proc_bind,
+  Clause::OMPC_schedule,
+  Clause::OMPC_severity,
+  Clause::OMPC_thread_limit,
 };
 
 static OmpClauseSet allowedExclusiveClauses_OMPD_teams_distribute_parallel_for {
@@ -2590,32 +2532,32 @@ static OmpClauseSet requiredClauses_OMPD_teams_distribute_parallel_for {
 static OmpClauseSet allowedClauses_OMPD_teams_distribute_parallel_for_simd {
   Clause::OMPC_aligned,
   Clause::OMPC_allocate,
-  Clause::OMPC_collapse,
-  Clause::OMPC_default,
-  Clause::OMPC_dist_schedule,
   Clause::OMPC_dyn_groupprivate,
   Clause::OMPC_firstprivate,
-  Clause::OMPC_if,
   Clause::OMPC_lastprivate,
+  Clause::OMPC_if,
   Clause::OMPC_linear,
-  Clause::OMPC_message,
   Clause::OMPC_nontemporal,
-  Clause::OMPC_num_teams,
-  Clause::OMPC_num_threads,
   Clause::OMPC_ompx_attribute,
-  Clause::OMPC_order,
   Clause::OMPC_private,
-  Clause::OMPC_proc_bind,
   Clause::OMPC_reduction,
-  Clause::OMPC_safelen,
-  Clause::OMPC_schedule,
-  Clause::OMPC_severity,
   Clause::OMPC_shared,
-  Clause::OMPC_simdlen,
-  Clause::OMPC_thread_limit,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_teams_distribute_parallel_for_simd {
+  Clause::OMPC_collapse,
+  Clause::OMPC_default,
+  Clause::OMPC_dist_schedule,
+  Clause::OMPC_message,
+  Clause::OMPC_num_teams,
+  Clause::OMPC_num_threads,
+  Clause::OMPC_order,
+  Clause::OMPC_proc_bind,
+  Clause::OMPC_safelen,
+  Clause::OMPC_schedule,
+  Clause::OMPC_severity,
+  Clause::OMPC_simdlen,
+  Clause::OMPC_thread_limit,
 };
 
 static OmpClauseSet allowedExclusiveClauses_OMPD_teams_distribute_parallel_for_simd {
@@ -2661,6 +2603,7 @@ static OmpClauseSet requiredClauses_OMPD_teams_distribute_simd {
 static OmpClauseSet allowedClauses_OMPD_teams_workdistribute {
   Clause::OMPC_allocate,
   Clause::OMPC_firstprivate,
+  Clause::OMPC_if,
   Clause::OMPC_ompx_attribute,
   Clause::OMPC_private,
   Clause::OMPC_reduction,
@@ -2669,7 +2612,6 @@ static OmpClauseSet allowedClauses_OMPD_teams_workdistribute {
 
 static OmpClauseSet allowedOnceClauses_OMPD_teams_workdistribute {
   Clause::OMPC_default,
-  Clause::OMPC_if,
   Clause::OMPC_num_teams,
   Clause::OMPC_thread_limit,
 };
@@ -2695,6 +2637,7 @@ static OmpClauseSet requiredClauses_OMPD_threadprivate {
 // Sets for tile
 
 static OmpClauseSet allowedClauses_OMPD_tile {
+  Clause::OMPC_apply,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_tile {
@@ -2723,6 +2666,7 @@ static OmpClauseSet requiredClauses_OMPD_unknown {
 // Sets for unroll
 
 static OmpClauseSet allowedClauses_OMPD_unroll {
+  Clause::OMPC_apply,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_unroll {
@@ -2766,15 +2710,15 @@ static OmpClauseSet requiredClauses_OMPD_workshare {
 
 static OmpClauseSet allowedClauses_OMPD_dispatch {
   Clause::OMPC_depend,
-  Clause::OMPC_device,
   Clause::OMPC_has_device_addr,
   Clause::OMPC_is_device_ptr,
-  Clause::OMPC_nocontext,
-  Clause::OMPC_novariants,
-  Clause::OMPC_nowait,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_dispatch {
+  Clause::OMPC_device,
+  Clause::OMPC_nocontext,
+  Clause::OMPC_novariants,
+  Clause::OMPC_nowait,
 };
 
 static OmpClauseSet allowedExclusiveClauses_OMPD_dispatch {
@@ -2787,13 +2731,13 @@ static OmpClauseSet requiredClauses_OMPD_dispatch {
 static OmpClauseSet allowedClauses_OMPD_interop {
   Clause::OMPC_depend,
   Clause::OMPC_destroy,
-  Clause::OMPC_device,
   Clause::OMPC_init,
-  Clause::OMPC_nowait,
   Clause::OMPC_use,
 };
 
 static OmpClauseSet allowedOnceClauses_OMPD_interop {
+  Clause::OMPC_device,
+  Clause::OMPC_nowait,
 };
 
 static OmpClauseSet allowedExclusiveClauses_OMPD_interop {
@@ -2840,6 +2784,7 @@ static OmpClauseSet allowedClauses_OMPD_parallel_loop {
   Clause::OMPC_allocate,
   Clause::OMPC_copyin,
   Clause::OMPC_firstprivate,
+  Clause::OMPC_if,
   Clause::OMPC_lastprivate,
   Clause::OMPC_ompx_attribute,
   Clause::OMPC_private,
@@ -2851,7 +2796,6 @@ static OmpClauseSet allowedOnceClauses_OMPD_parallel_loop {
   Clause::OMPC_bind,
   Clause::OMPC_collapse,
   Clause::OMPC_default,
-  Clause::OMPC_if,
   Clause::OMPC_message,
   Clause::OMPC_num_threads,
   Clause::OMPC_order,
@@ -2871,6 +2815,7 @@ static OmpClauseSet allowedClauses_OMPD_target_loop {
   Clause::OMPC_depend,
   Clause::OMPC_dyn_groupprivate,
   Clause::OMPC_firstprivate,
+  Clause::OMPC_if,
   Clause::OMPC_is_device_ptr,
   Clause::OMPC_has_device_addr,
   Clause::OMPC_lastprivate,
@@ -2885,13 +2830,12 @@ static OmpClauseSet allowedClauses_OMPD_target_loop {
 static OmpClauseSet allowedOnceClauses_OMPD_target_loop {
   Clause::OMPC_bind,
   Clause::OMPC_collapse,
+  Clause::OMPC_defaultmap,
+  Clause::OMPC_device,
+  Clause::OMPC_nowait,
+  Clause::OMPC_ompx_dyn_cgroup_mem,
   Clause::OMPC_order,
   Clause::OMPC_thread_limit,
-  Clause::OMPC_ompx_dyn_cgroup_mem,
-  Clause::OMPC_if,
-  Clause::OMPC_device,
-  Clause::OMPC_defaultmap,
-  Clause::OMPC_nowait,
 };
 
 static OmpClauseSet allowedExclusiveClauses_OMPD_target_loop {
@@ -2904,7 +2848,6 @@ static OmpClauseSet requiredClauses_OMPD_target_loop {
 static OmpClauseSet allowedClauses_OMPD_target_parallel_loop {
   Clause::OMPC_allocate,
   Clause::OMPC_depend,
-  Clause::OMPC_device,
   Clause::OMPC_dyn_groupprivate,
   Clause::OMPC_firstprivate,
   Clause::OMPC_has_device_addr,
@@ -2924,6 +2867,7 @@ static OmpClauseSet allowedOnceClauses_OMPD_target_parallel_loop {
   Clause::OMPC_collapse,
   Clause::OMPC_default,
   Clause::OMPC_defaultmap,
+  Clause::OMPC_device,
   Clause::OMPC_message,
   Clause::OMPC_nowait,
   Clause::OMPC_num_threads,
@@ -2943,9 +2887,7 @@ static OmpClauseSet requiredClauses_OMPD_target_parallel_loop {
 
 static OmpClauseSet allowedClauses_OMPD_target_teams_loop {
   Clause::OMPC_allocate,
-  Clause::OMPC_defaultmap,
   Clause::OMPC_depend,
-  Clause::OMPC_device,
   Clause::OMPC_dyn_groupprivate,
   Clause::OMPC_firstprivate,
   Clause::OMPC_has_device_addr,
@@ -2964,6 +2906,8 @@ static OmpClauseSet allowedOnceClauses_OMPD_target_teams_loop {
   Clause::OMPC_bind,
   Clause::OMPC_collapse,
   Clause::OMPC_default,
+  Clause::OMPC_defaultmap,
+  Clause::OMPC_device,
   Clause::OMPC_nowait,
   Clause::OMPC_num_teams,
   Clause::OMPC_ompx_dyn_cgroup_mem,
@@ -2982,6 +2926,7 @@ static OmpClauseSet allowedClauses_OMPD_teams_loop {
   Clause::OMPC_allocate,
   Clause::OMPC_dyn_groupprivate,
   Clause::OMPC_firstprivate,
+  Clause::OMPC_if,
   Clause::OMPC_lastprivate,
   Clause::OMPC_ompx_attribute,
   Clause::OMPC_private,
@@ -3252,68 +3197,20 @@ static OmpClauseSet requiredClauses_OMPD_teams_loop {
       llvm::omp::requiredClauses_OMPD_end_declare_variant,
     }
   },
-  {llvm::omp::Directive::OMPD_end_do,
-    {
-      llvm::omp::allowedClauses_OMPD_end_do,
-      llvm::omp::allowedOnceClauses_OMPD_end_do,
-      llvm::omp::allowedExclusiveClauses_OMPD_end_do,
-      llvm::omp::requiredClauses_OMPD_end_do,
-    }
-  },
-  {llvm::omp::Directive::OMPD_end_do_simd,
-    {
-      llvm::omp::allowedClauses_OMPD_end_do_simd,
-      llvm::omp::allowedOnceClauses_OMPD_end_do_simd,
-      llvm::omp::allowedExclusiveClauses_OMPD_end_do_simd,
-      llvm::omp::requiredClauses_OMPD_end_do_simd,
-    }
-  },
-  {llvm::omp::Directive::OMPD_end_scope,
-    {
-      llvm::omp::allowedClauses_OMPD_end_scope,
-      llvm::omp::allowedOnceClauses_OMPD_end_scope,
-      llvm::omp::allowedExclusiveClauses_OMPD_end_scope,
-      llvm::omp::requiredClauses_OMPD_end_scope,
-    }
-  },
-  {llvm::omp::Directive::OMPD_end_sections,
-    {
-      llvm::omp::allowedClauses_OMPD_end_sections,
-      llvm::omp::allowedOnceClauses_OMPD_end_sections,
-      llvm::omp::allowedExclusiveClauses_OMPD_end_sections,
-      llvm::omp::requiredClauses_OMPD_end_sections,
-    }
-  },
-  {llvm::omp::Directive::OMPD_end_single,
-    {
-      llvm::omp::allowedClauses_OMPD_end_single,
-      llvm::omp::allowedOnceClauses_OMPD_end_single,
-      llvm::omp::allowedExclusiveClauses_OMPD_end_single,
-      llvm::omp::requiredClauses_OMPD_end_single,
-    }
-  },
-  {llvm::omp::Directive::OMPD_end_workdistribute,
-    {
-      llvm::omp::allowedClauses_OMPD_end_workdistribute,
-      llvm::omp::allowedOnceClauses_OMPD_end_workdistribute,
-      llvm::omp::allowedExclusiveClauses_OMPD_end_workdistribute,
-      llvm::omp::requiredClauses_OMPD_end_workdistribute,
-    }
-  },
-  {llvm::omp::Directive::OMPD_end_workshare,
-    {
-      llvm::omp::allowedClauses_OMPD_end_workshare,
-      llvm::omp::allowedOnceClauses_OMPD_end_workshare,
-      llvm::omp::allowedExclusiveClauses_OMPD_end_workshare,
-      llvm::omp::requiredClauses_OMPD_end_workshare,
-    }
-  },
   {llvm::omp::Directive::OMPD_error,
     {
       llvm::omp::allowedClauses_OMPD_error,
       llvm::omp::allowedOnceClauses_OMPD_error,
       llvm::omp::allowedExclusiveClauses_OMPD_error,
       llvm::omp::requiredClauses_OMPD_error,
+    }
+  },
+  {llvm::omp::Directive::OMPD_flatten,
+    {
+      llvm::omp::allowedClauses_OMPD_flatten,
+      llvm::omp::allowedOnceClauses_OMPD_flatten,
+      llvm::omp::allowedExclusiveClauses_OMPD_flatten,
+      llvm::omp::requiredClauses_OMPD_flatten,
     }
   },
   {llvm::omp::Directive::OMPD_flush,
@@ -3594,6 +3491,14 @@ static OmpClauseSet requiredClauses_OMPD_teams_loop {
       llvm::omp::allowedOnceClauses_OMPD_single,
       llvm::omp::allowedExclusiveClauses_OMPD_single,
       llvm::omp::requiredClauses_OMPD_single,
+    }
+  },
+  {llvm::omp::Directive::OMPD_split,
+    {
+      llvm::omp::allowedClauses_OMPD_split,
+      llvm::omp::allowedOnceClauses_OMPD_split,
+      llvm::omp::allowedExclusiveClauses_OMPD_split,
+      llvm::omp::requiredClauses_OMPD_split,
     }
   },
   {llvm::omp::Directive::OMPD_stripe,
@@ -4013,7 +3918,7 @@ WRAPPER_CLASS(Aligned, OmpAlignedClause);
 WRAPPER_CLASS(Allocate, OmpAllocateClause);
 WRAPPER_CLASS(Allocator, ScalarIntExpr);
 WRAPPER_CLASS(AppendArgs, OmpAppendArgsClause);
-EMPTY_CLASS(Apply);
+WRAPPER_CLASS(Apply, OmpApplyClause);
 WRAPPER_CLASS(At, OmpAtClause);
 WRAPPER_CLASS(AtomicDefaultMemOrder, OmpAtomicDefaultMemOrderClause);
 WRAPPER_CLASS(Bind, OmpBindClause);
@@ -4031,6 +3936,7 @@ WRAPPER_CLASS(Default, OmpDefaultClause);
 WRAPPER_CLASS(Defaultmap, OmpDefaultmapClause);
 WRAPPER_CLASS(Depend, OmpDependClause);
 EMPTY_CLASS(Depobj);
+WRAPPER_CLASS(Depth, ScalarIntConstantExpr);
 WRAPPER_CLASS(Destroy, std::optional<OmpDestroyClause>);
 WRAPPER_CLASS(Detach, OmpDetachClause);
 WRAPPER_CLASS(Device, OmpDeviceClause);
@@ -4086,7 +3992,7 @@ EMPTY_CLASS(NoOpenmpRoutines);
 EMPTY_CLASS(NoParallelism);
 EMPTY_CLASS(Nowait);
 WRAPPER_CLASS(Nocontext, ScalarLogicalExpr);
-WRAPPER_CLASS(Nontemporal, std::list<Name>);
+WRAPPER_CLASS(Nontemporal, OmpObjectList);
 EMPTY_CLASS(Notinbranch);
 WRAPPER_CLASS(Novariants, ScalarLogicalExpr);
 WRAPPER_CLASS(NumTasks, OmpNumTasksClause);
@@ -4099,7 +4005,7 @@ WRAPPER_CLASS(Order, OmpOrderClause);
 WRAPPER_CLASS(Ordered, std::optional<ScalarIntConstantExpr>);
 WRAPPER_CLASS(Otherwise, std::optional<OmpOtherwiseClause>);
 WRAPPER_CLASS(Partial, std::optional<ScalarIntConstantExpr>);
-WRAPPER_CLASS(Permutation, std::list<ScalarIntExpr>);
+WRAPPER_CLASS(Permutation, std::list<ScalarIntConstantExpr>);
 WRAPPER_CLASS(Priority, ScalarIntExpr);
 WRAPPER_CLASS(Private, OmpObjectList);
 WRAPPER_CLASS(ProcBind, OmpProcBindClause);
@@ -4173,6 +4079,7 @@ Absent
 , Defaultmap
 , Depend
 , Depobj
+, Depth
 , Destroy
 , Detach
 , Device
@@ -4315,6 +4222,7 @@ NODE(OmpClause, Default)
 NODE(OmpClause, Defaultmap)
 NODE(OmpClause, Depend)
 NODE(OmpClause, Depobj)
+NODE(OmpClause, Depth)
 NODE(OmpClause, Destroy)
 NODE(OmpClause, Detach)
 NODE(OmpClause, Device)
@@ -4479,7 +4387,12 @@ void Unparse(const OmpClause::AppendArgs &x) {
   Walk(x.v);
   Put(")");
 }
-void Before(const OmpClause::Apply &) { Word("APPLY"); }
+void Unparse(const OmpClause::Apply &x) {
+  Word("APPLY");
+  Put("(");
+  Walk(x.v);
+  Put(")");
+}
 void Unparse(const OmpClause::At &x) {
   Word("AT");
   Put("(");
@@ -4551,6 +4464,12 @@ void Unparse(const OmpClause::Depend &x) {
   Put(")");
 }
 void Before(const OmpClause::Depobj &) { Word("DEPOBJ"); }
+void Unparse(const OmpClause::Depth &x) {
+  Word("DEPTH");
+  Put("(");
+  Walk(x.v);
+  Put(")");
+}
 void Unparse(const OmpClause::Destroy &x) {
   Word("DESTROY");
   Walk("(", x.v, ")");
@@ -4784,7 +4703,7 @@ void Unparse(const OmpClause::Nocontext &x) {
 void Unparse(const OmpClause::Nontemporal &x) {
   Word("NONTEMPORAL");
   Put("(");
-  Walk(x.v, ",");
+  Walk(x.v);
   Put(")");
 }
 void Before(const OmpClause::Notinbranch &) { Word("NOTINBRANCH"); }
@@ -5033,6 +4952,7 @@ void Enter(const parser::OmpClause::Default &);
 void Enter(const parser::OmpClause::Defaultmap &);
 void Enter(const parser::OmpClause::Depend &);
 void Enter(const parser::OmpClause::Depobj &);
+void Enter(const parser::OmpClause::Depth &);
 void Enter(const parser::OmpClause::Destroy &);
 void Enter(const parser::OmpClause::Detach &);
 void Enter(const parser::OmpClause::Device &);
@@ -5203,6 +5123,8 @@ if constexpr (std::is_same_v<A, parser::OmpClause::Depend>)
   return llvm::omp::Clause::OMPC_depend;
 if constexpr (std::is_same_v<A, parser::OmpClause::Depobj>)
   return llvm::omp::Clause::OMPC_depobj;
+if constexpr (std::is_same_v<A, parser::OmpClause::Depth>)
+  return llvm::omp::Clause::OMPC_depth;
 if constexpr (std::is_same_v<A, parser::OmpClause::Destroy>)
   return llvm::omp::Clause::OMPC_destroy;
 if constexpr (std::is_same_v<A, parser::OmpClause::Detach>)
@@ -5466,7 +5388,7 @@ TYPE_PARSER(
   "proc_bind" >> construct<OmpClause>(construct<OmpClause::ProcBind>(parenthesized(Parser<OmpProcBindClause>{}))) ||
   "private" >> construct<OmpClause>(construct<OmpClause::Private>(parenthesized(Parser<OmpObjectList>{}))) ||
   "priority" >> construct<OmpClause>(construct<OmpClause::Priority>(parenthesized(scalarIntExpr))) ||
-  "permutation" >> construct<OmpClause>(construct<OmpClause::Permutation>(parenthesized(nonemptyList(scalarIntExpr)))) ||
+  "permutation" >> construct<OmpClause>(construct<OmpClause::Permutation>(parenthesized(nonemptyList(scalarIntConstantExpr)))) ||
   "partial" >> construct<OmpClause>(construct<OmpClause::Partial>(maybe(parenthesized(scalarIntConstantExpr)))) ||
   "otherwise" >> construct<OmpClause>(construct<OmpClause::Otherwise>(maybe(parenthesized(Parser<OmpOtherwiseClause>{})))) ||
   "ordered" >> construct<OmpClause>(construct<OmpClause::Ordered>(maybe(parenthesized(scalarIntConstantExpr)))) ||
@@ -5480,7 +5402,7 @@ TYPE_PARSER(
   "nowait" >> construct<OmpClause>(construct<OmpClause::Nowait>()) ||
   "novariants" >> construct<OmpClause>(construct<OmpClause::Novariants>(parenthesized(scalarLogicalExpr))) ||
   "notinbranch" >> construct<OmpClause>(construct<OmpClause::Notinbranch>()) ||
-  "nontemporal" >> construct<OmpClause>(construct<OmpClause::Nontemporal>(parenthesized(nonemptyList(name)))) ||
+  "nontemporal" >> construct<OmpClause>(construct<OmpClause::Nontemporal>(parenthesized(Parser<OmpObjectList>{}))) ||
   "nogroup" >> construct<OmpClause>(construct<OmpClause::Nogroup>()) ||
   "nocontext" >> construct<OmpClause>(construct<OmpClause::Nocontext>(parenthesized(scalarLogicalExpr))) ||
   "no_parallelism" >> construct<OmpClause>(construct<OmpClause::NoParallelism>()) ||
@@ -5535,6 +5457,7 @@ TYPE_PARSER(
   "device" >> construct<OmpClause>(construct<OmpClause::Device>(parenthesized(Parser<OmpDeviceClause>{}))) ||
   "detach" >> construct<OmpClause>(construct<OmpClause::Detach>(parenthesized(Parser<OmpDetachClause>{}))) ||
   "destroy" >> construct<OmpClause>(construct<OmpClause::Destroy>(maybe(parenthesized(Parser<OmpDestroyClause>{})))) ||
+  "depth" >> construct<OmpClause>(construct<OmpClause::Depth>(parenthesized(scalarIntConstantExpr))) ||
   "depobj" >> construct<OmpClause>(construct<OmpClause::Depobj>()) ||
   "depend" >> construct<OmpClause>(construct<OmpClause::Depend>(parenthesized(Parser<OmpDependClause>{}))) ||
   "defaultmap" >> construct<OmpClause>(construct<OmpClause::Defaultmap>(parenthesized(Parser<OmpDefaultmapClause>{}))) ||
@@ -5552,7 +5475,7 @@ TYPE_PARSER(
   "bind" >> construct<OmpClause>(construct<OmpClause::Bind>(parenthesized(Parser<OmpBindClause>{}))) ||
   "atomic_default_mem_order" >> construct<OmpClause>(construct<OmpClause::AtomicDefaultMemOrder>(parenthesized(Parser<OmpAtomicDefaultMemOrderClause>{}))) ||
   "at" >> construct<OmpClause>(construct<OmpClause::At>(parenthesized(Parser<OmpAtClause>{}))) ||
-  "apply" >> construct<OmpClause>(construct<OmpClause::Apply>()) ||
+  "apply" >> construct<OmpClause>(construct<OmpClause::Apply>(parenthesized(Parser<OmpApplyClause>{}))) ||
   "append_args" >> construct<OmpClause>(construct<OmpClause::AppendArgs>(parenthesized(Parser<OmpAppendArgsClause>{}))) ||
   "allocator" >> construct<OmpClause>(construct<OmpClause::Allocator>(parenthesized(scalarIntExpr))) ||
   "allocate" >> construct<OmpClause>(construct<OmpClause::Allocate>(parenthesized(Parser<OmpAllocateClause>{}))) ||
@@ -5616,11 +5539,12 @@ __CLAUSE(compare, OMPCompareClause)
 __CLAUSE(contains, OMPContainsClause)
 __CLAUSE(copyprivate, OMPCopyprivateClause)
 __CLAUSE(copyin, OMPCopyinClause)
-__CLAUSE_NO_CLASS(counts)
+__CLAUSE(counts, OMPCountsClause)
 __CLAUSE(default, OMPDefaultClause)
 __CLAUSE(defaultmap, OMPDefaultmapClause)
 __CLAUSE(depend, OMPDependClause)
 __IMPLICIT_CLAUSE_CLASS(depobj, "depobj", OMPDepobjClause)
+__CLAUSE_NO_CLASS(depth)
 __CLAUSE(destroy, OMPDestroyClause)
 __CLAUSE(detach, OMPDetachClause)
 __CLAUSE(device, OMPDeviceClause)
@@ -5715,7 +5639,7 @@ __IMPLICIT_CLAUSE_NO_CLASS(threadprivate, "threadprivate")
 __CLAUSE(threads, OMPThreadsClause)
 __CLAUSE(threadset, OMPThreadsetClause)
 __CLAUSE(to, OMPToClause)
-__CLAUSE_NO_CLASS(transparent)
+__CLAUSE(transparent, OMPTransparentClause)
 __CLAUSE(unified_address, OMPUnifiedAddressClause)
 __CLAUSE(unified_shared_memory, OMPUnifiedSharedMemoryClause)
 __CLAUSE_NO_CLASS(uniform)
@@ -5790,14 +5714,8 @@ std::pair<llvm::omp::Directive, llvm::directive::VersionRange> llvm::omp::getOpe
     .Case("end declare_target", {OMPD_end_declare_target, {60, 2147483647}})
     .Case("end declare variant", {OMPD_end_declare_variant, {1, 52}})
     .Case("end declare_variant", {OMPD_end_declare_variant, {60, 2147483647}})
-    .Case("end do", {OMPD_end_do, All})
-    .Case("end do simd", {OMPD_end_do_simd, All})
-    .Case("end scope", {OMPD_end_scope, All})
-    .Case("end sections", {OMPD_end_sections, All})
-    .Case("end single", {OMPD_end_single, All})
-    .Case("end workdistribute", {OMPD_end_workdistribute, All})
-    .Case("end workshare", {OMPD_end_workshare, All})
     .Case("error", {OMPD_error, All})
+    .Case("flatten", {OMPD_flatten, All})
     .Case("flush", {OMPD_flush, All})
     .Case("for", {OMPD_for, All})
     .Case("for simd", {OMPD_for_simd, All})
@@ -5833,6 +5751,7 @@ std::pair<llvm::omp::Directive, llvm::directive::VersionRange> llvm::omp::getOpe
     .Case("sections", {OMPD_sections, All})
     .Case("simd", {OMPD_simd, All})
     .Case("single", {OMPD_single, All})
+    .Case("split", {OMPD_split, All})
     .Case("stripe", {OMPD_stripe, All})
     .Case("target", {OMPD_target, All})
     .Case("target data", {OMPD_target_data, {1, 52}})
@@ -6002,22 +5921,10 @@ llvm::StringRef llvm::omp::getOpenMPDirectiveName(llvm::omp::Directive Kind, uns
       };
       return llvm::directive::FindName(OMPD_end_declare_variant_spellings, Version);
     }
-    case OMPD_end_do:
-      return "end do";
-    case OMPD_end_do_simd:
-      return "end do simd";
-    case OMPD_end_scope:
-      return "end scope";
-    case OMPD_end_sections:
-      return "end sections";
-    case OMPD_end_single:
-      return "end single";
-    case OMPD_end_workdistribute:
-      return "end workdistribute";
-    case OMPD_end_workshare:
-      return "end workshare";
     case OMPD_error:
       return "error";
+    case OMPD_flatten:
+      return "flatten";
     case OMPD_flush:
       return "flush";
     case OMPD_for:
@@ -6088,6 +5995,8 @@ llvm::StringRef llvm::omp::getOpenMPDirectiveName(llvm::omp::Directive Kind, uns
       return "simd";
     case OMPD_single:
       return "single";
+    case OMPD_split:
+      return "split";
     case OMPD_stripe:
       return "stripe";
     case OMPD_target:
@@ -6243,6 +6152,7 @@ std::pair<llvm::omp::Clause, llvm::directive::VersionRange> llvm::omp::getOpenMP
     .Case("defaultmap", {OMPC_defaultmap, All})
     .Case("depend", {OMPC_depend, All})
     .Case("depobj", {OMPC_unknown, All})
+    .Case("depth", {OMPC_depth, All})
     .Case("destroy", {OMPC_destroy, All})
     .Case("detach", {OMPC_detach, All})
     .Case("device", {OMPC_device, All})
@@ -6412,6 +6322,8 @@ llvm::StringRef llvm::omp::getOpenMPClauseName(llvm::omp::Clause Kind, unsigned 
       return "depend";
     case OMPC_depobj:
       return "depobj";
+    case OMPC_depth:
+      return "depth";
     case OMPC_destroy:
       return "destroy";
     case OMPC_detach:
@@ -6868,12 +6780,12 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 51 <= Version && 2147483647 >= Version;
         case OMPC_no_openmp:
           return 51 <= Version && 2147483647 >= Version;
+        case OMPC_no_openmp_constructs:
+          return 60 <= Version && 2147483647 >= Version;
         case OMPC_no_openmp_routines:
           return 51 <= Version && 2147483647 >= Version;
         case OMPC_no_parallelism:
           return 51 <= Version && 2147483647 >= Version;
-        case OMPC_no_openmp_constructs:
-          return 60 <= Version && 2147483647 >= Version;
         default:
           return false;
       }
@@ -6951,14 +6863,14 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
       break;
     case OMPD_begin_declare_target:
       switch (C) {
-        case OMPC_device_type:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_indirect:
-          return 51 <= Version && 2147483647 >= Version;
         case OMPC_link:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_to:
           return 1 <= Version && 2147483647 >= Version;
+        case OMPC_device_type:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_indirect:
+          return 51 <= Version && 2147483647 >= Version;
         default:
           return false;
       }
@@ -6968,9 +6880,9 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
       break;
     case OMPD_cancel:
       switch (C) {
-        case OMPC_cancellation_construct_type:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_if:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_cancellation_construct_type:
           return 1 <= Version && 2147483647 >= Version;
         default:
           return false;
@@ -7042,14 +6954,16 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
       switch (C) {
         case OMPC_enter:
           return 52 <= Version && 2147483647 >= Version;
-        case OMPC_indirect:
-          return 51 <= Version && 2147483647 >= Version;
         case OMPC_link:
           return 1 <= Version && 2147483647 >= Version;
+        case OMPC_local:
+          return 60 <= Version && 2147483647 >= Version;
         case OMPC_to:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_device_type:
           return 50 <= Version && 2147483647 >= Version;
+        case OMPC_indirect:
+          return 51 <= Version && 2147483647 >= Version;
         default:
           return false;
       }
@@ -7058,10 +6972,10 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
       switch (C) {
         case OMPC_adjust_args:
           return 51 <= Version && 2147483647 >= Version;
-        case OMPC_match:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_append_args:
           return 51 <= Version && 2147483647 >= Version;
+        case OMPC_match:
+          return 1 <= Version && 2147483647 >= Version;
         default:
           return false;
       }
@@ -7108,9 +7022,9 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_copyin:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_default:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_firstprivate:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_if:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_lastprivate:
           return 1 <= Version && 2147483647 >= Version;
@@ -7124,9 +7038,9 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_collapse:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_dist_schedule:
+        case OMPC_default:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_if:
+        case OMPC_dist_schedule:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_message:
           return 60 <= Version && 2147483647 >= Version;
@@ -7150,13 +7064,7 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_allocate:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_collapse:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_copyin:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_default:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_dist_schedule:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_firstprivate:
           return 1 <= Version && 2147483647 >= Version;
@@ -7166,19 +7074,27 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_linear:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_message:
-          return 60 <= Version && 2147483647 >= Version;
         case OMPC_nontemporal:
           return 1 <= Version && 2147483647 >= Version;
+        case OMPC_private:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_reduction:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_shared:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_collapse:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_default:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_dist_schedule:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_message:
+          return 60 <= Version && 2147483647 >= Version;
         case OMPC_num_threads:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_order:
           return 50 <= Version && 2147483647 >= Version;
-        case OMPC_private:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_proc_bind:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_reduction:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_safelen:
           return 1 <= Version && 2147483647 >= Version;
@@ -7186,8 +7102,6 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_severity:
           return 60 <= Version && 2147483647 >= Version;
-        case OMPC_shared:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_simdlen:
           return 1 <= Version && 2147483647 >= Version;
         default:
@@ -7198,13 +7112,7 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
       switch (C) {
         case OMPC_allocate:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_collapse:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_copyin:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_default:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_dist_schedule:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_firstprivate:
           return 1 <= Version && 2147483647 >= Version;
@@ -7212,26 +7120,32 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_lastprivate:
           return 1 <= Version && 2147483647 >= Version;
+        case OMPC_ompx_attribute:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_private:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_reduction:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_shared:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_collapse:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_default:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_dist_schedule:
+          return 1 <= Version && 2147483647 >= Version;
         case OMPC_message:
           return 60 <= Version && 2147483647 >= Version;
         case OMPC_num_threads:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_ompx_attribute:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_order:
           return 50 <= Version && 2147483647 >= Version;
-        case OMPC_private:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_proc_bind:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_reduction:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_schedule:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_severity:
           return 60 <= Version && 2147483647 >= Version;
-        case OMPC_shared:
-          return 1 <= Version && 2147483647 >= Version;
         default:
           return false;
       }
@@ -7242,13 +7156,7 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_allocate:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_collapse:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_copyin:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_default:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_dist_schedule:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_firstprivate:
           return 1 <= Version && 2147483647 >= Version;
@@ -7258,21 +7166,29 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_linear:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_message:
-          return 60 <= Version && 2147483647 >= Version;
         case OMPC_nontemporal:
           return 50 <= Version && 2147483647 >= Version;
-        case OMPC_num_threads:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_ompx_attribute:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_private:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_reduction:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_shared:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_collapse:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_default:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_dist_schedule:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_message:
+          return 60 <= Version && 2147483647 >= Version;
+        case OMPC_num_threads:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_order:
           return 50 <= Version && 2147483647 >= Version;
-        case OMPC_private:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_proc_bind:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_reduction:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_safelen:
           return 1 <= Version && 2147483647 >= Version;
@@ -7280,8 +7196,6 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_severity:
           return 60 <= Version && 2147483647 >= Version;
-        case OMPC_shared:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_simdlen:
           return 1 <= Version && 2147483647 >= Version;
         default:
@@ -7296,10 +7210,10 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_copyin:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_default:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_firstprivate:
           return 1 <= Version && 2147483647 >= Version;
+        case OMPC_if:
+          return 50 <= Version && 2147483647 >= Version;
         case OMPC_lastprivate:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_linear:
@@ -7312,10 +7226,10 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_collapse:
           return 1 <= Version && 2147483647 >= Version;
+        case OMPC_default:
+          return 1 <= Version && 2147483647 >= Version;
         case OMPC_dist_schedule:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_if:
-          return 50 <= Version && 2147483647 >= Version;
         case OMPC_message:
           return 60 <= Version && 2147483647 >= Version;
         case OMPC_num_threads:
@@ -7338,6 +7252,8 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
       break;
     case OMPD_do:
       switch (C) {
+        case OMPC_allocate:
+          return 50 <= Version && 2147483647 >= Version;
         case OMPC_firstprivate:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_lastprivate:
@@ -7368,6 +7284,8 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_firstprivate:
           return 1 <= Version && 2147483647 >= Version;
+        case OMPC_if:
+          return 50 <= Version && 2147483647 >= Version;
         case OMPC_lastprivate:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_linear:
@@ -7378,8 +7296,6 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_collapse:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_if:
-          return 50 <= Version && 2147483647 >= Version;
         case OMPC_nowait:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_order:
@@ -7405,59 +7321,6 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
     case OMPD_end_declare_variant:
       return false;
       break;
-    case OMPD_end_do:
-      switch (C) {
-        case OMPC_nowait:
-          return 1 <= Version && 2147483647 >= Version;
-        default:
-          return false;
-      }
-      break;
-    case OMPD_end_do_simd:
-      switch (C) {
-        case OMPC_nowait:
-          return 1 <= Version && 2147483647 >= Version;
-        default:
-          return false;
-      }
-      break;
-    case OMPD_end_scope:
-      switch (C) {
-        case OMPC_nowait:
-          return 1 <= Version && 2147483647 >= Version;
-        default:
-          return false;
-      }
-      break;
-    case OMPD_end_sections:
-      switch (C) {
-        case OMPC_nowait:
-          return 1 <= Version && 2147483647 >= Version;
-        default:
-          return false;
-      }
-      break;
-    case OMPD_end_single:
-      switch (C) {
-        case OMPC_copyprivate:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_nowait:
-          return 1 <= Version && 2147483647 >= Version;
-        default:
-          return false;
-      }
-      break;
-    case OMPD_end_workdistribute:
-      return false;
-      break;
-    case OMPD_end_workshare:
-      switch (C) {
-        case OMPC_nowait:
-          return 1 <= Version && 2147483647 >= Version;
-        default:
-          return false;
-      }
-      break;
     case OMPD_error:
       switch (C) {
         case OMPC_at:
@@ -7466,6 +7329,16 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 51 <= Version && 2147483647 >= Version;
         case OMPC_severity:
           return 51 <= Version && 2147483647 >= Version;
+        default:
+          return false;
+      }
+      break;
+    case OMPD_flatten:
+      switch (C) {
+        case OMPC_apply:
+          return 60 <= Version && 2147483647 >= Version;
+        case OMPC_depth:
+          return 61 <= Version && 2147483647 >= Version;
         default:
           return false;
       }
@@ -7490,23 +7363,23 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
       switch (C) {
         case OMPC_allocate:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_collapse:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_firstprivate:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_lastprivate:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_linear:
           return 1 <= Version && 2147483647 >= Version;
+        case OMPC_private:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_reduction:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_collapse:
+          return 1 <= Version && 2147483647 >= Version;
         case OMPC_nowait:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_order:
           return 50 <= Version && 2147483647 >= Version;
         case OMPC_ordered:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_private:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_reduction:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_schedule:
           return 1 <= Version && 2147483647 >= Version;
@@ -7520,8 +7393,6 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_allocate:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_collapse:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_firstprivate:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_if:
@@ -7532,15 +7403,17 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_nontemporal:
           return 50 <= Version && 2147483647 >= Version;
+        case OMPC_private:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_reduction:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_collapse:
+          return 1 <= Version && 2147483647 >= Version;
         case OMPC_nowait:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_order:
           return 50 <= Version && 2147483647 >= Version;
         case OMPC_ordered:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_private:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_reduction:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_safelen:
           return 1 <= Version && 2147483647 >= Version;
@@ -7554,6 +7427,10 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
       break;
     case OMPD_fuse:
       switch (C) {
+        case OMPC_apply:
+          return 60 <= Version && 2147483647 >= Version;
+        case OMPC_depth:
+          return 61 <= Version && 2147483647 >= Version;
         case OMPC_looprange:
           return 60 <= Version && 2147483647 >= Version;
         default:
@@ -7570,6 +7447,8 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
       break;
     case OMPD_interchange:
       switch (C) {
+        case OMPC_apply:
+          return 60 <= Version && 2147483647 >= Version;
         case OMPC_permutation:
           return 1 <= Version && 2147483647 >= Version;
         default:
@@ -7580,6 +7459,20 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
       switch (C) {
         case OMPC_allocate:
           return 1 <= Version && 2147483647 >= Version;
+        case OMPC_firstprivate:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_if:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_in_reduction:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_lastprivate:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_private:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_reduction:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_shared:
+          return 1 <= Version && 2147483647 >= Version;
         case OMPC_collapse:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_default:
@@ -7588,15 +7481,7 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_final:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_firstprivate:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_grainsize:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_if:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_in_reduction:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_lastprivate:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_mergeable:
           return 1 <= Version && 2147483647 >= Version;
@@ -7605,12 +7490,6 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
         case OMPC_num_tasks:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_priority:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_private:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_reduction:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_shared:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_untied:
           return 1 <= Version && 2147483647 >= Version;
@@ -7624,17 +7503,7 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_allocate:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_collapse:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_default:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_filter:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_final:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_firstprivate:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_grainsize:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_if:
           return 1 <= Version && 2147483647 >= Version;
@@ -7644,25 +7513,35 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_linear:
           return 1 <= Version && 2147483647 >= Version;
+        case OMPC_nontemporal:
+          return 50 <= Version && 2147483647 >= Version;
+        case OMPC_private:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_reduction:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_shared:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_collapse:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_default:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_filter:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_final:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_grainsize:
+          return 1 <= Version && 2147483647 >= Version;
         case OMPC_mergeable:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_nogroup:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_nontemporal:
-          return 50 <= Version && 2147483647 >= Version;
         case OMPC_num_tasks:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_order:
           return 50 <= Version && 2147483647 >= Version;
         case OMPC_priority:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_private:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_reduction:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_safelen:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_shared:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_simdlen:
           return 1 <= Version && 2147483647 >= Version;
@@ -7679,21 +7558,27 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
       switch (C) {
         case OMPC_allocate:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_collapse:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_default:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_final:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_firstprivate:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_grainsize:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_if:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_in_reduction:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_lastprivate:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_private:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_reduction:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_shared:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_collapse:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_default:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_final:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_grainsize:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_mergeable:
           return 1 <= Version && 2147483647 >= Version;
@@ -7702,12 +7587,6 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
         case OMPC_num_tasks:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_priority:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_private:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_reduction:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_shared:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_untied:
           return 1 <= Version && 2147483647 >= Version;
@@ -7721,15 +7600,7 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_allocate:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_collapse:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_default:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_final:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_firstprivate:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_grainsize:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_if:
           return 1 <= Version && 2147483647 >= Version;
@@ -7739,25 +7610,33 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_linear:
           return 1 <= Version && 2147483647 >= Version;
+        case OMPC_nontemporal:
+          return 50 <= Version && 2147483647 >= Version;
+        case OMPC_private:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_reduction:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_shared:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_collapse:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_default:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_final:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_grainsize:
+          return 1 <= Version && 2147483647 >= Version;
         case OMPC_mergeable:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_nogroup:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_nontemporal:
-          return 50 <= Version && 2147483647 >= Version;
         case OMPC_num_tasks:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_order:
           return 50 <= Version && 2147483647 >= Version;
         case OMPC_priority:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_private:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_reduction:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_safelen:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_shared:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_simdlen:
           return 1 <= Version && 2147483647 >= Version;
@@ -7771,16 +7650,21 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
       switch (C) {
         case OMPC_when:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_otherwise:
-          return 52 <= Version && 2147483647 >= Version;
         case OMPC_default:
           return 50 <= Version && 51 >= Version;
+        case OMPC_otherwise:
+          return 52 <= Version && 2147483647 >= Version;
         default:
           return false;
       }
       break;
     case OMPD_nothing:
-      return false;
+      switch (C) {
+        case OMPC_apply:
+          return 60 <= Version && 2147483647 >= Version;
+        default:
+          return false;
+      }
       break;
     case OMPD_ordered:
       switch (C) {
@@ -7804,6 +7688,8 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_firstprivate:
           return 1 <= Version && 2147483647 >= Version;
+        case OMPC_if:
+          return 1 <= Version && 2147483647 >= Version;
         case OMPC_ompx_attribute:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_private:
@@ -7813,8 +7699,6 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
         case OMPC_shared:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_default:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_if:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_message:
           return 60 <= Version && 2147483647 >= Version;
@@ -7830,11 +7714,13 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
       break;
     case OMPD_parallel_do:
       switch (C) {
+        case OMPC_allocate:
+          return 50 <= Version && 2147483647 >= Version;
         case OMPC_copyin:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_default:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_firstprivate:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_if:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_lastprivate:
           return 1 <= Version && 2147483647 >= Version;
@@ -7848,7 +7734,7 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_collapse:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_if:
+        case OMPC_default:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_message:
           return 60 <= Version && 2147483647 >= Version;
@@ -7876,8 +7762,6 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_copyin:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_default:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_firstprivate:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_if:
@@ -7896,6 +7780,8 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_collapse:
           return 1 <= Version && 2147483647 >= Version;
+        case OMPC_default:
+          return 1 <= Version && 2147483647 >= Version;
         case OMPC_message:
           return 60 <= Version && 2147483647 >= Version;
         case OMPC_num_threads:
@@ -7910,10 +7796,10 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_schedule:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_simdlen:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_severity:
           return 60 <= Version && 2147483647 >= Version;
+        case OMPC_simdlen:
+          return 1 <= Version && 2147483647 >= Version;
         default:
           return false;
       }
@@ -7922,11 +7808,7 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
       switch (C) {
         case OMPC_allocate:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_collapse:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_copyin:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_default:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_firstprivate:
           return 1 <= Version && 2147483647 >= Version;
@@ -7936,28 +7818,32 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_linear:
           return 1 <= Version && 2147483647 >= Version;
+        case OMPC_ompx_attribute:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_private:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_reduction:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_shared:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_collapse:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_default:
+          return 1 <= Version && 2147483647 >= Version;
         case OMPC_message:
           return 60 <= Version && 2147483647 >= Version;
         case OMPC_num_threads:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_ompx_attribute:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_order:
           return 50 <= Version && 2147483647 >= Version;
         case OMPC_ordered:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_private:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_proc_bind:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_reduction:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_schedule:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_severity:
           return 60 <= Version && 2147483647 >= Version;
-        case OMPC_shared:
-          return 1 <= Version && 2147483647 >= Version;
         default:
           return false;
       }
@@ -7968,11 +7854,7 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_allocate:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_collapse:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_copyin:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_default:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_firstprivate:
           return 1 <= Version && 2147483647 >= Version;
@@ -7982,23 +7864,29 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_linear:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_message:
-          return 60 <= Version && 2147483647 >= Version;
         case OMPC_nontemporal:
           return 50 <= Version && 2147483647 >= Version;
-        case OMPC_num_threads:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_ompx_attribute:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_private:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_reduction:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_shared:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_collapse:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_default:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_message:
+          return 60 <= Version && 2147483647 >= Version;
+        case OMPC_num_threads:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_order:
           return 50 <= Version && 2147483647 >= Version;
         case OMPC_ordered:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_private:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_proc_bind:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_reduction:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_safelen:
           return 1 <= Version && 2147483647 >= Version;
@@ -8006,8 +7894,6 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_severity:
           return 60 <= Version && 2147483647 >= Version;
-        case OMPC_shared:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_simdlen:
           return 1 <= Version && 2147483647 >= Version;
         default:
@@ -8020,30 +7906,30 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_copyin:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_default:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_filter:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_firstprivate:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_if:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_message:
-          return 60 <= Version && 2147483647 >= Version;
-        case OMPC_num_threads:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_ompx_attribute:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_private:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_proc_bind:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_reduction:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_shared:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_default:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_filter:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_message:
+          return 60 <= Version && 2147483647 >= Version;
+        case OMPC_num_threads:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_proc_bind:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_severity:
           return 60 <= Version && 2147483647 >= Version;
-        case OMPC_shared:
-          return 1 <= Version && 2147483647 >= Version;
         default:
           return false;
       }
@@ -8052,9 +7938,23 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
       switch (C) {
         case OMPC_allocate:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_collapse:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_copyin:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_firstprivate:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_if:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_lastprivate:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_ompx_attribute:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_private:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_reduction:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_shared:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_collapse:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_default:
           return 1 <= Version && 2147483647 >= Version;
@@ -8062,13 +7962,7 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_final:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_firstprivate:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_grainsize:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_if:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_lastprivate:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_mergeable:
           return 1 <= Version && 2147483647 >= Version;
@@ -8080,20 +7974,12 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_num_threads:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_ompx_attribute:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_priority:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_private:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_proc_bind:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_reduction:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_severity:
           return 60 <= Version && 2147483647 >= Version;
-        case OMPC_shared:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_untied:
           return 1 <= Version && 2147483647 >= Version;
         default:
@@ -8106,19 +7992,9 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_allocate:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_collapse:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_copyin:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_default:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_filter:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_final:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_firstprivate:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_grainsize:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_if:
           return 1 <= Version && 2147483647 >= Version;
@@ -8126,36 +8002,46 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_linear:
           return 1 <= Version && 2147483647 >= Version;
+        case OMPC_nontemporal:
+          return 50 <= Version && 2147483647 >= Version;
+        case OMPC_ompx_attribute:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_private:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_reduction:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_shared:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_collapse:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_default:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_filter:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_final:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_grainsize:
+          return 1 <= Version && 2147483647 >= Version;
         case OMPC_mergeable:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_message:
           return 60 <= Version && 2147483647 >= Version;
         case OMPC_nogroup:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_nontemporal:
-          return 50 <= Version && 2147483647 >= Version;
         case OMPC_num_tasks:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_num_threads:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_ompx_attribute:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_order:
           return 50 <= Version && 2147483647 >= Version;
         case OMPC_priority:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_private:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_proc_bind:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_reduction:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_safelen:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_severity:
           return 60 <= Version && 2147483647 >= Version;
-        case OMPC_shared:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_simdlen:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_untied:
@@ -8170,28 +8056,28 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_copyin:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_default:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_firstprivate:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_if:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_message:
-          return 60 <= Version && 2147483647 >= Version;
-        case OMPC_num_threads:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_ompx_attribute:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_private:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_proc_bind:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_reduction:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_shared:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_default:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_message:
+          return 60 <= Version && 2147483647 >= Version;
+        case OMPC_num_threads:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_proc_bind:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_severity:
           return 60 <= Version && 2147483647 >= Version;
-        case OMPC_shared:
-          return 1 <= Version && 2147483647 >= Version;
         default:
           return false;
       }
@@ -8200,21 +8086,29 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
       switch (C) {
         case OMPC_allocate:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_collapse:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_copyin:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_firstprivate:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_if:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_lastprivate:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_ompx_attribute:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_private:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_reduction:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_shared:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_collapse:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_default:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_final:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_firstprivate:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_grainsize:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_if:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_lastprivate:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_mergeable:
           return 1 <= Version && 2147483647 >= Version;
@@ -8226,20 +8120,12 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_num_threads:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_ompx_attribute:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_priority:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_private:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_proc_bind:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_reduction:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_severity:
           return 60 <= Version && 2147483647 >= Version;
-        case OMPC_shared:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_untied:
           return 1 <= Version && 2147483647 >= Version;
         default:
@@ -8252,17 +8138,9 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_allocate:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_collapse:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_copyin:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_default:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_final:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_firstprivate:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_grainsize:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_if:
           return 1 <= Version && 2147483647 >= Version;
@@ -8270,36 +8148,44 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_linear:
           return 1 <= Version && 2147483647 >= Version;
+        case OMPC_nontemporal:
+          return 50 <= Version && 2147483647 >= Version;
+        case OMPC_ompx_attribute:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_private:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_reduction:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_shared:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_collapse:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_default:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_final:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_grainsize:
+          return 1 <= Version && 2147483647 >= Version;
         case OMPC_mergeable:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_message:
           return 60 <= Version && 2147483647 >= Version;
         case OMPC_nogroup:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_nontemporal:
-          return 50 <= Version && 2147483647 >= Version;
         case OMPC_num_tasks:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_num_threads:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_ompx_attribute:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_order:
           return 50 <= Version && 2147483647 >= Version;
         case OMPC_priority:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_private:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_proc_bind:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_reduction:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_safelen:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_severity:
           return 60 <= Version && 2147483647 >= Version;
-        case OMPC_shared:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_simdlen:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_untied:
@@ -8314,9 +8200,9 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_copyin:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_default:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_firstprivate:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_if:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_lastprivate:
           return 1 <= Version && 2147483647 >= Version;
@@ -8324,17 +8210,17 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_private:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_proc_bind:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_reduction:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_shared:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_if:
+        case OMPC_default:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_message:
           return 60 <= Version && 2147483647 >= Version;
         case OMPC_num_threads:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_proc_bind:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_severity:
           return 60 <= Version && 2147483647 >= Version;
@@ -8348,9 +8234,9 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_copyin:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_default:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_firstprivate:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_if:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_private:
           return 1 <= Version && 2147483647 >= Version;
@@ -8358,7 +8244,7 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_shared:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_if:
+        case OMPC_default:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_message:
           return 60 <= Version && 2147483647 >= Version;
@@ -8374,26 +8260,31 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
       break;
     case OMPD_requires:
       switch (C) {
+        case OMPC_atomic_default_mem_order:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_device_safesync:
+          return 60 <= Version && 2147483647 >= Version;
+        case OMPC_dynamic_allocators:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_reverse_offload:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_self_maps:
+          return 1 <= Version && 2147483647 >= Version;
         case OMPC_unified_address:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_unified_shared_memory:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_device_safesync:
-          return 60 <= Version && 2147483647 >= Version;
-        case OMPC_atomic_default_mem_order:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_dynamic_allocators:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_self_maps:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_reverse_offload:
-          return 99 <= Version && 2147483647 >= Version;
         default:
           return false;
       }
       break;
     case OMPD_reverse:
-      return false;
+      switch (C) {
+        case OMPC_apply:
+          return 60 <= Version && 2147483647 >= Version;
+        default:
+          return false;
+      }
       break;
     case OMPD_scan:
       switch (C) {
@@ -8432,11 +8323,11 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_lastprivate:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_nowait:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_private:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_reduction:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_nowait:
           return 1 <= Version && 2147483647 >= Version;
         default:
           return false;
@@ -8448,6 +8339,8 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_allocate:
           return 1 <= Version && 2147483647 >= Version;
+        case OMPC_if:
+          return 50 <= Version && 2147483647 >= Version;
         case OMPC_lastprivate:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_linear:
@@ -8460,8 +8353,6 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_collapse:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_if:
-          return 50 <= Version && 2147483647 >= Version;
         case OMPC_order:
           return 50 <= Version && 2147483647 >= Version;
         case OMPC_safelen:
@@ -8488,8 +8379,20 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return false;
       }
       break;
+    case OMPD_split:
+      switch (C) {
+        case OMPC_apply:
+          return 60 <= Version && 2147483647 >= Version;
+        case OMPC_counts:
+          return 60 <= Version && 2147483647 >= Version;
+        default:
+          return false;
+      }
+      break;
     case OMPD_stripe:
       switch (C) {
+        case OMPC_apply:
+          return 60 <= Version && 2147483647 >= Version;
         case OMPC_sizes:
           return 60 <= Version && 2147483647 >= Version;
         default:
@@ -8505,6 +8408,8 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
         case OMPC_dyn_groupprivate:
           return 61 <= Version && 2147483647 >= Version;
         case OMPC_firstprivate:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_if:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_has_device_addr:
           return 51 <= Version && 2147483647 >= Version;
@@ -8526,8 +8431,6 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_device:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_if:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_nowait:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_ompx_bare:
@@ -8544,12 +8447,12 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
       break;
     case OMPD_target_data:
       switch (C) {
-        case OMPC_device:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_if:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_default:
           return 60 <= Version && 2147483647 >= Version;
+        case OMPC_device:
+          return 1 <= Version && 2147483647 >= Version;
         case OMPC_transparent:
           return 60 <= Version && 2147483647 >= Version;
         case OMPC_map:
@@ -8566,9 +8469,9 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
       switch (C) {
         case OMPC_depend:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_device:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_if:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_device:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_nowait:
           return 1 <= Version && 2147483647 >= Version;
@@ -8584,9 +8487,9 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
       switch (C) {
         case OMPC_depend:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_device:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_if:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_device:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_nowait:
           return 1 <= Version && 2147483647 >= Version;
@@ -8602,8 +8505,6 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
       switch (C) {
         case OMPC_allocate:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_default:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_depend:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_dyn_groupprivate:
@@ -8618,8 +8519,6 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_map:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_nowait:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_ompx_attribute:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_private:
@@ -8630,12 +8529,16 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_uses_allocators:
           return 50 <= Version && 2147483647 >= Version;
+        case OMPC_default:
+          return 1 <= Version && 2147483647 >= Version;
         case OMPC_defaultmap:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_device:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_message:
           return 60 <= Version && 2147483647 >= Version;
+        case OMPC_nowait:
+          return 1 <= Version && 2147483647 >= Version;
         case OMPC_num_threads:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_ompx_dyn_cgroup_mem:
@@ -8652,10 +8555,6 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
       break;
     case OMPD_target_parallel_do:
       switch (C) {
-        case OMPC_allocator:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_default:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_depend:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_dyn_groupprivate:
@@ -8682,7 +8581,11 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_uses_allocators:
           return 1 <= Version && 2147483647 >= Version;
+        case OMPC_allocator:
+          return 1 <= Version && 2147483647 >= Version;
         case OMPC_collapse:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_default:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_defaultmap:
           return 1 <= Version && 2147483647 >= Version;
@@ -8714,15 +8617,7 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_allocate:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_collapse:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_default:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_defaultmap:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_depend:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_device:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_dyn_groupprivate:
           return 61 <= Version && 2147483647 >= Version;
@@ -8740,10 +8635,26 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_map:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_message:
-          return 60 <= Version && 2147483647 >= Version;
         case OMPC_nontemporal:
           return 1 <= Version && 2147483647 >= Version;
+        case OMPC_private:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_reduction:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_shared:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_uses_allocators:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_collapse:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_default:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_defaultmap:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_device:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_message:
+          return 60 <= Version && 2147483647 >= Version;
         case OMPC_nowait:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_num_threads:
@@ -8752,11 +8663,7 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 50 <= Version && 2147483647 >= Version;
         case OMPC_ordered:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_private:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_proc_bind:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_reduction:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_safelen:
           return 1 <= Version && 2147483647 >= Version;
@@ -8764,11 +8671,7 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_severity:
           return 60 <= Version && 2147483647 >= Version;
-        case OMPC_shared:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_simdlen:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_uses_allocators:
           return 1 <= Version && 2147483647 >= Version;
         default:
           return false;
@@ -8778,15 +8681,7 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
       switch (C) {
         case OMPC_allocate:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_collapse:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_default:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_defaultmap:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_depend:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_device:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_dyn_groupprivate:
           return 61 <= Version && 2147483647 >= Version;
@@ -8804,34 +8699,42 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_map:
           return 1 <= Version && 2147483647 >= Version;
+        case OMPC_ompx_attribute:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_private:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_reduction:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_shared:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_uses_allocators:
+          return 50 <= Version && 2147483647 >= Version;
+        case OMPC_collapse:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_default:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_defaultmap:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_device:
+          return 1 <= Version && 2147483647 >= Version;
         case OMPC_message:
           return 60 <= Version && 2147483647 >= Version;
         case OMPC_nowait:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_num_threads:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_ompx_attribute:
+        case OMPC_ompx_dyn_cgroup_mem:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_order:
           return 50 <= Version && 2147483647 >= Version;
         case OMPC_ordered:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_private:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_proc_bind:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_reduction:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_schedule:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_severity:
           return 60 <= Version && 2147483647 >= Version;
-        case OMPC_shared:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_uses_allocators:
-          return 50 <= Version && 2147483647 >= Version;
-        case OMPC_ompx_dyn_cgroup_mem:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_thread_limit:
           return 51 <= Version && 2147483647 >= Version;
         default:
@@ -8844,15 +8747,7 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_allocate:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_collapse:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_default:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_defaultmap:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_depend:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_device:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_dyn_groupprivate:
           return 61 <= Version && 2147483647 >= Version;
@@ -8870,25 +8765,39 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_map:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_message:
-          return 60 <= Version && 2147483647 >= Version;
         case OMPC_nontemporal:
           return 50 <= Version && 2147483647 >= Version;
+        case OMPC_ompx_attribute:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_private:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_reduction:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_shared:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_uses_allocators:
+          return 50 <= Version && 2147483647 >= Version;
+        case OMPC_collapse:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_default:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_defaultmap:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_device:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_message:
+          return 60 <= Version && 2147483647 >= Version;
         case OMPC_nowait:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_num_threads:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_ompx_attribute:
+        case OMPC_ompx_dyn_cgroup_mem:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_order:
           return 50 <= Version && 2147483647 >= Version;
         case OMPC_ordered:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_private:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_proc_bind:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_reduction:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_safelen:
           return 1 <= Version && 2147483647 >= Version;
@@ -8896,13 +8805,7 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_severity:
           return 60 <= Version && 2147483647 >= Version;
-        case OMPC_shared:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_simdlen:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_uses_allocators:
-          return 50 <= Version && 2147483647 >= Version;
-        case OMPC_ompx_dyn_cgroup_mem:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_thread_limit:
           return 51 <= Version && 2147483647 >= Version;
@@ -8936,8 +8839,6 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_nontemporal:
           return 50 <= Version && 2147483647 >= Version;
-        case OMPC_nowait:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_ompx_attribute:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_private:
@@ -8956,6 +8857,8 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_message:
           return 60 <= Version && 2147483647 >= Version;
+        case OMPC_nowait:
+          return 1 <= Version && 2147483647 >= Version;
         case OMPC_num_threads:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_ompx_dyn_cgroup_mem:
@@ -9016,9 +8919,9 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_num_teams:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_ompx_dyn_cgroup_mem:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_ompx_bare:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_ompx_dyn_cgroup_mem:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_thread_limit:
           return 1 <= Version && 2147483647 >= Version;
@@ -9216,17 +9119,7 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
       switch (C) {
         case OMPC_allocate:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_collapse:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_default:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_defaultmap:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_depend:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_device:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_dist_schedule:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_dyn_groupprivate:
           return 61 <= Version && 2147483647 >= Version;
@@ -9242,6 +9135,26 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_map:
           return 1 <= Version && 2147483647 >= Version;
+        case OMPC_ompx_attribute:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_private:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_reduction:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_shared:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_uses_allocators:
+          return 50 <= Version && 2147483647 >= Version;
+        case OMPC_collapse:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_default:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_defaultmap:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_device:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_dist_schedule:
+          return 1 <= Version && 2147483647 >= Version;
         case OMPC_message:
           return 60 <= Version && 2147483647 >= Version;
         case OMPC_nowait:
@@ -9250,27 +9163,17 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_num_threads:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_ompx_attribute:
+        case OMPC_ompx_dyn_cgroup_mem:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_order:
           return 50 <= Version && 2147483647 >= Version;
-        case OMPC_private:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_proc_bind:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_reduction:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_schedule:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_severity:
           return 60 <= Version && 2147483647 >= Version;
-        case OMPC_shared:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_thread_limit:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_uses_allocators:
-          return 50 <= Version && 2147483647 >= Version;
-        case OMPC_ompx_dyn_cgroup_mem:
           return 1 <= Version && 2147483647 >= Version;
         default:
           return false;
@@ -9282,17 +9185,7 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_allocate:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_collapse:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_default:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_defaultmap:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_depend:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_device:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_dist_schedule:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_dyn_groupprivate:
           return 61 <= Version && 2147483647 >= Version;
@@ -9310,25 +9203,41 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_map:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_message:
-          return 60 <= Version && 2147483647 >= Version;
         case OMPC_nontemporal:
           return 50 <= Version && 2147483647 >= Version;
+        case OMPC_ompx_attribute:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_private:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_reduction:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_shared:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_uses_allocators:
+          return 50 <= Version && 2147483647 >= Version;
+        case OMPC_collapse:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_default:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_defaultmap:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_device:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_dist_schedule:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_message:
+          return 60 <= Version && 2147483647 >= Version;
         case OMPC_nowait:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_num_teams:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_num_threads:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_ompx_attribute:
+        case OMPC_ompx_dyn_cgroup_mem:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_order:
           return 50 <= Version && 2147483647 >= Version;
-        case OMPC_private:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_proc_bind:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_reduction:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_safelen:
           return 1 <= Version && 2147483647 >= Version;
@@ -9336,15 +9245,9 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_severity:
           return 60 <= Version && 2147483647 >= Version;
-        case OMPC_shared:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_simdlen:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_thread_limit:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_uses_allocators:
-          return 50 <= Version && 2147483647 >= Version;
-        case OMPC_ompx_dyn_cgroup_mem:
           return 1 <= Version && 2147483647 >= Version;
         default:
           return false;
@@ -9386,10 +9289,10 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_uses_allocators:
           return 50 <= Version && 2147483647 >= Version;
-        case OMPC_default:
-          return 60 <= Version && 2147483647 >= Version;
         case OMPC_collapse:
           return 1 <= Version && 2147483647 >= Version;
+        case OMPC_default:
+          return 60 <= Version && 2147483647 >= Version;
         case OMPC_defaultmap:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_device:
@@ -9450,9 +9353,9 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_num_teams:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_ompx_dyn_cgroup_mem:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_ompx_bare:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_ompx_dyn_cgroup_mem:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_thread_limit:
           return 1 <= Version && 2147483647 >= Version;
@@ -9466,11 +9369,11 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_from:
           return 1 <= Version && 2147483647 >= Version;
+        case OMPC_if:
+          return 1 <= Version && 2147483647 >= Version;
         case OMPC_to:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_device:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_if:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_nowait:
           return 1 <= Version && 2147483647 >= Version;
@@ -9490,15 +9393,13 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_firstprivate:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_in_reduction:
+        case OMPC_if:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_mergeable:
+        case OMPC_in_reduction:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_private:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_shared:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_untied:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_default:
           return 1 <= Version && 2147483647 >= Version;
@@ -9506,16 +9407,18 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 50 <= Version && 2147483647 >= Version;
         case OMPC_final:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_if:
+        case OMPC_mergeable:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_priority:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_threadset:
-          return 60 <= Version && 2147483647 >= Version;
         case OMPC_replayable:
+          return 60 <= Version && 2147483647 >= Version;
+        case OMPC_threadset:
           return 60 <= Version && 2147483647 >= Version;
         case OMPC_transparent:
           return 60 <= Version && 2147483647 >= Version;
+        case OMPC_untied:
+          return 1 <= Version && 2147483647 >= Version;
         default:
           return false;
       }
@@ -9538,11 +9441,9 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_in_reduction:
           return 1 <= Version && 2147483647 >= Version;
+        case OMPC_if:
+          return 1 <= Version && 2147483647 >= Version;
         case OMPC_lastprivate:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_mergeable:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_nogroup:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_private:
           return 1 <= Version && 2147483647 >= Version;
@@ -9550,24 +9451,26 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_shared:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_untied:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_collapse:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_default:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_final:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_if:
+        case OMPC_mergeable:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_nogroup:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_priority:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_threadset:
-          return 60 <= Version && 2147483647 >= Version;
         case OMPC_replayable:
+          return 60 <= Version && 2147483647 >= Version;
+        case OMPC_threadset:
           return 60 <= Version && 2147483647 >= Version;
         case OMPC_transparent:
           return 60 <= Version && 2147483647 >= Version;
+        case OMPC_untied:
+          return 1 <= Version && 2147483647 >= Version;
         case OMPC_grainsize:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_num_tasks:
@@ -9582,8 +9485,6 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_allocate:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_default:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_firstprivate:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_if:
@@ -9594,10 +9495,6 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_linear:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_mergeable:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_nogroup:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_nontemporal:
           return 50 <= Version && 2147483647 >= Version;
         case OMPC_private:
@@ -9606,11 +9503,15 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_shared:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_untied:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_collapse:
           return 1 <= Version && 2147483647 >= Version;
+        case OMPC_default:
+          return 1 <= Version && 2147483647 >= Version;
         case OMPC_final:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_mergeable:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_nogroup:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_order:
           return 50 <= Version && 2147483647 >= Version;
@@ -9619,6 +9520,8 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
         case OMPC_safelen:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_simdlen:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_untied:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_grainsize:
           return 1 <= Version && 2147483647 >= Version;
@@ -9645,12 +9548,12 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
       break;
     case OMPD_taskgraph:
       switch (C) {
+        case OMPC_if:
+          return 1 <= Version && 2147483647 >= Version;
         case OMPC_graph_id:
           return 60 <= Version && 2147483647 >= Version;
         case OMPC_graph_reset:
           return 60 <= Version && 2147483647 >= Version;
-        case OMPC_if:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_nogroup:
           return 1 <= Version && 2147483647 >= Version;
         default:
@@ -9665,6 +9568,8 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 61 <= Version && 2147483647 >= Version;
         case OMPC_firstprivate:
           return 1 <= Version && 2147483647 >= Version;
+        case OMPC_if:
+          return 52 <= Version && 2147483647 >= Version;
         case OMPC_ompx_attribute:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_private:
@@ -9675,8 +9580,6 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_default:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_if:
-          return 52 <= Version && 2147483647 >= Version;
         case OMPC_num_teams:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_thread_limit:
@@ -9689,19 +9592,13 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
       switch (C) {
         case OMPC_allocate:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_collapse:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_default:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_dist_schedule:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_dyn_groupprivate:
           return 61 <= Version && 2147483647 >= Version;
         case OMPC_firstprivate:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_lastprivate:
+        case OMPC_if:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_num_teams:
+        case OMPC_lastprivate:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_ompx_attribute:
           return 1 <= Version && 2147483647 >= Version;
@@ -9711,12 +9608,18 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_shared:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_thread_limit:
+        case OMPC_collapse:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_if:
+        case OMPC_default:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_dist_schedule:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_num_teams:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_order:
           return 50 <= Version && 2147483647 >= Version;
+        case OMPC_thread_limit:
+          return 1 <= Version && 2147483647 >= Version;
         default:
           return false;
       }
@@ -9827,13 +9730,7 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
       switch (C) {
         case OMPC_allocate:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_collapse:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_copyin:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_default:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_dist_schedule:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_dyn_groupprivate:
           return 61 <= Version && 2147483647 >= Version;
@@ -9843,28 +9740,34 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_lastprivate:
           return 1 <= Version && 2147483647 >= Version;
+        case OMPC_ompx_attribute:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_private:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_reduction:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_shared:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_collapse:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_default:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_dist_schedule:
+          return 1 <= Version && 2147483647 >= Version;
         case OMPC_message:
           return 60 <= Version && 2147483647 >= Version;
         case OMPC_num_teams:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_num_threads:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_ompx_attribute:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_order:
           return 50 <= Version && 2147483647 >= Version;
-        case OMPC_private:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_proc_bind:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_reduction:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_schedule:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_severity:
           return 60 <= Version && 2147483647 >= Version;
-        case OMPC_shared:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_thread_limit:
           return 1 <= Version && 2147483647 >= Version;
         default:
@@ -9877,39 +9780,41 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_allocate:
           return 1 <= Version && 2147483647 >= Version;
+        case OMPC_dyn_groupprivate:
+          return 61 <= Version && 2147483647 >= Version;
+        case OMPC_firstprivate:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_lastprivate:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_if:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_linear:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_nontemporal:
+          return 50 <= Version && 2147483647 >= Version;
+        case OMPC_ompx_attribute:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_private:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_reduction:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_shared:
+          return 1 <= Version && 2147483647 >= Version;
         case OMPC_collapse:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_default:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_dist_schedule:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_dyn_groupprivate:
-          return 61 <= Version && 2147483647 >= Version;
-        case OMPC_firstprivate:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_if:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_lastprivate:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_linear:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_message:
           return 60 <= Version && 2147483647 >= Version;
-        case OMPC_nontemporal:
-          return 50 <= Version && 2147483647 >= Version;
         case OMPC_num_teams:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_num_threads:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_ompx_attribute:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_order:
           return 50 <= Version && 2147483647 >= Version;
-        case OMPC_private:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_proc_bind:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_reduction:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_safelen:
           return 1 <= Version && 2147483647 >= Version;
@@ -9917,8 +9822,6 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_severity:
           return 60 <= Version && 2147483647 >= Version;
-        case OMPC_shared:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_simdlen:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_thread_limit:
@@ -9979,6 +9882,8 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_firstprivate:
           return 1 <= Version && 2147483647 >= Version;
+        case OMPC_if:
+          return 52 <= Version && 2147483647 >= Version;
         case OMPC_ompx_attribute:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_private:
@@ -9989,8 +9894,6 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_default:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_if:
-          return 52 <= Version && 2147483647 >= Version;
         case OMPC_num_teams:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_thread_limit:
@@ -10004,6 +9907,8 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
       break;
     case OMPD_tile:
       switch (C) {
+        case OMPC_apply:
+          return 60 <= Version && 2147483647 >= Version;
         case OMPC_sizes:
           return 51 <= Version && 2147483647 >= Version;
         default:
@@ -10015,6 +9920,8 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
       break;
     case OMPD_unroll:
       switch (C) {
+        case OMPC_apply:
+          return 60 <= Version && 2147483647 >= Version;
         case OMPC_full:
           return 51 <= Version && 2147483647 >= Version;
         case OMPC_partial:
@@ -10038,11 +9945,11 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
       switch (C) {
         case OMPC_depend:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_device:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_has_device_addr:
           return 51 <= Version && 2147483647 >= Version;
         case OMPC_is_device_ptr:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_device:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_nocontext:
           return 1 <= Version && 2147483647 >= Version;
@@ -10060,13 +9967,13 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_destroy:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_device:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_init:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_nowait:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_use:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_device:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_nowait:
           return 1 <= Version && 2147483647 >= Version;
         default:
           return false;
@@ -10106,6 +10013,8 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_firstprivate:
           return 1 <= Version && 2147483647 >= Version;
+        case OMPC_if:
+          return 1 <= Version && 2147483647 >= Version;
         case OMPC_lastprivate:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_ompx_attribute:
@@ -10121,8 +10030,6 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
         case OMPC_collapse:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_default:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_if:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_message:
           return 60 <= Version && 2147483647 >= Version;
@@ -10148,6 +10055,8 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 61 <= Version && 2147483647 >= Version;
         case OMPC_firstprivate:
           return 1 <= Version && 2147483647 >= Version;
+        case OMPC_if:
+          return 1 <= Version && 2147483647 >= Version;
         case OMPC_is_device_ptr:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_has_device_addr:
@@ -10170,19 +10079,17 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 50 <= Version && 2147483647 >= Version;
         case OMPC_collapse:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_order:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_thread_limit:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_ompx_dyn_cgroup_mem:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_if:
+        case OMPC_defaultmap:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_device:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_defaultmap:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_nowait:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_ompx_dyn_cgroup_mem:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_order:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_thread_limit:
           return 1 <= Version && 2147483647 >= Version;
         default:
           return false;
@@ -10193,8 +10100,6 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
         case OMPC_allocate:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_depend:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_device:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_dyn_groupprivate:
           return 61 <= Version && 2147483647 >= Version;
@@ -10227,6 +10132,8 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
         case OMPC_default:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_defaultmap:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_device:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_message:
           return 60 <= Version && 2147483647 >= Version;
@@ -10252,11 +10159,7 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
       switch (C) {
         case OMPC_allocate:
           return 1 <= Version && 2147483647 >= Version;
-        case OMPC_defaultmap:
-          return 1 <= Version && 2147483647 >= Version;
         case OMPC_depend:
-          return 1 <= Version && 2147483647 >= Version;
-        case OMPC_device:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_dyn_groupprivate:
           return 61 <= Version && 2147483647 >= Version;
@@ -10288,6 +10191,10 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_default:
           return 1 <= Version && 2147483647 >= Version;
+        case OMPC_defaultmap:
+          return 1 <= Version && 2147483647 >= Version;
+        case OMPC_device:
+          return 1 <= Version && 2147483647 >= Version;
         case OMPC_nowait:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_num_teams:
@@ -10310,6 +10217,8 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
           return 61 <= Version && 2147483647 >= Version;
         case OMPC_firstprivate:
           return 1 <= Version && 2147483647 >= Version;
+        case OMPC_if:
+          return 52 <= Version && 2147483647 >= Version;
         case OMPC_lastprivate:
           return 1 <= Version && 2147483647 >= Version;
         case OMPC_ompx_attribute:
@@ -10340,760 +10249,440 @@ bool llvm::omp::isAllowedClauseForDirective(llvm::omp::Directive D, llvm::omp::C
   llvm_unreachable("Invalid OpenMP Directive kind");
 }
 
-llvm::omp::Association llvm::omp::getDirectiveAssociation(llvm::omp::Directive Dir) {
-  switch (Dir) {
-  case OMPD_allocate:
-    return Association::None;
-  case OMPD_allocators:
-    return Association::Block;
-  case OMPD_assume:
-    return Association::Block;
-  case OMPD_assumes:
-    return Association::None;
-  case OMPD_atomic:
-    return Association::Block;
-  case OMPD_barrier:
-    return Association::None;
-  case OMPD_begin_assumes:
-    return Association::Delimited;
-  case OMPD_begin_declare_target:
-    return Association::Delimited;
-  case OMPD_begin_declare_variant:
-    return Association::Delimited;
-  case OMPD_cancel:
-    return Association::None;
-  case OMPD_cancellation_point:
-    return Association::None;
-  case OMPD_critical:
-    return Association::Block;
-  case OMPD_declare_induction:
-    return Association::None;
-  case OMPD_declare_mapper:
-    return Association::None;
-  case OMPD_declare_reduction:
-    return Association::None;
-  case OMPD_declare_simd:
-    return Association::Declaration;
-  case OMPD_declare_target:
-    return Association::None;
-  case OMPD_declare_variant:
-    return Association::Declaration;
-  case OMPD_depobj:
-    return Association::None;
-  case OMPD_distribute:
-    return Association::LoopNest;
-  case OMPD_distribute_parallel_do:
-    return Association::LoopNest;
-  case OMPD_distribute_parallel_do_simd:
-    return Association::LoopNest;
-  case OMPD_distribute_parallel_for:
-    return Association::LoopNest;
-  case OMPD_distribute_parallel_for_simd:
-    return Association::LoopNest;
-  case OMPD_distribute_simd:
-    return Association::LoopNest;
-  case OMPD_do:
-    return Association::LoopNest;
-  case OMPD_do_simd:
-    return Association::LoopNest;
-  case OMPD_end_assumes:
-    return Association::Delimited;
-  case OMPD_end_declare_target:
-    return Association::Delimited;
-  case OMPD_end_declare_variant:
-    return Association::Delimited;
-  case OMPD_end_do:
-    return Association::LoopNest;
-  case OMPD_end_do_simd:
-    return Association::LoopNest;
-  case OMPD_end_scope:
-    return Association::Block;
-  case OMPD_end_sections:
-    return Association::Block;
-  case OMPD_end_single:
-    return Association::Block;
-  case OMPD_end_workdistribute:
-    return Association::Block;
-  case OMPD_end_workshare:
-    return Association::Block;
-  case OMPD_error:
-    return Association::None;
-  case OMPD_flush:
-    return Association::None;
-  case OMPD_for:
-    return Association::LoopNest;
-  case OMPD_for_simd:
-    return Association::LoopNest;
-  case OMPD_fuse:
-    return Association::LoopSeq;
-  case OMPD_groupprivate:
-    return Association::None;
-  case OMPD_interchange:
-    return Association::LoopNest;
-  case OMPD_masked_taskloop:
-    return Association::LoopNest;
-  case OMPD_masked_taskloop_simd:
-    return Association::LoopNest;
-  case OMPD_master:
-    return Association::Block;
-  case OMPD_master_taskloop:
-    return Association::LoopNest;
-  case OMPD_master_taskloop_simd:
-    return Association::LoopNest;
-  case OMPD_metadirective:
-    return Association::None;
-  case OMPD_nothing:
-    return Association::None;
-  case OMPD_ordered:
-    return Association::None;
-  case OMPD_parallel:
-    return Association::Block;
-  case OMPD_parallel_do:
-    return Association::LoopNest;
-  case OMPD_parallel_do_simd:
-    return Association::LoopNest;
-  case OMPD_parallel_for:
-    return Association::LoopNest;
-  case OMPD_parallel_for_simd:
-    return Association::LoopNest;
-  case OMPD_parallel_masked:
-    return Association::Block;
-  case OMPD_parallel_masked_taskloop:
-    return Association::LoopNest;
-  case OMPD_parallel_masked_taskloop_simd:
-    return Association::LoopNest;
-  case OMPD_parallel_master:
-    return Association::Block;
-  case OMPD_parallel_master_taskloop:
-    return Association::LoopNest;
-  case OMPD_parallel_master_taskloop_simd:
-    return Association::LoopNest;
-  case OMPD_parallel_sections:
-    return Association::Block;
-  case OMPD_parallel_workshare:
-    return Association::Block;
-  case OMPD_requires:
-    return Association::None;
-  case OMPD_reverse:
-    return Association::LoopNest;
-  case OMPD_scan:
-    return Association::Separating;
-  case OMPD_scope:
-    return Association::Block;
-  case OMPD_section:
-    return Association::Separating;
-  case OMPD_sections:
-    return Association::Block;
-  case OMPD_simd:
-    return Association::LoopNest;
-  case OMPD_single:
-    return Association::Block;
-  case OMPD_stripe:
-    return Association::LoopNest;
-  case OMPD_target:
-    return Association::Block;
-  case OMPD_target_data:
-    return Association::Block;
-  case OMPD_target_enter_data:
-    return Association::None;
-  case OMPD_target_exit_data:
-    return Association::None;
-  case OMPD_target_parallel:
-    return Association::Block;
-  case OMPD_target_parallel_do:
-    return Association::LoopNest;
-  case OMPD_target_parallel_do_simd:
-    return Association::LoopNest;
-  case OMPD_target_parallel_for:
-    return Association::LoopNest;
-  case OMPD_target_parallel_for_simd:
-    return Association::LoopNest;
-  case OMPD_target_simd:
-    return Association::LoopNest;
-  case OMPD_target_teams:
-    return Association::Block;
-  case OMPD_target_teams_distribute:
-    return Association::LoopNest;
-  case OMPD_target_teams_distribute_parallel_do:
-    return Association::LoopNest;
-  case OMPD_target_teams_distribute_parallel_do_simd:
-    return Association::LoopNest;
-  case OMPD_target_teams_distribute_parallel_for:
-    return Association::LoopNest;
-  case OMPD_target_teams_distribute_parallel_for_simd:
-    return Association::LoopNest;
-  case OMPD_target_teams_distribute_simd:
-    return Association::LoopNest;
-  case OMPD_target_teams_workdistribute:
-    return Association::Block;
-  case OMPD_target_update:
-    return Association::None;
-  case OMPD_task:
-    return Association::Block;
-  case OMPD_taskgroup:
-    return Association::Block;
-  case OMPD_taskloop:
-    return Association::LoopNest;
-  case OMPD_taskloop_simd:
-    return Association::LoopNest;
-  case OMPD_taskwait:
-    return Association::None;
-  case OMPD_taskyield:
-    return Association::None;
-  case OMPD_taskgraph:
-    return Association::Block;
-  case OMPD_teams:
-    return Association::Block;
-  case OMPD_teams_distribute:
-    return Association::LoopNest;
-  case OMPD_teams_distribute_parallel_do:
-    return Association::LoopNest;
-  case OMPD_teams_distribute_parallel_do_simd:
-    return Association::LoopNest;
-  case OMPD_teams_distribute_parallel_for:
-    return Association::LoopNest;
-  case OMPD_teams_distribute_parallel_for_simd:
-    return Association::LoopNest;
-  case OMPD_teams_distribute_simd:
-    return Association::LoopNest;
-  case OMPD_teams_workdistribute:
-    return Association::Block;
-  case OMPD_threadprivate:
-    return Association::None;
-  case OMPD_tile:
-    return Association::LoopNest;
-  case OMPD_unknown:
-    return Association::None;
-  case OMPD_unroll:
-    return Association::LoopNest;
-  case OMPD_workdistribute:
-    return Association::Block;
-  case OMPD_workshare:
-    return Association::Block;
-  case OMPD_dispatch:
-    return Association::Block;
-  case OMPD_interop:
-    return Association::None;
-  case OMPD_loop:
-    return Association::LoopNest;
-  case OMPD_masked:
-    return Association::Block;
-  case OMPD_parallel_loop:
-    return Association::LoopNest;
-  case OMPD_target_loop:
-    return Association::LoopNest;
-  case OMPD_target_parallel_loop:
-    return Association::LoopNest;
-  case OMPD_target_teams_loop:
-    return Association::LoopNest;
-  case OMPD_teams_loop:
-    return Association::LoopNest;
-  } // switch (Dir)
-  llvm_unreachable("Unexpected directive");
-}
-
-llvm::omp::Category llvm::omp::getDirectiveCategory(llvm::omp::Directive Dir) {
-  switch (Dir) {
-  case OMPD_allocate:
-    return Category::Declarative;
-  case OMPD_allocators:
-    return Category::Executable;
-  case OMPD_assume:
-    return Category::Informational;
-  case OMPD_assumes:
-    return Category::Informational;
-  case OMPD_atomic:
-    return Category::Executable;
-  case OMPD_barrier:
-    return Category::Executable;
-  case OMPD_begin_assumes:
-    return Category::Informational;
-  case OMPD_begin_declare_target:
-    return Category::Declarative;
-  case OMPD_begin_declare_variant:
-    return Category::Declarative;
-  case OMPD_cancel:
-    return Category::Executable;
-  case OMPD_cancellation_point:
-    return Category::Executable;
-  case OMPD_critical:
-    return Category::Executable;
-  case OMPD_declare_induction:
-    return Category::Declarative;
-  case OMPD_declare_mapper:
-    return Category::Declarative;
-  case OMPD_declare_reduction:
-    return Category::Declarative;
-  case OMPD_declare_simd:
-    return Category::Declarative;
-  case OMPD_declare_target:
-    return Category::Declarative;
-  case OMPD_declare_variant:
-    return Category::Declarative;
-  case OMPD_depobj:
-    return Category::Executable;
-  case OMPD_distribute:
-    return Category::Executable;
-  case OMPD_distribute_parallel_do:
-    return Category::Executable;
-  case OMPD_distribute_parallel_do_simd:
-    return Category::Executable;
-  case OMPD_distribute_parallel_for:
-    return Category::Executable;
-  case OMPD_distribute_parallel_for_simd:
-    return Category::Executable;
-  case OMPD_distribute_simd:
-    return Category::Executable;
-  case OMPD_do:
-    return Category::Executable;
-  case OMPD_do_simd:
-    return Category::Executable;
-  case OMPD_end_assumes:
-    return Category::Informational;
-  case OMPD_end_declare_target:
-    return Category::Declarative;
-  case OMPD_end_declare_variant:
-    return Category::Declarative;
-  case OMPD_end_do:
-    return Category::Executable;
-  case OMPD_end_do_simd:
-    return Category::Executable;
-  case OMPD_end_scope:
-    return Category::Executable;
-  case OMPD_end_sections:
-    return Category::Executable;
-  case OMPD_end_single:
-    return Category::Executable;
-  case OMPD_end_workdistribute:
-    return Category::Executable;
-  case OMPD_end_workshare:
-    return Category::Executable;
-  case OMPD_error:
-    return Category::Utility;
-  case OMPD_flush:
-    return Category::Executable;
-  case OMPD_for:
-    return Category::Executable;
-  case OMPD_for_simd:
-    return Category::Executable;
-  case OMPD_fuse:
-    return Category::Executable;
-  case OMPD_groupprivate:
-    return Category::Declarative;
-  case OMPD_interchange:
-    return Category::Executable;
-  case OMPD_masked_taskloop:
-    return Category::Executable;
-  case OMPD_masked_taskloop_simd:
-    return Category::Executable;
-  case OMPD_master:
-    return Category::Executable;
-  case OMPD_master_taskloop:
-    return Category::Executable;
-  case OMPD_master_taskloop_simd:
-    return Category::Executable;
-  case OMPD_metadirective:
-    return Category::Meta;
-  case OMPD_nothing:
-    return Category::Utility;
-  case OMPD_ordered:
-    return Category::Executable;
-  case OMPD_parallel:
-    return Category::Executable;
-  case OMPD_parallel_do:
-    return Category::Executable;
-  case OMPD_parallel_do_simd:
-    return Category::Executable;
-  case OMPD_parallel_for:
-    return Category::Executable;
-  case OMPD_parallel_for_simd:
-    return Category::Executable;
-  case OMPD_parallel_masked:
-    return Category::Executable;
-  case OMPD_parallel_masked_taskloop:
-    return Category::Executable;
-  case OMPD_parallel_masked_taskloop_simd:
-    return Category::Executable;
-  case OMPD_parallel_master:
-    return Category::Executable;
-  case OMPD_parallel_master_taskloop:
-    return Category::Executable;
-  case OMPD_parallel_master_taskloop_simd:
-    return Category::Executable;
-  case OMPD_parallel_sections:
-    return Category::Executable;
-  case OMPD_parallel_workshare:
-    return Category::Executable;
-  case OMPD_requires:
-    return Category::Informational;
-  case OMPD_reverse:
-    return Category::Executable;
-  case OMPD_scan:
-    return Category::Subsidiary;
-  case OMPD_scope:
-    return Category::Executable;
-  case OMPD_section:
-    return Category::Subsidiary;
-  case OMPD_sections:
-    return Category::Executable;
-  case OMPD_simd:
-    return Category::Executable;
-  case OMPD_single:
-    return Category::Executable;
-  case OMPD_stripe:
-    return Category::Executable;
-  case OMPD_target:
-    return Category::Executable;
-  case OMPD_target_data:
-    return Category::Executable;
-  case OMPD_target_enter_data:
-    return Category::Executable;
-  case OMPD_target_exit_data:
-    return Category::Executable;
-  case OMPD_target_parallel:
-    return Category::Executable;
-  case OMPD_target_parallel_do:
-    return Category::Executable;
-  case OMPD_target_parallel_do_simd:
-    return Category::Executable;
-  case OMPD_target_parallel_for:
-    return Category::Executable;
-  case OMPD_target_parallel_for_simd:
-    return Category::Executable;
-  case OMPD_target_simd:
-    return Category::Executable;
-  case OMPD_target_teams:
-    return Category::Executable;
-  case OMPD_target_teams_distribute:
-    return Category::Executable;
-  case OMPD_target_teams_distribute_parallel_do:
-    return Category::Executable;
-  case OMPD_target_teams_distribute_parallel_do_simd:
-    return Category::Executable;
-  case OMPD_target_teams_distribute_parallel_for:
-    return Category::Executable;
-  case OMPD_target_teams_distribute_parallel_for_simd:
-    return Category::Executable;
-  case OMPD_target_teams_distribute_simd:
-    return Category::Executable;
-  case OMPD_target_teams_workdistribute:
-    return Category::Executable;
-  case OMPD_target_update:
-    return Category::Executable;
-  case OMPD_task:
-    return Category::Executable;
-  case OMPD_taskgroup:
-    return Category::Executable;
-  case OMPD_taskloop:
-    return Category::Executable;
-  case OMPD_taskloop_simd:
-    return Category::Executable;
-  case OMPD_taskwait:
-    return Category::Executable;
-  case OMPD_taskyield:
-    return Category::Executable;
-  case OMPD_taskgraph:
-    return Category::Executable;
-  case OMPD_teams:
-    return Category::Executable;
-  case OMPD_teams_distribute:
-    return Category::Executable;
-  case OMPD_teams_distribute_parallel_do:
-    return Category::Executable;
-  case OMPD_teams_distribute_parallel_do_simd:
-    return Category::Executable;
-  case OMPD_teams_distribute_parallel_for:
-    return Category::Executable;
-  case OMPD_teams_distribute_parallel_for_simd:
-    return Category::Executable;
-  case OMPD_teams_distribute_simd:
-    return Category::Executable;
-  case OMPD_teams_workdistribute:
-    return Category::Executable;
-  case OMPD_threadprivate:
-    return Category::Declarative;
-  case OMPD_tile:
-    return Category::Executable;
-  case OMPD_unknown:
-    return Category::Utility;
-  case OMPD_unroll:
-    return Category::Executable;
-  case OMPD_workdistribute:
-    return Category::Executable;
-  case OMPD_workshare:
-    return Category::Executable;
-  case OMPD_dispatch:
-    return Category::Executable;
-  case OMPD_interop:
-    return Category::Executable;
-  case OMPD_loop:
-    return Category::Executable;
-  case OMPD_masked:
-    return Category::Executable;
-  case OMPD_parallel_loop:
-    return Category::Executable;
-  case OMPD_target_loop:
-    return Category::Executable;
-  case OMPD_target_parallel_loop:
-    return Category::Executable;
-  case OMPD_target_teams_loop:
-    return Category::Executable;
-  case OMPD_teams_loop:
-    return Category::Executable;
-  } // switch (Dir)
-  llvm_unreachable("Unexpected directive");
-}
-
-llvm::omp::SourceLanguage llvm::omp::getDirectiveLanguages(llvm::omp::Directive D) {
+bool llvm::omp::isAllowedLoopModifier(llvm::omp::Directive D, llvm::omp::LoopModifier LM) {
+  assert(unsigned(D) <= Directive_enumSize);
   switch (D) {
-  case OMPD_allocate:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_allocators:
-    return SourceLanguage::Fortran;
-  case OMPD_assume:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_assumes:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_atomic:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_barrier:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_begin_assumes:
-    return SourceLanguage::C;
-  case OMPD_begin_declare_target:
-    return SourceLanguage::C;
-  case OMPD_begin_declare_variant:
-    return SourceLanguage::C;
-  case OMPD_cancel:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_cancellation_point:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_critical:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_declare_induction:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_declare_mapper:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_declare_reduction:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_declare_simd:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_declare_target:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_declare_variant:
-    return SourceLanguage::C;
-  case OMPD_depobj:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_distribute:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_distribute_parallel_do:
-    return SourceLanguage::Fortran;
-  case OMPD_distribute_parallel_do_simd:
-    return SourceLanguage::Fortran;
-  case OMPD_distribute_parallel_for:
-    return SourceLanguage::C;
-  case OMPD_distribute_parallel_for_simd:
-    return SourceLanguage::C;
-  case OMPD_distribute_simd:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_do:
-    return SourceLanguage::Fortran;
-  case OMPD_do_simd:
-    return SourceLanguage::Fortran;
-  case OMPD_end_assumes:
-    return SourceLanguage::C;
-  case OMPD_end_declare_target:
-    return SourceLanguage::C;
-  case OMPD_end_declare_variant:
-    return SourceLanguage::C;
-  case OMPD_end_do:
-    return SourceLanguage::Fortran;
-  case OMPD_end_do_simd:
-    return SourceLanguage::Fortran;
-  case OMPD_end_scope:
-    return SourceLanguage::Fortran;
-  case OMPD_end_sections:
-    return SourceLanguage::Fortran;
-  case OMPD_end_single:
-    return SourceLanguage::Fortran;
-  case OMPD_end_workdistribute:
-    return SourceLanguage::Fortran;
-  case OMPD_end_workshare:
-    return SourceLanguage::Fortran;
-  case OMPD_error:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_flush:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_for:
-    return SourceLanguage::C;
-  case OMPD_for_simd:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_fuse:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_groupprivate:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_interchange:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_masked_taskloop:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_masked_taskloop_simd:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_master:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_master_taskloop:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_master_taskloop_simd:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_metadirective:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_nothing:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_ordered:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_parallel:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_parallel_do:
-    return SourceLanguage::Fortran;
-  case OMPD_parallel_do_simd:
-    return SourceLanguage::Fortran;
-  case OMPD_parallel_for:
-    return SourceLanguage::C;
-  case OMPD_parallel_for_simd:
-    return SourceLanguage::C;
-  case OMPD_parallel_masked:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_parallel_masked_taskloop:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_parallel_masked_taskloop_simd:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_parallel_master:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_parallel_master_taskloop:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_parallel_master_taskloop_simd:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_parallel_sections:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_parallel_workshare:
-    return SourceLanguage::Fortran;
-  case OMPD_requires:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_reverse:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_scan:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_scope:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_section:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_sections:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_simd:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_single:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_stripe:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_target:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_target_data:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_target_enter_data:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_target_exit_data:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_target_parallel:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_target_parallel_do:
-    return SourceLanguage::Fortran;
-  case OMPD_target_parallel_do_simd:
-    return SourceLanguage::Fortran;
-  case OMPD_target_parallel_for:
-    return SourceLanguage::C;
-  case OMPD_target_parallel_for_simd:
-    return SourceLanguage::C;
-  case OMPD_target_simd:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_target_teams:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_target_teams_distribute:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_target_teams_distribute_parallel_do:
-    return SourceLanguage::Fortran;
-  case OMPD_target_teams_distribute_parallel_do_simd:
-    return SourceLanguage::Fortran;
-  case OMPD_target_teams_distribute_parallel_for:
-    return SourceLanguage::C;
-  case OMPD_target_teams_distribute_parallel_for_simd:
-    return SourceLanguage::C;
-  case OMPD_target_teams_distribute_simd:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_target_teams_workdistribute:
-    return SourceLanguage::Fortran;
-  case OMPD_target_update:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_task:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_taskgroup:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_taskloop:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_taskloop_simd:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_taskwait:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_taskyield:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_taskgraph:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_teams:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_teams_distribute:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_teams_distribute_parallel_do:
-    return SourceLanguage::Fortran;
-  case OMPD_teams_distribute_parallel_do_simd:
-    return SourceLanguage::Fortran;
-  case OMPD_teams_distribute_parallel_for:
-    return SourceLanguage::C;
-  case OMPD_teams_distribute_parallel_for_simd:
-    return SourceLanguage::C;
-  case OMPD_teams_distribute_simd:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_teams_workdistribute:
-    return SourceLanguage::Fortran;
-  case OMPD_threadprivate:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_tile:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_unknown:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_unroll:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_workdistribute:
-    return SourceLanguage::Fortran;
-  case OMPD_workshare:
-    return SourceLanguage::Fortran;
-  case OMPD_dispatch:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_interop:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_loop:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_masked:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_parallel_loop:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_target_loop:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_target_parallel_loop:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_target_teams_loop:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case OMPD_teams_loop:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  } // switch(D)
-  llvm_unreachable("Unexpected directive");
+    case OMPD_allocate:
+      return false;
+      break;
+    case OMPD_allocators:
+      return false;
+      break;
+    case OMPD_assume:
+      return false;
+      break;
+    case OMPD_assumes:
+      return false;
+      break;
+    case OMPD_atomic:
+      return false;
+      break;
+    case OMPD_barrier:
+      return false;
+      break;
+    case OMPD_begin_assumes:
+      return false;
+      break;
+    case OMPD_begin_declare_target:
+      return false;
+      break;
+    case OMPD_begin_declare_variant:
+      return false;
+      break;
+    case OMPD_cancel:
+      return false;
+      break;
+    case OMPD_cancellation_point:
+      return false;
+      break;
+    case OMPD_critical:
+      return false;
+      break;
+    case OMPD_declare_induction:
+      return false;
+      break;
+    case OMPD_declare_mapper:
+      return false;
+      break;
+    case OMPD_declare_reduction:
+      return false;
+      break;
+    case OMPD_declare_simd:
+      return false;
+      break;
+    case OMPD_declare_target:
+      return false;
+      break;
+    case OMPD_declare_variant:
+      return false;
+      break;
+    case OMPD_depobj:
+      return false;
+      break;
+    case OMPD_distribute:
+      return false;
+      break;
+    case OMPD_distribute_parallel_do:
+      return false;
+      break;
+    case OMPD_distribute_parallel_do_simd:
+      return false;
+      break;
+    case OMPD_distribute_parallel_for:
+      return false;
+      break;
+    case OMPD_distribute_parallel_for_simd:
+      return false;
+      break;
+    case OMPD_distribute_simd:
+      return false;
+      break;
+    case OMPD_do:
+      return false;
+      break;
+    case OMPD_do_simd:
+      return false;
+      break;
+    case OMPD_end_assumes:
+      return false;
+      break;
+    case OMPD_end_declare_target:
+      return false;
+      break;
+    case OMPD_end_declare_variant:
+      return false;
+      break;
+    case OMPD_error:
+      return false;
+      break;
+    case OMPD_flatten:
+      switch (LM) {
+        case LoopModifier::OMPLM_flattened:
+          return true;
+        default:
+          return false;
+      }
+      break;
+    case OMPD_flush:
+      return false;
+      break;
+    case OMPD_for:
+      return false;
+      break;
+    case OMPD_for_simd:
+      return false;
+      break;
+    case OMPD_fuse:
+      switch (LM) {
+        case LoopModifier::OMPLM_fused:
+          return true;
+        default:
+          return false;
+      }
+      break;
+    case OMPD_groupprivate:
+      return false;
+      break;
+    case OMPD_interchange:
+      switch (LM) {
+        case LoopModifier::OMPLM_interchanged:
+          return true;
+        default:
+          return false;
+      }
+      break;
+    case OMPD_masked_taskloop:
+      return false;
+      break;
+    case OMPD_masked_taskloop_simd:
+      return false;
+      break;
+    case OMPD_master:
+      return false;
+      break;
+    case OMPD_master_taskloop:
+      return false;
+      break;
+    case OMPD_master_taskloop_simd:
+      return false;
+      break;
+    case OMPD_metadirective:
+      return false;
+      break;
+    case OMPD_nothing:
+      switch (LM) {
+        case LoopModifier::OMPLM_identity:
+          return true;
+        default:
+          return false;
+      }
+      break;
+    case OMPD_ordered:
+      return false;
+      break;
+    case OMPD_parallel:
+      return false;
+      break;
+    case OMPD_parallel_do:
+      return false;
+      break;
+    case OMPD_parallel_do_simd:
+      return false;
+      break;
+    case OMPD_parallel_for:
+      return false;
+      break;
+    case OMPD_parallel_for_simd:
+      return false;
+      break;
+    case OMPD_parallel_masked:
+      return false;
+      break;
+    case OMPD_parallel_masked_taskloop:
+      return false;
+      break;
+    case OMPD_parallel_masked_taskloop_simd:
+      return false;
+      break;
+    case OMPD_parallel_master:
+      return false;
+      break;
+    case OMPD_parallel_master_taskloop:
+      return false;
+      break;
+    case OMPD_parallel_master_taskloop_simd:
+      return false;
+      break;
+    case OMPD_parallel_sections:
+      return false;
+      break;
+    case OMPD_parallel_workshare:
+      return false;
+      break;
+    case OMPD_requires:
+      return false;
+      break;
+    case OMPD_reverse:
+      switch (LM) {
+        case LoopModifier::OMPLM_reversed:
+          return true;
+        default:
+          return false;
+      }
+      break;
+    case OMPD_scan:
+      return false;
+      break;
+    case OMPD_scope:
+      return false;
+      break;
+    case OMPD_section:
+      return false;
+      break;
+    case OMPD_sections:
+      return false;
+      break;
+    case OMPD_simd:
+      return false;
+      break;
+    case OMPD_single:
+      return false;
+      break;
+    case OMPD_split:
+      switch (LM) {
+        case LoopModifier::OMPLM_split:
+          return true;
+        default:
+          return false;
+      }
+      break;
+    case OMPD_stripe:
+      switch (LM) {
+        case LoopModifier::OMPLM_grid:
+          return true;
+        case LoopModifier::OMPLM_offsets:
+          return true;
+        default:
+          return false;
+      }
+      break;
+    case OMPD_target:
+      return false;
+      break;
+    case OMPD_target_data:
+      return false;
+      break;
+    case OMPD_target_enter_data:
+      return false;
+      break;
+    case OMPD_target_exit_data:
+      return false;
+      break;
+    case OMPD_target_parallel:
+      return false;
+      break;
+    case OMPD_target_parallel_do:
+      return false;
+      break;
+    case OMPD_target_parallel_do_simd:
+      return false;
+      break;
+    case OMPD_target_parallel_for:
+      return false;
+      break;
+    case OMPD_target_parallel_for_simd:
+      return false;
+      break;
+    case OMPD_target_simd:
+      return false;
+      break;
+    case OMPD_target_teams:
+      return false;
+      break;
+    case OMPD_target_teams_distribute:
+      return false;
+      break;
+    case OMPD_target_teams_distribute_parallel_do:
+      return false;
+      break;
+    case OMPD_target_teams_distribute_parallel_do_simd:
+      return false;
+      break;
+    case OMPD_target_teams_distribute_parallel_for:
+      return false;
+      break;
+    case OMPD_target_teams_distribute_parallel_for_simd:
+      return false;
+      break;
+    case OMPD_target_teams_distribute_simd:
+      return false;
+      break;
+    case OMPD_target_teams_workdistribute:
+      return false;
+      break;
+    case OMPD_target_update:
+      return false;
+      break;
+    case OMPD_task:
+      return false;
+      break;
+    case OMPD_taskgroup:
+      return false;
+      break;
+    case OMPD_taskloop:
+      return false;
+      break;
+    case OMPD_taskloop_simd:
+      return false;
+      break;
+    case OMPD_taskwait:
+      return false;
+      break;
+    case OMPD_taskyield:
+      return false;
+      break;
+    case OMPD_taskgraph:
+      return false;
+      break;
+    case OMPD_teams:
+      return false;
+      break;
+    case OMPD_teams_distribute:
+      return false;
+      break;
+    case OMPD_teams_distribute_parallel_do:
+      return false;
+      break;
+    case OMPD_teams_distribute_parallel_do_simd:
+      return false;
+      break;
+    case OMPD_teams_distribute_parallel_for:
+      return false;
+      break;
+    case OMPD_teams_distribute_parallel_for_simd:
+      return false;
+      break;
+    case OMPD_teams_distribute_simd:
+      return false;
+      break;
+    case OMPD_teams_workdistribute:
+      return false;
+      break;
+    case OMPD_threadprivate:
+      return false;
+      break;
+    case OMPD_tile:
+      switch (LM) {
+        case LoopModifier::OMPLM_grid:
+          return true;
+        case LoopModifier::OMPLM_intratile:
+          return true;
+        default:
+          return false;
+      }
+      break;
+    case OMPD_unknown:
+      return false;
+      break;
+    case OMPD_unroll:
+      switch (LM) {
+        case LoopModifier::OMPLM_unrolled:
+          return true;
+        default:
+          return false;
+      }
+      break;
+    case OMPD_workdistribute:
+      return false;
+      break;
+    case OMPD_workshare:
+      return false;
+      break;
+    case OMPD_dispatch:
+      return false;
+      break;
+    case OMPD_interop:
+      return false;
+      break;
+    case OMPD_loop:
+      return false;
+      break;
+    case OMPD_masked:
+      return false;
+      break;
+    case OMPD_parallel_loop:
+      return false;
+      break;
+    case OMPD_target_loop:
+      return false;
+      break;
+    case OMPD_target_parallel_loop:
+      return false;
+      break;
+    case OMPD_target_teams_loop:
+      return false;
+      break;
+    case OMPD_teams_loop:
+      return false;
+      break;
+  }
+  llvm_unreachable("Invalid OpenMP Directive kind");
+}
+
+llvm::StringRef llvm::omp::getLoopModifierName(llvm::omp::LoopModifier Kind, unsigned Version) {
+  switch (Kind) {
+    case OMPLM_flattened:
+      return "flattened";
+    case OMPLM_fused:
+      return "fused";
+    case OMPLM_grid:
+      return "grid";
+    case OMPLM_identity:
+      return "identity";
+    case OMPLM_interchanged:
+      return "interchanged";
+    case OMPLM_intratile:
+      return "intratile";
+    case OMPLM_offsets:
+      return "offsets";
+    case OMPLM_reversed:
+      return "reversed";
+    case OMPLM_split:
+      return "split";
+    case OMPLM_unrolled:
+      return "unrolled";
+  }
+  llvm_unreachable("Invalid  LoopModifier kind");
 }
 
 static_assert(sizeof(llvm::omp::Directive) == sizeof(int));
@@ -11120,6 +10709,7 @@ static_assert(sizeof(llvm::omp::Directive) == sizeof(int));
     {llvm::omp::OMPD_distribute, static_cast<llvm::omp::Directive>(0), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1),},
     {llvm::omp::OMPD_do, static_cast<llvm::omp::Directive>(0), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1),},
     {llvm::omp::OMPD_error, static_cast<llvm::omp::Directive>(0), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1),},
+    {llvm::omp::OMPD_flatten, static_cast<llvm::omp::Directive>(0), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1),},
     {llvm::omp::OMPD_flush, static_cast<llvm::omp::Directive>(0), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1),},
     {llvm::omp::OMPD_for, static_cast<llvm::omp::Directive>(0), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1),},
     {llvm::omp::OMPD_fuse, static_cast<llvm::omp::Directive>(0), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1),},
@@ -11138,6 +10728,7 @@ static_assert(sizeof(llvm::omp::Directive) == sizeof(int));
     {llvm::omp::OMPD_sections, static_cast<llvm::omp::Directive>(0), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1),},
     {llvm::omp::OMPD_simd, static_cast<llvm::omp::Directive>(0), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1),},
     {llvm::omp::OMPD_single, static_cast<llvm::omp::Directive>(0), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1),},
+    {llvm::omp::OMPD_split, static_cast<llvm::omp::Directive>(0), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1),},
     {llvm::omp::OMPD_stripe, static_cast<llvm::omp::Directive>(0), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1),},
     {llvm::omp::OMPD_target, static_cast<llvm::omp::Directive>(0), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1),},
     {llvm::omp::OMPD_target_data, static_cast<llvm::omp::Directive>(0), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1),},
@@ -11214,19 +10805,12 @@ static_assert(sizeof(llvm::omp::Directive) == sizeof(int));
     {llvm::omp::OMPD_end_assumes, static_cast<llvm::omp::Directive>(0), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1),},
     {llvm::omp::OMPD_end_declare_target, static_cast<llvm::omp::Directive>(0), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1),},
     {llvm::omp::OMPD_end_declare_variant, static_cast<llvm::omp::Directive>(0), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1),},
-    {llvm::omp::OMPD_end_do, static_cast<llvm::omp::Directive>(0), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1),},
-    {llvm::omp::OMPD_end_scope, static_cast<llvm::omp::Directive>(0), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1),},
-    {llvm::omp::OMPD_end_sections, static_cast<llvm::omp::Directive>(0), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1),},
-    {llvm::omp::OMPD_end_single, static_cast<llvm::omp::Directive>(0), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1),},
-    {llvm::omp::OMPD_end_workdistribute, static_cast<llvm::omp::Directive>(0), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1),},
-    {llvm::omp::OMPD_end_workshare, static_cast<llvm::omp::Directive>(0), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1),},
-    {llvm::omp::OMPD_end_do_simd, static_cast<llvm::omp::Directive>(2), llvm::omp::OMPD_do, llvm::omp::OMPD_simd, static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1), static_cast<llvm::omp::Directive>(-1),},
 };
 
-[[maybe_unused]] static auto LeafConstructTableEndDirective = LeafConstructTable + 113;
+[[maybe_unused]] static auto LeafConstructTableEndDirective = LeafConstructTable + 115;
 
 [[maybe_unused]] static const int LeafConstructTableOrdering[] = {
-    0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 63, 64, 65, 66, 67, 20, 68, 113, 114, 115, 116, 122, 117, 118, 119, 120, 121, 21, 22, 23, 69, 24, 25, 26, 111, 112, 27, 70, 71, 28, 29, 30, 31, 72, 73, 74, 75, 82, 83, 84, 76, 77, 78, 79, 80, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 85, 86, 87, 88, 89, 91, 92, 93, 94, 95, 96, 97, 98, 99, 45, 46, 47, 48, 102, 49, 50, 51, 52, 103, 104, 105, 106, 107, 108, 109, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 81, 101, 90, 100, 110,
+    0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 65, 66, 67, 68, 69, 20, 70, 115, 116, 117, 21, 22, 23, 24, 71, 25, 26, 27, 113, 114, 28, 72, 73, 29, 30, 31, 32, 74, 75, 76, 77, 84, 85, 86, 78, 79, 80, 81, 82, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 87, 88, 89, 90, 91, 93, 94, 95, 96, 97, 98, 99, 100, 101, 47, 48, 49, 50, 104, 51, 52, 53, 54, 105, 106, 107, 108, 109, 110, 111, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 83, 103, 92, 102, 112,
 };
 
 #endif // GEN_DIRECTIVES_IMPL

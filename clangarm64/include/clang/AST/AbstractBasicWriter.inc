@@ -150,6 +150,13 @@ struct WriteDispatcher<DeclarationName::NameKind> {
   }
 };
 template <>
+struct WriteDispatcher<DeducedKind> {
+  template <class BasicWriter, class... Args>
+  static void write(BasicWriter &W, Args &&... args) {
+    return W.writeDeducedKind(std::forward<Args>(args)...);
+  }
+};
+template <>
 struct WriteDispatcher<EffectConditionExpr> {
   template <class BasicWriter, class... Args>
   static void write(BasicWriter &W, Args &&... args) {
@@ -350,6 +357,13 @@ struct WriteDispatcher<const ObjCTypeParamDecl*> {
   template <class BasicWriter, class... Args>
   static void write(BasicWriter &W, Args &&... args) {
     return W.writeObjCTypeParamDeclRef(std::forward<Args>(args)...);
+  }
+};
+template <>
+struct WriteDispatcher<OverflowBehaviorType::OverflowBehaviorKind> {
+  template <class BasicWriter, class... Args>
+  static void write(BasicWriter &W, Args &&... args) {
+    return W.writeOverflowBehaviorKind(std::forward<Args>(args)...);
   }
 };
 template <>
@@ -921,6 +935,22 @@ public:
     return;
     }
 
+    case APValue::Matrix: {
+    
+    SmallVector<APValue, 16> buffer;
+    unsigned numElts = node.getMatrixNumElements();
+    for (unsigned i = 0; i < numElts; ++i)
+      buffer.push_back(node.getMatrixElt(i));
+  
+    uint32_t numRows = ( node.getMatrixNumRows() );
+    subW.find("numRows").writeUInt32(numRows);
+    uint32_t numCols = ( node.getMatrixNumColumns() );
+    subW.find("numCols").writeUInt32(numCols);
+    llvm::ArrayRef<APValue> elements = ( buffer );
+    subW.find("elements").writeArray(elements);
+    return;
+    }
+
     case APValue::Array: {
     
     SmallVector<APValue, 4> buffer{};
@@ -1165,6 +1195,9 @@ public:
   void writeDeclarationNameKind(DeclarationName::NameKind value) {
     asImpl().writeEnum(value);
   }
+  void writeDeducedKind(DeducedKind value) {
+    asImpl().writeEnum(value);
+  }
   void writeElaboratedTypeKeyword(ElaboratedTypeKeyword value) {
     asImpl().writeEnum(value);
   }
@@ -1194,6 +1227,9 @@ public:
   }
   void writeObjCTypeParamDeclRef(const ObjCTypeParamDecl* value) {
     asImpl().writeDeclRef(value);
+  }
+  void writeOverflowBehaviorKind(OverflowBehaviorType::OverflowBehaviorKind value) {
+    asImpl().writeEnum(value);
   }
   void writeOverloadedOperatorKind(OverloadedOperatorKind value) {
     asImpl().writeEnum(value);

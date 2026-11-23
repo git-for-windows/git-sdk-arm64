@@ -1,0 +1,47 @@
+%NAME%
+mingw-w64-clang-aarch64-llvm
+
+%VERSION%
+23.1.5-1
+
+%BASE%
+mingw-w64-llvm
+
+%DESC%
+Low Level Virtual Machine (mingw-w64)
+
+%URL%
+https://llvm.org/
+
+%ARCH%
+any
+
+%BUILDDATE%
+1793810189
+
+%INSTALLDATE%
+1795467612
+
+%PACKAGER%
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/41868311332/job/126708236239)
+
+%SIZE%
+441002023
+
+%GROUPS%
+mingw-w64-clang-aarch64-toolchain
+
+%LICENSE%
+spdx:Apache-2.0 WITH LLVM-exception
+
+%VALIDATION%
+sha256
+pgp
+
+%DEPENDS%
+mingw-w64-clang-aarch64-llvm-libs=23.1.5
+mingw-w64-clang-aarch64-llvm-tools=23.1.5
+
+%XDATA%
+pkgtype=split
+

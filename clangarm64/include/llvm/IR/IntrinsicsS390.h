@@ -8,10 +8,12 @@
 
 #ifndef LLVM_IR_INTRINSIC_S390_ENUMS_H
 #define LLVM_IR_INTRINSIC_S390_ENUMS_H
+
 namespace llvm::Intrinsic {
+
 enum S390Intrinsics : unsigned {
 // Enum values for intrinsics.
-    s390_bdepg = 12678,                                // llvm.s390.bdepg (IntrinsicsSystemZ.td:499)
+    s390_bdepg = 12925,                                // llvm.s390.bdepg (IntrinsicsSystemZ.td:499)
     s390_bextg,                                // llvm.s390.bextg (IntrinsicsSystemZ.td:502)
     s390_efpc,                                 // llvm.s390.efpc (IntrinsicsSystemZ.td:492)
     s390_etnd,                                 // llvm.s390.etnd (IntrinsicsSystemZ.td:211)
@@ -270,6 +272,8 @@ enum S390Intrinsics : unsigned {
     s390_vupllg,                               // llvm.s390.vupllg (IntrinsicsSystemZ.td:456)
     s390_vupllh,                               // llvm.s390.vupllh (IntrinsicsSystemZ.td:72)
 }; // enum
+
 } // namespace llvm::Intrinsic
-#endif
+
+#endif // LLVM_IR_INTRINSIC_S390_ENUMS_H
 

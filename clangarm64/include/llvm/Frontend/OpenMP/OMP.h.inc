@@ -4,6 +4,7 @@
 #include "llvm/ADT/ArrayRef.h"
 #include "llvm/ADT/BitmaskEnum.h"
 #include "llvm/ADT/Sequence.h"
+#include "llvm/ADT/STLExtras.h"
 #include "llvm/ADT/StringRef.h"
 #include "llvm/Frontend/Directive/Spelling.h"
 #include "llvm/Support/Compiler.h"
@@ -83,14 +84,8 @@ enum class Directive {
   OMPD_end_assumes,
   OMPD_end_declare_target,
   OMPD_end_declare_variant,
-  OMPD_end_do,
-  OMPD_end_do_simd,
-  OMPD_end_scope,
-  OMPD_end_sections,
-  OMPD_end_single,
-  OMPD_end_workdistribute,
-  OMPD_end_workshare,
   OMPD_error,
+  OMPD_flatten,
   OMPD_flush,
   OMPD_for,
   OMPD_for_simd,
@@ -126,6 +121,7 @@ enum class Directive {
   OMPD_sections,
   OMPD_simd,
   OMPD_single,
+  OMPD_split,
   OMPD_stripe,
   OMPD_target,
   OMPD_target_data,
@@ -179,7 +175,7 @@ enum class Directive {
   Last_ = OMPD_teams_loop,
 };
 
-static constexpr std::size_t Directive_enumSize = 123;
+static constexpr std::size_t Directive_enumSize = 118;
 
 constexpr auto OMPD_allocate = Directive::OMPD_allocate;
 constexpr auto OMPD_allocators = Directive::OMPD_allocators;
@@ -211,14 +207,8 @@ constexpr auto OMPD_do_simd = Directive::OMPD_do_simd;
 constexpr auto OMPD_end_assumes = Directive::OMPD_end_assumes;
 constexpr auto OMPD_end_declare_target = Directive::OMPD_end_declare_target;
 constexpr auto OMPD_end_declare_variant = Directive::OMPD_end_declare_variant;
-constexpr auto OMPD_end_do = Directive::OMPD_end_do;
-constexpr auto OMPD_end_do_simd = Directive::OMPD_end_do_simd;
-constexpr auto OMPD_end_scope = Directive::OMPD_end_scope;
-constexpr auto OMPD_end_sections = Directive::OMPD_end_sections;
-constexpr auto OMPD_end_single = Directive::OMPD_end_single;
-constexpr auto OMPD_end_workdistribute = Directive::OMPD_end_workdistribute;
-constexpr auto OMPD_end_workshare = Directive::OMPD_end_workshare;
 constexpr auto OMPD_error = Directive::OMPD_error;
+constexpr auto OMPD_flatten = Directive::OMPD_flatten;
 constexpr auto OMPD_flush = Directive::OMPD_flush;
 constexpr auto OMPD_for = Directive::OMPD_for;
 constexpr auto OMPD_for_simd = Directive::OMPD_for_simd;
@@ -254,6 +244,7 @@ constexpr auto OMPD_section = Directive::OMPD_section;
 constexpr auto OMPD_sections = Directive::OMPD_sections;
 constexpr auto OMPD_simd = Directive::OMPD_simd;
 constexpr auto OMPD_single = Directive::OMPD_single;
+constexpr auto OMPD_split = Directive::OMPD_split;
 constexpr auto OMPD_stripe = Directive::OMPD_stripe;
 constexpr auto OMPD_target = Directive::OMPD_target;
 constexpr auto OMPD_target_data = Directive::OMPD_target_data;
@@ -335,6 +326,7 @@ enum class Clause {
   OMPC_defaultmap,
   OMPC_depend,
   OMPC_depobj,
+  OMPC_depth,
   OMPC_destroy,
   OMPC_detach,
   OMPC_device,
@@ -446,7 +438,7 @@ enum class Clause {
   Last_ = OMPC_write,
 };
 
-static constexpr std::size_t Clause_enumSize = 136;
+static constexpr std::size_t Clause_enumSize = 137;
 
 constexpr auto OMPC_absent = Clause::OMPC_absent;
 constexpr auto OMPC_acq_rel = Clause::OMPC_acq_rel;
@@ -476,6 +468,7 @@ constexpr auto OMPC_default = Clause::OMPC_default;
 constexpr auto OMPC_defaultmap = Clause::OMPC_defaultmap;
 constexpr auto OMPC_depend = Clause::OMPC_depend;
 constexpr auto OMPC_depobj = Clause::OMPC_depobj;
+constexpr auto OMPC_depth = Clause::OMPC_depth;
 constexpr auto OMPC_destroy = Clause::OMPC_destroy;
 constexpr auto OMPC_detach = Clause::OMPC_detach;
 constexpr auto OMPC_device = Clause::OMPC_device;
@@ -585,6 +578,34 @@ constexpr auto OMPC_weak = Clause::OMPC_weak;
 constexpr auto OMPC_when = Clause::OMPC_when;
 constexpr auto OMPC_write = Clause::OMPC_write;
 
+enum class LoopModifier {
+  OMPLM_flattened,
+  First_ = OMPLM_flattened,
+  OMPLM_fused,
+  OMPLM_grid,
+  OMPLM_identity,
+  OMPLM_interchanged,
+  OMPLM_intratile,
+  OMPLM_offsets,
+  OMPLM_reversed,
+  OMPLM_split,
+  OMPLM_unrolled,
+  Last_ = OMPLM_unrolled,
+};
+
+static constexpr std::size_t LoopModifier_enumSize = 10;
+
+constexpr auto OMPLM_flattened = LoopModifier::OMPLM_flattened;
+constexpr auto OMPLM_fused = LoopModifier::OMPLM_fused;
+constexpr auto OMPLM_grid = LoopModifier::OMPLM_grid;
+constexpr auto OMPLM_identity = LoopModifier::OMPLM_identity;
+constexpr auto OMPLM_interchanged = LoopModifier::OMPLM_interchanged;
+constexpr auto OMPLM_intratile = LoopModifier::OMPLM_intratile;
+constexpr auto OMPLM_offsets = LoopModifier::OMPLM_offsets;
+constexpr auto OMPLM_reversed = LoopModifier::OMPLM_reversed;
+constexpr auto OMPLM_split = LoopModifier::OMPLM_split;
+constexpr auto OMPLM_unrolled = LoopModifier::OMPLM_unrolled;
+
 enum class BindKind {
   OMP_BIND_parallel=1,
   OMP_BIND_teams=2,
@@ -691,6 +712,746 @@ constexpr auto OMP_SCHEDULE_Runtime = ScheduleKind::OMP_SCHEDULE_Runtime;
 constexpr auto OMP_SCHEDULE_Distribute = ScheduleKind::OMP_SCHEDULE_Distribute;
 constexpr auto OMP_SCHEDULE_Default = ScheduleKind::OMP_SCHEDULE_Default;
 
+// Constexpr functions.
+
+constexpr Association getDirectiveAssociation(Directive Dir) {
+  switch (Dir) {
+  case OMPD_allocate:
+    return Association::None;
+  case OMPD_allocators:
+    return Association::Block;
+  case OMPD_assume:
+    return Association::Block;
+  case OMPD_assumes:
+    return Association::None;
+  case OMPD_atomic:
+    return Association::Block;
+  case OMPD_barrier:
+    return Association::None;
+  case OMPD_begin_assumes:
+    return Association::Delimited;
+  case OMPD_begin_declare_target:
+    return Association::Delimited;
+  case OMPD_begin_declare_variant:
+    return Association::Delimited;
+  case OMPD_cancel:
+    return Association::None;
+  case OMPD_cancellation_point:
+    return Association::None;
+  case OMPD_critical:
+    return Association::Block;
+  case OMPD_declare_induction:
+    return Association::None;
+  case OMPD_declare_mapper:
+    return Association::None;
+  case OMPD_declare_reduction:
+    return Association::None;
+  case OMPD_declare_simd:
+    return Association::Declaration;
+  case OMPD_declare_target:
+    return Association::None;
+  case OMPD_declare_variant:
+    return Association::Declaration;
+  case OMPD_depobj:
+    return Association::None;
+  case OMPD_distribute:
+    return Association::LoopNest;
+  case OMPD_distribute_parallel_do:
+    return Association::LoopNest;
+  case OMPD_distribute_parallel_do_simd:
+    return Association::LoopNest;
+  case OMPD_distribute_parallel_for:
+    return Association::LoopNest;
+  case OMPD_distribute_parallel_for_simd:
+    return Association::LoopNest;
+  case OMPD_distribute_simd:
+    return Association::LoopNest;
+  case OMPD_do:
+    return Association::LoopNest;
+  case OMPD_do_simd:
+    return Association::LoopNest;
+  case OMPD_end_assumes:
+    return Association::Delimited;
+  case OMPD_end_declare_target:
+    return Association::Delimited;
+  case OMPD_end_declare_variant:
+    return Association::Delimited;
+  case OMPD_error:
+    return Association::None;
+  case OMPD_flatten:
+    return Association::LoopNest;
+  case OMPD_flush:
+    return Association::None;
+  case OMPD_for:
+    return Association::LoopNest;
+  case OMPD_for_simd:
+    return Association::LoopNest;
+  case OMPD_fuse:
+    return Association::LoopSeq;
+  case OMPD_groupprivate:
+    return Association::None;
+  case OMPD_interchange:
+    return Association::LoopNest;
+  case OMPD_masked_taskloop:
+    return Association::LoopNest;
+  case OMPD_masked_taskloop_simd:
+    return Association::LoopNest;
+  case OMPD_master:
+    return Association::Block;
+  case OMPD_master_taskloop:
+    return Association::LoopNest;
+  case OMPD_master_taskloop_simd:
+    return Association::LoopNest;
+  case OMPD_metadirective:
+    return Association::None;
+  case OMPD_nothing:
+    return Association::None;
+  case OMPD_ordered:
+    return Association::None;
+  case OMPD_parallel:
+    return Association::Block;
+  case OMPD_parallel_do:
+    return Association::LoopNest;
+  case OMPD_parallel_do_simd:
+    return Association::LoopNest;
+  case OMPD_parallel_for:
+    return Association::LoopNest;
+  case OMPD_parallel_for_simd:
+    return Association::LoopNest;
+  case OMPD_parallel_masked:
+    return Association::Block;
+  case OMPD_parallel_masked_taskloop:
+    return Association::LoopNest;
+  case OMPD_parallel_masked_taskloop_simd:
+    return Association::LoopNest;
+  case OMPD_parallel_master:
+    return Association::Block;
+  case OMPD_parallel_master_taskloop:
+    return Association::LoopNest;
+  case OMPD_parallel_master_taskloop_simd:
+    return Association::LoopNest;
+  case OMPD_parallel_sections:
+    return Association::Block;
+  case OMPD_parallel_workshare:
+    return Association::Block;
+  case OMPD_requires:
+    return Association::None;
+  case OMPD_reverse:
+    return Association::LoopNest;
+  case OMPD_scan:
+    return Association::Separating;
+  case OMPD_scope:
+    return Association::Block;
+  case OMPD_section:
+    return Association::Separating;
+  case OMPD_sections:
+    return Association::Block;
+  case OMPD_simd:
+    return Association::LoopNest;
+  case OMPD_single:
+    return Association::Block;
+  case OMPD_split:
+    return Association::LoopNest;
+  case OMPD_stripe:
+    return Association::LoopNest;
+  case OMPD_target:
+    return Association::Block;
+  case OMPD_target_data:
+    return Association::Block;
+  case OMPD_target_enter_data:
+    return Association::None;
+  case OMPD_target_exit_data:
+    return Association::None;
+  case OMPD_target_parallel:
+    return Association::Block;
+  case OMPD_target_parallel_do:
+    return Association::LoopNest;
+  case OMPD_target_parallel_do_simd:
+    return Association::LoopNest;
+  case OMPD_target_parallel_for:
+    return Association::LoopNest;
+  case OMPD_target_parallel_for_simd:
+    return Association::LoopNest;
+  case OMPD_target_simd:
+    return Association::LoopNest;
+  case OMPD_target_teams:
+    return Association::Block;
+  case OMPD_target_teams_distribute:
+    return Association::LoopNest;
+  case OMPD_target_teams_distribute_parallel_do:
+    return Association::LoopNest;
+  case OMPD_target_teams_distribute_parallel_do_simd:
+    return Association::LoopNest;
+  case OMPD_target_teams_distribute_parallel_for:
+    return Association::LoopNest;
+  case OMPD_target_teams_distribute_parallel_for_simd:
+    return Association::LoopNest;
+  case OMPD_target_teams_distribute_simd:
+    return Association::LoopNest;
+  case OMPD_target_teams_workdistribute:
+    return Association::Block;
+  case OMPD_target_update:
+    return Association::None;
+  case OMPD_task:
+    return Association::Block;
+  case OMPD_taskgroup:
+    return Association::Block;
+  case OMPD_taskloop:
+    return Association::LoopNest;
+  case OMPD_taskloop_simd:
+    return Association::LoopNest;
+  case OMPD_taskwait:
+    return Association::None;
+  case OMPD_taskyield:
+    return Association::None;
+  case OMPD_taskgraph:
+    return Association::Block;
+  case OMPD_teams:
+    return Association::Block;
+  case OMPD_teams_distribute:
+    return Association::LoopNest;
+  case OMPD_teams_distribute_parallel_do:
+    return Association::LoopNest;
+  case OMPD_teams_distribute_parallel_do_simd:
+    return Association::LoopNest;
+  case OMPD_teams_distribute_parallel_for:
+    return Association::LoopNest;
+  case OMPD_teams_distribute_parallel_for_simd:
+    return Association::LoopNest;
+  case OMPD_teams_distribute_simd:
+    return Association::LoopNest;
+  case OMPD_teams_workdistribute:
+    return Association::Block;
+  case OMPD_threadprivate:
+    return Association::None;
+  case OMPD_tile:
+    return Association::LoopNest;
+  case OMPD_unknown:
+    return Association::None;
+  case OMPD_unroll:
+    return Association::LoopNest;
+  case OMPD_workdistribute:
+    return Association::Block;
+  case OMPD_workshare:
+    return Association::Block;
+  case OMPD_dispatch:
+    return Association::Block;
+  case OMPD_interop:
+    return Association::None;
+  case OMPD_loop:
+    return Association::LoopNest;
+  case OMPD_masked:
+    return Association::Block;
+  case OMPD_parallel_loop:
+    return Association::LoopNest;
+  case OMPD_target_loop:
+    return Association::LoopNest;
+  case OMPD_target_parallel_loop:
+    return Association::LoopNest;
+  case OMPD_target_teams_loop:
+    return Association::LoopNest;
+  case OMPD_teams_loop:
+    return Association::LoopNest;
+  } // switch (Dir)
+#if !defined(__clang__) && defined(__GNUC__) && __GNUC__ < 9
+  abort();
+#else
+  llvm_unreachable("Unexpected directive");
+#endif
+}
+
+constexpr Category getDirectiveCategory(Directive Dir) {
+  switch (Dir) {
+  case OMPD_allocate:
+    return Category::Declarative;
+  case OMPD_allocators:
+    return Category::Executable;
+  case OMPD_assume:
+    return Category::Informational;
+  case OMPD_assumes:
+    return Category::Informational;
+  case OMPD_atomic:
+    return Category::Executable;
+  case OMPD_barrier:
+    return Category::Executable;
+  case OMPD_begin_assumes:
+    return Category::Informational;
+  case OMPD_begin_declare_target:
+    return Category::Declarative;
+  case OMPD_begin_declare_variant:
+    return Category::Declarative;
+  case OMPD_cancel:
+    return Category::Executable;
+  case OMPD_cancellation_point:
+    return Category::Executable;
+  case OMPD_critical:
+    return Category::Executable;
+  case OMPD_declare_induction:
+    return Category::Declarative;
+  case OMPD_declare_mapper:
+    return Category::Declarative;
+  case OMPD_declare_reduction:
+    return Category::Declarative;
+  case OMPD_declare_simd:
+    return Category::Declarative;
+  case OMPD_declare_target:
+    return Category::Declarative;
+  case OMPD_declare_variant:
+    return Category::Declarative;
+  case OMPD_depobj:
+    return Category::Executable;
+  case OMPD_distribute:
+    return Category::Executable;
+  case OMPD_distribute_parallel_do:
+    return Category::Executable;
+  case OMPD_distribute_parallel_do_simd:
+    return Category::Executable;
+  case OMPD_distribute_parallel_for:
+    return Category::Executable;
+  case OMPD_distribute_parallel_for_simd:
+    return Category::Executable;
+  case OMPD_distribute_simd:
+    return Category::Executable;
+  case OMPD_do:
+    return Category::Executable;
+  case OMPD_do_simd:
+    return Category::Executable;
+  case OMPD_end_assumes:
+    return Category::Informational;
+  case OMPD_end_declare_target:
+    return Category::Declarative;
+  case OMPD_end_declare_variant:
+    return Category::Declarative;
+  case OMPD_error:
+    return Category::Utility;
+  case OMPD_flatten:
+    return Category::Executable;
+  case OMPD_flush:
+    return Category::Executable;
+  case OMPD_for:
+    return Category::Executable;
+  case OMPD_for_simd:
+    return Category::Executable;
+  case OMPD_fuse:
+    return Category::Executable;
+  case OMPD_groupprivate:
+    return Category::Declarative;
+  case OMPD_interchange:
+    return Category::Executable;
+  case OMPD_masked_taskloop:
+    return Category::Executable;
+  case OMPD_masked_taskloop_simd:
+    return Category::Executable;
+  case OMPD_master:
+    return Category::Executable;
+  case OMPD_master_taskloop:
+    return Category::Executable;
+  case OMPD_master_taskloop_simd:
+    return Category::Executable;
+  case OMPD_metadirective:
+    return Category::Meta;
+  case OMPD_nothing:
+    return Category::Utility;
+  case OMPD_ordered:
+    return Category::Executable;
+  case OMPD_parallel:
+    return Category::Executable;
+  case OMPD_parallel_do:
+    return Category::Executable;
+  case OMPD_parallel_do_simd:
+    return Category::Executable;
+  case OMPD_parallel_for:
+    return Category::Executable;
+  case OMPD_parallel_for_simd:
+    return Category::Executable;
+  case OMPD_parallel_masked:
+    return Category::Executable;
+  case OMPD_parallel_masked_taskloop:
+    return Category::Executable;
+  case OMPD_parallel_masked_taskloop_simd:
+    return Category::Executable;
+  case OMPD_parallel_master:
+    return Category::Executable;
+  case OMPD_parallel_master_taskloop:
+    return Category::Executable;
+  case OMPD_parallel_master_taskloop_simd:
+    return Category::Executable;
+  case OMPD_parallel_sections:
+    return Category::Executable;
+  case OMPD_parallel_workshare:
+    return Category::Executable;
+  case OMPD_requires:
+    return Category::Informational;
+  case OMPD_reverse:
+    return Category::Executable;
+  case OMPD_scan:
+    return Category::Subsidiary;
+  case OMPD_scope:
+    return Category::Executable;
+  case OMPD_section:
+    return Category::Subsidiary;
+  case OMPD_sections:
+    return Category::Executable;
+  case OMPD_simd:
+    return Category::Executable;
+  case OMPD_single:
+    return Category::Executable;
+  case OMPD_split:
+    return Category::Executable;
+  case OMPD_stripe:
+    return Category::Executable;
+  case OMPD_target:
+    return Category::Executable;
+  case OMPD_target_data:
+    return Category::Executable;
+  case OMPD_target_enter_data:
+    return Category::Executable;
+  case OMPD_target_exit_data:
+    return Category::Executable;
+  case OMPD_target_parallel:
+    return Category::Executable;
+  case OMPD_target_parallel_do:
+    return Category::Executable;
+  case OMPD_target_parallel_do_simd:
+    return Category::Executable;
+  case OMPD_target_parallel_for:
+    return Category::Executable;
+  case OMPD_target_parallel_for_simd:
+    return Category::Executable;
+  case OMPD_target_simd:
+    return Category::Executable;
+  case OMPD_target_teams:
+    return Category::Executable;
+  case OMPD_target_teams_distribute:
+    return Category::Executable;
+  case OMPD_target_teams_distribute_parallel_do:
+    return Category::Executable;
+  case OMPD_target_teams_distribute_parallel_do_simd:
+    return Category::Executable;
+  case OMPD_target_teams_distribute_parallel_for:
+    return Category::Executable;
+  case OMPD_target_teams_distribute_parallel_for_simd:
+    return Category::Executable;
+  case OMPD_target_teams_distribute_simd:
+    return Category::Executable;
+  case OMPD_target_teams_workdistribute:
+    return Category::Executable;
+  case OMPD_target_update:
+    return Category::Executable;
+  case OMPD_task:
+    return Category::Executable;
+  case OMPD_taskgroup:
+    return Category::Executable;
+  case OMPD_taskloop:
+    return Category::Executable;
+  case OMPD_taskloop_simd:
+    return Category::Executable;
+  case OMPD_taskwait:
+    return Category::Executable;
+  case OMPD_taskyield:
+    return Category::Executable;
+  case OMPD_taskgraph:
+    return Category::Executable;
+  case OMPD_teams:
+    return Category::Executable;
+  case OMPD_teams_distribute:
+    return Category::Executable;
+  case OMPD_teams_distribute_parallel_do:
+    return Category::Executable;
+  case OMPD_teams_distribute_parallel_do_simd:
+    return Category::Executable;
+  case OMPD_teams_distribute_parallel_for:
+    return Category::Executable;
+  case OMPD_teams_distribute_parallel_for_simd:
+    return Category::Executable;
+  case OMPD_teams_distribute_simd:
+    return Category::Executable;
+  case OMPD_teams_workdistribute:
+    return Category::Executable;
+  case OMPD_threadprivate:
+    return Category::Declarative;
+  case OMPD_tile:
+    return Category::Executable;
+  case OMPD_unknown:
+    return Category::Utility;
+  case OMPD_unroll:
+    return Category::Executable;
+  case OMPD_workdistribute:
+    return Category::Executable;
+  case OMPD_workshare:
+    return Category::Executable;
+  case OMPD_dispatch:
+    return Category::Executable;
+  case OMPD_interop:
+    return Category::Executable;
+  case OMPD_loop:
+    return Category::Executable;
+  case OMPD_masked:
+    return Category::Executable;
+  case OMPD_parallel_loop:
+    return Category::Executable;
+  case OMPD_target_loop:
+    return Category::Executable;
+  case OMPD_target_parallel_loop:
+    return Category::Executable;
+  case OMPD_target_teams_loop:
+    return Category::Executable;
+  case OMPD_teams_loop:
+    return Category::Executable;
+  } // switch (Dir)
+#if !defined(__clang__) && defined(__GNUC__) && __GNUC__ < 9
+  abort();
+#else
+  llvm_unreachable("Unexpected directive");
+#endif
+}
+
+constexpr SourceLanguage getDirectiveLanguages(Directive D) {
+  switch (D) {
+  case OMPD_allocate:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_allocators:
+    return SourceLanguage::Fortran;
+  case OMPD_assume:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_assumes:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_atomic:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_barrier:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_begin_assumes:
+    return SourceLanguage::C;
+  case OMPD_begin_declare_target:
+    return SourceLanguage::C;
+  case OMPD_begin_declare_variant:
+    return SourceLanguage::C;
+  case OMPD_cancel:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_cancellation_point:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_critical:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_declare_induction:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_declare_mapper:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_declare_reduction:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_declare_simd:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_declare_target:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_declare_variant:
+    return SourceLanguage::C;
+  case OMPD_depobj:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_distribute:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_distribute_parallel_do:
+    return SourceLanguage::Fortran;
+  case OMPD_distribute_parallel_do_simd:
+    return SourceLanguage::Fortran;
+  case OMPD_distribute_parallel_for:
+    return SourceLanguage::C;
+  case OMPD_distribute_parallel_for_simd:
+    return SourceLanguage::C;
+  case OMPD_distribute_simd:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_do:
+    return SourceLanguage::Fortran;
+  case OMPD_do_simd:
+    return SourceLanguage::Fortran;
+  case OMPD_end_assumes:
+    return SourceLanguage::C;
+  case OMPD_end_declare_target:
+    return SourceLanguage::C;
+  case OMPD_end_declare_variant:
+    return SourceLanguage::C;
+  case OMPD_error:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_flatten:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_flush:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_for:
+    return SourceLanguage::C;
+  case OMPD_for_simd:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_fuse:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_groupprivate:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_interchange:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_masked_taskloop:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_masked_taskloop_simd:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_master:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_master_taskloop:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_master_taskloop_simd:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_metadirective:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_nothing:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_ordered:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_parallel:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_parallel_do:
+    return SourceLanguage::Fortran;
+  case OMPD_parallel_do_simd:
+    return SourceLanguage::Fortran;
+  case OMPD_parallel_for:
+    return SourceLanguage::C;
+  case OMPD_parallel_for_simd:
+    return SourceLanguage::C;
+  case OMPD_parallel_masked:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_parallel_masked_taskloop:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_parallel_masked_taskloop_simd:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_parallel_master:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_parallel_master_taskloop:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_parallel_master_taskloop_simd:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_parallel_sections:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_parallel_workshare:
+    return SourceLanguage::Fortran;
+  case OMPD_requires:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_reverse:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_scan:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_scope:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_section:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_sections:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_simd:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_single:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_split:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_stripe:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_target:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_target_data:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_target_enter_data:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_target_exit_data:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_target_parallel:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_target_parallel_do:
+    return SourceLanguage::Fortran;
+  case OMPD_target_parallel_do_simd:
+    return SourceLanguage::Fortran;
+  case OMPD_target_parallel_for:
+    return SourceLanguage::C;
+  case OMPD_target_parallel_for_simd:
+    return SourceLanguage::C;
+  case OMPD_target_simd:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_target_teams:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_target_teams_distribute:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_target_teams_distribute_parallel_do:
+    return SourceLanguage::Fortran;
+  case OMPD_target_teams_distribute_parallel_do_simd:
+    return SourceLanguage::Fortran;
+  case OMPD_target_teams_distribute_parallel_for:
+    return SourceLanguage::C;
+  case OMPD_target_teams_distribute_parallel_for_simd:
+    return SourceLanguage::C;
+  case OMPD_target_teams_distribute_simd:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_target_teams_workdistribute:
+    return SourceLanguage::Fortran;
+  case OMPD_target_update:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_task:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_taskgroup:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_taskloop:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_taskloop_simd:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_taskwait:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_taskyield:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_taskgraph:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_teams:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_teams_distribute:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_teams_distribute_parallel_do:
+    return SourceLanguage::Fortran;
+  case OMPD_teams_distribute_parallel_do_simd:
+    return SourceLanguage::Fortran;
+  case OMPD_teams_distribute_parallel_for:
+    return SourceLanguage::C;
+  case OMPD_teams_distribute_parallel_for_simd:
+    return SourceLanguage::C;
+  case OMPD_teams_distribute_simd:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_teams_workdistribute:
+    return SourceLanguage::Fortran;
+  case OMPD_threadprivate:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_tile:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_unknown:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_unroll:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_workdistribute:
+    return SourceLanguage::Fortran;
+  case OMPD_workshare:
+    return SourceLanguage::Fortran;
+  case OMPD_dispatch:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_interop:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_loop:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_masked:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_parallel_loop:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_target_loop:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_target_parallel_loop:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_target_teams_loop:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  case OMPD_teams_loop:
+    return SourceLanguage::C | SourceLanguage::Fortran;
+  } // switch(D)
+#if !defined(__clang__) && defined(__GNUC__) && __GNUC__ < 9
+  abort();
+#else
+  llvm_unreachable("Unexpected directive");
+#endif
+}
+
 // Enumeration helper functions
 LLVM_ABI std::pair<Directive, directive::VersionRange> getOpenMPDirectiveKindAndVersions(StringRef Str);
 inline Directive getOpenMPDirectiveKind(StringRef Str) {
@@ -711,9 +1472,8 @@ LLVM_ABI StringRef getOpenMPClauseName(Clause C, unsigned Ver = 0);
 LLVM_ABI bool isAllowedClauseForDirective(Directive D, Clause C, unsigned Version);
 
 constexpr std::size_t getMaxLeafCount() { return 6; }
-LLVM_ABI Association getDirectiveAssociation(Directive D);
-LLVM_ABI Category getDirectiveCategory(Directive D);
-LLVM_ABI SourceLanguage getDirectiveLanguages(Directive D);
+LLVM_ABI bool isAllowedLoopModifier(Directive D, LoopModifier LM);
+LLVM_ABI StringRef getLoopModifierName(LoopModifier LM, unsigned Ver = 0);
 LLVM_ABI BindKind getBindKind(StringRef Str);
 LLVM_ABI StringRef getOpenMPBindKindName(BindKind x);
 LLVM_ABI CancellationConstructType getCancellationConstructType(StringRef Str);
@@ -748,6 +1508,10 @@ template <> struct enum_iteration_traits<omp::Directive> {
 };
 
 template <> struct enum_iteration_traits<omp::Clause> {
+  static constexpr bool is_iterable = true;
+};
+
+template <> struct enum_iteration_traits<omp::LoopModifier> {
   static constexpr bool is_iterable = true;
 };
 
