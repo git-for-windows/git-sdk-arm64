@@ -8,10 +8,12 @@
 
 #ifndef LLVM_IR_INTRINSIC_MIPS_ENUMS_H
 #define LLVM_IR_INTRINSIC_MIPS_ENUMS_H
+
 namespace llvm::Intrinsic {
+
 enum MIPSIntrinsics : unsigned {
 // Enum values for intrinsics.
-    mips_absq_s_ph = 7923,                            // llvm.mips.absq.s.ph (IntrinsicsMips.td:82)
+    mips_absq_s_ph = 8019,                            // llvm.mips.absq.s.ph (IntrinsicsMips.td:82)
     mips_absq_s_qb,                            // llvm.mips.absq.s.qb (IntrinsicsMips.td:275)
     mips_absq_s_w,                             // llvm.mips.absq.s.w (IntrinsicsMips.td:84)
     mips_add_a_b,                              // llvm.mips.add.a.b (IntrinsicsMips.td:399)
@@ -683,6 +685,8 @@ enum MIPSIntrinsics : unsigned {
     mips_xor_v,                                // llvm.mips.xor.v (IntrinsicsMips.td:1779)
     mips_xori_b,                               // llvm.mips.xori.b (IntrinsicsMips.td:1782)
 }; // enum
+
 } // namespace llvm::Intrinsic
-#endif
+
+#endif // LLVM_IR_INTRINSIC_MIPS_ENUMS_H
 

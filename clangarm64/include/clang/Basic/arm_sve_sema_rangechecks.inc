@@ -247,6 +247,9 @@ ImmChecks.emplace_back(3, 16, 0);
 case SVE::BI__builtin_sve_svdot_lane_f32_mf8_fpm:
 ImmChecks.emplace_back(3, 16, 0);
   break;
+case SVE::BI__builtin_sve_svdot_lane_s16_s8:
+ImmChecks.emplace_back(3, 6, 0);
+  break;
 case SVE::BI__builtin_sve_svdot_lane_s32:
 ImmChecks.emplace_back(3, 10, 8);
   break;
@@ -255,6 +258,9 @@ ImmChecks.emplace_back(3, 16, 0);
   break;
 case SVE::BI__builtin_sve_svdot_lane_s64:
 ImmChecks.emplace_back(3, 10, 16);
+  break;
+case SVE::BI__builtin_sve_svdot_lane_u16_u8:
+ImmChecks.emplace_back(3, 6, 0);
   break;
 case SVE::BI__builtin_sve_svdot_lane_u32:
 ImmChecks.emplace_back(3, 10, 8);
@@ -548,6 +554,42 @@ case SVE::BI__builtin_sve_svluti4_lane_u16_x2:
 ImmChecks.emplace_back(2, 16, 0);
   break;
 case SVE::BI__builtin_sve_svluti4_lane_u8:
+ImmChecks.emplace_back(2, 14, 0);
+  break;
+case SVE::BI__builtin_sve_svluti6_lane_bf16_x2:
+ImmChecks.emplace_back(2, 14, 0);
+  break;
+case SVE::BI__builtin_sve_svluti6_lane_bf16_x4_bf16_x2_u8_x2:
+ImmChecks.emplace_back(2, 14, 0);
+  break;
+case SVE::BI__builtin_sve_svluti6_lane_bf16_x4_bf16_x2_u8_x3:
+ImmChecks.emplace_back(2, 14, 0);
+  break;
+case SVE::BI__builtin_sve_svluti6_lane_f16_x2:
+ImmChecks.emplace_back(2, 14, 0);
+  break;
+case SVE::BI__builtin_sve_svluti6_lane_f16_x4_f16_x2_u8_x2:
+ImmChecks.emplace_back(2, 14, 0);
+  break;
+case SVE::BI__builtin_sve_svluti6_lane_f16_x4_f16_x2_u8_x3:
+ImmChecks.emplace_back(2, 14, 0);
+  break;
+case SVE::BI__builtin_sve_svluti6_lane_s16_x2:
+ImmChecks.emplace_back(2, 14, 0);
+  break;
+case SVE::BI__builtin_sve_svluti6_lane_s16_x4_s16_x2_u8_x2:
+ImmChecks.emplace_back(2, 14, 0);
+  break;
+case SVE::BI__builtin_sve_svluti6_lane_s16_x4_s16_x2_u8_x3:
+ImmChecks.emplace_back(2, 14, 0);
+  break;
+case SVE::BI__builtin_sve_svluti6_lane_u16_x2:
+ImmChecks.emplace_back(2, 14, 0);
+  break;
+case SVE::BI__builtin_sve_svluti6_lane_u16_x4_u16_x2_u8_x2:
+ImmChecks.emplace_back(2, 14, 0);
+  break;
+case SVE::BI__builtin_sve_svluti6_lane_u16_x4_u16_x2_u8_x3:
 ImmChecks.emplace_back(2, 14, 0);
   break;
 case SVE::BI__builtin_sve_svmla_lane_bf16:
@@ -1376,6 +1418,9 @@ ImmChecks.emplace_back(1, 1, 0);
 case SVE::BI__builtin_sve_svqrshrn_n_s16_s64_x4:
 ImmChecks.emplace_back(1, 3, 64);
   break;
+case SVE::BI__builtin_sve_svqrshrn_n_s8_s16_x2:
+ImmChecks.emplace_back(1, 4, 16);
+  break;
 case SVE::BI__builtin_sve_svqrshrn_n_s8_s32_x4:
 ImmChecks.emplace_back(1, 3, 32);
   break;
@@ -1384,6 +1429,9 @@ ImmChecks.emplace_back(1, 1, 0);
   break;
 case SVE::BI__builtin_sve_svqrshrn_n_u16_u64_x4:
 ImmChecks.emplace_back(1, 3, 64);
+  break;
+case SVE::BI__builtin_sve_svqrshrn_n_u8_u16_x2:
+ImmChecks.emplace_back(1, 4, 16);
   break;
 case SVE::BI__builtin_sve_svqrshrn_n_u8_u32_x4:
 ImmChecks.emplace_back(1, 3, 32);
@@ -1438,6 +1486,9 @@ ImmChecks.emplace_back(1, 1, 0);
   break;
 case SVE::BI__builtin_sve_svqrshrun_n_u16_s64_x4:
 ImmChecks.emplace_back(1, 3, 64);
+  break;
+case SVE::BI__builtin_sve_svqrshrun_n_u8_s16_x2:
+ImmChecks.emplace_back(1, 4, 16);
   break;
 case SVE::BI__builtin_sve_svqrshrun_n_u8_s32_x4:
 ImmChecks.emplace_back(1, 3, 32);
@@ -1496,6 +1547,18 @@ ImmChecks.emplace_back(2, 5, 8);
 case SVE::BI__builtin_sve_svqshlu_n_s8_z:
 ImmChecks.emplace_back(2, 5, 8);
   break;
+case SVE::BI__builtin_sve_svqshrn_n_s16_s32_x2:
+ImmChecks.emplace_back(1, 4, 32);
+  break;
+case SVE::BI__builtin_sve_svqshrn_n_s8_s16_x2:
+ImmChecks.emplace_back(1, 4, 16);
+  break;
+case SVE::BI__builtin_sve_svqshrn_n_u16_u32_x2:
+ImmChecks.emplace_back(1, 4, 32);
+  break;
+case SVE::BI__builtin_sve_svqshrn_n_u8_u16_x2:
+ImmChecks.emplace_back(1, 4, 16);
+  break;
 case SVE::BI__builtin_sve_svqshrnb_n_s16:
 ImmChecks.emplace_back(1, 4, 16);
   break;
@@ -1531,6 +1594,12 @@ ImmChecks.emplace_back(2, 4, 32);
   break;
 case SVE::BI__builtin_sve_svqshrnt_n_u64:
 ImmChecks.emplace_back(2, 4, 64);
+  break;
+case SVE::BI__builtin_sve_svqshrun_n_u16_s32_x2:
+ImmChecks.emplace_back(1, 4, 32);
+  break;
+case SVE::BI__builtin_sve_svqshrun_n_u8_s16_x2:
+ImmChecks.emplace_back(1, 4, 16);
   break;
 case SVE::BI__builtin_sve_svqshrunb_n_s16:
 ImmChecks.emplace_back(1, 4, 16);

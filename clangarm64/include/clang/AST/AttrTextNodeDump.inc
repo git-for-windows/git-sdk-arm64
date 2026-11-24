@@ -430,6 +430,11 @@
     OS << " \"" << SA->getSemanticName() << "\"";
     OS << " " << SA->getSemanticIndex();
   }
+  void VisitHLSLAssociatedResourceDeclAttr(const HLSLAssociatedResourceDeclAttr *A) {
+    const auto *SA = cast<HLSLAssociatedResourceDeclAttr>(A); (void)SA;
+    OS << " ";
+    dumpBareDeclRef(SA->getResDecl());
+  }
   void VisitHLSLContainedTypeAttr(const HLSLContainedTypeAttr *A) {
     const auto *SA = cast<HLSLContainedTypeAttr>(A); (void)SA;
     OS << " " << SA->getType().getAsString();
@@ -482,6 +487,26 @@
       break;
     case llvm::hlsl::ResourceClass::Sampler:
       OS << " Sampler";
+      break;
+    }
+  }
+  void VisitHLSLResourceDimensionAttr(const HLSLResourceDimensionAttr *A) {
+    const auto *SA = cast<HLSLResourceDimensionAttr>(A); (void)SA;
+    switch(SA->getDimension()) {
+    case llvm::hlsl::ResourceDimension::Unknown:
+      OS << " Unknown";
+      break;
+    case llvm::hlsl::ResourceDimension::Dim1D:
+      OS << " Dim1D";
+      break;
+    case llvm::hlsl::ResourceDimension::Dim2D:
+      OS << " Dim2D";
+      break;
+    case llvm::hlsl::ResourceDimension::Dim3D:
+      OS << " Dim3D";
+      break;
+    case llvm::hlsl::ResourceDimension::Cube:
+      OS << " Cube";
       break;
     }
   }
@@ -552,6 +577,10 @@
     const auto *SA = cast<HLSLVkExtBuiltinInputAttr>(A); (void)SA;
     OS << " " << SA->getBuiltIn();
   }
+  void VisitHLSLVkExtBuiltinOutputAttr(const HLSLVkExtBuiltinOutputAttr *A) {
+    const auto *SA = cast<HLSLVkExtBuiltinOutputAttr>(A); (void)SA;
+    OS << " " << SA->getBuiltIn();
+  }
   void VisitHLSLVkLocationAttr(const HLSLVkLocationAttr *A) {
     const auto *SA = cast<HLSLVkLocationAttr>(A); (void)SA;
     OS << " " << SA->getLocation();
@@ -584,6 +613,7 @@
   }
   void VisitLifetimeCaptureByAttr(const LifetimeCaptureByAttr *A) {
     const auto *SA = cast<LifetimeCaptureByAttr>(A); (void)SA;
+    OS << " " << A->getSpelling();
     for (const auto &Val : SA->params())
       OS << " " << Val;
   }
@@ -626,6 +656,9 @@
       break;
     case LoopHintAttr::OptionType::VectorizePredicate:
       OS << " VectorizePredicate";
+      break;
+    case LoopHintAttr::OptionType::LICMDisabled:
+      OS << " LICMDisabled";
       break;
     }
     switch(SA->getState()) {
@@ -826,6 +859,9 @@
     case OMPDeclareTargetDeclAttr::MapTypeTy::MT_Link:
       OS << " MT_Link";
       break;
+    case OMPDeclareTargetDeclAttr::MapTypeTy::MT_Local:
+      OS << " MT_Local";
+      break;
     }
     switch(SA->getDevType()) {
     case OMPDeclareTargetDeclAttr::DevTypeTy::DT_Host:
@@ -935,6 +971,11 @@
     const auto *SA = cast<OpenCLUnrollHintAttr>(A); (void)SA;
     OS << " " << SA->getUnrollHint();
   }
+  void VisitOverflowBehaviorAttr(const OverflowBehaviorAttr *A) {
+    const auto *SA = cast<OverflowBehaviorAttr>(A); (void)SA;
+    if (SA->getBehaviorKind())
+      OS << " " << SA->getBehaviorKind()->getName();
+  }
   void VisitOwnerAttr(const OwnerAttr *A) {
     const auto *SA = cast<OwnerAttr>(A); (void)SA;
     if (SA->getDerefTypeLoc())    OS << " " << SA->getDerefType().getAsString();
@@ -982,6 +1023,11 @@
       OS << " AAPCS_VFP";
       break;
     }
+  }
+  void VisitPersonalityAttr(const PersonalityAttr *A) {
+    const auto *SA = cast<PersonalityAttr>(A); (void)SA;
+    OS << " ";
+    dumpBareDeclRef(SA->getRoutine());
   }
   void VisitPointerAttr(const PointerAttr *A) {
     const auto *SA = cast<PointerAttr>(A); (void)SA;

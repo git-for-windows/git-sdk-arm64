@@ -8,10 +8,12 @@
 
 #ifndef LLVM_IR_INTRINSIC_XCORE_ENUMS_H
 #define LLVM_IR_INTRINSIC_XCORE_ENUMS_H
+
 namespace llvm::Intrinsic {
+
 enum XCOREIntrinsics : unsigned {
 // Enum values for intrinsics.
-    xcore_bitrev = 16071,                              // llvm.xcore.bitrev (IntrinsicsXCore.td:15)
+    xcore_bitrev = 16371,                              // llvm.xcore.bitrev (IntrinsicsXCore.td:15)
     xcore_checkevent,                          // llvm.xcore.checkevent (IntrinsicsXCore.td:100)
     xcore_chkct,                               // llvm.xcore.chkct (IntrinsicsXCore.td:53)
     xcore_clre,                                // llvm.xcore.clre (IntrinsicsXCore.td:102)
@@ -65,6 +67,8 @@ enum XCOREIntrinsics : unsigned {
     xcore_waitevent,                           // llvm.xcore.waitevent (IntrinsicsXCore.td:95)
     xcore_zext,                                // llvm.xcore.zext (IntrinsicsXCore.td:25)
 }; // enum
+
 } // namespace llvm::Intrinsic
-#endif
+
+#endif // LLVM_IR_INTRINSIC_XCORE_ENUMS_H
 

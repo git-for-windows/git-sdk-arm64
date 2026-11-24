@@ -1069,6 +1069,12 @@ case SME::BI__builtin_sme_svluti4_lane_zt_u8:
 case SME::BI__builtin_sme_svluti4_lane_zt_u8_x2:
 case SME::BI__builtin_sme_svluti4_zt_s8_x4:
 case SME::BI__builtin_sme_svluti4_zt_u8_x4:
+case SME::BI__builtin_sme_svluti6_zt_mf8:
+case SME::BI__builtin_sme_svluti6_zt_mf8_x4:
+case SME::BI__builtin_sme_svluti6_zt_s8:
+case SME::BI__builtin_sme_svluti6_zt_s8_x4:
+case SME::BI__builtin_sme_svluti6_zt_u8:
+case SME::BI__builtin_sme_svluti6_zt_u8_x4:
 case SME::BI__builtin_sme_svstr_zt:
   return ArmInZT0;
 case SME::BI__builtin_sme_svzero_za:

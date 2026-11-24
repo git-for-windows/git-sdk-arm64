@@ -66,6 +66,12 @@ EXPORT(Export, Decl)
 CAPTURED(Captured, Decl)
 #undef CAPTURED
 
+#ifndef CXXEXPANSIONSTMT
+#  define CXXEXPANSIONSTMT(Type, Base) DECL(Type, Base)
+#endif
+CXXEXPANSIONSTMT(CXXExpansionStmt, Decl)
+#undef CXXEXPANSIONSTMT
+
 #ifndef BLOCK
 #  define BLOCK(Type, Base) DECL(Type, Base)
 #endif
@@ -666,6 +672,12 @@ FRIEND(Friend, Decl)
 FILESCOPEASM(FileScopeAsm, Decl)
 #undef FILESCOPEASM
 
+#ifndef EXPLICITINSTANTIATION
+#  define EXPLICITINSTANTIATION(Type, Base) DECL(Type, Base)
+#endif
+EXPLICITINSTANTIATION(ExplicitInstantiation, Decl)
+#undef EXPLICITINSTANTIATION
+
 #ifndef EMPTY
 #  define EMPTY(Type, Base) DECL(Type, Base)
 #endif
@@ -697,6 +709,7 @@ LAST_DECL_RANGE(Decl, TranslationUnit, AccessSpec)
 #  define DECL_CONTEXT(DECL)
 #endif
 DECL_CONTEXT(Block)
+DECL_CONTEXT(CXXExpansionStmt)
 DECL_CONTEXT(Captured)
 DECL_CONTEXT(Export)
 DECL_CONTEXT(ExternCContext)

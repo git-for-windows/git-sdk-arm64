@@ -86,6 +86,8 @@ public:
       return writeObjCInterfaceType(static_cast<const ObjCInterfaceType *>(node));
     case Type::ObjCTypeParam:
       return writeObjCTypeParamType(static_cast<const ObjCTypeParamType *>(node));
+    case Type::OverflowBehavior:
+      return writeOverflowBehaviorType(static_cast<const OverflowBehaviorType *>(node));
     case Type::PackExpansion:
       return writePackExpansionType(static_cast<const PackExpansionType *>(node));
     case Type::PackIndexing:
@@ -273,6 +275,8 @@ public:
   }
 
   void writeAutoType(const AutoType *node) {
+    DeducedKind deducedKind = ( node->getDeducedKind() );
+    W.find("deducedKind").writeDeducedKind(deducedKind);
     std::optional<QualType> deducedType = ( makeOptionalFromNullable(node->getDeducedType()) );
     W.find("deducedType").writeOptional(deducedType);
     AutoTypeKeyword keyword = ( node->getKeyword() );
@@ -282,10 +286,6 @@ public:
     W.find("typeConstraintConcept").writeOptional(typeConstraintConcept);
     llvm::ArrayRef<TemplateArgument> typeConstraintArguments = ( node->getTypeConstraintArguments() );
     W.find("typeConstraintArguments").writeArray(typeConstraintArguments);
-    uint32_t dependence = ( !node->getDeducedType().isNull() ? 0 :
-                  node->containsUnexpandedParameterPack() ? 2 :
-                  node->isDependentType() ? 1 : 0 );
-    W.find("dependence").writeUInt32(dependence);
   }
 
   void writeDeducedTemplateSpecializationType(const DeducedTemplateSpecializationType *node) {
@@ -293,11 +293,10 @@ public:
     W.find("keyword").writeElaboratedTypeKeyword(keyword);
     std::optional<TemplateName> templateName = ( makeOptionalFromNullable(node->getTemplateName()) );
     W.find("templateName").writeOptional(templateName);
+    DeducedKind deducedKind = ( node->getDeducedKind() );
+    W.find("deducedKind").writeDeducedKind(deducedKind);
     QualType deducedType = ( node->getDeducedType() );
     W.find("deducedType").writeQualType(deducedType);
-    bool dependent = ( !node->getDeducedType().isNull()
-                    ? false : node->isDependentType() );
-    W.find("dependent").writeBool(dependent);
   }
 
   void writeDependentAddressSpaceType(const DependentAddressSpaceType *node) {
@@ -414,6 +413,8 @@ public:
   void writeHLSLAttributedResourceType(const HLSLAttributedResourceType *node) {
     uint32_t resClass = ( static_cast<uint32_t>(node->getAttrs().ResourceClass) );
     W.find("resClass").writeUInt32(resClass);
+    uint32_t resDimension = ( static_cast<uint32_t>(node->getAttrs().ResourceDimension) );
+    W.find("resDimension").writeUInt32(resDimension);
     bool isROV = ( node->getAttrs().IsROV );
     W.find("isROV").writeBool(isROV);
     bool rawBuffer = ( node->getAttrs().RawBuffer );
@@ -424,6 +425,8 @@ public:
     W.find("wrappedTy").writeQualType(wrappedTy);
     QualType containedTy = ( node->getContainedType() );
     W.find("containedTy").writeQualType(containedTy);
+    bool isArray = ( node->getAttrs().IsArray );
+    W.find("isArray").writeBool(isArray);
   }
 
   void writeHLSLInlineSpirvType(const HLSLInlineSpirvType *node) {
@@ -501,6 +504,13 @@ public:
     W.find("qualifiers").writeArray(qualifiers);
   }
 
+  void writeOverflowBehaviorType(const OverflowBehaviorType *node) {
+    OverflowBehaviorType::OverflowBehaviorKind behaviorKind = ( node->getBehaviorKind() );
+    W.find("behaviorKind").writeOverflowBehaviorKind(behaviorKind);
+    QualType underlyingType = ( node->getUnderlyingType() );
+    W.find("underlyingType").writeQualType(underlyingType);
+  }
+
   void writePackExpansionType(const PackExpansionType *node) {
     QualType pattern = ( node->getPattern() );
     W.find("pattern").writeQualType(pattern);
@@ -517,6 +527,8 @@ public:
     W.find("isFullySubstituted").writeBool(isFullySubstituted);
     llvm::ArrayRef<QualType> expansions = ( node->getExpansions() );
     W.find("expansions").writeArray(expansions);
+    UnsignedOrNone index = ( node->getSelectedIndex() );
+    W.find("index").writeUnsignedOrNone(index);
   }
 
   void writeParenType(const ParenType *node) {

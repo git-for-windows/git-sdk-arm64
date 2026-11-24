@@ -2863,148 +2863,100 @@ bool llvm::acc::isAllowedClauseForDirective(llvm::acc::Directive D, llvm::acc::C
   llvm_unreachable("Invalid OpenACC Directive kind");
 }
 
-llvm::acc::Association llvm::acc::getDirectiveAssociation(llvm::acc::Directive Dir) {
-  switch (Dir) {
-  case ACCD_atomic:
-    return Association::Block;
-  case ACCD_cache:
-    return Association::None;
-  case ACCD_data:
-    return Association::Block;
-  case ACCD_declare:
-    return Association::None;
-  case ACCD_enter_data:
-    return Association::None;
-  case ACCD_exit_data:
-    return Association::None;
-  case ACCD_host_data:
-    return Association::Block;
-  case ACCD_init:
-    return Association::None;
-  case ACCD_kernels:
-    return Association::Block;
-  case ACCD_kernels_loop:
-    return Association::LoopNest;
-  case ACCD_loop:
-    return Association::LoopNest;
-  case ACCD_parallel:
-    return Association::Block;
-  case ACCD_parallel_loop:
-    return Association::LoopNest;
-  case ACCD_routine:
-    return Association::Declaration;
-  case ACCD_serial:
-    return Association::Block;
-  case ACCD_serial_loop:
-    return Association::LoopNest;
-  case ACCD_set:
-    return Association::None;
-  case ACCD_shutdown:
-    return Association::None;
-  case ACCD_unknown:
-    return Association::None;
-  case ACCD_update:
-    return Association::None;
-  case ACCD_wait:
-    return Association::None;
-  } // switch (Dir)
-  llvm_unreachable("Unexpected directive");
-}
-
-llvm::acc::Category llvm::acc::getDirectiveCategory(llvm::acc::Directive Dir) {
-  switch (Dir) {
-  case ACCD_atomic:
-    return Category::Executable;
-  case ACCD_cache:
-    return Category::Executable;
-  case ACCD_data:
-    return Category::Executable;
-  case ACCD_declare:
-    return Category::Declarative;
-  case ACCD_enter_data:
-    return Category::Executable;
-  case ACCD_exit_data:
-    return Category::Executable;
-  case ACCD_host_data:
-    return Category::Executable;
-  case ACCD_init:
-    return Category::Executable;
-  case ACCD_kernels:
-    return Category::Executable;
-  case ACCD_kernels_loop:
-    return Category::Executable;
-  case ACCD_loop:
-    return Category::Executable;
-  case ACCD_parallel:
-    return Category::Executable;
-  case ACCD_parallel_loop:
-    return Category::Executable;
-  case ACCD_routine:
-    return Category::Declarative;
-  case ACCD_serial:
-    return Category::Executable;
-  case ACCD_serial_loop:
-    return Category::Executable;
-  case ACCD_set:
-    return Category::Executable;
-  case ACCD_shutdown:
-    return Category::Executable;
-  case ACCD_unknown:
-    return Category::Utility;
-  case ACCD_update:
-    return Category::Executable;
-  case ACCD_wait:
-    return Category::Executable;
-  } // switch (Dir)
-  llvm_unreachable("Unexpected directive");
-}
-
-llvm::acc::SourceLanguage llvm::acc::getDirectiveLanguages(llvm::acc::Directive D) {
+bool llvm::acc::isAllowedLoopModifier(llvm::acc::Directive D, llvm::acc::LoopModifier LM) {
+  assert(unsigned(D) <= Directive_enumSize);
   switch (D) {
-  case ACCD_atomic:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case ACCD_cache:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case ACCD_data:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case ACCD_declare:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case ACCD_enter_data:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case ACCD_exit_data:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case ACCD_host_data:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case ACCD_init:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case ACCD_kernels:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case ACCD_kernels_loop:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case ACCD_loop:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case ACCD_parallel:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case ACCD_parallel_loop:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case ACCD_routine:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case ACCD_serial:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case ACCD_serial_loop:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case ACCD_set:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case ACCD_shutdown:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case ACCD_unknown:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case ACCD_update:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  case ACCD_wait:
-    return SourceLanguage::C | SourceLanguage::Fortran;
-  } // switch(D)
-  llvm_unreachable("Unexpected directive");
+    case ACCD_atomic:
+      return false;
+      break;
+    case ACCD_cache:
+      return false;
+      break;
+    case ACCD_data:
+      return false;
+      break;
+    case ACCD_declare:
+      return false;
+      break;
+    case ACCD_enter_data:
+      return false;
+      break;
+    case ACCD_exit_data:
+      return false;
+      break;
+    case ACCD_host_data:
+      return false;
+      break;
+    case ACCD_init:
+      return false;
+      break;
+    case ACCD_kernels:
+      return false;
+      break;
+    case ACCD_kernels_loop:
+      return false;
+      break;
+    case ACCD_loop:
+      return false;
+      break;
+    case ACCD_parallel:
+      return false;
+      break;
+    case ACCD_parallel_loop:
+      return false;
+      break;
+    case ACCD_routine:
+      return false;
+      break;
+    case ACCD_serial:
+      return false;
+      break;
+    case ACCD_serial_loop:
+      return false;
+      break;
+    case ACCD_set:
+      return false;
+      break;
+    case ACCD_shutdown:
+      return false;
+      break;
+    case ACCD_unknown:
+      return false;
+      break;
+    case ACCD_update:
+      return false;
+      break;
+    case ACCD_wait:
+      return false;
+      break;
+  }
+  llvm_unreachable("Invalid OpenACC Directive kind");
+}
+
+llvm::StringRef llvm::acc::getLoopModifierName(llvm::acc::LoopModifier Kind, unsigned Version) {
+  switch (Kind) {
+    case flattened:
+      return "flattened";
+    case fused:
+      return "fused";
+    case grid:
+      return "grid";
+    case identity:
+      return "identity";
+    case interchanged:
+      return "interchanged";
+    case intratile:
+      return "intratile";
+    case offsets:
+      return "offsets";
+    case reversed:
+      return "reversed";
+    case split:
+      return "split";
+    case unrolled:
+      return "unrolled";
+  }
+  llvm_unreachable("Invalid  LoopModifier kind");
 }
 
 static_assert(sizeof(llvm::acc::Directive) == sizeof(int));

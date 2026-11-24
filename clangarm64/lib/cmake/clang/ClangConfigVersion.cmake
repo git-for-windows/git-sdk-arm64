@@ -1,12 +1,12 @@
-set(PACKAGE_VERSION "22.1.8")
+set(PACKAGE_VERSION "23.1.5")
 
 # LLVM is API-compatible only with matching major.minor versions
 # and patch versions not less than that requested.
-if("22.1" VERSION_EQUAL
+if("23.1" VERSION_EQUAL
     "${PACKAGE_FIND_VERSION_MAJOR}.${PACKAGE_FIND_VERSION_MINOR}"
-   AND NOT "8" VERSION_LESS "${PACKAGE_FIND_VERSION_PATCH}")
+   AND NOT "5" VERSION_LESS "${PACKAGE_FIND_VERSION_PATCH}")
   set(PACKAGE_VERSION_COMPATIBLE 1)
-  if("8" VERSION_EQUAL
+  if("5" VERSION_EQUAL
       "${PACKAGE_FIND_VERSION_PATCH}")
     set(PACKAGE_VERSION_EXACT 1)
   endif()

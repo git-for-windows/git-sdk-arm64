@@ -9,6 +9,7 @@
 
 #ifdef GET_TARGET_LIBRARY_INFO_ENUM
 #undef GET_TARGET_LIBRARY_INFO_ENUM
+
 enum LibFunc : unsigned {
   NotLibFunc = 0,
   LibFunc_msvc_new_int,
@@ -120,8 +121,6 @@ enum LibFunc : unsigned {
   LibFunc_expl_finite,
   LibFunc_dunder_isoc99_scanf,
   LibFunc_dunder_isoc99_sscanf,
-  LibFunc___kmpc_alloc_shared,
-  LibFunc___kmpc_free_shared,
   LibFunc_log10_finite,
   LibFunc_log10f_finite,
   LibFunc_log10l_finite,
@@ -545,10 +544,12 @@ enum LibFunc : unsigned {
   End_LibFunc = NumLibFuncs,
   Begin_LibFunc = LibFunc_msvc_new_int,
 };
-#endif
+
+#endif // GET_TARGET_LIBRARY_INFO_ENUM
 
 #ifdef GET_TARGET_LIBRARY_INFO_STRING_TABLE
 #undef GET_TARGET_LIBRARY_INFO_STRING_TABLE
+
 
 #ifdef __GNUC__
 #pragma GCC diagnostic push
@@ -665,8 +666,6 @@ enum LibFunc : unsigned {
   "__expl_finite\0"
   "__isoc99_scanf\0"
   "__isoc99_sscanf\0"
-  "__kmpc_alloc_shared\0"
-  "__kmpc_free_shared\0"
   "__log10_finite\0"
   "__log10f_finite\0"
   "__log10l_finite\0"
@@ -1094,7 +1093,7 @@ enum LibFunc : unsigned {
 const llvm::StringTable
 TargetLibraryInfoImpl::StandardNamesStrTable = StandardNamesStrTableStorage;
 
-const llvm::StringTable::Offset TargetLibraryInfoImpl::StandardNamesOffsets[531] = {
+const llvm::StringTable::Offset TargetLibraryInfoImpl::StandardNamesOffsets[529] = {
   0, //
   1, // ??2@YAPAXI@Z
   14, // ??2@YAPAXIABUnothrow_t@std@@@Z
@@ -1205,429 +1204,427 @@ const llvm::StringTable::Offset TargetLibraryInfoImpl::StandardNamesOffsets[531]
   2035, // __expl_finite
   2049, // __isoc99_scanf
   2064, // __isoc99_sscanf
-  2080, // __kmpc_alloc_shared
-  2100, // __kmpc_free_shared
-  2119, // __log10_finite
-  2134, // __log10f_finite
-  2150, // __log10l_finite
-  2166, // __log2_finite
-  2180, // __log2f_finite
-  2195, // __log2l_finite
-  2210, // __log_finite
-  2223, // __logf_finite
-  2237, // __logl_finite
-  2251, // __memccpy_chk
-  2265, // __memcpy_chk
-  2278, // __memmove_chk
-  2292, // __mempcpy_chk
-  2306, // __memset_chk
-  2319, // __nvvm_reflect
-  2334, // __pow_finite
-  2347, // __powf_finite
-  2361, // __powl_finite
-  2375, // __sincospi_stret
-  2392, // __sincospif_stret
-  2410, // __sinh_finite
-  2424, // __sinhf_finite
-  2439, // __sinhl_finite
-  2454, // __sinpi
-  2462, // __sinpif
-  2471, // __small_fprintf
-  2487, // __small_printf
-  2502, // __small_sprintf
-  2518, // __snprintf_chk
-  2533, // __sprintf_chk
-  2547, // __sqrt_finite
-  2561, // __sqrtf_finite
-  2576, // __sqrtl_finite
-  2591, // __stpcpy_chk
-  2604, // __stpncpy_chk
-  2618, // __strcat_chk
-  2631, // __strcpy_chk
-  2644, // __strdup
-  2653, // __strlcat_chk
-  2667, // __strlcpy_chk
-  2681, // __strlen_chk
-  2694, // __strncat_chk
-  2708, // __strncpy_chk
-  2722, // __strndup
-  2732, // __strtok_r
-  2743, // __vsnprintf_chk
-  2759, // __vsprintf_chk
-  2774, // abs
-  2778, // access
-  2785, // acos
-  2790, // acosf
-  2796, // acosh
-  2802, // acoshf
-  2809, // acoshl
-  2816, // acosl
-  2822, // aligned_alloc
-  2836, // asin
-  2841, // asinf
-  2847, // asinh
-  2853, // asinhf
-  2860, // asinhl
-  2867, // asinl
-  2873, // atan
-  2878, // atan2
-  2884, // atan2f
-  2891, // atan2l
-  2898, // atanf
-  2904, // atanh
-  2910, // atanhf
-  2917, // atanhl
-  2924, // atanl
-  2930, // atof
-  2935, // atoi
-  2940, // atol
-  2945, // atoll
-  2951, // bcmp
-  2956, // bcopy
-  2962, // bzero
-  2968, // cabs
-  2973, // cabsf
-  2979, // cabsl
-  2985, // calloc
-  2992, // cbrt
-  2997, // cbrtf
-  3003, // cbrtl
-  3009, // ceil
-  3014, // ceilf
-  3020, // ceill
-  3026, // chmod
-  3032, // chown
-  3038, // clearerr
-  3047, // closedir
-  3056, // copysign
-  3065, // copysignf
-  3075, // copysignl
-  3085, // cos
-  3089, // cosf
-  3094, // cosh
-  3099, // coshf
-  3105, // coshl
-  3111, // cosl
-  3116, // ctermid
-  3124, // erf
-  3128, // erff
-  3133, // erfl
-  3138, // tgamma
-  3145, // tgammaf
-  3153, // tgammal
-  3161, // execl
-  3167, // execle
-  3174, // execlp
-  3181, // execv
-  3187, // execvP
-  3194, // execve
-  3201, // execvp
-  3208, // execvpe
-  3216, // exp
-  3220, // exp10
-  3226, // exp10f
-  3233, // exp10l
-  3240, // exp2
-  3245, // exp2f
-  3251, // exp2l
-  3257, // expf
-  3262, // expl
-  3267, // expm1
-  3273, // expm1f
-  3280, // expm1l
-  3287, // fabs
-  3292, // fabsf
-  3298, // fabsl
-  3304, // fclose
-  3311, // fdopen
-  3318, // feof
-  3323, // ferror
-  3330, // fflush
-  3337, // ffs
-  3341, // ffsl
-  3346, // ffsll
-  3352, // fgetc
-  3358, // fgetc_unlocked
-  3373, // fgetpos
-  3381, // fgets
-  3387, // fgets_unlocked
-  3402, // fileno
-  3409, // fiprintf
-  3418, // flockfile
-  3428, // floor
-  3434, // floorf
-  3441, // floorl
-  3448, // fls
-  3452, // flsl
-  3457, // flsll
-  3463, // fmax
-  3468, // fmaxf
-  3474, // fmaxl
-  3480, // fmin
-  3485, // fminf
-  3491, // fminl
-  3497, // fmaximum_num
-  3510, // fmaximum_numf
-  3524, // fmaximum_numl
-  3538, // fminimum_num
-  3551, // fminimum_numf
-  3565, // fminimum_numl
-  3579, // fmod
-  3584, // fmodf
-  3590, // fmodl
-  3596, // fopen
-  3602, // fopen64
-  3610, // fork
-  3615, // fprintf
-  3623, // fputc
-  3629, // fputc_unlocked
-  3644, // fputs
-  3650, // fputs_unlocked
-  3665, // fread
-  3671, // fread_unlocked
-  3686, // free
-  3691, // frexp
-  3697, // frexpf
-  3704, // frexpl
-  3711, // fscanf
-  3718, // fseek
-  3724, // fseeko
-  3731, // fseeko64
-  3740, // fsetpos
-  3748, // fstat
-  3754, // fstat64
-  3762, // fstatvfs
-  3771, // fstatvfs64
-  3782, // ftell
-  3788, // ftello
-  3795, // ftello64
-  3804, // ftrylockfile
-  3817, // funlockfile
-  3829, // fwrite
-  3836, // fwrite_unlocked
-  3852, // getc
-  3857, // getc_unlocked
-  3871, // getchar
-  3879, // getchar_unlocked
-  3896, // getenv
-  3903, // getitimer
-  3913, // getlogin_r
-  3924, // getpwnam
-  3933, // gets
-  3938, // gettimeofday
-  3951, // htonl
-  3957, // htons
-  3963, // hypot
-  3969, // hypotf
-  3976, // hypotl
-  3983, // iprintf
-  3991, // isascii
-  3999, // isdigit
-  4007, // labs
-  4012, // lchown
-  4019, // ldexp
-  4025, // ldexpf
-  4032, // ldexpl
-  4039, // llabs
-  4045, // log
-  4049, // log10
-  4055, // log10f
-  4062, // log10l
-  4069, // log1p
-  4075, // log1pf
-  4082, // log1pl
-  4089, // log2
-  4094, // log2f
-  4100, // log2l
-  4106, // ilogb
-  4112, // ilogbf
-  4119, // ilogbl
-  4126, // logb
-  4131, // logbf
-  4137, // logbl
-  4143, // logf
-  4148, // logl
-  4153, // lstat
-  4159, // lstat64
-  4167, // malloc
-  4174, // memalign
-  4183, // memccpy
-  4191, // memchr
-  4198, // memcmp
-  4205, // memcpy
-  4212, // memmove
-  4220, // mempcpy
-  4228, // memrchr
-  4236, // memset
-  4243, // memset_pattern16
-  4260, // memset_pattern4
-  4276, // memset_pattern8
-  4292, // mkdir
-  4298, // mktime
-  4305, // modf
-  4310, // modff
-  4316, // modfl
-  4322, // nan
-  4326, // nanf
-  4331, // nanl
-  4336, // nearbyint
-  4346, // nearbyintf
-  4357, // nearbyintl
-  4368, // nextafter
-  4378, // nextafterf
-  4389, // nextafterl
-  4400, // nexttoward
-  4411, // nexttowardf
-  4423, // nexttowardl
-  4435, // ntohl
-  4441, // ntohs
-  4447, // open
-  4452, // open64
-  4459, // opendir
-  4467, // pclose
-  4474, // perror
-  4481, // popen
-  4487, // posix_memalign
-  4502, // pow
-  4506, // powf
-  4511, // powl
-  4516, // pread
-  4522, // printf
-  4529, // putc
-  4534, // putc_unlocked
-  4548, // putchar
-  4556, // putchar_unlocked
-  4573, // puts
-  4578, // pvalloc
-  4586, // pwrite
-  4593, // qsort
-  4599, // read
-  4604, // readlink
-  4613, // realloc
-  4621, // reallocf
-  4630, // reallocarray
-  4643, // realpath
-  4652, // remainder
-  4662, // remainderf
-  4673, // remainderl
-  4684, // remquo
-  4691, // remquof
-  4699, // remquol
-  4707, // fdim
-  4712, // fdimf
-  4718, // fdiml
-  4724, // remove
-  4731, // rename
-  4738, // rewind
-  4745, // rint
-  4750, // rintf
-  4756, // rintl
-  4762, // rmdir
-  4768, // round
-  4774, // roundeven
-  4784, // roundevenf
-  4795, // roundevenl
-  4806, // roundf
-  4813, // roundl
-  4820, // scalbln
-  4828, // scalblnf
-  4837, // scalblnl
-  4846, // scalbn
-  4853, // scalbnf
-  4861, // scalbnl
-  4869, // scanf
-  4875, // setbuf
-  4882, // setitimer
-  4892, // setvbuf
-  4900, // sin
-  4904, // sinf
-  4909, // sinh
-  4914, // sinhf
-  4920, // sinhl
-  4926, // sinl
-  4931, // sincos
-  4938, // sincosf
-  4946, // sincosl
-  4954, // siprintf
-  4963, // snprintf
-  4972, // sprintf
-  4980, // sqrt
-  4985, // sqrtf
-  4991, // sqrtl
-  4997, // sscanf
-  5004, // stat
-  5009, // stat64
-  5016, // statvfs
-  5024, // statvfs64
-  5034, // stpcpy
-  5041, // stpncpy
-  5049, // strcasecmp
-  5060, // strcat
-  5067, // strchr
-  5074, // strcmp
-  5081, // strcoll
-  5089, // strcpy
-  5096, // strcspn
-  5104, // strdup
-  5111, // strlcat
-  5119, // strlcpy
-  5127, // strlen
-  5134, // strncasecmp
-  5146, // strncat
-  5154, // strncmp
-  5162, // strncpy
-  5170, // strndup
-  5178, // strnlen
-  5186, // strpbrk
-  5194, // strrchr
-  5202, // strspn
-  5209, // strstr
-  5216, // strtod
-  5223, // strtof
-  5230, // strtok
-  5237, // strtok_r
-  5246, // strtol
-  5253, // strtold
-  5261, // strtoll
-  5269, // strtoul
-  5277, // strtoull
-  5286, // strxfrm
-  5294, // system
-  5301, // tan
-  5305, // tanf
-  5310, // tanh
-  5315, // tanhf
-  5321, // tanhl
-  5327, // tanl
-  5332, // times
-  5338, // tmpfile
-  5346, // tmpfile64
-  5356, // toascii
-  5364, // trunc
-  5370, // truncf
-  5377, // truncl
-  5384, // uname
-  5390, // ungetc
-  5397, // unlink
-  5404, // unsetenv
-  5413, // utime
-  5419, // utimes
-  5426, // valloc
-  5433, // vec_calloc
-  5444, // vec_free
-  5453, // vec_malloc
-  5464, // vec_realloc
-  5476, // vfprintf
-  5485, // vfscanf
-  5493, // vprintf
-  5501, // vscanf
-  5508, // vsnprintf
-  5518, // vsprintf
-  5527, // vsscanf
-  5535, // wcslen
-  5542, // write
+  2080, // __log10_finite
+  2095, // __log10f_finite
+  2111, // __log10l_finite
+  2127, // __log2_finite
+  2141, // __log2f_finite
+  2156, // __log2l_finite
+  2171, // __log_finite
+  2184, // __logf_finite
+  2198, // __logl_finite
+  2212, // __memccpy_chk
+  2226, // __memcpy_chk
+  2239, // __memmove_chk
+  2253, // __mempcpy_chk
+  2267, // __memset_chk
+  2280, // __nvvm_reflect
+  2295, // __pow_finite
+  2308, // __powf_finite
+  2322, // __powl_finite
+  2336, // __sincospi_stret
+  2353, // __sincospif_stret
+  2371, // __sinh_finite
+  2385, // __sinhf_finite
+  2400, // __sinhl_finite
+  2415, // __sinpi
+  2423, // __sinpif
+  2432, // __small_fprintf
+  2448, // __small_printf
+  2463, // __small_sprintf
+  2479, // __snprintf_chk
+  2494, // __sprintf_chk
+  2508, // __sqrt_finite
+  2522, // __sqrtf_finite
+  2537, // __sqrtl_finite
+  2552, // __stpcpy_chk
+  2565, // __stpncpy_chk
+  2579, // __strcat_chk
+  2592, // __strcpy_chk
+  2605, // __strdup
+  2614, // __strlcat_chk
+  2628, // __strlcpy_chk
+  2642, // __strlen_chk
+  2655, // __strncat_chk
+  2669, // __strncpy_chk
+  2683, // __strndup
+  2693, // __strtok_r
+  2704, // __vsnprintf_chk
+  2720, // __vsprintf_chk
+  2735, // abs
+  2739, // access
+  2746, // acos
+  2751, // acosf
+  2757, // acosh
+  2763, // acoshf
+  2770, // acoshl
+  2777, // acosl
+  2783, // aligned_alloc
+  2797, // asin
+  2802, // asinf
+  2808, // asinh
+  2814, // asinhf
+  2821, // asinhl
+  2828, // asinl
+  2834, // atan
+  2839, // atan2
+  2845, // atan2f
+  2852, // atan2l
+  2859, // atanf
+  2865, // atanh
+  2871, // atanhf
+  2878, // atanhl
+  2885, // atanl
+  2891, // atof
+  2896, // atoi
+  2901, // atol
+  2906, // atoll
+  2912, // bcmp
+  2917, // bcopy
+  2923, // bzero
+  2929, // cabs
+  2934, // cabsf
+  2940, // cabsl
+  2946, // calloc
+  2953, // cbrt
+  2958, // cbrtf
+  2964, // cbrtl
+  2970, // ceil
+  2975, // ceilf
+  2981, // ceill
+  2987, // chmod
+  2993, // chown
+  2999, // clearerr
+  3008, // closedir
+  3017, // copysign
+  3026, // copysignf
+  3036, // copysignl
+  3046, // cos
+  3050, // cosf
+  3055, // cosh
+  3060, // coshf
+  3066, // coshl
+  3072, // cosl
+  3077, // ctermid
+  3085, // erf
+  3089, // erff
+  3094, // erfl
+  3099, // tgamma
+  3106, // tgammaf
+  3114, // tgammal
+  3122, // execl
+  3128, // execle
+  3135, // execlp
+  3142, // execv
+  3148, // execvP
+  3155, // execve
+  3162, // execvp
+  3169, // execvpe
+  3177, // exp
+  3181, // exp10
+  3187, // exp10f
+  3194, // exp10l
+  3201, // exp2
+  3206, // exp2f
+  3212, // exp2l
+  3218, // expf
+  3223, // expl
+  3228, // expm1
+  3234, // expm1f
+  3241, // expm1l
+  3248, // fabs
+  3253, // fabsf
+  3259, // fabsl
+  3265, // fclose
+  3272, // fdopen
+  3279, // feof
+  3284, // ferror
+  3291, // fflush
+  3298, // ffs
+  3302, // ffsl
+  3307, // ffsll
+  3313, // fgetc
+  3319, // fgetc_unlocked
+  3334, // fgetpos
+  3342, // fgets
+  3348, // fgets_unlocked
+  3363, // fileno
+  3370, // fiprintf
+  3379, // flockfile
+  3389, // floor
+  3395, // floorf
+  3402, // floorl
+  3409, // fls
+  3413, // flsl
+  3418, // flsll
+  3424, // fmax
+  3429, // fmaxf
+  3435, // fmaxl
+  3441, // fmin
+  3446, // fminf
+  3452, // fminl
+  3458, // fmaximum_num
+  3471, // fmaximum_numf
+  3485, // fmaximum_numl
+  3499, // fminimum_num
+  3512, // fminimum_numf
+  3526, // fminimum_numl
+  3540, // fmod
+  3545, // fmodf
+  3551, // fmodl
+  3557, // fopen
+  3563, // fopen64
+  3571, // fork
+  3576, // fprintf
+  3584, // fputc
+  3590, // fputc_unlocked
+  3605, // fputs
+  3611, // fputs_unlocked
+  3626, // fread
+  3632, // fread_unlocked
+  3647, // free
+  3652, // frexp
+  3658, // frexpf
+  3665, // frexpl
+  3672, // fscanf
+  3679, // fseek
+  3685, // fseeko
+  3692, // fseeko64
+  3701, // fsetpos
+  3709, // fstat
+  3715, // fstat64
+  3723, // fstatvfs
+  3732, // fstatvfs64
+  3743, // ftell
+  3749, // ftello
+  3756, // ftello64
+  3765, // ftrylockfile
+  3778, // funlockfile
+  3790, // fwrite
+  3797, // fwrite_unlocked
+  3813, // getc
+  3818, // getc_unlocked
+  3832, // getchar
+  3840, // getchar_unlocked
+  3857, // getenv
+  3864, // getitimer
+  3874, // getlogin_r
+  3885, // getpwnam
+  3894, // gets
+  3899, // gettimeofday
+  3912, // htonl
+  3918, // htons
+  3924, // hypot
+  3930, // hypotf
+  3937, // hypotl
+  3944, // iprintf
+  3952, // isascii
+  3960, // isdigit
+  3968, // labs
+  3973, // lchown
+  3980, // ldexp
+  3986, // ldexpf
+  3993, // ldexpl
+  4000, // llabs
+  4006, // log
+  4010, // log10
+  4016, // log10f
+  4023, // log10l
+  4030, // log1p
+  4036, // log1pf
+  4043, // log1pl
+  4050, // log2
+  4055, // log2f
+  4061, // log2l
+  4067, // ilogb
+  4073, // ilogbf
+  4080, // ilogbl
+  4087, // logb
+  4092, // logbf
+  4098, // logbl
+  4104, // logf
+  4109, // logl
+  4114, // lstat
+  4120, // lstat64
+  4128, // malloc
+  4135, // memalign
+  4144, // memccpy
+  4152, // memchr
+  4159, // memcmp
+  4166, // memcpy
+  4173, // memmove
+  4181, // mempcpy
+  4189, // memrchr
+  4197, // memset
+  4204, // memset_pattern16
+  4221, // memset_pattern4
+  4237, // memset_pattern8
+  4253, // mkdir
+  4259, // mktime
+  4266, // modf
+  4271, // modff
+  4277, // modfl
+  4283, // nan
+  4287, // nanf
+  4292, // nanl
+  4297, // nearbyint
+  4307, // nearbyintf
+  4318, // nearbyintl
+  4329, // nextafter
+  4339, // nextafterf
+  4350, // nextafterl
+  4361, // nexttoward
+  4372, // nexttowardf
+  4384, // nexttowardl
+  4396, // ntohl
+  4402, // ntohs
+  4408, // open
+  4413, // open64
+  4420, // opendir
+  4428, // pclose
+  4435, // perror
+  4442, // popen
+  4448, // posix_memalign
+  4463, // pow
+  4467, // powf
+  4472, // powl
+  4477, // pread
+  4483, // printf
+  4490, // putc
+  4495, // putc_unlocked
+  4509, // putchar
+  4517, // putchar_unlocked
+  4534, // puts
+  4539, // pvalloc
+  4547, // pwrite
+  4554, // qsort
+  4560, // read
+  4565, // readlink
+  4574, // realloc
+  4582, // reallocf
+  4591, // reallocarray
+  4604, // realpath
+  4613, // remainder
+  4623, // remainderf
+  4634, // remainderl
+  4645, // remquo
+  4652, // remquof
+  4660, // remquol
+  4668, // fdim
+  4673, // fdimf
+  4679, // fdiml
+  4685, // remove
+  4692, // rename
+  4699, // rewind
+  4706, // rint
+  4711, // rintf
+  4717, // rintl
+  4723, // rmdir
+  4729, // round
+  4735, // roundeven
+  4745, // roundevenf
+  4756, // roundevenl
+  4767, // roundf
+  4774, // roundl
+  4781, // scalbln
+  4789, // scalblnf
+  4798, // scalblnl
+  4807, // scalbn
+  4814, // scalbnf
+  4822, // scalbnl
+  4830, // scanf
+  4836, // setbuf
+  4843, // setitimer
+  4853, // setvbuf
+  4861, // sin
+  4865, // sinf
+  4870, // sinh
+  4875, // sinhf
+  4881, // sinhl
+  4887, // sinl
+  4892, // sincos
+  4899, // sincosf
+  4907, // sincosl
+  4915, // siprintf
+  4924, // snprintf
+  4933, // sprintf
+  4941, // sqrt
+  4946, // sqrtf
+  4952, // sqrtl
+  4958, // sscanf
+  4965, // stat
+  4970, // stat64
+  4977, // statvfs
+  4985, // statvfs64
+  4995, // stpcpy
+  5002, // stpncpy
+  5010, // strcasecmp
+  5021, // strcat
+  5028, // strchr
+  5035, // strcmp
+  5042, // strcoll
+  5050, // strcpy
+  5057, // strcspn
+  5065, // strdup
+  5072, // strlcat
+  5080, // strlcpy
+  5088, // strlen
+  5095, // strncasecmp
+  5107, // strncat
+  5115, // strncmp
+  5123, // strncpy
+  5131, // strndup
+  5139, // strnlen
+  5147, // strpbrk
+  5155, // strrchr
+  5163, // strspn
+  5170, // strstr
+  5177, // strtod
+  5184, // strtof
+  5191, // strtok
+  5198, // strtok_r
+  5207, // strtol
+  5214, // strtold
+  5222, // strtoll
+  5230, // strtoul
+  5238, // strtoull
+  5247, // strxfrm
+  5255, // system
+  5262, // tan
+  5266, // tanf
+  5271, // tanh
+  5276, // tanhf
+  5282, // tanhl
+  5288, // tanl
+  5293, // times
+  5299, // tmpfile
+  5307, // tmpfile64
+  5317, // toascii
+  5325, // trunc
+  5331, // truncf
+  5338, // truncl
+  5345, // uname
+  5351, // ungetc
+  5358, // unlink
+  5365, // unsetenv
+  5374, // utime
+  5380, // utimes
+  5387, // valloc
+  5394, // vec_calloc
+  5405, // vec_free
+  5414, // vec_malloc
+  5425, // vec_realloc
+  5437, // vfprintf
+  5446, // vfscanf
+  5454, // vprintf
+  5462, // vscanf
+  5469, // vsnprintf
+  5479, // vsprintf
+  5488, // vsscanf
+  5496, // wcslen
+  5503, // write
 };
-const uint8_t TargetLibraryInfoImpl::StandardNamesSizeTable[531] = {
+const uint8_t TargetLibraryInfoImpl::StandardNamesSizeTable[529] = {
   0,
   12,
   30,
@@ -1738,8 +1735,6 @@ const uint8_t TargetLibraryInfoImpl::StandardNamesSizeTable[531] = {
   13,
   14,
   15,
-  19,
-  18,
   14,
   15,
   15,
@@ -2160,17 +2155,21 @@ const uint8_t TargetLibraryInfoImpl::StandardNamesSizeTable[531] = {
   6,
   5,
 };
-#endif
+
+#endif // GET_TARGET_LIBRARY_INFO_STRING_TABLE
 
 #ifdef GET_TARGET_LIBRARY_INFO_IMPL_DECL
 #undef GET_TARGET_LIBRARY_INFO_IMPL_DECL
+
 LLVM_ABI static const llvm::StringTable StandardNamesStrTable;
-LLVM_ABI static const llvm::StringTable::Offset StandardNamesOffsets[531];
-LLVM_ABI static const uint8_t StandardNamesSizeTable[531];
-#endif
+LLVM_ABI static const llvm::StringTable::Offset StandardNamesOffsets[529];
+LLVM_ABI static const uint8_t StandardNamesSizeTable[529];
+
+#endif // GET_TARGET_LIBRARY_INFO_IMPL_DECL
 
 #ifdef GET_TARGET_LIBRARY_INFO_SIGNATURE_TABLE
 #undef GET_TARGET_LIBRARY_INFO_SIGNATURE_TABLE
+
 enum FuncArgTypeID : char {
   NoFuncArgType = 0,
   Void,
@@ -2394,8 +2393,6 @@ static const uint16_t SignatureOffset[] = {
   165, // expl_finite
   32, // dunder_isoc99_scanf
   36, // dunder_isoc99_sscanf
-  344, // __kmpc_alloc_shared
-  376, // __kmpc_free_shared
   21, // log10_finite
   63, // log10f_finite
   165, // log10l_finite
@@ -2816,5 +2813,6 @@ static const uint16_t SignatureOffset[] = {
   311, // wcslen
   342, // write
 };
-#endif
+
+#endif // GET_TARGET_LIBRARY_INFO_SIGNATURE_TABLE
 

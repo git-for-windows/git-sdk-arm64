@@ -1,8 +1,8 @@
 #ifdef LLVM_GET_ARM_INTRIN_IMMCHECKTYPES
+  ImmCheck0_63 = 26,
   ImmCheck0_0 = 17,
   ImmCheck0_15 = 18,
   ImmCheck1_64 = 25,
-  ImmCheck0_63 = 26,
   ImmCheck1_1 = 21,
   ImmCheck0_2 = 15,
   ImmCheck1_7 = 23,

@@ -711,15 +711,19 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
     }
     case attr::GuardedBy: {
       const auto *A = cast<GuardedByAttr>(At);
-      Expr * tempInstArg;
+      size_t numTempInstArgs;
+      Expr **tempInstArgs;
       {
         EnterExpressionEvaluationContext Unevaluated(S, Sema::ExpressionEvaluationContext::Unevaluated);
-        ExprResult Result = S.SubstExpr(A->getArg(), TemplateArgs);
-        if (Result.isInvalid())
+        ArrayRef<Expr *> ArgsToInstantiate(A->args_begin(), A->args_end());
+        SmallVector<Expr *, 4> InstArgs;
+        if (S.SubstExprs(ArgsToInstantiate, /*IsCall=*/false, TemplateArgs, InstArgs))
           return nullptr;
-        tempInstArg = Result.get();
+        numTempInstArgs = InstArgs.size();
+        tempInstArgs = new (C, 16) Expr *[numTempInstArgs];
+        std::copy(InstArgs.begin(), InstArgs.end(), tempInstArgs);
       }
-      return new (C) GuardedByAttr(C, *A, tempInstArg);
+      return new (C) GuardedByAttr(C, *A, tempInstArgs, numTempInstArgs);
     }
     case attr::GuardedVar: {
       const auto *A = cast<GuardedVarAttr>(At);
@@ -733,6 +737,14 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
       const auto *A = cast<HLSLAppliedSemanticAttr>(At);
       return A->clone(C);
     }
+    case attr::HLSLAssociatedResourceDecl: {
+      const auto *A = cast<HLSLAssociatedResourceDeclAttr>(At);
+      return A->clone(C);
+    }
+    case attr::HLSLColumnMajor: {
+      const auto *A = cast<HLSLColumnMajorAttr>(At);
+      return A->clone(C);
+    }
     case attr::HLSLContainedType: {
       const auto *A = cast<HLSLContainedTypeAttr>(At);
       return A->clone(C);
@@ -743,6 +755,10 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
     }
     case attr::HLSLGroupSharedAddressSpace: {
       const auto *A = cast<HLSLGroupSharedAddressSpaceAttr>(At);
+      return A->clone(C);
+    }
+    case attr::HLSLIsArray: {
+      const auto *A = cast<HLSLIsArrayAttr>(At);
       return A->clone(C);
     }
     case attr::HLSLIsCounter: {
@@ -785,6 +801,14 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
       const auto *A = cast<HLSLResourceClassAttr>(At);
       return A->clone(C);
     }
+    case attr::HLSLResourceDimension: {
+      const auto *A = cast<HLSLResourceDimensionAttr>(At);
+      return A->clone(C);
+    }
+    case attr::HLSLRowMajor: {
+      const auto *A = cast<HLSLRowMajorAttr>(At);
+      return A->clone(C);
+    }
     case attr::HLSLShader: {
       const auto *A = cast<HLSLShaderAttr>(At);
       return A->clone(C);
@@ -803,6 +827,10 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
     }
     case attr::HLSLVkExtBuiltinInput: {
       const auto *A = cast<HLSLVkExtBuiltinInputAttr>(At);
+      return A->clone(C);
+    }
+    case attr::HLSLVkExtBuiltinOutput: {
+      const auto *A = cast<HLSLVkExtBuiltinOutputAttr>(At);
       return A->clone(C);
     }
     case attr::HLSLVkLocation: {
@@ -1085,6 +1113,10 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
       const auto *A = cast<NoEscapeAttr>(At);
       return A->clone(C);
     }
+    case attr::NoFieldProtection: {
+      const auto *A = cast<NoFieldProtectionAttr>(At);
+      return A->clone(C);
+    }
     case attr::NoInline: {
       const auto *A = cast<NoInlineAttr>(At);
       return A->clone(C);
@@ -1103,6 +1135,10 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
     }
     case attr::NoMips16: {
       const auto *A = cast<NoMips16Attr>(At);
+      return A->clone(C);
+    }
+    case attr::NoOutline: {
+      const auto *A = cast<NoOutlineAttr>(At);
       return A->clone(C);
     }
     case attr::NoProfileFunction: {
@@ -1211,6 +1247,10 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
     }
     case attr::OMPReferencedVar: {
       const auto *A = cast<OMPReferencedVarAttr>(At);
+      return A->clone(C);
+    }
+    case attr::OMPTargetIndirectCall: {
+      const auto *A = cast<OMPTargetIndirectCallAttr>(At);
       return A->clone(C);
     }
     case attr::OMPThreadPrivateDecl: {
@@ -1405,6 +1445,10 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
       const auto *A = cast<OptimizeNoneAttr>(At);
       return A->clone(C);
     }
+    case attr::OverflowBehavior: {
+      const auto *A = cast<OverflowBehaviorAttr>(At);
+      return A->clone(C);
+    }
     case attr::Overloadable: {
       const auto *A = cast<OverloadableAttr>(At);
       return A->clone(C);
@@ -1445,12 +1489,20 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
       const auto *A = cast<PcsAttr>(At);
       return A->clone(C);
     }
+    case attr::Personality: {
+      const auto *A = cast<PersonalityAttr>(At);
+      return A->clone(C);
+    }
     case attr::Pointer: {
       const auto *A = cast<PointerAttr>(At);
       return A->clone(C);
     }
     case attr::PointerAuth: {
       const auto *A = cast<PointerAuthAttr>(At);
+      return A->clone(C);
+    }
+    case attr::PointerFieldProtection: {
+      const auto *A = cast<PointerFieldProtectionAttr>(At);
       return A->clone(C);
     }
     case attr::PragmaClangBSSSection: {
@@ -1499,15 +1551,19 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
     }
     case attr::PtGuardedBy: {
       const auto *A = cast<PtGuardedByAttr>(At);
-      Expr * tempInstArg;
+      size_t numTempInstArgs;
+      Expr **tempInstArgs;
       {
         EnterExpressionEvaluationContext Unevaluated(S, Sema::ExpressionEvaluationContext::Unevaluated);
-        ExprResult Result = S.SubstExpr(A->getArg(), TemplateArgs);
-        if (Result.isInvalid())
+        ArrayRef<Expr *> ArgsToInstantiate(A->args_begin(), A->args_end());
+        SmallVector<Expr *, 4> InstArgs;
+        if (S.SubstExprs(ArgsToInstantiate, /*IsCall=*/false, TemplateArgs, InstArgs))
           return nullptr;
-        tempInstArg = Result.get();
+        numTempInstArgs = InstArgs.size();
+        tempInstArgs = new (C, 16) Expr *[numTempInstArgs];
+        std::copy(InstArgs.begin(), InstArgs.end(), tempInstArgs);
       }
-      return new (C) PtGuardedByAttr(C, *A, tempInstArg);
+      return new (C) PtGuardedByAttr(C, *A, tempInstArgs, numTempInstArgs);
     }
     case attr::PtGuardedVar: {
       const auto *A = cast<PtGuardedVarAttr>(At);
@@ -1675,6 +1731,10 @@ Attr *instantiateTemplateAttribute(const Attr *At, ASTContext &C, Sema &S,
     }
     case attr::SpeculativeLoadHardening: {
       const auto *A = cast<SpeculativeLoadHardeningAttr>(At);
+      return A->clone(C);
+    }
+    case attr::StackProtectorIgnore: {
+      const auto *A = cast<StackProtectorIgnoreAttr>(At);
       return A->clone(C);
     }
     case attr::StandaloneDebug: {
@@ -2479,6 +2539,12 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
     case attr::HLSLAppliedSemantic: {
       return nullptr;
     }
+    case attr::HLSLAssociatedResourceDecl: {
+      return nullptr;
+    }
+    case attr::HLSLColumnMajor: {
+      return nullptr;
+    }
     case attr::HLSLContainedType: {
       return nullptr;
     }
@@ -2486,6 +2552,9 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
       return nullptr;
     }
     case attr::HLSLGroupSharedAddressSpace: {
+      return nullptr;
+    }
+    case attr::HLSLIsArray: {
       return nullptr;
     }
     case attr::HLSLIsCounter: {
@@ -2518,6 +2587,12 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
     case attr::HLSLResourceClass: {
       return nullptr;
     }
+    case attr::HLSLResourceDimension: {
+      return nullptr;
+    }
+    case attr::HLSLRowMajor: {
+      return nullptr;
+    }
     case attr::HLSLShader: {
       return nullptr;
     }
@@ -2531,6 +2606,9 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
       return nullptr;
     }
     case attr::HLSLVkExtBuiltinInput: {
+      return nullptr;
+    }
+    case attr::HLSLVkExtBuiltinOutput: {
       return nullptr;
     }
     case attr::HLSLVkLocation: {
@@ -2728,6 +2806,9 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
     case attr::NoEscape: {
       return nullptr;
     }
+    case attr::NoFieldProtection: {
+      return nullptr;
+    }
     case attr::NoInline: {
       return nullptr;
     }
@@ -2741,6 +2822,9 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
       return nullptr;
     }
     case attr::NoMips16: {
+      return nullptr;
+    }
+    case attr::NoOutline: {
       return nullptr;
     }
     case attr::NoProfileFunction: {
@@ -2823,6 +2907,9 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
       return nullptr;
     }
     case attr::OMPReferencedVar: {
+      return nullptr;
+    }
+    case attr::OMPTargetIndirectCall: {
       return nullptr;
     }
     case attr::OMPThreadPrivateDecl: {
@@ -2969,6 +3056,9 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
     case attr::OptimizeNone: {
       return nullptr;
     }
+    case attr::OverflowBehavior: {
+      return nullptr;
+    }
     case attr::Overloadable: {
       return nullptr;
     }
@@ -2999,10 +3089,16 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
     case attr::Pcs: {
       return nullptr;
     }
+    case attr::Personality: {
+      return nullptr;
+    }
     case attr::Pointer: {
       return nullptr;
     }
     case attr::PointerAuth: {
+      return nullptr;
+    }
+    case attr::PointerFieldProtection: {
       return nullptr;
     }
     case attr::PragmaClangBSSSection: {
@@ -3146,6 +3242,9 @@ Attr *instantiateTemplateAttributeForDecl(const Attr *At,
       return nullptr;
     }
     case attr::SpeculativeLoadHardening: {
+      return nullptr;
+    }
+    case attr::StackProtectorIgnore: {
       return nullptr;
     }
     case attr::StandaloneDebug: {

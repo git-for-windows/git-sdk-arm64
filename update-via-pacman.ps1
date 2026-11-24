@@ -35,7 +35,7 @@ if (!(Test-Path var\log -PathType Container)) {
 }
 
 echo "Run Pacman (First Pass)"
-bash -lc "pacman --debug -Syyuu --overwrite=\* --noconfirm"
+bash -lc "pacman -Syyuu --overwrite=\* --noconfirm"
 if (!$?) { exit 1 }
 
 # Ensure that the Git for Windows keyring is registered
@@ -68,7 +68,7 @@ if ($type -Match "full system upgrade") {
   echo "No second pass needed"
 } else {
   echo "Run Pacman again (Second Pass) to upgrade the remaining (non-core) packages"
-  bash -lc "pacman --debug -Suu --overwrite=\* --noconfirm"
+  bash -lc "pacman -Suu --overwrite=\* --noconfirm"
   if (!$?) { exit 1 }
 
   # Ensure that the Git for Windows keyring is registered
@@ -78,42 +78,6 @@ if ($type -Match "full system upgrade") {
     pacman-key --populate git-for-windows
 "@
   if (!$?) { die "Could not re-populate git-for-windows-keyring" }
-}
-
-# Git for Windows switched to using the regular `asciidoctor` _without_ any
-# of the extensions. So let's ensure that the custom-built package
-# `mingw-w64-asciidoctor-extensions` is no longer installed.
-if (Test-Path var/lib/pacman/local/mingw-w64-*-asciidoctor-extensions-[0-9]* -PathType Container) {
-  bash -lc @'
-    set -x
-    for d in clangarm64 mingw64 mingw32
-    do
-      test -x /$d/bin/ruby.exe || continue
-      export PATH=/$d/bin:$PATH
-      case $d in
-      clangarm64) carch=clang-aarch64;;
-      mingw64) carch=x86_64;;
-      mingw32) carch=i686;;
-      esac
-
-      # Uninstall mingw-w64-asciidoctor-extensions
-      test ! -d /var/lib/pacman/local/mingw-w64-$carch-asciidoctor-extensions-[0-9]* || {
-        pacman -R --noconfirm mingw-w64-$carch-asciidoctor-extensions &&
-        # Uninstall the `asciidoctor` gem
-        gem uninstall asciidoctor
-      } || exit 1
-    done
-'@
-	if (!$?) { die "Could not remove asciidoctor-extensions" }
-}
-
-# asciidoctor is needed to build mingw-w64-git. Let's install it if it's not present.
-if (!(Test-Path var/lib/pacman/local/mingw-w64-*-asciidoctor-[0-9]* -PathType Container)) {
-  bash -lc @'
-    set -x
-    pacman -S --noconfirm mingw-w64-clang-aarch64-asciidoctor || exit 1
-'@
-	if (!$?) { die "Could not install asciidoctor" }
 }
 
 # Pacman sometimes writes `.pacnew` files; We want to rename them and let
@@ -182,19 +146,5 @@ if (!(Test-Path cmd\git.exe -PathType Leaf)) {
   if (!$?) { die "Could not install mingw-w64-git-for-windows-addons" }
 }
 
-# Ensure that libcrypto is kept up to date under the new name (on which MSYS2's binaries depend)
-@(
-  ,@('clangarm64/bin/libcrypto-3.dll', 'clangarm64/bin/libcrypto-3-arm64.dll')
- ) | ForEach-Object {
-  if (
-    (Test-Path $_[0]) -and (
-      -not (Test-Path $_[1]) -or
-      (Get-FileHash $_[0]).Hash -ne (Get-FileHash $_[1]).Hash
-    )
-  ) {
-    Copy-Item $_[0] $_[1] -Force
-  }
-}
-
 # Wrapping up: re-install mingw-w64-git-extra
-bash -lc "pacman --debug -S --overwrite=\* --noconfirm mingw-w64-clang-aarch64-git-extra"
+bash -lc "pacman -S --overwrite=\* --noconfirm mingw-w64-clang-aarch64-git-extra"

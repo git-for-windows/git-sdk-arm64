@@ -111,6 +111,7 @@
   GET_VT_ATTR(v128i64, 8192, 0, 1, 0, 1, 0, 0, 0, 128, i64)
   GET_VT_ATTR(v256i64, 16384, 0, 1, 0, 1, 0, 0, 0, 256, i64)
   GET_VT_ATTR(v1i128, 128, 0, 1, 0, 1, 0, 0, 0, 1, i128)
+  GET_VT_ATTR(v2i128, 256, 0, 1, 0, 1, 0, 0, 0, 2, i128)
   GET_VT_ATTR(v1f16, 16, 0, 0, 1, 1, 0, 0, 0, 1, f16)
   GET_VT_ATTR(v2f16, 32, 0, 0, 1, 1, 0, 0, 0, 2, f16)
   GET_VT_ATTR(v3f16, 48, 0, 0, 1, 1, 0, 0, 0, 3, f16)
@@ -135,6 +136,9 @@
   GET_VT_ATTR(v32bf16, 512, 0, 0, 1, 1, 0, 0, 0, 32, bf16)
   GET_VT_ATTR(v64bf16, 1024, 0, 0, 1, 1, 0, 0, 0, 64, bf16)
   GET_VT_ATTR(v128bf16, 2048, 0, 0, 1, 1, 0, 0, 0, 128, bf16)
+  GET_VT_ATTR(v256bf16, 4096, 0, 0, 1, 1, 0, 0, 0, 256, bf16)
+  GET_VT_ATTR(v512bf16, 8192, 0, 0, 1, 1, 0, 0, 0, 512, bf16)
+  GET_VT_ATTR(v2048bf16, 32768, 0, 0, 1, 1, 0, 0, 0, 2048, bf16)
   GET_VT_ATTR(v4096bf16, 65536, 0, 0, 1, 1, 0, 0, 0, 4096, bf16)
   GET_VT_ATTR(v1f32, 32, 0, 0, 1, 1, 0, 0, 0, 1, f32)
   GET_VT_ATTR(v2f32, 64, 0, 0, 1, 1, 0, 0, 0, 2, f32)
@@ -290,7 +294,7 @@
   FIRST_FP_VALUETYPE = bf16,
   LAST_FP_VALUETYPE = ppcf128,
   FIRST_INTEGER_FIXEDLEN_VECTOR_VALUETYPE = v1i1,
-  LAST_INTEGER_FIXEDLEN_VECTOR_VALUETYPE = v1i128,
+  LAST_INTEGER_FIXEDLEN_VECTOR_VALUETYPE = v2i128,
   FIRST_INTEGER_SCALABLE_VECTOR_VALUETYPE = nxv1i1,
   LAST_INTEGER_SCALABLE_VECTOR_VALUETYPE = nxv32i64,
   FIRST_INTEGER_VALUETYPE = i1,
@@ -391,6 +395,7 @@
   GET_VT_VECATTR(v128i64, 0, 0, 128, i64)
   GET_VT_VECATTR(v256i64, 0, 0, 256, i64)
   GET_VT_VECATTR(v1i128, 0, 0, 1, i128)
+  GET_VT_VECATTR(v2i128, 0, 0, 2, i128)
   GET_VT_VECATTR(v1f16, 0, 0, 1, f16)
   GET_VT_VECATTR(v2f16, 0, 0, 2, f16)
   GET_VT_VECATTR(v3f16, 0, 0, 3, f16)
@@ -415,6 +420,9 @@
   GET_VT_VECATTR(v32bf16, 0, 0, 32, bf16)
   GET_VT_VECATTR(v64bf16, 0, 0, 64, bf16)
   GET_VT_VECATTR(v128bf16, 0, 0, 128, bf16)
+  GET_VT_VECATTR(v256bf16, 0, 0, 256, bf16)
+  GET_VT_VECATTR(v512bf16, 0, 0, 512, bf16)
+  GET_VT_VECATTR(v2048bf16, 0, 0, 2048, bf16)
   GET_VT_VECATTR(v4096bf16, 0, 0, 4096, bf16)
   GET_VT_VECATTR(v1f32, 0, 0, 1, f32)
   GET_VT_VECATTR(v2f32, 0, 0, 2, f32)
@@ -604,6 +612,7 @@
   GET_VT_EVT(v128i64, FixedVectorType::get(Type::getInt64Ty(Context), 128))
   GET_VT_EVT(v256i64, FixedVectorType::get(Type::getInt64Ty(Context), 256))
   GET_VT_EVT(v1i128, FixedVectorType::get(Type::getInt128Ty(Context), 1))
+  GET_VT_EVT(v2i128, FixedVectorType::get(Type::getInt128Ty(Context), 2))
   GET_VT_EVT(v1f16, FixedVectorType::get(Type::getHalfTy(Context), 1))
   GET_VT_EVT(v2f16, FixedVectorType::get(Type::getHalfTy(Context), 2))
   GET_VT_EVT(v3f16, FixedVectorType::get(Type::getHalfTy(Context), 3))
@@ -628,6 +637,9 @@
   GET_VT_EVT(v32bf16, FixedVectorType::get(Type::getBFloatTy(Context), 32))
   GET_VT_EVT(v64bf16, FixedVectorType::get(Type::getBFloatTy(Context), 64))
   GET_VT_EVT(v128bf16, FixedVectorType::get(Type::getBFloatTy(Context), 128))
+  GET_VT_EVT(v256bf16, FixedVectorType::get(Type::getBFloatTy(Context), 256))
+  GET_VT_EVT(v512bf16, FixedVectorType::get(Type::getBFloatTy(Context), 512))
+  GET_VT_EVT(v2048bf16, FixedVectorType::get(Type::getBFloatTy(Context), 2048))
   GET_VT_EVT(v4096bf16, FixedVectorType::get(Type::getBFloatTy(Context), 4096))
   GET_VT_EVT(v1f32, FixedVectorType::get(Type::getFloatTy(Context), 1))
   GET_VT_EVT(v2f32, FixedVectorType::get(Type::getFloatTy(Context), 2))
