@@ -1,0 +1,14 @@
+%FILES%
+clangarm64/
+clangarm64/bin/
+clangarm64/bin/libhttp_parser-2.dll
+clangarm64/include/
+clangarm64/include/http_parser.h
+clangarm64/lib/
+clangarm64/lib/libhttp_parser.a
+clangarm64/lib/libhttp_parser.dll.a
+clangarm64/share/
+clangarm64/share/licenses/
+clangarm64/share/licenses/http-parser/
+clangarm64/share/licenses/http-parser/LICENSE
+
