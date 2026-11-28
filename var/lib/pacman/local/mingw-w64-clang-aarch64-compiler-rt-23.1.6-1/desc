@@ -1,0 +1,43 @@
+%NAME%
+mingw-w64-clang-aarch64-compiler-rt
+
+%VERSION%
+23.1.6-1
+
+%BASE%
+mingw-w64-llvm
+
+%DESC%
+Runtime libraries for Clang and LLVM (mingw-w64)
+
+%URL%
+https://compiler-rt.llvm.org/
+
+%ARCH%
+any
+
+%BUILDDATE%
+1795668763
+
+%INSTALLDATE%
+1795863630
+
+%PACKAGER%
+CI (https://github.com/msys2/msys2-autobuild/actions/runs/45757570460/job/139699700891)
+
+%SIZE%
+513908
+
+%GROUPS%
+mingw-w64-clang-aarch64-toolchain
+
+%LICENSE%
+spdx:Apache-2.0 WITH LLVM-exception
+
+%VALIDATION%
+sha256
+pgp
+
+%XDATA%
+pkgtype=split
+
